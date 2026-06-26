@@ -3359,31 +3359,6 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                     <categoryLink name="Ranged Weapon" hidden="false" id="0d06-97e3-cb72-dda9" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                   </categoryLinks>
                 </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Big choppa" hidden="false" id="27da-672f-ea75-51a7" collective="false">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a27c-f8d5-2ba3-8303"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4faa-4c38-ae32-8a22"/>
-                  </constraints>
-                  <profiles>
-                    <profile name="Big choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="abfc-7846-b827-edae">
-                      <characteristics>
-                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
-                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                        <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-1b05" targetId="ea1f-c7b7-cafa-43f8"/>
-                  </infoLinks>
-                  <categoryLinks>
-                    <categoryLink name="Melee Weapon" hidden="false" id="888e-167c-8313-7129" targetId="ccdd-3987-11ed-90cd" primary="false"/>
-                  </categoryLinks>
-                </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Boss Nob Ranged Weapon" id="5adf-ce35-a293-3e9c" hidden="false" defaultSelectionEntryId="ab18-91c1-4f9b-a401">
@@ -3410,20 +3385,20 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                         <categoryLink name="Ranged Weapon" hidden="false" id="d9fb-2444-0a4d-185c" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                       </categoryLinks>
                     </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Kombi-shoota and kombi-rokkit" hidden="false" id="78e2-f8fb-a867-c12b" collective="false">
+                    <selectionEntry type="upgrade" import="true" name="Kombi-rokkit" hidden="false" id="78e2-f8fb-a867-c12b" collective="false">
                       <profiles>
-                        <profile name="Kombi-shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7078-e61e-2697-ed65">
+                        <profile name="Kombi-rokkit - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7078-e61e-2697-ed65">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
                           </characteristics>
                         </profile>
-                        <profile name="Kombi-rokkit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9f20-9b20-4591-cbb9">
+                        <profile name="Kombi-rokkit - Rokkit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9f20-9b20-4591-cbb9">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -3435,14 +3410,194 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                           </characteristics>
                         </profile>
                       </profiles>
+                      <infoLinks>
+                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d30" targetId="0d1a-9f3b-7c40-1c01"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d31" targetId="c5c8-8b58-b8b6-7786"/>
+                      </infoLinks>
                       <categoryLinks>
                         <categoryLink name="Ranged Weapon" hidden="false" id="ee34-e8c6-4510-4914" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Big Shoota" hidden="false" id="0d1a-9f3b-7c40-1d01" collective="false">
+                      <profiles>
+                        <profile name="Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d02">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d03" targetId="0d1a-9f3b-7c40-1c01"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d04" targetId="c5c8-8b58-b8b6-7786"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d05" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Burna" hidden="false" id="0d1a-9f3b-7c40-1d06" collective="false">
+                      <profiles>
+                        <profile name="Burna" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d07">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d08" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d09" targetId="5edf-d619-23e0-9b56"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d0a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Kombi-skorcha" hidden="false" id="0d1a-9f3b-7c40-1d0b" collective="false">
+                      <profiles>
+                        <profile name="Kombi-skorcha - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d0c">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="Kombi-skorcha - Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d0d">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d0e" targetId="0d1a-9f3b-7c40-1c01"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d0f" targetId="c5c8-8b58-b8b6-7786"/>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d10" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d11" targetId="5edf-d619-23e0-9b56"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d12" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-1d13" collective="false">
+                      <profiles>
+                        <profile name="Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d14">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d15">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d16" targetId="6c1f-1cf7-ff25-c99e"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d17" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                       </categoryLinks>
                     </selectionEntry>
                   </selectionEntries>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="79bd-05b6-33ce-fcb9"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5b55-3a72-3908-e85f"/>
+                  </constraints>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Boss Nob Melee Weapon" id="0d1a-9f3b-7c40-1d20" hidden="false" defaultSelectionEntryId="27da-672f-ea75-51a7">
+                  <selectionEntries>
+                    <selectionEntry type="upgrade" import="true" name="Big choppa" hidden="false" id="27da-672f-ea75-51a7" collective="false">
+                      <profiles>
+                        <profile name="Big choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="abfc-7846-b827-edae">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-1b05" targetId="ea1f-c7b7-cafa-43f8"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Melee Weapon" hidden="false" id="888e-167c-8313-7129" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Power Klaw" hidden="false" id="0d1a-9f3b-7c40-1d23" collective="false">
+                      <profiles>
+                        <profile name="Power Klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-1d24">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <categoryLinks>
+                        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-1d25" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Kustom Choppa" hidden="false" id="0d1a-9f3b-7c40-1d26" collective="false">
+                      <profiles>
+                        <profile name="Kustom Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-1d27">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <categoryLinks>
+                        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-1d28" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                  </selectionEntries>
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1d21"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1d22"/>
                   </constraints>
                 </selectionEntryGroup>
               </selectionEntryGroups>
