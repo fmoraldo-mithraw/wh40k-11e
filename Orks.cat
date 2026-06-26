@@ -12789,6 +12789,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <categoryLink targetId="75e8-57c4-40e3-1817" id="91ac-955f-ec5c-75f0" primary="false" name="Transport"/>
         <categoryLink targetId="ea9-8161-e2e-53f0" id="bcc0-7443-690-cac3" primary="false" name="Trukk"/>
         <categoryLink targetId="56cc-5f43-2403-8da0" id="7c38-d2fd-efb1-7bbf" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="fe8b-9078-9a3d-fed" id="0d1a-9f3b-7c40-1a22" primary="false" name="Speed Freeks"/>
         <categoryLink id="2034-af0d-7195-fa61" name="Frame" hidden="false" targetId="f0f4-10e5-6f1c-a4a5" primary="false"/>
       </categoryLinks>
       <profiles>
@@ -12802,14 +12803,14 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
           </characteristics>
         </profile>
-        <profile name="Grot Riggers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fdb-9e2f-88df-12cf">
+        <profile name="Pilin&apos; Out" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fdb-9e2f-88df-12cf">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, this model regains 1 lost wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this model, units embarked within this model can make a disembark move using the rapid disembark mode.</characteristic>
           </characteristics>
         </profile>
         <profile name="Trukk" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="ca7e-d8e6-943-b800">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 ORKS INFANTRY models. Each MEGA ARMOUR model takes up the space of 2 models. It cannot transport JUMP PACK or GHAZGHKULL THRAKA models.</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 ORKS INFANTRY models. It cannot transport GHAZGHKULL THRAKA or JUMP PACK models. Each MEGA ARMOUR model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -12831,35 +12832,146 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Crusade" hidden="false" id="741c-18df-ee0e-e220" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
       </entryLinks>
       <selectionEntryGroups>
-        <selectionEntryGroup name="Wargear" id="feb2-f0c1-ed5d-668e" hidden="false" sortIndex="2">
-          <entryLinks>
-            <entryLink import="true" name="Big shoota" hidden="false" id="16b1-d82e-be8a-fc4c" type="selectionEntry" targetId="1fa0-d99a-154f-ffd8">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="efb8-fe72-f758-d507"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a82b-e0c9-8b76-df3e"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Weapon Modifications" hidden="false" id="fb7c-02f7-c115-c1ad" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-              </entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Wreckin&apos; ball" hidden="false" id="130a-a1d3-c14c-8c8a" type="selectionEntry" targetId="3e1a-c27b-7ef-a2d6">
-              <entryLinks>
-                <entryLink import="true" name="Weapon Modifications" hidden="false" id="2fcb-b2a7-84bd-f7d8" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-              </entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2152-a2f1-141d-1c84"/>
-              </constraints>
-            </entryLink>
-            <entryLink import="true" name="Spiked wheel" hidden="false" id="c821-35ce-bfd6-848b" type="selectionEntry" targetId="fa04-6371-c977-b6fa">
-              <entryLinks>
-                <entryLink import="true" name="Weapon Modifications" hidden="false" id="883f-0616-0dc3-af7a" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-              </entryLinks>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9050-0c62-305b-e6b8"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ec04-12f1-7d99-99b1"/>
-              </constraints>
-            </entryLink>
-          </entryLinks>
+        <selectionEntryGroup name="Dual Big Shoota" id="feb2-f0c1-ed5d-668e" hidden="false" sortIndex="2" defaultSelectionEntryId="0d1a-9f3b-7c40-1a02">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Dual Big Shoota" hidden="false" id="0d1a-9f3b-7c40-1a02" collective="false">
+              <profiles>
+                <profile name="Dual Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1a03">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 4</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Lethal Hits" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a04" targetId="d1d1-611e-5191-1095"/>
+                <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a05" targetId="c5c8-8b58-b8b6-7786"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1a06" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-1a07" collective="false">
+              <profiles>
+                <profile name="Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1a08">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1a09">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a0a" targetId="6c1f-1cf7-ff25-c99e"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1a0b" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a0c"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a0d"/>
+          </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Spiked Ram" id="0d1a-9f3b-7c40-1a30" hidden="false" sortIndex="3">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Spiked Ram" hidden="false" id="0d1a-9f3b-7c40-1a0e" collective="false">
+              <profiles>
+                <profile name="Spiked Ram" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-1a0f">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a10" targetId="ea1f-c7b7-cafa-43f8"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-1a11" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a12"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a13"/>
+          </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Melee Weapon" id="0d1a-9f3b-7c40-1a14" hidden="false" sortIndex="4">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Buzzsaw" hidden="false" id="0d1a-9f3b-7c40-1a16" collective="false">
+              <profiles>
+                <profile name="Buzzsaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-1a17">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Extra Attacks</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a18" targetId="ea1f-c7b7-cafa-43f8"/>
+                <infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a19" targetId="115b-79dc-f723-d761"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-1a1a" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Grabbin&apos; Klaw" hidden="false" id="0d1a-9f3b-7c40-1a1c" collective="false">
+              <profiles>
+                <profile name="Grabbin&apos; Klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-1a1d">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-9f3b-7c40-1a1e" targetId="115b-79dc-f723-d761"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-1a1f" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a20"/>
+          </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
