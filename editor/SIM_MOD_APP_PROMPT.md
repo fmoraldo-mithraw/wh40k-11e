@@ -53,6 +53,12 @@ sont entre guillemets) :
   - `onCharge` — uniquement après une charge. **Conditionnel.**
   - `whileLeading` — uniquement en menant une unité. **Par défaut activé**
     (le cas courant d'un chef rattaché), pas marqué conditionnel.
+  - `choice="Groupe"` — la ligne fait partie d'un **choix mutuellement exclusif**
+    (« select one of the following »). Les lignes d'un même `choice` sont des
+    bascules radio : en cocher une décoche les autres ; une seule est pré-cochée.
+    Une capacité à **tiers** (effet de base + version améliorée) s'encode plutôt
+    en **deux lignes indépendantes** (base, puis amélioration `conditional`) qui
+    se cumulent — le moteur prend la plus forte (`relance des 1` ⊂ `relance complète`).
 
 ## Comportement appli attendu
 
