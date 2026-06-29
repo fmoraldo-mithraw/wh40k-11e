@@ -53,6 +53,11 @@ sont entre guillemets) :
   - `onCharge` — uniquement après une charge. **Conditionnel.**
   - `whileLeading` — uniquement en menant une unité. **Par défaut activé**
     (le cas courant d'un chef rattaché), pas marqué conditionnel.
+  - `scope=model` — l'effet ne touche que **les armes du modèle porteur**, pas une
+    escouade menée ni le reste de l'unité (« this model »/« the bearer's weapons »).
+    Défaut `unit` (« this unit »/« that unit »/`whileLeading`). L'appli tague chaque
+    arme et chaque sim-mod d'un `owner` (ligne d'armée) et confine les effets
+    `scope=model` aux armes du même owner.
   - `choice="Groupe"` — la ligne fait partie d'un **choix mutuellement exclusif**
     (« select one of the following »). Les lignes d'un même `choice` sont des
     bascules radio : en cocher une décoche les autres ; une seule est pré-cochée.
