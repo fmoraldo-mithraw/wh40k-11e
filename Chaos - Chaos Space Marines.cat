@@ -2974,6 +2974,7 @@ RESTRICTIONS
             <selectionEntry type="upgrade" import="true" name="Veterans of the Long War" hidden="false" id="a5ea-d708-db75-226c">
               <rules>
                 <rule name="Focus of Hatred" id="6f2f-8cf6-20e7-4c4c" hidden="false">
+                  <comment>sim-mod: source=&quot;Focus of Hatred&quot; reroll=hit conditional</comment>
                   <description>At the start of your Command phase, select one unit from your opponent&apos;s army to be your focus of hatred. Until the start of your next Command phase, each time a ^^**Heretic Astartes**^^ model from your army (excluding ^^**Damned**^^ models) makes an attack that targets your focus of hatred, you can re-roll the Hit roll.</description>
                 </rule>
               </rules>
@@ -3014,6 +3015,7 @@ Onslaught | Up to 4 units | Up to 4 units</description>
             <selectionEntry type="upgrade" import="true" name="Renegade Raiders" hidden="false" id="b906-aa42-9cd9-c6f2">
               <rules>
                 <rule name="Raiders and Reavers" id="4fef-0ab4-2b60-48c4" hidden="false">
+                  <comment>sim-mod: source=&quot;Raiders and Reavers&quot; ap=+1 conditional</comment>
                   <description>Ranged weapons equipped by ^^**Heretic Astartes**^^ models from your army have the [ASSAULT] ability, and each time a ^^**Heretic Astartes**^^ model from your army makes an attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
               </rules>
@@ -3091,6 +3093,8 @@ Each time a unit makes a Desperate Pact, it must first take a Leadership test; i
             <selectionEntry type="upgrade" import="true" name="Soulforged Warpack" hidden="false" id="a523-e0fe-4e1c-bc70">
               <rules>
                 <rule name="Debt to the Soulforge" id="2f24-2a2c-c245-fc6a" hidden="false">
+                  <comment>sim-mod: source=&quot;Debt to the Soulforge&quot; wound=+1 when=ranged conditional
+sim-mod: source=&quot;Debt to the Soulforge&quot; attacks=+2 when=melee conditional</comment>
                   <description>Each time a ^^**Heretic Astartes Daemon Vehicle**^^ model from your army makes a Dark Pact, it can invoke its contract. If it does, subtract 1 from the resulting Leadership test when making that Dark Pact and, until the end of the phase:
 - Each time a model in that unit makes a ranged attack, add 1 to the Wound roll.
 - Add 2 to the Attacks characteristic of melee weapons equipped by models in that unit.</description>
@@ -3603,6 +3607,7 @@ EFFECT: Attacks that target your unit with a S greater than your unit&apos;s T h
               <comment>unique-detachment: NIGHTMARE</comment>
               <rules>
                 <rule name="Prey on the Weak" id="354c-4962-075a-0a81" hidden="false">
+                  <comment>sim-mod: source=&quot;Prey on the Weak&quot; reroll=hit1 conditional</comment>
                   <description>▪ Friendly **^^Heretic Astartes^^** **^^Infantry^^** **^^Fly^^** units&apos; attacks that target a battle-shocked unit or a unit at or below half-strength can re-roll hit rolls of 1.
 
 
@@ -35997,6 +36002,8 @@ sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model<
   </sharedSelectionEntryGroups>
   <sharedRules>
     <rule id="fd69-68cc-5d63-c84d" name="Dark Pacts" hidden="false">
+      <comment>sim-mod: source=&quot;Dark Pacts&quot; lethal conditional
+sim-mod: source=&quot;Dark Pacts&quot; sustained=1 conditional</comment>
       <description>If your Army Faction is ^^**Heretic Astartes**^^, each time a unit with this ability is selected to shoot or fight, it can make a Dark Pact. If it does, it must first take a Leadership test before any effects of the Dark Pact are resolved; if that test is failed, that unit suffers D3 mortal wounds. Then, select one of the following abilities for that unit’s weapons to gain until the end of the phase:
 ■ [LETHAL HITS]
 ■ [SUSTAINED HITS 1]</description>
