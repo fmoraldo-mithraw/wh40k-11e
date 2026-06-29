@@ -2200,8 +2200,8 @@ sim-mod: source=&quot;Euphoric Strikes&quot; attacks=+3 ap=+1 when=melee oncePer
       <comment>A3 3+ S4</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Infractors" hidden="false" id="e456-0afc-9b42-226c">
-      <comment>sim-mod: source=&quot;Excessive Assault&quot; reroll=wound1 when=melee
-sim-mod: source=&quot;Excessive Assault (objectif)&quot; reroll=wound when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Excessive Assault&quot; reroll=wound1 when=melee choice=&quot;Excessive Assault&quot;
+sim-mod: source=&quot;Excessive Assault (objectif)&quot; reroll=wound when=melee conditional choice=&quot;Excessive Assault&quot;</comment>
       <categoryLinks>
         <categoryLink name="Infantry" hidden="false" id="99aa-a1ef-4b94-aa05" targetId="cf47-a0d7-7207-29dc" primary="false"/>
         <categoryLink name="Battleline" hidden="false" id="2704-b94f-7453-ffd5" targetId="e338-111e-d0c6-b687" primary="true"/>
@@ -4748,6 +4748,8 @@ Each time a model in your army&apos;s Favoured Champions unit makes an attack, y
             <selectionEntry type="upgrade" import="true" name="Peerless Bladesmen" hidden="false" id="faf3-053d-d290-a3d9">
               <rules>
                 <rule name="Exquisite Swordsmanship" id="39f0-3f81-55b0-5da6" hidden="false">
+                  <comment>sim-mod: source=&quot;Exquisite Swordsmanship&quot; lethal when=melee onCharge conditional
+sim-mod: source=&quot;Exquisite Swordsmanship&quot; sustained=1 when=melee onCharge conditional</comment>
                   <description>Each time an ^^**Emperor&apos;s Children**^^ unit from your army is selected to fight, if it made a Charge move this turn, select one of the abilities below. While resolving those attacks, melee weapons equipped by models in that unit have the ability:
 - [^^Lethal Hits^^]
 - [^^Sustained Hits 1^^]</description>
@@ -4767,6 +4769,8 @@ Each time a model in your army&apos;s Favoured Champions unit makes an attack, y
             <selectionEntry type="upgrade" import="true" name="Rapid Evisceration" hidden="false" id="26ff-306a-fca9-ebfd">
               <rules>
                 <rule name="Mechanised Murder" id="543c-c7fe-bd85-793c" hidden="false">
+                  <comment>sim-mod: source=&quot;Mechanised Murder&quot; reroll=hit1 conditional
+sim-mod: source=&quot;Mechanised Murder&quot; reroll=wound1 conditional</comment>
                   <description>Each time an ^^**Emperor&apos;s Children^^** model from your army makes an attack, if it is a ^^**Transport^^** model or disembarked from a ^^**Transport^^** this turn, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</description>
                 </rule>
               </rules>
@@ -4825,6 +4829,7 @@ Each time a model in your army&apos;s Favoured Champions unit makes an attack, y
             <selectionEntry type="upgrade" import="true" name="Carnival of Excess" hidden="false" id="3c9e-2156-254e-66e8">
               <rules>
                 <rule name="Daemonic Empowerment" id="079a-b3a3-72ce-f4de" hidden="false">
+                  <comment>sim-mod: source=&quot;Daemonic Empowerment&quot; sustained=1 conditional</comment>
                   <description>- While an ^^**Emperor&apos;s Children^^** unit from your army is within 6&quot; of one or more friendly ^^**Legions of Excess**^^ units, it is Empowered.
 - While a ^^**Legions of Excess**^^ unit from your army is within 6&quot; of one or more friendly  ^^**Emperor&apos;s Children^^** units, it is Empowered.
 

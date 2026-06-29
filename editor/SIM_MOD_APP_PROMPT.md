@@ -91,6 +91,16 @@ sont entre guillemets) :
    ne frappe que la Purifying Flame, pas le psycannon d'un Purificateur de la
    même unité.
 
+## Règles d'armée & de détachement
+
+Les marqueurs `sim-mod:` peuvent aussi être posés sur une **règle d'armée**
+(`<rule>` de premier niveau) ou une **règle de détachement** (profil, `<rule>`
+local, ou règle partagée liée par `<infoLink type="rule">`). L'appli les expose
+en bascules **globales** (sans `owner` → toutes les armes), étiquetées « Armée — »
+ou « Détach. — », pour la règle d'armée de la faction et les règles du/des
+détachement(s) **sélectionné(s)**. Elles sont en général `conditional`
+(déclencheur situationnel) — décochées par défaut.
+
 ## Surlignage
 
 Quand un bonus est actif, l'appli relance la simu **sans** lui et peint en
