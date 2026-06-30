@@ -58,6 +58,10 @@ sont entre guillemets) :
     Défaut `unit` (« this unit »/« that unit »/`whileLeading`). L'appli tague chaque
     arme et chaque sim-mod d'un `owner` (ligne d'armée) et confine les effets
     `scope=model` aux armes du même owner.
+  - `kw="Mot-clef"` — l'effet ne touche que **les armes des modèles dont l'unité a ce
+    mot-clef** (« weapons equipped by ^^**Paladin Squad**^^ models », « each time a
+    ^^**Beast**^^ model … »). Exclut p. ex. un chef rattaché qui n'a pas le mot-clef.
+    L'appli tague chaque arme des mots-clefs de son unité et filtre dessus.
   - `choice="Groupe"` — la ligne fait partie d'un **choix mutuellement exclusif**
     (« select one of the following »). Les lignes d'un même `choice` sont des
     bascules radio : en cocher une décoche les autres ; une seule est pré-cochée.
