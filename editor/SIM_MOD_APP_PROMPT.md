@@ -62,6 +62,11 @@ sont entre guillemets) :
     mot-clef** (« weapons equipped by ^^**Paladin Squad**^^ models », « each time a
     ^^**Beast**^^ model … »). Exclut p. ex. un chef rattaché qui n'a pas le mot-clef.
     L'appli tague chaque arme des mots-clefs de son unité et filtre dessus.
+  - `vsTougher` — sur un `wound=+1`, le bonus n'est **appliqué par le moteur que si
+    l'Endurance de la cible > la Force de l'arme** (« if its Strength is lower than
+    the target's Toughness, +1 to wound », ex. Dauntless Champions / Argent Assault).
+    Évalué automatiquement par cible (pas une bascule situationnelle) ; se combine
+    avec `when=`, `kw=`, etc.
   - `choice="Groupe"` — la ligne fait partie d'un **choix mutuellement exclusif**
     (« select one of the following »). Les lignes d'un même `choice` sont des
     bascules radio : en cocher une décoche les autres ; une seule est pré-cochée.
