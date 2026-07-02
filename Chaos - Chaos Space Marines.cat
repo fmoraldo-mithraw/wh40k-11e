@@ -2974,6 +2974,7 @@ RESTRICTIONS
             <selectionEntry type="upgrade" import="true" name="Veterans of the Long War" hidden="false" id="a5ea-d708-db75-226c">
               <rules>
                 <rule name="Focus of Hatred" id="6f2f-8cf6-20e7-4c4c" hidden="false">
+                  <comment>sim-mod: source=&quot;Focus of Hatred&quot; reroll=hit conditional</comment>
                   <description>At the start of your Command phase, select one unit from your opponent&apos;s army to be your focus of hatred. Until the start of your next Command phase, each time a ^^**Heretic Astartes**^^ model from your army (excluding ^^**Damned**^^ models) makes an attack that targets your focus of hatred, you can re-roll the Hit roll.</description>
                 </rule>
               </rules>
@@ -3014,6 +3015,7 @@ Onslaught | Up to 4 units | Up to 4 units</description>
             <selectionEntry type="upgrade" import="true" name="Renegade Raiders" hidden="false" id="b906-aa42-9cd9-c6f2">
               <rules>
                 <rule name="Raiders and Reavers" id="4fef-0ab4-2b60-48c4" hidden="false">
+                  <comment>sim-mod: source=&quot;Raiders and Reavers&quot; ap=+1 conditional</comment>
                   <description>Ranged weapons equipped by ^^**Heretic Astartes**^^ models from your army have the [ASSAULT] ability, and each time a ^^**Heretic Astartes**^^ model from your army makes an attack that targets a unit within range of an objective marker, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
               </rules>
@@ -3091,6 +3093,8 @@ Each time a unit makes a Desperate Pact, it must first take a Leadership test; i
             <selectionEntry type="upgrade" import="true" name="Soulforged Warpack" hidden="false" id="a523-e0fe-4e1c-bc70">
               <rules>
                 <rule name="Debt to the Soulforge" id="2f24-2a2c-c245-fc6a" hidden="false">
+                  <comment>sim-mod: source=&quot;Debt to the Soulforge&quot; wound=+1 when=ranged conditional
+sim-mod: source=&quot;Debt to the Soulforge&quot; attacks=+2 when=melee conditional</comment>
                   <description>Each time a ^^**Heretic Astartes Daemon Vehicle**^^ model from your army makes a Dark Pact, it can invoke its contract. If it does, subtract 1 from the resulting Leadership test when making that Dark Pact and, until the end of the phase:
 - Each time a model in that unit makes a ranged attack, add 1 to the Wound roll.
 - Add 2 to the Attacks characteristic of melee weapons equipped by models in that unit.</description>
@@ -3603,6 +3607,7 @@ EFFECT: Attacks that target your unit with a S greater than your unit&apos;s T h
               <comment>unique-detachment: NIGHTMARE</comment>
               <rules>
                 <rule name="Prey on the Weak" id="354c-4962-075a-0a81" hidden="false">
+                  <comment>sim-mod: source=&quot;Prey on the Weak&quot; reroll=hit1 conditional</comment>
                   <description>▪ Friendly **^^Heretic Astartes^^** **^^Infantry^^** **^^Fly^^** units&apos; attacks that target a battle-shocked unit or a unit at or below half-strength can re-roll hit rolls of 1.
 
 
@@ -3659,6 +3664,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </modifiers>
     </selectionEntry>
     <selectionEntry id="76b4-a2c4-208e-ceb9" name="Abaddon the Despoiler" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="72f8-4773-718c-c82c" type="max"/>
       </constraints>
@@ -3842,6 +3849,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </costs>
     </selectionEntry>
     <selectionEntry id="d93f-6d73-1792-cb18" name="Haarken Worldclaimer" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="72f8-4773-718c-c82c" type="max"/>
       </constraints>
@@ -3987,6 +3996,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="d9e3-8baf-128f-6389" name="Huron Blackheart" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="72f8-4773-718c-c82c" type="max"/>
       </constraints>
@@ -4127,6 +4138,10 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="9bbd-a535-a4ef-9680" name="Heretic Astartes Daemon Prince" publicationId="48fc-15aa-b307-9443" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Ascended Daemon&quot; reroll=hit scope=model
+sim-mod: source=&quot;Ascended Daemon&quot; reroll=wound scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="dcf-cb5-3e4-db74" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9b1e-34a8-afb0-7495" includeChildSelections="false"/>
@@ -4374,6 +4389,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="2a1d-2757-347c-58f2" name="Heretic Astartes Daemon Prince with wings" publicationId="48fc-15aa-b307-9443" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="dcf-cb5-3e4-db74" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="2925-1944-bea4-eef5" includeChildSelections="false"/>
@@ -4619,6 +4636,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="cd9c-96e7-6dcb-bedf" name="Fabius Bile" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="d542-4b6-6728-981e" type="max"/>
       </constraints>
@@ -4853,6 +4872,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="f399-fe33-375b-d1a2" name="Cypher" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <profiles>
         <profile id="bad8-728-1bc2-9186" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -4993,6 +5014,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="287f-7d48-59cf-dc1e" name="Master of Possession" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e645-5b69-8230-ace8" includeChildSelections="false"/>
@@ -5262,6 +5285,8 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
       <comment>BS 3+</comment>
     </selectionEntry>
     <selectionEntry id="e496-5a54-4cb2-4fc1" name="Chaos Lord" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="93ef-33f4-2822-fd8a" includeChildSelections="false"/>
@@ -5538,6 +5563,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="b206-250d-84aa-fc42" name="Chaos Lord in Terminator Armour" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="090c-5dd7-d990-476e" includeChildSelections="false"/>
@@ -5893,6 +5920,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="980d-c80a-19b2-f641" name="Sorcerer" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8cb0-93cd-d135-e60d" includeChildSelections="false"/>
@@ -6071,6 +6100,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="683f-bfb2-f8d0-c39e" name="Sorcerer in Terminator Armour" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9235-4900-390d-549b" includeChildSelections="false"/>
@@ -6337,6 +6368,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="46e1-2159-7c26-9105" name="Lord Discordant on Helstalker" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9dba-2085-6ba6-e3fe" includeChildSelections="false"/>
@@ -6688,6 +6721,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="440-a22a-eac1-b107" name="Warpsmith" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="440a-24a8-ea67-af12" includeChildSelections="false"/>
@@ -6965,6 +7000,9 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="f3d9-883e-6ca2-e3b" name="Exalted Champion [Legends]" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Dark Champion&quot; hit=+1 whileLeading
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dcb6-33b8-2912-658a" includeChildSelections="false"/>
@@ -7200,6 +7238,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </categoryLinks>
     </selectionEntry>
     <selectionEntry id="d2b8-454a-d061-b592" name="Dark Apostle" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: wound=+1 source=&quot;Dark Zealotry&quot; when=melee whileLeading
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dea8-2efe-59a9-620c" includeChildSelections="false"/>
@@ -7479,6 +7520,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="1780-25b8-ce0b-898d" name="Dark Commune" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: hit=+1 wound=+1 source=&quot;Dark Ritual&quot; oncePer=battle
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f152-69f4-ce20-1d31" includeChildSelections="false"/>
@@ -7971,6 +8015,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="615-e6bf-cfd2-9384" name="Legionaries" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: reroll=wound1 source=&quot;Veterans of the Long War&quot; when=melee
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="170">
           <conditions>
@@ -8741,6 +8788,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="1267-78f1-7774-859" name="Cultist Mob" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="90">
           <conditions>
@@ -9007,6 +9056,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="23aa-b45a-6d5d-e92b" name="Accursed Cultists" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="195">
           <conditions>
@@ -9231,6 +9282,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="203d-c50f-a438-4982" name="Chaos Terminator Squad" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: reroll=hit source=&quot;Despoilers&quot; conditional
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="360">
           <conditions>
@@ -9924,6 +9978,10 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="da34-7071-8658-a453" name="Master of Executions" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Warp-sighted Butcher&quot; reroll=hit when=melee whileLeading conditional
+sim-mod: source=&quot;Warp-sighted Butcher&quot; reroll=wound when=melee whileLeading conditional
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <profiles>
         <profile id="e4c4-4418-a864-289b" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -10126,6 +10184,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="cb1-5bcf-9e36-8136" name="Possessed" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: dev source=&quot;Unholy Bloodshed&quot; oncePer=battle conditional
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="250">
           <conditions>
@@ -10314,6 +10375,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="4e85-615b-5d49-dfa4" name="Chosen" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="250">
           <conditions>
@@ -10873,6 +10936,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="3e98-7689-8bf0-96e0" name="Venomcrawler" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Soul Eater&quot; attacks=+1 conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="a96f-7d09-98d-ad72" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e10f-f5a0-579f-95b1" includeChildSelections="false"/>
@@ -11062,6 +11128,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="7373-47b7-11a3-2b48" name="Chaos Bikers" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: source=&quot;Rapid Assault&quot; str=+1 when=melee onCharge
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="130">
           <conditions>
@@ -11620,6 +11689,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="acb5-dbf2-e3a6-ad94" name="Raptors" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="210">
           <conditions>
@@ -12159,6 +12230,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="9f33-ff4a-d948-4636" name="Warp Talons" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="280">
           <conditions>
@@ -12407,6 +12480,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="946c-d784-c8be-f21" name="Havocs" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="a96f-7d09-98d-ad72" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="0e87-bf99-b1f4-cbfd" includeChildSelections="false"/>
@@ -12935,6 +13010,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="2311-fa63-364-22a3" name="Obliterators" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="360">
           <conditions>
@@ -13178,6 +13255,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="a3ab-ed12-fa70-2042" name="Noctilith Crown" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="3309-84ac-d5d5-a18b" type="max"/>
       </constraints>
@@ -13251,6 +13330,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="dcc0-b70c-9779-e6c9" name="Vashtorr the Arkifane" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="d16e-9ed2-e227-46f2" type="max"/>
       </constraints>
@@ -13386,6 +13467,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="8dc5-4dcb-d77f-7d23" name="Traitor Guardsmen Squad" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="307a-7647-5d70-527c" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b7f3-9539-8537-a4b9" includeChildSelections="false"/>
@@ -13976,6 +14059,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="6bf7-888c-7aa6-6831" name="Fellgor Beastmen" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="307a-7647-5d70-527c" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="2cf2-f375-1f2d-cc35" includeChildSelections="false"/>
@@ -14406,6 +14491,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="f69d-2171-5f95-9c88" name="Traitor Enforcer" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
         <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="30d6-3781-66b4-8cc8" includeChildSelections="false"/>
@@ -14673,6 +14760,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="6de7-36d5-6015-7a51" name="Chaos Land Raider" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="1f9c-7c84-c0c3-bcfb" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6456-99c5-6642-71ab" includeChildSelections="false"/>
@@ -14948,6 +15037,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="279e-62d4-bff1-141" name="Chaos Predator Annihilator" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Annihilator&quot; reroll=dmg when=ranged vs=Monster,Vehicle scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="7fd1-40ba-0386-c5e4" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ce63-69bd-9f2c-08a3" includeChildSelections="false"/>
@@ -15241,6 +15333,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="3dfb-3b2a-94b-2fbe" name="Chaos Predator Destructor" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Destructor&quot; ap=+1 when=ranged vs=Infantry scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="40c5-de47-1748-5066" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3d9e-38ab-a192-5a11" includeChildSelections="false"/>
@@ -15469,6 +15564,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="e687-6d7a-bb28-dcaa" name="Chaos Vindicator" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="4cf6-4fe9-1436-f8e1" includeChildSelections="false"/>
@@ -15682,6 +15779,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="45b-19f6-38d2-703f" name="Forgefiend" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Daemonic Ordnance&quot; dev when=ranged conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="2f95-b866-ca01-897d" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8db2-d262-4834-57ce" includeChildSelections="false"/>
@@ -16008,6 +16108,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </categoryLinks>
     </selectionEntry>
     <selectionEntry id="9ff2-45e0-fe97-65f8" name="Helbrute" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Devoted to Destruction&quot; attacks=+2 when=melee conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="fba2-a1e0-bf62-d804" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7a84-57b0-8156-11da" includeChildSelections="false"/>
@@ -16471,6 +16574,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </categoryLinks>
     </selectionEntry>
     <selectionEntry id="79e5-a673-cca5-91a4" name="Heldrake" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Airborne Predator&quot; hit=+1 conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="ba59-afb9-2b3a-b294" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6d65-3bd6-9b00-65d7" includeChildSelections="false"/>
@@ -16670,6 +16776,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="d37d-7e8f-341b-c67c" name="Maulerfiend" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="f3fe-d895-183f-355e" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8fd3-94b2-2747-05ea" includeChildSelections="false"/>
@@ -16885,6 +16993,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="e981-27ae-112f-aa9a" name="Chaos Rhino" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4948-64ff-2ada-a602" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="1b4c-b6a2-91fa-6bc1" includeChildSelections="false"/>
@@ -17055,6 +17165,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="b27f-1c85-5e7f-4e7d" name="Khorne Lord of Skulls" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="2094-1b2f-fef4-0276" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="fd56-d285-061d-1aa1" includeChildSelections="false"/>
@@ -17376,6 +17488,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="7263-70e5-b424-61eb" name="Chaos Spawn" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="c7fb-1fe5-6958-8464" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dc9f-289e-ebe5-dd33" includeChildSelections="false"/>
@@ -17893,6 +18007,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry id="f2e7-80c9-853d-2c6c" name="Rubric Marines" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: source=&quot;Bringers of Change&quot; reroll=wound1 when=ranged choice=&quot;Bringers of Change&quot;
+sim-mod: source=&quot;Bringers of Change (objectif)&quot; reroll=wound when=ranged conditional choice=&quot;Bringers of Change&quot;</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="190">
           <conditions>
@@ -19114,6 +19230,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </costs>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Hell Talon [Legends]" hidden="false" id="4893-c42f-4ca8-2b3d">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
       </costs>
@@ -19316,6 +19434,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Hellblade [Legends]" hidden="false" id="8373-f06d-7680-9de">
+      <comment>sim-mod: source=&quot;Interceptor&quot; hit=+1 when=ranged conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
@@ -19523,6 +19644,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sorcerer on Disc of Tzeentch [Legends]" hidden="false" id="5205-d436-bedd-e3df">
+      <comment>sim-mod: source=&quot;Flames of Change&quot; ignores-cover when=ranged whileLeading
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
@@ -19839,6 +19963,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sorcerer on Palanquin of Nurgle [Legends]" hidden="false" id="c8b4-e13c-1a3a-7b55">
+      <comment>sim-mod: source=&quot;Gift of Poxes&quot; sustained=1 whileLeading
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
@@ -20169,6 +20296,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord on Palanquin of Nurgle [Legends]" hidden="false" id="2af2-8812-7aa9-3db7">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
@@ -20606,6 +20735,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord on Disc of Tzeentch [Legends]" hidden="false" id="7456-b122-14c3-eca9">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
@@ -21013,6 +21144,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord on Juggernaut [Legends]" hidden="false" id="dceb-1d2c-40be-e591">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
@@ -21453,6 +21586,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord on Steed of Slaanesh [Legends]" hidden="false" id="349b-6e2d-e554-f2c6">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
@@ -21892,6 +22027,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sorcerer on Steed of Slaanesh [Legends]" hidden="false" id="13b0-de3a-650c-d352">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
@@ -22243,6 +22380,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Gellerpox Infected [Legends]" hidden="false" id="e1c2-8417-403a-68">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
       </costs>
@@ -22503,6 +22642,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Mutoid Vermin [Legends]" hidden="false" id="afed-8173-a1e0-cbae">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
@@ -22583,6 +22724,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Renegade Enforcer [Legends]" hidden="false" id="5b66-39e6-aeb5-8011">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink targetId="1e42-dfae-cbdd-207d" id="466-f615-ac15-564e" primary="false" name="Faction: Heretic Astartes"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="f10b-9882-901-ce91" primary="false" name="Infantry"/>
@@ -22945,6 +23088,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Renegade Heavy Weapons Squad [Legends]" hidden="false" id="9df-7c70-84d2-e095">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -23291,6 +23436,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Renegade Plague Ogryns [Legends]" hidden="false" id="a7bb-ec24-40e6-5b8c">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
       </costs>
@@ -23456,6 +23603,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Mutilators" hidden="false" id="7299-5b5-2b56-ef50">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
@@ -23642,6 +23791,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Renegade Ogryn Brutes [Legends]" hidden="false" id="24c4-fa24-67ff-eef">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
       </costs>
@@ -23836,6 +23987,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Rogue Psyker [Legends]" hidden="false" id="c0f9-d16c-6caf-5b95">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
       </costs>
@@ -24108,6 +24261,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Negavolt Cultists [Legends]" hidden="false" id="9238-473a-54ee-6b0e">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
       </costs>
@@ -24278,6 +24433,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sorcerer on Bike [Legends]" hidden="false" id="af6f-7c4e-ec78-858e">
+      <comment>sim-mod: source=&quot;Unholy Power&quot; wound=+1 conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -24626,6 +24784,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Renegade Ogryn Beast Handler [Legends]" hidden="false" id="658e-a63f-bac7-6201">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <infoLinks>
         <infoLink name="Dark Pacts" hidden="false" type="rule" id="f39d-f249-86f1-bfa2" targetId="fd69-68cc-5d63-c84d"/>
       </infoLinks>
@@ -24824,6 +24984,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord on Bike [Legends]" hidden="false" id="2dfd-2e5f-53f2-b695">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
       </costs>
@@ -25256,6 +25418,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Deimos Predator [Legends]" hidden="false" id="6add-621e-381e-4acf">
+      <comment>sim-mod: source=&quot;Armoured Spearhead&quot; reroll=hit1
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <infoLinks>
         <infoLink id="945a-87f3-492f-a9e4" name="Dark Pacts" hidden="false" targetId="fd69-68cc-5d63-c84d" type="rule"/>
         <infoLink name="Damaged: 1-4 wounds remaining" hidden="false" type="profile" id="2196-3d01-602d-d1cc" targetId="d44e-2f5-cadf-9eb"/>
@@ -25575,6 +25740,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaos Lord with Jump Pack" hidden="false" id="d880-9968-2ed9-5a21">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink targetId="1e42-dfae-cbdd-207d" id="89b2-f3d0-8b74-97e2" primary="false" name="Faction: Heretic Astartes"/>
         <categoryLink targetId="544c-7152-ce3a-a85c" id="ea38-fe76-aee3-5753" primary="false" name="Chaos Lord"/>
@@ -25837,6 +26004,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Cultist Firebrand" hidden="false" id="cb66-af7-2cca-1c85">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <profiles>
         <profile name="Cultist Firebrand" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5c00-fe13-fc3b-89e8">
           <characteristics>
@@ -26050,6 +26219,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Cultist Mob with Firearms [Legends]" hidden="false" id="478-9d24-e5c8-c6f7" collective="false">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
         <modifier type="set" value="100" field="51b2-306e-1021-d207">
           <conditions>
@@ -26587,6 +26758,10 @@ You can attach this model to one of the above units even if one other CHARACTER 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nemesis Claw" hidden="false" id="f666-1f5d-0c20-06c1">
+      <comment>sim-mod: source=&quot;Visions of Suffering&quot; hit=+1 conditional
+sim-mod: source=&quot;Visions of Suffering&quot; wound=+1 conditional
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
@@ -27681,6 +27856,8 @@ You can attach this model to one of the above units even if one other CHARACTER 
       <comment>Raptors</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Masters of the Maelstrom" hidden="false" id="a998-9dce-fbab-8d32">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink name="Epic Hero" hidden="false" id="5cfa-7e3b-8800-25cc" targetId="4f3a-f0f7-6647-348d" primary="true"/>
         <categoryLink name="Infantry" hidden="false" id="20e2-321a-1e7c-f654" targetId="cf47-a0d7-7207-29dc" primary="false"/>
@@ -28075,6 +28252,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </costs>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Red Corsairs Raiders" hidden="false" id="2078-97ce-8793-3382">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink name="Faction: Heretic Astartes" hidden="false" id="cb14-72fb-a9f5-253d" targetId="1e42-dfae-cbdd-207d" primary="false"/>
         <categoryLink name="Infantry" hidden="false" id="a81d-9740-9bba-5ab5" targetId="cf47-a0d7-7207-29dc" primary="true"/>
@@ -28497,6 +28676,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </profiles>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Red Corsairs Reave-captain" hidden="false" id="beed-356b-2fec-2c2a">
+      <comment>sim-mod: source=&quot;Brutal Raider&quot; str=+1 ap=+1 when=melee onCharge scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink name="Faction: Heretic Astartes" hidden="false" id="36f8-02af-4477-7a35" targetId="1e42-dfae-cbdd-207d" primary="false"/>
         <categoryLink name="Character" hidden="false" id="2164-33b2-e73a-d114" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
@@ -28792,6 +28974,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       <comment>BS 2+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Exalted Champion [Crucible]" hidden="false" id="b9a4-a9c4-5f8d-ed3a">
+      <comment>sim-mod: source=&quot;Marked by the Dark Gods&quot; crit-hit=5 scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <infoLinks>
         <infoLink name="Leader" id="25b0-8526-92a2-e831" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Dark Pacts" id="4c6b-6298-658e-22aa" hidden="false" type="rule" targetId="fd69-68cc-5d63-c84d"/>
@@ -28963,6 +29148,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sorcerous Champion [Crucible]" hidden="false" id="b6c0-4be6-7487-73dc">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <infoLinks>
         <infoLink name="Leader" id="2de5-545c-bee3-6785" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Dark Pacts" id="50a7-489f-7a03-a54c" hidden="false" type="rule" targetId="fd69-68cc-5d63-c84d"/>
@@ -29135,6 +29322,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Soul Forge Tyrant [Crucible]" hidden="false" id="9573-8b24-3796-d9d9">
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <infoLinks>
         <infoLink name="Dark Pacts" id="0026-d7a6-068e-f875" hidden="false" type="rule" targetId="fd69-68cc-5d63-c84d"/>
       </infoLinks>
@@ -29324,6 +29513,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Defiler" hidden="false" id="29f9-fc47-787e-d9d3" collective="false">
+      <comment>sim-mod: source=&quot;Daemonforge&quot; reroll=wound1 conditional
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9b3b-5283-4d73-83c9" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="eb23-0683-ae50-6f9c" includeChildSelections="false"/>
@@ -29814,6 +30006,10 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
       </entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Kravek Morne" hidden="false" id="eec8-c21f-c284-a682">
+      <comment>sim-mod: source=&quot;Headlong Destruction&quot; ap=+1 conditional
+sim-mod: source=&quot;Architect of Ruin&quot; reroll=wound conditional scope=model
+sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <categoryLinks>
         <categoryLink name="Faction: Heretic Astartes" hidden="false" id="aaf9-bfe1-d61d-6438" targetId="1e42-dfae-cbdd-207d" primary="false"/>
         <categoryLink name="Infantry" hidden="false" id="ce8e-8573-e95d-e131" targetId="cf47-a0d7-7207-29dc" primary="false"/>
@@ -30036,7 +30232,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
           </costs>
-          <comment>Zealots</comment>
+          <comment>Zealots
+sim-mod: source=&quot;Talisman of Burning Blood&quot; attacks=+1 str=+1 when=melee scope=model</comment>
           <modifierGroups>
             <modifierGroup type="and">
               <modifiers>
@@ -30209,7 +30406,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="4ad5-d4fc-79f4-afd1" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Veterans</comment>
+          <comment>Veterans
+sim-mod: source=&quot;Warmaster&apos;s Gift&quot; crit-wound=5 conditional scope=model</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Eager for Vengeance" hidden="false" id="bb91-cc38-e79d-7ce0" sortIndex="53">
           <modifiers>
@@ -30244,7 +30442,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="82a9-51fb-2226-3454" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Veterans</comment>
+          <comment>Veterans
+sim-mod: source=&quot;Eager for Vengeance&quot; hit=+1 conditional</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Eye of Abaddon" hidden="false" id="b06a-cbc9-6820-6a93" sortIndex="54">
           <modifiers>
@@ -30314,7 +30513,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="fca6-b8fd-a48f-62aa" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Veterans</comment>
+          <comment>Veterans
+sim-mod: source=&quot;Mark of Legend&quot; reroll=hit oncePer=turn scope=model
+sim-mod: source=&quot;Mark of Legend&quot; reroll=wound oncePer=turn scope=model</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Falsehood" hidden="false" id="361e-2839-f32e-1873" sortIndex="18">
           <modifiers>
@@ -30388,7 +30589,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="fe87-c819-3671-c756" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Deceptors</comment>
+          <comment>Deceptors
+sim-mod: source=&quot;Cursed Fang&quot; ap=+1 when=melee scope=model</comment>
           <infoLinks>
             <infoLink name="Precision" id="f5f1-ed7e-6e5d-8687" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
           </infoLinks>
@@ -30521,7 +30723,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="285d-5acd-f5a-255b" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Raiders</comment>
+          <comment>Raiders
+sim-mod: source=&quot;Dread Reaver&quot; reroll=hit when=melee conditional scope=model
+sim-mod: source=&quot;Dread Reaver&quot; reroll=wound when=melee conditional scope=model</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Mark of the Hound" hidden="false" id="b5e6-8586-a9a9-b6b" sortIndex="43">
           <modifiers>
@@ -30772,7 +30976,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="bfab-be1f-848c-2cfd" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Siege-host</comment>
+          <comment>Siege-host
+sim-mod: source=&quot;Ironbound Enmity&quot; wound=+1 conditional scope=model</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Warp Tracer" hidden="false" id="786c-288a-5ed6-676e" sortIndex="28">
           <modifiers>
@@ -30837,7 +31042,8 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="e3c5-e68-e4d7-c92b" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Siege-host</comment>
+          <comment>Siege-host
+sim-mod: source=&quot;Iron Artifice&quot; anti=Vehicle:4+ anti=Fortification:4+ scope=model</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Amulet of Tainted Vigour" hidden="false" id="2c8-9d0d-72d7-7375" sortIndex="5">
           <modifiers>
@@ -31292,7 +31498,9 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="f429-4484-d800-2114" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
-          <comment>Creations</comment>
+          <comment>Creations
+sim-mod: source=&quot;Prime Test Subject&quot; dmg=+1 when=melee scope=model
+sim-mod: source=&quot;Prime Test Subject&quot; reroll=hit when=melee scope=model</comment>
           <modifierGroups>
             <modifierGroup type="and">
               <modifiers>
@@ -31704,7 +31912,8 @@ In the Declare Battle Formations step, the bearer can be attached to a Warp Talo
           </constraints>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Eyes of the Hunter" hidden="false" id="3b06-4a0d-209b-59bf" sortIndex="46">
-          <comment>Renegade Warband</comment>
+          <comment>Renegade Warband
+sim-mod: source=&quot;Eyes of the Hunter&quot; ignores-cover when=ranged scope=model</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
@@ -31971,7 +32180,8 @@ In the Declare Battle Formations step, the bearer can be attached to a Warp Talo
               </characteristics>
             </profile>
           </profiles>
-          <comment>Warpstrike Champions</comment>
+          <comment>Warpstrike Champions
+sim-mod: source=&quot;Tzagulla&quot; attacks=+1 str=+1 ap=+1 scope=model</comment>
           <modifierGroups>
             <modifierGroup type="and">
               <modifiers>
@@ -32104,7 +32314,8 @@ In the Declare Battle Formations step, the bearer can be attached to a Warp Talo
               </characteristics>
             </profile>
           </profiles>
-          <comment>Cult of the Arkifane</comment>
+          <comment>Cult of the Arkifane
+sim-mod: source=&quot;Mark of the Soul Forges&quot; crit-hit=5 scope=model</comment>
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
@@ -32338,7 +32549,8 @@ In the Declare Battle Formations step, the bearer can be attached to a Warp Talo
 
 
 ▪ This model has **^^Daemon^^**.
-▪ This model&apos;s melee attacks have +1 A.</characteristic>
+▪ This model&apos;s melee attacks have +1 A.
+▪ This model can be attached to a **^^Warp Talons^^** unit.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -32400,7 +32612,8 @@ In the Declare Battle Formations step, the bearer can be attached to a Warp Talo
           </constraints>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Infernal Avatar" hidden="false" id="b98d-3341-2266-f1c8" sortIndex="2">
-          <comment>Cabal of Chaos</comment>
+          <comment>Cabal of Chaos
+sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>

@@ -3974,7 +3974,7 @@ When a player has completed all five phases, their turn ends.</description>
               <profiles>
                 <profile name="United By Adversity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ce60-226f-407f-96d5">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5020,7 +5020,7 @@ When a player has completed all five phases, their turn ends.</description>
               <profiles>
                 <profile name="Pouncing Predators" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3899-ea18-2582-fbcc">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 0CP, and each time you do so, until the end of the turn, this unit has the Fights First ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 1 less CP, and each time you do so, until the end of the turn, this unit has the Fights First ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
