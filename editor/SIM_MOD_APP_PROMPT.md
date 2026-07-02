@@ -51,6 +51,15 @@ sont entre guillemets) :
     (ex. `vs=Character`, `vs=Monster,Vehicle`). **Conditionnel.**
   - `oncePer=battle|phase|turn` — usage limité. **Conditionnel.**
   - `onCharge` — uniquement après une charge. **Conditionnel.**
+  - `conditional` (token nu) — déclencheur situationnel **non exprimable** par
+    `vs`/`oncePer`/`onCharge` (portée, objectif, moitié d'effectif, immobile…) :
+    la bascule démarre **décochée**, la prose reste la référence. C'est le
+    qualificatif le plus fréquent de la base.
+  - `faction="Nom de faction"` — le bonus ne s'affiche que si la **faction de
+    l'armée courante** porte exactement ce nom. Sert aux règles d'armée d'une
+    sous-faction marquées sur des entrées **partagées** (ex. `Templar Vows` sur le
+    tronc `Imperium - Space Marines.cat` importé par tous les chapitres : seul un
+    joueur Black Templars doit voir la puce).
   - `whileLeading` — uniquement en menant une unité. **Par défaut activé**
     (le cas courant d'un chef rattaché), pas marqué conditionnel.
   - `scope=model` — l'effet ne touche que **les armes du modèle porteur**, pas une

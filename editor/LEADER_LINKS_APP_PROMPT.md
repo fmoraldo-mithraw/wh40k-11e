@@ -93,6 +93,13 @@ continuer à les lire dans le texte :
 
 - **Aucune référence pendante** : chaque `entryLink` cible une datasheet visible
   dans la clôture d'import du fichier (vérifié par `catalog.validate`, 0 erreur).
+  **Exception assumée (entrées PARTAGÉES)** : un groupe porté par une entrée du
+  tronc commun (`Imperium - Space Marines.cat`) peut lister des cibles définies
+  dans un fichier de CHAPITRE (Crusader Squad → Black Templars, kill teams →
+  Deathwatch, Deathwing → Dark Angels…). Ces cibles résolvent dans la clôture
+  du catalogue **importateur** (le chapitre) et sont **ignorées silencieusement**
+  partout ailleurs — l'appli DOIT laisser tomber sans erreur un `targetId` qui
+  ne résout pas dans la faction courante (c'est ce que fait le LEADGRAPH).
 - Les liens ne créent **aucune unité ni coût** (`max=0`, `hidden`). Si ton
   évaluateur ignore les entrées `hidden`/`max=0`, lis quand même ce groupe par
   son **nom** pour reconstituer les rattachements.
