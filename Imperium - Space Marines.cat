@@ -44066,6 +44066,46 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
             </profile>
           </profiles>
         </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Vengeful Hosts" hidden="false" id="e4eb-47fa-fc1f-8eff">
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+          </costs>
+          <rules>
+            <rule name="Imperator Unleashed" id="508f-85f2-9972-b4ab" hidden="false">
+              <description>The warrior hosts deployed in Operation Imperator know they must strike with decisive fury if they are to break their foes.
+
+In a turn a friendly **^^Adeptus Astartes Fly Infantry^^** unit made an ingress/charge move, that unit&apos;s attacks can re-roll hit rolls of 1.</description>
+            </rule>
+            <rule name="Meteoric Onslaught (Stratagem, 1CP)" id="bc6b-34d3-1b54-9a59" hidden="false">
+              <description>Vengeful Hosts – STRATAGEM (1CP)
+
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES FLY INFANTRY unit that made a charge move this turn is selected to attack.
+TARGET: That friendly ADEPTUS ASTARTES FLY INFANTRY unit.
+EFFECT: Your unit&apos;s melee attacks have +1 S.</description>
+            </rule>
+            <rule name="Purge by Sectors (Stratagem, 1CP)" id="4bf2-d056-29f1-36ab" hidden="false">
+              <description>Vengeful Hosts – STRATAGEM (1CP)
+
+WHEN: End of the Fight phase.
+TARGET: One friendly unengaged ADEPTUS ASTARTES FLY INFANTRY unit that was eligible to fight this phase.
+EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
+            </rule>
+            <rule name="Know No Fear (Stratagem, 1CP)" id="fb99-f8fa-6ae4-5a31" hidden="false">
+              <description>Vengeful Hosts – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly battle-shocked ADEPTUS ASTARTES unit. You can target that unit with this stratagem even though it is battle-shocked.
+EFFECT: Your unit is no longer battle-shocked.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="facc-11ed-1419-5327">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntryGroup>
     <selectionEntryGroup name="Enhancements" hidden="false" id="9e5d-de4c-c5d1-1d3e" collapsible="true">
@@ -49302,6 +49342,87 @@ Enhancement. If it does, select one friendly Adeptus Astartes Transport that is
               </conditionGroups>
             </modifier>
           </modifiers>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Vengeful Hosts Enhancements" id="4285-aeec-3d45-e3b9" hidden="false">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Avenging Angel" hidden="false" id="fc99-d484-83e8-1321">
+              <profiles>
+                <profile name="Avenging Angel" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="de3b-9f1e-87d0-1f97">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Fly Infantry^^** model only. When this unit ends an ingress move, select up to one enemy unit within 9&quot; of this unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="c619-2086-bbcf-69c9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="99f4-8a1b-9eae-fbf0" includeChildSelections="true" includeChildForces="true"/>
+              </constraints>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="9207-69f3-ebc8-ae7d" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Orksbane" hidden="false" id="e25f-5c83-ed27-a128">
+              <profiles>
+                <profile name="Orksbane" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="85fd-ff49-d90c-fd09">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Fly Infantry^^** model only. This model has the following weapon:
+
+Orksbane [CLEAVE 2] – Melee, A 4, WS 2+, S 8, AP -2, D 3.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="c619-2086-bbcf-69c9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7b2f-f8ff-f436-f4aa" includeChildSelections="true" includeChildForces="true"/>
+              </constraints>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="0837-c31c-9060-fea7" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="e4eb-47fa-fc1f-8eff" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="997e-04cb-2a34-6dbf"/>
+          </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <categoryLinks>
