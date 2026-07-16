@@ -6253,6 +6253,7 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Hunta Rig" hidden="false" id="70de-d621-8465-f7b8">
+      <comment>sim-mod: source=&quot;On Da Hunt&quot; attacks=+6 weapon=&quot;Butcha boyz&quot; when=melee conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="a044-9e5e-3479-29f4"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ada2-5045-90c6-cc9c" includeChildSelections="true"/>
@@ -6963,6 +6964,8 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Killa Kans" hidden="false" id="8c36-c946-2e0f-f648">
+      <comment>sim-mod: source=&quot;Shooty Power Trip (3-4)&quot; str=+1 when=ranged choice=&quot;Shooty Power Trip&quot; conditional
+sim-mod: source=&quot;Shooty Power Trip (5-6)&quot; attacks=+1 when=ranged choice=&quot;Shooty Power Trip&quot; conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="b55e-1d2f-48b7-e000"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9a02-7d1b-807a-34e8" includeChildSelections="true"/>
@@ -27740,6 +27743,114 @@ sim-mod: source=&quot;&apos;Eadstompa (sous moitié)&quot; reroll=wound conditio
             </modifier>
           </modifiers>
         </selectionEntryGroup>
+        <selectionEntryGroup name="Equatorial Hordes Enhancements" id="bd19-ce8a-2ab2-b87c" hidden="false">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Kunnin&apos; Hunta" hidden="false" id="c985-8a9f-d1ea-c35c">
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="c985-8a9f-d1ea-c35c" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="c985-8a9f-d1ea-c35c" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="943b-9680-2191-7a82" shared="true"/>
+                          </conditions>
+                          <conditionGroups>
+                            <conditionGroup type="or">
+                              <conditions>
+                                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true"/>
+                                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+                              </conditions>
+                            </conditionGroup>
+                          </conditionGroups>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <profiles>
+                <profile name="Kunnin&apos; Hunta" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c7fe-bc96-dffd-c6cb">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Beastboss^^**/**^^Infantry Warboss^^** model only. (Once per turn, per unit) In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this unit, if this unit is unengaged, this unit can make a normal move of up to D3+3&quot;.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="77fc-46a2-68ea-d76d" includeChildSelections="true" includeChildForces="false"/>
+              </constraints>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Unkillable Scourge" hidden="false" id="6b28-5b83-9b8e-f2ec">
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="6b28-5b83-9b8e-f2ec" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="6b28-5b83-9b8e-f2ec" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="943b-9680-2191-7a82" shared="true"/>
+                          </conditions>
+                          <conditionGroups>
+                            <conditionGroup type="or">
+                              <conditions>
+                                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true"/>
+                                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+                              </conditions>
+                            </conditionGroup>
+                          </conditionGroups>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <profiles>
+                <profile name="Unkillable Scourge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="237f-8cf6-91ed-0573">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Beastboss^^**/**^^Infantry Warboss^^** model only. When this model is destroyed, if this unit has not been selected to fight this phase, roll one D6, with +1 to that roll if the Waaagh! is active for this unit:
+- On a 3+, do not remove this model from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), this model is removed from the battlefield.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="69cf-e6bf-da3a-0f45" includeChildSelections="true" includeChildForces="false"/>
+              </constraints>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ddf7-a961-c039-c17c" includeChildSelections="false" includeChildForces="false"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="72af-7a08-ea07-37b2" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks>
         <entryLink import="true" name="Boarding Actions Enhancements" hidden="false" id="798d-5280-37de-d5b1" type="selectionEntryGroup" targetId="5a79-2c0b-66e4-2122">
@@ -28382,6 +28493,51 @@ EFFECT: Until the end of the phase, melee weapons equipped by models in your uni
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="b7a6-37b5-38a9-ef44">
               <characteristics>
                 <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Equatorial Hordes" hidden="false" id="72af-7a08-ea07-37b2">
+          <rules>
+            <rule name="Jungle Know-Wotz" id="eb4b-dbc7-312e-fe36" hidden="false">
+              <description>In the Declare Battle Formations step, select up to three friendly **^^Mob^^**/**^^Kommandos^^** units. Those units have the Scouts 6&quot; ability until the end of the battle.</description>
+            </rule>
+            <rule name="Concealed Krumpin&apos; (Stratagem, 1CP)" id="4ef2-dfb7-15d4-41fb" hidden="false">
+              <description>Equatorial Hordes – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, when a friendly hidden MOB unit is selected to attack.
+TARGET: That MOB unit.
+EFFECT: Your unit&apos;s attacks have [LETHAL HITS].</description>
+            </rule>
+            <rule name="Stragglerz (Stratagem, 1CP)" id="c520-38a3-f1d3-d60f" hidden="false">
+              <description>Equatorial Hordes – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly MOB/KOMMANDOS unit.
+EFFECT: Your unit heals 2D3 wounds.</description>
+            </rule>
+            <rule name="Dey&apos;re Over &apos;Ere (Stratagem, 1CP)" id="64c7-7b1e-570b-bb70" hidden="false">
+              <description>Equatorial Hordes – STRATAGEM (1CP)
+
+WHEN: Start of your Shooting phase.
+TARGET: One friendly MOB/KOMMANDOS unit.
+EFFECT: While a visible enemy unit is within 6&quot; of your unit, that unit has +3&quot; detection range.</description>
+            </rule>
+          </rules>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0f77-4797-f84a-027c">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>

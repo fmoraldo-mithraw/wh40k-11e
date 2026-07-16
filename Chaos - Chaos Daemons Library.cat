@@ -13276,6 +13276,7 @@ sim-mod: source=&quot;Monarch of the Hunt&quot; reroll=wound when=melee conditio
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="e8d-bf22-b29-d20e" name="Hellflayers" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: source=&quot;Cutting Down the Foe&quot; str=+1 dmg=+1 when=melee onCharge</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="48f9-159a-3c0d-a439" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="d280-cd39-0f0b-3f8e" includeChildSelections="false"/>
@@ -14750,6 +14751,7 @@ sim-mod: source=&quot;Monarch of the Hunt&quot; reroll=wound when=melee conditio
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Pox Riders [Legends]" hidden="false" id="fd5b-9e27-797d-6a3a">
+      <comment>sim-mod: source=&quot;Bounding Assault&quot; wound=+1 onCharge weapon=&quot;Pox rider plaguesword&quot; when=melee</comment>
       <infoLinks>
         <infoLink id="27d4-e189-b47e-d5fe" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
         <infoLink id="c66c-251f-c2fa-6feb" name="The Shadow of Chaos" hidden="false" targetId="a312-a2f1-e1c0-30ed" type="rule"/>
@@ -16662,6 +16664,22 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
           </conditions>
         </modifier>
       </modifiers>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0e01-ba51-277b-44b6">
+          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot; — Infantry Daemon units (excluding Possessed) which share a god keyword; sur-ensemble statique des 4 dieux, la contrainte de dieu partagé reste en prose; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="64f1-346c-9c53-8181"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="" hidden="true" id="272d-c995-4ae6-db41" type="selectionEntry" targetId="4ecc-6aa5-da28-2c57"/>
+            <entryLink import="true" name="" hidden="true" id="cf70-9de5-4d08-34fd" type="selectionEntry" targetId="b795-b936-ad61-e407"/>
+            <entryLink import="true" name="" hidden="true" id="5f1d-c3ba-209d-3d34" type="selectionEntry" targetId="41c2-d2e6-ae43-3beb"/>
+            <entryLink import="true" name="" hidden="true" id="1d62-fc34-a0c9-3136" type="selectionEntry" targetId="5f23-4d6-f2f9-5973"/>
+            <entryLink import="true" name="" hidden="true" id="31a0-f578-9579-cb38" type="selectionEntry" targetId="e7b8-aa40-6da7-778e"/>
+            <entryLink import="true" name="" hidden="true" id="6a13-3dcd-a1bc-0592" type="selectionEntry" targetId="d1eb-b092-d944-e729"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Daemonic Charioteer [Crucible]" hidden="false" id="8597-d6dd-511e-80ae">
       <constraints>
@@ -16803,6 +16821,25 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
           </conditions>
         </modifier>
       </modifiers>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="f761-1ad0-7e85-8a2f">
+          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot; — Mounted Daemon units which share a god keyword; sur-ensemble statique des 4 dieux, la contrainte de dieu partagé reste en prose; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="db4d-1f05-5aca-b783"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="" hidden="true" id="8edc-05b9-0a17-bc79" type="selectionEntry" targetId="2f31-9132-b703-5fd8"/>
+            <entryLink import="true" name="" hidden="true" id="6390-e4fb-9e20-f665" type="selectionEntry" targetId="f6eb-b62f-5baf-d96d"/>
+            <entryLink import="true" name="" hidden="true" id="99e6-3e01-54f8-20b9" type="selectionEntry" targetId="7f62-6b3f-c4fe-b971"/>
+            <entryLink import="true" name="" hidden="true" id="2a89-b22a-ff50-1142" type="selectionEntry" targetId="e8d-bf22-b29-d20e"/>
+            <entryLink import="true" name="" hidden="true" id="133d-018c-af0a-1181" type="selectionEntry" targetId="d620-146a-41cd-f28f"/>
+            <entryLink import="true" name="" hidden="true" id="3ec2-e201-f2c6-4368" type="selectionEntry" targetId="fd5b-9e27-797d-6a3a"/>
+            <entryLink import="true" name="" hidden="true" id="87f7-742d-b054-3213" type="selectionEntry" targetId="5fe1-5a7a-9f8e-21e0"/>
+            <entryLink import="true" name="" hidden="true" id="ace3-9554-d493-6520" type="selectionEntry" targetId="112d-8078-777f-76a5"/>
+            <entryLink import="true" name="" hidden="true" id="400e-15cc-7c13-86ee" type="selectionEntry" targetId="fd37-8a80-3da8-f262"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Immortal Champion [Crucible]" hidden="false" id="3594-bf68-4a46-fbf8">
       <constraints>
