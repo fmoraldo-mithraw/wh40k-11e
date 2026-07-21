@@ -5484,6 +5484,176 @@ sim-mod: source=&quot;Pyromaniaks (objectif)&quot; reroll=wound when=ranged cond
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
+    <selectionEntry type="unit" import="true" name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2001">
+      <comment>pts placeholder (95) : non indique sur la feuille d'unite, a confirmer via le MFM. Regle d'armee "Da Boss" non encodee (indisponible).</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-2002"/>
+      </constraints>
+      <entryLinks>
+        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-9f3b-7c40-2003" targetId="8b5-898c-f79b-5a9c">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-2004"/>
+          </constraints>
+        </entryLink>
+        <entryLink import="true" name="Crusade" hidden="false" id="0d1a-9f3b-7c40-2030" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+      </entryLinks>
+      <profiles>
+        <profile name="Intimidating Motivation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-2005">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Once per battle round, per army.** In your Movement phase, at the start or end of this model&apos;s move, you can select one friendly **^^Orks^^** unit within 6&quot; of this unit. That unit:
+- Is no longer battle-shocked.
+- Is **riled up** until the start of your next turn.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Nazdreg&apos;s Know-wotz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-2006">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has the **Deep Strike** ability.
+- This unit&apos;s ranged attacks have the **[IGNORES COVER]** ability.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Supreme Kunnin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-2007">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Once per phase, per army.** In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this unit, if this unit is unengaged, this unit can:
+- Make a **normal move** of up to D6&quot;.
+- Or, if this unit is **riled up**, make a **normal move** of up to 5&quot;.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-9f3b-7c40-2008" primary="false" name="Infantry"/>
+        <categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-9f3b-7c40-2009" primary="true" name="Epic Hero"/>
+        <categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-9f3b-7c40-200a" primary="false" name="Character"/>
+        <categoryLink targetId="ebd4-277b-d164-39da" id="0d1a-9f3b-7c40-200b" primary="false" name="Mega Armour"/>
+        <categoryLink targetId="47cc-4071-6fda-688e" id="0d1a-9f3b-7c40-200c" primary="false" name="Warboss"/>
+        <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-9f3b-7c40-200d" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="0d1a-9f3b-7c40-2031" id="0d1a-9f3b-7c40-200e" primary="false" name="Nazdreg"/>
+      </categoryLinks>
+      <infoLinks>
+        <infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-9f3b-7c40-2010" targetId="37c-6ef9-277-9091"/>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="0d1a-9f3b-7c40-2011" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="Leader" hidden="false" type="rule" id="0d1a-9f3b-7c40-2012" targetId="b4dd-3e1f-41cb-218f"/>
+        <infoLink name="Ignores Cover" hidden="false" type="rule" id="0d1a-9f3b-7c40-2013" targetId="4640-43e7-30b-215a"/>
+      </infoLinks>
+      <selectionEntries>
+        <selectionEntry type="model" import="true" name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2014">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-2015"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-2016"/>
+          </constraints>
+          <profiles>
+            <profile name="Nazdreg" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-9f3b-7c40-2017">
+              <characteristics>
+                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">8</characteristic>
+                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <infoLinks>
+            <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-9f3b-7c40-2018" targetId="27f4-7449-a636-ae8c"/>
+          </infoLinks>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Kustom Blasta X" hidden="false" id="0d1a-9f3b-7c40-2019" collective="false">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-201a"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-201b"/>
+              </constraints>
+              <profiles>
+                <profile name="Kustom Blasta X - Gatler" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-201c">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Kustom Blasta X - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-201d">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Kustom Blasta X - Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-201e">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Kustom Blasta X" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-201f">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Extra Attacks</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Hazardous" hidden="false" type="rule" id="0d1a-9f3b-7c40-2020" targetId="8367-374c-f87-c627"/>
+                <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-2021" targetId="0d1a-9f3b-7c40-1c01"/>
+                <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-2022" targetId="c5c8-8b58-b8b6-7786"/>
+                <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-2023" targetId="6c1f-1cf7-ff25-c99e"/>
+                <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-2024" targetId="5edf-d619-23e0-9b56"/>
+                <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-2025" targetId="ea1f-c7b7-cafa-43f8"/>
+                <infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-9f3b-7c40-2026" targetId="115b-79dc-f723-d761"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-2027" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-2028" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Moonchewa" hidden="false" id="0d1a-9f3b-7c40-2029" collective="false">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-202a"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-202b"/>
+              </constraints>
+              <profiles>
+                <profile name="Moonchewa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-202c">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Twin-linked</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-202d" targetId="ea1f-c7b7-cafa-43f8"/>
+                <infoLink name="Twin-linked" hidden="false" type="rule" id="0d1a-9f3b-7c40-202e" targetId="cf93-ad4d-2f08-a79d"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-202f" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+              </categoryLinks>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntry>
+      </selectionEntries>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+      </costs>
+    </selectionEntry>
     <selectionEntry type="unit" import="true" name="Ghazghkull Thraka" hidden="false" id="4ea0-6b70-c17c-bc00">
       <comment>sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; hit=+1 when=melee whileLeading
 sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; wound=+1 when=melee whileLeading
@@ -30787,6 +30957,7 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Deffkoptas" hidden="false" id="6564-d296-e11a-6e19"/>
     <categoryEntry name="Flash Gitz" hidden="false" id="fe29-da32-d3db-1192"/>
     <categoryEntry name="Ghazghkull Thraka" hidden="false" id="ae9d-f74f-769c-5fc"/>
+    <categoryEntry name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2031"/>
     <categoryEntry name="Gorkanaut" hidden="false" id="e6c0-9d12-619e-7517"/>
     <categoryEntry name="Gretchin" hidden="false" id="b10e-5fe3-6f65-28ce"/>
     <categoryEntry name="Hunta Rig" hidden="false" id="6c11-1242-7b31-f64f"/>
@@ -30899,6 +31070,7 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <entryLink import="true" name="Deffkoptas" hidden="false" type="selectionEntry" id="a1db-c39f-ce22-5ec3" targetId="2d6e-aa3b-c28c-5ef0"/>
     <entryLink import="true" name="Flash Gitz" hidden="false" type="selectionEntry" id="585b-5a33-1b48-f990" targetId="1de9-b138-28a1-9c4b"/>
     <entryLink import="true" name="Ghazghkull Thraka" hidden="false" type="selectionEntry" id="473e-73f9-493d-6a0a" targetId="4ea0-6b70-c17c-bc00"/>
+    <entryLink import="true" name="Nazdreg" hidden="false" type="selectionEntry" id="0d1a-9f3b-7c40-2032" targetId="0d1a-9f3b-7c40-2001"/>
     <entryLink import="true" name="Gorkanaut" hidden="false" type="selectionEntry" id="c5a3-4245-9b6a-fb8" targetId="56d6-a7fc-fa08-4345"/>
     <entryLink import="true" name="Gretchin" hidden="false" type="selectionEntry" id="8e01-6763-69a8-a25a" targetId="de8f-24f9-c543-92b7"/>
     <entryLink import="true" name="Hunta Rig" hidden="false" type="selectionEntry" id="6c3-44bd-6ba4-5348" targetId="70de-d621-8465-f7b8"/>
