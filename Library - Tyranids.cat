@@ -3977,7 +3977,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">18</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+6</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
           </characteristics>
@@ -4181,13 +4181,9 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
         <categoryLink name="Monster" hidden="false" id="6160-b74b-d354-46d7" targetId="9693-cf84-fe69-37a9" primary="false"/>
         <categoryLink name="The Red Terror" hidden="false" id="17b5-88b1-8cee-5172" targetId="d60b-23a2-629e-dc7e" primary="false"/>
         <categoryLink name="Burrowers" hidden="false" id="8a97-6239-6b44-f696" targetId="9e1e-ad1d-e864-7164" primary="false"/>
+        <categoryLink targetId="32f4-b203-544e-7d36" id="2c0a-62b6-e4fd-1167" primary="false" name="Mobile"/>
       </categoryLinks>
       <profiles>
-        <profile name="Serpentine Fiend" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="903f-bed3-fca0-4cf7">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can move through terrain features, but cannot end a move within a wall, a floor, etc. This model can be set up or end a move on any floor level of **^^Ruins^^**, but if that level is not the ground floor, it can only do so if its base does not overhang the floor at that level.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Swallow Whole" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9ed6-ae2a-117d-e475">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack with this model’s gaping maw targets an **^^Infantry^^**, **^^Mounted^^** or **^^Beasts^^** unit, each successful unmodified Wound roll is a Critical Wound. Each time an **^^Infantry^^**, **^^Mounted^^** or **^^Beasts^^** model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.</characteristic>
@@ -4826,7 +4822,7 @@ In the Deploy Armies step, your opponent must set up their entire army before yo
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="875a-8354-9bf1-886d" type="max"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="1173-a18c-18fb-fac9" name="Instinctive Defense" hidden="false" collective="false" import="true" type="upgrade">
+            <selectionEntry id="1173-a18c-18fb-fac9" name="Instinctive Defence" hidden="false" collective="false" import="true" type="upgrade">
               <modifiers>
                 <modifier type="set" field="hidden" value="true">
                   <conditions>
@@ -4838,9 +4834,9 @@ In the Deploy Armies step, your opponent must set up their entire army before yo
                 <constraint field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="71f6-7bf3-d39d-79bf" type="max"/>
               </constraints>
               <profiles>
-                <profile id="c664-fd7d-1b66-2780" name="Instinctive Defense" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+                <profile id="c664-fd7d-1b66-2780" name="Instinctive Defence" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** model only. While the bearer is within 6&quot; of one or more **^^Harvester^^** units, you can target the bearer&apos;s unit with the Heroic Intervention Stratagem for 1 less CP. In addition, while the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, models in the bearer&apos;s unit have the Fights First ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** model only. While the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, when you target this unit with the Heroic Intervention Stratagem, that use is -1 CP. In addition, while the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, models in the bearer&apos;s unit have the Fights First ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5447,7 +5443,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
               <profiles>
                 <profile id="816c-af4d-ac5e-d3f7" name="Chameleonic" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Vanguard Invader^^** only. The bearer has the Stealth ability and each time a ranged attack targets the bearer&apos;s unit, models in that unit have the Benefit of Cover against that attack.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Vanguard Invader^^** model only. This unit has the Stealth ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -9926,7 +9922,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">18</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+6</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
                   </characteristics>
@@ -10315,7 +10311,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     </profile>
     <profile name="Will of the Hive Mind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13-98c1-d481-eb95">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
     <profile name="Feeder Tendrils" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3f46-6dbb-d99b-4ae2">
@@ -10369,5 +10365,6 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     <categoryEntry id="2917-4769-ded1-a00c" name="Neurotyrant" hidden="false"/>
     <categoryEntry name="Tyranid Prime with Lash Whip" id="6ed1-0e06-b0d6-0cc2" hidden="false"/>
     <categoryEntry name="The Red Terror" id="d60b-23a2-629e-dc7e" hidden="false"/>
+    <categoryEntry id="32f4-b203-544e-7d36" name="Mobile" hidden="false"/>
   </categoryEntries>
 </catalogue>
