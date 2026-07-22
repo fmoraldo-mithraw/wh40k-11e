@@ -4699,7 +4699,7 @@ sim-mod: source=&quot;Pestilent Familiar (Force weapon)&quot; str=+2 dmg=+2 once
             <condition field="selections" scope="8467-b3a2-2597-de0d" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="190">
+        <modifier type="set" field="51b2-306e-1021-d207" value="180">
           <conditions>
             <condition field="selections" scope="8467-b3a2-2597-de0d" value="8" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -6884,7 +6884,7 @@ sim-mod: source=&quot;Foul Infusion&quot; crit-hit=5 whileLeading</comment>
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="320" field="51b2-306e-1021-d207">
+        <modifier type="set" value="305" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="83e8-ebb7-785a-2115" childId="model" shared="true" id="657e-5957-a34-ce02" includeChildSelections="true"/>
           </conditions>
@@ -10044,6 +10044,14 @@ sim-mod: source=&quot;Froth-spattered Frenzy&quot; attacks=+2 when=melee conditi
       </infoLinks>
     </selectionEntry>
     <selectionEntry id="b899-92e2-693a-975f" name="Chaos Rhino" hidden="false" collective="false" import="true" type="model" publicationId="6bb4-8611-986f-58fa">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="b899-92e2-693a-975f" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4948-64ff-2ada-a602" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8801-69bd-8824-5745" includeChildSelections="false"/>
@@ -10143,7 +10151,7 @@ sim-mod: source=&quot;Froth-spattered Frenzy&quot; attacks=+2 when=melee conditi
         <entryLink import="true" name="Crusade" hidden="false" id="0129-dff5-1d82-fbe8" type="selectionEntryGroup" targetId="919f-cbc6-374b-3d02" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -10219,7 +10227,7 @@ sim-mod: source=&quot;Froth-spattered Frenzy&quot; attacks=+2 when=melee conditi
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Mortarion" hidden="false" id="f5ac-4f37-fe7b-36b6" publicationId="6bb4-8611-986f-58fa">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="400"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="390"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -14940,12 +14948,12 @@ sim-mod: source=&quot;Froth-spattered Frenzy&quot; attacks=+2 when=melee conditi
                 <entryLink import="true" name="Electroscourge" hidden="false" id="2c13-9a36-54c0-40aa" targetId="476f-f40d-f78b-4aa1" type="selectionEntry" sortIndex="4"/>
                 <entryLink import="true" name="Hades lascannon" hidden="false" id="93df-6359-5706-990d" targetId="2029-1d85-9d1b-307e" type="selectionEntry" sortIndex="2">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
                 <entryLink import="true" name="Heavy reaper autocannon" hidden="false" id="5504-cafe-9887-8607" type="selectionEntry" targetId="ade6-0a87-9a51-fb2e" sortIndex="3">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
               </entryLinks>
@@ -15131,15 +15139,15 @@ sim-mod: source=&quot;Froth-spattered Frenzy&quot; attacks=+2 when=melee conditi
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
-          <comment>repeat-cost: threshold=1 delta=30 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
+          <comment>repeat-cost: threshold=1 delta=40 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="bc88-0833-743e-0146" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="290"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
