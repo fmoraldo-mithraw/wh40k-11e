@@ -2185,7 +2185,9 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
 
 WHEN: Your opponent&apos;s Shooting phase, just after an enemy unit has selected its targets.
 TARGET: One THOUSAND SONS PSYKER unit from your army that was selected as the target of one or more of the attacking unit&apos;s attacks.
-EFFECT: Until the end of the phase, your unit has the Stealth ability, and, if your unit is wholly within your army&apos;s Flow of Magic, each time an attack targets your unit, it has the Benefit of Cover against that attack.</description>
+EFFECT: Until the end of the phase:
+- Your unit has the Stealth ability.
+- If your unit is wholly within your army&apos;s Flow of Magic, your unit has -3 detection range.</description>
                 </rule>
               </rules>
               <costs>
@@ -2260,9 +2262,7 @@ Psychic weapons equipped by ^^**Thousand Sons^^** models in your army have the [
                 <rule name="Warpmeld Sacrifice" id="051d-bef5-f9ed-7178" hidden="false">
                   <description>Each time an enemy unit is selected to shoot or fight and one or more ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^** units from your army are selected as a target of one or more of those attacks, each of those ^^**Tzeentch Mutant^^** units can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time an attack targets that unit, subtract 1 from the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.
 
-Each time a ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^*** unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.
-
-^^**Tzaangors^^** units from your army have the Battleline keyword, and while such a unit is not Battle-shocked, add 1 to the Objective Control characteristic of models in that unit.</description>
+Each time a ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^*** unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.</description>
                 </rule>
               </rules>
               <costs>
@@ -6095,12 +6095,12 @@ EFFECT: Your unit has MOBILE.</description>
         </profile>
         <profile id="3a97-0252-dc9f-86ed" name="Snarling Protector" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention stratagem, regardless of any other uses of that stratagem this phase. If you do:
-- That use is -1 CP.
-- That use does not prevent any uses of that stratagem on other units this phase.
-- When this unit declares a charge, if a friendly engaged ^^**Psyker^^** unit is within 12&quot; of this unit, you can use this part of this ability. If you do:
- - This unit can re-roll that charge roll.
- - This unit must end that charge move engaged with an enemy unit engaged with that friendly ^^**Psyker^^** unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do:
+  - That use is -1 CP.
+  - That use does not prevent any uses of that Stratagem on other units this phase.
+- When this unit declares a charge, if a friendly engaged **^^Psyker^^** unit is within 12&quot; of this unit, you can use this part of this ability. If you do:
+  - This unit can re-roll that Charge roll.
+  - This unit must end that charge move engaged with an enemy unit engaged with that friendly **^^Psyker^^** unit.</characteristic>
           </characteristics>
         </profile>
         <profile id="1415-fd19-a73c-67c1" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -11389,7 +11389,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
         </profile>
         <profile name="One Head Looks Back (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8d3c-9693-c0c1-e0a3">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12&quot; of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Damaged: 1-7 wounds remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eaed-b368-af61-f700">
@@ -11428,7 +11428,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
             <profile name="➤ Infernal Gateway - focused witchfire" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="cbfa-8cee-8e28-0ce2">
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+6</characteristic>
+                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3+6</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
@@ -13025,7 +13025,9 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
         </profile>
         <profile name="Destroyer of Futures" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4a4f-35c6-b9ee-b9f0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you target this unit with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ when resolving that Stratagem. For each of those attacks that targets an enemy unit within 9&quot; of one or more ^^**Thousand Sons Psyker**^^ units from your army, a hit is scored on an unmodified Hit roll of 4+ instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Destroyer of Futures (Once per phase, per unit):** You can target this unit with the Counter-offensive Stratagem, regardless of any other uses of that Stratagem this phase. If you do:
+- That use is -1 CP.
+- That use does not prevent any uses of that Stratagem on other units this phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -13037,11 +13039,6 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
         </infoLink>
         <infoLink name="Damaged: 1-6 wounds remaining" id="d803-145f-727b-3cd1" hidden="false" targetId="8edb-b088-4c26-2fef" type="profile"/>
         <infoLink name="Invulnerable Save (5+)" id="2248-2901-0665-aa0c" hidden="false" type="profile" targetId="27f4-7449-a636-ae8c"/>
-        <infoLink name="Feel No Pain" id="9331-1691-1f6c-ddce" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb">
-          <modifiers>
-            <modifier type="append" value="6+" field="name"/>
-          </modifiers>
-        </infoLink>
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Vehicle" hidden="false" id="5ff2-f350-0628-7470" targetId="dbd4-63-af05-998" primary="true"/>
@@ -13574,7 +13571,10 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
           <profiles>
             <profile id="b1af-8c27-eb4a-e124" name="Umbralefic Crystal" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in your Command phase, if the bearer&apos;s unit is not within Engagement Range of one or more enemy units, you can remove that unit from the battlefield and place it into Strategic Reserves. In the Reinforcements step of your next Movement phase, set that unit back up anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy units.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Thousand Sons^^** model only. (Once per battle, per army) In your Command phase, if this unit is unengaged, you can use this ability. If you do:
+- Place this unit in Strategic Reserves.
+- This unit has the Deep Strike ability until the start of your next Shooting phase.
+- This unit must make an ingress move in your next Movement phase (including in your first turn).</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -13662,7 +13662,7 @@ sim-mod: source=&quot;Eldritch Vortex of E&apos;taph&quot; str=+1 dmg=+1 scope=m
             </modifierGroup>
           </modifierGroups>
         </selectionEntry>
-        <selectionEntry id="1150-7501-d526-d373" name="Incandeum" hidden="false" collective="false" import="true" type="upgrade" sortIndex="6">
+        <selectionEntry id="1150-7501-d526-d373" name="Incandaeum" hidden="false" collective="false" import="true" type="upgrade" sortIndex="6">
           <modifiers>
             <modifier type="set" field="hidden" value="true">
               <conditions>
@@ -13684,7 +13684,7 @@ sim-mod: source=&quot;Eldritch Vortex of E&apos;taph&quot; str=+1 dmg=+1 scope=m
             <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="0849-fbad-17c7-cfca" type="max"/>
           </constraints>
           <profiles>
-            <profile id="a3a7-8d9c-4268-aec5" name="Incandeum" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+            <profile id="a3a7-8d9c-4268-aec5" name="Incandaeum" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
               <characteristics>
                 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Exalted Sorcerer^^** model only. Once per battle, when selecting a Ritual for the bearer to attempt, you can select Doombolt, even if a model from your army has already attempted to manifest that Ritual this phase.</characteristic>
               </characteristics>
@@ -13889,7 +13889,7 @@ sim-mod: source=&quot;Empyric Onslaught&quot; attacks=+3 when=ranged conditional
             <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
           </costs>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Diabolic Servant" hidden="false" id="5ccc-1a90-1727-663f" sortIndex="1">
+        <selectionEntry type="upgrade" import="true" name="Diabolic Savant" hidden="false" id="5ccc-1a90-1727-663f" sortIndex="1">
           <comment>Changehost</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
@@ -13912,7 +13912,7 @@ sim-mod: source=&quot;Empyric Onslaught&quot; attacks=+3 when=ranged conditional
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="9932-42c8-e1d8-00ce" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
           <profiles>
-            <profile name="Diabolic Servant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e4d0-035b-ed2c-24f2">
+            <profile name="Diabolic Savant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e4d0-035b-ed2c-24f2">
               <characteristics>
                 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While the bearer is within 6&quot; of one or more friendly ^^**Scintillating Legion^^** units, each time the bearer Channels the Warp, add 1 to the Psychic test result.</characteristic>
               </characteristics>
@@ -14099,7 +14099,7 @@ sim-mod: source=&quot;Empyric Onslaught&quot; attacks=+3 when=ranged conditional
           <profiles>
             <profile name="Bray Lord" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a110-db8c-505a-f515">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has the Scouts 6&quot; ability. During the Declare Battle Formations step, the bearer can be attached to a ^^**Tzaangors^^** unit.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Sorcerer^^** or **^^Infernal Master^^** model only. The bearer has the Scouts 6&quot; ability.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -14500,7 +14500,7 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
           <profiles>
             <profile id="7fc9-dcb1-106a-fb5b" name="Eruption of Vitality" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Infantry^^**/**^^Mounted^^** **^^Thousand Sons^^** **^^Psyker^^** model only. The first time this model is destroyed, at the end of the phase, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Infantry^^**/**^^Mounted^^** **^^Thousand Sons^^** **^^Psyker^^** model only. (Once per battle, per army) When this model is destroyed, at the end of the phase, roll one D6: on a 2+, set up this model on the battlefield, unengaged and as close as possible to where it was destroyed. This model is not part of an Attached unit and its unit has a Starting Strength of 1. This model has 3 wounds remaining.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -17892,7 +17892,7 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
   </catalogueLinks>
   <sharedRules>
     <rule name="Cabal of Sorcerers" id="b280-6105-5358-ba2e" hidden="false">
-      <description>If your army Faction is ^^**Thousand Sons^^**, at the start of your Shooting phase, one or more models from your army with this ability can attempt Rituals. To do so, select one model from your army with this ability that has not yet attempted a Ritual this turn and select one Ritual no model from your army has attempted to manifest this turn, then take a Psychic test by following the sequence below:
+      <description>If your army Faction is ^^**Thousand Sons^^**, at the start of your Shooting phase, one or more models from your army with this ability can attempt Rituals from those listed on the right. To do so, select one model from your army with this ability that has not yet attempted a Ritual this turn and select one Ritual no model from your army has attempted to manifest this turn, then take a Psychic test for that model by following the sequence below:
 
 1. Roll 2D6
 2. Optionally, roll one additional D6 (Channel the Warp). Then, if one or more doubles or triples were rolled during this test, that model&apos;s unit suffers D3 mortal wounds.
