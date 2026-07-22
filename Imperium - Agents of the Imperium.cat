@@ -172,7 +172,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="df0f-4613-7f90-31c6" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -351,7 +351,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="b178-2e42-4b6c-804f" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -650,7 +650,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="8a04-ccf3-9c4f-4e4e" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -7483,7 +7483,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -7496,6 +7496,12 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="ede2-ae50-5f5b-cced" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>
@@ -7691,7 +7697,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <categoryLink id="1f60-83bc-997c-99ac" name="Frame" hidden="false" targetId="5de4-e6e1-efb3-fdf0" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -7704,6 +7710,12 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="cbbd-8e0a-fd90-fa0d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>
@@ -7819,7 +7831,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sisters of Battle Squad" hidden="false" id="73fc-a193-7da1-d9c4" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Sister Superior" hidden="false" id="77e3-f07c-b387-8307" sortIndex="2">
@@ -8480,7 +8492,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sisters of Battle Immolator" hidden="false" id="a5c9-2cb7-d874-8169" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
       </costs>
       <categoryLinks>
         <categoryLink name="Dedicated Transport" hidden="false" id="fce7-bd2c-1499-5f69" targetId="ba07-411c-2832-1f79" primary="true"/>
@@ -8673,6 +8685,12 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="a5c9-2cb7-d874-8169" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>

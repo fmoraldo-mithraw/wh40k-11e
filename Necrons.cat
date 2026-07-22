@@ -4863,6 +4863,14 @@ in its place, with all of its wounds remaining (if the selected model was leadi
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Skorpekh Lord" hidden="false" id="c401-d95f-c5ce-7738">
       <comment>sim-mod: source=&quot;United In Destruction&quot; lethal when=melee whileLeading</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="c401-d95f-c5ce-7738" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
@@ -6567,7 +6575,7 @@ sim-mod: source=&quot;Driven by Hatred&quot; reroll=wound conditional scope=mode
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="ee0-cf31-4fb5-6b26" id="c36e-df90-fe41-9e1d" primary="false" name="Faction: Necrons"/>
@@ -7420,7 +7428,7 @@ sim-mod: source=&quot;Driven by Hatred&quot; reroll=wound conditional scope=mode
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Canoptek Reanimator" hidden="false" id="7c45-2aab-7526-febe">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <infoLinks>
         <infoLink name="Detachment Rules" hidden="false" type="infoGroup" id="d6f3-5b5b-8ab5-4c5a" targetId="4ee-d749-4ddc-323d"/>
@@ -11273,7 +11281,7 @@ sim-mod: source=&quot;Whirling Onslaught&quot; reroll=hit when=melee onCharge ch
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -11508,7 +11516,7 @@ sim-mod: source=&quot;Whirling Onslaught&quot; reroll=hit when=melee onCharge ch
             <condition type="atLeast" value="3" field="selections" scope="6f72-b8f7-fd8d-5c2c" childId="model" shared="true" id="37a3-66bd-b138-9f7f" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="170" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="6f72-b8f7-fd8d-5c2c" childId="model" shared="true" id="37a3-66bd-b138-9f7f" includeChildSelections="true"/>
           </conditions>
@@ -12890,7 +12898,7 @@ That unit can embark within this **^^Transport^^** in a turn it disembarked from
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="445"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="465"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -13381,7 +13389,7 @@ That unit can embark within this **^^Transport^^** in a turn it disembarked from
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="The Silent King" hidden="false" id="7422-7fbf-8694-364c">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="400"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="420"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -16223,7 +16231,7 @@ That unit can embark within this **^^Transport^^** in a turn it disembarked from
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Nekrosor Ammentar" hidden="false" id="1d4b-a179-ae99-3283">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="185"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>

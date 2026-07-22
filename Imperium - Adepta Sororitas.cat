@@ -2074,10 +2074,10 @@ EFFECT: - Your unit&apos;s ranged attacks have [ASSAULT] until the end of the tu
             <condition field="selections" scope="f1af-4984-1a52-c5" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=1 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="f1af-4984-1a52-c5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="f1af-4984-1a52-c5" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -2913,7 +2913,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3517,7 +3517,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3764,7 +3764,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Imagifier" hidden="false" id="3ad3-558b-29f9-2e45" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="9fd0-5b82-2e71-1519" primary="false" name="Infantry"/>
@@ -4013,15 +4013,15 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Immolator" hidden="false" id="1001-80ff-c9a8-5d9b" publicationId="7d85-6d0f-57e0-5dea">
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+          <comment>repeat-cost: threshold=3 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="1001-80ff-c9a8-5d9b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -4291,7 +4291,7 @@ At the start of the Declare Battle Formations step, you can select one BATTLE SI
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Junith Eruita" hidden="false" id="8f9a-8a8b-2539-547f" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -4434,6 +4434,7 @@ of your Command phase, you can choose one of the following:
             <entryLink import="true" name="" hidden="true" id="e85f-3bfe-f021-45f9" type="selectionEntry" targetId="d929-b22d-3040-9707"/>
             <entryLink import="true" name="" hidden="true" id="b114-38e0-8f1d-522b" type="selectionEntry" targetId="c49d-f150-4b3-c118"/>
             <entryLink import="true" name="" hidden="true" id="e565-53c9-d4e4-1f80" type="selectionEntry" targetId="4269-a229-1461-67d0"/>
+            <entryLink import="true" name="" hidden="true" id="eff7-954f-8a34-e57a" type="selectionEntry" targetId="e286-849d-8f74-75e6"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -4855,7 +4856,7 @@ of your Command phase, you can choose one of the following:
       <comment>sim-mod: source=&quot;Abbess Sanctorum&quot; reroll=hit reroll=wound whileLeading
 sim-mod: source=&quot;Righteous Repugnance&quot; attacks=+3 conditional scope=model</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="185"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -6549,14 +6550,14 @@ sim-mod: source=&quot;Righteous Repugnance&quot; attacks=+3 conditional scope=mo
         </profile>
       </profiles>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="140" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="7d63-7b55-a632-6a10" childId="model" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7309,14 +7310,14 @@ sim-mod: source=&quot;Storm of Retribution&quot; hit=+1 wound=+1 when=ranged con
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="150" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="bee9-172b-7db7-f748" childId="model" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7548,7 +7549,7 @@ sim-mod: source=&quot;Storm of Retribution&quot; hit=+1 wound=+1 when=ranged con
     <selectionEntry type="unit" import="true" name="Sisters Novitiate Squad" hidden="false" id="4269-a229-1461-67d0" publicationId="7d85-6d0f-57e0-5dea">
       <comment>sim-mod: source=&quot;Impetuous Fervour&quot; reroll=hit1</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="ff54-8cc1-926a-8b3e" primary="true" name="Infantry"/>
@@ -7844,8 +7845,16 @@ sim-mod: source=&quot;Storm of Retribution&quot; hit=+1 wound=+1 when=ranged con
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sororitas Rhino" hidden="false" id="52c7-3f6b-cece-8101">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="52c7-3f6b-cece-8101" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="6c85-722c-b155-13b2" primary="true" name="Dedicated Transport"/>
@@ -8314,16 +8323,22 @@ If this unit made a Charge move this turn, until the end of the phase, select bo
         </profile>
       </profiles>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="150" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="22f0-a7d8-b2b6-e26" childId="model" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="22f0-a7d8-b2b6-e26" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -11285,7 +11300,7 @@ sim-mod: source=&quot;Daemonbreaker&quot; reroll=hit reroll=wound vs=Daemon scop
         </profile>
       </profiles>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -12086,7 +12101,7 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7aae-71d5-437c-0aaf" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
@@ -12116,7 +12131,7 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="e1da-aa03-83de-a39e" includeChildSelections="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Verse of Holy Piety" hidden="false" id="5393-e3e0-d4d2-efc8">
@@ -12162,7 +12177,7 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2ae2-8696-2719-db51" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
