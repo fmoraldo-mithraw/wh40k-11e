@@ -2,13 +2,9 @@
 <catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="d81a-61dd-6d27-a3ce" name="Xenos - T&apos;au Empire" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="160" battleScribeVersion="2.03" authorContact="Dunamis55 &amp; AbonShell" authorName="BSData Developers" type="catalogue">
   <rules>
     <rule name="For The Greater Good" hidden="false" id="eeb6-c42-48f7-cc21">
-      <description>If your Army Faction is **^^T&apos;au Empire^^**, at the start of your Shooting phase you can select units from your army with this ability to become Observer units.
+      <description>If your Army Faction is **^^T&apos;au Empire^^**, at the start of your Shooting phase you can select units from your army with this ability to become Observer units. During your Shooting phase, for each Observer unit from your army that has not been selected to shoot this phase and is eligible to shoot (excluding **^^Fortification^^** and Battle-shocked units) select one enemy unit that is visible to be marked as their Spotted unit until the end of the phase. Each enemy unit can only be marked as a Spotted unit once per phase.
 
-During your Shooting phase, for each Observer unit from your army that has not been selected to shoot this phase and is eligible to shoot (excluding **^^Fortification^^** and Battle-shocked units), select one enemy unit that is visible to be marked as their Spotted unit until the end of the phase. Each enemy unit can only be marked as a Spotted unit once per phase.
-
-Units from your army with the For the Greater Good ability (excluding Observer units) are Guided units while targeting one or more Spotted units.
-
-Until the end of the phase, each time a model from your army in a Guided unit makes an attack that targets a Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if the Spotted unit was marked by an Observer unit that has the **^^Markerlight^^** keyword, that attack has the **[IGNORES COVER]** ability.</description>
+Units from your army with the For the Greater Good ability (excluding Observer units) are Guided units while targeting one or more Spotted units. Until the end of the phase, each time a model from your army in a Guided unit makes an attack that targets a Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if the Spotted unit was marked by an Observer unit that has the **^^Markerlight^^** keyword, that attack has the **[IGNORES COVER]** ability.</description>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>
@@ -6008,6 +6004,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <categoryLink targetId="3d58-2655-391e-ecc" id="1106-8db0-bac3-adb4" primary="false" name="Faction: T&apos;au Empire"/>
         <categoryLink targetId="69ad-9250-6e74-46ff" id="4115-1bf6-c083-c701" primary="false" name="Piranha"/>
         <categoryLink name="Non-Kroot" hidden="false" id="b280-f476-a7dc-b875" targetId="4814-7b6d-aea6-4228" primary="false"/>
+        <categoryLink targetId="90fc-c09e-9d1a-438c" id="69fc-518b-37b7-e47d" primary="false" name="Frame"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="7a88-f34a-e77b-4945" targetId="b68a-5ded-65ac-98c">
@@ -7404,7 +7401,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
-                    <profile name="➤ Ion accelerator - overcharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="994d-2bc4-8b8b-37ba">
+                    <profile name="➤ Ion accelerator - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="994d-2bc4-8b8b-37ba">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">72&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
@@ -8671,7 +8668,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Pulse Bombs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a89-4e93-ec68-d5b6">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 4+, that unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Fight phase, select one visible enemy unit (excluding **^^Lone Operative^^** units) within 24&quot; of this unit, and roll six D6 for that unit: for each 4+, that unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -18428,7 +18425,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <profiles>
         <profile name="Neocapacitor Shields" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="faa8-1253-136d-3d91">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent’s Charge phase, you can select one enemy unit (excluding **^^Monster^^** and **^^Vehicle^^** units) within 12&quot; of this unit. That unit must take a Battle‑shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent&apos;s Charge phase, you can select one visible enemy unit (excluding **^^Monster^^** and **^^Vehicle^^** units) within 12&quot; of this unit. That unit must take a Battle-shock test and, until the end of the turn, subtract 1 from Charge rolls made for that unit.</characteristic>
           </characteristics>
         </profile>
         <profile name="Exemplars of Mont’ka" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7739-b230-6835-8caf">
@@ -18725,7 +18722,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <profiles>
         <profile name="Homing Beacon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1333-60c8-37d2-1a4d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3&quot; of the bearer’s unit and more than 9&quot; away from all enemy units.
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3&quot; of the bearer’s unit and more than 8&quot; away from all enemy units.
 **Designer’s Note:** *Place a Homing Beacon token next to this unit, removing it once this ability is used.*</characteristic>
           </characteristics>
         </profile>
@@ -19217,7 +19214,7 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
               <profiles>
                 <profile name="Through Unity, Devastation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aee6-81be-fb90-7ea5">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^T’au Empire^^** model only (excluding **^^Kroot Shaper^^** models). While this model is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the **[LETHAL HITS]** ability while targeting their Spotted unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^T&apos;au Empire^^** model only (excluding **^^Kroot Shaper^^** models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the **[LETHAL HITS]** ability while targeting their Spotted unit.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19324,7 +19321,7 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
               <profiles>
                 <profile name="Strike Swiftly" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb4f-b0ba-2931-feca">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^T&apos;au Empire^^** model only. In the Resolve Pre-battle Abilities step, you can select up to two friendly **^^T&apos;au Empire^^** units within 6&quot; of the bearer that do not have the Scouts ability. Until the end of the battle, all models in the selected units have the Scouts 6&quot; ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Resolve Pre-battle Abilities step, you can select up to two friendly **^^T&apos;au Empire^^** units within 6&quot; of this model that do not have the Scouts ability. Until the end of the battle, all models in the selected units have the Scouts 6&quot; ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19381,7 +19378,7 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
               <profiles>
                 <profile name="Coordinated Exploitation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9c36-d98a-7612-eb7f">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^T’au Empire^^** model only (excluding **^^Kroot Shaper^^** models). While this model is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the **[SUSTAINED HITS 1]** ability while targeting their Spotted unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^T&apos;au Empire^^** model only (excluding **^^Kroot Shaper^^** models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the **[SUSTAINED HITS 1]** ability while targeting their Spotted unit.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -20113,7 +20110,7 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
           <rules>
             <rule name="Patient Hunter" id="317c-3f1d-9993-b610" hidden="false">
               <comment>sim-mod: source=&quot;Patient Hunter&quot; sustained=1 when=ranged conditional</comment>
-              <description>During the third, fourth, and fifth battle rounds, ranged weapons equipped by **^^T’au Empire^^** models from your army have the **[SUSTAINED HITS 1]** ability. During the third, fourth and fifth battle rounds, while a unit is a Guided unit (see For the Greater Good), each time a ranged attack is made by a model in that unit that targets a Spotted unit, you can ignore any or all modifiers to that attack’s Ballistic skill characteristics and/or all modifiers to the Hit roll.</description>
+              <description>During the third, fourth and fifth battle rounds, ranged weapons equipped by **^^T&apos;au Empire^^** models from your army have the **[SUSTAINED HITS 1]** ability. During the third, fourth and fifth battle rounds, while a unit is a Guided unit (see For the Greater Good), each time a ranged attack is made by a model in that unit that targets a Spotted unit, you can ignore any or all modifiers to that attack&apos;s Ballistic Skill characteristic and/or all modifiers to the Hit roll.</description>
             </rule>
           </rules>
           <infoLinks>
