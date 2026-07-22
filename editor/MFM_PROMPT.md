@@ -225,7 +225,41 @@ Pièges d'audit associés :
   bibliothèque Daemons (Khorne/Tzeentch/Nurgle/Slaanesh Soul Grinder) —
   vérifier les 4.
 
-### 4. Ne jamais déclarer un résiduel « expliqué » sans preuve
+### 4. Détachements : DP, Force Disposition, UNIQUE — à auditer aussi
+
+Oublié lors de la passe 22-07 (rattrapé après coup) : le MFM porte pour
+chaque détachement un **coût DP**, une **Force Disposition** et un
+éventuel mot-clef **UNIQUE** — et GW les **rebalance** d'une édition à
+l'autre (22-07 : ~75 changements de FD/DP, dont des retraits de UNIQUE
+« unique tag removed »). Contrôle systématique obligatoire (script type
+`det_check`) : comparer `det_meta` du dump (dp/fd/unique) à l'entrée de
+détachement du repo. Pièges :
+- le **même détachement partagé** peut avoir un **DP différent selon le
+  chapitre** (Stormlance 3 en SM/DA/SW mais 2 en BT/BA/DW ; Bastion 3 en
+  BT) — encodé par modifier `set` sur le champ DP conditionné
+  `primary-catalogue` (marqueur `chapter-cost:`) : un checker qui ne lit
+  que le coût de base sort des faux positifs ;
+- noms : « Ordo Hereticus, Purgation Force » (MFM) = « Purgation Force
+  (Ordo Hereticus) » (repo) ; ne pas confondre avec les **Specialisms**
+  d'Inquisiteur qui portent les mêmes noms courts « Ordo Malleus »… ;
+- le champ `unique` du dump est préfixé « UNIQUE: » et vaut parfois
+  « UNIQUE TAG REMOVED » (= retirer le `<comment>unique-detachment:`).
+
+### 5. Le dossier Drive contient plus que les faction packs
+
+Le dossier `W40k/mfm` du 22-07 contenait aussi
+`…universal_rules_updates….pdf` (mises à jour de règles **universelles**,
+hors packs) — oublié lors de la première passe. Toujours **lister le
+dossier entier** et rapprocher chaque PDF de la liste traitée. Les règles
+universelles sont des errata « par motif » (ex. « for 0CP » sans nom de
+stratagème → réduction 1CP) : chercher les motifs dans TOUS les fichiers
+(.cat **et** .gst), en n'appliquant qu'aux textes qui matchent vraiment
+(la plupart des « for 0CP » noment leur stratagème et restent valides).
+Noter aussi : un pack absent du dossier (Astra Militarum, Deathwatch) ou
+daté d'une édition antérieure (Blood Angels 08-06) = pas de rules updates
+à appliquer pour cette faction, points MFM seulement.
+
+### 6. Ne jamais déclarer un résiduel « expliqué » sans preuve
 
 Chaque ligne restante de l'audit doit avoir une explication **vérifiée
 dans le XML** (prix par modèle, copie Crusade, homonyme multi-détachement,
