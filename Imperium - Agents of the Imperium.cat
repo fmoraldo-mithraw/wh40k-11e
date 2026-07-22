@@ -37,7 +37,7 @@
         <profile name="Dead-shot" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="27d2-74da-5c1-a8e">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to shoot, until this unit has shot:
-- Enemy units do not have Lone Operative.
+- Enemy units do not have the Lone Operative ability.
 - Hidden enemy units have +15&quot; detection range.</characteristic>
           </characteristics>
         </profile>
@@ -639,7 +639,10 @@
         </profile>
         <profile name="Acrobatic Escape" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="812f-ed2e-6abf-35be">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if this model is within Engagement Range of one or more enemy units, it can make a Fall Back move of up to D6&quot;. In addition, at the end of your opponent&apos;s turn, if this model is not within 3&quot; of one or more enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 8&quot; horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- At the end of the Fight phase, if this unit is engaged, this unit can make a fall-back move of up to D6&quot;.
+- At the end of your opponent&apos;s turn, if this unit is more than 3&quot; from all enemy units, you can use this ability. If you do:
+  - Place this unit in Strategic Reserves.
+  - This unit must make an ingress move in your next Movement phase (including in your first turn).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6205,20 +6208,6 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b98d-1816-077d-ebf5"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="81ec-cad8-1327-b375">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="a4ab-c951-e03b-e776"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="7d1d-fbe0-2c50-adc1" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
-            <entryLink import="true" name="" hidden="true" id="68bd-acf9-c2e7-0744" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
-            <entryLink import="true" name="" hidden="true" id="28b6-a211-0634-6f4b" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
-            <entryLink import="true" name="" hidden="true" id="664f-5327-a737-5744" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="a5e0-2b46-534f-230d" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
-            <entryLink import="true" name="" hidden="true" id="e0c9-a9f7-ac1a-0db1" type="selectionEntry" targetId="73fc-a193-7da1-d9c4"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="c560-3240-894e-fc92">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -6254,14 +6243,6 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <profile name="Holy Hatred" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3eab-db6a-2f7f-e2df">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, melee weapons equipped by that unit have the [SUSTAINED HITS 1] ability.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af86-3df0-97e2-9c6a">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units: INQUISITORIAL AGENTS, IMPERIAL NAVY BREACHERS, SUBDUCTOR SQUAD, EXACTION SQUAD, VIGILANT SQUAD, SISTERS OF BATTLE SQUAD.
-
-
-*You can attach this model to an INQUISITORIAL AGENTS unit, even if one INQUISITOR unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strength.*</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="642a-d960-c946-78e2">
@@ -7667,7 +7648,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
       <profiles>
         <profile name="Imperial Rhino" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="9b87-7144-a334-0498">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 AGENTS OF THE IMPERIUM INFANTRY models. It cannot transport TERMINATOR or OFFICIO ASSASSINORUM models.</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 **^^Agents of the Imperium^^** **^^Infantry^^** models. It cannot transport **^^Terminator^^** or **^^Officio Assassinorum^^** models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Imperial Rhino" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3b22-872c-e7c5-3578">
