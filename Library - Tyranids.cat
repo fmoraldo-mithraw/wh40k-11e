@@ -2409,6 +2409,14 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Tyrannocyte" hidden="false" id="fada-677a-f6a4-cd12">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="fada-677a-f6a4-cd12" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="e23f-a3dc-eb2c-308" primary="true" name="Dedicated Transport"/>
         <categoryLink targetId="75e8-57c4-40e3-1817" id="f184-84ec-396a-9059" primary="false" name="Transport"/>
@@ -2420,7 +2428,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
         <categoryLink targetId="5ff0-d52d-e2b8-9de" id="c8f2-e34f-dfae-991e" primary="false" name="Vanguard Invader"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="a544-4bb5-d13-36ae" targetId="b68a-5ded-65ac-98c">
@@ -2593,10 +2601,10 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     <selectionEntry type="unit" import="true" name="Von Ryan&apos;s Leapers" hidden="false" id="9bd8-ac8c-2d3b-79f6">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="120" field="51b2-306e-1021-d207">
+        <modifier type="set" value="105" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="3" field="selections" scope="9bd8-ac8c-2d3b-79f6" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
@@ -5364,7 +5372,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
             <selectionEntry id="9902-e31e-b3e6-b7ab" name="Neuronode" hidden="false" collective="false" import="true" type="upgrade">
