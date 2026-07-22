@@ -3181,10 +3181,10 @@ EFFECT: Until the end of the turn, your unit is eligible to declare a charge in 
             <selectionEntry type="upgrade" import="true" name="Cabal of Chaos" hidden="false" id="9e8b-efe2-7ff2-6b36">
               <rules>
                 <rule name="Empyric Wellspring" id="e027-6e15-ddbd-194c" hidden="false">
-                  <description>▪ In your Shooting phase, when a friendly **^^Heretic Astartes^^** **^^Psyker^^** unit (excluding **^^Daemon^^** units) is selected to shoot, if that unit makes a Dark Pact, that unit&apos;s ranged attacks have +1 S.
-
-
-▪ In the Fight phase, when a friendly **^^Heretic Astartes^^** **^^Daemon Prince^^** unit (excluding **^^Khorne^^** units) is selected to fight, if that unit makes a Dark Pact, that unit&apos;s melee attacks have +2 S and +1 AP.</description>
+                  <description>- In your Shooting phase, when a friendly **^^Heretic Astartes^^** **^^Psyker^^** unit (excluding **^^Daemon^^** units) is selected to shoot, if that unit makes a Dark Pact, that unit&apos;s ranged attacks have +1 S.
+- In the Fight phase, when a friendly **^^Heretic Astartes^^** **^^Daemon Prince^^**/**^^Daemon Prince with Wings^^** unit (excluding **^^Khorne^^** units) is selected to fight, if that unit makes a Dark Pact, that unit&apos;s melee attacks have:
+  - +2 S.
+  - +1 AP.</description>
                 </rule>
                 <rule name="Infernal Vigour (Stratagem, 1CP)" id="1d4f-b725-e212-d4c0" hidden="false">
                   <description>Cabal of Chaos – STRATAGEM (1CP)
@@ -4742,7 +4742,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
               <profiles>
                 <profile id="1277-897a-f1c6-41dc" name="The Chirurgeon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
                   <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">The first time this unit&apos;s **^^Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
@@ -6396,7 +6396,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile id="31b3-9fc9-8f5-b2f2" name="Corrupt Machine Spirits" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Shooting phase, select one visible enemy ^^**Vehicle^^** unit within 12&quot; of this model and roll one D6: on a 2‑3, that enemy unit suffers D3 mortal wounds; on a 4‑5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Shooting phase, select one visible enemy **^^Vehicle^^** unit within 12&quot; of this model and roll one D6: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile id="6e52-feca-f575-e5ae" name="Spirit Thief" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -9995,15 +9995,6 @@ sim-mod: source=&quot;Warp-sighted Butcher&quot; reroll=wound when=melee whileLe
 sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <profiles>
-        <profile id="e4c4-4418-a864-289b" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-■ CHOSEN
-■ LEGIONARIES
-
-You can attach this model to one of the above units even if one other CHARACTER model has already been attached to it (a unit cannot have two MASTERS OF EXECUTIONS attached to it). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
-          </characteristics>
-        </profile>
         <profile id="2ffd-423f-c721-1b75" name="Warp-sighted Butcher" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes a melee attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that unit is Below Half-strength, you can re-roll the Wound roll as well.</characteristic>
@@ -10107,16 +10098,6 @@ You can attach this model to one of the above units even if one other CHARACTER 
                 </selectionEntryGroup>
               </selectionEntryGroups>
             </entryLink>
-          </entryLinks>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="26db-ae16-2f6c-d2f0">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="9e27-fa44-bd16-6598"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="47eb-df0a-a7aa-99d4" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
-            <entryLink import="true" name="" hidden="true" id="786d-730a-53ca-eda9" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="717e-4950-c028-8c2d">
@@ -13041,7 +13022,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       <profiles>
         <profile id="1d0e-bd07-97ab-6322" name="Warp Rift Firepower" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit&apos;s ranged attacks have [INDIRECT FIRE].</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Warp Rift Firepower (Once per battle, per unit):** In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit&apos;s ranged attacks have **[INDIRECT FIRE]**.</characteristic>
           </characteristics>
         </profile>
         <profile id="54b2-a2e1-aea7-7662" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -13431,7 +13412,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-VEHICLE 4+, Devastating Wounds</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-vehicle 4+, Devastating Wounds</characteristic>
               </characteristics>
             </profile>
             <profile id="36fe-1591-b0c1-c64a" name="➤ Vashtorr&apos;s hammer - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
@@ -13442,7 +13423,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-VEHICLE 4+, Devastating Wounds</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-vehicle 4+, Devastating Wounds</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -29556,9 +29537,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile name="Daemonforge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="68ed-ed87-1f92-c6e6">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1. In addition, once per battle, when this unit makes a Dark Pact, before making the resulting Leadership test, you can declare it will overcharge its daemonforge. If it does: 
-- If the resulting Leadership test is failed, this model suffers 3 mortal wounds instead of D3 mortal wounds.
-- Until the end of the phase, each time this model makes an attack, you can re-roll the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -31683,8 +31662,7 @@ While the bearer’s unit is within range of one or more objective markers you c
           <profiles>
             <profile name="Sorrowscent Vulture" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e43-c5b8-0f99-cb0f">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Models in the bearer’s unit have the Scouts 6&quot; ability.
-In the Declare Battle Formations step, the bearer can be attached to a Warp Talons unit.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Chaos Lord^^** **^^Jump Pack^^** model only. Models in the bearer&apos;s unit have the Scouts 6&quot; ability.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -34615,7 +34593,7 @@ sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model<
             </profile>
             <profile name="Dark Destiny" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="457b-2f4d-782e-cf4c">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After each battle, in the Update Crusade Cards step, if your **^^Warband Champion^^** model destroyed one or more enemy units during that battle, roll one D6. On a 6, your **^^Warband Champion^^** gains one Battle Honour of your choice, and change the Leadership characteristic of that model to 5+. Your **^^Warband Champion^^** can gain a maximum of 3 Battle Honours using this Favoured Reward.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model&apos;s unit makes a Dark Pact and does not fail the resulting Leadership roll, if the result of that roll was 7+, you gain 1CP.</characteristic>
               </characteristics>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
@@ -35392,11 +35370,11 @@ sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model<
                 <profile name="Impaler chainglaive" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7557-0639-809d-329a">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lance</characteristic>
                   </characteristics>
                 </profile>
