@@ -33,7 +33,7 @@
         <categoryLink targetId="226b-cf1e-353a-ae7f" id="3557-8594-f4c8-b24" primary="false" name="Faction: Genestealer Cults"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -46,7 +46,7 @@
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="eb75-f909-ff48-8419" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="300" field="51b2-306e-1021-d207">
+        <modifier type="set" value="280" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="f51d-bc51-f301-9dee" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
           </conditions>
@@ -1010,7 +1010,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b43b-f9b5-c31c-0b0b" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="150" field="51b2-306e-1021-d207">
+        <modifier type="set" value="140" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="a197-f6c3-5d4a-5326" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
           </conditions>
@@ -1659,7 +1659,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <categoryLink targetId="7850-cc5a-c191-b80d" id="4ea6-cb61-2794-e92f" primary="false" name="Great Devourer"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -1675,9 +1675,15 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e9f3-1bf3-d233-8efb" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="150" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="self" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+          <comment>MFM 22-07: 5 Jackals + 4 Wolfquads = 160 pts (les Wolfquads priment sur le palier 10 Jackals)</comment>
+          <conditions>
+            <condition type="atLeast" value="1" field="selections" scope="self" childId="de61-4088-f84c-24a5" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
@@ -3140,6 +3146,14 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Goliath Truck" hidden="false" id="1d1-f0d2-b810-12fe">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="1d1-f0d2-b810-12fe" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <categoryLinks>
         <categoryLink targetId="c45f-f232-3ef0-3ab7" id="b32f-d872-f845-622e" primary="false" name="Goliath Truck"/>
         <categoryLink targetId="226b-cf1e-353a-ae7f" id="89cd-f54-28be-39fd" primary="false" name="Faction: Genestealer Cults"/>
@@ -3150,7 +3164,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <categoryLink id="76a6-7de8-187e-054b" name="Frame" hidden="false" targetId="1c6d-487f-418a-aee2" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="ce3c-3b3b-f90d-e13" includeChildSelections="true" includeChildForces="true"/>
@@ -3445,7 +3459,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c281-bf7e-5142-0db5" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="150" field="51b2-306e-1021-d207">
+        <modifier type="set" value="140" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="8a84-a8fd-977e-9118" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
           </conditions>
@@ -4804,7 +4818,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="63ca-1b4a-9ca8-b9e3" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="145" field="51b2-306e-1021-d207">
+        <modifier type="set" value="135" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="10" field="selections" scope="b5d2-8681-6bba-f05b" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
           </conditions>
@@ -6300,7 +6314,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         <categoryLink targetId="7850-cc5a-c191-b80d" id="1fc7-d9af-945c-b364" primary="false" name="Great Devourer"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ce3c-3b3b-f90d-e13" includeChildSelections="true" includeChildForces="true"/>
@@ -6520,6 +6534,14 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Reductus Saboteur" hidden="false" id="4565-bd65-9e8b-284d">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="4565-bd65-9e8b-284d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <categoryLinks>
         <categoryLink targetId="5455-1687-f81e-b3c5" id="5893-55e8-cff7-3360" primary="false" name="Reductus Saboteur"/>
         <categoryLink targetId="226b-cf1e-353a-ae7f" id="4502-4f6f-5bf3-6385" primary="false" name="Faction: Genestealer Cults"/>
