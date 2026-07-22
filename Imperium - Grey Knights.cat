@@ -1528,15 +1528,9 @@ sim-mod: source=&quot;Eye of Judgement&quot; reroll=wound scope=model</comment>
             <condition type="atLeast" value="6" field="selections" scope="a037-a89c-f59f-8b1e" childId="model" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="375" field="51b2-306e-1021-d207">
+        <modifier type="set" value="360" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="9" field="selections" scope="a037-a89c-f59f-8b1e" childId="model" shared="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
-          <conditions>
-            <condition type="atLeast" value="4" field="selections" scope="roster" childId="a037-a89c-f59f-8b1e" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -2592,7 +2586,7 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Grand Master Voldus" hidden="false" id="7256-bb3a-3e79-31fe">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3388,8 +3382,16 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Razorback" hidden="false" id="841f-98b-fbf3-c8ee">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="841f-98b-fbf3-c8ee" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="88ad-5f29-ba09-9427" id="1f3-5245-3cc2-e6cf" primary="false" name="Razorback"/>
@@ -3569,8 +3571,16 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Rhino" hidden="false" id="5ffd-f698-a1bb-fba7">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="5ffd-f698-a1bb-fba7" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -6740,14 +6750,14 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Strike Squad" hidden="false" id="d81f-c9ac-e338-ba37">
       <modifiers>
-        <modifier type="set" value="240" field="51b2-306e-1021-d207">
+        <modifier type="set" value="230" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="d81f-c9ac-e338-ba37" childId="model" shared="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="103f-a8cd-8c1f-24df" id="a64-53d7-6787-e0a5" primary="false" name="Strike Squad"/>
