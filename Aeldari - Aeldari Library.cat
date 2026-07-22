@@ -1795,7 +1795,7 @@ While this model is leading a Striking Scorpions unit, it has the Infiltrators, 
         </profile>
         <profile id="b0c4-6b2b-96e1-d492" name="Cloudstrider" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, at the end of your opponent&apos;s turn, if that unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves. In addition, while this model is leading a unit, when that unit is set up on the battlefield using the Deep Strike ability in your Movement phase, it can use this ability. If it does, that unit can be set up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy models, but until the end of the turn, it is not eligible to declare a charge.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, at the end of your opponent&apos;s turn, if that unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves. In addition, while this model is leading a unit, when that unit is set up on the battlefield using the Deep Strike ability, in your Movement phase, it can use this ability. If it does, that unit can be set up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy models, but until the end of the turn, it is not eligible to declare a charge.</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
@@ -4949,9 +4949,11 @@ sim-mod: sustained=3 source=&quot;Cruel Amusement&quot; when=ranged choice=&quot
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8e59-8a27-382f-ebbb">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-■ Guardian Defenders
-■ Storm Guardians
-■ Warlock Conclave</characteristic>
+- **^^Guardian Defenders^^**
+- **^^Storm Guardians^^**
+- **^^Warlock Conclave^^**
+
+If this model is not already attached to a unit, you can attach this model to a unit, even if one **^^Warlocks^^** unit has already been attached to it.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5110,6 +5112,7 @@ sim-mod: sustained=3 source=&quot;Cruel Amusement&quot; when=ranged choice=&quot
         <categoryLink id="b097-31d3-46f8-a860" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="ef87-b163-b5dd-274f" primary="false" name="Aeldari"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="00ca-c030-0a45-8368" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="b65c-4e77-c3b9-aa7c" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
@@ -5141,7 +5144,7 @@ sim-mod: sustained=3 source=&quot;Cruel Amusement&quot; when=ranged choice=&quot
         </profile>
         <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="da78-79ae-395d-f521">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 6 **^^Aeldari Infantry^^** models. Each **^^Wraith Construct^^** model takes up the space of 2 models. It cannot transport **^^Jump Pack^^** models or **^^Ynnari^^** models (excluding **^^Asuryani^^**, **^^Yvraine^^** and **^^The Visarch^^** models).</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 6 **^^Aeldari^^** **^^Infantry^^** models. Each **^^Wraith Construct^^** model takes the space of 2 models. It cannot transport **^^Jump Pack^^** models or **^^Ynnari^^** models (excluding **^^Asuryani^^**, **^^Yvraine^^** and **^^The Visarch^^** models).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5399,9 +5402,9 @@ sim-mod: sustained=3 source=&quot;Cruel Amusement&quot; when=ranged choice=&quot
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b5a6-cb04-951e-3c0e">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-■ Guardian Defenders
-■ Storm Guardians
-■ Warlock Conclave</characteristic>
+- **^^Guardian Defenders^^**
+- **^^Storm Guardians^^**
+- **^^Warlock Conclave^^**</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6432,6 +6435,7 @@ sim-mod: sustained=3 source=&quot;Cruel Amusement&quot; when=ranged choice=&quot
         <categoryLink id="f62d-7562-4ebd-871d" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="46ea-6a1c-bd7f-f588" primary="false" name="Aeldari"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="f4da-9f04-1b43-7fc4" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="b19f-e9b7-f2f3-3349" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
@@ -8360,6 +8364,7 @@ sim-mod: source=&quot;The Scorpion&apos;s Bite&quot; dev when=melee conditional 
         <categoryLink id="2fd4-5c7e-139-d76b" name="Night Spinner" hidden="false" targetId="166a-1dad-9a3-328" primary="false"/>
         <categoryLink id="2adb-907c-d841-b190" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="e2d3-5634-cf9e-a942" primary="false" name="Aeldari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="21f3-a591-ace2-01bf" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
@@ -9992,7 +9997,8 @@ sim-mod: source=&quot;The Scorpion&apos;s Bite&quot; dev when=melee conditional 
         </profile>
         <profile name="Acrobatic Grace" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="86c3-f40-66e8-f70c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this unit, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has the Stealth ability.
+- Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -10603,6 +10609,7 @@ Attacks characteristic of this model’s Solitaire weapons.</characteristic>
         <categoryLink targetId="a5a2-d0c0-0349-d226" id="3f04-aa3c-7dce-be83" primary="false" name="Faction: Harlequins"/>
         <categoryLink targetId="83bb-5ddb-b1d9-39b8" id="c5c0-000a-347d-90d5" primary="false" name="Harlequin Allies"/>
         <categoryLink targetId="e554-d095-bb9d-c930" id="8897-c4e6-5fb5-2dae" primary="false" name="Corsairs and Travelling Players"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="7a3e-e7af-e299-b554" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
@@ -10628,7 +10635,7 @@ Attacks characteristic of this model’s Solitaire weapons.</characteristic>
         </profile>
         <profile name="Rapid Embarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="da0b-721f-bea-6a36">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if there are no models currently embarked within this Transport, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6&quot; of this Transport. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this Transport.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if there are no models currently embarked within this Transport, you can select one friendly Harlequins Infantry unit that has 6 or fewer models that is wholly within 6&quot; of this Transport. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this Transport. That unit can embark within this **^^Transport^^** in a turn it disembarked from this **^^Transport^^**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Starweaver" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="9c6-2ec1-17be-c398">
@@ -11509,6 +11516,7 @@ Attacks characteristic of this model’s Solitaire weapons.</characteristic>
         <categoryLink targetId="e035-51fc-813a-1313" id="da20-0e79-decd-0c4d" primary="false" name="Aeldari"/>
         <categoryLink targetId="81a2-e730-fd4b-026c" id="d6e4-19b0-7f5a-a64b" primary="false" name="D-Cannon Platform"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="aa91-01f7-07a9-331d" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="b1e5-35f9-21c0-121e" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
@@ -12294,7 +12302,7 @@ You can attach this unit to one of the above units, even if Yvraine has already 
         </profile>
         <profile name="Inevitable Death" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f745-3962-462c-6d2f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once in each of your opponent&apos;s turns, if this model is on the battlefield when another friendly Aeldari unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once in each of your opponent&apos;s turns, if this model is on the battlefield when another friendly **^^Aeldari^^** unit is destroyed, just after removing the last model in that unit, you can remove this model from the battlefield and set it up as close as possible to where that destroyed model was destroyed and not within Engagement Range of one or more enemy units. Doing so does not prevent this model from being eligible to move.</characteristic>
           </characteristics>
         </profile>
         <profile name="Ethereal Form" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="49aa-52f1-6804-1302">
@@ -13305,6 +13313,7 @@ sim-mod: source=&quot;Cegorach&apos;s Favour&quot; wound=+1 when=melee scope=mod
         <categoryLink targetId="a5a2-d0c0-0349-d226" id="97fc-8173-aa89-0694" primary="false" name="Faction: Harlequins"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="cc5f-e660-e156-ecd5" primary="false" name="Aeldari"/>
         <categoryLink targetId="e554-d095-bb9d-c930" id="edcb-d871-8c8e-089c" primary="false" name="Corsairs and Travelling Players"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="711e-5d89-8a25-1e7a" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
@@ -14550,6 +14559,7 @@ sim-mod: source=&quot;Psychic Communion (2+ psykers)&quot; attacks=+2 str=+2 wea
         <categoryLink id="b373-852d-da68-8a38" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="60e7-cf8a-df52-0751" primary="false" name="Aeldari"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="50a2-0635-3b31-8bc2" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="30b0-d89f-f17e-a2c0" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
@@ -14581,7 +14591,7 @@ sim-mod: source=&quot;Psychic Communion (2+ psykers)&quot; attacks=+2 str=+2 wea
         </profile>
         <profile name="Wave Serpent" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="5b10-2a95-ad5f-8b5b">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 ^^Aeldari Infantry^^ models. Each ^^Wraith Construct^^ model takes the space of 2 models. It cannot transport ^^Jump Pack^^ models or ^^Ynnari^^ models (excluding ^^Asuryani^^, ^^Yvraine^^ and ^^The Visarch^^ models).</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 **^^Asuryani^^** **^^Infantry^^** models. Each **^^Wraith Construct^^** model takes the space of 2 models. It cannot transport **^^Jump Pack^^** models or **^^Ynnari^^** models (excluding **^^Asuryani^^**, **^^Yvraine^^** and **^^The Visarch^^** models).</characteristic>
           </characteristics>
         </profile>
         <profile name="Damaged: 1-4 Wounds Remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9cc8-6992-c56f-275f">
@@ -28094,7 +28104,7 @@ makes an attack, subtract 1 from the Hit roll</characteristic>
         </profile>
         <profile name="Path of the Outcast" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="87f0-5086-a40b-d510">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9&quot; of this model, if this model is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D6.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, if an enemy unit ends a move within 8&quot; of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile id="dab-a8fc-aeb4-f9cc" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -33582,6 +33592,7 @@ sim-mod: source=&quot;Electromagnetic Cascade&quot; sustained=1 when=ranged cond
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="f3b0-48be-a9fe-63c8" primary="true" name="Infantry"/>
         <categoryLink targetId="711a-3b82-40bf-5d7b" id="a998-b1e5-b9d2-ed79" primary="false" name="Shadow Weaver Platform"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="9a40-f9b9-dff9-5e80" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="7512-594b-69b0-8e59" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
@@ -33747,6 +33758,7 @@ sim-mod: source=&quot;Electromagnetic Cascade&quot; sustained=1 when=ranged cond
         <categoryLink targetId="e035-51fc-813a-1313" id="16b1-f828-10c7-7de0" primary="false" name="Aeldari"/>
         <categoryLink targetId="29f1-9e49-1ffb-8ae2" id="2779-3fb2-dd92-bce5" primary="false" name="Vibro Cannon Platform"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="214a-7ba0-94f1-82a5" primary="false" name="Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="e65f-b12a-8005-b42f" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
@@ -36552,6 +36564,7 @@ sim-mod: source=&quot;Electromagnetic Cascade&quot; sustained=1 when=ranged cond
         <categoryLink name="Vehicle" hidden="false" id="0e6f-7ebf-3c21-9c40" targetId="dbd4-63-af05-998" primary="false"/>
         <categoryLink name="Transport" hidden="false" id="9faf-eb72-e70d-7f1d" targetId="75e8-57c4-40e3-1817" primary="false"/>
         <categoryLink targetId="9a21-190a-9d31-35d2" id="e495-e28e-6706-7ccd" primary="false" name="Faction: Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="fe43-a8a7-c0a6-aaf1" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
@@ -36781,6 +36794,7 @@ sim-mod: source=&quot;Electromagnetic Cascade&quot; sustained=1 when=ranged cond
         <categoryLink name="Transport" hidden="false" id="cc5f-5bd1-9bb9-801e" targetId="75e8-57c4-40e3-1817" primary="false"/>
         <categoryLink name="Vehicle" hidden="false" id="e7b6-a016-98d4-5142" targetId="dbd4-63-af05-998" primary="false"/>
         <categoryLink targetId="9a21-190a-9d31-35d2" id="1cff-2a2a-3f23-037b" primary="false" name="Faction: Ynnari"/>
+        <categoryLink targetId="55f4-181c-4861-dfc3" id="ba57-554d-af83-8261" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
@@ -37125,9 +37139,7 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
       <profiles>
         <profile name="Aspect Shrine Token" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8c64-1c06-0cdc-ed8d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle for each Aspect Shrine token this unit has, you can change the result of one Hit roll or one Wound roll made for a model in this unit (excluding ^^**Character**^^ models) to an unmodified 6.
-
-For every 5 models in this unit, it can have 1 Aspect Shrine token.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle for each Aspect Shrine token this unit has, you can change the result of one Hit roll or one Wound roll made for a model in this unit (excluding **^^Character^^** models) to an unmodified 6.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -45369,7 +45381,7 @@ Each time a ranged attack targets the bearer&apos;s unit, models in that unit ha
               <profiles>
                 <profile name="Higher Duty" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="298c-20bc-8ac1-f6ea">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Spiritseer^^** model only. In your opponent&apos;s Movement phase, if an enemy unit ends a move within 8&quot; of the bearer&apos;s unit, if the bearer&apos;s unit is not within Engagement Range of one or more enemy units, the bearer&apos;s unit can make a Normal move of up to 6&quot;.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Spiritseer^^** model only. In your opponent&apos;s Movement phase, if an enemy unit ends a move within 8&quot; of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6&quot;.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
