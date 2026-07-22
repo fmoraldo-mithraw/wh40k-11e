@@ -3586,6 +3586,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
         <categoryLink targetId="cca9-5590-14a6-19e8" id="e52c-c2c5-9ecc-360c" primary="false" name="Repulsor Executioner"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="ef48-c8a4-5c3d-c867" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="9249-acae-2882-d95" id="7c1-ee-7f0c-addd" primary="false" name="Faction: Black Templars"/>
+        <categoryLink targetId="3c2f-6909-bec4-d518" id="ffd5-d02a-e4db-0590" primary="false" name="Frame"/>
       </categoryLinks>
       <modifierGroups>
         <modifierGroup type="and">
@@ -3828,19 +3829,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="8721-f0f6-9b22-e52c" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="6b92-61c0-48fd-12d9">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="437a-e037-8e91-cc5e"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="49fc-09fb-f54d-e6ab" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
-            <entryLink import="true" name="" hidden="true" id="a94a-c598-cdff-46da" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
-            <entryLink import="true" name="" hidden="true" id="dfc3-dadb-81e4-cfec" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
-            <entryLink import="true" name="" hidden="true" id="a3ae-e6e4-3af9-8a85" type="selectionEntry" targetId="8bbe-e7fc-44b7-ed94"/>
-            <entryLink import="true" name="" hidden="true" id="f9d6-510d-0251-5496" type="selectionEntry" targetId="a499-86fa-4d0c-b06d"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="f842-f017-d4b6-4f45">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -3865,20 +3853,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="460a-dc67-e3db-b6a6">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Assault Intercessor Squad
-■ Infernus Squad
-■ Intercessor Squad
-■ Crusader Squad
-■ Sword Brethren
-■ Sternguard Veteran Squad
-
-You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
         <profile name="Vehement Aggression" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9359-87bf-5148-e6d2">
@@ -4643,18 +4617,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time a model in this model&apos;s unit makes a melee attack that destroys one or more enemy units, until the end of the battle, while this model&apos;s unit is not Battle-shocked, add 5 to this model&apos;s Objective Control characteristic.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1de1-09e9-709d-0b56">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-
-■ Crusader Squad
-■ Sword Brethren Squad
-
-
-You can attach this model to one of the above units even if one Captain, Chapter Master, Execrator or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="4aae-9e96-eb47-9192" hidden="false" sortIndex="4">
@@ -4731,16 +4693,6 @@ You can attach this model to one of the above units even if one Captain, Chapter
             <entryLink type="selectionEntry" import="true" name="A Giant Amongst Giants" hidden="false" id="2536-2ab0-aa63-efeb" targetId="c072-45ad-bd4a-708f"/>
             <entryLink type="selectionEntry" import="true" name="Preyslayer" hidden="false" id="6129-df10-7c68-f6d8" targetId="7a3c-53f7-eaff-926e"/>
             <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="9ebb-7ae4-8cde-7a62" targetId="909c-29be-a453-6480"/>
-          </entryLinks>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="3433-ccfb-802a-cb77">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="381e-0897-eed5-1518"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="e23c-ec56-921d-d9b6" type="selectionEntry" targetId="8bbe-e7fc-44b7-ed94"/>
-            <entryLink import="true" name="" hidden="true" id="37fd-5119-486e-f1b3" type="selectionEntry" targetId="206c-6b4d-4aaa-7e79"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="6370-f96f-74ac-6e10">
@@ -5376,7 +5328,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       <profiles>
         <profile name="Teleport Homer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="468e-20f0-e3bb-3190">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3&quot; horizontally of that token and not within 9&quot; horizontally of any enemy models. That token is then removed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3&quot; horizontally of that token and not within 8&quot; horizontally of any enemy models. That token is then removed.</characteristic>
           </characteristics>
         </profile>
         <profile name="Judgement of the Weak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f2bd-5f63-d647-6f4c">
