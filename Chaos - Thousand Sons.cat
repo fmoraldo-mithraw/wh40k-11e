@@ -3096,7 +3096,7 @@ EFFECT: Your unit has MOBILE.</description>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3390,7 +3390,7 @@ EFFECT: Your unit has MOBILE.</description>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3466,6 +3466,14 @@ EFFECT: Your unit has MOBILE.</description>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="8d9b-b949-2557-dcc4" name="Chaos Rhino" hidden="false" collective="false" import="true" type="model">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="8d9b-b949-2557-dcc4" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="bfd2-930d-d229-597e" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="79d3-1608-9b81-42ff" includeChildSelections="false"/>
@@ -3573,7 +3581,7 @@ EFFECT: Your unit has MOBILE.</description>
         <entryLink import="true" name="Crusade" hidden="false" id="3eaf-bd3a-8741-4360" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -7151,7 +7159,7 @@ sim-mod: source=&quot;Bringers of Change (objectif)&quot; reroll=wound when=rang
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="370" field="51b2-306e-1021-d207">
+        <modifier type="set" value="385" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="b1cf-c5-5121-92a4" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
@@ -7696,6 +7704,14 @@ Wound roll.</characteristic>
     <selectionEntry type="model" import="true" name="Sorcerer" hidden="false" id="af1e-9a3d-785c-47f8">
       <comment>sim-mod: source=&quot;Twisted Sorceries&quot; str=+3 attacks=+3 oncePer=battle conditional scope=model
 sim-mod: source=&quot;Empyric Guidance&quot; lethal whileLeading</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="af1e-9a3d-785c-47f8" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <categoryLinks>
         <categoryLink targetId="7002-1fbb-7571-e8e7" id="fe6a-6cdf-d8fc-aada" primary="false" name="Faction: Thousand Sons"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="2d8c-f7e2-c7b9-29f3" primary="false" name="Infantry"/>
@@ -8761,7 +8777,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -8891,7 +8907,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
     <selectionEntry type="model" import="true" name="Tzaangor Shaman" hidden="false" id="c251-bd54-441-4799">
       <comment>sim-mod: source=&quot;Bestial Prophet&quot; hit=+1 whileLeading</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -10900,7 +10916,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
         <categoryLink name="Sekhetar Robots" hidden="false" id="2439-9415-7f93-404e" targetId="63b3-ccfa-5ef5-3a1a" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -10908,9 +10924,15 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
+        <modifier type="set" value="175" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="fe4b-b3a4-69b7-3088" childId="model" shared="true" includeChildSelections="true"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+          <comment>repeat-cost: threshold=2 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="fe4b-b3a4-69b7-3088" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -11460,7 +11482,7 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="295"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="305"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -11661,15 +11683,15 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
             </conditionGroup>
           </conditionGroups>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=2 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <comment>repeat-cost: threshold=2 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="c964-c75a-2a9d-e451" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="320"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -13121,12 +13143,12 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
                 <entryLink import="true" name="Electroscourge" hidden="false" id="4c8c-e513-b25e-ed23" targetId="fd72-4efb-3ef6-6368" type="selectionEntry" sortIndex="4"/>
                 <entryLink import="true" name="Hades lascannon" hidden="false" id="1d0a-f8ca-03b1-f1e5" targetId="a63d-1bb5-1779-21e2" type="selectionEntry" sortIndex="2">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
                 <entryLink import="true" name="Heavy reaper autocannon" hidden="false" id="b9fb-f8bb-f436-dd8f" type="selectionEntry" targetId="b069-6851-b6a8-3026" sortIndex="3">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
               </entryLinks>
@@ -13306,15 +13328,15 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
-          <comment>repeat-cost: threshold=1 delta=30 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
+          <comment>repeat-cost: threshold=1 delta=40 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="f158-2979-c38b-65b5" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="290"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
