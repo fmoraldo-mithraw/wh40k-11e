@@ -17050,15 +17050,18 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <entryLink import="true" name="Weapon Modifications" hidden="false" id="ac41-4ad9-0434-500b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
               </entryLinks>
             </entryLink>
-            <entryLink import="true" name="Combi-bolter" hidden="false" id="b94b-5765-b762-553c" collective="false" targetId="c627-5d3-1420-c7f1" type="selectionEntry">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="812a-6223-9335-c4f8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Weapon Modifications" hidden="false" id="6992-8321-62a6-921b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-              </entryLinks>
-            </entryLink>
             <entryLink import="true" name="Havoc launcher" hidden="false" id="ab9f-1e64-4513-4dbb" collective="false" targetId="4bfd-ad0f-5e78-ccf9" type="selectionEntry">
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <comment>exclusif : 1 havoc launcher au total (ajout OU remplacement du combi-bolter)</comment>
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="6529-81b4-b7c9-54c5" childId="4bfd-ad0f-5e78-ccf9" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1cdb-d5b8-a679-343b"/>
+              </constraints>
               <entryLinks>
                 <entryLink import="true" name="Weapon Modifications" hidden="false" id="94f0-9469-d852-b7e8" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
               </entryLinks>
@@ -17080,6 +17083,21 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <entryLink import="true" name="Weapon Modifications" hidden="false" id="f843-07f2-2cea-aac3" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                   </entryLinks>
                 </entryLink>
+              </entryLinks>
+            </selectionEntryGroup>
+            <selectionEntryGroup name="Hull weapon" hidden="false" id="6529-81b4-b7c9-54c5" defaultSelectionEntryId="b94b-5765-b762-553c">
+              <comment>rules update 22-07 : le combi-bolter de base peut etre remplace par 1 havoc launcher</comment>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="471e-a53e-89e4-14f0"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0ddb-c526-4ad1-23da"/>
+              </constraints>
+              <entryLinks>
+            <entryLink import="true" name="Combi-bolter" hidden="false" id="b94b-5765-b762-553c" collective="false" targetId="c627-5d3-1420-c7f1" type="selectionEntry">
+              <entryLinks>
+                <entryLink import="true" name="Weapon Modifications" hidden="false" id="6992-8321-62a6-921b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
+              </entryLinks>
+            </entryLink>
+                <entryLink import="true" name="Havoc launcher" hidden="false" id="e7cb-595f-03c4-1980" type="selectionEntry" targetId="4bfd-ad0f-5e78-ccf9"/>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
