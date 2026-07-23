@@ -8442,7 +8442,24 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="84ea-f94a-3737-d3a7"/>
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="1f4-2e60-49fb-3"/>
               </constraints>
-              <selectionEntries>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Pistol Option" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="c252-ce95-be5e-ac20">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="21a2-c26f-42dd-99be" targetId="25c2-104f-fa0c-809e"/>
+                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" id="c252-ce95-be5e-ac20" type="selectionEntry" targetId="576a-9a88-1cc6-680f"/>
+                    <entryLink import="true" name="Bolt pistol" hidden="false" id="296c-e51c-3295-570c" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Melee Option" hidden="false" id="9853-1613-45af-cb6a" defaultSelectionEntryId="4fab-9370-8ba1-b1bc">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="700d-ed26-83c1-1a37"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1144-bb07-730d-9d3b"/>
+                  </constraints>
+                  <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Master-crafted power weapon" hidden="false" id="4fab-9370-8ba1-b1bc" collective="true">
                   <profiles>
                     <profile name="Master-crafted power weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ca66-54e3-a097-55b0">
@@ -8458,21 +8475,28 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     </profile>
                   </profiles>
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a516-284-62ac-8257"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9343-e602-e906-688b"/>
                   </constraints>
                 </selectionEntry>
-              </selectionEntries>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Pistol Option" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="c252-ce95-be5e-ac20">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
-                  </constraints>
-                  <entryLinks>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="21a2-c26f-42dd-99be" targetId="25c2-104f-fa0c-809e"/>
-                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" id="c252-ce95-be5e-ac20" type="selectionEntry" targetId="576a-9a88-1cc6-680f"/>
-                  </entryLinks>
+                    <selectionEntry type="upgrade" import="true" name="Vanguard Veteran Weapon" hidden="false" id="2d81-6ddd-5144-55cd" collective="true">
+                      <profiles>
+                        <profile name="Vanguard Veteran Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1db4-8ea4-b641-398b">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <constraints>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e969-e470-d692-ece2"/>
+                      </constraints>
+                    </selectionEntry>
+                  </selectionEntries>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <profiles>
@@ -8494,11 +8518,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="15b3-63ea-ce56-5553"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Master-crafted power weapon" hidden="false" type="selectionEntry" id="5eaa-19f1-e3b2-8652" targetId="4fab-9370-8ba1-b1bc">
-                  <entryLinks>
-                    <entryLink import="true" name="Weapon Modifications" hidden="false" id="56d4-bf98-0ff9-ed04" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                  </entryLinks>
-                </entryLink>
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="11d0-1cc1-eec4-a97c" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <selectionEntryGroups>
@@ -8518,6 +8537,21 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                         <entryLink import="true" name="Weapon Modifications" hidden="false" id="0868-1bed-65f7-e453" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                       </entryLinks>
                     </entryLink>
+                    <entryLink import="true" name="Bolt pistol" hidden="false" id="4763-5c2e-4acd-edec" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Melee Option" hidden="false" id="c5e6-a372-62e6-dda9" defaultSelectionEntryId="5eaa-19f1-e3b2-8652">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="474b-d5d3-c946-da91"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0c65-6bc6-5707-18c2"/>
+                  </constraints>
+                  <entryLinks>
+                <entryLink import="true" name="Master-crafted power weapon" hidden="false" type="selectionEntry" id="5eaa-19f1-e3b2-8652" targetId="4fab-9370-8ba1-b1bc">
+                  <entryLinks>
+                    <entryLink import="true" name="Weapon Modifications" hidden="false" id="56d4-bf98-0ff9-ed04" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
+                  </entryLinks>
+                </entryLink>
+                    <entryLink import="true" name="Vanguard Veteran Weapon" hidden="false" id="3beb-1d1f-6f40-e212" type="selectionEntry" targetId="2d81-6ddd-5144-55cd"/>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
