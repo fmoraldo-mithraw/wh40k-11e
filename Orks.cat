@@ -3182,32 +3182,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                 <constraint type="max" value="18" field="selections" scope="parent" shared="true" id="f738-7505-6d55-355"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="4c16-505d-6a7e-9667" collective="false">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="372d-7f48-80c2-7fa5"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0ade-8b6b-8cf6-4159"/>
-                  </constraints>
-                  <profiles>
-                    <profile name="Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b470-24d5-fc91-5653">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1b02" targetId="0d1a-9f3b-7c40-1c01"/>
-                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="8a74-47e7-3efc-5928" targetId="c5c8-8b58-b8b6-7786"/>
-                  </infoLinks>
-                  <categoryLinks>
-                    <categoryLink name="Ranged Weapon" hidden="false" id="f83e-2fed-5d88-c039" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                  </categoryLinks>
-                </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Choppa" hidden="false" id="13b0-a527-78d9-54ff" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2503-dcb2-0115-369f"/>
@@ -3231,6 +3205,144 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                   </categoryLinks>
                 </selectionEntry>
               </selectionEntries>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Boy Ranged Weapon" id="0d1a-9f3b-7c40-1f01" hidden="false" defaultSelectionEntryId="4c16-505d-6a7e-9667">
+                  <selectionEntries>
+                    <selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="4c16-505d-6a7e-9667" collective="false">
+                      <profiles>
+                        <profile name="Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b470-24d5-fc91-5653">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1b02" targetId="0d1a-9f3b-7c40-1c01"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="8a74-47e7-3efc-5928" targetId="c5c8-8b58-b8b6-7786"/>
+                      </infoLinks>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="f83e-2fed-5d88-c039" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Big Shoota" hidden="false" id="0d1a-9f3b-7c40-1f10" collective="false">
+                      <constraints>
+                        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-1f15" includeChildSelections="true"/>
+                      </constraints>
+                      <profiles>
+                        <profile name="Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1f11">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1f12" targetId="0d1a-9f3b-7c40-1c01"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1f13" targetId="c5c8-8b58-b8b6-7786"/>
+                      </infoLinks>
+                      <modifiers>
+                        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-1f15">
+                          <repeats>
+                            <repeat value="10" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-1f16" includeChildSelections="true"/>
+                          </repeats>
+                        </modifier>
+                      </modifiers>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1f14" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-1f20" collective="false">
+                      <constraints>
+                        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-1f25" includeChildSelections="true"/>
+                      </constraints>
+                      <profiles>
+                        <profile name="Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1f21">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1f22">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1f23" targetId="6c1f-1cf7-ff25-c99e"/>
+                      </infoLinks>
+                      <modifiers>
+                        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-1f25">
+                          <repeats>
+                            <repeat value="10" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-1f26" includeChildSelections="true"/>
+                          </repeats>
+                        </modifier>
+                      </modifiers>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1f24" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Burna" hidden="false" id="0d1a-9f3b-7c40-1f30" collective="false">
+                      <constraints>
+                        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-1f35" includeChildSelections="true"/>
+                      </constraints>
+                      <profiles>
+                        <profile name="Burna" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1f31">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 4, Torrent</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1f32" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-1f33" targetId="5edf-d619-23e0-9b56"/>
+                      </infoLinks>
+                      <modifiers>
+                        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-1f35">
+                          <repeats>
+                            <repeat value="10" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-1f36" includeChildSelections="true"/>
+                          </repeats>
+                        </modifier>
+                      </modifiers>
+                      <categoryLinks>
+                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1f34" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+                      </categoryLinks>
+                    </selectionEntry>
+                  </selectionEntries>
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1f02"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1f03"/>
+                  </constraints>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
               <profiles>
                 <profile name="Boy" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5d8a-c0e9-145a-fd57">
                   <characteristics>
@@ -3342,7 +3454,7 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                 </selectionEntry>
               </selectionEntries>
               <selectionEntryGroups>
-                <selectionEntryGroup name="Boss Nob Ranged Weapon" id="5adf-ce35-a293-3e9c" hidden="false" defaultSelectionEntryId="ab18-91c1-4f9b-a401">
+                <selectionEntryGroup name="Boss Nob Ranged Weapon" id="5adf-ce35-a293-3e9c" hidden="false" defaultSelectionEntryId="0d1a-9f3b-7c40-1d0b">
                   <selectionEntries>
                     <selectionEntry type="upgrade" import="true" name="Kustom shoota" hidden="false" id="ab18-91c1-4f9b-a401" collective="false">
                       <profiles>
@@ -3399,50 +3511,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                         <categoryLink name="Ranged Weapon" hidden="false" id="ee34-e8c6-4510-4914" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                       </categoryLinks>
                     </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Big Shoota" hidden="false" id="0d1a-9f3b-7c40-1d01" collective="false">
-                      <profiles>
-                        <profile name="Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d02">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <infoLinks>
-                        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d03" targetId="0d1a-9f3b-7c40-1c01"/>
-                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d04" targetId="c5c8-8b58-b8b6-7786"/>
-                      </infoLinks>
-                      <categoryLinks>
-                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d05" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                      </categoryLinks>
-                    </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Burna" hidden="false" id="0d1a-9f3b-7c40-1d06" collective="false">
-                      <profiles>
-                        <profile name="Burna" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d07">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 4, Torrent</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <infoLinks>
-                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d08" targetId="6c1f-1cf7-ff25-c99e"/>
-                        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d09" targetId="5edf-d619-23e0-9b56"/>
-                      </infoLinks>
-                      <categoryLinks>
-                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d0a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                      </categoryLinks>
-                    </selectionEntry>
                     <selectionEntry type="upgrade" import="true" name="Kombi-skorcha" hidden="false" id="0d1a-9f3b-7c40-1d0b" collective="false">
                       <profiles>
                         <profile name="Kombi-skorcha - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d0c">
@@ -3478,45 +3546,13 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                         <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d12" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                       </categoryLinks>
                     </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-1d13" collective="false">
-                      <profiles>
-                        <profile name="Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d14">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
-                          </characteristics>
-                        </profile>
-                        <profile name="Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d15">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <infoLinks>
-                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-1d16" targetId="6c1f-1cf7-ff25-c99e"/>
-                      </infoLinks>
-                      <categoryLinks>
-                        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-1d17" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                      </categoryLinks>
-                    </selectionEntry>
                   </selectionEntries>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="79bd-05b6-33ce-fcb9"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5b55-3a72-3908-e85f"/>
                   </constraints>
                 </selectionEntryGroup>
-                <selectionEntryGroup name="Boss Nob Melee Weapon" id="0d1a-9f3b-7c40-1d20" hidden="false" defaultSelectionEntryId="27da-672f-ea75-51a7">
+                <selectionEntryGroup name="Boss Nob Melee Weapon" id="0d1a-9f3b-7c40-1d20" hidden="false" defaultSelectionEntryId="0d1a-9f3b-7c40-1d26">
                   <selectionEntries>
                     <selectionEntry type="upgrade" import="true" name="Big choppa" hidden="false" id="27da-672f-ea75-51a7" collective="false">
                       <profiles>
