@@ -3551,6 +3551,19 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="79bd-05b6-33ce-fcb9"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5b55-3a72-3908-e85f"/>
                   </constraints>
+                  <modifiers>
+                    <comment>Big Choppa remplace Kustom Choppa ET Kombi-skorcha : s'il est pris, l'emplacement d'arme a distance du Nob est vide (min/max = 0).</comment>
+                    <modifier type="set" value="0" field="79bd-05b6-33ce-fcb9">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="27da-672f-ea75-51a7" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                    <modifier type="set" value="0" field="5b55-3a72-3908-e85f">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="27da-672f-ea75-51a7" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
                 </selectionEntryGroup>
                 <selectionEntryGroup name="Boss Nob Melee Weapon" id="0d1a-9f3b-7c40-1d20" hidden="false" defaultSelectionEntryId="0d1a-9f3b-7c40-1d26">
                   <selectionEntries>

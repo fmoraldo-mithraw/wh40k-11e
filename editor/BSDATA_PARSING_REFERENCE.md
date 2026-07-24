@@ -67,6 +67,20 @@
   (une fois, pas une par figurine). Exclure `Unit` (stats) et armes.
 - Armes : profil d'arme accessible directement ou via `infoLink type="profile"` sur
   l'`entryLink` d'arme. Résous le profil de l'arme **réellement sélectionnée** (option).
+- **Arme multi-profils** : un même `selectionEntry` peut porter **plusieurs `<profile>`**,
+  y compris **distance ET mêlée mélangés** (ex. *Kustom Blasta X* : 3 *Ranged* + 1 *Melee*).
+  Présente **tous** les profils ; l'arme n'occupe **qu'un** emplacement (« *select one profile
+  per attack* »). Cf. `WEAPON_SLOTS_APP_PROMPT.md`.
+- **Mot-clef d'arme conditionnel à la cible** (ex. `[LETHAL HITS: non-^^MONSTER^^/^^VEHICLE^^]`) :
+  écrit **littéralement** dans la caractéristique `Keywords` du profil (« Lethal Hits
+  (non-MONSTER/VEHICLE) ») **+** un `infoLink type="rule"` vers une **règle dédiée**
+  (`<rule name="Lethal Hits (non-Monster/Vehicle)">`) dont la description énonce la restriction.
+  BattleScribe **ne peut PAS** exprimer « seulement contre telle mot-clef de cible » par
+  modifier (les modifiers agissent sur le **roster**, pas sur la cible en jeu) : la restriction
+  est **descriptive**. L'appli l'**affiche** telle quelle ; un simulateur n'applique l'effet
+  **que** contre les unités qui **ne sont ni MONSTER ni VEHICLE**. Idem pour d'autres mot-clefs
+  chiffrés déjà présents dans `Keywords` (`Rapid Fire N`, `Blast N`, `Cleave N`) : le **nombre
+  est dans le texte** du mot-clef, l'`infoLink` ne pointe que la règle générique (sans le N).
 
 ---
 
@@ -197,7 +211,12 @@ Documentés en détail dans les prompts dédiés (à lire) :
 - Coût d'arme **par modèle** (×N porteurs) → idem `UNIT_COMPOSITION_APP_PROMPT.md`.
 - Capacités au niveau **modèle** (pas que l'unité) → `MODEL_ABILITIES_APP_PROMPT.md`.
 - Grants **Battleline** (catégorie conditionnelle + 0-6) → `BATTLELINE_GRANT_APP_PROMPT.md`.
-- Arme de **base fixe** + **emplacement optionnel à choix** → `WEAPON_SLOTS_APP_PROMPT.md`.
+- Arme de **base fixe** + **emplacement optionnel à choix**, **arme multi-profils
+  (distance+mêlée)**, **échange combiné (1 option en remplace 2 via `set 0`)** →
+  `WEAPON_SLOTS_APP_PROMPT.md`.
+- **Mot-clef d'arme conditionnel à la cible** (`Lethal Hits (non-MONSTER/VEHICLE)`) : texte
+  littéral dans `Keywords` + `infoLink` vers `<rule name="Lethal Hits (non-Monster/Vehicle)">`
+  (restriction **descriptive** ; pour un simulateur, cf. `SIM_MOD_APP_PROMPT.md`).
 
 ---
 
@@ -209,7 +228,9 @@ Pour CHAQUE concept, plusieurs encodages existent — teste-les tous :
 | Profil (stat/capacité/arme) | `<profile>` inline **ou** `infoLink type="profile"` (sharedProfile) |
 | Capacité | sur l'**unité** **ou** sur un **modèle** **ou** sur une **option** ; `typeName="Abilities"` **ou** type faction (`Orders`, `Rituals`…) |
 | Contrainte/coût/catégorie d'une option | sur l'**entryLink** **ou** sur la **cible** résolue |
-| Arme | **base** (`min≥1`) · **option** (groupe `max=1` min 0) · **compteur d'échange** (`min 0`+`max`+décrément base) · **base + option de même nom** (2 emplacements distincts) |
+| Arme | **base** (`min≥1`) · **option** (groupe `max=1` min 0) · **compteur d'échange** (`min 0`+`max`+décrément base) · **base + option de même nom** (2 emplacements distincts) · **multi-profils** (distance+mêlée dans 1 entrée) · **échange combiné** (1 option `set 0` sur min/max d'un autre emplacement) |
+| Mot-clef d'arme | statique dans `Keywords` · **chiffré** (`Rapid Fire N`/`Blast N`/`Cleave N` : N dans le texte) · **conditionnel à la cible** (`Lethal Hits (non-MONSTER/VEHICLE)` : texte + `infoLink` vers règle dédiée, restriction **descriptive**, jamais un modifier) |
+| Limite « 1 par N modèles » | contrainte `max=0 scope="unit"` + `modifier increment` à `repeat value="N" childId="model"` (borne = ⌊modèles/N⌋) |
 | Nombre d'armes/options | `defaultAmount` · `min/max` · `modifier set` sur la borne (y compris d'un **groupe importé**) |
 | Condition d'un modifier | dans le `<modifier>` **ou** dans le `<modifierGroup>` parent (`conditions`/`conditionGroups`) |
 | Catégorie/rôle | `categoryLink` statique · `add`/`set-primary` conditionnel · `categoryLink` sur une **sélection** (flag) |

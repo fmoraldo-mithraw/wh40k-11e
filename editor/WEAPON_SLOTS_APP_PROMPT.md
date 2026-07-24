@@ -35,7 +35,33 @@ de base **+** emplacement « Pintle weapon » = 0 ou 1 arme, au choix **Combi-bo
 - Emplacement « **Pintle weapon** » (`max 1`, min 0) : **Combi-bolter** ou **Combi-weapon**, ou rien.
 - Loadouts valides : `combi-bolter` ; `+ combi-bolter` ; `+ combi-weapon` ; (± havoc launcher).
 
+## Arme multi-profils (distance ET mêlée dans une seule arme)
+Une **même arme** peut porter **plusieurs profils**, y compris **à la fois distance et
+mêlée** (ex. **Kustom Blasta X** de Nazdreg : 3 profils *Ranged* — Gatler / Shoota /
+Skorcha — **+** 1 profil *Melee*). C'est un **unique** `selectionEntry` avec plusieurs
+`<profile>` mélangeant `typeName="Ranged Weapons"` **et** `typeName="Melee Weapons"`.
+- L'appli doit **présenter tous les profils** de l'arme (regroupés sous son nom), pas
+  seulement le premier, et — au tir / au corps-à-corps — laisser **choisir un profil
+  éligible par attaque** (« *select one of its profiles* »).
+- Ne compte l'arme **qu'une fois** dans le loadout (un seul emplacement), même à N profils.
+  Les profils *Ranged* vont dans la table distance, le(s) profil(s) *Melee* dans la table mêlée.
+
+## Échange combiné : une arme en remplace deux
+Certaines options **remplacent deux armes de base par une seule** (ex. Ork Nob :
+« Kustom Choppa **et** Kombi-skorcha remplacés par 1 Big Choppa »). Encodage : l'option
+(Big Choppa) est un choix d'un **emplacement** (ici mêlée) ; un **`modifier type="set"
+value="0"`** sur les contraintes **min ET max** de **l'autre emplacement** (ici distance),
+conditionné `atLeast 1` sur la sélection de l'option (`childId=<id Big Choppa>`,
+`scope="parent"`, `includeChildSelections="true"`), **vide** ce second emplacement quand
+l'option est prise.
+- L'appli doit **exécuter ce modifier** : si Big Choppa est sélectionné, l'emplacement
+  distance passe à **min=0 / max=0** ⇒ **ne propose plus** (et ne compte plus) d'arme
+  distance pour ce modèle. Ne te fie **pas** au `min=1` statique de l'emplacement : **réévalue
+  les bornes après modifiers** (piège classique : afficher une arme distance déjà « consommée »).
+
 ## Invariants
 - `min ≥ 1` ⇒ base (lecture seule) ; `max=1` + min 0 ⇒ choix « 0/1 ».
 - Arme en base **et** en option = deux emplacements indépendants.
+- Une arme = **un** emplacement même à plusieurs profils (distance+mêlée) ; présente-les tous.
+- Bornes d'un emplacement = **après** modifiers (un échange combiné peut mettre min/max à 0).
 - Correctif côté appli : la donnée est correcte.
