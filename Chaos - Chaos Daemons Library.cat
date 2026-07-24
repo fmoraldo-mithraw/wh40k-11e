@@ -543,7 +543,7 @@ EFFECT: Your unit&apos;s ranged attacks have [LETHAL HITS].</description>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="b137-96c4-ed90-7bce">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -2400,7 +2400,7 @@ sim-mod: source=&quot;Skulls for Khorne&quot; reroll=wound vs=Character scope=mo
     </selectionEntry>
     <selectionEntry id="2f31-9132-b703-5fd8" name="Bloodcrushers" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="180">
+        <modifier type="set" field="51b2-306e-1021-d207" value="190">
           <conditions>
             <condition field="selections" scope="2f31-9132-b703-5fd8" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -2415,8 +2415,8 @@ sim-mod: source=&quot;Skulls for Khorne&quot; reroll=wound vs=Character scope=mo
             <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="d265-877b-e03d-30ca" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <comment>repeat-cost: threshold=2 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="2f31-9132-b703-5fd8" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4889,9 +4889,9 @@ sim-mod: sustained=1 source=&quot;Harbinger of Death&quot; when=melee choice=&qu
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this model is on the battlefield, take a Leadership test for this model; if that test is passed, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
-        <profile id="9d33-996b-cbcb-61c5" name="One Head Looks Back (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile id="9d33-996b-cbcb-61c5" name="One Head Looks Back" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12&quot; of this model, increase the cost of that use of that Stratagem by 1CP (this is not cumulative with any other rules that would increase the CP cost of that Stratagem).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4998,7 +4998,7 @@ sim-mod: sustained=1 source=&quot;Harbinger of Death&quot; when=melee choice=&qu
         <entryLink id="fa97-7503-834a-beeb" name="Warlord" hidden="false" collective="false" import="true" targetId="13f1-2794-34e7-4bd6" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="295"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="305"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -5277,7 +5277,7 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
         <entryLink import="true" name="Crusade" hidden="false" id="fd7d-af00-7c99-a373" type="selectionEntryGroup" targetId="82a2-545c-7f11-ed88" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="320"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -5295,8 +5295,8 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
             <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="d265-877b-e03d-30ca" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=2 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <comment>repeat-cost: threshold=2 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="3600-9f92-933-bf54" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5810,7 +5810,8 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
         </profile>
         <profile id="4f3e-74ec-5c46-1fea" name="Fluxmaster" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time an attack is made against that unit, subtract 1 form the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit has Stealth.
+■ Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile id="8ed5-4270-6a08-16d2" name="Altered Reality (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -5858,7 +5859,7 @@ sim-mod: sustained=D3 source=&quot;Master of Magicks&quot; when=ranged choice=&q
         <entryLink import="true" name="Crusade" hidden="false" id="2ffa-645e-c1f4-caae" type="selectionEntryGroup" targetId="82a2-545c-7f11-ed88" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -10699,7 +10700,7 @@ sim-mod: source=&quot;Monarch of the Hunt&quot; reroll=wound when=melee conditio
         <entryLink id="fa35-19f5-7ce5-6e23" name="Warlord" hidden="false" collective="false" import="true" targetId="13f1-2794-34e7-4bd6" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="340"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="315"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -17409,7 +17410,7 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Infernal Puppeteer" hidden="false" id="806e-b30b-3bcd-71c3" sortIndex="19">
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -17423,8 +17424,7 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
           <profiles>
             <profile name="Infernal Puppeteer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f2fd-1096-696c-9593">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Legiones Daemonica Tzeentch Monster**^^ model only. In your Shooting phase, the bearer can use this Enhancement. If it does, until the end of the phase, you can select one other friendly visible **^^Legiones Daemonica Tzeentch**^^ unit within 9&quot; of the bearer. If you do, when selecting targets for ranged weapons equipped by the bearer, you can measure range and determine visibility from one model of your choice in the selected unit instead. 
-***Designer’s Note:** When determining if a unit with the Lone Operative ability can be selected as the target, the range is determined from the model of your choice in the selected unit.*</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Legiones Daemonica Tzeentch Monster**^^ model only. In your Shooting phase, when this unit is selected to shoot, while an enemy unit is visible to a friendly ^^**Legiones Daemonica Tzeentch**^^ unit, that enemy unit has +9&quot; detection range until this unit has shot.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -17615,7 +17615,7 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Inescapable Eye" hidden="false" id="5c15-6ac1-0115-9df8" sortIndex="18">
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -17707,7 +17707,7 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Neverblade" hidden="false" id="b4ce-a5bf-52e7-884c" sortIndex="20">
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -17772,7 +17772,7 @@ sim-mod: source=&quot;Neverblade&quot; str=+2 attacks=+1 ap=+1 hit=+1 when=melee
             </modifierGroup>
           </modifierGroups>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Slaugterthirst (Aura)" hidden="false" id="8d0b-296c-5515-4267" sortIndex="4">
+        <selectionEntry type="upgrade" import="true" name="Slaughterthirst (Aura)" hidden="false" id="8d0b-296c-5515-4267" sortIndex="4">
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
@@ -17785,7 +17785,7 @@ sim-mod: source=&quot;Neverblade&quot; str=+2 attacks=+1 ap=+1 hit=+1 when=melee
             <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f695-15f0-58ba-cc0d" includeChildSelections="true"/>
           </constraints>
           <profiles>
-            <profile name="Slaugterthirst (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c2b9-899a-b142-dec1">
+            <profile name="Slaughterthirst (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c2b9-899a-b142-dec1">
               <characteristics>
                 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">LEGIONES DAEMONICA KHORNE model only.  While a friendly LEGIONES DAEMONICA KHORNE unit (excluding MONSTERS) is within 6&quot; of the bearer, weapons equipped by models in that unit have the [LANCE] ability.</characteristic>
               </characteristics>
@@ -20230,7 +20230,7 @@ sim-mod: source=&quot;Neverblade&quot; str=+2 attacks=+1 ap=+1 hit=+1 when=melee
 ■ At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Shadow of Chaos.
 
 DAEMONIC MANIFESTATION
-While a LEGIONES DAEMONICA unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a BATTLELINE unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).
+While a friendly LEGIONES DAEMONICA unit is within your army’s Shadow of Chaos, each time that unit makes a battle-shock roll, that unit has +1 to that battle-shock roll and, if that roll is successful, one model in that unit heals D3 wounds (if that unit is a BATTLELINE unit and that roll is successful, up to D3 destroyed models (excluding CHARACTER models) can be returned to that unit instead).
 
 DAEMONIC TERROR
 While an enemy unit is within your army’s Shadow of Chaos and/or it is within 6&quot; of one or more BLOODTHIRSTER, GREAT UNCLEAN ONE, KAIROS FATEWEAVER, KEEPER OF SECRETS, LORD OF CHANGE, ROTIGUS, SHALAXI HELBANE or SKARBRAND units from your army, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds.</description>

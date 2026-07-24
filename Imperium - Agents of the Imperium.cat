@@ -37,7 +37,7 @@
         <profile name="Dead-shot" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="27d2-74da-5c1-a8e">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to shoot, until this unit has shot:
-- Enemy units do not have Lone Operative.
+- Enemy units do not have the Lone Operative ability.
 - Hidden enemy units have +15&quot; detection range.</characteristic>
           </characteristics>
         </profile>
@@ -172,7 +172,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="df0f-4613-7f90-31c6" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -351,7 +351,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="b178-2e42-4b6c-804f" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -401,7 +401,7 @@
     <selectionEntry type="model" import="true" name="Eversor Assassin" hidden="false" id="f201-1f4a-b907-d9d1">
       <comment>sim-mod: source=&quot;Overkill&quot; attacks=+3 when=melee oncePer=battle scope=model</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="5128-90b-e4a5-dcbd" id="ad5c-e22c-4400-4241" primary="false" name="Faction: Agents of the Imperium"/>
@@ -481,37 +481,6 @@
             <infoLink name="Anti-" id="d5f8-0dc1-8779-119d" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
           </infoLinks>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Intra-neural Biotech" hidden="true" id="40ac-b010-39d2-5e11">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="18dc-1c3e-9685-ba95" includeChildSelections="false"/>
-            <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="0d17-33c8-c997-2a32" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
-            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
-            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
-            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
-            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
-          </costs>
-          <profiles>
-            <profile name="Intra-neural Biotech" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c559-51ad-e4b4-c952">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, you can target this model with the Heroic Intervention or Counter‑offensive Stratagem for 1 less CP, and can do so even if you have already used that Stratagem on a different unit this phase.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="0d17-33c8-c997-2a32"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Power sword and neuro gauntlet" hidden="false" id="3779-dd93-7ef8-d87e">
           <profiles>
             <profile name="Power sword and neuro gauntlet" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="4430-6f4d-1b13-536">
@@ -536,20 +505,20 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="aa5d-9820-fe62-e35f"/>
           </constraints>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Intraneural Biotech" hidden="true" id="f81b-99df-9a06-5673">
+        <selectionEntry type="upgrade" import="true" name="Introneural Biotech" hidden="true" id="f81b-99df-9a06-5673">
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7e3e-11e2-a260-c4f0" includeChildSelections="false"/>
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="84a4-2c4f-904c-aa88" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
             <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
           </costs>
           <profiles>
-            <profile name="Intraneural Biotech" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a89-54a4-8a07-ea36">
+            <profile name="Introneural Biotech" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a89-54a4-8a07-ea36">
               <characteristics>
                 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">EVERSOR ASSASSIN models only. Once per battle round, you can target this model with the Heroic Intervention or Counter-offensive Stratagem for 1 less CP, and you can do so even if you have already used that Stratagem on a different unit this phase.</characteristic>
               </characteristics>
@@ -639,7 +608,10 @@
         </profile>
         <profile name="Acrobatic Escape" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="812f-ed2e-6abf-35be">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if this model is within Engagement Range of one or more enemy units, it can make a Fall Back move of up to D6&quot;. In addition, at the end of your opponent&apos;s turn, if this model is not within 3&quot; of one or more enemy units, you can remove it from the battlefield and then, in the Reinforcements step of your next Movement phase, set it up anywhere on the battlefield that is more than 8&quot; horizontally away from all enemy models. If the battle ends and this model is not on the battlefield, it is destroyed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- At the end of the Fight phase, if this unit is engaged, this unit can make a fall-back move of up to D6&quot;.
+- At the end of your opponent&apos;s turn, if this unit is more than 3&quot; from all enemy units, you can use this ability. If you do:
+  - Place this unit in Strategic Reserves.
+  - This unit must make an ingress move in your next Movement phase (including in your first turn).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -650,7 +622,7 @@
             <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="8a04-ccf3-9c4f-4e4e" includeChildSelections="false"/>
           </constraints>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -3318,11 +3290,9 @@ sim-mod: source=&quot;CAT Unit&quot; ignores-cover when=ranged oncePer=battle</c
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="382f-4f17-4829-cb1f"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="145e-6ad5-d96a-ece3" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="a454-8246-6520-5fde" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
-            <entryLink import="true" name="" hidden="true" id="1ca8-d8ff-73e4-8302" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
             <entryLink import="true" name="" hidden="true" id="ba18-13cc-2ee9-b15a" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
             <entryLink import="true" name="" hidden="true" id="4b4d-de14-0099-4787" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
+            <entryLink import="true" name="" hidden="true" id="6051-095a-1c04-9a36" type="selectionEntry" targetId="b040-ce24-7e1a-c903"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -3494,9 +3464,6 @@ sim-mod: source=&quot;CAT Unit&quot; ignores-cover when=ranged oncePer=battle</c
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="6a2d-7231-3c75-c3e1"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="b629-d60a-d672-c007" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="1b94-30f4-1bb0-b1bc" type="selectionEntry" targetId="15c0-9294-7eb8-f3a7"/>
-            <entryLink import="true" name="" hidden="true" id="5e2b-3899-8c50-448f" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
             <entryLink import="true" name="" hidden="true" id="077b-bdd0-c00d-0680" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
             <entryLink import="true" name="" hidden="true" id="9605-73c2-6f1f-09b7" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
             <entryLink import="true" name="" hidden="true" id="b08a-fda5-2448-3dea" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
@@ -3657,12 +3624,10 @@ sim-mod: source=&quot;No Mercy&quot; hit=+1 whileLeading conditional</comment>
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="651c-c5ec-014d-ae5d"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="afe3-5cae-07e6-786d" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="c6b7-2562-dcf6-28bb" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
-            <entryLink import="true" name="" hidden="true" id="0b08-0f9c-518c-c4c1" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
             <entryLink import="true" name="" hidden="true" id="c75b-ec7a-1432-63af" type="selectionEntry" targetId="73fc-a193-7da1-d9c4"/>
             <entryLink import="true" name="" hidden="true" id="5f03-1aa7-4fd1-10d1" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
             <entryLink import="true" name="" hidden="true" id="d95f-81b1-3499-b5e7" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
+            <entryLink import="true" name="" hidden="true" id="c8b7-da06-09a5-08b0" type="selectionEntry" targetId="4e74-3710-7a66-9d6c"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -4064,13 +4029,12 @@ sim-mod: source=&quot;No Mercy&quot; hit=+1 whileLeading conditional</comment>
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="8ae0-d2af-abbe-2880"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="3f0f-26d6-6eae-2c5a" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="479c-a851-adc7-e0c7" type="selectionEntry" targetId="15c0-9294-7eb8-f3a7"/>
-            <entryLink import="true" name="" hidden="true" id="e288-05f7-7713-2afb" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
             <entryLink import="true" name="" hidden="true" id="518e-593b-65e5-c76b" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
             <entryLink import="true" name="" hidden="true" id="3a97-9ec1-eeb8-e278" type="selectionEntry" targetId="73fc-a193-7da1-d9c4"/>
             <entryLink import="true" name="" hidden="true" id="69c8-303f-2b91-410f" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
             <entryLink import="true" name="" hidden="true" id="f176-064e-a822-8ad3" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
+            <entryLink import="true" name="" hidden="true" id="bb46-19b0-0159-d2b7" type="selectionEntry" targetId="b040-ce24-7e1a-c903"/>
+            <entryLink import="true" name="" hidden="true" id="4562-f519-550d-fe1b" type="selectionEntry" targetId="4e74-3710-7a66-9d6c"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -5713,7 +5677,7 @@ While this Mission Tactic is active, each time a ^^Deathwatch^^ model from your 
                 </rule>
               </rules>
               <costs>
-                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="1770-717d-b9f8-fcc2">
@@ -5735,12 +5699,12 @@ Each time an ^^Adeptus Arbites, Inquisitor, Inquisitorial Agents^^ or ^^Ordo Her
                 </rule>
               </rules>
               <costs>
-                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="2936-4b3a-6f4e-c422">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5754,12 +5718,12 @@ sim-mod: source=&quot;Destroy the Daemonic&quot; reroll=wound1 vs=Daemon conditi
                 </rule>
               </rules>
               <costs>
-                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="88ea-b10e-5f06-4c90">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5780,12 +5744,12 @@ Select one objective marker on the battlefield. Until the start of your next Com
                 </rule>
               </rules>
               <costs>
-                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="ee36-c53e-1d6c-b5fe">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5841,12 +5805,12 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
                 </rule>
               </rules>
               <costs>
-                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+                <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="31c0-94a0-edf7-820b">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -6213,20 +6177,6 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b98d-1816-077d-ebf5"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="81ec-cad8-1327-b375">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="a4ab-c951-e03b-e776"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="7d1d-fbe0-2c50-adc1" type="selectionEntry" targetId="4469-7239-717e-9abd"/>
-            <entryLink import="true" name="" hidden="true" id="68bd-acf9-c2e7-0744" type="selectionEntry" targetId="24d5-9987-4d2-b42b"/>
-            <entryLink import="true" name="" hidden="true" id="28b6-a211-0634-6f4b" type="selectionEntry" targetId="6db9-cede-3810-f1f0"/>
-            <entryLink import="true" name="" hidden="true" id="664f-5327-a737-5744" type="selectionEntry" targetId="ec63-524d-55a-3065"/>
-            <entryLink import="true" name="" hidden="true" id="a5e0-2b46-534f-230d" type="selectionEntry" targetId="d44c-5cde-cb79-3ec3"/>
-            <entryLink import="true" name="" hidden="true" id="e0c9-a9f7-ac1a-0db1" type="selectionEntry" targetId="73fc-a193-7da1-d9c4"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="c560-3240-894e-fc92">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -6262,14 +6212,6 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <profile name="Holy Hatred" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3eab-db6a-2f7f-e2df">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, melee weapons equipped by that unit have the [SUSTAINED HITS 1] ability.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af86-3df0-97e2-9c6a">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units: INQUISITORIAL AGENTS, IMPERIAL NAVY BREACHERS, SUBDUCTOR SQUAD, EXACTION SQUAD, VIGILANT SQUAD, SISTERS OF BATTLE SQUAD.
-
-
-*You can attach this model to an INQUISITORIAL AGENTS unit, even if one INQUISITOR unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strength.*</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="642a-d960-c946-78e2">
@@ -7127,10 +7069,10 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <infoLink name="Assigned Agents" id="98e4-2f55-4c1f-694a" hidden="false" type="rule" targetId="58c1-ec7a-74f5-26b9"/>
       </infoLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
       </costs>
       <modifiers>
-        <modifier type="increment" value="20" field="51b2-306e-1021-d207">
+        <modifier type="increment" value="15" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b00-cd86-4b4c-97ba" shared="true" includeChildSelections="false"/>
           </conditions>
@@ -7491,7 +7433,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -7504,6 +7446,12 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="ede2-ae50-5f5b-cced" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>
@@ -7669,7 +7617,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
       <profiles>
         <profile name="Imperial Rhino" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="9b87-7144-a334-0498">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 AGENTS OF THE IMPERIUM INFANTRY models. It cannot transport TERMINATOR or OFFICIO ASSASSINORUM models.</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 **^^Agents of the Imperium^^** **^^Infantry^^** models. It cannot transport **^^Terminator^^** or **^^Officio Assassinorum^^** models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Imperial Rhino" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3b22-872c-e7c5-3578">
@@ -7699,7 +7647,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <categoryLink id="1f60-83bc-997c-99ac" name="Frame" hidden="false" targetId="5de4-e6e1-efb3-fdf0" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -7712,6 +7660,12 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="cbbd-8e0a-fd90-fa0d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>
@@ -8314,7 +8268,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d82e-3a22-9c73-2c5e" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="increment" value="15" field="51b2-306e-1021-d207">
+        <modifier type="increment" value="10" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b00-cd86-4b4c-97ba" shared="true" includeChildSelections="false"/>
           </conditions>
@@ -8488,7 +8442,7 @@ EFFECT: Your unit can declare a charge. When doing so, you must select one or mo
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sisters of Battle Immolator" hidden="false" id="a5c9-2cb7-d874-8169" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
       <categoryLinks>
         <categoryLink name="Dedicated Transport" hidden="false" id="fce7-bd2c-1499-5f69" targetId="ba07-411c-2832-1f79" primary="true"/>
@@ -8681,6 +8635,12 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
             </conditionGroup>
           </conditionGroups>
           <comment>Agents visibility</comment>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="a5c9-2cb7-d874-8169" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
       <modifierGroups>
@@ -10110,16 +10070,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="f89b-84e0-6e3b-f1e2" shared="true" id="03d2-c7fa-06c8-7826" includeChildSelections="true"/>
           </conditions>
-        </modifier>
-        <modifier type="set" value="200" field="51b2-306e-1021-d207">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="greaterThan" value="5" field="selections" scope="0744-61ce-619d-ffe1" childId="model" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b00-cd86-4b4c-97ba" shared="true" id="764e-c2de-54a4-bc1c" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
         </modifier>
       </modifiers>
       <constraints>
@@ -14714,6 +14664,7 @@ sim-mod: source=&quot;Indomitor Doctrines&quot; wound=+1 conditional</comment>
           </constraints>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="6e68-cff8-2914-7cce" type="selectionEntry" targetId="0744-61ce-619d-ffe1"/>
+            <entryLink import="true" name="" hidden="true" id="8871-8e03-e51b-fd9e" type="selectionEntry" targetId="b040-ce24-7e1a-c903"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -14783,11 +14734,6 @@ sim-mod: source=&quot;Indomitor Doctrines&quot; wound=+1 conditional</comment>
         <modifier type="set" value="true" field="hidden">
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="f89b-84e0-6e3b-f1e2" shared="true" id="302e-d6d4-5ad0-ffba" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" value="10" field="51b2-306e-1021-d207">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b00-cd86-4b4c-97ba" shared="true" includeChildSelections="false"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -14926,6 +14872,7 @@ sim-mod: source=&quot;Indomitor Doctrines&quot; wound=+1 conditional</comment>
           </constraints>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="2121-4b26-49b7-0952" type="selectionEntry" targetId="0744-61ce-619d-ffe1"/>
+            <entryLink import="true" name="" hidden="true" id="cd57-1cfc-7bfc-eb57" type="selectionEntry" targetId="b040-ce24-7e1a-c903"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>

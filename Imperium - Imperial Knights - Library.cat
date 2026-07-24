@@ -1829,6 +1829,9 @@ sim-mod: source=&quot;Impetuous Glory&quot; attacks=+2 weapon=&quot;reaper chain
                       </selectionEntryGroups>
                     </entryLink>
                     <entryLink import="true" name="Rapid-fire battle cannon" hidden="false" id="13ea-1f02-677-7538" type="selectionEntry" targetId="d6c0-4d42-c3c4-db8a">
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                      </costs>
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3aeb-ac3e-f688-af6c"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="179-7318-9a76-548b"/>
@@ -2305,7 +2308,7 @@ sim-mod: source=&quot;Impetuous Glory&quot; attacks=+2 weapon=&quot;reaper chain
         <entryLink import="true" name="Crusade" hidden="false" id="7918-f2bd-1d12-18f5" type="selectionEntryGroup" targetId="4c8f-eb91-e2f2-42e5" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="400"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="425"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -2327,8 +2330,8 @@ sim-mod: source=&quot;Impetuous Glory&quot; attacks=+2 weapon=&quot;reaper chain
             <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
-          <comment>repeat-cost: threshold=1 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="25">
+          <comment>repeat-cost: threshold=1 delta=25 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="6e36-f85-1c3b-8bf3" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7563,7 +7566,10 @@ sim-mod: source=&quot;Saturation Fire&quot; ignores-cover when=ranged conditiona
               <profiles>
                 <profile name="Mysterious Guardian" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af68-8a39-ace8-1f7a">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Imperial Knights^^** model only. The bearer has the Deep Strike ability. Once per battle, at the end of your opponent’s turn, if the bearer is not within Engagement Range of one or more enemy units, it can use this Enhancement. If it does, remove the bearer from the battlefield. In the Reinforcements step of your subsequent Movement phase, set the bearer up anywhere on the battlefield that is more than 9” horizontally away from all enemy units. If the battle ends and the bearer is not on the battlefield, it is destroyed.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Imperial Knights^^** model only. (Once per battle, per army) At the end of your opponent&apos;s turn, if this unit is unengaged, you can use this ability. If you do:
+- Place this unit in Strategic Reserves.
+- This unit has the Deep Strike ability until the start of your next Shooting phase.
+- This unit must make an ingress move in your next Movement phase (including in your first turn).</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -7820,11 +7826,11 @@ EFFECT: That move does not prevent your unit from being eligible to start an act
         <selectionEntry type="upgrade" import="true" name="Gate Warden Lance" id="884c-fbb7-9f22-1297">
           <rules>
             <rule name="Dauntless Defenders" id="f5bc-534b-8e6d-53fb" hidden="false">
-              <description>At the start of the first battle round, select two objective markers on the battlefield to be your foundations. When you draw a line from any part of one of your foundations to the other, if any part of a model&apos;s base (or any part of a models hull, for a model without a base) crosses that line, that model&apos;s unit is said to be on your defensive line.
+              <description>At the start of the first battle round, select two objectives to be your foundations. Place a circular foundation marker in each one. When you draw a line from the closest part of one foundation marker to the closest part of the other, if any part of a model&apos;s base (or any part of a model&apos;s hull, for a model without a base) crosses that line, that model&apos;s unit is said to be on your defensive line.
 
-While an **^^Imperial Knights^^** unit from your army is on your defensive line, that unit has the Against the Horde ability.
+While an **^^Imperial Knights^^** unit from your army is on your defensive line, that unit has the following ability:
 
-Each time one of your foundations is removed from the battlefield (e.g. by a Primary Mission rule), just after is is removed, select a new objective marker on the battlefield to be one of your foundations.</description>
+**Against the Horde:** Each time a model in this unit makes an attack that targets a visible enemy unit, you can ignore any or all modifiers to the Hit roll, and weapons equipped by models in this unit have the **[SUSTAINED HITS 1]** ability.</description>
             </rule>
           </rules>
           <infoLinks>
@@ -7839,7 +7845,7 @@ Each time one of your foundations is removed from the battlefield (e.g. by a Pri
             </profile>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="6635-466a-2267-497d">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -7951,7 +7957,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="61de-8dca-e058-41bf">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -7991,7 +7997,7 @@ EFFECT: Select one enemy unit hit by those attacks. That enemy unit makes a batt
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0af7-62e1-7f09-3f70">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>

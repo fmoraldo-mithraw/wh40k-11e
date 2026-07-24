@@ -151,6 +151,7 @@
     <categoryEntry name="Tank Ace" id="b6a1-a3f9-16eb-2d31" hidden="false"/>
     <categoryEntry id="473b-a649-eeff-c7e4" name="Captain with Relic Shield" hidden="false"/>
     <categoryEntry id="46ea-a4b8-5ac0-2200" name="Eradicator Squad with Heavy Bolters" hidden="false"/>
+    <categoryEntry id="c8a0-e643-df37-dbc1" name="Mobile" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="e9ed-6763-ea0d-39fe" targetId="82cb-ba1-1aae-3b1d"/>
@@ -3923,7 +3924,7 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f318-8293-3f05-2c19"/>
           </constraints>
           <entryLinks>
-            <entryLink type="selectionEntry" import="true" name="Thirst for Glory" hidden="false" id="fc21-073a-ca6e-717a" targetId="22b0-082f-bde5-6b4a"/>
+            <entryLink type="selectionEntry" import="true" name="Thirst for Glory Upgrade" hidden="false" id="fc21-073a-ca6e-717a" targetId="22b0-082f-bde5-6b4a"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="ce94-d0e5-07d9-b44e">
@@ -4615,9 +4616,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Target Elimination" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4207-56a0-b930-84bd">
+        <profile name="Hail of Bolts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4207-56a0-b930-84bd">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, it can use this ability. If it does, until the end of the phase, add 2 to the Attacks characteristic of bolt rifles equipped by models in this unit and you can only select one enemy unit as the target of all of this unit&apos;s attacks</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when this unit is selected to shoot, select up to one visible enemy unit. While making those attacks, this unit’s Bolt Rifle attacks that targeted that enemy unit have +2 A.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5076,7 +5077,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
     <selectionEntry type="unit" import="true" name="Infernus Squad" hidden="false" id="b007-fc7b-8e4a-b017">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <profiles>
-        <profile name="Purge the Foe" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b3c7-e6c3-c500-616a">
+        <profile name="Incendiary Terror" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b3c7-e6c3-c500-616a">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, you can select one enemy Infantry unit hit by one or more of those attacks made with a pyreblaster. That enemy unit must take a Battle-shock test, subtracting 1 from that test.</characteristic>
           </characteristics>
@@ -5200,7 +5201,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="170" field="51b2-306e-1021-d207">
+        <modifier type="set" value="180" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="b007-fc7b-8e4a-b017" childId="ef1c-98e8-be17-387c" shared="true" id="1f3f-9e14-ef04-f38a" includeChildSelections="true"/>
           </conditions>
@@ -8123,10 +8124,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
       <profiles>
         <profile name="Bladeguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13f1-27da-509b-815f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, you can select one of the following abilities to apply to models in this unit until the end of the phase:
-
-■ Swords of the Imperium: Each time a model in this unit makes a melee attack, re-roll a Hit roll of 1.
-■ Shields of the Imperium: Each time an invulnerable saving throw is made for a model in this unit, re-roll a saving throw of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per turn, per unit): In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, you can select one of the following:
+■ This unit’s melee attacks have +1 to hit rolls.
+■ Or: Attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -8371,7 +8371,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
       <comment>sim-mod: source=&quot;Vanguard Assault&quot; lethal when=melee onCharge
 sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -8404,7 +8404,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ea1d-aa1b-39af-5932" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="200" field="51b2-306e-1021-d207">
+        <modifier type="set" value="210" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="9e9c-bf4d-2d40-be82" childId="8a7f-b578-d274-9769" shared="true" id="c465-ba04-3a7-cc0a"/>
           </conditions>
@@ -8414,13 +8414,13 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <condition type="instanceOf" value="0" field="selections" scope="primary-catalogue" childId="470a-6daa-9014-12df" shared="true" includeChildSelections="false" includeChildForces="false"/>
           </conditions>
         </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="105">
+        <modifier type="set" field="51b2-306e-1021-d207" value="110">
           <comment>chapter-cost: BA (surcout/escompte par chapitre via primary-catalogue; voir editor/MARINE_CHAPTER_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="4ef9-15ce-e3e6-36de" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="210">
+        <modifier type="set" field="51b2-306e-1021-d207" value="220">
           <comment>chapter-cost: BA (palier de taille)</comment>
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="4ef9-15ce-e3e6-36de" shared="true"/>
@@ -8442,7 +8442,24 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="84ea-f94a-3737-d3a7"/>
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="1f4-2e60-49fb-3"/>
               </constraints>
-              <selectionEntries>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Pistol Option" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="c252-ce95-be5e-ac20">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="21a2-c26f-42dd-99be" targetId="25c2-104f-fa0c-809e"/>
+                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" id="c252-ce95-be5e-ac20" type="selectionEntry" targetId="576a-9a88-1cc6-680f"/>
+                    <entryLink import="true" name="Bolt pistol" hidden="false" id="296c-e51c-3295-570c" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Melee Option" hidden="false" id="9853-1613-45af-cb6a" defaultSelectionEntryId="4fab-9370-8ba1-b1bc">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="700d-ed26-83c1-1a37"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1144-bb07-730d-9d3b"/>
+                  </constraints>
+                  <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Master-crafted power weapon" hidden="false" id="4fab-9370-8ba1-b1bc" collective="true">
                   <profiles>
                     <profile name="Master-crafted power weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ca66-54e3-a097-55b0">
@@ -8458,21 +8475,28 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     </profile>
                   </profiles>
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a516-284-62ac-8257"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9343-e602-e906-688b"/>
                   </constraints>
                 </selectionEntry>
-              </selectionEntries>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Pistol Option" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="c252-ce95-be5e-ac20">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
-                  </constraints>
-                  <entryLinks>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="21a2-c26f-42dd-99be" targetId="25c2-104f-fa0c-809e"/>
-                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" id="c252-ce95-be5e-ac20" type="selectionEntry" targetId="576a-9a88-1cc6-680f"/>
-                  </entryLinks>
+                    <selectionEntry type="upgrade" import="true" name="Vanguard Veteran Weapon" hidden="false" id="2d81-6ddd-5144-55cd" collective="true">
+                      <profiles>
+                        <profile name="Vanguard Veteran Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1db4-8ea4-b641-398b">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <constraints>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e969-e470-d692-ece2"/>
+                      </constraints>
+                    </selectionEntry>
+                  </selectionEntries>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <profiles>
@@ -8494,11 +8518,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="15b3-63ea-ce56-5553"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Master-crafted power weapon" hidden="false" type="selectionEntry" id="5eaa-19f1-e3b2-8652" targetId="4fab-9370-8ba1-b1bc">
-                  <entryLinks>
-                    <entryLink import="true" name="Weapon Modifications" hidden="false" id="56d4-bf98-0ff9-ed04" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                  </entryLinks>
-                </entryLink>
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="11d0-1cc1-eec4-a97c" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <selectionEntryGroups>
@@ -8518,6 +8537,21 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                         <entryLink import="true" name="Weapon Modifications" hidden="false" id="0868-1bed-65f7-e453" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                       </entryLinks>
                     </entryLink>
+                    <entryLink import="true" name="Bolt pistol" hidden="false" id="4763-5c2e-4acd-edec" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Melee Option" hidden="false" id="c5e6-a372-62e6-dda9" defaultSelectionEntryId="5eaa-19f1-e3b2-8652">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="474b-d5d3-c946-da91"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0c65-6bc6-5707-18c2"/>
+                  </constraints>
+                  <entryLinks>
+                <entryLink import="true" name="Master-crafted power weapon" hidden="false" type="selectionEntry" id="5eaa-19f1-e3b2-8652" targetId="4fab-9370-8ba1-b1bc">
+                  <entryLinks>
+                    <entryLink import="true" name="Weapon Modifications" hidden="false" id="56d4-bf98-0ff9-ed04" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
+                  </entryLinks>
+                </entryLink>
+                    <entryLink import="true" name="Vanguard Veteran Weapon" hidden="false" id="3beb-1d1f-6f40-e212" type="selectionEntry" targetId="2d81-6ddd-5144-55cd"/>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -9107,7 +9141,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="set" value="190" field="51b2-306e-1021-d207">
+        <modifier type="set" value="200" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="907f-11-c4d1-ec21" childId="edfc-d6af-480a-d5fc" shared="true" id="7bc5-7263-a6d7-3bca" includeChildSelections="false"/>
           </conditions>
@@ -9564,7 +9598,7 @@ bearer can be moved during that move</characteristic>
       <comment>sim-mod: source=&quot;Close-quarters Firepower&quot; ap=+1 when=ranged conditional
 sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -9820,7 +9854,7 @@ by 1.</characteristic>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="set" value="180" field="51b2-306e-1021-d207">
+        <modifier type="set" value="165" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="129d-2da5-66f3-f4ec" childId="72d4-ff18-9328-2bce" shared="true" id="c997-19f1-338e-a1ad"/>
           </conditions>
@@ -11438,6 +11472,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                       <entryLinks>
                         <entryLink import="true" name="Weapon Modifications" hidden="false" id="294b-81e2-5a6d-5f7f" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                       </entryLinks>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+                      </costs>
                     </entryLink>
                   </entryLinks>
                   <selectionEntries>
@@ -15778,7 +15815,7 @@ sim-mod: wound=+1 source=&quot;Templar Vows&quot; when=melee conditional faction
     <selectionEntry type="unit" import="true" name="Suppressor Squad" hidden="false" id="97f6-b1f8-c72d-e826">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -15992,7 +16029,7 @@ sim-mod: wound=+1 source=&quot;Templar Vows&quot; when=melee conditional faction
     <selectionEntry type="unit" import="true" name="Inceptor Squad" hidden="false" id="3e14-2a-d358-6ada">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -16234,7 +16271,7 @@ sim-mod: wound=+1 source=&quot;Templar Vows&quot; when=melee conditional faction
         </profile>
       </profiles>
       <modifiers>
-        <modifier type="set" value="240" field="51b2-306e-1021-d207">
+        <modifier type="set" value="250" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="3e14-2a-d358-6ada" childId="e014-c962-cb07-e615" shared="true" id="3e03-3145-a06d-998f"/>
           </conditions>
@@ -16761,7 +16798,7 @@ sim-mod: wound=+1 source=&quot;Templar Vows&quot; when=melee conditional faction
     <selectionEntry type="model" import="true" name="Storm Speeder Hammerstrike" hidden="false" id="9489-445c-f950-7292">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -22506,7 +22543,7 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
     <selectionEntry type="model" import="true" name="Repulsor Executioner" hidden="false" id="9259-f166-15f2-7f79">
       <comment>sim-mod: source=&quot;Executioner&quot; hit=+1 conditional scope=model</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="240"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="255"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -22674,6 +22711,9 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
                   <entryLinks>
                     <entryLink import="true" name="Weapon Modifications" hidden="false" id="10e4-4602-13d0-4f59" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                   </entryLinks>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                  </costs>
                 </selectionEntry>
               </selectionEntries>
             </selectionEntryGroup>
@@ -22817,7 +22857,7 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
     <selectionEntry type="model" import="true" name="Rhino" hidden="false" id="a14e-75ca-ef91-397f">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="4144-d2c1-e753-353"/>
@@ -22986,12 +23026,18 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
             <condition type="atLeast" value="1" field="selections" scope="roster" childId="cf4f-5c50-4a22-6960" shared="true" includeChildSelections="true" includeChildForces="true" childName="Headhunter Task Force"/>
           </conditions>
         </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="a14e-75ca-ef91-397f" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Razorback" hidden="false" id="ed11-25b9-a0eb-89f4">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="2a14-530b-b676-607f" primary="false" name="Vehicle"/>
@@ -23174,11 +23220,17 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
             <condition type="atLeast" value="1" field="selections" scope="roster" childId="cf4f-5c50-4a22-6960" shared="true" includeChildSelections="true" includeChildForces="true" childName="Headhunter Task Force"/>
           </conditions>
         </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="ed11-25b9-a0eb-89f4" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Impulsor" hidden="false" id="bfb1-7512-e1a3-9fa2">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="e222-8be7-4ef6-ba9d" primary="false" name="Vehicle"/>
@@ -23356,6 +23408,12 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
             <condition type="atLeast" value="1" field="selections" scope="roster" childId="cf4f-5c50-4a22-6960" shared="true" includeChildSelections="true" includeChildForces="true" childName="Headhunter Task Force"/>
           </conditions>
         </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="bfb1-7512-e1a3-9fa2" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
       </modifiers>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="fc1a-8996-63b0-7d5e"/>
@@ -23454,8 +23512,16 @@ sim-mod: source=&quot;Aqullon Optics&quot; reroll=dmg when=ranged conditional sc
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Drop Pod" hidden="false" id="4d57-c5c8-c1a1-e8a6">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="4d57-c5c8-c1a1-e8a6" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
       </costs>
       <profiles>
         <profile name="Drop Pod" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="ee20-cb85-cdc2-d5df">
@@ -24972,7 +25038,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <entryLink import="true" name="Crusade" hidden="false" id="d40c-1860-1a33-24d9" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
       </entryLinks>
       <infoLinks>
-        <infoLink name="Leader" type="rule" id="a044-bd4a-8c06-5183" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Target Priority" hidden="false" type="profile" id="1a05-7f9e-4831-47a1" targetId="623-5a90-2d25-679"/>
         <infoLink name="Tactical Precision" hidden="false" type="profile" id="496-c03c-6378-df5b" targetId="b07f-3052-e85f-d6d3"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="a330-8af8-3a52-841f" targetId="3b76-4053-ece9-6e7d"/>
@@ -25135,22 +25200,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="c25a-e0e7-0a59-1ff2" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="ce8d-a2d7-159a-8285">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="2c5a-0a1a-c4a5-86f0"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="01b0-e8f3-cb4e-18ab" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
-            <entryLink import="true" name="" hidden="true" id="5d56-9ece-d65f-ae7d" type="selectionEntry" targetId="7044-bf1-f949-c32d"/>
-            <entryLink import="true" name="" hidden="true" id="126a-63da-5d38-a7cb" type="selectionEntry" targetId="2f2e-d99b-b235-163a"/>
-            <entryLink import="true" name="" hidden="true" id="1172-84a0-da9a-8aac" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
-            <entryLink import="true" name="" hidden="true" id="4084-41b0-9430-819a" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
-            <entryLink import="true" name="" hidden="true" id="54be-87e6-7d59-4719" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
-            <entryLink import="true" name="" hidden="true" id="cec8-c945-2e24-985a" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
-            <entryLink import="true" name="" hidden="true" id="a425-5971-8093-a819" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="cd3b-4d83-be0b-5652">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -25183,22 +25232,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ba72-8a45-4bf0-d10c">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Assault Intercessor Squad
-■ Bladeguard Veteran Squad
-■ Company Heroes
-■ Hellblaster Squad
-■ Infernus Squad
-■ Intercessor Squad
-■ Sternguard Veteran Squad
-■ Tactical Squad
-
-You can attach this model to a unit it can lead even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -25303,15 +25336,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, increase the range of that unit’s Terror Troops ability by 3&quot;.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="42b2-7d1e-f1c-abdd">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following unit:
-
-■ Reiver Squad
-
-You can attach this model a unit it can lead even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Scouts" type="rule" id="b723-690d-9a1b-c1c3" targetId="ada6-bac1-ffe0-d6f7">
@@ -25319,7 +25343,6 @@ You can attach this model a unit it can lead even if one Captain or Chapter Mas
             <modifier type="append" value="6&quot;" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Leader" type="rule" id="4f0e-28bb-fb44-32ad" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Tactical Precision" hidden="false" type="profile" id="17ae-5b42-11d1-75a4" targetId="b07f-3052-e85f-d6d3"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="a49d-7a03-b646-6ec9" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Templar Vows" id="0124-da78-652d-e868" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
@@ -25533,7 +25556,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
           </modifiers>
         </infoLink>
         <infoLink name="Deep Strike" type="rule" id="d1c7-339e-d90-5f92" targetId="7cb5-dd6b-dd87-ad3b"/>
-        <infoLink name="Leader" type="rule" id="c95e-280d-22a9-3588" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Tactical Precision" hidden="false" type="profile" id="f05a-f428-fdf-7c8" targetId="b07f-3052-e85f-d6d3"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="95ed-8f97-d65f-9c21" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Templar Vows" id="2024-1728-6fda-613c" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
@@ -25555,18 +25577,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         </profile>
         <profile name="Strategic Dispersal" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eec8-a500-c73f-95d7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model’s unit has shot, if it is not within Engagement Range of any enemy models, it can make a Normal move of up to  6&quot;. If it does, until the end of the turn, that unit is not eligible to declare a charge.’</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6071-4e16-eb0f-63a6">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Incursor Squad
-■ Infiltrator Squad
-■ Reiver Squad
-
-You can attach this model to a unit it can lead units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model’s unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6&quot;. If it does, until the end of the turn, that unit is not eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -25754,17 +25765,6 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
             <entryLink type="selectionEntry" import="true" name="Death in the Dark Upgrade" hidden="false" id="5b1a-2575-41b3-e9c1" targetId="047d-226d-14bc-d393"/>
           </entryLinks>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="9384-c9d5-9b9b-cc20">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="d396-09aa-b1f7-b3ab"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="9f4d-df88-f629-a1b5" type="selectionEntry" targetId="527c-120e-9e4e-9bfe"/>
-            <entryLink import="true" name="" hidden="true" id="285b-47cd-db36-9480" type="selectionEntry" targetId="70dc-ed18-2788-b35a"/>
-            <entryLink import="true" name="" hidden="true" id="6db3-e683-a5c7-9183" type="selectionEntry" targetId="a7ae-e495-683b-7c90"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="9ca5-e160-548a-e35d">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -25781,7 +25781,7 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Librarian" hidden="false" id="78eb-9334-f5c0-6095">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="671c-becf-d65-9d83" primary="true" name="Character"/>
@@ -25848,6 +25848,12 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
         <modifier type="set" value="true" field="hidden">
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="36d3-36bc-68dd-40ac" shared="true"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="78eb-9334-f5c0-6095" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -26486,7 +26492,7 @@ model is within 12&quot;.</characteristic>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fe02-6007-d515-a23b"/>
           </constraints>
           <entryLinks>
-            <entryLink type="selectionEntry" import="true" name="Thirst for Glory" hidden="false" id="aab8-bda0-832c-b45d" targetId="22b0-082f-bde5-6b4a"/>
+            <entryLink type="selectionEntry" import="true" name="Thirst for Glory Upgrade" hidden="false" id="aab8-bda0-832c-b45d" targetId="22b0-082f-bde5-6b4a"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Legacy of Grace Enhancement" hidden="false" id="60a2-0d2f-414c-ff16">
@@ -27271,7 +27277,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d23f-1916-d1cf-9235"/>
           </constraints>
           <entryLinks>
-            <entryLink type="selectionEntry" import="true" name="Thirst for Glory" hidden="false" id="9e1f-1fd7-d224-dc81" targetId="22b0-082f-bde5-6b4a"/>
+            <entryLink type="selectionEntry" import="true" name="Thirst for Glory Upgrade" hidden="false" id="9e1f-1fd7-d224-dc81" targetId="22b0-082f-bde5-6b4a"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="fb45-520c-ebdd-2eaa">
@@ -27655,33 +27661,27 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
               </entryLinks>
             </entryLink>
           </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Absolvor bolt pistol" hidden="false" id="ba25-dbe8-70b0-0e34" collective="false">
+          <selectionEntries></selectionEntries>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Pistol Option" hidden="false" id="e112-13ef-4feb-94dc" defaultSelectionEntryId="3202-93cd-4914-43c1">
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3714-9501-28ea-9ca2"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0f78-5647-1ab4-8826"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d59a-0094-9665-cb26"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f38d-4e12-4fcb-72f8"/>
               </constraints>
-              <profiles>
-                <profile name="Absolvor bolt pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e481-44f2-0a7d-7fec">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Close-Quarters" hidden="false" type="rule" id="7add-a9de-b991-0f2a" targetId="59e0-775e-fce5-43ca"/>
-              </infoLinks>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="22ed-dd74-c2ab-572d" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-          </selectionEntries>
+              <entryLinks>
+                <entryLink import="true" name="Bolt pistol" hidden="false" id="3202-93cd-4914-43c1" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                <entryLink import="true" name="Boltgun" hidden="false" id="a170-6ee0-ecee-0cb8" type="selectionEntry" targetId="beac-9df8-7247-c8ab"/>
+                <entryLink import="true" name="Combi-weapon" hidden="false" id="b948-f40a-270d-d834" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae"/>
+                <entryLink import="true" name="Grav-pistol" hidden="false" id="87e7-993a-b0fd-41bb" type="selectionEntry" targetId="1f74-a1b-2835-ccdd"/>
+                <entryLink import="true" name="Hand flamer" hidden="false" id="2eae-843b-5494-b193" type="selectionEntry" targetId="9dc6-6ad8-818e-db2e"/>
+                <entryLink import="true" name="Inferno Pistol" hidden="false" id="d08e-9c62-f433-cefc" type="selectionEntry" targetId="d8bf-e17f-d6fa-b7e8"/>
+                <entryLink import="true" name="Plasma pistol" hidden="false" id="02c7-51de-9246-a102" type="selectionEntry" targetId="25c2-104f-fa0c-809e"/>
+                <entryLink import="true" name="Storm bolter" hidden="false" id="da9e-c4e5-2f61-814f" type="selectionEntry" targetId="eb61-5cd0-5242-74cc"/>
+                <entryLink import="true" name="Power fist" hidden="false" id="c392-a01b-2c13-e820" type="selectionEntry" targetId="99de-5985-8cb8-f571"/>
+                <entryLink import="true" name="Absolvor bolt pistol" hidden="false" id="d814-151a-a8c6-0d3a" type="selectionEntry" targetId="a490-361-c9c4-afeb"/>
+              </entryLinks>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Wrathful Procession Enhancement" hidden="false" id="f1d2-be62-36de-c8d6">
           <modifiers>
@@ -28340,7 +28340,7 @@ Attacks characteristic of 7.</characteristic>
     <selectionEntry type="model" import="true" name="Lieutenant with Combi-weapon" hidden="false" id="109f-f71d-56-d9eb">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -28393,7 +28393,7 @@ Attacks characteristic of 7.</characteristic>
         </profile>
         <profile name="Evade and Survive" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6c2b-dfc3-89ab-e9ff">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9&quot; of this unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent’s Movement phase, if an enemy unit ends a move within 8&quot; of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile name="Lone Survivor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="83b0-5817-564d-d92b">
@@ -28780,7 +28780,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="77be-e4f5-2611-d1b4" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
-        <infoLink name="Leader" type="rule" id="bdb5-c15-f33e-ebb6" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="366c-ed2b-2e99-b23b" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Templar Vows" id="537d-6f09-1156-ed56" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink id="6413-9548-b465-8e44" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
@@ -28813,22 +28812,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <profile name="Gene Seed Recovery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1826-b313-9e4f-57c">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this model’s Bodyguard unit is destroyed, roll one D6: on a 2+, you gain 1CP.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a19-ea12-9d03-65c4">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Assault Intercessor Squad
-■ Desolation Squad
-■ Devastator Squad
-■ Hellblaster Squad
-■ Infernus Squad
-■ Intercessor Squad
-■ Sternguard Veteran Squad
-■ Tactical Squad
-
-You can attach this model to one of the above units even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -28976,22 +28959,6 @@ You can attach this model to one of the above units even if one Captain, Chapte
             <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="00e1-7256-28ec-1b47" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="6a72-04f5-fd8e-cae0">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="841e-efd4-8df7-20b0"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="207f-17dd-c4a9-04b4" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
-            <entryLink import="true" name="" hidden="true" id="f7e8-b93e-8bee-f025" type="selectionEntry" targetId="a3ea-7a0d-fef8-23bf"/>
-            <entryLink import="true" name="" hidden="true" id="7d82-e366-303d-1344" type="selectionEntry" targetId="3f4c-1e67-66dc-ffa5"/>
-            <entryLink import="true" name="" hidden="true" id="9b99-6cb4-35db-c784" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
-            <entryLink import="true" name="" hidden="true" id="e7ae-248d-ec48-cbd1" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
-            <entryLink import="true" name="" hidden="true" id="9457-9329-0f44-5358" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
-            <entryLink import="true" name="" hidden="true" id="75b9-bd7c-b032-70a4" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
-            <entryLink import="true" name="" hidden="true" id="965c-7ae1-2f4c-3452" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="489e-cc35-9264-4216">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -29042,7 +29009,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6fb4-bf34-5339-af4e" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
-        <infoLink id="3452-4340-9abf-53af" name="Leader" hidden="false" targetId="b4dd-3e1f-41cb-218f" type="rule"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="3fed-e19f-d789-ccf5" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Templar Vows" id="5fdd-00be-10f7-9b65" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink id="1771-725e-a0a2-2b64" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
@@ -29071,17 +29037,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <profile name="Vivispectrum" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="739f-7ad5-5b0f-cd36">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model’s unit destroys an enemy unit as the result of a melee attack, until the end of the battle, this model has an Objective Control characteristic of 9.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="90f4-f4cf-7e9-2088">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Aggressor Squad
-■ Eradicator Squad
-■ Heavy Intercessor Squad
-
-You can attach this model to one of the above units even if one Captain or Chapter Master model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -29197,17 +29152,6 @@ You can attach this model to one of the above units even if one Captain or Chap
             <entryLink type="selectionEntry" import="true" name="A Giant Amongst Giants" hidden="false" id="837d-c6ae-a1b7-957f" targetId="c072-45ad-bd4a-708f"/>
             <entryLink type="selectionEntry" import="true" name="Preyslayer" hidden="false" id="7572-9e5b-bf1f-cd89" targetId="7a3c-53f7-eaff-926e"/>
             <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="6484-2eaa-9c93-97a3" targetId="909c-29be-a453-6480"/>
-          </entryLinks>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="2474-7a58-47f1-9570">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="738a-bf0f-c38a-cf80"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="145b-3163-d9eb-1de8" type="selectionEntry" targetId="129d-2da5-66f3-f4ec"/>
-            <entryLink import="true" name="" hidden="true" id="6e59-897d-124a-fe24" type="selectionEntry" targetId="c570-c6ba-c9dc-5a44"/>
-            <entryLink import="true" name="" hidden="true" id="e5d1-fd37-4f73-2a9a" type="selectionEntry" targetId="7324-e591-939b-b675"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0fb5-91e0-c3ca-212b">
@@ -29486,7 +29430,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
       </constraints>
       <infoLinks>
         <infoLink name="Astartes Banner" hidden="false" type="profile" id="7abc-605f-235c-2982" targetId="4873-996f-a8a2-bcb1"/>
-        <infoLink id="b80e-7107-a966-cab1" name="Leader" hidden="false" targetId="b4dd-3e1f-41cb-218f" type="rule"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="9ee3-35d5-c5e7-a671" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="9c7d-5218-2cc8-6733" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Templar Vows" id="3e6c-1e6c-eef2-4c87" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
@@ -29511,15 +29454,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <profile name="Deeds of Heroism" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="80e9-b186-e4ce-2ae5">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, when this model is selected to fight, it can use this ability. If it does, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in this model’s unit</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="16d0-eff3-f5d2-a2cf">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following unit:
-
-■ Bladeguard Veteran Squad
-
-You can attach this model to the above unit even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -29659,7 +29593,6 @@ You can attach this model to the above unit even if one Captain, Chapter Master
         <categoryLink targetId="6e7-40c-58d9-e402" id="ea81-5fc5-b091-b9eb" primary="false" name="Faction: Adeptus Astartes"/>
       </categoryLinks>
       <infoLinks>
-        <infoLink id="7e13-9c83-8a1a-1b7e" name="Leader" hidden="false" targetId="b4dd-3e1f-41cb-218f" type="rule"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="a1e2-8a85-6db5-2f31" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Astartes Banner" hidden="false" type="profile" id="ed23-a3ba-f7fc-5f6f" targetId="4873-996f-a8a2-bcb1"/>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="3adf-d05d-c59a-14cb" targetId="7cb5-dd6b-dd87-ad3b"/>
@@ -29699,16 +29632,6 @@ You can attach this model to the above unit even if one Captain, Chapter Master
         <profile name="Keep the Banner High" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="15d8-f178-3876-42f5">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll if that unit is below its Starting Strength, and add 1 to the Wound roll as well if that unit is Below Half-strength</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ab49-936e-921e-b30b">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-
-■ Terminator Squad
-■ Terminator Assault Squad
-
-You can attach this model to one of the above units even if one Captain, Chapter Master or Lieutenant model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -29839,17 +29762,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e189-090d-3fc7-f0d7"/>
           </constraints>
           <entryLinks>
-            <entryLink type="selectionEntry" import="true" name="Thirst for Glory" hidden="false" id="6843-43db-b8a3-a4a8" targetId="22b0-082f-bde5-6b4a"/>
-          </entryLinks>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="6911-60a6-d0cc-0c08">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="2e1a-6cd1-16e3-6dd2"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="8ba7-3107-0c1b-f68f" type="selectionEntry" targetId="4808-a80b-309a-7933"/>
-            <entryLink import="true" name="" hidden="true" id="36a7-bd21-7f5f-afc4" type="selectionEntry" targetId="ae9a-10e3-8091-20"/>
+            <entryLink type="selectionEntry" import="true" name="Thirst for Glory Upgrade" hidden="false" id="6843-43db-b8a3-a4a8" targetId="22b0-082f-bde5-6b4a"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="21f9-4a8b-feba-7672">
@@ -30803,15 +30716,13 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
 
 ■ Assault Intercessor Squad
-■ Bladeguard Veteran Squad*
-■ Hellblaster Squad*
+■ Bladeguard Veteran Squad
+■ Hellblaster Squad
 ■ Infernus Squad
 ■ Intercessor Squad
 ■ Sternguard Veteran Squad
 ■ Company Heroes
-■ Tactical Squad
-
-* This model cannot be attached to a Bladeguard Veteran Squad unless it is equipped with a relic shield, and cannot be attached to a Hellblaster Squad unless it is equipped with a plasma pistol.</characteristic>
+■ Tactical Squad</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -31016,6 +30927,8 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             <entryLink import="true" name="" hidden="true" id="1ac4-b663-0a17-b224" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
             <entryLink import="true" name="" hidden="true" id="e2f6-d29a-50d3-5c51" type="selectionEntry" targetId="2f2e-d99b-b235-163a"/>
             <entryLink import="true" name="" hidden="true" id="1fa1-2e83-9e67-333e" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
+            <entryLink import="true" name="" hidden="true" id="524b-1df5-5d16-a0c4" type="selectionEntry" targetId="7044-bf1-f949-c32d"/>
+            <entryLink import="true" name="" hidden="true" id="424e-2458-8154-4562" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -31414,7 +31327,6 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <categoryLink targetId="dbd4-63-af05-998" id="2b5d-e8ab-72b0-a86a" primary="true" name="Vehicle"/>
         <categoryLink targetId="5929-ad51-d006-e008" id="aaf-2f51-107a-64ca" primary="false" name="Titanic"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="f5a1-6e93-de56-d28b" primary="false" name="Fly"/>
-        <categoryLink targetId="63f1-e6e8-f6f6-a4f0" id="da1c-1264-1ad3-fdf5" primary="false" name="Aircraft"/>
         <categoryLink targetId="75e8-57c4-40e3-1817" id="919a-9ffd-189c-3c26" primary="false" name="Transport"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="62f7-2a8-d62-c756" primary="false" name="Imperium"/>
         <categoryLink targetId="517c-5225-1cc6-a94a" id="fc6-9834-d188-4c4e" primary="false" name="Thunderhawk Gunship"/>
@@ -37314,11 +37226,6 @@ per turn.</characteristic>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a Character model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Company Heroes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8a9-4b06-b80-76df">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You must attach one Captain or Chapter Master model to this unit. If this is not possible, this unit does not take part in the battle and counts as having been destroyed.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Oath of Moment" hidden="false" type="rule" id="fb75-80ba-871f-155d" targetId="3b76-4053-ece9-6e7d"/>
@@ -40626,16 +40533,9 @@ sim-mod: source=&quot;Finest Hour&quot; dev when=melee oncePer=battle conditiona
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Land Speeder" hidden="false" id="c583-11f8-1539-46f8">
-      <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="c583-11f8-1539-46f8" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
+      <modifiers></modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -40820,7 +40720,7 @@ sim-mod: source=&quot;Finest Hour&quot; dev when=melee oncePer=battle conditiona
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Eradicator Squad with Heavy Bolters" hidden="false" id="b7c6-33a2-ff70-e5d1">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -41046,19 +40946,7 @@ sim-mod: source=&quot;Finest Hour&quot; dev when=melee oncePer=battle conditiona
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifiers>
-        <modifier type="set" value="170" field="51b2-306e-1021-d207">
-          <conditions>
-            <condition type="atLeast" value="4" field="selections" scope="b7c6-33a2-ff70-e5d1" childId="b57c-71c0-b5b6-f02b" shared="true" id="7e6f-ea5f-1785-0597" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="b7c6-33a2-ff70-e5d1" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
+      <modifiers></modifiers>
       <entryLinks>
         <entryLink import="true" name="Crusade" hidden="false" id="a642-9948-5452-9d4a" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
       </entryLinks>
@@ -41133,7 +41021,7 @@ make a Normal move of up to D6&quot;, or up to 6&quot; instead if the Divinatio
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="0ebe-7b95-d85e-81ac" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
                 <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
                 <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
                 <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -41142,7 +41030,11 @@ make a Normal move of up to D6&quot;, or up to 6&quot; instead if the Divinatio
               <profiles>
                 <profile name="Temporal Corridor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="faa6-5981-5813-4310">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Psyker model only. At the end of your opponent’s Fight phase, you can place this unit into Strategic Reserves. If this unit has the Telekinesis Discipline ability, this unit has the Deep Strike ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Psyker model only.
+■ If this unit has the Telekinesis Discipline ability, this unit has Deep Strike.
+■ At the end of your opponent’s Fight phase, if this unit is unengaged, you can use this ability. If you do:
+- Place this unit in Strategic Reserves.
+- This unit can make an ingress move in your next Movement phase (including in your first turn).</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -41193,7 +41085,7 @@ targeted by ranged attacks unless the attacking model is within 18&quot;.</char
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="a750-7c90-d920-e3cd" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
                 <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
                 <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
                 <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -41203,15 +41095,9 @@ targeted by ranged attacks unless the attacking model is within 18&quot;.</char
               <profiles>
                 <profile name="Fusillade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3107-ddb4-d645-b988">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Psyker model only. Ranged weapons equipped by models in the bearer’s unit have
-the [ANTI‑MONSTER 5+] and [ANTI‑VEHICLE 5+] abilities, and:
-
-
-■ The [SUSTAINED HITS 1] ability if the Pyromancy
-Discipline is active for your army.
-■ Add 6&quot; to the Range characteristic of those
-weapons if the Telekinesis Discipline is active for
-your army</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Psyker model only. This unit’s ranged attacks have:
+■ [LETHAL HITS].
+■ If this unit has the Pyromancy Discipline ability, [SUSTAINED HITS 1].</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -41242,7 +41128,7 @@ your army</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="010c-2183-2361-6731" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Adaptable Executioner" hidden="false" id="4c34-6be6-f632-e445">
@@ -41340,7 +41226,7 @@ your army</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="d7ab-913c-9bb5-2ab6" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Preyslayer" hidden="false" id="7a3c-53f7-eaff-926e">
@@ -41501,12 +41387,12 @@ those tests.</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="b8a7-43f3-30f9-b4e6" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Thirst for Glory" hidden="false" id="22b0-082f-bde5-6b4a">
+            <selectionEntry type="upgrade" import="true" name="Thirst for Glory Upgrade" hidden="false" id="22b0-082f-bde5-6b4a">
               <profiles>
-                <profile name="Thirst for Glory" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bd92-dc61-149e-6626">
+                <profile name="Thirst for Glory Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bd92-dc61-149e-6626">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">ADEPTUS ASTARTES TERMINATOR model only. This unit has +1 OC.</characteristic>
                   </characteristics>
@@ -41519,7 +41405,7 @@ those tests.</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="0857-2ba2-5213-2d17" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Eye of the Hunter" hidden="false" id="414e-20bd-ae64-1457">
@@ -41591,7 +41477,7 @@ those tests.</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="6d2b-e4c7-a859-8e0b" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Guiding Omens" hidden="false" id="3c79-5bd3-b6d6-462e">
@@ -41640,7 +41526,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="9d80-9efb-ab43-296c" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Shadow of Abomination" hidden="false" id="45a8-7f93-561c-301d">
@@ -41658,7 +41544,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="b762-aa91-6bc4-8cd1" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Blood Boil" hidden="false" id="34ca-1ba5-7981-0bdf">
@@ -41679,7 +41565,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="428f-347f-8713-d3c7" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Instinctive Interception" hidden="false" id="2666-34cc-a3ab-6998">
@@ -41697,7 +41583,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="8370-f30d-7b4a-6f73" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="On the Archtraitor's Bridge" hidden="false" id="6488-7ff5-e290-6be5">
@@ -41715,7 +41601,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="6e4e-1f61-2ecf-9b19" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
   </sharedSelectionEntries>
@@ -41882,7 +41768,7 @@ While this Mission Tactic is active, each time an ADEPTUS ASTARTES unit from you
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="2659-e6fc-6eee-1b42">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -41948,7 +41834,7 @@ sim-mod: source=&quot;Armoured Wrath&quot; reroll=dmg oncePer=phase conditional<
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="44a9-9f9f-486c-3f04">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -41966,7 +41852,7 @@ sim-mod: source=&quot;Armoured Wrath&quot; reroll=dmg oncePer=phase conditional<
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="58ca-5d80-1cdd-216f">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42039,7 +41925,7 @@ sim-mod: source=&quot;Armoured Wrath&quot; reroll=dmg oncePer=phase conditional<
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="615c-82b4-6e63-7d17">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42316,7 +42202,7 @@ EFFECT: Your unit has Stealth.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="32cf-d3a1-afb8-b752">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42580,7 +42466,7 @@ Once your Beastslayer tally is equal to or greater than your Beastslayer target 
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="61ea-c928-83a5-41dc">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42656,7 +42542,7 @@ EFFECT: Select one enemy unit (excluding Monsters and Vehicles and units with th
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="d16a-2486-cdac-fdec">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42726,7 +42612,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="bfd5-c968-d252-b663">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42868,7 +42754,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="ae83-45ef-4a36-a866">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -42925,7 +42811,7 @@ EFFECT: Your unit can make a Normal move of up to 6&quot;.</description>
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
 TARGET: One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll and subtract 1 from the Wound roll.</description>
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
             </rule>
             <rule name="Withdraw and Regroup (Stratagem, 1CP)" id="bb50-fb5c-0016-5ed8" hidden="false">
               <description>Spearpoint Task Force – STRATAGEM (1CP)
@@ -43525,7 +43411,7 @@ EFFECT: Place your unit in Strategic Reserves.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="ccba-474c-dd75-1c9e">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -43567,7 +43453,7 @@ EFFECT: Your unit has -3&quot; detection range until the end of the turn.</descr
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="aaff-7f51-9df1-6ce2">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -43720,7 +43606,7 @@ EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="c0a8-7760-ec90-a55d">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -43902,7 +43788,7 @@ Restrictions: Your army can include BLACK TEMPLARS units, but it cannot include 
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="aff8-db06-4d71-8eb5">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -44101,7 +43987,7 @@ EFFECT: Your unit is no longer battle-shocked.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="facc-11ed-1419-5327">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -44143,7 +44029,7 @@ EFFECT: Your unit is no longer battle-shocked.</description>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="f8f5-94db-53e5-68ab" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -44180,7 +44066,7 @@ EFFECT: Your unit is no longer battle-shocked.</description>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="4b65-06f8-ad4d-fe3a" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
               <infoLinks>
                 <infoLink name="Feel No Pain" id="84bb-e22f-709c-23db" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb">
@@ -44799,7 +44685,7 @@ is Battle-shocked, models in that unit have the Feel No Pain 4+ ability instead.
               <profiles>
                 <profile name="Shadow War Veteran" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eff6-b6a2-d1f6-df2c">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Phobos model only. Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a Stratagem, you can use this ability. If you do, increase the cost of that use of that Stratagem by 1CP.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -45001,12 +44887,12 @@ sim-mod: source=&quot;Fury of the Storm (charge)&quot; str=+2 ap=+2 when=melee s
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Master of the Machine War" hidden="false" id="4670-2df-930f-e708">
+            <selectionEntry type="upgrade" import="true" name="Master of Machine War" hidden="false" id="4670-2df-930f-e708">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a152-257c-a2ab-e878" includeChildSelections="true"/>
               </constraints>
               <profiles>
-                <profile name="Master of the Machine War" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d4fe-9138-66d1-3a49">
+                <profile name="Master of Machine War" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d4fe-9138-66d1-3a49">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">ADEPTUS ASTARTES model only. In your Command phase, select one ADEPTUS ASTARTES VEHICLE within 6&quot; of the bearer. Until the start of your next Command phase, that VEHICLE is eligible to shoot even if it Fell Back or Advanced this turn.</characteristic>
                   </characteristics>
@@ -45059,7 +44945,7 @@ sim-mod: source=&quot;Fury of the Storm (charge)&quot; str=+2 ap=+2 when=melee s
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="c71a-dc98-94a6-3004" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -45128,7 +45014,7 @@ sim-mod: source=&quot;Fury of the Storm (charge)&quot; str=+2 ap=+2 when=melee s
               <profiles>
                 <profile name="Forged in Battle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e0ed-2d38-8406-9107">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, once per turn after making a Hit roll or a saving throw for a model in that unit, you can change the result of that roll to an umodified 6.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, once per turn, after making a Hit roll or a saving throw for a model in that unit, you can change the result of that roll to an unmodified 6.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -45301,9 +45187,9 @@ sim-mod: source=&quot;Fury of the Storm (charge)&quot; str=+2 ap=+2 when=melee s
         </selectionEntryGroup>
         <selectionEntryGroup name="1st Company Task Force Enhancements" hidden="false" id="29de-f0f4-52ba-df12">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Fear Made Manifest [Aura]" hidden="false" id="8326-9026-35c2-3632">
+            <selectionEntry type="upgrade" import="true" name="Fear Made Manifest" hidden="false" id="8326-9026-35c2-3632">
               <profiles>
-                <profile name="Fear Made Manifest [Aura]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="10e7-9436-20b1-dbaf">
+                <profile name="Fear Made Manifest" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="10e7-9436-20b1-dbaf">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While an enemy unit (excluding Monsters and Vehicles) is within 6&quot; of the bearer, each time that unit fails a Battle-Shock test, one model in that unit is destroyed (chosen by it&apos;s controlling player.) Once per battle, when such an enemy unit fails a Battle-Shock test, you can choose for D3 models in that unit to be destroyed in this way instead.</characteristic>
                   </characteristics>
@@ -46132,7 +46018,7 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="433a-5e58-586b-2b7d" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                 <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
                 <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
                 <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -46861,7 +46747,7 @@ sim-mod: source=&quot;Braggart&apos;s Steel&quot; dmg=+1 when=melee conditional<
               <profiles>
                 <profile name="Thunderwolf&apos;s Fortitude" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ff44-8601-5a60-0747">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">ADEPTUS ASTARTES model only. The first time the bearer is destroyed, remove it from play, then, at the end of the phase, roll one D6: on a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with 3 wounds remaining.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. (Once per battle, per army) When this model is destroyed, at the end of the phase, roll one D6: on a 2+, set up this model on the battlefield, unengaged and as close as possible to where it was destroyed. This model is not part of an Attached unit and its unit has a Starting Strength of 1. This model has 3 wounds remaining.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -46954,7 +46840,7 @@ sim-mod: source=&quot;Braggart&apos;s Steel&quot; dmg=+1 when=melee conditional<
               <profiles>
                 <profile name="Wolf-Touched" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e726-4c28-04f6-2848">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">SPACE WOLVES model only. Add 2&quot; to the Move characteristic of the bearer. In the Declare Battle Formations step, the bearer can be attached to a WULFEN INFANTRY unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Space Wolves^^** model only. Add 2&quot; to the Move characteristic of the bearer.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -47452,7 +47338,7 @@ sim-mod: source=&quot;Paragon of Fury&quot; dmg=+1 when=melee conditional scope=
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f758-af2e-7880-d037" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Herald of the Sacred Slaughter" hidden="false" id="d904-f330-f0c2-35c7">
+            <selectionEntry type="upgrade" import="true" name="Herald of Sacred Slaughter" hidden="false" id="d904-f330-f0c2-35c7">
               <categoryLinks>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="a779-43da-d90f-91e9" primary="false" name="Enhancement"/>
               </categoryLinks>
@@ -47465,7 +47351,7 @@ sim-mod: source=&quot;Paragon of Fury&quot; dmg=+1 when=melee conditional scope=
                 <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
               </costs>
               <profiles>
-                <profile name="Herald of the Sacred Slaughter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6f4a-e66c-7889-6b44">
+                <profile name="Herald of Sacred Slaughter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6f4a-e66c-7889-6b44">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">ADEPTUS ASTARTES model only. In the Declare Battle Formations step, if the bearer starts the battle embarked within a DEDICATED TRANSPORT, that DEDICATED TRANSPORT has the Scouts 9&quot; ability.</characteristic>
                   </characteristics>
@@ -47570,7 +47456,7 @@ sim-mod: source=&quot;Paragon of Fury&quot; dmg=+1 when=melee conditional scope=
               <profiles>
                 <profile name="Forged in Battle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae7a-3243-f314-dd6c">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, once per turn after making a Hit roll or a saving throw for a model in that unit, you can change the result of that roll to an umodified 6.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, once per turn, after making a Hit roll or a saving throw for a model in that unit, you can change the result of that roll to an unmodified 6.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -47998,12 +47884,12 @@ unit is within 12&quot; of this model, increase the cost of that usage of that 
                 <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Medusan Roar [Aura]" hidden="false" id="15db-a2e3-6106-f99e">
+            <selectionEntry type="upgrade" import="true" name="Medusan Roar" hidden="false" id="15db-a2e3-6106-f99e">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a763-1ba1-482a-a14c" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <profiles>
-                <profile name="Medusan Roar [Aura]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3791-0f9a-6682-bbd9">
+                <profile name="Medusan Roar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3791-0f9a-6682-bbd9">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While an enemy unit (excluding Monsters and Vehicles) is within 6&quot; of
 the bearer, each time that unit fails a Battle‑shock test, one model in that unit is destroyed (chosen by
@@ -48148,12 +48034,12 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
                 <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Stormseer&apos;s Wisdom" hidden="false" id="45fb-0afc-f558-c3c5">
+            <selectionEntry type="upgrade" import="true" name="Stormseers&apos; Wisdom" hidden="false" id="45fb-0afc-f558-c3c5">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2407-8e99-ddcb-f165" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <profiles>
-                <profile name="Stormseer&apos;s Wisdom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af9e-e90d-1365-2492">
+                <profile name="Stormseers&apos; Wisdom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af9e-e90d-1365-2492">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, you can re‑roll Advance rolls made for that unit.</characteristic>
                   </characteristics>
@@ -48254,7 +48140,7 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="83f1-bcf4-0755-fdfc" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
               <infoLinks>
                 <infoLink name="Feel No Pain" id="23a4-c7e8-b539-65d6" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb">
@@ -49150,13 +49036,13 @@ target is within range of an objective marker, you can re‑roll the Hit roll a
                 <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Spy-skull Datalink" hidden="false" id="d01a-5940-704d-c0da">
+            <selectionEntry type="upgrade" import="true" name="Spy-skull Data Link" hidden="false" id="d01a-5940-704d-c0da">
               <comment>sim-mod: source=&quot;Spy-skull Datalink&quot; ignores-cover when=ranged scope=model</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="6420-7563-7fec-e7e6" includeChildSelections="true"/>
               </constraints>
               <profiles>
-                <profile name="Spy-skull Datalink" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eb08-e401-e0da-5c00">
+                <profile name="Spy-skull Data Link" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eb08-e401-e0da-5c00">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.</characteristic>
                   </characteristics>
@@ -49372,7 +49258,7 @@ Enhancement. If it does, select one friendly Adeptus Astartes Transport that is
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="9207-69f3-ebc8-ae7d" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Orksbane" hidden="false" id="e25f-5c83-ed27-a128">
@@ -49404,7 +49290,7 @@ Orksbane [CLEAVE 2] – Melee, A 4, WS 2+, S 8, AP -2, D 3.</characteristic>
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="0837-c31c-9060-fea7" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -59079,9 +58965,9 @@ Vehicle unit is within 6&quot; of the bearer, ranged weapons equipped by models
   <sharedRules>
     <rule name="Oath of Moment" id="3b76-4053-ece9-6e7d" hidden="false">
       <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional</comment>
-      <description>If your Army Faction is **^^Adeptus Astartes^^**, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:
-■ You can reroll the Hit roll
-■ If you are using a Codex: Space Marines Detachment and your army does not include one or more units with the **^^Blood Angels^^**, **^^Dark Angels^^**, **^^Deathwatch^^** or **^^Space Wolves^^** keywords, add 1 to the Wound roll as well.</description>
+      <description>If your Army Faction is **^^Adeptus Astartes^^**, at the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Oath of Moment target. Each time a model with this ability makes an attack that targets your Oath of Moment target:
+■ You can re-roll the Hit roll.
+■ If you are using a Codex: Space Marines Detachment and your army does not include one or more units with the **^^Blood Angels^^**, **^^Dark Angels^^**, **^^Deathwatch^^** or **^^Space Wolves^^** keywords, or one or more units from those factions’ Munitorum Field Manual sections, add 1 to the Wound roll as well.</description>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>

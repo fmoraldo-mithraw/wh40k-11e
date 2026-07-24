@@ -2409,6 +2409,14 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Tyrannocyte" hidden="false" id="fada-677a-f6a4-cd12">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="fada-677a-f6a4-cd12" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="e23f-a3dc-eb2c-308" primary="true" name="Dedicated Transport"/>
         <categoryLink targetId="75e8-57c4-40e3-1817" id="f184-84ec-396a-9059" primary="false" name="Transport"/>
@@ -2420,7 +2428,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
         <categoryLink targetId="5ff0-d52d-e2b8-9de" id="c8f2-e34f-dfae-991e" primary="false" name="Vanguard Invader"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="a544-4bb5-d13-36ae" targetId="b68a-5ded-65ac-98c">
@@ -2593,10 +2601,10 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     <selectionEntry type="unit" import="true" name="Von Ryan&apos;s Leapers" hidden="false" id="9bd8-ac8c-2d3b-79f6">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="120" field="51b2-306e-1021-d207">
+        <modifier type="set" value="105" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="3" field="selections" scope="9bd8-ac8c-2d3b-79f6" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
@@ -3969,7 +3977,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">18</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+6</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
           </characteristics>
@@ -4173,13 +4181,9 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
         <categoryLink name="Monster" hidden="false" id="6160-b74b-d354-46d7" targetId="9693-cf84-fe69-37a9" primary="false"/>
         <categoryLink name="The Red Terror" hidden="false" id="17b5-88b1-8cee-5172" targetId="d60b-23a2-629e-dc7e" primary="false"/>
         <categoryLink name="Burrowers" hidden="false" id="8a97-6239-6b44-f696" targetId="9e1e-ad1d-e864-7164" primary="false"/>
+        <categoryLink targetId="32f4-b203-544e-7d36" id="2c0a-62b6-e4fd-1167" primary="false" name="Mobile"/>
       </categoryLinks>
       <profiles>
-        <profile name="Serpentine Fiend" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="903f-bed3-fca0-4cf7">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can move through terrain features, but cannot end a move within a wall, a floor, etc. This model can be set up or end a move on any floor level of **^^Ruins^^**, but if that level is not the ground floor, it can only do so if its base does not overhang the floor at that level.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Swallow Whole" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9ed6-ae2a-117d-e475">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack with this model’s gaping maw targets an **^^Infantry^^**, **^^Mounted^^** or **^^Beasts^^** unit, each successful unmodified Wound roll is a Critical Wound. Each time an **^^Infantry^^**, **^^Mounted^^** or **^^Beasts^^** model is destroyed as a result of an attack made by this model’s gaping maw, this model regains up to D3+2 lost wounds.</characteristic>
@@ -4818,7 +4822,7 @@ In the Deploy Armies step, your opponent must set up their entire army before yo
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="875a-8354-9bf1-886d" type="max"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="1173-a18c-18fb-fac9" name="Instinctive Defense" hidden="false" collective="false" import="true" type="upgrade">
+            <selectionEntry id="1173-a18c-18fb-fac9" name="Instinctive Defence" hidden="false" collective="false" import="true" type="upgrade">
               <modifiers>
                 <modifier type="set" field="hidden" value="true">
                   <conditions>
@@ -4830,9 +4834,9 @@ In the Deploy Armies step, your opponent must set up their entire army before yo
                 <constraint field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="71f6-7bf3-d39d-79bf" type="max"/>
               </constraints>
               <profiles>
-                <profile id="c664-fd7d-1b66-2780" name="Instinctive Defense" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+                <profile id="c664-fd7d-1b66-2780" name="Instinctive Defence" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** model only. While the bearer is within 6&quot; of one or more **^^Harvester^^** units, you can target the bearer&apos;s unit with the Heroic Intervention Stratagem for 1 less CP. In addition, while the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, models in the bearer&apos;s unit have the Fights First ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** model only. While the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, when you target this unit with the Heroic Intervention Stratagem, that use is -1 CP. In addition, while the bearer is within 6&quot; of one or more friendly **^^Harvester^^** units, models in the bearer&apos;s unit have the Fights First ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5224,7 +5228,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="875a-8354-9bf1-886d" type="max"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="ab34-ffd7-199d-5b79" name="Naturalised Camoflage" hidden="false" collective="false" import="true" type="upgrade">
+            <selectionEntry id="ab34-ffd7-199d-5b79" name="Naturalised camouflage" hidden="false" collective="false" import="true" type="upgrade">
               <modifiers>
                 <modifier type="set" field="hidden" value="true">
                   <conditions>
@@ -5237,7 +5241,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
                 <constraint field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="71f6-7bf3-d39d-79bf" type="max"/>
               </constraints>
               <profiles>
-                <profile id="d687-22aa-c30e-ca79" name="Naturalised Camoflage" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+                <profile id="d687-22aa-c30e-ca79" name="Naturalised camouflage" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** model only. At the start of the first battle round, select up to three friendly **^^Endless Multitude^^** units within 9&quot; of the bearer. Until the end of the battle round, each time a ranged attack targets one of those units, models in that unit have the Benefit of Cover against that attack.</characteristic>
                   </characteristics>
@@ -5364,7 +5368,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
             <selectionEntry id="9902-e31e-b3e6-b7ab" name="Neuronode" hidden="false" collective="false" import="true" type="upgrade">
@@ -5439,7 +5443,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
               <profiles>
                 <profile id="816c-af4d-ac5e-d3f7" name="Chameleonic" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Vanguard Invader^^** only. The bearer has the Stealth ability and each time a ranged attack targets the bearer&apos;s unit, models in that unit have the Benefit of Cover against that attack.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Vanguard Invader^^** model only. This unit has the Stealth ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5643,7 +5647,11 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
               <profiles>
                 <profile name="Predatory Instincts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9435-eec8-6391-7d59">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Abominant^^**, **^^Biophagus^^** or **^^Patriarch^^** model only. Models in the bearer&apos;s unit have the Infiltrators ability and, once per battle round, you can target the bearer&apos;s unit with the Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Abominant^^**, **^^Biophagus^^** or **^^Patriarch^^** model only.
+- Models in the bearer&apos;s unit have the Infiltrators ability.
+- You can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do:
+  - That use is -1 CP.
+  - That use does not prevent any uses of that Stratagem on other units this phase.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5667,10 +5675,10 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Biomorph Adaption" hidden="false" id="460b-5456-314e-7a7e">
+            <selectionEntry type="upgrade" import="true" name="Biomorph Adaptation" hidden="false" id="460b-5456-314e-7a7e">
               <comment>sim-mod: source=&quot;Biomorph Adaption&quot; ap=+1 dmg=+1 when=melee scope=model</comment>
               <profiles>
-                <profile name="Biomorph Adaption" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b629-d896-a9a8-0c82">
+                <profile name="Biomorph Adaptation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b629-d896-a9a8-0c82">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Abominant ^^** or **^^Patriarch^^** model only. Improve the Armour Penetration and Damage characteristics of melee weapons equipped by the bearer by 1.</characteristic>
                   </characteristics>
@@ -5770,7 +5778,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
           </constraints>
           <comment>Genestealer Cults</comment>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Brood Brother Auxilia Enhancements" id="b5b7-d84f-b877-74d4" hidden="false">
+        <selectionEntryGroup name="Brood Brothers Auxilia Enhancements" id="b5b7-d84f-b877-74d4" hidden="false">
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
@@ -5827,7 +5835,7 @@ sim-mod: source=&quot;Parasitic Biomorphology&quot; attacks=+1 when=melee condit
               <profiles>
                 <profile name="Adaptive Reprisal" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb86-330c-81d3-cb57">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Genestealer Cults Infantry^^** model only. Once per turn, you can target a friendly **^^Genestealer Cults^^** unit within 8&quot; of the bearer with the Heroic Intervention Stratagem for 1 less CP.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Genestealer Cults Infantry^^** model only. When you target this unit with the Heroic Intervention Stratagem, that use is -1 CP.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -8618,7 +8626,7 @@ sim-mod: source=&quot;A Perfect Ambush&quot; ignores-cover conditional</comment>
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Brood Brother Auxilia" hidden="false" id="0a59-1d64-257c-04fb">
+        <selectionEntry type="upgrade" import="true" name="Brood Brothers Auxilia" hidden="false" id="0a59-1d64-257c-04fb">
           <rules>
             <rule name="Brood Brothers" id="fc33-afdd-30e9-47b1" hidden="false">
               <description>You can include **^^Astra Militarum^^** units in your army, even though they do not have the **^^Genestealer Cult^^** Faction keyword. The combined points cost of such units you can include in your army is:
@@ -8857,7 +8865,7 @@ EFFECT: When a KILLER model in your unit is destroyed, if your unit has not been
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="fb48-d88a-56d6-3d59">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -8953,7 +8961,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="32b9-3818-5418-22a3">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -9914,7 +9922,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">18</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+6</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
                   </characteristics>
@@ -10303,7 +10311,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     </profile>
     <profile name="Will of the Hive Mind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13-98c1-d481-eb95">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
     <profile name="Feeder Tendrils" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3f46-6dbb-d99b-4ae2">
@@ -10357,5 +10365,6 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     <categoryEntry id="2917-4769-ded1-a00c" name="Neurotyrant" hidden="false"/>
     <categoryEntry name="Tyranid Prime with Lash Whip" id="6ed1-0e06-b0d6-0cc2" hidden="false"/>
     <categoryEntry name="The Red Terror" id="d60b-23a2-629e-dc7e" hidden="false"/>
+    <categoryEntry id="32f4-b203-544e-7d36" name="Mobile" hidden="false"/>
   </categoryEntries>
 </catalogue>

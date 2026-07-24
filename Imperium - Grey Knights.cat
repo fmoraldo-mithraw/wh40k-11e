@@ -1528,15 +1528,9 @@ sim-mod: source=&quot;Eye of Judgement&quot; reroll=wound scope=model</comment>
             <condition type="atLeast" value="6" field="selections" scope="a037-a89c-f59f-8b1e" childId="model" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="375" field="51b2-306e-1021-d207">
+        <modifier type="set" value="360" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="9" field="selections" scope="a037-a89c-f59f-8b1e" childId="model" shared="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
-          <conditions>
-            <condition type="atLeast" value="4" field="selections" scope="roster" childId="a037-a89c-f59f-8b1e" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -2592,7 +2586,7 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Grand Master Voldus" hidden="false" id="7256-bb3a-3e79-31fe">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -2621,7 +2615,8 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
         </profile>
         <profile name="Sanctuary (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b513-f80c-9d48-db05">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time an attack targets that unit, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has the Stealth ability.
+- Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Hammer Aflame (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bf8c-be10-e632-646d">
@@ -3388,8 +3383,16 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Razorback" hidden="false" id="841f-98b-fbf3-c8ee">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="841f-98b-fbf3-c8ee" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="88ad-5f29-ba09-9427" id="1f3-5245-3cc2-e6cf" primary="false" name="Razorback"/>
@@ -3569,8 +3572,16 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Rhino" hidden="false" id="5ffd-f698-a1bb-fba7">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="5ffd-f698-a1bb-fba7" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -4006,7 +4017,6 @@ sim-mod: source=&quot;Foesight&quot; reroll=hit vs=Character scope=model</commen
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Hover" hidden="false" type="rule" id="j5i1-126f-6802-m7i3" targetId="eec5-5f54-9c03-c305"/>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="0b4l-bx92-m30d-0x4d" targetId="b68a-5ded-65ac-98c">
           <modifiers>
             <modifier type="append" value="D6" field="name"/>
@@ -6740,14 +6750,14 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Strike Squad" hidden="false" id="d81f-c9ac-e338-ba37">
       <modifiers>
-        <modifier type="set" value="240" field="51b2-306e-1021-d207">
+        <modifier type="set" value="230" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="d81f-c9ac-e338-ba37" childId="model" shared="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="103f-a8cd-8c1f-24df" id="a64-53d7-6787-e0a5" primary="false" name="Strike Squad"/>
@@ -7204,7 +7214,6 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
         </selectionEntryGroup>
       </selectionEntryGroups>
       <infoLinks>
-        <infoLink name="Hover" hidden="false" type="rule" id="a2aa-126f-6713-a2a4" targetId="eec5-5f54-9c03-c305"/>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="1n5y-a8k0-z3t6-zzo1" targetId="b68a-5ded-65ac-98c">
           <modifiers>
             <modifier type="append" value="D6+2" field="name"/>
@@ -10194,9 +10203,9 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="26da-49fa-d528-a37a" includeChildSelections="true"/>
               </constraints>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Inescapable Judgement (Psychic)" hidden="false" id="8084-85d-a3a4-87e6">
+            <selectionEntry type="upgrade" import="true" name="Inescapable Judgement" hidden="false" id="8084-85d-a3a4-87e6">
               <profiles>
-                <profile name="Inescapable Judgement (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4o2d-b9qr-3b0z-8855">
+                <profile name="Inescapable Judgement" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4o2d-b9qr-3b0z-8855">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only.  Each time an enemy unit within Engagement Range of the bearer&apos;s unit Falls Back, the bearer can use this Enhancement. If it does, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds. These mortal wounds are Psychic Attacks.</characteristic>
                   </characteristics>
@@ -10268,7 +10277,7 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <profiles>
                 <profile name="Sigil of Exigence" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6729-b23c-dbe3-b515">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only. Once per battle, in your opponent&apos;s Shooting phase, when the bearer&apos;s unit is selected as the target of a ranged attack, you can remove the bearer&apos;s unit from the battlefield and then set it back up again anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy units. If the bearer&apos;s unit is no longer an eligible target, your opponent can then select new targets for any attacks that had targeted the bearer&apos;s unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only. Once per battle, in your opponent&apos;s Shooting phase, when the bearer&apos;s unit is selected as the target of a ranged attack, you can remove the bearer&apos;s unit from the battlefield and then set it back up again anywhere on the battlefield that is more than 8&quot; horizontally away from all enemy units. If the bearer&apos;s unit is no longer an eligible target, your opponent can then select new targets for any attacks that had targeted the bearer&apos;s unit.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -10437,9 +10446,9 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="e677-bed3-f883-56cd" includeChildSelections="true"/>
               </constraints>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Banishing Wave (Psychic)" hidden="false" id="53d5-cb9a-c034-d6c9">
+            <selectionEntry type="upgrade" import="true" name="Banishing Wave" hidden="false" id="53d5-cb9a-c034-d6c9">
               <profiles>
-                <profile name="Banishing Wave (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2f83-3296-79fd-c6de">
+                <profile name="Banishing Wave" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2f83-3296-79fd-c6de">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only.  Each time the bearer&apos;s unit is set up using the Deep Strike ability, roll one D6 for each enemy unit within 12&quot; of the bearer: on a 2-5, that unit suffers 1 mortal wound; on a 6, that unit suffers D3 mortal wounds.</characteristic>
                   </characteristics>
@@ -10500,9 +10509,9 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
         </selectionEntryGroup>
         <selectionEntryGroup name="Banishers Enhancements" id="2fac-f1ac-1521-2196" hidden="false">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Pyresoul (Psychic)" hidden="false" id="5a01-f1f1-db42-1453">
+            <selectionEntry type="upgrade" import="true" name="Pyresoul" hidden="false" id="5a01-f1f1-db42-1453">
               <profiles>
-                <profile name="Pyresoul (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8e4d-bc3b-4c3c-7d3b">
+                <profile name="Pyresoul" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8e4d-bc3b-4c3c-7d3b">
                   <characteristics>
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only. At the start of your Shooting phase, the bearer can use this Enhancement. If it does, select one enemy unit within 24&quot; of and visible to the bearer; that enemy unit suffers D3 mortal wounds.</characteristic>
                   </characteristics>
@@ -10620,7 +10629,9 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <profiles>
                 <profile name="One Foot in the Future" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="76e1-e04b-88aa-9bce">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only. Each time the bearer&apos;s unit is set up in your Reinforcements step, the bearer can use this Enhancement. If it does, the bearer&apos;s unit can make a Normal Move of up to D6&quot;, and until the end of the turn, the bearer&apos;s unit is not eligible to declare a Charge.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Grey Knights^^** model only. When this unit ends an ingress move, you can use this ability. If you do:
+- This unit can make a Normal move of up to D6&quot;.
+- Until the end of the turn, this unit is not eligible to declare a charge.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -10972,7 +10983,7 @@ Each time a model in a **^^Grey Knights^^** unit from your army makes a ranged a
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="587d-ea11-44f9-ca92">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -11211,7 +11222,7 @@ EFFECT: That enemy unit's melee attacks have [HAZARDOUS].</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="720d-9e6b-6d21-838d">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -11280,7 +11291,7 @@ EFFECT: Select one battle-shocked enemy unit hit by those attacks. That enemy un
             <rule name="Echojump" id="71a4-1e79-2888-fcb2" hidden="false">
               <description>Pushing their esoteric wargear to its limits, Interceptors are able to make secondary, shorter personal teleportation jumps, effectively skimming the very surface of the Immaterium to respond all the more quickly to developing threats.
 
-In your Shooting phase, when a friendly INTERCEPTOR SQUAD unit has shot, if that unit did not make an ingress move this turn, you can use this ability. If you do:
+In your Shooting phase, when a friendly INTERCEPTOR SQUAD unit has shot, you can use this ability. If you do:
 - That unit cannot use its Personal Teleporters ability.
 - That unit can make a surge move of up to D6+1&quot;.</description>
             </rule>
@@ -11309,7 +11320,7 @@ EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="484a-ebc3-441a-a7bb">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -14001,7 +14012,9 @@ Incursion - Up to 2 units
 Strike Force - Up to 3 units
 Onslaught - Up to 4 units
 
-Once you have made your selections, remove those units from the battlefield and place them into Strategic Reserves.</description>
+Once you have made your selections:
+- Place those units in Strategic Reserves.
+- Those units can make an ingress move in your next Movement phase (including in your first turn).</description>
     </rule>
     <rule name="Eye of the Prognosticars" id="5622-43f1-c599-8ec7" hidden="false">
       <description>Units from your army with the Teleport Assault ability replace that ability with this one.

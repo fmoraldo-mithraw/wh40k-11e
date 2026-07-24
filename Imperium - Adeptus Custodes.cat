@@ -158,7 +158,7 @@ sim-mod: source=&quot;Tenacious Spirit&quot; wound=+1 whileLeading conditional</
         <entryLink id="819f-ce4c-b547-0c7b" name="Warlord" hidden="false" collective="false" import="true" targetId="0574-f558-2957-584f" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -533,6 +533,14 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="d7cb-7d30-715b-50d2" name="Anathema Psykana Rhino" hidden="false" collective="false" import="true" type="model">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="d7cb-7d30-715b-50d2" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="ff64-897e-0812-ab0f" name="Anathema Psykana Rhino" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -581,7 +589,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
         <categoryLink id="5cf3-674a-e263-38c6" name="Frame" hidden="false" targetId="553b-6dcd-47a5-3713" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="7d15-64d7-ef58-b489" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -942,6 +950,8 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="69e9-be41-77ba-5fad" type="selectionEntry" targetId="91b3-2e1c-e642-d213"/>
             <entryLink import="true" name="" hidden="true" id="15ef-d34c-7b90-1377" type="selectionEntry" targetId="9610-b148-8433-93b8"/>
+            <entryLink import="true" name="" hidden="true" id="6220-ce73-008e-6401" type="selectionEntry" targetId="af0f-5212-907e-7125"/>
+            <entryLink import="true" name="" hidden="true" id="83c3-2a9c-82d3-2dfb" type="selectionEntry" targetId="6f9f-e6aa-ba13-aab1"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -1287,7 +1297,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="260">
+        <modifier type="set" field="51b2-306e-1021-d207" value="250">
           <conditions>
             <condition field="selections" scope="9610-b148-8433-93b8" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -1541,7 +1551,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -2535,6 +2545,8 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="9433-47af-0132-c447" type="selectionEntry" targetId="91b3-2e1c-e642-d213"/>
             <entryLink import="true" name="" hidden="true" id="8c80-45d9-6677-5d78" type="selectionEntry" targetId="9610-b148-8433-93b8"/>
+            <entryLink import="true" name="" hidden="true" id="8749-d463-7845-72b5" type="selectionEntry" targetId="af0f-5212-907e-7125"/>
+            <entryLink import="true" name="" hidden="true" id="f1f8-9b44-26d9-123f" type="selectionEntry" targetId="6f9f-e6aa-ba13-aab1"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -2786,6 +2798,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
           </constraints>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="1d80-3d94-ca11-a2df" type="selectionEntry" targetId="c8a6-a4c5-703e-b717"/>
+            <entryLink import="true" name="" hidden="true" id="daeb-2c17-9722-30d8" type="selectionEntry" targetId="03bc-0141-b967-40e0"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -3033,6 +3046,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
           </constraints>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="6f87-028a-fa69-4bc5" type="selectionEntry" targetId="918b-c9ed-7af7-74df"/>
+            <entryLink import="true" name="" hidden="true" id="06f9-d1d4-223f-de0c" type="selectionEntry" targetId="00ab-41c4-cf52-4ad2"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -3251,6 +3265,8 @@ sim-mod: attacks=+6 source=&quot;Moment Shackle&quot; weapon=&quot;Watcher&apos;
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="03b4-4a55-df2c-cb51" type="selectionEntry" targetId="91b3-2e1c-e642-d213"/>
             <entryLink import="true" name="" hidden="true" id="3c7a-9c6f-8cf8-f256" type="selectionEntry" targetId="9610-b148-8433-93b8"/>
+            <entryLink import="true" name="" hidden="true" id="e8c3-47f0-acd5-215b" type="selectionEntry" targetId="af0f-5212-907e-7125"/>
+            <entryLink import="true" name="" hidden="true" id="7d86-fe66-ee7d-740c" type="selectionEntry" targetId="6f9f-e6aa-ba13-aab1"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -3366,6 +3382,8 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="4270-18c2-2ef6-7146" type="selectionEntry" targetId="91b3-2e1c-e642-d213"/>
             <entryLink import="true" name="" hidden="true" id="36ed-181d-f911-10a1" type="selectionEntry" targetId="9610-b148-8433-93b8"/>
+            <entryLink import="true" name="" hidden="true" id="9fa0-7009-fadd-c09a" type="selectionEntry" targetId="af0f-5212-907e-7125"/>
+            <entryLink import="true" name="" hidden="true" id="1388-7ab1-9b1d-7b50" type="selectionEntry" targetId="6f9f-e6aa-ba13-aab1"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -5619,9 +5637,15 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="320">
+        <modifier type="set" field="51b2-306e-1021-d207" value="300">
           <conditions>
             <condition field="selections" scope="201e-e502-a8d1-3974" value="4" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="201e-e502-a8d1-3974" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -5672,7 +5696,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
               </costs>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Venatari lance" hidden="false" id="1a23-1ceb-fc79-af67" collective="true">
@@ -5787,7 +5811,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="40ce-17f3-f81f-844a" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -7620,7 +7644,9 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
         </profile>
         <profile id="24b5-43b5-1537-2bd2" name="Infernus Firebomb" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover. In addition, roll one D6 for each model in that unit: for each 6, that unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Movement phase, select one visible enemy unit (excluding **^^Aircraft^^**/**^^Lone Operative^^** units) within 24&quot; of this unit:
+- That enemy unit cannot have the Benefit of Cover until the end of your next Shooting phase.
+- Roll one D6 for each model in that enemy unit: for each 6, that enemy unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
         <profile id="2eb0-f0e2-258d-8fbb" name="Damaged: 1-7 wounds remaining" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -8084,7 +8110,7 @@ EFFECT: Your unit’s:
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="f355-0995-2f07-9532">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -9092,7 +9118,7 @@ sim-mod: source=&quot;Raptor Blade (vs Psyker choqué)&quot; attacks=+2 str=+2 d
             </profile>
           </profiles>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
           </costs>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4222-bc45-cf0f-2509" includeChildSelections="true"/>
@@ -9216,7 +9242,7 @@ sim-mod: source=&quot;Raptor Blade (vs Psyker choqué)&quot; attacks=+2 str=+2 d
           <profiles>
             <profile name="Champion of the Imperium" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aacf-9d19-3f49-2a7a">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The range of the bearer’s Null Aegis or Deadly Unity ability (see left) is increased to 9&quot;.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Custodes^^** model only. The range of the bearer&apos;s Null Aegis or Deadly Unity ability is increased to 9&quot;.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -9834,7 +9860,7 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
             </modifier>
           </modifiers>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
             <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
             <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
             <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>

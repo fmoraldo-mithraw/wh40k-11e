@@ -3106,7 +3106,7 @@ sim-mod: source=&quot;Debt to the Soulforge&quot; attacks=+2 when=melee conditio
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="1528-74e4-081d-4ffe">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -3181,10 +3181,10 @@ EFFECT: Until the end of the turn, your unit is eligible to declare a charge in 
             <selectionEntry type="upgrade" import="true" name="Cabal of Chaos" hidden="false" id="9e8b-efe2-7ff2-6b36">
               <rules>
                 <rule name="Empyric Wellspring" id="e027-6e15-ddbd-194c" hidden="false">
-                  <description>▪ In your Shooting phase, when a friendly **^^Heretic Astartes^^** **^^Psyker^^** unit (excluding **^^Daemon^^** units) is selected to shoot, if that unit makes a Dark Pact, that unit&apos;s ranged attacks have +1 S.
-
-
-▪ In the Fight phase, when a friendly **^^Heretic Astartes^^** **^^Daemon Prince^^** unit (excluding **^^Khorne^^** units) is selected to fight, if that unit makes a Dark Pact, that unit&apos;s melee attacks have +2 S and +1 AP.</description>
+                  <description>- In your Shooting phase, when a friendly **^^Heretic Astartes^^** **^^Psyker^^** unit (excluding **^^Daemon^^** units) is selected to shoot, if that unit makes a Dark Pact, that unit&apos;s ranged attacks have +1 S.
+- In the Fight phase, when a friendly **^^Heretic Astartes^^** **^^Daemon Prince^^**/**^^Daemon Prince with Wings^^** unit (excluding **^^Khorne^^** units) is selected to fight, if that unit makes a Dark Pact, that unit&apos;s melee attacks have:
+  - +2 S.
+  - +1 AP.</description>
                 </rule>
                 <rule name="Infernal Vigour (Stratagem, 1CP)" id="1d4f-b725-e212-d4c0" hidden="false">
                   <description>Cabal of Chaos – STRATAGEM (1CP)
@@ -3644,7 +3644,7 @@ EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="c4b5-5716-200f-39cb">
                   <characteristics>
-                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -3812,7 +3812,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="285"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="295"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -4109,7 +4109,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         <entryLink id="71b0-8be9-72a0-7b11" name="Warlord" hidden="false" collective="false" import="true" targetId="1a34-f1cc-ec01-ca32" type="selectionEntry" sortIndex="2"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -4742,7 +4742,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
               <profiles>
                 <profile id="1277-897a-f1c6-41dc" name="The Chirurgeon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
                   <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">The first time this unit&apos;s **^^Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
@@ -4867,6 +4867,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
             <entryLink import="true" name="" hidden="true" id="3ac9-3608-ae84-7db5" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="b03f-c6dd-2314-eed9" type="selectionEntry" targetId="1267-78f1-7774-859"/>
             <entryLink import="true" name="" hidden="true" id="db65-ab7d-2670-575b" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
+            <entryLink import="true" name="" hidden="true" id="9f70-a5ba-2946-4ebe" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -5202,6 +5203,8 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
             <entryLink import="true" name="" hidden="true" id="03db-eaa8-db19-95dc" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="e683-66f7-cb60-9e20" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
             <entryLink import="true" name="" hidden="true" id="abfb-5deb-c89f-e9fd" type="selectionEntry" targetId="cb1-5bcf-9e36-8136"/>
+            <entryLink import="true" name="" hidden="true" id="7a52-706a-62b0-e2ab" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
+            <entryLink import="true" name="" hidden="true" id="7c80-d9be-7633-57c9" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -5487,6 +5490,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="70c4-4163-c8f5-4be2" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="70e3-9e41-9368-8f6f" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
+            <entryLink import="true" name="" hidden="true" id="9583-09cd-c030-a6bb" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
+            <entryLink import="true" name="" hidden="true" id="a867-9b0c-016a-8235" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -6033,6 +6038,8 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="fa42-6721-33a4-cf4a" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="0dbd-1b08-0374-a6d1" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
+            <entryLink import="true" name="" hidden="true" id="bcaf-d321-789f-4529" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
+            <entryLink import="true" name="" hidden="true" id="74cb-2f34-0b2d-b638" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -6389,7 +6396,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile id="31b3-9fc9-8f5-b2f2" name="Corrupt Machine Spirits" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Shooting phase, select one visible enemy ^^**Vehicle^^** unit within 12&quot; of this model and roll one D6: on a 2‑3, that enemy unit suffers D3 mortal wounds; on a 4‑5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Shooting phase, select one visible enemy **^^Vehicle^^** unit within 12&quot; of this model and roll one D6: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile id="6e52-feca-f575-e5ae" name="Spirit Thief" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6933,6 +6940,9 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="4592-a0aa-f95b-d781" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="c4aa-44e5-d272-c14d" type="selectionEntry" targetId="946c-d784-c8be-f21"/>
+            <entryLink import="true" name="" hidden="true" id="b05f-fd92-e131-3e58" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
+            <entryLink import="true" name="" hidden="true" id="719d-a431-b172-c047" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
+            <entryLink import="true" name="" hidden="true" id="4eb7-2381-07b0-7fba" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -7515,6 +7525,8 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
             <entryLink import="true" name="" hidden="true" id="1155-3655-83fa-4fb7" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="038d-d422-ea89-b201" type="selectionEntry" targetId="1267-78f1-7774-859"/>
             <entryLink import="true" name="" hidden="true" id="505e-6502-cbc1-8537" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
+            <entryLink import="true" name="" hidden="true" id="9193-5a01-371d-e3f4" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
+            <entryLink import="true" name="" hidden="true" id="77df-902a-e26e-6503" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -7571,9 +7583,9 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       </entryLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=1 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="1780-25b8-ce0b-898d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="1780-25b8-ce0b-898d" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -9065,9 +9077,9 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
-          <comment>repeat-cost: threshold=1 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <comment>repeat-cost: threshold=2 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="23aa-b45a-6d5d-e92b" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="23aa-b45a-6d5d-e92b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -9286,7 +9298,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
 sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="360">
+        <modifier type="set" field="51b2-306e-1021-d207" value="350">
           <conditions>
             <condition field="selections" scope="203d-c50f-a438-4982" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -9752,7 +9764,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -9983,15 +9995,6 @@ sim-mod: source=&quot;Warp-sighted Butcher&quot; reroll=wound when=melee whileLe
 sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <profiles>
-        <profile id="e4c4-4418-a864-289b" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
-■ CHOSEN
-■ LEGIONARIES
-
-You can attach this model to one of the above units even if one other CHARACTER model has already been attached to it (a unit cannot have two MASTERS OF EXECUTIONS attached to it). If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
-          </characteristics>
-        </profile>
         <profile id="2ffd-423f-c721-1b75" name="Warp-sighted Butcher" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes a melee attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that unit is Below Half-strength, you can re-roll the Wound roll as well.</characteristic>
@@ -10095,16 +10098,6 @@ You can attach this model to one of the above units even if one other CHARACTER 
                 </selectionEntryGroup>
               </selectionEntryGroups>
             </entryLink>
-          </entryLinks>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="26db-ae16-2f6c-d2f0">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="9e27-fa44-bd16-6598"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="47eb-df0a-a7aa-99d4" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
-            <entryLink import="true" name="" hidden="true" id="786d-730a-53ca-eda9" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="717e-4950-c028-8c2d">
@@ -10378,15 +10371,15 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="250">
+        <modifier type="set" field="51b2-306e-1021-d207" value="270">
           <conditions>
             <condition field="selections" scope="4e85-615b-5d49-dfa4" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=1 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="4e85-615b-5d49-dfa4" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="4e85-615b-5d49-dfa4" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -10771,7 +10764,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
       </costs>
       <modifierGroups>
         <modifierGroup type="and">
@@ -10996,7 +10989,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -13013,11 +13006,6 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="360">
-          <conditions>
-            <condition field="selections" scope="2311-fa63-364-22a3" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
@@ -13034,7 +13022,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       <profiles>
         <profile id="1d0e-bd07-97ab-6322" name="Warp Rift Firepower" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit&apos;s ranged attacks have [INDIRECT FIRE].</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Warp Rift Firepower (Once per battle, per unit):** In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit&apos;s ranged attacks have **[INDIRECT FIRE]**.</characteristic>
           </characteristics>
         </profile>
         <profile id="54b2-a2e1-aea7-7662" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -13424,7 +13412,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-VEHICLE 4+, Devastating Wounds</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-vehicle 4+, Devastating Wounds</characteristic>
               </characteristics>
             </profile>
             <profile id="36fe-1591-b0c1-c64a" name="➤ Vashtorr&apos;s hammer - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
@@ -13435,7 +13423,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-VEHICLE 4+, Devastating Wounds</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-vehicle 4+, Devastating Wounds</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -13449,7 +13437,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="205"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="220"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -15197,7 +15185,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -15493,7 +15481,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
       </costs>
       <modifierGroups>
         <modifierGroup type="and">
@@ -16995,6 +16983,14 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
     <selectionEntry id="e981-27ae-112f-aa9a" name="Chaos Rhino" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="e981-27ae-112f-aa9a" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4948-64ff-2ada-a602" type="max"/>
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="1b4c-b6a2-91fa-6bc1" includeChildSelections="false"/>
@@ -17054,15 +17050,18 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <entryLink import="true" name="Weapon Modifications" hidden="false" id="ac41-4ad9-0434-500b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
               </entryLinks>
             </entryLink>
-            <entryLink import="true" name="Combi-bolter" hidden="false" id="b94b-5765-b762-553c" collective="false" targetId="c627-5d3-1420-c7f1" type="selectionEntry">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="812a-6223-9335-c4f8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Weapon Modifications" hidden="false" id="6992-8321-62a6-921b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-              </entryLinks>
-            </entryLink>
             <entryLink import="true" name="Havoc launcher" hidden="false" id="ab9f-1e64-4513-4dbb" collective="false" targetId="4bfd-ad0f-5e78-ccf9" type="selectionEntry">
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <comment>exclusif : 1 havoc launcher au total (ajout OU remplacement du combi-bolter)</comment>
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="6529-81b4-b7c9-54c5" childId="4bfd-ad0f-5e78-ccf9" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1cdb-d5b8-a679-343b"/>
+              </constraints>
               <entryLinks>
                 <entryLink import="true" name="Weapon Modifications" hidden="false" id="94f0-9469-d852-b7e8" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
               </entryLinks>
@@ -17086,6 +17085,21 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 </entryLink>
               </entryLinks>
             </selectionEntryGroup>
+            <selectionEntryGroup name="Hull weapon" hidden="false" id="6529-81b4-b7c9-54c5" defaultSelectionEntryId="b94b-5765-b762-553c">
+              <comment>rules update 22-07 : le combi-bolter de base peut etre remplace par 1 havoc launcher</comment>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="471e-a53e-89e4-14f0"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0ddb-c526-4ad1-23da"/>
+              </constraints>
+              <entryLinks>
+            <entryLink import="true" name="Combi-bolter" hidden="false" id="b94b-5765-b762-553c" collective="false" targetId="c627-5d3-1420-c7f1" type="selectionEntry">
+              <entryLinks>
+                <entryLink import="true" name="Weapon Modifications" hidden="false" id="6992-8321-62a6-921b" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
+              </entryLinks>
+            </entryLink>
+                <entryLink import="true" name="Havoc launcher" hidden="false" id="e7cb-595f-03c4-1980" type="selectionEntry" targetId="4bfd-ad0f-5e78-ccf9"/>
+              </entryLinks>
+            </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -17094,7 +17108,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         <entryLink import="true" name="Crusade" hidden="false" id="1af5-0f21-fce5-2409" type="selectionEntryGroup" targetId="16e2-c30d-b136-1a67" sortIndex="1"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
       <modifierGroups>
         <modifierGroup type="and">
@@ -23614,7 +23628,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -25934,7 +25948,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c5f2-1b64-c102-a2b8" includeChildSelections="true"/>
       </constraints>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -26763,7 +26777,7 @@ sim-mod: source=&quot;Visions of Suffering&quot; wound=+1 conditional
 sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -27238,7 +27252,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
       </profiles>
       <modifiers>
-        <modifier type="set" value="190" field="51b2-306e-1021-d207">
+        <modifier type="set" value="180" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="f666-1f5d-0c20-06c1" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
@@ -28243,7 +28257,7 @@ This unit cannot join an Attached unit, and only ^^**Huron Blackheart**^^ can jo
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7c26-777b-1691-85a5" includeChildSelections="true"/>
       </constraints>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -28807,6 +28821,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
             <entryLink import="true" name="" hidden="true" id="e56e-aa18-3509-0ba9" type="selectionEntry" targetId="4e85-615b-5d49-dfa4"/>
             <entryLink import="true" name="" hidden="true" id="1726-5e86-85e3-d7dc" type="selectionEntry" targetId="615-e6bf-cfd2-9384"/>
             <entryLink import="true" name="" hidden="true" id="fd3a-6746-0051-56ae" type="selectionEntry" targetId="2078-97ce-8793-3382"/>
+            <entryLink import="true" name="" hidden="true" id="9a1f-2380-a0c6-058f" type="selectionEntry" targetId="f666-1f5d-0c20-06c1"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -28889,7 +28904,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </modifierGroup>
       </modifierGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
@@ -29540,9 +29555,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile name="Daemonforge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="68ed-ed87-1f92-c6e6">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1. In addition, once per battle, when this unit makes a Dark Pact, before making the resulting Leadership test, you can declare it will overcharge its daemonforge. If it does: 
-- If the resulting Leadership test is failed, this model suffers 3 mortal wounds instead of D3 mortal wounds.
-- Until the end of the phase, each time this model makes an attack, you can re-roll the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a Dark Pact, until the end of the phase, each time this model makes an attack, re-roll a Wound roll of 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -29659,12 +29672,12 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <entryLink import="true" name="Electroscourge" hidden="false" id="ddee-5481-e9a8-37c6" targetId="ed7d-a957-2d33-1d2d" type="selectionEntry" sortIndex="4"/>
                 <entryLink import="true" name="Hades lascannon" hidden="false" id="117d-9ed8-4286-de8f" targetId="2fb7-ce9a-84c8-d398" type="selectionEntry" sortIndex="2">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
                 <entryLink import="true" name="Heavy reaper autocannon" hidden="false" id="32fb-57a9-da74-ec85" type="selectionEntry" targetId="120a-e254-8840-b075" sortIndex="3">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
               </entryLinks>
@@ -29764,12 +29777,12 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <entryLink import="true" name="Electroscourge" hidden="false" id="22bb-0e8c-9eb8-0060" targetId="ed7d-a957-2d33-1d2d" type="selectionEntry" sortIndex="4"/>
                 <entryLink import="true" name="Hades lascannon" hidden="false" id="668c-f85f-a6dd-039f" targetId="2fb7-ce9a-84c8-d398" type="selectionEntry" sortIndex="2">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
                 <entryLink import="true" name="Heavy reaper autocannon" hidden="false" id="414a-4588-16c8-46c9" type="selectionEntry" targetId="120a-e254-8840-b075" sortIndex="3">
                   <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                   </costs>
                 </entryLink>
               </entryLinks>
@@ -29844,8 +29857,8 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
-          <comment>repeat-cost: threshold=1 delta=30 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
+          <comment>repeat-cost: threshold=1 delta=40 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="29f9-fc47-787e-d9d3" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -31323,7 +31336,7 @@ sim-mod: source=&quot;Iron Artifice&quot; anti=Vehicle:4+ anti=Fortification:4+ 
             </profile>
           </profiles>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
           </costs>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="eea5-72ce-593c-9558" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -31667,8 +31680,7 @@ While the bearer’s unit is within range of one or more objective markers you c
           <profiles>
             <profile name="Sorrowscent Vulture" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e43-c5b8-0f99-cb0f">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Models in the bearer’s unit have the Scouts 6&quot; ability.
-In the Declare Battle Formations step, the bearer can be attached to a Warp Talons unit.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Chaos Lord^^** **^^Jump Pack^^** model only. Models in the bearer&apos;s unit have the Scouts 6&quot; ability.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -34599,7 +34611,7 @@ sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model<
             </profile>
             <profile name="Dark Destiny" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="457b-2f4d-782e-cf4c">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After each battle, in the Update Crusade Cards step, if your **^^Warband Champion^^** model destroyed one or more enemy units during that battle, roll one D6. On a 6, your **^^Warband Champion^^** gains one Battle Honour of your choice, and change the Leadership characteristic of that model to 5+. Your **^^Warband Champion^^** can gain a maximum of 3 Battle Honours using this Favoured Reward.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model&apos;s unit makes a Dark Pact and does not fail the resulting Leadership roll, if the result of that roll was 7+, you gain 1CP.</characteristic>
               </characteristics>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
@@ -35376,11 +35388,11 @@ sim-mod: source=&quot;Infernal Avatar&quot; str=+2 ap=+1 when=melee scope=model<
                 <profile name="Impaler chainglaive" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7557-0639-809d-329a">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lance</characteristic>
                   </characteristics>
                 </profile>

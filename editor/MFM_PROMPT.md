@@ -155,6 +155,118 @@ réutilise-la telle quelle si le MFM introduit des paliers par modèle.
 - 0 id dupliqué : tout nouvel élément (option créée, clone scindé,
   modifier) prend `c.newId()`.
 
+## Retour d'expérience (MFM 22-07-2026) — erreurs réellement commises, à ne pas refaire
+
+Chaque point ci-dessous a nécessité une correction après coup. Relire
+**avant** d'écrire le moindre script d'application.
+
+### 1. Surcoût par arme : TOUTES les occurrences, TOUS les fichiers
+
+- Une datasheet peut porter la même arme dans **plusieurs emplacements**
+  (Defiler : hades lascannon/heavy reaper autocannon dans 2 slots ;
+  Knight Despoiler : 2 slots de bras). Le surcoût MFM s'applique à
+  **chaque** emplacement. Bug commis : seule la 1ʳᵉ occurrence corrigée,
+  le 2ᵉ slot resté à l'ancien prix.
+- La même datasheet peut être **dupliquée localement dans plusieurs
+  fichiers** (Defiler existe en copie locale dans CSM, Death Guard,
+  Thousand Sons, Emperor's Children ET World Eaters). Corriger les 5,
+  pas seulement le fichier de la faction en cours.
+- **Options groupées** : « 2 ectoplasma cannons » = 2 × le surcoût
+  unitaire (10 si l'arme vaut +5). Ne pas laisser à 0 sous prétexte que
+  l'entrée unitaire est chiffrée ailleurs.
+- **Faux positif légitime** : tarification par modèle (Ironstrider
+  Ballistarius autocannon 80 / lascannon 90 = surcoût +10 encodé dans
+  la différence de prix des variantes de modèle). Vérifier avant de
+  « corriger ».
+- **Contrôle obligatoire en fin de passe** : script type `weapons_check`
+  — pour chaque entrée `per` du MFM (toutes factions), lister TOUTES les
+  occurrences (selectionEntry + entryLink) dans le sous-arbre de chaque
+  unité homonyme de TOUS les fichiers, et comparer chaque valeur.
+  Un lien sans `<costs>` alors que le MFM donne un surcoût = bug
+  (Knight Despoiler/Crusader étaient à 0 sans que l'audit standard le
+  voie).
+
+### 2. Améliorations « introuvables » = presque toujours des variantes de nom
+
+Sur ~20 « introuvables » du 22-07, **zéro** création nécessaire : tout
+était variante de graphie. Réflexe : **renommer à l'orthographe MFM**,
+jamais créer un doublon. Variantes rencontrées :
+- suffixes `[Aura]` / `(Aura)` / `(Psychic)` absents du MFM ;
+- typos : Slaugterthirst→Slaughterthirst, Sublime Presence→Prescience,
+  Camoflage→camouflage, Denounciation→Denunciation ;
+- espacement/tirets : Spy-skull Datalink→Spy-skull Data Link,
+  Priority-drop→Priority Drop, Arch Negator→Arch-negator,
+  Intraneural→Introneural Biotech ;
+- articles : Master of **the** Machine War, Herald of **the** Sacred
+  Slaughter ; pluriels : Stormseer's→Stormseers' ;
+- renommage complet : « Sharp Eyes, Light Fingers Upgrade » →
+  « Sharp Eyes Upgrade ».
+Pièges d'audit associés :
+- une amélioration du même nom peut exister dans **plusieurs
+  détachements à des prix différents** (Mistweave 20 en Fateful
+  Performance / 15 en Ghosts of the Webway ; Towering Arrogance 15/20 ;
+  Periapt 20/25 ; Archraider 15/35) — comparer **par détachement**,
+  jamais par nom seul ;
+- ignorer les **copies Crusade à 0 pts** (groupes « … Battle Honours »,
+  « Regimental Commendations ») : ce ne sont pas des améliorations MFM.
+
+### 3. Normalisation des noms (dump MFM et repo)
+
+- Tirets Unicode : U+2011 (`‑`), U+2013/2014 → normaliser en `-`
+  (« Parasitic Woe‑reaper » ne matchait pas sinon).
+- Milliers : toujours parser le champ `raw` (« 2,200 pts ») — le champ
+  `points` du dump a déjà été buggé là-dessus.
+- Apostrophes `’` vs `'`, accents, ARMOR/ARMOUR, pluriels : normaliser.
+- **Agents de l'Imperium : chaque unité apparaît 2× dans le dump**
+  (1ʳᵉ = prix armée, 2ᵉ = prix alliés). Garder la PREMIÈRE occurrence
+  comme base, encoder l'écart en increment allié — lire
+  `AGENTS_DUAL_COST_PROMPT.md` AVANT tout traitement de ce fichier.
+- Alias d'unités : « SOUL GRINDER » (MFM) = 4 entrées par dieu dans la
+  bibliothèque Daemons (Khorne/Tzeentch/Nurgle/Slaanesh Soul Grinder) —
+  vérifier les 4.
+
+### 4. Détachements : DP, Force Disposition, UNIQUE — à auditer aussi
+
+Oublié lors de la passe 22-07 (rattrapé après coup) : le MFM porte pour
+chaque détachement un **coût DP**, une **Force Disposition** et un
+éventuel mot-clef **UNIQUE** — et GW les **rebalance** d'une édition à
+l'autre (22-07 : ~75 changements de FD/DP, dont des retraits de UNIQUE
+« unique tag removed »). Contrôle systématique obligatoire (script type
+`det_check`) : comparer `det_meta` du dump (dp/fd/unique) à l'entrée de
+détachement du repo. Pièges :
+- le **même détachement partagé** peut avoir un **DP différent selon le
+  chapitre** (Stormlance 3 en SM/DA/SW mais 2 en BT/BA/DW ; Bastion 3 en
+  BT) — encodé par modifier `set` sur le champ DP conditionné
+  `primary-catalogue` (marqueur `chapter-cost:`) : un checker qui ne lit
+  que le coût de base sort des faux positifs ;
+- noms : « Ordo Hereticus, Purgation Force » (MFM) = « Purgation Force
+  (Ordo Hereticus) » (repo) ; ne pas confondre avec les **Specialisms**
+  d'Inquisiteur qui portent les mêmes noms courts « Ordo Malleus »… ;
+- le champ `unique` du dump est préfixé « UNIQUE: » et vaut parfois
+  « UNIQUE TAG REMOVED » (= retirer le `<comment>unique-detachment:`).
+
+### 5. Le dossier Drive contient plus que les faction packs
+
+Le dossier `W40k/mfm` du 22-07 contenait aussi
+`…universal_rules_updates….pdf` (mises à jour de règles **universelles**,
+hors packs) — oublié lors de la première passe. Toujours **lister le
+dossier entier** et rapprocher chaque PDF de la liste traitée. Les règles
+universelles sont des errata « par motif » (ex. « for 0CP » sans nom de
+stratagème → réduction 1CP) : chercher les motifs dans TOUS les fichiers
+(.cat **et** .gst), en n'appliquant qu'aux textes qui matchent vraiment
+(la plupart des « for 0CP » noment leur stratagème et restent valides).
+Noter aussi : un pack absent du dossier (Astra Militarum, Deathwatch) ou
+daté d'une édition antérieure (Blood Angels 08-06) = pas de rules updates
+à appliquer pour cette faction, points MFM seulement.
+
+### 6. Ne jamais déclarer un résiduel « expliqué » sans preuve
+
+Chaque ligne restante de l'audit doit avoir une explication **vérifiée
+dans le XML** (prix par modèle, copie Crusade, homonyme multi-détachement,
+alias). « Probablement encodé ailleurs » n'est pas une explication : les
+armes du Knight Despoiler sont restées à 0 précisément à cause de ce
+raccourci.
+
 ## Validation finale (obligatoire, par faction)
 
 1. `xmllint --noout` sur chaque fichier touché.

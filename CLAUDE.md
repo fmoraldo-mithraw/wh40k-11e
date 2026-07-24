@@ -15,6 +15,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   Compagnon : `editor/MFM_APP_PROMPT.md`, prompt autonome à coller dans
   le dépôt d'une application consommatrice (type NewRecruit) pour
   l'adapter à ces mécanismes.
+- **`editor/AGENTS_DUAL_COST_PROMPT.md`** — les Agents de l'Imperium ont
+  **deux jeux de prix** dans chaque MFM (armée / alliés) : chaque unité y
+  apparaît **deux fois** (1ʳᵉ occurrence = prix armée = base de l'entrée,
+  2ᵉ = prix allié = base + `increment` conditionné `notInstanceOf`/
+  `primary-catalogue`). À lire avant toute mise à jour de points de
+  `Imperium - Agents of the Imperium.cat`.
 - **`editor/REPEAT_COST_APP_PROMPT.md`** — prompt autonome (application
   consommatrice) : le surcoût « 3e+ exemplaire plus cher » est encodé par
   un `<modifier>` de coût + marqueur `repeat-cost: threshold=N delta=Δ` ;
