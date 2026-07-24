@@ -3145,21 +3145,21 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e07d-b9c2-77b8-05e4" includeChildSelections="false"/>
       </constraints>
       <profiles>
-        <profile name="Get Da Good Bitz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ab60-c8c9-453a-2345">
+        <profile name="Ammo Runts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ab60-c8c9-453a-2345">
           <characteristics>
-            <characteristic name="Description" id="a8e6-eada-cc59-9593" hidden="false" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" id="a8e6-eada-cc59-9593" hidden="false" typeId="9b8f-694b-e5e-b573">**Once per battle, per unit.** In your Shooting phase, when this unit is selected to shoot, you can use this ability. If you do, this unit&apos;s ranged attacks have +1 **to Hit** rolls.
+
+Place any number of Ammo Runt tokens next to the unit, removing them when this ability is used.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
-        <profile name="Bodyguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4e0-4f2f-eacc-24a0">
+        <profile name="Tide of Muscle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4e0-4f2f-eacc-24a0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit has a Starting Strength of 20, you can attach up to two **^^Leader^^** units to it instead of one (but only if one of those is a **^^Warboss^^** unit). If you do, and this unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, if this unit made a **charge move** this turn, this unit&apos;s melee attacks have the **[LETHAL HITS]** ability.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Never Too Busy to Fight" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-1e01">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Being **engaged** does not prevent this unit from being eligible to start an action.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3167,7 +3167,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="4e6d-5f88-f9c6-6f23" primary="false" name="Infantry"/>
         <categoryLink targetId="e338-111e-d0c6-b687" id="d6bf-8425-47be-ba07" primary="true" name="Battleline"/>
         <categoryLink targetId="5aac-7b7-bf84-cae8" id="ec03-4fcc-6d6d-c053" primary="false" name="Mob"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="c838-b920-7304-7e27" primary="false" name="Grenades"/>
+        <categoryLink targetId="0d1a-9f3b-7c40-1e02" id="c838-b920-7304-7e27" primary="false" name="Explosives"/>
         <categoryLink targetId="1c75-96a5-5598-2cd" id="c6f-ed2f-5d22-900b" primary="false" name="Boyz"/>
         <categoryLink targetId="56cc-5f43-2403-8da0" id="da10-3da4-f23b-4374" primary="false" name="Faction: Orks"/>
       </categoryLinks>
@@ -3182,32 +3182,6 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                 <constraint type="max" value="19" field="selections" scope="parent" shared="true" id="f738-7505-6d55-355"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="8471-cbeb-50be-d1c5" collective="false">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f21a-2d33-8359-107b"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3e2f-c840-46b9-fc5b"/>
-                  </constraints>
-                  <profiles>
-                    <profile name="Slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="946e-021d-d356-8f74">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Close-Quarters" hidden="false" type="rule" id="3cfd-a393-348c-7252" targetId="59e0-775e-fce5-43ca"/>
-                    <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-1b01" targetId="0d1a-9f3b-7c40-1c01"/>
-                  </infoLinks>
-                  <categoryLinks>
-                    <categoryLink name="Ranged Weapon" hidden="false" id="13b0-755b-6e3b-acf7" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                  </categoryLinks>
-                </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="4c16-505d-6a7e-9667" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="372d-7f48-80c2-7fa5"/>
@@ -3374,7 +3348,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                       <profiles>
                         <profile name="Kustom shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5226-f265-8d90-b9a3">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
@@ -3432,7 +3406,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
@@ -3452,12 +3426,12 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                         <profile name="Burna" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d07">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 4, Torrent</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -3485,12 +3459,12 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                         <profile name="Kombi-skorcha - Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-1d0d">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 3, Torrent</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -3572,7 +3546,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
                             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
                             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                             <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -30958,6 +30932,7 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Flash Gitz" hidden="false" id="fe29-da32-d3db-1192"/>
     <categoryEntry name="Ghazghkull Thraka" hidden="false" id="ae9d-f74f-769c-5fc"/>
     <categoryEntry name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2031"/>
+    <categoryEntry name="Explosives" hidden="false" id="0d1a-9f3b-7c40-1e02"/>
     <categoryEntry name="Gorkanaut" hidden="false" id="e6c0-9d12-619e-7517"/>
     <categoryEntry name="Gretchin" hidden="false" id="b10e-5fe3-6f65-28ce"/>
     <categoryEntry name="Hunta Rig" hidden="false" id="6c11-1242-7b31-f64f"/>
