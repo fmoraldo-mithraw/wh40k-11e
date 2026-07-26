@@ -1,5 +1,14 @@
 # Proposition — Intégration continue des points MFM (matrices nom↔id auto)
 
+> **État : Phases 1 et 2 LIVRÉES** (`editor/mfm/`, voir son README). La matrice
+> nom↔id (`build-map.mjs`) couvre 100 % des 1454 unités MFM (99,3 % auto + 10
+> alias), indexe 8921 options d'armes et 1150 améliorations ; le dry-run
+> (`apply.mjs`) sort les deltas sans rien écrire. Trouvaille validante du
+> dry-run : le **coût de chapitre** (Repulsor Executioner 255 SM vs 230
+> chapitres, même bsId partagé) est détecté par pré-passe cross-faction et
+> **exclu de l'auto** — écrire la valeur écraserait les autres factions. Reste
+> la Phase 3 (écriture réelle + gauntlet + PR).
+
 > But : quand un nouveau Munitorum Field Manual sort, appliquer les
 > changements de points à la bdd `.cat` **automatiquement**, sans ressaisie
 > manuelle, avec relecture humaine réduite au strict résidu. Ce document
