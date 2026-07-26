@@ -1,35 +1,60 @@
 #!/usr/bin/env bash
 # run.sh — orchestre l'intégration continue MFM en une commande :
+#   0. GÉNÈRE les fichiers MFM depuis le site (mfm_parser.py) — sauf si un
+#      dossier json existant est fourni
 #   1. régénère les matrices nom↔id (build-map)
 #   2. calcule le diff des points en dry-run (apply)
 #   3. affiche un RÉSUMÉ : modifications auto-applicables + modifications
 #      MANQUANTES à renvoyer (écrites aussi dans editor/mfm/A_RENVOYER.md)
 #   4. propose de committer & pusher les modifications
 #
-# Usage : editor/mfm/run.sh <dir-json-mfm>
-#   <dir-json-mfm> = dossier contenant <faction>.json (dump mfm_dump.py, ex.
-#   .../en/json). À défaut, la variable d'env MFM_DIR est utilisée.
+# Usage :
+#   editor/mfm/run.sh                     # génère le MFM (réseau) puis tout le reste
+#   editor/mfm/run.sh --lang fr           # autre langue (défaut: en)
+#   editor/mfm/run.sh <dir-json-mfm>      # utilise un dump existant (hors-ligne)
 set -euo pipefail
 
 # ── emplacements ────────────────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$SCRIPT_DIR/../.." && pwd)"
-MFM_DIR="${1:-${MFM_DIR:-}}"
 REPORT="$SCRIPT_DIR/A_RENVOYER.md"
 
 c_g="\033[32m"; c_y="\033[33m"; c_r="\033[31m"; c_b="\033[1m"; c_0="\033[0m"
 say()  { printf "%b\n" "$*"; }
 die()  { printf "%b\n" "${c_r}✗ $*${c_0}" >&2; exit 1; }
 
+# ── arguments : [--lang XX] [dir-json-mfm] ──────────────────────────────────
+LANG_MFM="en"; MFM_DIR="${MFM_DIR:-}"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --lang) LANG_MFM="${2:?--lang attend une valeur}"; shift 2 ;;
+    --lang=*) LANG_MFM="${1#--lang=}"; shift ;;
+    -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
+    *) MFM_DIR="$1"; shift ;;
+  esac
+done
+
 command -v node >/dev/null || die "node introuvable dans le PATH."
-[ -n "$MFM_DIR" ] || die "usage : editor/mfm/run.sh <dir-json-mfm>  (ou export MFM_DIR=…)"
+cd "$REPO"
+
+# ── 0) génération des fichiers MFM (réseau) si aucun dossier fourni ──────────
+if [ -z "$MFM_DIR" ]; then
+  command -v python3 >/dev/null || die "python3 requis pour générer le MFM (ou fournis un dossier json existant)."
+  python3 -c "import requests" 2>/dev/null || die "module python « requests » manquant — pip install requests, ou fournis un dump existant."
+  MFM_DIR="$SCRIPT_DIR/dump/$LANG_MFM"
+  say "${c_b}▸ 0/3  Génération du MFM (${LANG_MFM}) depuis warhammer-community…${c_0}"
+  mkdir -p "$MFM_DIR"
+  # mfm_parser.py all : écrit un <slug>.json par faction dans -o.
+  python3 "$SCRIPT_DIR/mfm_parser.py" --lang "$LANG_MFM" all -o "$MFM_DIR" 2>&1 | sed 's/^/    /' \
+    || die "échec de la génération MFM (réseau/proxy ?). Fournis un dump existant en argument."
+  say "    ${c_g}✓ MFM généré : $(ls "$MFM_DIR"/*.json 2>/dev/null | wc -l) factions → ${MFM_DIR#$REPO/}${c_0}"
+fi
+
 [ -d "$MFM_DIR" ] || die "dossier MFM introuvable : $MFM_DIR"
 ls "$MFM_DIR"/*.json >/dev/null 2>&1 || die "aucun <faction>.json dans $MFM_DIR"
 
-cd "$REPO"
-
 # ── 1) matrices ─────────────────────────────────────────────────────────────
-say "${c_b}▸ 1/3  Régénération des matrices nom↔id…${c_0}"
+say "\n${c_b}▸ 1/3  Régénération des matrices nom↔id…${c_0}"
 node editor/mfm/build-map.mjs "$MFM_DIR" | sed 's/^/    /'
 
 # ── 2) dry-run (capturé) ────────────────────────────────────────────────────

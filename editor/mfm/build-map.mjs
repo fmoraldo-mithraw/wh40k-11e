@@ -21,9 +21,31 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "..", "..");                    // wh40k-11e
-const PARSER = path.resolve(REPO, "..", "cogitator-bellicum", "scripts", "bsdata-parser.mjs");
 const MAP_DIR = path.join(HERE, "map");
 const ALIASES = path.join(HERE, "aliases.json");
+
+// Dépendance UNIQUE et EN LECTURE SEULE hors de ce dépôt : le parser de l'app
+// cogitator-bellicum, utilisé seulement pour résoudre la CLÔTURE D'IMPORT (quels
+// datasheets un chapitre / une faction « importateur mince » possède réellement)
+// afin de matcher les noms MFM — sans lui, le match par fichier ne couvre que
+// ~52 % (voir poc/). Les ÉCRITURES en base (Phase 3) n'en dépendent pas : elles
+// passent par editor/lib/catalog.js, dans CE dépôt. Résolution configurable :
+//   BSDATA_PARSER=<chemin .mjs>  ou  COGITATOR_DIR=<repo>  ou, à défaut, le
+//   dépôt frère ../cogitator-bellicum. Erreur claire si introuvable.
+function resolveParser() {
+  const cands = [
+    process.env.BSDATA_PARSER,
+    process.env.COGITATOR_DIR && path.join(process.env.COGITATOR_DIR, "scripts", "bsdata-parser.mjs"),
+    path.resolve(REPO, "..", "cogitator-bellicum", "scripts", "bsdata-parser.mjs"),
+  ].filter(Boolean);
+  for (const c of cands) if (fs.existsSync(c)) return c;
+  console.error(
+    "[build-map] parser bsdata introuvable (nécessaire pour la clôture d'import).\n" +
+    "  Fournis-le : BSDATA_PARSER=/chemin/bsdata-parser.mjs  ou  COGITATOR_DIR=/chemin/cogitator-bellicum\n" +
+    "  Cherché : " + cands.join(", "));
+  process.exit(2);
+}
+const PARSER = resolveParser();
 
 const mfmDir = process.argv[2];
 const onlySlug = process.argv[3] || null;
@@ -142,7 +164,7 @@ function readCurrentCosts(bsId) {
 }
 
 const slugs = fs.readdirSync(mfmDir)
-  .filter((f) => f.endsWith(".json") && f !== "all.json")
+  .filter((f) => f.endsWith(".json") && f !== "all.json" && !f.startsWith("_"))
   .map((f) => f.replace(/\.json$/, ""))
   .filter((s) => !onlySlug || s === onlySlug);
 

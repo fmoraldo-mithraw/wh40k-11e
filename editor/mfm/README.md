@@ -4,6 +4,29 @@ Chaîne outillée qui applique **automatiquement** les changements de points d'u
 nouveau Munitorum Field Manual à la bdd `.cat`, avec relecture humaine réduite
 au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
 
+## Où vit quoi (et comment les modifications sont faites)
+
+**Tout l'outillage MFM est dans CE dépôt** (`wh40k-11e/editor/mfm/`) :
+`mfm_parser.py`/`mfm_dump.py` (extraction), `build-map.mjs`, `apply.mjs`,
+`run.sh`, `aliases.json`, `map/`.
+
+**Les écritures en base se font dans ce dépôt**, via `editor/lib/catalog.js`
+(`editUnit` costs/tiers, helpers repeat-cost) — jamais de `sed`, jamais de
+dépendance externe pour modifier les `.cat`.
+
+**Unique dépendance hors dépôt, en LECTURE SEULE** : `build-map.mjs` importe le
+parser de l'app cogitator-bellicum (`scripts/bsdata-parser.mjs`) *uniquement*
+pour résoudre la **clôture d'import** (savoir quels datasheets un chapitre ou
+une faction « importateur mince » possède réellement) et ainsi matcher les noms
+MFM. Sans lui, un match par fichier ne couvre que ~52 % (cf. `poc/`). Ce parser
+ne fait que LIRE ; il ne touche jamais aux données. Chemin configurable :
+`BSDATA_PARSER=/chemin/bsdata-parser.mjs` ou `COGITATOR_DIR=/chemin/cogitator-bellicum`
+(défaut : le dépôt frère `../cogitator-bellicum`).
+
+Résumé du flux : **extraction** (python, ce dépôt) → **matrice** (build-map, ce
+dépôt, lit la clôture d'import via le parser de l'app) → **diff** (apply, ce
+dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
+
 ## Phases
 
 - **Phase 1 — `build-map.mjs`** *(livré)* : construit la **matrice nom↔id** par
@@ -33,20 +56,23 @@ au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
 ## Usage
 
 ```sh
-# obtenir un dump MFM JSON : mfm_dump.py → <lang>/json/<slug>.json
+# TOUT EN UNE COMMANDE (recommandé) : GÉNÈRE le MFM (réseau), régénère les
+# matrices, imprime le résumé (deltas auto + « à me renvoyer », détaillé dans
+# editor/mfm/A_RENVOYER.md), puis propose de committer & pusher.
+editor/mfm/run.sh                 # génère le MFM depuis le site puis tout le reste
+editor/mfm/run.sh --lang fr       # autre langue (défaut: en)
+editor/mfm/run.sh <dir-json-mfm>  # utilise un dump existant (hors-ligne, pas de réseau)
 
-# TOUT EN UNE COMMANDE (recommandé) : régénère les matrices, imprime le résumé
-# (deltas auto + « à me renvoyer », détaillé dans editor/mfm/A_RENVOYER.md),
-# puis propose de committer & pusher.
-editor/mfm/run.sh <dir-json-mfm>          # ou: export MFM_DIR=… ; editor/mfm/run.sh
-
-# ou étape par étape (lecture seule) :
-node editor/mfm/build-map.mjs <dir-json-mfm> [slug]
-node editor/mfm/apply.mjs     <dir-json-mfm> [slug] [--changed-only]
+# étapes séparées (lecture seule) :
+python3 editor/mfm/mfm_parser.py --lang en all -o editor/mfm/dump/en   # extraction
+node    editor/mfm/build-map.mjs editor/mfm/dump/en [slug]             # matrices
+node    editor/mfm/apply.mjs     editor/mfm/dump/en [slug] [--changed-only]  # diff
 ```
 
-`run.sh` écrit la liste des modifications manquantes dans
-`editor/mfm/A_RENVOYER.md` (gitignoré) — c'est le fichier à me renvoyer.
+Prérequis pour la génération : `python3` + le module `requests`
+(`pip install requests`). `run.sh` écrit la liste des modifications manquantes
+dans `editor/mfm/A_RENVOYER.md` (gitignoré) — c'est le fichier à me renvoyer.
+Le dump généré va dans `editor/mfm/dump/<lang>/` (gitignoré).
 
 ## Garde-fous (« ne rien insérer de douteux »)
 
