@@ -33,12 +33,20 @@ au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
 ## Usage
 
 ```sh
-# 1) obtenir un dump MFM JSON (mfm_dump.py → <lang>/json/<slug>.json)
-# 2) (re)construire les matrices — LECTURE SEULE
+# obtenir un dump MFM JSON : mfm_dump.py → <lang>/json/<slug>.json
+
+# TOUT EN UNE COMMANDE (recommandé) : régénère les matrices, imprime le résumé
+# (deltas auto + « à me renvoyer », détaillé dans editor/mfm/A_RENVOYER.md),
+# puis propose de committer & pusher.
+editor/mfm/run.sh <dir-json-mfm>          # ou: export MFM_DIR=… ; editor/mfm/run.sh
+
+# ou étape par étape (lecture seule) :
 node editor/mfm/build-map.mjs <dir-json-mfm> [slug]
-# 3) voir les deltas à appliquer — LECTURE SEULE
-node editor/mfm/apply.mjs <dir-json-mfm> [slug] [--changed-only]
+node editor/mfm/apply.mjs     <dir-json-mfm> [slug] [--changed-only]
 ```
+
+`run.sh` écrit la liste des modifications manquantes dans
+`editor/mfm/A_RENVOYER.md` (gitignoré) — c'est le fichier à me renvoyer.
 
 ## Garde-fous (« ne rien insérer de douteux »)
 
