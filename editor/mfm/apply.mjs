@@ -134,59 +134,64 @@ for (const slug of slugs) {
 // Passe principale : émission (dédup les écritures identiques d'un même bsId
 // vue depuis plusieurs factions ; met en REVIEW les bsId conflictuels).
 const emittedWrite = new Set();                            // `${bsId}|${field}` déjà émis en Δ
+const actions = [];                                        // { cat, faction, name, detail } — « à me renvoyer »
 for (const slug of slugs) {
   const map = JSON.parse(fs.readFileSync(path.join(MAP_DIR, slug + ".json"), "utf8"));
   const mfmPath = path.join(mfmDir, slug + ".json");
   if (!fs.existsSync(mfmPath)) continue;
   const mfm = JSON.parse(fs.readFileSync(mfmPath, "utf8"));
 
-  const facLines = [];
+  const facLines = [];                                      // uniquement les Δ auto-applicables
+  const review = (cat, name, detail) => { actions.push({ cat, faction: map.faction, name, detail }); tot.review++; };
   // ── unités ────────────────────────────────────────────────────────────────
   const seen = new Set();                                   // dédup dual-cost (nom vu 1×)
   for (const mu of mfm.units) {
     const entry = map.matched[mu.name];
-    if (!entry) continue;                                   // non-mappé (déjà en review Phase 1)
+    if (!entry) continue;                                   // non-mappé → traité via map.unmapped plus bas
     if (seen.has(mu.name)) continue; seen.add(mu.name);
     if (changedOnly && !mu.changed) continue;
     tot.units++;
     let costs;
     try { costs = mfmUnitCosts(mu); }
-    catch (e) { facLines.push(`  ⚠ REVIEW ${mu.name}: ${e.message}`); tot.review++; continue; }
-    if (costs.skip) { facLines.push(`  ⚠ REVIEW ${mu.name}: ${costs.skip}`); tot.review++; continue; }
+    catch (e) { review("valeur-douteuse", mu.name, e.message); continue; }
+    if (costs.skip) { review("composition", mu.name, costs.skip + ` — barème MFM: ${(mu.profiles || []).map((p) => p.size + "=" + p.points).join(", ")}`); continue; }
 
     for (const tgt of entry.targets) {
       const cur = tgt.current;
       const tag = entry.targets.length > 1 ? ` [${tgt.catName}]` : "";
-      // base — un coût bdd 0 (ou absent) alors que le MFM en a un signifie
-      // presque toujours un coût PORTÉ PAR LES MODÈLES (Ironstrider, Mek Gunz,
-      // Firestrike, Lokhust… : l'entrée unité est à 0, chaque modèle price).
-      // Écrire la valeur sur l'unité serait FAUX → REVIEW, jamais auto.
+      // base : compare le coût EFFECTIF (cur.basePts, résolu par le parser) au
+      // MFM. Coût effectif 0/absent + MFM>0 → porté par les modèles (④).
       if (cur.basePts == null || cur.basePts === 0) {
-        if (costs.basePts != null) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag}: coût bdd ${cur.basePts == null ? "absent" : "0"} (probablement porté par les modèles), MFM=${costs.basePts} — manuel`); tot.review++; }
+        if (costs.basePts != null) review("modele-porte", mu.name + tag, `coût unité ${cur.basePts == null ? "absent" : "0"} (probablement porté par les modèles de composition), MFM base=${costs.basePts}`);
       } else if (costs.basePts !== cur.basePts) {
         const d = costs.basePts - cur.basePts;
-        if (isConflicted(tgt.bsId, "base")) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} BASE: datasheet partagée, prix divergent entre factions (coût de chapitre → modifier primary-catalogue, manuel)`); tot.review++; }
-        else if (!saneDelta(d)) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} BASE Δ${d} hors bornes`); tot.review++; }
-        else if (emittedWrite.has(tgt.bsId + "|base")) { /* déjà émis via une autre faction — même écriture partagée */ }
+        if (isConflicted(tgt.bsId, "base")) review("cout-chapitre", mu.name + tag, `datasheet partagée, prix divergent selon la faction (bdd ${cur.basePts} → MFM ${costs.basePts})`);
+        else if (!saneDelta(d)) review("hors-bornes", mu.name + tag, `BASE Δ${d} implausible (bdd ${cur.basePts} → MFM ${costs.basePts})`);
+        else if (cur.baseOnNode == null) review("base-imbriquee", mu.name + tag, `coût effectif ${cur.basePts} porté hors de l'entrée unité (modèle/imbriqué), MFM=${costs.basePts} — écriture manuelle`);
+        else if (emittedWrite.has(tgt.bsId + "|base")) { /* écriture partagée déjà émise */ }
         else { facLines.push(`  Δ ${mu.name}${tag} BASE: ${cur.basePts} → ${costs.basePts} (${d > 0 ? "+" : ""}${d})`); emittedWrite.add(tgt.bsId + "|base"); tot.deltas++; }
       }
-      // paliers de taille (compare l'ensemble trié des prix)
-      const curTierPts = (cur.tiers || []).map((x) => x.pts).sort((a, b) => a - b);
-      const mfmTierPts = [...(costs.sizeTierPts || [])].sort((a, b) => a - b);
-      if (JSON.stringify(curTierPts) !== JSON.stringify(mfmTierPts)) {
-        if (isConflicted(tgt.bsId, "tiers")) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} PALIERS: datasheet partagée, prix divergent entre factions (manuel)`); tot.review++; }
-        else if (curTierPts.length !== mfmTierPts.length) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} PALIERS: structure différente (bdd ${JSON.stringify(curTierPts)} vs MFM ${JSON.stringify(mfmTierPts)})`); tot.review++; }
-        else if (emittedWrite.has(tgt.bsId + "|tiers")) { /* écriture partagée déjà émise */ }
-        else { facLines.push(`  Δ ${mu.name}${tag} PALIERS: ${JSON.stringify(curTierPts)} → ${JSON.stringify(mfmTierPts)}`); emittedWrite.add(tgt.bsId + "|tiers"); tot.deltas++; }
+      // Paliers : chaque prix de taille MFM doit être ATTEIGNABLE par la bdd
+      // (base ou l'un des paliers connus, union des deux lectures). On ne
+      // signale que les prix MFM qu'aucun palier/base actuel ne produit — ce
+      // qui évite les faux positifs dus aux idiomes d'encodage des paliers. Un
+      // coût porté par les modèles (base 0) est déjà traité en ④, on n'y ajoute
+      // pas de bruit de palier.
+      if (cur.basePts) {
+        const achievable = new Set([cur.basePts, ...((cur.tierPrices) || (cur.tiers || []).map((x) => x.pts))]);
+        const missing = [...new Set(costs.sizeTierPts || [])].filter((p) => !achievable.has(p));
+        if (missing.length) {
+          if (isConflicted(tgt.bsId, "tiers")) review("cout-chapitre", mu.name + tag, `paliers divergents selon la faction (MFM ${JSON.stringify(missing)} non produits par la bdd ${JSON.stringify([...achievable].sort((a, b) => a - b))})`);
+          else review("palier-structure", mu.name + tag, `prix de taille MFM ${JSON.stringify(missing)} non atteignable(s) par la bdd (paliers actuels ${JSON.stringify([...achievable].sort((a, b) => a - b))})`);
+        }
       }
-      // prix par répétition
       if (costs.repeatDelta != null) {
         const curD = cur.repeat ? cur.repeat.delta : null;
-        if (curD == null) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} RÉPÉTITION: bdd sans repeat-cost, MFM Δ=${costs.repeatDelta} (manuel)`); tot.review++; }
+        if (curD == null) review("repeat-absent", mu.name + tag, `MFM a un prix par répétition (Δ=${costs.repeatDelta}) que la bdd n'encode pas`);
         else if (curD !== costs.repeatDelta) {
-          if (isConflicted(tgt.bsId, "repeat")) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} RÉPÉTITION: datasheet partagée, prix divergent entre factions (manuel)`); tot.review++; }
-          else if (!saneDelta(costs.repeatDelta)) { facLines.push(`  ⚠ REVIEW ${mu.name}${tag} RÉPÉTITION Δ${costs.repeatDelta} hors bornes`); tot.review++; }
-          else if (emittedWrite.has(tgt.bsId + "|repeat")) { /* écriture partagée déjà émise */ }
+          if (isConflicted(tgt.bsId, "repeat")) review("cout-chapitre", mu.name + tag, `répétition divergente selon la faction (bdd Δ${curD} vs MFM Δ${costs.repeatDelta})`);
+          else if (!saneDelta(costs.repeatDelta)) review("hors-bornes", mu.name + tag, `RÉPÉTITION Δ${costs.repeatDelta} implausible`);
+          else if (emittedWrite.has(tgt.bsId + "|repeat")) { /* déjà émise */ }
           else { facLines.push(`  Δ ${mu.name}${tag} RÉPÉTITION: Δ${curD} → Δ${costs.repeatDelta}`); emittedWrite.add(tgt.bsId + "|repeat"); tot.deltas++; }
         }
       }
@@ -196,21 +201,67 @@ for (const slug of slugs) {
   for (const det of (Array.isArray(mfm.detachments) ? mfm.detachments : [])) {
     for (const me of (det.enhancements || [])) {
       const em = map.enhancements && map.enhancements[me.name];
-      if (!em) continue;
-      let p; try { p = safePts(me.points, `enh ${me.name}`); } catch (e) { facLines.push(`  ⚠ REVIEW enh ${me.name}: ${e.message}`); tot.review++; continue; }
-      if (em.currentPts == null) { facLines.push(`  ⚠ REVIEW enh ${me.name}: coût bdd absent, MFM=${p}`); tot.review++; continue; }
+      if (!em) continue;                                    // non-mappée → traité via map.enhUnmapped
+      let p; try { p = safePts(me.points, `enh ${me.name}`); } catch (e) { review("valeur-douteuse", "enh " + me.name, e.message); continue; }
+      if (em.currentPts == null) { review("enh-cout-absent", "enh " + me.name + " (" + em.det + ")", `coût bdd absent, MFM=${p}`); continue; }
       if (p !== em.currentPts) {
         const d = p - em.currentPts;
         if (saneDelta(d)) { facLines.push(`  Δ enh ${me.name} (${em.det}): ${em.currentPts} → ${p} (${d > 0 ? "+" : ""}${d})`); tot.enhDeltas++; }
-        else { facLines.push(`  ⚠ REVIEW enh ${me.name} Δ${d} hors bornes`); tot.review++; }
+        else review("hors-bornes", "enh " + me.name, `Δ${d} implausible`);
       }
     }
+  }
+  // ── résidu de la matrice (Phase 1) : noms/amél. non-mappés, erreurs ─────────
+  for (const n of (map.unmapped || [])) actions.push({ cat: "nom-non-mappe", faction: map.faction, name: n, detail: "aucune datasheet .cat pour ce nom MFM" });
+  for (const n of (map.enhUnmapped || [])) actions.push({ cat: "enh-non-mappee", faction: map.faction, name: n, detail: "aucune amélioration bdd pour ce nom MFM" });
+  for (const e of (map.errors || [])) {
+    if (/déjà mappé/.test(e.why)) continue;                 // dual-cost Agents : bénin, ignoré
+    actions.push({ cat: "erreur", faction: map.faction, name: e.name || "?", detail: e.why });
   }
 
   if (facLines.length) lines.push(`\n═══ ${map.faction} ═══\n` + facLines.join("\n"));
 }
 
-console.log(lines.length ? lines.join("\n") : "Aucun écart : la bdd est alignée sur ce MFM.");
+// ── 1) ce qui s'applique tout seul ──────────────────────────────────────────
+console.log("╔══ DELTAS AUTO-APPLICABLES (dry-run) ══╗");
+console.log(lines.length ? lines.join("\n") : "  (aucun — la bdd est alignée sur ce MFM)");
+
+// ── 2) ce que TU dois m'envoyer (non traité automatiquement) ────────────────
+// Un bloc par catégorie d'action, avec l'instruction concrète de ce qu'il faut
+// fournir. C'est LA liste à me renvoyer.
+const CAT = {
+  "nom-non-mappe":   { icon: "①", titre: "NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias." },
+  "enh-non-mappee":  { icon: "②", titre: "AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données." },
+  "cout-chapitre":   { icon: "③", titre: "COÛT DE CHAPITRE (datasheet partagée, prix divergent) — confirme les prix par chapitre : j'encode un modifier primary-catalogue." },
+  "modele-porte":    { icon: "④", titre: "COÛT PORTÉ PAR LES MODÈLES (unité à 0, prix sur les modèles) — confirme le barème par modèle de composition." },
+  "base-imbriquee":  { icon: "④", titre: "COÛT DE BASE IMBRIQUÉ (hors entrée unité) à changer — confirme la nouvelle valeur (écriture manuelle sur le modèle)." },
+  "composition":     { icon: "⑤", titre: "PRIX À COMPOSITION (tailles spéciales : Runtherds…) — le barème MFM est donné ci-dessous, confirme l'encodage voulu." },
+  "palier-structure":{ icon: "⑥", titre: "PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts)." },
+  "repeat-absent":   { icon: "⑦", titre: "PRIX PAR RÉPÉTITION absent en base — confirme le seuil et le delta à encoder." },
+  "enh-cout-absent": { icon: "⑧", titre: "AMÉLIORATION SANS COÛT en base — confirme la valeur." },
+  "hors-bornes":     { icon: "⚠", titre: "DELTA IMPLAUSIBLE (|Δ|>200) — vérifie l'extraction MFM / le nom apparié." },
+  "valeur-douteuse": { icon: "⚠", titre: "VALEUR MFM NON EXPLOITABLE — vérifie la source." },
+  "erreur":          { icon: "✗", titre: "ERREUR DE RÉSOLUTION EN BASE — à investiguer." },
+};
+const order = Object.keys(CAT);
+const byCat = new Map();
+for (const a of actions) { if (!byCat.has(a.cat)) byCat.set(a.cat, []); byCat.get(a.cat).push(a); }
+
+console.log("\n╔══ ⚑ À ME RENVOYER — non traité automatiquement ══╗");
+if (!actions.length) {
+  console.log("  (rien — tout est soit appliqué automatiquement, soit déjà aligné)");
+} else {
+  for (const cat of order) {
+    const items = byCat.get(cat);
+    if (!items || !items.length) continue;
+    const c = CAT[cat];
+    console.log(`\n${c.icon} ${c.titre}  [${items.length}]`);
+    for (const it of items) console.log(`   • [${it.faction}] ${it.name} — ${it.detail}`);
+  }
+  // toute catégorie non prévue (garde-fou)
+  for (const [cat, items] of byCat) if (!CAT[cat]) for (const it of items) console.log(`\n? ${cat}: [${it.faction}] ${it.name} — ${it.detail}`);
+}
+
 console.log(`\n════ DRY-RUN ════`);
-console.log(`Unités examinées: ${tot.units} · deltas points: ${tot.deltas} · deltas améliorations: ${tot.enhDeltas} · à revoir (manuel): ${tot.review}`);
-console.log(`Aucune écriture effectuée (dry-run). Phase 3 appliquera ces deltas via editor/lib/catalog.js + gauntlet.`);
+console.log(`Unités examinées: ${tot.units} · deltas points auto: ${tot.deltas} · deltas améliorations auto: ${tot.enhDeltas} · À ME RENVOYER: ${actions.length}`);
+console.log(`Aucune écriture (dry-run). Applique le bloc AUTO en Phase 3 ; renvoie-moi le bloc « ⚑ À ME RENVOYER » pour le reste.`);

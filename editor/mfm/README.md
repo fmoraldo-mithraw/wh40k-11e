@@ -13,7 +13,20 @@ au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
   porteuses de coût** (id + pts), pour qu'un futur surcoût par arme soit
   adressable sans re-recherche. Sortie : `map/<slug>.json`.
 - **Phase 2 — `apply.mjs`** *(livré, dry-run)* : compare points MFM ↔ points
-  bdd (via la matrice) et imprime les **deltas** à appliquer. N'écrit rien.
+  bdd (via la matrice) et imprime deux blocs :
+  1. **DELTAS AUTO-APPLICABLES** — les changements sûrs (base/palier/répétition/
+     amélioration à cible unique, non conflictuels) que la Phase 3 posera.
+  2. **⚑ À ME RENVOYER** — tout ce qui n'a **pas** été traité automatiquement,
+     **groupé par type d'action** avec l'instruction concrète de ce qu'il faut
+     fournir : noms MFM sans datasheet (①), améliorations sans entrée (②), coûts
+     de chapitre (③), coûts portés par les modèles (④), prix à composition avec
+     barème (⑤), paliers non atteignables (⑥), etc. C'est **la liste à renvoyer**
+     pour compléter l'intégration. N'écrit rien.
+
+  Comparaison robuste aux idiomes d'encodage : le coût de base est le coût
+  **effectif** (parser, résout les coûts imbriqués), les paliers sont comparés à
+  l'**union des prix atteignables** (paliers du nœud ∪ paliers du parser ∪ base),
+  donc un palier n'est signalé que si **aucun** encodage bdd ne le produit.
 - **Phase 3** *(à venir)* : écriture réelle via `editor/lib/catalog.js`
   (`editUnit` costs/tiers, repeat-cost, enhancements) + gauntlet + PR.
 

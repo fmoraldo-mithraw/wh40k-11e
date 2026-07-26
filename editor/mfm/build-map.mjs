@@ -87,24 +87,58 @@ if (!all || Object.keys(all).length === 0) { console.error("aucune faction pars�
 const aliases = fs.existsSync(ALIASES) ? JSON.parse(fs.readFileSync(ALIASES, "utf8")) : {};
 fs.mkdirSync(MAP_DIR, { recursive: true });
 
-// Options d'armes/wargear porteuses de coût d'une datasheet, par bsId. Chaque
-// choix = une cible adressable pour un surcoût (id + pts courant). throw si la
-// lib échoue → capturé par unité.
-function weaponOptionsOf(bsId) {
+const COST_PTS = "51b2-306e-1021-d207";
+const xml = require(path.join(REPO, "editor", "lib", "xml.js"));
+
+// Coûts ACTUELS d'une datasheet lus DIRECTEMENT sur le nœud bdd (source de
+// vérité pour l'écriture), par bsId : base, paliers de taille, prix par
+// répétition, indicateur de coût de chapitre, ET toutes les options d'armes/
+// wargear porteuses de coût (id + pts). Lecture directe (pas via le parser de
+// l'app, dont le champ `tiers` peut rater un palier masqué par les modifiers
+// instanceOf de chapitre). throw si la lib échoue → capturé par unité.
+function readCurrentCosts(bsId) {
   const ref = cat.byId.get(bsId);
   if (!ref) throw new Error(`bsId ${bsId} introuvable dans la bdd (lib)`);
-  const u = cat.getUnit(ref.file, bsId);
-  const out = [];
-  for (const g of (u.options || [])) {
-    for (const c of (g.choices || [])) {
-      out.push({
-        group: g.name, owner: g.ownerName || null,
-        id: c.id, name: c.name, kind: c.kind, targetId: c.targetId || null,
-        pts: ptsInt(c.pts, `option ${c.name} (${bsId})`) ?? 0,
-      });
+  const node = ref.node;
+  // base : coût pts enfant direct <costs>.
+  let basePts = null;
+  const costs = xml.child(node, "costs");
+  if (costs) for (const cc of costs.children) if (cc.tag === "cost" && xml.getAttr(cc, "name") === "pts") basePts = ptsInt(xml.getAttr(cc, "value"), `base ${bsId}`);
+  // paliers de TAILLE : modifiers `set` sur pts conditionnés UNIQUEMENT par un
+  // décompte de modèles (field=selections, atLeast/greaterThan/equalTo) SANS
+  // instanceOf/primary-catalogue (ceux-là = coûts de chapitre, pas des tailles).
+  const tiers = []; let chapterCost = false;
+  xml.walk(node, (m) => {
+    if (m.tag !== "modifier" || xml.getAttr(m, "field") !== COST_PTS) return;
+    let atModels = null, hasCount = false, hasInstance = false;
+    xml.walk(m, (c2) => {
+      if (c2.tag !== "condition") return;
+      const cf = xml.getAttr(c2, "field"), ct = xml.getAttr(c2, "type"), sc = xml.getAttr(c2, "scope");
+      if (cf === "selections" && ["atLeast", "greaterThan", "equalTo"].includes(ct)) { hasCount = true; atModels = Number(xml.getAttr(c2, "value")); }
+      if (ct === "instanceOf" || ct === "notInstanceOf" || sc === "primary-catalogue") hasInstance = true;
+    });
+    if (hasInstance) chapterCost = true;                    // coût spécifique de chapitre présent
+    if (xml.getAttr(m, "type") === "set" && hasCount && !hasInstance) {
+      const pts = ptsInt(xml.getAttr(m, "value"), `palier ${bsId}`);
+      if (pts != null) tiers.push({ atModels, pts });
     }
-  }
-  return { file: ref.file, options: out };
+  });
+  // prix par répétition : marqueur <comment>repeat-cost: threshold=N delta=Δ</comment>.
+  let repeat = null;
+  xml.walk(node, (c2) => {
+    if (c2.tag !== "comment") return;
+    const m = String(xml.getText(c2) || "").match(/repeat-cost:\s*threshold=(\d+)\s*delta=(-?\d+)/);
+    if (m) repeat = { threshold: Number(m[1]), delta: Number(m[2]) };
+  });
+  // options d'armes/wargear porteuses de coût (cibles adressables d'un surcoût).
+  const u = cat.getUnit(ref.file, bsId);
+  const options = [];
+  for (const g of (u.options || [])) for (const c of (g.choices || [])) options.push({
+    group: g.name, owner: g.ownerName || null,
+    id: c.id, name: c.name, kind: c.kind, targetId: c.targetId || null,
+    pts: ptsInt(c.pts, `option ${c.name} (${bsId})`) ?? 0,
+  });
+  return { file: ref.file, basePts, tiers, repeat, chapterCost, options };
 }
 
 const slugs = fs.readdirSync(mfmDir)
@@ -168,18 +202,25 @@ for (const slug of slugs) {
       try {
         if (!hit.bsId) throw new Error(`datasheet « ${hit.name} » sans bsId`);
         if (matchedIds.has(hit.bsId)) { errors.push({ name: mu.name, bsId: hit.bsId, why: `bsId déjà mappé (${hit.name}) — occurrence ignorée` }); tot.errors++; continue; }
+        const cc = readCurrentCosts(hit.bsId);              // coûts lus sur le nœud bdd
+        tot.weaponOpts += cc.options.length;
+        // Prix de PALIER atteignables : l'union des paliers lus sur le nœud ET
+        // de ceux du parser de l'app. Les deux lectures ont des angles morts
+        // opposés (le parser rate le palier masqué par un modifier de chapitre ;
+        // le nœud rate certains idiomes que le parser capte) ; l'union couvre
+        // les deux, donc on ne signale un palier que s'il n'est atteignable
+        // par AUCUNE des deux — un vrai écart.
         const src = byBsId.get(hit.bsId) || hit;
-        const basePts = ptsInt(src.pts, `base ${src.name}`);
-        const wp = weaponOptionsOf(hit.bsId);
-        tot.weaponOpts += wp.options.length;
+        const parserTierPts = Array.isArray(src.tiers) ? src.tiers.map(([, pts]) => pts) : [];
+        const tierPrices = [...new Set([...cc.tiers.map((t) => t.pts), ...parserTierPts])].sort((a, b) => a - b);
+        // basePts = coût EFFECTIF (parser : résout un coût imbriqué sur le modèle,
+        // ex. War Walkers) — pour le DIFF. baseOnNode = coût sur l'entrée unité
+        // (null si porté ailleurs) — indique à la Phase 3 OÙ écrire.
+        const effBase = (typeof src.pts === "number") ? src.pts : (src.pts != null ? Number(src.pts) : null);
         targets.push({
-          bsId: hit.bsId, catName: hit.name, faction: hit._fac, file: wp.file,
-          current: {
-            basePts,
-            tiers: Array.isArray(src.tiers) ? src.tiers.map(([atModels, pts]) => ({ atModels, pts })) : [],
-            repeat: src.repeatCost ? { threshold: src.repeatCost.threshold, delta: src.repeatCost.delta } : null,
-          },
-          weaponOptions: wp.options,
+          bsId: hit.bsId, catName: hit.name, faction: hit._fac, file: cc.file,
+          current: { basePts: Number.isFinite(effBase) ? effBase : null, baseOnNode: cc.basePts, tiers: cc.tiers, tierPrices, repeat: cc.repeat, chapterCost: cc.chapterCost },
+          weaponOptions: cc.options,
         });
         matchedIds.add(hit.bsId);
       } catch (e) {
