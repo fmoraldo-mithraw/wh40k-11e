@@ -15,6 +15,11 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   Compagnon : `editor/MFM_APP_PROMPT.md`, prompt autonome à coller dans
   le dépôt d'une application consommatrice (type NewRecruit) pour
   l'adapter à ces mécanismes.
+- **`editor/MFM_CI_PROPOSAL.md`** — proposition d'intégration **continue**
+  des points MFM : matrice nom↔id auto-maintenue (construite sur les données
+  parsées imports-résolus → 98 % de couverture auto vs 52 % en match par
+  fichier, mesuré), moteur de diff (base/paliers/répétition/améliorations via
+  la lib), gauntlet + PR auto. POC de mesure dans `editor/mfm/poc/`.
 - **`editor/AGENTS_DUAL_COST_PROMPT.md`** — les Agents de l'Imperium ont
   **deux jeux de prix** dans chaque MFM (armée / alliés) : chaque unité y
   apparaît **deux fois** (1ʳᵉ occurrence = prix armée = base de l'entrée,
