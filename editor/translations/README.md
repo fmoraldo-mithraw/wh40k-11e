@@ -233,6 +233,68 @@ rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
 seulement pour les unités vendues en boîte. Le script chiffre en fin de course
 la proportion de trous réellement comblés.
 
+## Le pack se relit lui-même : `atteste-conserve.mjs`
+
+La meilleure source n'est pas sur le web, elle est **dans le pack**. Celui-ci
+contient des dizaines de milliers de chaînes de PROSE traduites, et un terme
+absent en tant que clef y apparaît très souvent à l'intérieur d'une autre clef
+traduite. La valeur française tranche alors toute seule :
+
+    "Signum Array"           → "Panoplie de Signums"          ⇒ Signum est CONSERVÉ
+    "Voidraven Bomber"       → "Bombardier Korvide"           ⇒ Voidraven se TRADUIT
+    "Faction: Blood Legions" → "Faction : Légions du Sang"    ⇒ idem
+
+C'est gratuit, instantané, et bien plus fiable qu'une recherche web. Le script
+classe chaque terme sans entrée en quatre verdicts — **conservé** (omission
+correcte, à sortir du décompte des trous), **traduit ailleurs** (vrai trou, avec
+le candidat français en main), **mixte**, **inconnu** — et n'écrit que
+`atteste.json`.
+
+Mesuré sur 717 termes : **258 conservés attestés** (36 %), 22 traduits ailleurs,
+64 mixtes, 373 inconnus. Autrement dit, plus d'un tiers du décompte des « trous »
+n'en était pas.
+
+**La fusion automatique est interdite, et ce n'est pas de la prudence de façade.**
+Deux pièges mesurés :
+
+- **Stormlord** — mot-clef d'un char des Genestealer Cults (variante de
+  Baneblade). La seule preuve du pack est « Imotekh the Stormlord » → « Imotekh
+  le Seigneur des Tempêtes », qui parle du Necron. Une fusion aurait renommé le
+  char.
+- **Aggressors** — « Optimised Aggressors » → « Agresseurs Optimisés » donne un
+  verdict TRADUIT net et faux : le pack rend « Aggressor Squad » par « Escouade
+  Aggressor ». D'où le **contrôle de nombre** : le script interroge aussi le
+  singulier/pluriel et rétrograde en MIXTE dès qu'il contredit. Une preuve unique
+  ne suffit jamais.
+
+Retenus après relecture (2026-08-04, 20 entrées) : *Voidraven* → **Korvide**,
+*Ossefactor* → **Ossefacteur**, *Helstalker* → **Métarôdeur**, *Dark Talon* →
+**Darktalon**, *Cyberwolf* → **Cyberloup**, *Abominant* → **Abominable**,
+*Earthshakers* → **Trembleterres**, *Tesseract Ark* → **Arche Tesseract**,
+*Iron-master* → **Maître-Fer**, *Tyranids* → **Tyranides**, les trois Legions
+(*Plague* → **de Peste**, *Blood* → **du Sang**, *Scintillating* →
+**Scintillantes**) et six armes Custodes/Ork (*Adrasite spear* → **Lance
+adrasite**, *Lastrum bolt cannon* → **Canon bolter Lastrum**, *Adrathic
+devastator* → **Dévastateur adrathic**, *Twin las-pulsar* → **Las-pulsar
+jumelé**, *Infernus firepike* → **Pique de feu Infernus**, *Venatari lance* →
+**Lance Venatari**, *Krusha kannon* → **Kannon Krusha**). Écartés : les termes
+suffixés `[Legends]` (le suffixe fausse la preuve), et les écarts de simple casse
+ou d'apostrophe (*Aun'shi*, *Shas'o R'alai*, *Bio-plasma*), qui ne sont pas des
+traductions.
+
+**Le cas des noms d'amélioration.** Les 33 restants ne sont PAS du texte
+descriptif comme on pouvait le croire : ce sont des néologismes néo-latins —
+*Praesidius*, *Admonimortis*, *Panoptispex*, *Spiritus Ferrum*, *Incandaeum*,
+*Ignis Judicium*, *Cornucophagus*, *Pharmacophex*, *Vox-Diabolus*… Le script en
+certifie quatre comme conservés (*Immolator*, *Fusillade*, *Prescience*,
+*Skjald*), les autres n'apparaissent nulle part ailleurs dans le pack. La
+structure appuie la même lecture : ce sont des **singletons isolés dans des
+détachements par ailleurs entièrement traduits** (« Spectacle of Spite » 3/4,
+« Grand Coven » 3/4, « Librarius Conclave » 3/5…), c'est-à-dire ce que le
+traducteur a laissé parce qu'il n'y avait rien à traduire. La seule exception,
+*Explorator Maniple* des Adeptus Mechanicus (0/4), porte quatre titres du culte
+— Magos, Genetor, Logis, Artisan — que le français garde aussi.
+
 ## Ancienne source : New Recruit
 
 `fetch-nr.mjs` aspire les traductions communautaires New Recruit (`nrdata.org`,
