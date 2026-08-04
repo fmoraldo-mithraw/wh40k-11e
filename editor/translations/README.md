@@ -1,28 +1,175 @@
-# Traductions des noms de données (New Recruit / nrdata)
+# Traductions des données (`translations/<lang>.json`)
 
 `translations/<lang>.json` (racine du dépôt) : dictionnaires « chaîne anglaise →
-traduction » appliqués par l'appli (cogitator-bellicum) en COUCHE D'AFFICHAGE —
-les `.cat` restent anglais (ids, exports, YellowScribe inchangés).
+traduction » appliqués par l'appli (cogitator-bellicum) en COUCHE D'AFFICHAGE.
+Les `.cat` restent anglais — ids, exports YellowScribe et PDF inchangés, parce
+que des mods TTS et les outils d'autres joueurs s'appuient sur les chaînes
+canoniques.
 
-## Récupération / mise à jour
+Format consommé par `vite-plugin-bsdata` :
 
-```sh
-node editor/translations/fetch-nr.mjs              # fr depuis nrdata.org
-node editor/translations/fetch-nr.mjs fr es de it  # plusieurs langues
-node editor/translations/fetch-nr.mjs --github fr  # repli miroir GitHub
+```json
+{ "meta": { "system", "language", "builtAt", "source", "totalStrings" },
+  "strings": { "<chaîne anglaise exacte>": "<traduction>" } }
 ```
 
-Source : la base collaborative New Recruit (https://nrdata.org, système
-`BSData/wh40k-10e`) ; repli : le miroir `NewRecruitEU/translations`. La fusion
-préserve les corrections locales commitées ; seules les chaînes réellement
-traduites (non vides, ≠ de l'anglais, `translated:true`) sont retenues.
+Côté appli : `dataName()` pour les noms, `dataText()` pour la prose (même table),
+`GlossTerm` affiche traduit tout en restant clefé sur l'anglais.
 
-NOTE : nrdata.org peut être bloqué par certains proxys d'entreprise/sandbox —
-lancer le script depuis une machine au réseau ouvert.
+## D'où viennent les traductions
+
+Par priorité décroissante — une source plus forte écrase toujours une plus
+faible :
+
+1. **Corrections locales** commitées dans `translations/fr.json`. Elles gagnent
+   sur tout : c'est le moyen de figer un choix éditorial.
+2. **Noms officiels Games Workshop** relevés sur `warhammer.com` et
+   `warhammer-community.com/fr-fr`, avec URL de preuve et niveau de confiance.
+   L'accès direct à ces sites est bloqué (403) : seuls les titres et extraits
+   remontés par la recherche web sont exploitables.
+3. **Army List Network** (`40k.armylistnetwork.com`), créateur de listes
+   francophone dont la base est BILINGUE : chaque entrée porte sa forme
+   française et sa version originale anglaise dans le même champ. Source la plus
+   dense — voir ci-dessous.
+4. **Traduction sous contrat de glossaire** pour tout le reste : un glossaire
+   canonique fixe la terminologie, les accords, la casse, le balisage à
+   préserver et les termes à laisser en anglais.
+
+Les traductions issues d'ALN sont le fruit du travail bénévole de cette
+communauté. Si ce dépôt est publié, la source doit être créditée.
+
+## Récupérer ALN
+
+Le site exige un compte et refuse les robots : la récupération se fait depuis une
+machine au réseau ouvert, session ouverte à la main.
+
+```sh
+npm i playwright && npx playwright install chromium
+
+node editor/translations/aln-dump.mjs      # 1. connexion manuelle + capture
+node editor/translations/aln-fetch.mjs     # 2. récolte complète
+node editor/translations/aln-probe.mjs --page "<url d'une liste en édition>"
+                                           #    diagnostic si un endpoint casse
+```
+
+`aln-fetch.mjs` produit `aln-pairs.json` (couples EN→FR attestés) et
+`aln-units.json` (fiches groupées avec leurs libellés). Ne jamais faire circuler
+`aln-profile/` : il contient la session de connexion.
+
+Endpoints (tous en GET, avec `X-Requested-With: XMLHttpRequest` et un `Referer`
+`/form/unite.php`) :
+
+| Endpoint | Contenu |
+| --- | --- |
+| `/form/ajax_select_unite.php?f_id_section=S&f_id_codex=C` | liste des unités d'une section |
+| `/form/ajax_set_unite.php?f_id_codexunite=<id>` | fiche complète (armes, capacités, mots-clefs) |
+| `/form/ajax_set_detachement.php?f_id_codexdetachement=<id>` | détachement + stratagèmes |
+
+Le champ décisif est `option_data`, qui porte les deux langues d'un coup :
+
+```
+value="Pistolet bolter|1|1968|0|14049|Bolt pistol|Armes de Tir"
+       └── FR ───────┘ │  │    │  └id┘ └── VO ──┘ └ catégorie ┘
+                     type figure          (1=arme 2=capacité 3=mot-clef 4=faction)
+```
+
+`/form/unite.php` ne sert PAS ses listes déroulantes hors session de liste
+ouverte : le récupérateur se rabat sur un balayage `codex × sections`, qui est
+le mode nominal en pratique.
+
+Les fiches dont ALN ne donne pas la version anglaise sont rattachées à leur
+datasheet par RECOUVREMENT DE LIBELLÉS (deux fiches partageant plusieurs armes
+décrivent le même objet), en deux passes : les cas nets d'abord, puis les
+restants avec le champ des candidats restreint au bon fichier — la
+correspondance codex ALN ↔ fichier du dépôt se déduisant par vote de la première
+passe.
+
+## Ce qu'ALN ne donne pas
+
+Mesuré sur la base 11e (14 094 noms) : ALN en couvre ~37 %, très inégalement.
+
+| Catégorie | Couverture |
+| --- | --- |
+| Capacités | 52 % |
+| Armes / équipement | 47 % |
+| Unités / modèles | 32 % |
+| Mots-clefs | 13 % |
+| Groupes d'options | 5 % |
+| Règles / stratagèmes | 4 % |
+
+Les creux sont structurels, pas un défaut de récolte : un créateur de listes n'a
+pas besoin de nommer les groupes d'options techniques du format BattleScribe, et
+ses stratagèmes n'ont pas de version originale. Inutile de récolter davantage.
+
+De même, les libellés ALN privés de version anglaise ne s'apparient PAS aux
+chaînes anglaises orphelines d'une même fiche : les taxonomies des deux systèmes
+diffèrent (45 % de ces libellés sont la nomenclature interne d'ALN — « Armes de
+Tir », « Faction », « Base »), et l'essai a produit des faux grossiers du genre
+« Wraithcannon → Armes de mêlée ». Piste fermée : un pack faux est pire qu'un
+pack partiel.
+
+Deux impasses vérifiées, pour éviter de les rouvrir : le miroir
+`NewRecruitEU/translations` ne contient que 2 chaînes pour ce système, et le fork
+`shobu13/warhammer-40000-8th-edition-fr` est resté à l'état d'ébauche (une
+faction, 8ᵉ édition). `nrdata.org`, `wahapedia`, `warhammer.com` et les wikis FR
+sont bloqués au niveau réseau depuis un bac à sable.
+
+## Ancienne source : New Recruit
+
+`fetch-nr.mjs` aspire les traductions communautaires New Recruit (`nrdata.org`,
+repli sur le miroir GitHub). Conservé, mais la base vivante est inaccessible
+depuis un environnement isolé et le miroir est quasi vide.
+
+## Assemblage et contrôle du pack
+
+Le pack est assemblé à partir des lots de traduction, puis passé au crible avant
+commit. Trois choses sont à savoir avant d'y toucher.
+
+**Arbitrage des sources.** Une chaîne traduite par plusieurs sources est tranchée
+par rang : corrections vérifiées > corrections locales déjà commitées > noms
+officiels GW > ALN attesté > ALN déduit par fiche > lots de noms > lots de prose.
+L'arbitrage se fait à l'assemblage, pas à l'écriture des lots : deux producteurs
+écrivant le même fichier ne dépendent ainsi d'aucun ordre. Une traduction égale à
+l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne source.
+
+**Corrections vérifiées.** Deux formes, toutes deux au-dessus de l'arbitrage :
+
+- par chaîne entière, pour figer un nom (`Zarakynel [Legends]`, pas
+  `Shalaxi Helbane` : deux Gardiens des Secrets différents) ;
+- par terme, en remplacement sur toutes les valeurs FR, pour un mot tranché mais
+  dispersé dans des dizaines de chaînes de prose. C'est le cas de la capacité
+  *Infiltrators* → **Infiltrateurs** (comme Scouts → Éclaireurs, Stealth →
+  Furtivité), avec exclusion des contextes où le mot est un NOM D'UNITÉ, qui
+  reste en anglais : `Escouade d'Infiltrators`, `Infiltrators Sicarian`,
+  mot-clef entre `^^** **^^`.
+
+Chaque correction porte sa preuve et sa date : ce sont des choix éditoriaux, ils
+doivent pouvoir être rediscutés sans être redécouverts.
+
+**Contrôle des opérateurs de règles.** Une nuance perdue sur `must`/`can`,
+`within`/`wholly within` ou une valeur de dé ne donne pas une traduction
+maladroite, elle donne une **règle fausse** : ces contrôles sont bloquants, le
+reste de la QA est indicatif. Pièges rencontrés, tous vérifiés :
+
+- Le corpus GW contient des **espaces insécables au milieu des mots** (`each
+  time`, 1 182 clefs). Elles viennent des `.cat` et doivent y rester : les clefs
+  du pack sont les chaînes sources à l'octet près. Mais tout `\b…\b` bâti sur une
+  espace ordinaire les traverse sans rien voir — un vérificateur doit normaliser
+  pour COMPARER, jamais pour écrire.
+- `D3XP` est un D3, pas un 3 : lire les dés avant les chiffres.
+- La modalité française a plusieurs formes légitimes — « ne peut **plus** », « ne
+  peuvent **normalement** pas », « les figurines **pouvant** embarquer ». Exiger
+  `ne peut pas` produit des faux positifs, pas des erreurs.
+- « wholly within *une zone* » se rend « entièrement dans … », jamais « … ou
+  moins », qui est réservé aux distances (`within 6"` → « à 6" ou moins »).
+
+Un écart connu subsiste, assumé : une règle de Croisade dont l'anglais dit
+« roll a number of **6** » là où la suite du texte (« for each roll of 6 », « for
+each roll of 1 ») impose de lire **D6**. Le français traduit la règle telle
+qu'elle se joue, et diverge donc de la coquille de la source.
 
 ## Consommation côté appli
 
-vite-plugin-bsdata (cogitator) récupère `translations/*.json` avec les `.cat`,
-les inclut dans l'empreinte de version (rafraîchissement auto des clients) et
-les expose en chunks paresseux `virtual:bsdata-i18n/<lang>` ; `dataName()`
-traduit à l'affichage quand la langue de l'UI a un pack.
+`vite-plugin-bsdata` (cogitator) récupère `translations/*.json` avec les `.cat`,
+les inclut dans l'empreinte de version (rafraîchissement automatique des
+clients) et les expose en chunks paresseux `virtual:bsdata-i18n/<lang>`.
