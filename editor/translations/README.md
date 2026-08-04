@@ -108,7 +108,42 @@ Tir », « Faction », « Base »), et l'essai a produit des faux grossiers du g
 « Wraithcannon → Armes de mêlée ». Piste fermée : un pack faux est pire qu'un
 pack partiel.
 
-Deux impasses vérifiées, pour éviter de les rouvrir : le miroir
+**Troisième impasse, mesurée sur la récolte réelle : rattacher les fiches ALN à
+leur datasheet ne comble pas le trou des noms d'unité.** `aln-attach.mjs`
+établit le chiffre et sert à ne pas rouvrir la piste. Ce que la récolte contient
+vraiment, sur la fiche [2931] « Véroleux » prise comme cas d'école :
+
+```
+{"fr":"Chaos","type":"mot-clef"}        ← les MOTS-CLEFS sont en anglais
+{"fr":"Poxwalkers","type":"mot-clef"}   ← le nom anglais est là
+{"fr":"Véroleux","type":"profil"}       ← le nom français
+{"fr":"Arme improvisée","type":"profil"}
+{"fr":"Armes de Mêlée","type":"groupe"} ← taxonomie interne d'ALN
+```
+
+Deux enseignements. ALN laisse les mots-clefs en anglais : les couples attestés
+sont donc inutiles pour rapprocher une fiche d'une datasheet, ses mots-clefs
+suffisent. Et l'appariement par recouvrement d'ARMES est condamné — ALN écrit
+« Arme improvisée » au singulier là où la base a « Improvised weapons » au
+pluriel, et l'écart est la règle plutôt que l'exception.
+
+Reste que les mots-clefs d'une variante contiennent ceux du générique : la fiche
+« Land Raider des Grey Knights » porte le mot-clef « Land Raider » et se
+rattache au mauvais datasheet. Même en pondérant par la rareté du mot-clef et en
+exigeant une marge nette, le résultat plafonne : **10 noms nouveaux pour 69 %
+d'accord** là où la traduction est déjà connue. Les désaccords ne sont pas tous
+des erreurs (Bibliothécaire / Archiviste est un choix éditorial), mais certains
+le sont franchement — « Firestorm Redoubt → Primaris Redoubt ». À ce taux,
+fusionner injecterait des faux : `aln-attach.mjs --merge` refuse donc sous 90 %
+d'accord, et il faut relire `aln-names.json` ligne à ligne pour passer outre.
+
+Piège à connaître si la piste est reprise : ALN préfixe ses noms de balises de
+collection (`[Legends] [SW] Gardes Loups`). Une première version prenait ces
+noms tels quels et produisait 82 « traductions » dont **60 n'étaient que le
+texte anglais avec la balise déplacée**. Un nom qui, balises retirées, égale
+l'anglais n'est pas une traduction.
+
+Deux autres impasses vérifiées, pour éviter de les rouvrir : le miroir
 `NewRecruitEU/translations` ne contient que 2 chaînes pour ce système, et le fork
 `shobu13/warhammer-40000-8th-edition-fr` est resté à l'état d'ébauche (une
 faction, 8ᵉ édition). `nrdata.org`, `wahapedia`, `warhammer.com` et les wikis FR
