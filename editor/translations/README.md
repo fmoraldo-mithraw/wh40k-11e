@@ -268,6 +268,16 @@ l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne s
   *Lord of the Eightbound* → **Seigneur des Octoliés** (2026-08-04).
 - *Myphitic Blight-hauler* → **Semi-chenillé Méphitique** (2026-08-04, titre de
   la fiche warhammer.com en français).
+- **Déclinaisons de nombre** (2026-08-04, 32 clefs). Le pack connaissait le nom
+  dans UN nombre, la composition l'affiche dans l'AUTRE : la ligne de groupe dit
+  « Blood Claws » (traduit) et la ligne de figurine « Blood Claw » (anglais).
+  Ces 32 clefs sont les formes manquantes, déclinées **à la main** : la
+  morphologie française n'est pas mécanisable — « Griffes Sanglantes » s'accorde
+  aux deux mots, « Tout-terrain Achilles » est invariable, « Motoch'nill' » ne
+  bouge pas. Deux candidats ont été **écartés** : *Vyper*, dont le français est
+  identique à l'anglais (règle du pack), et *Infiltrator*, parce que le pack
+  réserve « Infiltrateurs » à la CAPACITÉ et garde le nom d'unité en anglais
+  (voir la correction par terme ci-dessus) — décliner aurait cassé cette règle.
 - *Poxwalker(s)* → **Véroleux** (2026-08-04, nom GW rapporté par le mainteneur).
   Contrairement à *Infiltrators*, celui-ci se traduit PARTOUT, y compris comme
   nom d'unité et comme mot-clef : le pack le laissait en anglais aussi bien dans
