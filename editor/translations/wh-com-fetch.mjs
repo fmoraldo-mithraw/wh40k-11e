@@ -6,18 +6,23 @@
 // même contrainte que editor/fetch-wahapedia.js documente déjà.
 //
 // ─── L'IDÉE ────────────────────────────────────────────────────────────────
-// warhammer.com sert le MÊME catalogue produit dans chaque langue, et l'URL
-// d'un produit porte un identifiant stable partagé par toutes les locales :
+// Chaque fiche produit DÉCLARE elle-même ses équivalents dans les autres
+// langues, par les balises que les sites multilingues publient pour les moteurs
+// de recherche :
 //
-//     /en-GB/shop/death-guard-poxwalkers-2019      ← même identifiant
-//     /fr-FR/shop/death-guard-veroleux-2019        ←
+//     <link rel="alternate" hreflang="en-GB" href="…">
 //
-// L'appariement anglais↔français est donc EXACT, jamais deviné. C'est le point
-// capital : editor/translations/README.md documente qu'un rapprochement flou
-// entre langues produit des faux grossiers (« Wraithcannon → Armes de mêlée »),
-// et qu'un pack faux est pire qu'un pack partiel. Ici la seule étape heuristique
-// est produit→datasheet, À L'INTÉRIEUR de l'anglais, où l'erreur est visible et
-// vérifiable.
+// On lit la fiche française, on suit son alternate anglais, et on tient le
+// couple. L'appariement est donc EXACT et déclaré par le site, jamais deviné —
+// et il survit à un changement de forme d'URL. C'est le point capital :
+// editor/translations/README.md documente qu'un rapprochement flou entre
+// langues produit des faux grossiers (« Wraithcannon → Armes de mêlée »), et
+// qu'un pack faux est pire qu'un pack partiel. La seule étape heuristique
+// restante est produit→datasheet, À L'INTÉRIEUR de l'anglais, où l'erreur est
+// visible et vérifiable.
+//
+// (Première version : appariement par identifiant numérique commun aux deux
+// URLs. Le sondage du site réel l'a réfutée — les URLs n'en portent pas.)
 //
 // ─── CE QUE ÇA PEUT ET NE PEUT PAS COUVRIR ─────────────────────────────────
 // La boutique vend des BOÎTES, pas des datasheets. Elle donne donc des noms
@@ -34,13 +39,16 @@
 // Legends, ni les variantes qui partagent une boîte).
 //
 // ─── USAGE ─────────────────────────────────────────────────────────────────
-//   node editor/translations/wh-com-fetch.mjs --probe     ← COMMENCE PAR ÇA
+//   node editor/translations/wh-com-fetch.mjs --probe --url "<URL d'une fiche>"
+//                                                         ← COMMENCE PAR ÇA
 //   node editor/translations/wh-com-fetch.mjs             ← récolte → wh-pairs.json
 //   node editor/translations/wh-com-fetch.mjs --merge     ← applique dans translations/fr.json
 //
-// --probe n'écrit rien : il essaie chaque stratégie de découverte sur le site
-// réel et dit laquelle répond. Je n'ai PAS pu valider les sélecteurs depuis ma
-// session (site bloqué) : envoie-moi la sortie de --probe et j'ajuste.
+// --probe n'écrit rien. Avec --url il dissèque UNE fiche produit réelle et dit
+// si le site publie bien ses alternates hreflang et quel nom on en extrait :
+// c'est la mesure qui fige les sélecteurs. Sans --url il essaie les stratégies
+// de découverte et ouvre trois pages pour dire si ce sont des fiches ou des
+// catégories. Le site étant bloqué depuis ma session, envoie-moi la sortie.
 //
 // Options : --lang fr-FR · --base https://www.warhammer.com · --limit N
 //           --out wh-pairs.json · --slow (1 req/s au lieu de 4 en parallèle)
@@ -83,45 +91,39 @@ async function get(url, { json = false } = {}) {
 // Trois stratégies, de la moins intrusive à la plus lourde. La première qui
 // rend des URLs gagne ; --probe les essaie toutes et rapporte.
 
+// Sondage réel du 2026-08-04 (merci) : l'accueil répond 200, le plan de site et
+// l'endpoint JSON devinés ne rendent rien, et le parcours de catégories ramasse
+// bien 200 URLs — mais ce sont des pages de CATÉGORIE et des pages utilitaires
+// (/shop/cart, /shop/warhammer-40000/terrain), pas des fiches produit, et
+// aucune ne porte d'identifiant numérique. L'appariement par identifiant partagé
+// est donc mort : remplacé par les balises hreflang, qui donnent la
+// correspondance inter-langues OFFICIELLE au lieu de la deviner.
+const NON_PRODUIT = /\/(cart|basket|panier|checkout|account|compte|search|recherche|wishlist|store-finder|gift|bons-cadeaux|gw-bons)/i;
+
 const STRATEGIES = [
   {
     id: "sitemap",
-    why: "le plan de site expose toutes les fiches produit sans crawler la boutique",
+    why: "le plan de site, localisé via robots.txt (les emplacements devinés ne rendaient rien)",
     async run(lang) {
       const urls = new Set();
       const seen = new Set();
-      const queue = [`${BASE}/sitemap.xml`, `${BASE}/${lang}/sitemap.xml`];
-      while (queue.length && urls.size < 100000) {
+      const queue = [];
+      // robots.txt DÉCLARE ses plans de site : on ne devine plus.
+      try {
+        const rb = await get(`${BASE}/robots.txt`);
+        for (const m of rb.body.matchAll(/^\s*sitemap:\s*(\S+)/gim)) queue.push(m[1]);
+      } catch { /* pas de robots.txt → on retombe sur les emplacements usuels */ }
+      queue.push(`${BASE}/sitemap.xml`, `${BASE}/sitemap_index.xml`, `${BASE}/${lang}/sitemap.xml`);
+      while (queue.length && seen.size < 200) {
         const u = queue.shift();
-        if (seen.has(u)) continue;
+        if (!u || seen.has(u)) continue;
         seen.add(u);
         let r; try { r = await get(u); } catch { continue; }
         if (!r.ok) continue;
-        // index de sitemaps → on empile ; sinon on ramasse les <loc>
         for (const m of r.body.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)) {
           const loc = m[1];
-          if (/\.xml(\.gz)?$/i.test(loc)) { if (loc.includes(lang) || !loc.includes("-")) queue.push(loc); }
-          else if (loc.includes(`/${lang}/`) && /\/shop\//i.test(loc)) urls.add(loc);
-        }
-      }
-      return [...urls];
-    },
-  },
-  {
-    id: "search-api",
-    why: "la boutique alimente ses listes par un endpoint JSON paginé",
-    async run(lang) {
-      const urls = new Set();
-      for (let page = 1; page <= 200; page++) {
-        const u = `${BASE}/${lang}/api/search/products?page=${page}&pageSize=100`;
-        let r; try { r = await get(u, { json: true }); } catch { break; }
-        if (!r.ok || !r.body.trim().startsWith("{")) break;
-        let j; try { j = JSON.parse(r.body); } catch { break; }
-        const items = j.products || j.items || j.results || j.data || [];
-        if (!items.length) break;
-        for (const it of items) {
-          const href = it.url || it.href || it.slug || "";
-          if (href) urls.add(href.startsWith("http") ? href : `${BASE}/${lang}/shop/${String(href).replace(/^\/+/, "")}`);
+          if (/\.xml(\.gz)?$/i.test(loc)) queue.push(loc);
+          else if (loc.includes(`/${lang}/`) && !NON_PRODUIT.test(loc)) urls.add(loc);
         }
       }
       return [...urls];
@@ -129,47 +131,81 @@ const STRATEGIES = [
   },
   {
     id: "category-crawl",
-    why: "repli : parcourir les pages de catégorie et ramasser les liens /shop/",
+    why: "parcourir les catégories PUIS descendre dans les fiches qu'elles listent",
     async run(lang) {
-      const urls = new Set();
-      const roots = [
-        `${BASE}/${lang}/shop/warhammer-40000`,
-        `${BASE}/${lang}/browse/warhammer-40-000`,
-      ];
-      for (const root of roots) {
-        for (let page = 1; page <= 100; page++) {
-          let r; try { r = await get(`${root}?page=${page}`); } catch { break; }
-          if (!r.ok) break;
-          const before = urls.size;
-          for (const m of r.body.matchAll(/href="([^"]*\/shop\/[^"?#]+)"/gi)) {
-            const href = m[1];
-            urls.add(href.startsWith("http") ? href : BASE + href);
+      const cats = new Set([`${BASE}/${lang}/shop/warhammer-40000`, `${BASE}/${lang}/browse/warhammer-40-000`]);
+      const produits = new Set();
+      const vus = new Set();
+      // Deux niveaux : les racines listent des sous-catégories, qui listent les
+      // fiches. On distingue une fiche d'une catégorie a posteriori (voir
+      // estFicheProduit) plutôt que sur la forme de l'URL, qui nous a trompés.
+      for (let profondeur = 0; profondeur < 3 && cats.size; profondeur++) {
+        const vague = [...cats].filter((c) => !vus.has(c));
+        if (!vague.length) break;
+        for (const c of vague) {
+          vus.add(c);
+          for (let page = 1; page <= 40; page++) {
+            let r; try { r = await get(page === 1 ? c : `${c}?page=${page}`); } catch { break; }
+            if (!r.ok) break;
+            const avant = produits.size + cats.size;
+            for (const m of r.body.matchAll(/href="([^"]*\/(?:shop|browse)\/[^"?#]+)"/gi)) {
+              const href = m[1].startsWith("http") ? m[1] : BASE + m[1];
+              if (!href.includes(`/${lang}/`) || NON_PRODUIT.test(href)) continue;
+              (href.split("/").length > 6 ? produits : cats).add(href);
+            }
+            if (produits.size + cats.size === avant) break;
           }
-          if (urls.size === before) break; // page sans nouveauté → fin de pagination
         }
       }
-      return [...urls];
+      return [...produits, ...cats].filter((u) => !NON_PRODUIT.test(u));
     },
   },
 ];
 
-// L'identifiant partagé entre locales, extrait de l'URL. warhammer.com termine
-// ses slugs produit par un identifiant numérique ; on retient le dernier groupe
-// de chiffres. À défaut, on retombe sur le slug entier privé de sa locale, ce
-// qui n'apparie que si les deux langues partagent le slug (rare, mais gratuit).
-function productKey(url) {
-  try {
-    const path = new URL(url).pathname.replace(/\/+$/, "");
-    const slug = path.split("/").pop() || "";
-    const m = slug.match(/(\d{3,})$/);
-    return m ? `id:${m[1]}` : `slug:${slug}`;
-  } catch { return null; }
+// ── Appariement inter-langues par hreflang ─────────────────────────────────
+// <link rel="alternate" hreflang="en-GB" href="…"> est la correspondance que le
+// site DÉCLARE lui-même. C'est exact par construction, contrairement à un
+// identifiant extrait du slug — et ça survit à un changement de forme d'URL.
+function hreflangAlternates(html) {
+  const out = {};
+  for (const m of html.matchAll(/<link\b[^>]*rel=["']alternate["'][^>]*>/gi)) {
+    const tag = m[0];
+    const lg = /hreflang=["']([^"']+)["']/i.exec(tag);
+    const hf = /href=["']([^"']+)["']/i.exec(tag);
+    if (lg && hf) out[lg[1].toLowerCase()] = hf[1].startsWith("http") ? hf[1] : BASE + hf[1];
+  }
+  return out;
 }
 
-// Nom du produit : <title> nettoyé, sinon og:title, sinon <h1>.
+// Une fiche produit porte un prix et/ou un bloc JSON-LD de type Product. Une
+// page de catégorie n'en a pas. C'est le seul test fiable ici, la forme des
+// URLs ne distinguant pas les deux.
+function estFicheProduit(html) {
+  if (/"@type"\s*:\s*"Product"/i.test(html)) return true;
+  if (/itemprop=["']price["']/i.test(html)) return true;
+  if (/<meta[^>]+property=["']og:type["'][^>]+content=["']product["']/i.test(html)) return true;
+  return false;
+}
+
+// Nom produit, JSON-LD d'abord : c'est le champ le plus propre du lot.
+function jsonLdName(html) {
+  for (const m of html.matchAll(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const data = JSON.parse(m[1].trim());
+      for (const node of Array.isArray(data) ? data : [data]) {
+        if (node && /product/i.test(String(node["@type"] || "")) && node.name) return String(node.name);
+      }
+    } catch { /* un bloc illisible n'empêche pas de lire les suivants */ }
+  }
+  return "";
+}
+
+// Nom du produit. JSON-LD d'abord : c'est le seul champ qui porte le nom SEUL,
+// sans suffixe de marque ni fil d'Ariane. og:title, h1 et title ensuite.
 function productName(html) {
   const pick = (re) => { const m = html.match(re); return m ? m[1] : ""; };
   const raw =
+    jsonLdName(html) ||
     pick(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i) ||
     pick(/<h1[^>]*>([\s\S]*?)<\/h1>/i) ||
     pick(/<title[^>]*>([\s\S]*?)<\/title>/i);
@@ -217,6 +253,33 @@ async function missingNames() {
 // ── Sonde ──────────────────────────────────────────────────────────────────
 async function probe() {
   log(`\nSonde warhammer.com — base ${BASE}\n`);
+
+  // --url : dissèque UNE fiche produit réelle. C'est la mesure qui vaut toutes
+  // les suppositions — ouvre une fiche dans ton navigateur, copie l'URL.
+  const URL_TEST = val("--url", "");
+  if (URL_TEST) {
+    log(`  Dissection de ${URL_TEST}\n`);
+    const r = await get(URL_TEST);
+    log(`  statut ${r.status} ${r.ok ? "✅" : "❌"} · ${r.body.length} octets · URL finale ${r.url}`);
+    if (!r.ok) { log(`  ${short(r.body)}\n`); return; }
+    log(`  reconnue comme fiche produit : ${estFicheProduit(r.body) ? "✅ oui" : "❌ NON (aucun prix / JSON-LD Product / og:type=product)"}`);
+    log(`  nom JSON-LD : ${JSON.stringify(jsonLdName(r.body)) || "—"}`);
+    log(`  nom retenu  : ${JSON.stringify(productName(r.body))}`);
+    const alt = hreflangAlternates(r.body);
+    const n = Object.keys(alt).length;
+    log(`  alternates hreflang : ${n ? `✅ ${n}` : "❌ aucune — l'appariement devra passer par autre chose"}`);
+    for (const [lg, href] of Object.entries(alt).slice(0, 8)) log(`     ${lg.padEnd(7)} ${href}`);
+    const enHref = alt[REF.toLowerCase()] || alt["en"] || "";
+    if (enHref) {
+      const re = await get(enHref);
+      log(`\n  contrepartie ${REF} : statut ${re.status}`);
+      log(`  nom ${REF} : ${JSON.stringify(productName(re.body))}`);
+      log(`  → couple : ${JSON.stringify(productName(re.body))}  ↔  ${JSON.stringify(productName(r.body))}`);
+    }
+    log(`\n  Renvoie-moi ce bloc : il fige les sélecteurs pour de bon.\n`);
+    return;
+  }
+
   const r0 = await get(`${BASE}/${LANG}/`).catch((e) => ({ status: 0, body: e.message, ok: false }));
   log(`  accueil ${LANG} : statut ${r0.status} ${r0.ok ? "✅" : "❌"} ${r0.ok ? "" : short(r0.body)}`);
   if (!r0.ok) log(`  ⚠ si c'est un 403, le site refuse les robots : il faudra passer par Playwright\n     (voir aln-dump.mjs, même situation résolue avec un navigateur piloté).`);
@@ -224,14 +287,19 @@ async function probe() {
     process.stdout.write(`\n── ${st.id} — ${st.why}\n`);
     try {
       const urls = await st.run(LANG);
-      log(`   ${urls.length ? "✅" : "❌"} ${urls.length} URL produit`);
-      for (const u of urls.slice(0, 3)) log(`      ${u}   clef=${productKey(u)}`);
+      log(`   ${urls.length ? "✅" : "❌"} ${urls.length} URL candidates`);
+      // Les URLs seules ne disent pas si c'est une fiche : on en ouvre trois.
+      for (const u of urls.slice(0, 3)) {
+        let verdict = "?";
+        try { const rr = await get(u); verdict = estFicheProduit(rr.body) ? `FICHE · ${short(productName(rr.body)).slice(0, 40)}` : "catégorie"; } catch { verdict = "illisible"; }
+        log(`      ${u}\n         → ${verdict}`);
+      }
     } catch (e) { log(`   ❌ exception : ${e.message.split("\n")[0]}`); }
   }
   const { names, missing } = await missingNames();
   log(`\n  datasheets dans les .cat : ${names.size} — sans traduction : ${missing.length}`);
   log(`  exemples : ${missing.slice(0, 6).join(" · ")}`);
-  log(`\n  Envoie-moi cette sortie complète : elle dit quelle stratégie retenir.\n`);
+  log(`\n  ⇒ Relance avec  --url "<URL d'une vraie fiche produit>"  pour figer les sélecteurs.\n`);
 }
 
 // ── Récolte ────────────────────────────────────────────────────────────────
@@ -239,47 +307,49 @@ async function harvest() {
   const { pack, missing } = await missingNames();
   log(`\n  0/4 · ${missing.length} noms de datasheet sans traduction`);
 
-  log(`  1/4 · découverte des fiches produit`);
-  let en = [], fr = [], used = null;
+  log(`  1/4 · découverte des pages ${LANG}`);
+  let cand = [], used = null;
   for (const st of STRATEGIES) {
     try {
-      const a = await st.run(REF);
-      const b = await st.run(LANG);
-      if (a.length && b.length) { en = a; fr = b; used = st.id; break; }
-      log(`        ${st.id} : ${a.length} EN / ${b.length} FR — insuffisant`);
+      const a = await st.run(LANG);
+      if (a.length) { cand = a; used = st.id; break; }
+      log(`        ${st.id} : 0 URL`);
     } catch (e) { log(`        ${st.id} : échec (${e.message.split("\n")[0]})`); }
   }
-  if (!used) { log(`\n  ✗ aucune stratégie n'a rendu de fiches. Lance --probe et envoie la sortie.\n`); process.exit(1); }
-  log(`        stratégie « ${used} » : ${en.length} EN · ${fr.length} FR`);
+  if (!used) { log(`\n  ✗ aucune stratégie n'a rendu d'URL. Lance --probe et envoie la sortie.\n`); process.exit(1); }
+  if (LIMIT) cand = cand.slice(0, LIMIT);
+  log(`        stratégie « ${used} » : ${cand.length} URL candidates`);
 
-  log(`  2/4 · appariement par identifiant produit`);
-  const byKey = new Map();
-  const slot = (k) => { if (!byKey.has(k)) byKey.set(k, {}); return byKey.get(k); };
-  for (const u of en) { const k = productKey(u); if (k) slot(k).en = u; }
-  for (const u of fr) { const k = productKey(u); if (k) slot(k).fr = u; }
-  let pairs = [...byKey.values()].filter((p) => p.en && p.fr);
-  if (LIMIT) pairs = pairs.slice(0, LIMIT);
-  log(`        ${pairs.length} produits présents dans les DEUX langues`);
-  if (!pairs.length) { log(`\n  ✗ aucun identifiant commun : la forme d'URL a changé, revois productKey().\n`); process.exit(1); }
-
-  log(`  3/4 · lecture des fiches (${pairs.length} × 2)`);
+  // On ne devine plus l'appariement : chaque page FR déclare elle-même sa
+  // contrepartie anglaise via hreflang. Les pages de catégorie sont écartées
+  // ici, sur leur CONTENU — la forme des URLs ne les distingue pas.
+  log(`  2/4 · lecture des pages, tri des fiches, appariement par hreflang`);
   const out = [];
-  let done = 0;
+  let done = 0, cat = 0, sansAlt = 0;
   const worker = async (queue) => {
     while (queue.length) {
-      const p = queue.shift();
+      const u = queue.shift();
       try {
-        const [a, b] = await Promise.all([get(p.en), get(p.fr)]);
-        const nEn = productName(a.body), nFr = productName(b.body);
-        if (nEn && nFr && nEn !== nFr) out.push({ en: nEn, fr: nFr, url: p.fr });
-      } catch { /* une fiche illisible n'arrête pas la récolte */ }
-      if (++done % 25 === 0) process.stdout.write(`\r        ${done}/${pairs.length}`);
+        const rFr = await get(u);
+        if (rFr.ok && estFicheProduit(rFr.body)) {
+          const alt = hreflangAlternates(rFr.body);
+          const enHref = alt[REF.toLowerCase()] || alt["en"] || "";
+          if (enHref) {
+            const rEn = await get(enHref);
+            const nFr = productName(rFr.body), nEn = productName(rEn.body);
+            if (nEn && nFr && nEn !== nFr) out.push({ en: nEn, fr: nFr, url: u });
+          } else sansAlt++;
+        } else cat++;
+      } catch { /* une page illisible n'arrête pas la récolte */ }
+      if (++done % 25 === 0) process.stdout.write(`\r        ${done}/${cand.length}  (fiches ${out.length}, catégories ${cat})`);
       if (SLOW) await new Promise((r) => setTimeout(r, 1000));
     }
   };
-  const queue = pairs.slice();
+  const queue = cand.slice();
   await Promise.all(Array.from({ length: SLOW ? 1 : 4 }, () => worker(queue)));
-  process.stdout.write(`\r        ${done}/${pairs.length}\n`);
+  process.stdout.write(`\r        ${done}/${cand.length}  (fiches ${out.length}, catégories ${cat})\n`);
+  if (sansAlt) log(`        ⚠ ${sansAlt} fiches sans alternate ${REF} — non appariables`);
+  if (!out.length) { log(`\n  ✗ aucune fiche appariée. Lance --probe --url "<une fiche>" et envoie la sortie.\n`); process.exit(1); }
 
   log(`  4/4 · rapprochement produit → datasheet (en ANGLAIS uniquement)`);
   const missByNorm = new Map(missing.map((n) => [norm(n), n]));
