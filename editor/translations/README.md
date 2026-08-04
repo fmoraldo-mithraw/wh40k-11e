@@ -186,11 +186,46 @@ slug est identique dans toutes les langues, seul le segment de locale change.
 anglais a été passé en recherche web : **une seule vraie traduction** (Blood
 Claws → Griffes Sanglantes), douze noms que Games Workshop garde en anglais
 (Genestealers, Talos, Venom, Hellions, Boyz, Nobz, Kommandos, Benefictus,
-Locus, Cronos, Mek, Myphitic Blight-hauler). Soit ~8 %. La méthode elle-même est
+Locus, Cronos, Mek). Soit ~8 %. La méthode elle-même est
 sûre — validée d'abord sur des noms dont le pack connaissait la réponse, Warp
 Talons et Poxwalkers, tous deux retrouvés — mais le gisement est mince : ces
 « trous » n'en sont pas, l'omission du pack est correcte puisque `dataName()`
 retombe sur l'anglais. Ne pas surestimer ce que cette source peut rendre.
+
+**Seconde salve, 2026-08-04 : le classement par TYPE de nom.** Le premier
+échantillon penchait vers les xenos ; la salve suivante a couvert les 23 noms
+Black Templars, les autres chapitres Space Marines, puis les gros paquets
+restants (Sororitas, Custodes, Orks, Drukhari, Tyranids, Genestealer Cults,
+Votann, T'au). Résultat : **zéro traduction côté Space Marines**, et deux
+seulement sur tout le reste. Ce n'est pas un échec de la méthode, c'est une
+régularité — Games Workshop France garde en anglais les **noms de véhicules**
+(Rhino, Razorback, Impulsor, Repulsor, Vindicator, Whirlwind, Gladiator
+Lancer/Reaper/Valiant, Storm Speeder Hailstrike/Hammerstrike/Thunderstrike,
+Land Raider Crusader, Sagitaur, Devilfish…), les **grades** (Castellan,
+Lieutenant, Techmarine), le **latin** (Palatine, Dogmata, Dialogus, Immolator,
+Castigator, Biophagus, Clamavus, Sanctus, Primus, Nexos) et l'**argot ork**
+(Boyz, Nobz, Mek, Kommandos). Elle traduit les **noms communs descriptifs** :
+Poxwalkers → Véroleux, Warp Talons → Serres du Warp, Blood Claws → Griffes
+Sanglantes, Witchseekers → Répurgatrices, Venomcrawler → Métaragne. Trier les
+candidats par ce critère avant de chercher : c'est là qu'est le rendement, et
+la prédiction « les Space Marines rendront davantage » était fausse.
+
+Les deux prises de cette salve, et une **erreur du relevé précédent** :
+
+- *Eightbound* → **Octoliés** (fiches produit françaises concordantes portant
+  les deux noms : `lesdesmaskes.fr/…exalted-eightbound-octolies-exaltes`,
+  `oupi.eu/…exalted-eightbound-eightbound…` titré « Octoliés Exaltés /
+  Octoliés », plus rart.fr, trollune.fr, antretemps.com, vpc-forge.fr,
+  mondes-fantastiques.com). Le pack se contredisait lui-même : il avait déjà
+  `Eightbound Champion → Champion Octolié` mais rendait *Exalted Eightbound*
+  par « Eightbound Exaltés ». Corrigé, et propagé aux chaînes de prose.
+- *Myphitic Blight-hauler* → **Semi-chenillé Méphitique**. C'est le titre de la
+  fiche **warhammer.com** elle-même (`Etb-Death-Guard-Myphitic-Blight-hauler-2020`
+  en français), confirmé par une dizaine de revendeurs. Le relevé du premier
+  échantillon le rangeait à tort parmi les noms gardés en anglais : la ligne
+  ci-dessus a été corrigée. Le pack contenait déjà le pluriel, mal orthographié
+  (« Semi-chenillé méphytique ») — réparé, et le nom substitué au terme anglais
+  resté dans deux règles de détachement Death Guard.
 
 **Portée.** La boutique vend des boîtes : elle donne des noms d'**unité**, et
 rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
@@ -229,6 +264,10 @@ l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne s
 - *Blood Claws* → **Griffes Sanglantes** (2026-08-04, relevé sur la fiche
   produit d'un revendeur français dont l'URL porte les deux noms :
   `antretemps.com/space-wolves-griffes-sanglantes-warhammer-40k`).
+- *Eightbound* → **Octoliés**, *Exalted Eightbound* → **Octoliés Exaltés**,
+  *Lord of the Eightbound* → **Seigneur des Octoliés** (2026-08-04).
+- *Myphitic Blight-hauler* → **Semi-chenillé Méphitique** (2026-08-04, titre de
+  la fiche warhammer.com en français).
 - *Poxwalker(s)* → **Véroleux** (2026-08-04, nom GW rapporté par le mainteneur).
   Contrairement à *Infiltrators*, celui-ci se traduit PARTOUT, y compris comme
   nom d'unité et comme mot-clef : le pack le laissait en anglais aussi bien dans
