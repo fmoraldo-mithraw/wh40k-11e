@@ -19,10 +19,16 @@
 // partiel. La seule étape heuristique restante est produit→datasheet, À
 // L'INTÉRIEUR de l'anglais, où l'erreur est visible et vérifiable.
 //
-// Deux hypothèses réfutées par le sondage du site réel, pour ne pas les
-// rouvrir : l'appariement par identifiant numérique dans le slug (les URLs n'en
-// portent pas — « 2021 » est l'année, pas une clef) et l'appariement par
-// <link rel="alternate" hreflang> (le site n'en publie pas).
+// Mieux encore : le slug DÉRIVE du nom anglais (« Death-Guard-Poxwalkers » →
+// « Death Guard Poxwalkers »). Une SEULE requête suffit donc par produit — le
+// français vient du JSON-LD de la fiche, l'anglais de son URL. Charger en plus
+// la page en-GB réveillait le contrôle anti-robot (405, « Vérifions que vous
+// n'êtes pas un robot ») pour une information qu'on avait déjà.
+//
+// Hypothèse réfutée par le sondage, pour ne pas la rouvrir : l'appariement par
+// identifiant numérique dans le slug — « 2021 » est l'année, pas une clef. Le
+// site publie bien des <link rel="alternate" hreflang> (56 sur une fiche), mais
+// ils ne servent plus à rien ici puisqu'on ne visite plus la page anglaise.
 //
 // ─── POURQUOI PLAYWRIGHT ───────────────────────────────────────────────────
 // `fetch` reçoit un 202 de 2 475 octets titré « JavaScript is disabled » :
@@ -53,11 +59,12 @@
 //   node editor/translations/wh-com-fetch.mjs             ← récolte → wh-pairs.json
 //   node editor/translations/wh-com-fetch.mjs --merge     ← applique dans translations/fr.json
 //
-// --probe n'écrit rien. Avec --url il dissèque UNE fiche produit réelle et dit
-// si le site publie bien ses alternates hreflang et quel nom on en extrait :
-// c'est la mesure qui fige les sélecteurs. Sans --url il essaie les stratégies
-// de découverte et ouvre trois pages pour dire si ce sont des fiches ou des
-// catégories. Le site étant bloqué depuis ma session, envoie-moi la sortie.
+// --probe n'écrit rien. Avec --url il dissèque UNE fiche réelle : nom français
+// extrait, nom anglais lu dans le slug, couple obtenu, et la datasheet visée.
+// Ajouter --verify-en fait aussi ouvrir la page anglaise pour confirmer le nom
+// lu dans le slug (facultatif : ça réveille le contrôle anti-robot).
+// Sans --url, la sonde essaie les stratégies de découverte et ouvre trois pages
+// pour dire si ce sont des fiches ou des catégories.
 //
 // Options : --lang fr-FR (ou fr-CH…) · --base https://www.warhammer.com
 //           --limit N · --out wh-pairs.json · --slow (1 page à la fois)
@@ -119,7 +126,12 @@ async function browserUp(n = 1) {
 async function browserDown() { if (CTX) { await CTX.close().catch(() => {}); CTX = null; } }
 
 // Un défi non résolu se reconnaît à sa page minuscule sans contenu produit.
-const estDefi = (html) => html.length < 8000 && /javascript is disabled|enable javascript|checking your browser|challenge/i.test(html);
+// Le libellé est SERVI DANS LA LANGUE demandée — d'où la variante française,
+// vue sur un 405 (« Vérifions que vous n'êtes pas un robot. »).
+const estDefi = (html) => html.length < 20000 && (
+  /javascript is disabled|enable javascript|checking your browser|challenge/i.test(html)
+  || /n'êtes pas un robot|vérifions que vous|javascript est désactivé/i.test(html)
+);
 
 async function get(url, { page = null } = {}) {
   await browserUp();
@@ -139,9 +151,8 @@ async function get(url, { page = null } = {}) {
 }
 
 // Le slug est le MÊME dans toutes les langues — mesuré sur
-// /fr-CH/shop/Death-Guard-Poxwalkers-2021, qui reprend le slug anglais. La
-// contrepartie s'obtient donc en remplaçant le segment de locale : ni
-// identifiant, ni hreflang (le site n'en publie pas).
+// /fr-CH/shop/Death-Guard-Poxwalkers-2021, qui reprend le slug anglais. Sert
+// uniquement à --verify-en : la récolte n'a plus besoin de la page anglaise.
 function swapLocale(url, from, to) {
   try {
     const u = new URL(url);
@@ -152,6 +163,38 @@ function swapLocale(url, from, to) {
   } catch { return ""; }
 }
 const localeOf = (url) => { try { const m = /^\/([a-z]{2}-[A-Z]{2})\//.exec(new URL(url).pathname); return m ? m[1] : ""; } catch { return ""; } };
+
+// Le nom ANGLAIS se lit dans le slug — qui en est dérivé et reste identique
+// dans toutes les langues. C'est ce qui permet de ne charger QU'UNE page par
+// produit : le français vient du JSON-LD de la fiche FR, l'anglais de son URL.
+// Demander en plus la page en-GB déclenchait le contrôle anti-robot (405,
+// « Vérifions que vous n'êtes pas un robot »), pour une information qu'on avait
+// déjà — et doublait le trafic.
+function enFromSlug(url) {
+  try {
+    const slug = new URL(url).pathname.replace(/\/+$/, "").split("/").pop() || "";
+    return decodeURIComponent(slug)
+      .replace(/-\d{2,}$/, "")   // suffixe d'année/référence : « -2021 »
+      .replace(/[-_]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  } catch { return ""; }
+}
+
+// Rapproche un slug anglais d'un nom de datasheet. Le slug préfixe le nom par
+// la gamme (« Death Guard Poxwalkers » pour « Poxwalkers ») : on exige donc que
+// le slug SE TERMINE par le nom, et on garde le plus long en cas d'ambiguïté —
+// « Terminators » ne doit pas l'emporter sur « Blightlord Terminators ».
+function matchDatasheet(slugEn, noms) {
+  const s = norm(slugEn);
+  if (!s) return "";
+  let best = "";
+  for (const n of noms) {
+    const k = norm(n);
+    if (!k) continue;
+    if (s === k || s.endsWith(" " + k)) { if (k.length > norm(best).length) best = n; }
+  }
+  return best;
+}
 
 // ── Découverte des URLs produit ────────────────────────────────────────────
 // Trois stratégies, de la moins intrusive à la plus lourde. La première qui
@@ -340,19 +383,23 @@ async function probe() {
     log(`  nom JSON-LD : ${JSON.stringify(jsonLdName(r.body)) || "—"}`);
     log(`  nom retenu  : ${JSON.stringify(productName(r.body))}`);
     log(`  sans préfixe de gamme : ${JSON.stringify(stripRange(productName(r.body)))}`);
-    const alt = hreflangAlternates(r.body);
-    log(`  alternates hreflang : ${Object.keys(alt).length ? `✅ ${Object.keys(alt).length}` : "aucune (sans importance : on échange la locale)"}`);
-    const enUrl = alt[REF.toLowerCase()] || alt["en"] || swapLocale(r.url, loc, REF);
-    log(`\n  contrepartie ${REF} : ${enUrl || "introuvable"}`);
-    if (enUrl) {
+    const nFr = stripRange(productName(r.body));
+    const nEn = enFromSlug(r.url);
+    log(`  nom EN lu dans le slug : ${JSON.stringify(nEn)}`);
+    log(`\n  → COUPLE : ${JSON.stringify(nEn)}  ↔  ${JSON.stringify(nFr)}`);
+    const { names, missing } = await missingNames();
+    const cible = matchDatasheet(nEn, names);
+    const trou = matchDatasheet(nEn, missing);
+    log(`  → datasheet reconnue : ${cible ? JSON.stringify(cible) + " ✅" : "aucune ❌"}`);
+    log(`  → comble un trou du pack : ${trou ? JSON.stringify(trou) + " ✅" : (cible ? "non — cette datasheet est déjà traduite" : "non")}`);
+    if (has("--verify-en")) {
+      // Vérification facultative : la page anglaise confirme le nom lu dans le
+      // slug. Coûteuse et bruyante (elle réveille le contrôle anti-robot), donc
+      // jamais dans la récolte — seulement pour lever un doute ponctuel.
+      const enUrl = hreflangAlternates(r.body)[REF.toLowerCase()] || swapLocale(r.url, loc, REF);
+      log(`\n  vérification ${REF} : ${enUrl}`);
       const re = await get(enUrl);
-      log(`  statut ${re.status}${re.defi ? " ⚠ défi non résolu" : ""}`);
-      const nEn = productName(re.body), nFr = productName(r.body);
-      log(`  nom ${REF} : ${JSON.stringify(nEn)}`);
-      log(`\n  → COUPLE : ${JSON.stringify(stripRange(nEn))}  ↔  ${JSON.stringify(stripRange(nFr))}`);
-      const { missing } = await missingNames();
-      const cible = missing.find((m) => norm(m) === norm(stripRange(nEn)));
-      log(`  → datasheet visée : ${cible ? JSON.stringify(cible) + " ✅" : "aucune correspondance dans les trous du pack"}`);
+      log(`  statut ${re.status}${re.defi ? " ⚠ contrôle anti-robot — sans conséquence, le slug suffit" : ` → ${JSON.stringify(stripRange(productName(re.body)))}`}`);
     }
     log(`\n  Renvoie-moi ce bloc : il fige les sélecteurs pour de bon.\n`);
     await browserDown(); return;
@@ -382,7 +429,7 @@ async function probe() {
 
 // ── Récolte ────────────────────────────────────────────────────────────────
 async function harvest() {
-  const { pack, missing } = await missingNames();
+  const { pack, names, missing } = await missingNames();
   log(`\n  0/4 · ${missing.length} noms de datasheet sans traduction`);
 
   log(`  1/4 · découverte des pages ${LANG}`);
@@ -401,7 +448,7 @@ async function harvest() {
   // On ne devine plus l'appariement : chaque page FR déclare elle-même sa
   // contrepartie anglaise via hreflang. Les pages de catégorie sont écartées
   // ici, sur leur CONTENU — la forme des URLs ne les distingue pas.
-  log(`  2/4 · lecture des fiches, contrepartie ${REF} par échange de locale`);
+  log(`  2/4 · lecture des fiches (UNE requête : FR du JSON-LD, EN du slug)`);
   const out = [];
   let done = 0, cat = 0, defis = 0;
   const worker = async (queue, page) => {
@@ -411,13 +458,9 @@ async function harvest() {
         const rFr = await get(u, { page });
         if (rFr.defi) defis++;
         else if (rFr.ok && estFicheProduit(rFr.body)) {
-          const alt = hreflangAlternates(rFr.body);
-          const enUrl = alt[REF.toLowerCase()] || alt["en"] || swapLocale(rFr.url, localeOf(rFr.url) || LANG, REF);
-          if (enUrl) {
-            const rEn = await get(enUrl, { page });
-            const nFr = productName(rFr.body), nEn = productName(rEn.body);
-            if (nEn && nFr && nEn !== nFr && !rEn.defi) out.push({ en: nEn, fr: nFr, url: rFr.url });
-          }
+          const nFr = stripRange(productName(rFr.body));
+          const nEn = enFromSlug(rFr.url);
+          if (nEn && nFr && norm(nEn) !== norm(nFr)) out.push({ en: nEn, fr: nFr, url: rFr.url });
         } else cat++;
       } catch { /* une page illisible n'arrête pas la récolte */ }
       if (++done % 10 === 0) process.stdout.write(`\r        ${done}/${cand.length}  (couples ${out.length}, catégories ${cat})`);
@@ -432,20 +475,20 @@ async function harvest() {
   if (defis) log(`        ⚠ ${defis} pages bloquées par le défi anti-robot — relance avec --headed`);
   if (!out.length) { log(`\n  ✗ aucune fiche appariée. Lance --probe --url "<une fiche>" et envoie la sortie.\n`); await browserDown(); process.exit(1); }
 
-  log(`  4/4 · rapprochement produit → datasheet (en ANGLAIS uniquement)`);
-  const missByNorm = new Map(missing.map((n) => [norm(n), n]));
+  log(`  4/4 · rapprochement slug → datasheet (en ANGLAIS uniquement)`);
   const strings = {};
   const unmatched = [];
+  const dejaTraduites = [];
   for (const { en: nEn, fr: nFr, url } of out) {
-    const candEn = [nEn, stripRange(nEn)];
-    const candFr = [nFr, stripRange(nFr)];
-    let hit = null;
-    for (let i = 0; i < candEn.length; i++) {
-      const t = missByNorm.get(norm(candEn[i]));
-      if (t) { hit = { target: t, fr: candFr[i] || candFr[0] }; break; }
+    // On vise d'abord les TROUS ; si le slug ne désigne qu'une datasheet déjà
+    // traduite, on le signale sans rien écraser (une entrée existante est une
+    // décision éditoriale, cf. README).
+    const trou = matchDatasheet(nEn, missing);
+    if (trou) {
+      if (norm(nFr) !== norm(trou)) strings[trou] = nFr;
+      continue;
     }
-    if (hit && hit.fr && norm(hit.fr) !== norm(hit.target)) strings[hit.target] = hit.fr;
-    else if (!hit) unmatched.push({ en: nEn, fr: nFr, url });
+    (matchDatasheet(nEn, [...names]) ? dejaTraduites : unmatched).push({ en: nEn, fr: nFr, url });
   }
   const payload = {
     meta: {
@@ -459,6 +502,7 @@ async function harvest() {
   const pct = missing.length ? Math.round((100 * Object.keys(strings).length) / missing.length) : 0;
   log(`\n  → ${OUT}`);
   log(`     ${Object.keys(strings).length} noms officiels récoltés, soit ${pct}% des ${missing.length} trous de datasheet`);
+  log(`     ${dejaTraduites.length} produits dont la datasheet est déjà traduite — laissés intacts`);
   log(`     ${unmatched.length} produits sans datasheet correspondante (boîtes, accessoires, lots) — normal`);
   log(`\n  Relis wh-pairs.json, puis :  node editor/translations/wh-com-fetch.mjs --merge\n`);
 }
