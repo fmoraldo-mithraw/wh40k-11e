@@ -182,6 +182,16 @@ n'y en a pas — le « 2021 » de `Death-Guard-Poxwalkers-2021` est l'année) et
 balises `hreflang` (le site n'en publie pas). Ce qui marche est plus simple : le
 slug est identique dans toutes les langues, seul le segment de locale change.
 
+**Rendement attendu, mesuré.** Un échantillon de 13 des 128 noms d'unité encore
+anglais a été passé en recherche web : **une seule vraie traduction** (Blood
+Claws → Griffes Sanglantes), douze noms que Games Workshop garde en anglais
+(Genestealers, Talos, Venom, Hellions, Boyz, Nobz, Kommandos, Benefictus,
+Locus, Cronos, Mek, Myphitic Blight-hauler). Soit ~8 %. La méthode elle-même est
+sûre — validée d'abord sur des noms dont le pack connaissait la réponse, Warp
+Talons et Poxwalkers, tous deux retrouvés — mais le gisement est mince : ces
+« trous » n'en sont pas, l'omission du pack est correcte puisque `dataName()`
+retombe sur l'anglais. Ne pas surestimer ce que cette source peut rendre.
+
 **Portée.** La boutique vend des boîtes : elle donne des noms d'**unité**, et
 rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
 460 mots-clefs, 92 capacités), seule la part « unités » est atteignable ici, et
@@ -216,6 +226,9 @@ l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne s
   Furtivité), avec exclusion des contextes où le mot est un NOM D'UNITÉ, qui
   reste en anglais : `Escouade d'Infiltrators`, `Infiltrators Sicarian`,
   mot-clef entre `^^** **^^`.
+- *Blood Claws* → **Griffes Sanglantes** (2026-08-04, relevé sur la fiche
+  produit d'un revendeur français dont l'URL porte les deux noms :
+  `antretemps.com/space-wolves-griffes-sanglantes-warhammer-40k`).
 - *Poxwalker(s)* → **Véroleux** (2026-08-04, nom GW rapporté par le mainteneur).
   Contrairement à *Infiltrators*, celui-ci se traduit PARTOUT, y compris comme
   nom d'unité et comme mot-clef : le pack le laissait en anglais aussi bien dans
