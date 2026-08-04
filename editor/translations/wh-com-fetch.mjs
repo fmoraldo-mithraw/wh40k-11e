@@ -6,23 +6,32 @@
 // même contrainte que editor/fetch-wahapedia.js documente déjà.
 //
 // ─── L'IDÉE ────────────────────────────────────────────────────────────────
-// Chaque fiche produit DÉCLARE elle-même ses équivalents dans les autres
-// langues, par les balises que les sites multilingues publient pour les moteurs
-// de recherche :
+// Le slug d'un produit est le MÊME dans toutes les langues : seul le segment de
+// locale change. Mesuré sur une vraie fiche :
 //
-//     <link rel="alternate" hreflang="en-GB" href="…">
+//     /fr-CH/shop/Death-Guard-Poxwalkers-2021
+//     /en-GB/shop/Death-Guard-Poxwalkers-2021     ← même slug, locale échangée
 //
-// On lit la fiche française, on suit son alternate anglais, et on tient le
-// couple. L'appariement est donc EXACT et déclaré par le site, jamais deviné —
-// et il survit à un changement de forme d'URL. C'est le point capital :
-// editor/translations/README.md documente qu'un rapprochement flou entre
-// langues produit des faux grossiers (« Wraithcannon → Armes de mêlée »), et
-// qu'un pack faux est pire qu'un pack partiel. La seule étape heuristique
-// restante est produit→datasheet, À L'INTÉRIEUR de l'anglais, où l'erreur est
-// visible et vérifiable.
+// La contrepartie anglaise s'obtient donc par simple substitution, sans rien
+// deviner. C'est le point capital : editor/translations/README.md documente
+// qu'un rapprochement flou entre langues produit des faux grossiers
+// (« Wraithcannon → Armes de mêlée »), et qu'un pack faux est pire qu'un pack
+// partiel. La seule étape heuristique restante est produit→datasheet, À
+// L'INTÉRIEUR de l'anglais, où l'erreur est visible et vérifiable.
 //
-// (Première version : appariement par identifiant numérique commun aux deux
-// URLs. Le sondage du site réel l'a réfutée — les URLs n'en portent pas.)
+// Deux hypothèses réfutées par le sondage du site réel, pour ne pas les
+// rouvrir : l'appariement par identifiant numérique dans le slug (les URLs n'en
+// portent pas — « 2021 » est l'année, pas une clef) et l'appariement par
+// <link rel="alternate" hreflang> (le site n'en publie pas).
+//
+// ─── POURQUOI PLAYWRIGHT ───────────────────────────────────────────────────
+// `fetch` reçoit un 202 de 2 475 octets titré « JavaScript is disabled » :
+// warhammer.com sert un défi anti-robot à tout client qui n'est pas un
+// navigateur, et aucun en-tête ne le contourne. Même situation qu'ALN, même
+// remède (cf. aln-dump.mjs). Le profil de navigation est PERSISTANT, donc le
+// défi n'est franchi qu'une fois.
+//
+//     npm i playwright && npx playwright install chromium
 //
 // ─── CE QUE ÇA PEUT ET NE PEUT PAS COUVRIR ─────────────────────────────────
 // La boutique vend des BOÎTES, pas des datasheets. Elle donne donc des noms
@@ -50,8 +59,12 @@
 // de découverte et ouvre trois pages pour dire si ce sont des fiches ou des
 // catégories. Le site étant bloqué depuis ma session, envoie-moi la sortie.
 //
-// Options : --lang fr-FR · --base https://www.warhammer.com · --limit N
-//           --out wh-pairs.json · --slow (1 req/s au lieu de 4 en parallèle)
+// Options : --lang fr-FR (ou fr-CH…) · --base https://www.warhammer.com
+//           --limit N · --out wh-pairs.json · --slow (1 page à la fois)
+//           --headed (navigateur visible — à essayer si le défi bloque)
+//           --profile <dossier> (profil persistant, défaut editor/translations/wh-profile)
+//
+// Ne fais PAS circuler le dossier de profil : il contient les cookies de session.
 
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -74,18 +87,71 @@ const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (
 const log = (...a) => console.log(...a);
 const short = (s) => String(s == null ? "" : s).replace(/\s+/g, " ").slice(0, 180);
 
-async function get(url, { json = false } = {}) {
-  const r = await fetch(url, {
-    headers: {
-      "User-Agent": UA,
-      "Accept": json ? "application/json,text/plain,*/*" : "text/html,application/xhtml+xml",
-      "Accept-Language": `${LANG},fr;q=0.9,en;q=0.8`,
-    },
-    redirect: "follow",
+// ── Accès au site : Playwright obligatoire ─────────────────────────────────
+// Sondage du 2026-08-04 sur une vraie fiche : `fetch` reçoit un 202 de
+// 2 475 octets titré « JavaScript is disabled ». warhammer.com sert un défi
+// anti-robot à tout client qui n'est pas un navigateur — aucun en-tête ne le
+// contourne. Même situation qu'ALN, même remède : un navigateur piloté
+// (cf. aln-dump.mjs). Le contexte est PERSISTANT, donc le défi n'est résolu
+// qu'une fois et le cookie resservira aux exécutions suivantes.
+const PROFILE = val("--profile", join(ROOT, "editor", "translations", "wh-profile"));
+const HEADED = has("--headed");
+let CTX = null, PAGES = [];
+
+async function browserUp(n = 1) {
+  if (CTX) return;
+  let chromium;
+  try { ({ chromium } = await import("playwright")); }
+  catch {
+    console.error(`\n  Playwright est requis (le site bloque les clients non-navigateur) :\n`
+      + `      npm i playwright && npx playwright install chromium\n`);
+    process.exit(1);
+  }
+  CTX = await chromium.launchPersistentContext(PROFILE, {
+    headless: !HEADED,
+    locale: LANG,
+    userAgent: UA,
+    viewport: { width: 1280, height: 900 },
   });
-  const body = await r.text();
-  return { status: r.status, ok: r.ok, body, url: r.url };
+  PAGES = [CTX.pages()[0] || await CTX.newPage()];
+  while (PAGES.length < n) PAGES.push(await CTX.newPage());
 }
+async function browserDown() { if (CTX) { await CTX.close().catch(() => {}); CTX = null; } }
+
+// Un défi non résolu se reconnaît à sa page minuscule sans contenu produit.
+const estDefi = (html) => html.length < 8000 && /javascript is disabled|enable javascript|checking your browser|challenge/i.test(html);
+
+async function get(url, { page = null } = {}) {
+  await browserUp();
+  const p = page || PAGES[0];
+  let status = 0;
+  try {
+    const resp = await p.goto(url, { waitUntil: "domcontentloaded", timeout: 45000 });
+    status = resp ? resp.status() : 0;
+    // Laisser le défi s'exécuter puis la fiche s'hydrater.
+    await p.waitForTimeout(HEADED ? 1500 : 2500);
+    let body = await p.content();
+    if (estDefi(body)) { await p.waitForTimeout(6000); body = await p.content(); }
+    return { status, ok: status > 0 && status < 400, body, url: p.url(), defi: estDefi(body) };
+  } catch (e) {
+    return { status, ok: false, body: String(e.message || e), url, defi: false };
+  }
+}
+
+// Le slug est le MÊME dans toutes les langues — mesuré sur
+// /fr-CH/shop/Death-Guard-Poxwalkers-2021, qui reprend le slug anglais. La
+// contrepartie s'obtient donc en remplaçant le segment de locale : ni
+// identifiant, ni hreflang (le site n'en publie pas).
+function swapLocale(url, from, to) {
+  try {
+    const u = new URL(url);
+    if (!u.pathname.startsWith(`/${from}/`)) return "";
+    u.pathname = u.pathname.replace(`/${from}/`, `/${to}/`);
+    u.search = ""; // les paramètres de tracking (srsltid…) ne servent à rien
+    return u.toString();
+  } catch { return ""; }
+}
+const localeOf = (url) => { try { const m = /^\/([a-z]{2}-[A-Z]{2})\//.exec(new URL(url).pathname); return m ? m[1] : ""; } catch { return ""; } };
 
 // ── Découverte des URLs produit ────────────────────────────────────────────
 // Trois stratégies, de la moins intrusive à la plus lourde. La première qui
@@ -258,26 +324,38 @@ async function probe() {
   // les suppositions — ouvre une fiche dans ton navigateur, copie l'URL.
   const URL_TEST = val("--url", "");
   if (URL_TEST) {
-    log(`  Dissection de ${URL_TEST}\n`);
+    const loc = localeOf(URL_TEST) || LANG;
+    log(`  Dissection de ${URL_TEST}`);
+    log(`  locale détectée : ${loc}  (navigateur ${HEADED ? "visible" : "sans interface"})\n`);
     const r = await get(URL_TEST);
     log(`  statut ${r.status} ${r.ok ? "✅" : "❌"} · ${r.body.length} octets · URL finale ${r.url}`);
-    if (!r.ok) { log(`  ${short(r.body)}\n`); return; }
+    if (r.defi) {
+      log(`  ⚠ défi anti-robot NON résolu. Relance avec --headed : la première visite`);
+      log(`    demande parfois une interaction, et le cookie obtenu est conservé dans`);
+      log(`    ${PROFILE}\n`);
+      await browserDown(); return;
+    }
+    if (!r.ok) { log(`  ${short(r.body)}\n`); await browserDown(); return; }
     log(`  reconnue comme fiche produit : ${estFicheProduit(r.body) ? "✅ oui" : "❌ NON (aucun prix / JSON-LD Product / og:type=product)"}`);
     log(`  nom JSON-LD : ${JSON.stringify(jsonLdName(r.body)) || "—"}`);
     log(`  nom retenu  : ${JSON.stringify(productName(r.body))}`);
+    log(`  sans préfixe de gamme : ${JSON.stringify(stripRange(productName(r.body)))}`);
     const alt = hreflangAlternates(r.body);
-    const n = Object.keys(alt).length;
-    log(`  alternates hreflang : ${n ? `✅ ${n}` : "❌ aucune — l'appariement devra passer par autre chose"}`);
-    for (const [lg, href] of Object.entries(alt).slice(0, 8)) log(`     ${lg.padEnd(7)} ${href}`);
-    const enHref = alt[REF.toLowerCase()] || alt["en"] || "";
-    if (enHref) {
-      const re = await get(enHref);
-      log(`\n  contrepartie ${REF} : statut ${re.status}`);
-      log(`  nom ${REF} : ${JSON.stringify(productName(re.body))}`);
-      log(`  → couple : ${JSON.stringify(productName(re.body))}  ↔  ${JSON.stringify(productName(r.body))}`);
+    log(`  alternates hreflang : ${Object.keys(alt).length ? `✅ ${Object.keys(alt).length}` : "aucune (sans importance : on échange la locale)"}`);
+    const enUrl = alt[REF.toLowerCase()] || alt["en"] || swapLocale(r.url, loc, REF);
+    log(`\n  contrepartie ${REF} : ${enUrl || "introuvable"}`);
+    if (enUrl) {
+      const re = await get(enUrl);
+      log(`  statut ${re.status}${re.defi ? " ⚠ défi non résolu" : ""}`);
+      const nEn = productName(re.body), nFr = productName(r.body);
+      log(`  nom ${REF} : ${JSON.stringify(nEn)}`);
+      log(`\n  → COUPLE : ${JSON.stringify(stripRange(nEn))}  ↔  ${JSON.stringify(stripRange(nFr))}`);
+      const { missing } = await missingNames();
+      const cible = missing.find((m) => norm(m) === norm(stripRange(nEn)));
+      log(`  → datasheet visée : ${cible ? JSON.stringify(cible) + " ✅" : "aucune correspondance dans les trous du pack"}`);
     }
     log(`\n  Renvoie-moi ce bloc : il fige les sélecteurs pour de bon.\n`);
-    return;
+    await browserDown(); return;
   }
 
   const r0 = await get(`${BASE}/${LANG}/`).catch((e) => ({ status: 0, body: e.message, ok: false }));
@@ -323,33 +401,36 @@ async function harvest() {
   // On ne devine plus l'appariement : chaque page FR déclare elle-même sa
   // contrepartie anglaise via hreflang. Les pages de catégorie sont écartées
   // ici, sur leur CONTENU — la forme des URLs ne les distingue pas.
-  log(`  2/4 · lecture des pages, tri des fiches, appariement par hreflang`);
+  log(`  2/4 · lecture des fiches, contrepartie ${REF} par échange de locale`);
   const out = [];
-  let done = 0, cat = 0, sansAlt = 0;
-  const worker = async (queue) => {
+  let done = 0, cat = 0, defis = 0;
+  const worker = async (queue, page) => {
     while (queue.length) {
       const u = queue.shift();
       try {
-        const rFr = await get(u);
-        if (rFr.ok && estFicheProduit(rFr.body)) {
+        const rFr = await get(u, { page });
+        if (rFr.defi) defis++;
+        else if (rFr.ok && estFicheProduit(rFr.body)) {
           const alt = hreflangAlternates(rFr.body);
-          const enHref = alt[REF.toLowerCase()] || alt["en"] || "";
-          if (enHref) {
-            const rEn = await get(enHref);
+          const enUrl = alt[REF.toLowerCase()] || alt["en"] || swapLocale(rFr.url, localeOf(rFr.url) || LANG, REF);
+          if (enUrl) {
+            const rEn = await get(enUrl, { page });
             const nFr = productName(rFr.body), nEn = productName(rEn.body);
-            if (nEn && nFr && nEn !== nFr) out.push({ en: nEn, fr: nFr, url: u });
-          } else sansAlt++;
+            if (nEn && nFr && nEn !== nFr && !rEn.defi) out.push({ en: nEn, fr: nFr, url: rFr.url });
+          }
         } else cat++;
       } catch { /* une page illisible n'arrête pas la récolte */ }
-      if (++done % 25 === 0) process.stdout.write(`\r        ${done}/${cand.length}  (fiches ${out.length}, catégories ${cat})`);
+      if (++done % 10 === 0) process.stdout.write(`\r        ${done}/${cand.length}  (couples ${out.length}, catégories ${cat})`);
       if (SLOW) await new Promise((r) => setTimeout(r, 1000));
     }
   };
   const queue = cand.slice();
-  await Promise.all(Array.from({ length: SLOW ? 1 : 4 }, () => worker(queue)));
-  process.stdout.write(`\r        ${done}/${cand.length}  (fiches ${out.length}, catégories ${cat})\n`);
-  if (sansAlt) log(`        ⚠ ${sansAlt} fiches sans alternate ${REF} — non appariables`);
-  if (!out.length) { log(`\n  ✗ aucune fiche appariée. Lance --probe --url "<une fiche>" et envoie la sortie.\n`); process.exit(1); }
+  const nWorkers = SLOW ? 1 : 3;
+  await browserUp(nWorkers);
+  await Promise.all(PAGES.slice(0, nWorkers).map((p) => worker(queue, p)));
+  process.stdout.write(`\r        ${done}/${cand.length}  (couples ${out.length}, catégories ${cat})\n`);
+  if (defis) log(`        ⚠ ${defis} pages bloquées par le défi anti-robot — relance avec --headed`);
+  if (!out.length) { log(`\n  ✗ aucune fiche appariée. Lance --probe --url "<une fiche>" et envoie la sortie.\n`); await browserDown(); process.exit(1); }
 
   log(`  4/4 · rapprochement produit → datasheet (en ANGLAIS uniquement)`);
   const missByNorm = new Map(missing.map((n) => [norm(n), n]));
@@ -401,6 +482,12 @@ async function merge() {
   log(`     total ${pack.meta.totalStrings} chaînes\n`);
 }
 
-if (has("--probe")) await probe();
-else if (has("--merge")) await merge();
-else await harvest();
+// Le navigateur persistant ne se ferme pas tout seul : sans ça le process
+// resterait suspendu après la récolte.
+try {
+  if (has("--probe")) await probe();
+  else if (has("--merge")) await merge();
+  else await harvest();
+} finally {
+  await browserDown();
+}

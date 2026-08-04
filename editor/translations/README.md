@@ -117,23 +117,35 @@ sont bloqués au niveau réseau depuis un bac à sable.
 ## Noms officiels GW : `wh-com-fetch.mjs`
 
 `wh-com-fetch.mjs` récolte les noms officiels français sur `warhammer.com`. Le
-même produit existe dans chaque locale et son URL porte un identifiant partagé
-(`…/en-GB/shop/…-2019` ↔ `…/fr-FR/shop/…-2019`), donc l'appariement EN↔FR est
-**exact** : la seule étape heuristique est produit→datasheet, à l'intérieur de
-l'anglais, où une erreur se voit. C'est ce qui distingue cette source de
-l'impasse documentée plus haut (apparier des libellés entre langues fabrique des
-faux).
+slug d'un produit est **identique dans toutes les langues**, seul le segment de
+locale change (`/fr-CH/shop/Death-Guard-Poxwalkers-2021` ↔
+`/en-GB/shop/Death-Guard-Poxwalkers-2021`) : la contrepartie anglaise s'obtient
+par simple substitution, sans rien deviner. La seule étape heuristique est
+produit→datasheet, à l'intérieur de l'anglais, où une erreur se voit. C'est ce
+qui distingue cette source de l'impasse documentée plus haut (apparier des
+libellés entre langues fabrique des faux).
 
 ```sh
-node editor/translations/wh-com-fetch.mjs --probe   # 1. quelle stratégie répond
-node editor/translations/wh-com-fetch.mjs           # 2. récolte → wh-pairs.json
-node editor/translations/wh-com-fetch.mjs --merge   # 3. ne comble que les trous
+npm i playwright && npx playwright install chromium
+
+node editor/translations/wh-com-fetch.mjs --probe --url "<une fiche produit>"
+node editor/translations/wh-com-fetch.mjs           # récolte → wh-pairs.json
+node editor/translations/wh-com-fetch.mjs --merge   # ne comble que les trous
 ```
 
+Playwright est obligatoire : `fetch` reçoit un 202 de 2 475 octets titré
+« JavaScript is disabled ». Le site sert un défi anti-robot à tout client qui
+n'est pas un navigateur, et aucun en-tête ne le contourne — même situation
+qu'ALN. Le profil de navigation est persistant (`editor/translations/wh-profile/`,
+ignoré par git : il contient des cookies de session) ; si le défi bloque,
+relancer avec `--headed`.
+
 À lancer depuis une machine au réseau ouvert : `warhammer.com` est bloqué depuis
-un bac à sable. Les stratégies de découverte (plan de site, endpoint JSON,
-parcours de catégories) n'ont **pas** pu être validées contre le site réel —
-commencer par `--probe`, qui les essaie toutes et dit laquelle répond.
+un bac à sable. Deux hypothèses d'appariement ont été **réfutées** par le sondage
+du site réel, inutile de les rouvrir : l'identifiant numérique dans le slug (il
+n'y en a pas — le « 2021 » de `Death-Guard-Poxwalkers-2021` est l'année) et les
+balises `hreflang` (le site n'en publie pas). Ce qui marche est plus simple : le
+slug est identique dans toutes les langues, seul le segment de locale change.
 
 **Portée.** La boutique vend des boîtes : elle donne des noms d'**unité**, et
 rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
