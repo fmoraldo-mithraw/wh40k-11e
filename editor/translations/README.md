@@ -114,6 +114,33 @@ Deux impasses vérifiées, pour éviter de les rouvrir : le miroir
 faction, 8ᵉ édition). `nrdata.org`, `wahapedia`, `warhammer.com` et les wikis FR
 sont bloqués au niveau réseau depuis un bac à sable.
 
+## Noms officiels GW : `wh-com-fetch.mjs`
+
+`wh-com-fetch.mjs` récolte les noms officiels français sur `warhammer.com`. Le
+même produit existe dans chaque locale et son URL porte un identifiant partagé
+(`…/en-GB/shop/…-2019` ↔ `…/fr-FR/shop/…-2019`), donc l'appariement EN↔FR est
+**exact** : la seule étape heuristique est produit→datasheet, à l'intérieur de
+l'anglais, où une erreur se voit. C'est ce qui distingue cette source de
+l'impasse documentée plus haut (apparier des libellés entre langues fabrique des
+faux).
+
+```sh
+node editor/translations/wh-com-fetch.mjs --probe   # 1. quelle stratégie répond
+node editor/translations/wh-com-fetch.mjs           # 2. récolte → wh-pairs.json
+node editor/translations/wh-com-fetch.mjs --merge   # 3. ne comble que les trous
+```
+
+À lancer depuis une machine au réseau ouvert : `warhammer.com` est bloqué depuis
+un bac à sable. Les stratégies de découverte (plan de site, endpoint JSON,
+parcours de catégories) n'ont **pas** pu être validées contre le site réel —
+commencer par `--probe`, qui les essaie toutes et dit laquelle répond.
+
+**Portée.** La boutique vend des boîtes : elle donne des noms d'**unité**, et
+rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
+460 mots-clefs, 92 capacités), seule la part « unités » est atteignable ici, et
+seulement pour les unités vendues en boîte. Le script chiffre en fin de course
+la proportion de trous réellement comblés.
+
 ## Ancienne source : New Recruit
 
 `fetch-nr.mjs` aspire les traductions communautaires New Recruit (`nrdata.org`,
@@ -142,6 +169,13 @@ l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne s
   Furtivité), avec exclusion des contextes où le mot est un NOM D'UNITÉ, qui
   reste en anglais : `Escouade d'Infiltrators`, `Infiltrators Sicarian`,
   mot-clef entre `^^** **^^`.
+- *Poxwalker(s)* → **Véroleux** (2026-08-04, nom GW rapporté par le mainteneur).
+  Contrairement à *Infiltrators*, celui-ci se traduit PARTOUT, y compris comme
+  nom d'unité et comme mot-clef : le pack le laissait en anglais aussi bien dans
+  la prose que dans le nom de datasheet. « Véroleux » étant invariable, singulier
+  et pluriel donnent la même forme. 12 valeurs de prose reprises (balisage
+  `^^ **` conservé) et 2 clefs ajoutées, `Poxwalkers` et la composition
+  `10-20 Poxwalkers`.
 
 Chaque correction porte sa preuve et sa date : ce sont des choix éditoriaux, ils
 doivent pouvoir être rediscutés sans être redécouverts.
