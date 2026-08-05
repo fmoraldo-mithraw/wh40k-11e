@@ -330,6 +330,12 @@ l'anglais est écartée du pack — `dataName()` retombe déjà sur la chaîne s
   *Lord of the Eightbound* → **Seigneur des Octoliés** (2026-08-04).
 - *Myphitic Blight-hauler* → **Semi-chenillé Méphitique** (2026-08-04, titre de
   la fiche warhammer.com en français).
+- *Deadly Demise* → **Destruction Néfaste** (2026-08-05, nom GW rapporté par le
+  mainteneur). Correction **par terme** : le pack disait « Fin Fatale » dans la
+  clef ET dans 24 chaînes de prose, qui parlent toutes de la même capacité de
+  base. Traduire la seule clef aurait laissé la prose en désaccord avec le nom
+  affiché. La capacité étant **paramétrée** (`Deadly Demise D6+3`, `2D6`, `1`…),
+  une seule entrée suffit côté clef : l'appli recompose base + paramètre.
 - **Déclinaisons de nombre** (2026-08-04, 32 clefs). Le pack connaissait le nom
   dans UN nombre, la composition l'affiche dans l'AUTRE : la ligne de groupe dit
   « Blood Claws » (traduit) et la ligne de figurine « Blood Claw » (anglais).
