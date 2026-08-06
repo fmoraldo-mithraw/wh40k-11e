@@ -1,0 +1,15 @@
+# Workflow de DIAGNOSTIC, à supprimer une fois le problème de runners réglé.
+#
+# Les runs de ci.yml restent en file 15 minutes sans jamais recevoir de runner
+# (runner_id 0, zéro étape exécutée) puis sont annulés — affiché « failure ».
+# Pour prouver que ce n'est PAS le YAML : ce workflow est réduit à l'os (un
+# echo), avec un label de runner EXPLICITE (ubuntu-24.04, pas l'alias
+# ubuntu-latest). S'il reste lui aussi en file → le blocage est l'allocation
+# de runners hébergés pour ce dépôt (côté GitHub), pas nos fichiers.
+name: Ping
+on: [workflow_dispatch]
+jobs:
+  ping:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "runner obtenu — l'allocation fonctionne, le probleme etait ailleurs"
