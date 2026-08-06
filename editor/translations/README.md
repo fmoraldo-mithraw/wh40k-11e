@@ -233,6 +233,23 @@ rien d'autre. Sur les 1 460 chaînes sans traduction (359 unités, 549 armes,
 seulement pour les unités vendues en boîte. Le script chiffre en fin de course
 la proportion de trous réellement comblés.
 
+## Corriger un terme : `corrige-terme.mjs`
+
+Une correction de nom passe par ce script, plus jamais à la main :
+
+    node editor/translations/corrige-terme.mjs \
+      --en "Deadly Demise" --fr "Destruction Néfaste" --ancien "Fin Fatale" [--sec]
+
+Il fait les trois choses que la correction manuelle de *Deadly Demise* a
+montrées indispensables : la **clef**, le remplacement de l'**ancien terme
+français** dans toutes les valeurs de prose (clef juste + prose contraire =
+pire qu'une absence), et le **signalement** — jamais le remplacement d'office —
+des valeurs où le terme anglais traîne encore (piège *Infiltrators* : l'anglais
+y est parfois un nom d'unité volontairement conservé). Deux refus automatiques :
+traduction identique à l'anglais, et terme que la prose du pack **atteste
+conservé** (garde-fou `atteste()` ci-dessous) — `--force` outrepasse, à
+documenter ici.
+
 ## Le pack se relit lui-même : `atteste-conserve.mjs`
 
 La meilleure source n'est pas sur le web, elle est **dans le pack**. Celui-ci

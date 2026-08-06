@@ -94,7 +94,12 @@ class Catalog {
     this.baseline = { dupIds: s.dupIds, danglingTargets: s.danglingTargets };
   }
 
-  validate({ dirtyOnly = true } = {}) {
+  // dirtyOnly=false PAR DÉFAUT : l'ancien défaut (true) faisait qu'un
+  // `validate()` nu, hors session d'édition, retournait {ok:true, checked:0} —
+  // un feu vert sur zéro fichier, exactement là où la règle maison demande une
+  // validation avant commit. Les chemins chauds de l'éditeur (serveur) passent
+  // dirtyOnly:true explicitement et ne sont pas concernés.
+  validate({ dirtyOnly = false } = {}) {
     const cur = this.scan();
     const baseDup = (this.baseline && this.baseline.dupIds) || new Set();
     const baseDang = (this.baseline && this.baseline.danglingTargets) || new Set();

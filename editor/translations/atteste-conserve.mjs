@@ -47,6 +47,7 @@
 // Sortie : atteste.json (les candidats à relire) et un résumé chiffré.
 
 import { readFile, writeFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -111,7 +112,11 @@ export function atteste(terme) {
 
 const extrait = (p, max) => p.slice(0, max).map(({ k, v }) => ({ clef: k.length > 200 ? k.slice(0, 200) + "…" : k, fr: v.length > 200 ? v.slice(0, 200) + "…" : v }));
 
-if (TERME) {
+// Importé comme MODULE (corrige-terme.mjs ne consomme que atteste()), ce
+// fichier ne doit ni charger le catalogue, ni imprimer le rapport, ni écrire
+// atteste.json — tout le corps ci-dessous ne tourne qu'en exécution directe.
+const _direct = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (_direct && TERME) {
   const r = atteste(TERME);
   console.log(`\n  « ${TERME} » → ${r.verdict.toUpperCase()}  (${r.preuves} preuve${r.preuves > 1 ? "s" : ""}${r.frere.garde + r.frere.perdu ? `, autre nombre « ${r.frere.terme} » : ${r.frere.garde} conservent / ${r.frere.perdu} traduisent` : ""})\n`);
   for (const e of r.garde.slice(0, 6)) console.log(`   + conservé  ${JSON.stringify(e.k).slice(0, 110)}\n               ${JSON.stringify(e.v).slice(0, 110)}`);
@@ -120,6 +125,7 @@ if (TERME) {
   process.exit(0);
 }
 
+if (_direct) {
 // ── Les termes à juger : ce que le catalogue affiche et que le pack ignore ──
 // Toujours via la lib de l'éditeur (règle maison : jamais de regex sur les .cat).
 const { Catalog } = require(join(ROOT, "editor", "lib", "catalog.js"));
@@ -170,3 +176,4 @@ await writeFile(OUT, JSON.stringify({
   conserve: parVerdict["conservé"].map((c) => ({ terme: c.terme, categorie: c.categorie, preuves: c.preuves })),
 }, null, 1) + "\n");
 console.log(`\n  → ${OUT}\n`);
+}
