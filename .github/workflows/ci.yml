@@ -5,7 +5,10 @@
 # dépôt lui-même : la lib de l'éditeur (round-trip XML fidèle, références
 # pendantes, ids dupliqués nouveaux) + le cliquet du stock d'ids hérité.
 name: CI
-on: [push, pull_request]
+# workflow_dispatch : lancement manuel depuis l onglet Actions — utile pour
+# verifier l activation (depot fork : les workflows demandent un clic
+# « enable » du proprietaire avant de tourner) sans avoir a pousser.
+on: [push, pull_request, workflow_dispatch]
 jobs:
   valider:
     runs-on: ubuntu-latest
