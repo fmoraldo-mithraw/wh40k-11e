@@ -3717,6 +3717,11 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Supreme Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="dfc2-722e-72a7-d778">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your **^^Warlord^^**.</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink id="8a23-811a-b2f8-856d" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
@@ -4663,7 +4668,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile id="8f97-ea59-d469-e0bc" name="Chirurgeon" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this unit’s ^^**Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this unit’s ^^**Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining. If that model was attached to a unit when it was destroyed, it must be set up attached to that unit.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4677,6 +4682,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       </infoLinks>
       <categoryLinks>
         <categoryLink id="4537-768d-e071-ecbb" name="Epic Hero" hidden="false" targetId="4f3a-f0f7-6647-348d" primary="true"/>
+        <categoryLink id="9a63-eb46-ed98-6661" name="Faction: Heretic Astartes" hidden="false" targetId="1e42-dfae-cbdd-207d" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry id="9ddb-d7c2-e120-9b1d" name="Fabius Bile" hidden="false" collective="false" import="true" type="model">
@@ -4734,15 +4740,15 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
             </selectionEntry>
-            <selectionEntry id="5d76-4842-6125-f32c" name="The Chirurgeon" hidden="false" collective="false" import="true" type="upgrade">
+            <selectionEntry id="5d76-4842-6125-f32c" name="Chirurgeon" hidden="false" collective="false" import="true" type="upgrade">
               <constraints>
                 <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="cdc8-fbbf-f599-7255" type="min"/>
                 <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="7169-d8f-53bc-c9f5" type="max"/>
               </constraints>
               <profiles>
-                <profile id="1277-897a-f1c6-41dc" name="The Chirurgeon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
+                <profile id="1277-897a-f1c6-41dc" name="Chirurgeon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
                   <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">The first time this unit&apos;s **^^Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.</characteristic>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>

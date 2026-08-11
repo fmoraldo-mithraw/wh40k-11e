@@ -225,7 +225,7 @@ Pour CHAQUE concept, plusieurs encodages existent — teste-les tous :
 
 | Concept | Idiomes possibles |
 |---|---|
-| Profil (stat/capacité/arme) | `<profile>` inline **ou** `infoLink type="profile"` (sharedProfile) |
+| Profil (stat/capacité/arme) | `<profile>` inline **ou** `infoLink type="profile"` (sharedProfile) **ou** niché dans un `<infoGroup>` de l'entrée (`infoGroups.infoGroup.profiles.profile` — Damned Legionnaires / Plasma gun ; rater cet idiome laisse l'option « sans profil » et pousse l'appli vers une résolution par nom qui ramasse tous les homonymes de la faction) |
 | Capacité | sur l'**unité** **ou** sur un **modèle** **ou** sur une **option** ; `typeName="Abilities"` **ou** type faction (`Orders`, `Rituals`…) |
 | Contrainte/coût/catégorie d'une option | sur l'**entryLink** **ou** sur la **cible** résolue |
 | Arme | **base** (`min≥1`) · **option** (groupe `max=1` min 0) · **compteur d'échange** (`min 0`+`max`+décrément base) · **base + option de même nom** (2 emplacements distincts) · **multi-profils** (distance+mêlée dans 1 entrée) · **échange combiné** (1 option `set 0` sur min/max d'un autre emplacement) |
@@ -238,6 +238,24 @@ Pour CHAQUE concept, plusieurs encodages existent — teste-les tous :
 | Compte par figurine vs unité | `scope="parent"` (par modèle) vs `scope="unit"` (total) — **les deux peuvent coexister** |
 | Coût | fixe · par instance (×N) · par palier de taille (`set` conditionné modèles) · repeat-cost (`increment` conditionné) · par faction (`set` conditionné `primary-catalogue`) |
 | Faction/détachement actif | condition `scope="force"`/`roster" childId=<détachement>` · `scope="primary-catalogue"` · `field="forces"` |
+
+### Homonymes d'armes : règle d'affichage côté appli
+Les noms d'armes **collident** à l'échelle d'une faction (7 « Plasma pistol »
+différents chez les Space Marines, 4 « Power sword » chez les Aeldari). Une
+appli ne doit JAMAIS résoudre un nom d'arme dans un dictionnaire de faction
+sans garde-fou. Ordre de résolution sûr, du plus précis au plus flou :
+1. le **profil épinglé** sur le choix d'option lui-même (l'entrée cible porte
+   ses profils — inline, via `infoLink type="profile"`, ou **dans un
+   `infoGroup`**, voir tableau) ;
+2. la **portée unité** : tous les profils que la fiche porte déjà — armes de
+   base, armes des modèles de composition, **et profils épinglés de ses
+   options** (des unités entières n'ont d'armes QUE derrière leurs options :
+   tronc commun Space Marines) ;
+3. le dictionnaire de faction en dernier recours, **dédoublonné par stats**
+   (le même profil y apparaît sous plusieurs préfixes d'affichage).
+Cas vécu : une escouade d'Intercessors affichait les 7 plasma pistols de la
+faction (dont un profil 24" d'une autre fiche) parce que les étapes 1-2
+étaient incomplètes et que tout tombait à l'étape 3 sans dédoublonnage.
 
 ---
 

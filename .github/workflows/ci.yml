@@ -1,19 +1,21 @@
-# This action continuously checks all pushes and Pull requests
-# for validity, integrity and bugs in datafiles.
-# For details, visit https://github.com/BSData/check-datafiles
+# CI des données. L'ancien workflow (BSData/check-datafiles) avait été désarmé
+# en vidant son déclencheur (« on: [] », à cause d'erreurs wham) — résultat : ce
+# dépôt n'avait AUCUN contrôle automatique, et la règle maison « validation
+# avant tout commit » ne tenait qu'à la discipline. Celui-ci ne dépend que du
+# dépôt lui-même : la lib de l'éditeur (round-trip XML fidèle, références
+# pendantes, ids dupliqués nouveaux) + le cliquet du stock d'ids hérité.
 name: CI
-on: [ ]
-# on [ push, pull_request ] Removed to disable chekcs due to wham errors
+# workflow_dispatch : lancement manuel depuis l onglet Actions — utile pour
+# verifier l activation (depot fork : les workflows demandent un clic
+# « enable » du proprietaire avant de tourner) sans avoir a pousser.
+on: [push, pull_request, workflow_dispatch]
 jobs:
-  build:
+  valider:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-
-    - uses: BSData/check-datafiles@v1
-      id: check
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: artifact
-        path: ${{ steps.check.outputs.staging-path }}
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validation complète + cliquet des ids dupliqués
+        run: node editor/audit/valider.mjs

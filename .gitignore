@@ -22,8 +22,27 @@
 # Don't ignore the data editor tool
 !/editor
 !/editor/**
+
+# Don't ignore the translation packs the app loads (see editor/translations/README.md)
+!/translations
+!/translations/*.json
 Chaos - Renegade Militarum.cat
 Zephyran Corsairs.cat
 
 # Scraped Wahapedia dumps (transient, upload instead of commit)
 wahapedia/
+# A_RENVOYER.md est COMMITÉ (le mainteneur transmet le rapport via git —
+# run.sh l'ajoute avec les matrices) ; seul le dump brut reste transient.
+editor/mfm/dump/
+
+# Profil de navigation Playwright (cookies de session) — jamais commité
+editor/translations/wh-profile/
+editor/translations/wh-pairs.json
+
+# Récolte ALN (produite localement, jamais commitée)
+aln-pairs.json
+aln-units.json
+aln-names.json
+aln-state.json
+aln-profile/
+atteste.json
