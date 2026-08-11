@@ -26,6 +26,11 @@ const v = cat.validate();
 const errs = v.results.filter((r) => r.errors.length);
 for (const r of errs) console.error(`  ✗ ${r.file} : ${r.errors.join(" / ")}`);
 console.log(`  ${v.results.length} fichiers, ${errs.length} en erreur`);
+// Plancher dur : le dépôt a ~47 .cat/.gst. catalog.validate() rend
+// { ok: results.every(...) }, et `every` sur un tableau VIDE vaut true → un
+// checkout partiel (LFS, sparse, clone raté) validait « 0 fichiers, 0 erreur »
+// au vert. On exige un nombre plausible de fichiers validés.
+if (v.results.length < 45) { console.error(`  ✗ seulement ${v.results.length} fichiers validés (attendu ≥45) — checkout tronqué ?`); process.exit(1); }
 if (!v.ok || errs.length) process.exit(1);
 
 console.log("\n── cliquet des ids dupliqués ──");
