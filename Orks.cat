@@ -5687,9 +5687,8 @@ sim-mod: source=&quot;Pyromaniaks (objectif)&quot; reroll=wound when=ranged cond
       </costs>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Ghazghkull Thraka" hidden="false" id="4ea0-6b70-c17c-bc00">
-      <comment>sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; hit=+1 when=melee whileLeading
-sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; wound=+1 when=melee whileLeading
-sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee whileLeading conditional</comment>
+      <comment>sim-mod: source=&quot;Prophet of da Great Waaagh! (Aura)&quot; hit=+1 when=melee aura=6
+sim-mod: source=&quot;Prophet of da Great Waaagh! (Aura)&quot; wound=+1 when=melee aura=6</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3d9f-ad30-b750-5f5a"/>
       </constraints>
@@ -5706,17 +5705,26 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
       <profiles>
         <profile name="Supreme Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2f00-e987-7aef-ca5d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit is in your army, its Ghazghkull Thraka model must be your **^^Warlord^^**.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your **^^Warlord^^**.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Prophet of Da Great Waaagh!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1f74-9a0a-cff7-fc6e">
+        <profile name="Da Grand Warlord’s Ladz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1f74-9a0a-cff7-fc6e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is leading a unit, each time a model in that unit makes a melee attack, add 1 to the Hit roll and add 1 to the Wound roll, and if the Waaagh! is active for your army, a Critical Hit is scored on an unmodified Hit roll of 5+.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 3&quot; of another friendly **^^Orks^^** **^^Infantry^^** unit, this unit has the **Lone Operative** ability.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Ghazghkull’s Waaagh! Banner (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="931a-8c1c-92fc-cba">
+        <profile name="Makari, Hoist Dat Banner!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="931a-8c1c-92fc-cba">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **^^Orks^^** unit is within 12&quot; of Makari, if the Waaagh! is active for your army, melee weapons equipped by models in that unit have the **[LETHAL HITS]** ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Once per battle, per army.** In your Movement phase, you can select a number of friendly **^^Orks^^** units equal to or less than the current battle round number. Those units are **riled up** until the start of your next turn.
+
+Place one Makari token next to the unit, removing it after this ability is used.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Prophet of da Great Waaagh! (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-5010">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Aura.** While a friendly **^^Orks^^** unit is within 6&quot; of this unit, that unit&apos;s melee attacks have:
+- +1 to **Hit** rolls.
+- +1 to **Wound** rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5725,27 +5733,11 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="a41c-dbb3-1453-8c66" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="d3cd-4f88-5794-e8e2" primary="false" name="Character"/>
         <categoryLink targetId="56cc-5f43-2403-8da0" id="3868-d75e-826a-cd70" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-9f3b-7c40-5011" primary="false" name="Explosives"/>
       </categoryLinks>
-      <infoGroups>
-        <infoGroup name="Leader" hidden="false" id="2df1-b5b4-b111-e0a3">
-          <infoLinks>
-            <infoLink name="Leader" hidden="false" type="rule" id="9fcb-b4d5-3314-124b" targetId="b4dd-3e1f-41cb-218f"/>
-          </infoLinks>
-          <profiles>
-            <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="da6a-e2b0-b8db-f3b3">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit can be attached to the following units:
-- **^^Boyz^^**
-- **^^Meganobz^^**
-- **^^Nobz^^**</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </infoGroup>
-      </infoGroups>
       <infoLinks>
+        <infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-9f3b-7c40-5012" targetId="0d1a-9f3b-7c40-1c02"/>
         <infoLink name="Waaagh!" hidden="false" type="rule" id="9509-a73f-ac4a-85c5" targetId="37c-6ef9-277-9091"/>
-        <infoLink name="Lethal Hits" id="2000-cc28-f562-3008" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
       </infoLinks>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Ghazghkull Thraka" hidden="false" id="de55-e326-8a31-d7b0">
@@ -5756,10 +5748,10 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
           <profiles>
             <profile name="Ghazghkull Thraka" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8f58-f1c7-8132-c72d">
               <characteristics>
-                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">10</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">16</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
                 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">4</characteristic>
               </characteristics>
@@ -5772,20 +5764,34 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="270a-eff7-d374-cc0f"/>
               </constraints>
               <profiles>
-                <profile name="Mork’s Roar" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2b34-6be2-6c96-75de">
+                <profile name="Mork’s Roar - Aimed" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2b34-6be2-6c96-75de">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">12</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 4</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 4</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Mork’s Roar - Point Blank" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-5013">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">9&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2D6+2</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Torrent</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
               <infoLinks>
+                <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-5014" targetId="0d1a-9f3b-7c40-1c01"/>
                 <infoLink name="Rapid Fire" hidden="false" type="rule" id="5abd-8d4c-2335-7942" targetId="c5c8-8b58-b8b6-7786"/>
+                <infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-9f3b-7c40-5015" targetId="59e0-775e-fce5-43ca"/>
+                <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-5016" targetId="5edf-d619-23e0-9b56"/>
               </infoLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Gork’s Klaw" hidden="false" id="7f5-23ea-19ab-176">
@@ -5794,29 +5800,46 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="465-7fc8-f559-edb5"/>
               </constraints>
               <profiles>
-                <profile name="➤ Gork’s Klaw - strike" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e688-c82d-9852-48ab">
+                <profile name="Gork’s Klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e688-c82d-9852-48ab">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">7</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="➤ Gork’s Klaw - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e5bd-a8f9-bca0-16e9">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">12</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2, Devastating Wounds</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
+              <infoLinks>
+                <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-5017" targetId="ea1f-c7b7-cafa-43f8"/>
+                <infoLink name="Devastating Wounds" hidden="false" type="rule" id="0d1a-9f3b-7c40-5018" targetId="be1e-ac8e-1e2c-3528"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Adamantine ’Eadbutt" hidden="false" id="0d1a-9f3b-7c40-5019">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-501a"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-501b"/>
+              </constraints>
+              <profiles>
+                <profile name="Adamantine ’Eadbutt" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-501c">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3+3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds, Extra Attacks, Precision</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Devastating Wounds" hidden="false" type="rule" id="0d1a-9f3b-7c40-501d" targetId="be1e-ac8e-1e2c-3528"/>
+                <infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-9f3b-7c40-501e" targetId="115b-79dc-f723-d761"/>
+                <infoLink name="Precision" hidden="false" type="rule" id="0d1a-9f3b-7c40-501f" targetId="9143-31ae-e0a6-6007"/>
+              </infoLinks>
             </selectionEntry>
           </selectionEntries>
           <categoryLinks>
@@ -5830,53 +5853,6 @@ sim-mod: source=&quot;Prophet of Da Great Waaagh!&quot; crit-hit=5 when=melee wh
               </modifiers>
             </infoLink>
           </infoLinks>
-        </selectionEntry>
-        <selectionEntry type="model" import="true" name="Makari" hidden="false" id="369e-6b73-1d48-2abf">
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ce48-1e2d-d854-81ad"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d49e-debc-24cf-558b"/>
-          </constraints>
-          <profiles>
-            <profile name="Makari" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7390-c7b6-f131-4cc2">
-              <characteristics>
-                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                <characteristic name="SV" typeId="450-a17e-9d5e-29da">7+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
-                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
-                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="Invulnerable Save (2+*) [Makari]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4f84-fb39-6ffe-dc16">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 2+ invulnerable save. You cannot re-roll invulnerable saving throws made for this model.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Makari’s stabba" hidden="false" id="b945-fe7f-ecf3-a719">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4831-8377-19c2-c9a0"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="465-7fc8-f559-edb5"/>
-              </constraints>
-              <profiles>
-                <profile name="Makari’s stabba" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7758-d06f-5fe6-54ff">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">3</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Devastating Wounds" hidden="false" type="rule" id="93c7-a4cf-7357-4917" targetId="be1e-ac8e-1e2c-3528"/>
-              </infoLinks>
-            </selectionEntry>
-          </selectionEntries>
         </selectionEntry>
       </selectionEntries>
       <costs>
