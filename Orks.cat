@@ -7175,12 +7175,9 @@ sim-mod: source=&quot;Shooty Power Trip (5-6)&quot; attacks=+1 when=ranged choic
         <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7da5-5fa5-4679-a584" includeChildSelections="false"/>
       </constraints>
       <profiles>
-        <profile name="Shooty Power Trip" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d69-8e7f-9d12-c775">
+        <profile name="Spiteful Power Trip" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d69-8e7f-9d12-c775">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, you can roll one D6:
-- On a 1-2, this unit suffers D3 mortal wounds.
-- On a 3-4, until the end of the phase, add 1 to the Strength characteristic of ranged weapons equipped by models in this unit.
-- On a 5-6, until the end of the phase, add 1 to the Attacks characteristic of ranged weapons equipped by models in this unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s attacks that target a unit that has no models with a Toughness characteristic of 7 or more have +1 to Hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -7204,7 +7201,7 @@ sim-mod: source=&quot;Shooty Power Trip (5-6)&quot; attacks=+1 when=ranged choic
             <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="caf3-af32-766f-311c"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry type="model" import="true" name="Killa Kan w/ Kan shoota" hidden="false" id="fcf3-c626-e7c5-51ab">
+            <selectionEntry type="model" import="true" name="Killa Kan" hidden="false" id="fcf3-c626-e7c5-51ab">
               <constraints>
                 <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="6098-8281-f7e7-e981"/>
               </constraints>
@@ -7214,8 +7211,8 @@ sim-mod: source=&quot;Shooty Power Trip (5-6)&quot; attacks=+1 when=ranged choic
               <profiles>
                 <profile name="Killa Kans" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="77f0-61d5-4029-95ca">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
@@ -7237,165 +7234,57 @@ sim-mod: source=&quot;Shooty Power Trip (5-6)&quot; attacks=+1 when=ranged choic
                     </entryLink>
                   </entryLinks>
                   <selectionEntries>
-                    <selectionEntry type="upgrade" import="true" name="Kan shoota" hidden="false" id="1e1f-c4f8-c26f-eaa8" collective="true">
+                    <selectionEntry type="upgrade" import="true" name="Kan Blasta" hidden="false" id="1e1f-c4f8-c26f-eaa8" collective="true">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0b50-7d11-49cc-871d"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="45bf-bfe1-c900-1926"/>
                       </constraints>
                       <profiles>
-                        <profile name="Kan shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="fb65-5edf-1023-6c39">
+                        <profile name="Kan Blasta - Dakka" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="fb65-5edf-1023-6c39">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Rapid Fire 2</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Ignores Cover, Sustained Hits 1</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="Kan Blasta - Kill Shot" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-5001">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="Kan Blasta - Point Blank" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-5002">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Rapid Fire" id="12fa-da58-572f-323c" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
-                        <infoLink name="Devastating Wounds" id="9b88-2b25-72e3-1c56" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+                        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-5003" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Ignores Cover" hidden="false" type="rule" id="0d1a-9f3b-7c40-5004" targetId="4640-43e7-30b-215a"/>
+                        <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-9f3b-7c40-5005" targetId="1897-c22c-9597-12b1"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-5006" targetId="5edf-d619-23e0-9b56"/>
                       </infoLinks>
                       <entryLinks>
                         <entryLink import="true" name="Weapon Modifications" hidden="false" id="c144-dfde-b055-20f9" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
                       </entryLinks>
                     </selectionEntry>
                   </selectionEntries>
-                </selectionEntryGroup>
-              </selectionEntryGroups>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Killa Kan w/ Grotzooka" hidden="false" id="f03b-8761-eac6-1405">
-              <constraints>
-                <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="6098-8281-f7e7-e981"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Totemic Presence upgrade" hidden="false" id="1e1b-bd84-0bbf-8c54" type="selectionEntry" targetId="6220-fe17-7c2a-8268" sortIndex="1"/>
-              </entryLinks>
-              <profiles>
-                <profile name="Killa Kans" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="53a5-d821-b825-2046">
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Wargear" id="a5d4-0fa9-dc91-d62f" hidden="false" sortIndex="2">
-                  <entryLinks>
-                    <entryLink import="true" name="Grotzooka" hidden="false" id="3e08-3707-fd91-3353" type="selectionEntry" targetId="d8de-b5ae-eece-da84">
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="fffb-c573-bd8d-4db4" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c83b-2041-49e5-3b34"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e72e-617f-23e8-dcbd"/>
-                      </constraints>
-                    </entryLink>
-                    <entryLink import="true" name="Kan klaw" hidden="false" id="cd52-3197-ac3a-6c2a" type="selectionEntry" targetId="d7b7-a7e-ef2-783a">
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2994-0735-a246-8b61"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f36a-517d-2f16-14df"/>
-                      </constraints>
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="0e38-7ca9-310f-d405" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                    </entryLink>
-                  </entryLinks>
-                </selectionEntryGroup>
-              </selectionEntryGroups>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Killa Kan w/ Rokkit launcha" hidden="false" id="2058-9f53-d36e-a435">
-              <constraints>
-                <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="6098-8281-f7e7-e981"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Totemic Presence upgrade" hidden="false" id="8eed-3aa8-5091-9a9c" type="selectionEntry" targetId="6220-fe17-7c2a-8268" sortIndex="1"/>
-              </entryLinks>
-              <profiles>
-                <profile name="Killa Kans" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6dc9-0ef9-ecf3-0f2c">
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Wargear" id="af19-cc67-4183-12bb" hidden="false" sortIndex="2">
-                  <entryLinks>
-                    <entryLink import="true" name="Kan klaw" hidden="false" id="230e-4104-6fb8-9278" type="selectionEntry" targetId="d7b7-a7e-ef2-783a">
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d39e-3be4-386d-3bbc"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="810d-c4d9-9034-be8c"/>
-                      </constraints>
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="84da-f5e1-1692-9244" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                    </entryLink>
-                    <entryLink import="true" name="Rokkit launcha" hidden="false" id="3f59-3ab4-0ac4-4cd2" type="selectionEntry" targetId="8a55-0ff6-7e3d-1829">
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="11cd-0245-b648-cab3" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2af9-f28b-c1c1-1037"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3a3b-5801-190f-30e2"/>
-                      </constraints>
-                    </entryLink>
-                  </entryLinks>
-                </selectionEntryGroup>
-              </selectionEntryGroups>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Killa Kan w/ Skorcha" hidden="false" id="1137-3afb-3ba5-383c">
-              <constraints>
-                <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="6098-8281-f7e7-e981"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Totemic Presence upgrade" hidden="false" id="1612-f541-4ac5-54a3" type="selectionEntry" targetId="6220-fe17-7c2a-8268" sortIndex="1"/>
-              </entryLinks>
-              <profiles>
-                <profile name="Killa Kans" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="682d-ed27-8ea1-85b6">
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Wargear" id="eac6-9b1b-5a94-f21f" hidden="false" sortIndex="2">
-                  <entryLinks>
-                    <entryLink import="true" name="Kan klaw" hidden="false" id="dc36-ecd2-5863-8de7" type="selectionEntry" targetId="d7b7-a7e-ef2-783a">
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="67ec-1a09-4a1b-2371"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f75b-45a0-857c-6a10"/>
-                      </constraints>
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="15eb-a762-4360-dedd" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                    </entryLink>
-                    <entryLink import="true" name="Skorcha" hidden="false" id="f7dd-511a-cac2-4692" type="selectionEntry" targetId="7a18-2212-5898-1149" collective="true">
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5546-c81a-36b8-937b"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d412-22c1-1201-800e"/>
-                      </constraints>
-                      <entryLinks>
-                        <entryLink import="true" name="Weapon Modifications" hidden="false" id="b452-5b89-ebab-6410" type="selectionEntryGroup" targetId="f9da-852a-d7f0-92e9"/>
-                      </entryLinks>
-                    </entryLink>
-                  </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
             </selectionEntry>
