@@ -10477,7 +10477,7 @@ sim-mod: source=&quot;Da Bigger Dey Iz (Titanic)&quot; dmg=+2 vs=Titanic scope=m
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="1e30-f4aa-c5a9-a266" primary="true" name="Infantry"/>
         <categoryLink targetId="8c0d-c331-6446-ae26" id="771b-bc36-6230-aa11" primary="false" name="Nobz"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="16db-ae8e-d406-b691" primary="false" name="Grenades"/>
+        <categoryLink targetId="0d1a-9f3b-7c40-1e02" id="16db-ae8e-d406-b691" primary="false" name="Explosives"/>
         <categoryLink targetId="56cc-5f43-2403-8da0" id="80bd-890e-a717-e4a" primary="false" name="Faction: Orks"/>
       </categoryLinks>
       <profiles>
@@ -10491,130 +10491,282 @@ sim-mod: source=&quot;Da Bigger Dey Iz (Titanic)&quot; dmg=+2 vs=Titanic scope=m
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Da Boss’ Ladz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c44-b390-e18d-9712">
+        <profile name="Get Out da Way!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c44-b390-e18d-9712">
           <characteristics>
-            <characteristic name="Description" id="d123-4bd3-ea2d-7f26" hidden="false" typeId="9b8f-694b-e5e-b573">While a WARBOSS model is leading this unit, each time an attack targets this unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of this unit, subtract 1 from the Wound roll.</characteristic>
+            <characteristic name="Description" id="d123-4bd3-ea2d-7f26" hidden="false" typeId="9b8f-694b-e5e-b573">While making a **charge move**, this unit can move through models (excluding **^^Monster^^** and **^^Vehicle^^** models).</characteristic>
           </characteristics>
         </profile>
+        <profile name="Ammo Runts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-6071"/>
+        <profile name="Paired Krumpas" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-6070"/>
       </profiles>
       <infoLinks>
         <infoLink name="Waaagh!" hidden="false" type="rule" id="28b-7238-bf8a-de11" targetId="37c-6ef9-277-9091"/>
       </infoLinks>
       <selectionEntryGroups>
-        <selectionEntryGroup name="4-9 Nobz" hidden="false" id="5222-939b-c573-eb83" defaultSelectionEntryId="9d59-90c-9048-1e82" sortIndex="4">
+        <selectionEntryGroup name="Nobz (5-10)" hidden="false" id="5222-939b-c573-eb83" defaultSelectionEntryId="0d1a-9f3b-7c40-6050" sortIndex="4">
           <selectionEntries>
-            <selectionEntry type="model" import="true" name="Nob w/ Slugga and big choppa" hidden="false" id="9d59-90c-9048-1e82">
-              <entryLinks>
-                <entryLink import="true" name="Slugga" hidden="false" type="selectionEntry" id="1051-bc96-9f61-ea52" targetId="e71d-1472-87d-b4fa">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a1ce-70e4-4ad7-bcbb"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="708b-6432-a47e-ab84"/>
-                  </constraints>
-                </entryLink>
-                <entryLink import="true" name="Big choppa" hidden="false" id="b63a-21b7-178a-c562" type="selectionEntry" targetId="29e9-cd9b-66bd-fe60">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="465e-37eb-ea04-55b9"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d898-9aef-c4ab-ffb5"/>
-                  </constraints>
-                </entryLink>
-              </entryLinks>
-              <constraints>
-                <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="5654-21fe-abfe-5887"/>
-              </constraints>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="4" field="5654-21fe-abfe-5887">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="09d3-a08a-0671-fe86" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Nob w/ Slugga and power klaw" hidden="false" id="3bd9-3eb1-8b1f-2b31">
-              <entryLinks>
-                <entryLink import="true" name="Slugga" hidden="false" type="selectionEntry" id="8acb-e824-c1c7-f54a" targetId="e71d-1472-87d-b4fa">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a1ce-70e4-4ad7-bcbb"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="708b-6432-a47e-ab84"/>
-                  </constraints>
-                </entryLink>
-                <entryLink import="true" name="Power klaw" hidden="false" id="01f0-572c-26e2-8631" type="selectionEntry" targetId="ee65-6385-44ba-3758" collective="true">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="263e-03a8-0f64-f561"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d157-d708-65df-f9e4"/>
-                  </constraints>
-                </entryLink>
-              </entryLinks>
-              <constraints>
-                <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="5654-21fe-abfe-5887"/>
-              </constraints>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="4" field="5654-21fe-abfe-5887">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="09d3-a08a-0671-fe86" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Nob w/ Kombi-weapon" hidden="false" id="252b-cdba-84bd-3ed3">
-              <constraints>
-                <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="5654-21fe-abfe-5887"/>
-              </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="72c5-966b-97c7-f07d" type="selectionEntry" targetId="e1c3-9162-7c4b-b7da">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6fbb-bcc2-29b6-4513"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ea48-2a0b-c5c2-ffad"/>
-                  </constraints>
-                </entryLink>
-                <entryLink import="true" name="Kombi-weapon" hidden="false" id="c153-27d9-c9ab-42de" type="selectionEntry" targetId="ac6f-9310-e9ac-678">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="42c1-23aa-aad3-e01e"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2cf2-f5b4-4093-24a4"/>
-                  </constraints>
-                </entryLink>
-              </entryLinks>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="4" field="5654-21fe-abfe-5887">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="09d3-a08a-0671-fe86" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
+<selectionEntry type="model" import="true" name="Nob" hidden="false" id="0d1a-9f3b-7c40-6050">
+  <constraints>
+    <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6051"/>
+  </constraints>
+  <profiles>
+    <profile name="Nob" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-9f3b-7c40-6052">
+      <characteristics>
+        <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+        <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+        <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
+        <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+        <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+      </characteristics>
+    </profile>
+  </profiles>
+  <selectionEntryGroups>
+  <selectionEntryGroup name="Nob Melee Weapon" id="0d1a-9f3b-7c40-6010" hidden="false" defaultSelectionEntryId="0d1a-9f3b-7c40-6022">
+    <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Kustom Krumpa" hidden="false" id="0d1a-9f3b-7c40-6022" collective="false">
+      <profiles>
+        <profile name="Kustom Krumpa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-6001">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-6023" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Kustom Choppa" hidden="false" id="0d1a-9f3b-7c40-6013" collective="false">
+      <constraints>
+        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-6011" includeChildSelections="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Kustom Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-6002">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <modifiers>
+        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-6011">
+          <repeats>
+            <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-6012" includeChildSelections="true"/>
+          </repeats>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-6014" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Big Choppa" hidden="false" id="0d1a-9f3b-7c40-6017" collective="false">
+      <constraints>
+        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-6015" includeChildSelections="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Big Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-6003">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-6018" targetId="ea1f-c7b7-cafa-43f8"/>
+      </infoLinks>
+      <modifiers>
+        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-6015">
+          <repeats>
+            <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-6016" includeChildSelections="true"/>
+          </repeats>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-6019" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    </selectionEntries>
+    <constraints>
+      <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6020"/>
+      <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6021"/>
+    </constraints>
+  </selectionEntryGroup>
+  <selectionEntryGroup name="Nob Ranged Weapon" id="0d1a-9f3b-7c40-6028" hidden="false" defaultSelectionEntryId="0d1a-9f3b-7c40-6024">
+    <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Kustom Shoota" hidden="false" id="0d1a-9f3b-7c40-6024" collective="false">
+      <profiles>
+        <profile name="Kustom Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-6005">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-6025" targetId="0d1a-9f3b-7c40-1c01"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-6026" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-6027" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Big Skorcha" hidden="false" id="0d1a-9f3b-7c40-6031" collective="false">
+      <constraints>
+        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-6029" includeChildSelections="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Big Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-6006">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-6032" targetId="6c1f-1cf7-ff25-c99e"/>
+        <infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-6033" targetId="5edf-d619-23e0-9b56"/>
+      </infoLinks>
+      <modifiers>
+        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-6029">
+          <repeats>
+            <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-6030" includeChildSelections="true"/>
+          </repeats>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-6034" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Kustom Big Shoota" hidden="false" id="0d1a-9f3b-7c40-6037" collective="false">
+      <constraints>
+        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-6035" includeChildSelections="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Kustom Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-6007">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">8</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-6038" targetId="0d1a-9f3b-7c40-1c01"/>
+      </infoLinks>
+      <modifiers>
+        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-6035">
+          <repeats>
+            <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-6036" includeChildSelections="true"/>
+          </repeats>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-6039" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Paired Krumpas" hidden="false" id="0d1a-9f3b-7c40-6042" collective="false">
+      <constraints>
+        <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-6040" includeChildSelections="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Kustom Krumpa (2nd)" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-6004">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <modifiers>
+        <modifier type="increment" value="1" field="0d1a-9f3b-7c40-6040">
+          <repeats>
+            <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" id="0d1a-9f3b-7c40-6041" includeChildSelections="true"/>
+          </repeats>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-6043" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Kombi-rokkit" hidden="false" id="0d1a-9f3b-7c40-6044" collective="false">
+      <profiles>
+        <profile name="Kombi-rokkit - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-6008">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Kombi-rokkit - Busta Rokkit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-6009">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-6045" targetId="0d1a-9f3b-7c40-1c01"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-6046" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-6047" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    </selectionEntries>
+    <constraints>
+      <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6048"/>
+      <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6049"/>
+    </constraints>
+  </selectionEntryGroup>
+  </selectionEntryGroups>
+</selectionEntry>
           </selectionEntries>
           <constraints>
-            <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="8006-2034-a682-c0e6"/>
-            <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="5654-21fe-abfe-5887"/>
+            <constraint type="min" value="5" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6053"/>
+            <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6054"/>
           </constraints>
           <modifierGroups>
             <modifierGroup type="and">
