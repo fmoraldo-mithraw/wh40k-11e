@@ -36,6 +36,9 @@ async function compte(file) {
 }
 
 const files = (await readdir(ROOT)).filter((f) => /\.(cat|gst)$/.test(f)).sort();
+// Plancher : un checkout tronqué (0 ou peu de fichiers) donnait 0 dépassement →
+// exit 0, un faux feu vert. Le dépôt a ~47 fichiers de données.
+if (files.length < 45) { console.error(`[dup-ids] seulement ${files.length} fichiers .cat/.gst (attendu ≥45) — checkout tronqué ?`); process.exit(1); }
 const actuel = {};
 for (const f of files) actuel[f] = await compte(f);
 
