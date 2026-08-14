@@ -1823,6 +1823,10 @@ When a player has completed all five phases, their turn ends.</description>
 - **Fight (12.04):** Resolve Fights First combats first (units that charged or have Fights First), then players alternate selecting units to fight, starting with the player whose turn it is NOT. A selected unit piles in, makes melee attacks, then consolidates.
 - **Consolidate (12.08):** up to 3"; move toward the nearest enemy unit / objective as allowed.</description>
     </rule>
+    <rule id="f12d-58f5-c28f-692e" name="Damaged" publicationId="48fc-15aa-b307-9443" hidden="false">
+      <description>This ability always takes the form Damaged X. While a model’s remaining wounds are equal to or less than X, that model is damaged:
+■ While a model is damaged, that model’s attacks have -1 to hit rolls.</description>
+    </rule>
   </sharedRules>
   <sharedProfiles>
     <profile id="fa4e-5ac8-11a6-78d2" name="Fortification" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
