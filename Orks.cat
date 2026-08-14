@@ -12939,7 +12939,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 <profile name="Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-7001">
 <characteristics>
 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
 <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
@@ -13006,6 +13006,9 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </characteristics>
 </profile>
 </profiles>
+                      <infoLinks>
+                        <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-7f01" targetId="0d1a-9f3b-7c40-1c06"/>
+                      </infoLinks>
 <categoryLinks>
 <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-7021" targetId="ccdd-3987-11ed-90cd" primary="false"/>
 </categoryLinks>
@@ -13064,6 +13067,9 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </characteristics>
 </profile>
 </profiles>
+                  <infoLinks>
+                    <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-7f02" targetId="0d1a-9f3b-7c40-1c06"/>
+                  </infoLinks>
 <categoryLinks>
 <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-7033" targetId="eeda-8544-a2f3-3fab" primary="false"/>
 </categoryLinks>
@@ -26278,6 +26284,11 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
 
 **While moving:**
 - Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.</description>
+    </rule>
+    <rule name="Hunter (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c06">
+      <description>Some weapons have a **[HUNTER: ^^Monster^^/^^Vehicle^^]** profile. Each time a unit is selected to shoot or fight, a weapon profile that has **[HUNTER: ^^Monster^^/^^Vehicle^^]** can only be used to make attacks against a target that is a **^^Monster^^** or **^^Vehicle^^** unit.
+
+This is a targeting restriction that depends on the enemy unit, so the format cannot enforce it automatically: it is descriptive. A consuming app must show it, and only allow that profile to be used against **^^Monster^^**/**^^Vehicle^^** targets.</description>
     </rule>
   </rules>
   <sharedSelectionEntryGroups>
