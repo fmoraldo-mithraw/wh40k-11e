@@ -1482,108 +1482,125 @@
   </sharedSelectionEntries>
   <sharedRules>
     <rule id="8bf7-8812-923d-29e4" name="Pistol" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[PISTOL]** in their profile are known as Pistols. If a unit contains any models equipped with Pistols, that unit is eligible to shoot in its controlling player’s Shooting phase even while it is within Engagement Range of one or more enemy units. When such a unit is selected to shoot, it can only resolve attacks using its Pistols and can only target one of the enemy units it is within Engagement Range of. In such circumstances, a Pistol can target an enemy unit even if other friendly units are within Engagement Range of the same enemy unit. 
-
-If a model is equipped with one or more Pistols, unless it is a **^^Monster^^** or **^^Vehicle^^** model, it can either shoot with its Pistols or with all of its other ranged weapons. Declare whether such a model will shoot with its Pistols or its other ranged weapons before selecting targets.</description>
+      <description>Pistols can be wielded even at point-blank range.
+**[PISTOL]** and **[CLOSE-QUARTERS]** are identical for all rules purposes. See **[CLOSE-QUARTERS]**.
+Designer&apos;s Note: **[PISTOL]** is a pre-existing ability that will be superseded by **[CLOSE-QUARTERS]** as this edition of Warhammer 40,000 progresses. Both are functionally the same, but the latter is a more suitable term for weapons that function in this way.</description>
       <alias>PISTOL</alias>
     </rule>
     <rule id="8367-374c-f87-c627" name="Hazardous" publicationId="48fc-15aa-b307-9443" page="28" hidden="false">
-      <description>Weapons with **[HAZARDOUS]** in their profile are known as Hazardous weapons. Each time a unit is selected to shoot or fight, after that unit has resolved all of its attacks, for each Hazardous weapon that targets were selected for when resolving those attacks, that unit must take one Hazardous test. To do so, roll one D6: on a 1, that test is failed. For each failed test you must resolve the following sequence (resolve each failed test one at a time): 
-
-■ If possible, select one model in that unit that has lost one or more wounds and is equipped with one or more Hazardous weapons. 
-■ Otherwise, if possible, select one model in that unit (excluding **^^Character^^** models) equipped with one or more Hazardous weapons. 
-■ Otherwise, select one **^^Character^^** model in that unit equipped with one or more Hazardous weapons. 
-
-If a model was selected, that unit suffers 3 mortal wounds and when allocating those mortal wounds, they must be allocated to the selected model. 
-
-If a unit from a player’s army is selected as the target of the Fire Overwatch Stratagem in their opponent’s Charge phase, any mortal wounds inflicted by Hazardous tests are allocated after the charging unit has ended its Charge move.</description>
+      <description>Weapons powered by unstable and dangerous energy sources pose a substantial risk to the wielder and those that stand beside them.
+Each time a unit is selected to shoot or selected to fight, after that unit has resolved all of its attacks, make a number of hazard rolls (06.03) for that unit equal to the number of **[HAZARDOUS]** weapons you selected in the Select Weapons step.</description>
       <alias>HAZARDOUS</alias>
     </rule>
     <rule id="b4dd-3e1f-41cb-218f" name="Leader" publicationId="48fc-15aa-b307-9443" page="39" hidden="false">
-      <description>While a Bodyguard unit contains a Leader, it is known as an Attached unit and, with the exception of rules that are triggered when units are destroyed (pg 12), it is treated as a single unit for all rules purposes. Each time an attack targets an Attached unit, until the attacking unit has resolved all of its attacks, you must use the Toughness characteristic of the Bodyguard models in that unit, even if a Leader in that unit has a different Toughness characteristic. Each time an attack successfully wounds an Attached unit, that attack cannot be allocated to a Character model in that unit, even if that Character model has lost one or more wounds or has already had attacks allocated to it this phase. As soon as the last Bodyguard model in an Attached unit has been destroyed, any attacks made against that unit that have yet to be allocated can then be allocated to Character models in that unit.
-
-Each time the last model in a Bodyguard unit is destroyed, each CHARACTER unit that is part of that Attached unit becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. 
-
-Each time the last model in a CHARACTER unit that is attached to a Bodyguard unit is destroyed and there is not another CHARACTER unit attached, that Attached unit’s Bodyguard unit becomes a separate unit, with its original Starting Strength. If this happens as the result of an attack, they become separate units after the attacking unit has resolved all of its attacks. 
-
-Each time a unit that is part of an Attached unit is destroyed, it does not have the keywords of any other units that make up that Attached unit (unless it has those keywords on its own datasheet) for the purposes of any rules that would be triggered when that unit is destroyed.</description>
+      <description>Mighty heroes fight at the forefront of battle.
+See Attached Units (19).</description>
     </rule>
     <rule id="be1e-ac8e-1e2c-3528" name="Devastating Wounds" publicationId="48fc-15aa-b307-9443" page="28" hidden="false">
-      <description>Weapons with **[DEVASTATING WOUNDS]** in their profile are known as Devastating Wounds weapons. Each time an attack is made with such a weapon, if that attack scores a Critical Wound, no saving throw of any kind can be made against that attack (including invulnerable saving throws). Such attacks are only allocated to models after all other attacks made by the attacking unit have been allocated and resolved. After that attack is allocated and after any modifiers are applied, it inflicts a number of mortal wounds on the target equal to the Damage characteristic of that attack, instead of inflicting damage normally.</description>
+      <description>The most potent weapons strike with such power that they make a mockery of armour and can cleave through several foes.
+Each time an attack made with a **[DEVASTATING WOUNDS]** weapon results in a critical wound, the attack sequence for that attack ends and the target unit suffers a number of mortal wounds equal to the D characteristic of that weapon. These are inflicted after resolving any normal damage inflicted by those attacks.
+Mortal wounds inflicted by **[DEVASTATING WOUNDS]** weapons can damage a maximum of one model for each critical wound; any remaining mortal wounds inflicted by that attack are lost.
+Example: An attack made with a **[DEVASTATING WOUNDS]** weapon with a D characteristic of 3 results in a critical wound against an Intercessor Squad, so inflicts 3 mortal wounds. The first 2 mortal wounds are sufficient to destroy 1 Intercessor model, so the remaining mortal wound is lost.</description>
       <alias>DEVASTATING WOUNDS</alias>
     </rule>
     <rule id="fc8a-8c24-bae9-cc1c" name="Assault" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[ASSAULT]** in their profile are known as Assault weapons. If a unit that Advanced this turn contains any models equipped with Assault weapons, it is still eligible to shoot in this turn’s Shooting phase. When such a unit is selected to shoot, you can only resolve attacks using Assault weapons its models are equipped with.</description>
+      <description>Folding stocks, shortened barrels or lightweight construction enable some weapons to be easily fired on the move.
+Units containing one or more models with an **[ASSAULT]** weapon can shoot using assault shooting (10.05).</description>
       <alias>ASSAULT</alias>
     </rule>
     <rule id="115b-79dc-f723-d761" name="Extra Attacks" publicationId="48fc-15aa-b307-9443" page="28" hidden="false">
-      <description>Weapons with **[EXTRA ATTACKS]** in their profile are known as Extra Attacks weapons. Each time the bearer of one or more Extra Attacks weapons fights, it makes attacks with each of the Extra Attacks melee weapons it is equipped with and it makes attacks with one of the melee weapons it is equipped with that does not have the [EXTRA ATTACKS] ability (if any). The number of attacks made with an Extra Attacks weapon cannot be modified by other rules, unless that weapon’s name is explicitly specified in that rule.</description>
+      <description>Some warriors ride to battle atop trusty mounts that gore and trample nearby foes. Others wield combat weapons that deliver a frenzy of additional blows.
+Each time a unit containing one or more models with an **[EXTRA ATTACKS]** weapon fights, those models will make attacks with those weapons in addition to any others. In the Select Weapons step (04.01), for each of those models, you must select:
+■ All of that model&apos;s **[EXTRA ATTACKS]** weapons.
+■ One of that model&apos;s other melee weapons, if possible.</description>
       <alias>EXTRA ATTACKS</alias>
     </rule>
     <rule id="cf93-ad4d-2f08-a79d" name="Twin-linked" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[TWIN-LINKED]** in their profile are known as Twin-linked weapons. Each time an attack is made with such a weapon, you can re-roll that attack’s Wound roll.</description>
+      <description>Dual weapons are often grafted to the same targeting system for greater lethality.
+Each time an attack is made with a **[TWIN-LINKED]** weapon, you can re-roll the wound roll.</description>
       <alias>TWIN-LINKED</alias>
     </rule>
     <rule id="4111-82e3-9444-e942" name="Anti-" publicationId="48fc-15aa-b307-9443" page="28" hidden="false">
-      <description>Weapons with **[ANTI-KEYWORD X+]** in their profile are known as Anti weapons. Each time an attack is made with such a weapon against a target with the keyword after the word ‘Anti-’, an unmodified Wound roll of ‘x+’ scores a Critical Wound.</description>
+      <description>Certain weapons are the bane of particular foes.
+This ability always takes the form **[ANTI-X Y+]**. Each time an attack is made with an **[ANTI]** weapon, if the target unit has the keyword denoted by X, an unmodified wound roll of Y+ is a critical wound.
+Example: An attack made with an **[ANTI-VEHICLE 4+]** weapon against a **^^Vehicle^^** unit will result in a critical wound on an unmodified wound roll of 4+, while an attack made with an **[ANTI-PSYKER 2+]** weapon against a **^^Psyker^^** unit will result in a critical wound on an unmodified wound roll of 2+.</description>
       <alias>ANTI-</alias>
     </rule>
     <rule id="1897-c22c-9597-12b1" name="Sustained Hits" publicationId="48fc-15aa-b307-9443" page="28" hidden="false">
-      <description>Weapons with **[SUSTAINED HITS X]** in their profile are known as Sustained Hits weapons. Each time an attack is made with such a weapon, if a Critical Hit is rolled, that attack scores a number of additional hits on the target as denoted by ‘x’</description>
+      <description>Some weapons possess a punishing rate of fire, or can land devastating flurries of blows, tearing the foe apart with relentless ferocity.
+This ability always takes the form **[SUSTAINED HITS X]**. Each time an attack made with a **[SUSTAINED HITS]** weapon results in a critical hit, that attack results in a number of additional hits on the target as denoted by X.
+Example: An attack made with a **[SUSTAINED HITS 2]** weapon results in a critical hit. That attack therefore hits the target three times (once from the critical hit, and twice more from the **[SUSTAINED HITS 2]** ability).</description>
       <alias>SUSTAINED HITS</alias>
     </rule>
     <rule id="1202-10a8-78e9-4c67" name="Heavy" publicationId="48fc-15aa-b307-9443" page="26" hidden="false">
-      <description>Weapons with **[HEAVY]** in their profile are known as Heavy weapons. Each time an attack is made with such a weapon, if the attacking model’s unit Remained Stationary this turn, add 1 to that attack’s Hit roll.</description>
+      <description>Heavy weapons are amongst the biggest guns on the battlefield, but require bracing to fire at full effect.
+In your Shooting phase, each time an attack is made with a **[HEAVY]** weapon, add 1 to the hit roll if all of the following apply to the attacking unit:
+■ That unit is unengaged.
+■ That unit was not set up on the battlefield this turn.
+■ No model in that unit has moved more than 3&quot; this turn.</description>
       <alias>HEAVY</alias>
     </rule>
     <rule id="7cdb-fb99-44a9-8849" name="Melta" publicationId="48fc-15aa-b307-9443" page="26" hidden="false">
-      <description>Weapons with **[MELTA X]** in their profile are known as Melta weapons. Each time an attack made with such a weapon targets a unit within half that weapon’s range, that attack’s Damage characteristic is increased by the amount denoted by ‘x’.</description>
+      <description>Melta weapons are powerful heat rays whose fury is magnified at close range.
+This ability always takes the form **[MELTA X]**. Each time a model makes an attack with a **[MELTA]** weapon, if the target unit was within half range of that weapon in the Select Targets step, until the attacking unit&apos;s attacks have been resolved, add X to that weapon&apos;s D characteristic.
+Example: A model targets a unit that is within half range of a **[MELTA 2]** weapon with a D characteristic of D6. While resolving those attacks, that weapon has a D characteristic of D6+2.</description>
       <alias>MELTA</alias>
     </rule>
     <rule id="9bf4-280f-bbe2-6fbb" name="Feel No Pain" publicationId="48fc-15aa-b307-9443" page="23" hidden="false">
-      <description>Some models have &apos;Feel No Pain x+&apos; listed in their abilities. Each time a model with this ability suffers damage and so would lose a wound (including wounds lost due to mortal wounds), roll one D6: if the result is greater than or equal to the number denoted by &apos;x: that wound is ignored and is not lost. If a model has more than one Feel No Pain ability, you can only use one of those abilities each time that model suffers damage and so would lose a wound.</description>
+      <description>The hardiest warriors refuse to be laid low, even by wounds that should by all rights prove lethal.
+This ability always takes the form Feel No Pain X+. Each time a model with this ability would lose a wound, roll one D6: on an X+, that wound is not lost.</description>
     </rule>
     <rule id="6c1f-1cf7-ff25-c99e" name="Blast" publicationId="48fc-15aa-b307-9443" page="26" hidden="false">
-      <description>Weapons with **[BLAST]** in their profile are known as Blast weapons. Each time you gather attack dice for a Blast weapon, add one additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down). If this ability takes the form [BLAST X], add X additional attack dice for every five models instead. Blast weapons can never be used to make attacks against a unit that is within Engagement Range of one or more units from the attacking model’s army (including its own unit).</description>
+      <description>High-explosive rounds can fell several warriors in a single blast, but firing them too close to comrades is unwise.
+Each time you gather attack dice for a **[BLAST]** weapon, add one additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down).
+If this ability takes the form **[BLAST X]**, each time you gather attack dice for such a weapon, add X additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down) instead.
+Example: If a **[BLAST 2]** weapon with an A characteristic of 3 targets a unit containing 12 models, you would gather four additional attack dice for that weapon (for a total of seven for that weapon).</description>
       <alias>BLAST</alias>
     </rule>
     <rule id="9143-31ae-e0a6-6007" name="Precision" publicationId="48fc-15aa-b307-9443" page="26" hidden="false">
-      <description>Weapons with **[PRECISION]** in their profile are known as Precision weapons. Each time an attack made with such a weapon successfully wounds an Attached unit, if a Character model in that unit is visible to the attacking model, the attacking model’s player can choose to have that attack allocated to that Character model instead of following the normal attack sequence.</description>
+      <description>Precision attacks can pick high-value targets out in a crowd.
+While resolving attacks made with one or more **[PRECISION]** weapons, at the start of the Allocation Order step (05.03), if the target unit contains one or more **^^Character^^** models visible to one or more of the attacking models, the active player can select one allocation group that contains one of those visible **^^Character^^** models. If they do, until those attacks are resolved, or until that **^^Character^^** group is destroyed (whichever happens first), that **^^Character^^** group is the current allocation group.</description>
       <alias>PRECISION</alias>
     </rule>
     <rule id="4ddd-4e29-acdd-5e6d" name="Indirect Fire" publicationId="48fc-15aa-b307-9443" page="26" hidden="false">
-      <description>Weapons with **[INDIRECT FIRE]** in their profile are known as Indirect Fire weapons, and attacks can be made with them even if the target is not visible to the attacking model. These attacks can destroy enemy models in a target unit even though none may have been visible to the attacking unit when you selected that target.
-
-
-If no models in a target unit are visible to the attacking unit when you select that target, then each time a model in the attacking unit makes an attack against that target using an Indirect Fire weapon, subtract 1 from that attack’s Hit roll, an unmodified Hit roll of 1-3 always fails, and the target has the Benefit of Cover against that attack. Weapons with the **[TORRENT]** ability cannot be fired using the **[INDIRECT FIRE]** ability.</description>
+      <description>Indirect fire weapons launch munitions over or around intervening obstacles – nowhere is safe from their fury.
+Units containing one or more models with an **[INDIRECT FIRE]** weapon can shoot using indirect shooting (10.07).</description>
       <alias>INDIRECT FIRE</alias>
     </rule>
     <rule id="2ebc-abdf-8129-6c57" name="Lance" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[LANCE]** in their profile are known as Lance weapons. Each time an attack is made with such a weapon, if the bearer made a Charge move this turn, add 1 to that attack’s Wound roll.</description>
+      <description>With the momentum of a warrior at full-tilt, lance weapons are deadly on the charge.
+Each time an attack is made with a **[LANCE]** weapon, if the attacking model&apos;s unit made a charge move this turn, add 1 to the wound roll.</description>
       <alias>LANCE</alias>
     </rule>
     <rule id="d1d1-611e-5191-1095" name="Lethal Hits" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[LETHAL HITS]** in their profile are known as Lethal Hits weapons. Each time an attack is made with such a weapon, a Critical Hit automatically wounds the target.</description>
+      <description>Many deadly weapons can inflict fatal injuries on any foe, no matter their resilience.
+Each time an attack made with a **[LETHAL HITS]** weapon results in a critical hit, you can choose for that attack to automatically wound the target.
+Designer&apos;s Note: Choosing to automatically wound the target means that no wound roll is made for that attack. You may decide against this, as it means that attack cannot result in a critical wound and so cannot trigger other abilities such as **[DEVASTATING WOUNDS]**.</description>
       <alias>LETHAL HITS</alias>
     </rule>
     <rule id="4640-43e7-30b-215a" name="Ignores Cover" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[IGNORES COVER]** in their profile are known as Ignores Cover weapons. Each time an attack is made with such a weapon, the target cannot have the Benefit of Cover against that attack.</description>
+      <description>Some weapons are designed to root enemy formations out of entrenched positions.
+Each time an attack is made with an **[IGNORES COVER]** weapon, the target cannot have the benefit of cover against that attack (13.08), including from rules that give a model or unit the benefit of cover (e.g. Stealth).</description>
       <alias>IGNORES COVER</alias>
     </rule>
     <rule id="c5c8-8b58-b8b6-7786" name="Rapid Fire" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[RAPID FIRE X]** in their profile are known as Rapid Fire weapons. Each time such a weapon targets a unit within half that weapon’s range, the Attacks characteristic of that weapon is increased by the amount denoted by ‘x’.</description>
+      <description>Rapid fire weapons are capable of long-ranged precision shots or controlled bursts at nearby targets.
+This ability always takes the form **[RAPID FIRE X]**. Each time you gather attack dice for a **[RAPID FIRE]** weapon, add X additional attack dice if the target unit was within half range of that weapon in the Select Targets step.
+Example: If a **[RAPID FIRE 1]** weapon with an A characteristic of 1 targets a unit that is within half range, you would gather one additional attack dice for that weapon (for a total of two for that weapon).</description>
       <alias>RAPID FIRE</alias>
     </rule>
     <rule id="5edf-d619-23e0-9b56" name="Torrent" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
-      <description>Weapons with **[TORRENT]** in their profile are known as Torrent weapons. Each time an attack is made with such a weapon, that attack automatically hits the target.</description>
+      <description>Torrent weapons project clouds of fire, gas or other lethal substances that few foes can hope to evade.
+Each time an attack is made with a **[TORRENT]** weapon, that attack automatically hits the target.</description>
       <alias>TORRENT</alias>
     </rule>
     <rule id="ada6-bac1-ffe0-d6f7" name="Scouts" publicationId="48fc-15aa-b307-9443" page="39" hidden="false">
-      <description>Some units have ‘Scouts x&quot;’ listed in their abilities. If every model in a unit has this ability, then at the start of the first battle round, before the first turn begins, it can make a Normal move of up to x&quot;, with the exception that, while making that move, the distance moved by each model in that unit can be greater than that model&apos;s Move characteristic, as long as it is not greater than x&quot;. 
-
-DEDICATED TRANSPORT models can make use of any Scouts x&quot; ability listed in their abilities, or a Scouts x&quot; ability that a unit that starts the battle embarked within that DEDICATED TRANSPORT  model has (provided only models with this ability are embarked within that Dedicated Transport model), regardless of how that embarked unit gained this ability (e.g. listed in their abilities, conferred by an Enhancement or by an attached Character, etc.). 
-
-A unit that moves using this ability must end that move more than 9&quot; horizontally away from all enemy models. If both players have units that can do this, the player who is taking the first turn moves their units first.</description>
+      <description>Scouts form the vanguard of many armies. Unnoticed by the enemy, they range ahead of the main force.
+This ability always takes the form Scouts X&quot;. In the Resolve Pre-battle Abilities step, if every model in a unit has this ability, you can do one of the following:
+■ If that unit is in strategic reserves, you can set up that unit anywhere that is wholly within your deployment zone.
+■ If that unit is wholly within your deployment zone, it can make a scout move (see below).
+■ If that unit is embarked within a **^^Dedicated Transport^^** that is wholly within your deployment zone, and if every model embarked within that **^^Dedicated Transport^^** has the Scouts ability, that **^^Dedicated Transport^^** can make a scout move.
+Scout Move — Maximum distance: the X&quot; in Scouts X&quot;. Eligible if: it is the Resolve Pre-battle Abilities step, and your unit is wholly within your deployment zone. Effect: your unit moves as described in Moving (03). After moving: your unit must be more than 8&quot; horizontally from all enemy units.</description>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>
@@ -1593,68 +1610,82 @@ A unit that moves using this ability must end that move more than 9&quot; horizo
       </modifiers>
     </rule>
     <rule id="c05d-f4c3-f091-4938" name="Infiltrators" publicationId="48fc-15aa-b307-9443" page="39" hidden="false">
-      <description>During deployment, if every model in a unit has this ability, then when you set it up, it can be set up anywhere on the battlefield that is more than 9&quot; horizontally away from the enemy deployment zone and all enemy models.</description>
+      <description>Many armies employ reconnaissance units who can sit concealed, waiting for the right moment to strike.
+During deployment, if every model in a unit has this ability, it can be set up anywhere on the battlefield that is more than 8&quot; horizontally from your opponent&apos;s deployment zone and all enemy units.</description>
     </rule>
     <rule id="7cb5-dd6b-dd87-ad3b" name="Deep Strike" publicationId="48fc-15aa-b307-9443" page="39" hidden="false">
-      <description>During the Declare Battle Formations step, if every model in a unit has this ability, you can set it up in Reserves instead of setting it up on the battlefield. If you do, in the Reinforcements step of one of your Movement phases you can set up this unit anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy models.
-
-If a unit with the Deep Strike ability arrives from Strategic Reserves, the controlling player can choose for that unit to be set up either using the rules for Strategic Reserves or using the Deep Strike ability.</description>
+      <description>There are many ways by which to deploy troops to the field of battle including tunnels, teleportation devices and other esoteric means of transportation.
+Each time this unit makes an ingress move (20.04), if every model in this unit has this ability, it can be set up anywhere on the battlefield that is more than 8&quot; horizontally from all enemy units, even if that is within your opponent&apos;s deployment zone.</description>
     </rule>
     <rule id="b68a-5ded-65ac-98c" name="Deadly Demise" publicationId="48fc-15aa-b307-9443" page="23" hidden="false">
-      <description>Some models have &apos;Deadly Demise x&apos; listed in their abilities. When such a model is destroyed, roll one D6 before removing it from play (if such a model is a TRANSPORT, roll before any embarked models disembark). On a 6, each unit within 6&quot; of that model suffers a number of mortal wounds denoted by &apos;x&apos; (if this is a random number, roll separately for each unit within 6&quot;).</description>
+      <description>From detonating ammo stores to corrosive innards or frenzied death throes, some targets are deadly even in defeat.
+This ability always takes the form Deadly Demise X. Each time a model in this unit is destroyed, after the units embarked within it (if any) have made their emergency disembark moves, roll one D6. On a 6, that model suffers a deadly demise; each unit within 6&quot; of that model suffers a number of mortal wounds denoted by X (if this is a random number, roll separately for each unit within 6&quot;).
+Example: An Impulsor with a unit of Intercessors embarked within it is destroyed by ranged attacks. First, any unresolved attacks made by the attacking unit are resolved. Then the Intercessors make an emergency disembark move. Then the roll is made for the Deadly Demise ability, and on a 6, that ability is resolved. Finally, the Impulsor is removed from the battlefield.</description>
     </rule>
     <rule id="bec5-4288-34a6-ccfa" name="Stealth" publicationId="48fc-15aa-b307-9443" page="20" hidden="false">
-      <description>If every model in a unit has this ability, then each time a ranged attack is made against it, subtract 1 from that attack’s Hit roll.</description>
+      <description>The stealthiest warriors can evade the attentions, and the bullets, of their foes.
+If every model in a unit has this ability, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack (13.08).</description>
     </rule>
     <rule id="5e13-1624-d280-418d" name="Super-Heavy Walker" hidden="false">
-      <description>Each time a model with this ability makes a Normal, Advance or Fall Back move, it can move through models (excluding **^^Titanic^^** models) and sections of terrain features that are 4&quot; or less in height.
-When doing so:
-- It can move within Engagement Range of enemy models, but cannot end that move within Engagement Range of them.
-- It can also move through sections of terrain features that are more than 4&quot; in height, but if it does, after it has moved, roll one D6: on a 1, that model is Battle-shocked.</description>
+      <description>Monstrous creatures and gigantic engines of war loom over the battlefield like gods given form, striding over combatants and smashing through almost any obstacle that bars their passage.
+Each time a unit with this ability makes a normal, advance or fall-back move:
+■ Models in that unit can move through models (including **^^Monster^^**/**^^Vehicle^^** models, but excluding **^^Titanic^^** models) and can move horizontally through sections of terrain features that are 4&quot; or less in height.
+■ Before moving that unit, you can select for all models in that unit to have the **^^Mobile^^** keyword until that move ends. If you do, when that move ends, roll one D6: on a 1, that unit is battle-shocked.
+Designer&apos;s Note: Gaining the **^^Mobile^^** keyword for the duration of a move will enable models in that unit to move horizontally through dense terrain features (13.06).</description>
     </rule>
     <rule id="a8a0-8fe7-898-e0f3" name="Lone Operative" publicationId="48fc-15aa-b307-9443" page="19" hidden="false">
-      <description>Unless part of an Attached unit, this unit can only be selected as the target of a ranged attack if the attacking model is within 12&quot;.</description>
+      <description>Assassins and other covert agents are difficult to pinpoint in the storm of battle.
+Unless part of an attached unit, this unit is not visible to enemy models unless they are within 12&quot; of this unit, and it cannot be targeted by **[INDIRECT FIRE]** weapons unless the attacking model is within 12&quot; of this unit.
+If this ability takes the form Lone Operative X&quot;, unless part of an attached unit, this unit is not visible to enemy models unless they are within X&quot; of this unit, and it cannot be targeted by **[INDIRECT FIRE]** weapons unless the attacking model is within X&quot; of this unit.</description>
     </rule>
     <rule id="eec5-5f54-9c03-c305" name="Hover" publicationId="48fc-15aa-b307-9443" page="53" hidden="false">
-      <description>Some **^^Aircraft^^** models have &apos;Hover&apos; listed in their abilities. When you are instructed to Declare Battle Formations, before doing anything else, you must first declare which models from your army with this ability will be in Hover mode.
-
-If a model is in Hover mode, then until the end of the battle, its Move characteristic is changed to 20&quot;, it loses the **^^Aircraft^^** keyword and it loses all associated rules for being an **^^Aircraft^^** model. Models in Hover mode do not start the battle in Reserves, but you can choose to place them into Strategic Reserves following the normal rules if you wish.</description>
+      <description>Some airborne vehicles can use vectored thrusters or anti-gravity technology to hover and skim over the battlefield, the better to hunt their prey or deploy embarked troops.
+Each time this unit takes to the skies (21.03), do not subtract 2&quot; from the maximum distance.</description>
     </rule>
     <rule id="24-c886-e8ba-5a89" name="Fights First" publicationId="48fc-15aa-b307-9443" page="32" hidden="false">
-      <description>Units with this ability that are eligible to fight do so in the Fights First step, provided every model in the unit has this ability.</description>
+      <description>Those possessed of lightning-fast reactions may strike before the opponent can react.
+While every model in a unit has this ability, that unit is a Fights First unit. See the Resolve Fights First Combats step in the Fight phase (12.04).</description>
     </rule>
     <rule id="e9c4-2bb8-12ee-cd1b" name="Psychic" publicationId="48fc-15aa-b307-9443" page="38" hidden="false">
-      <description>Some weapons and abilities can only be used by **^^Psykers^^**. Such weapons and abilities are tagged with the word &apos;Psychic&apos;. If a Psychic weapon or ability causes any unit to suffer one or more wounds, each of those wounds is considered to have been inflicted by a Psychic Attack.</description>
+      <description>Some weapons can channel the bearer&apos;s psychic might to empower their blows.
+Each time an attack is made with a **[PSYCHIC]** weapon, you can ignore any or all modifiers to that attack&apos;s BS or WS characteristic and any or all modifiers to the hit roll. Attacks made with **[PSYCHIC]** weapons are known as psychic attacks (this can be important for the triggering of other rules).</description>
       <alias>PSYCHIC</alias>
     </rule>
     <rule id="13b2-6518-dab3-7ea1" name="Firing Deck" page="17" hidden="false">
-      <description>Some **^^Transport^^** models have ‘Firing Deck x’ listed in their abilities. Each time such a model is selected to shoot in the Shooting phase, you can select up to ‘x’ models embarked within it whose units have not already shot this phase. Then, for each of those embarked models, you can select one ranged weapon that embarked model is equipped with (excluding weapons with the **[ONE SHOT]** ability). Until that **^^Transport^^** model has resolved all of its attacks, it counts as being equipped with all of the weapons you selected in this way, in addition to its other weapons. Until the end of the phase, those selected models’ units are not eligible to shoot.</description>
+      <description>Some transports have dedicated platforms or firing ports from which embarked passengers can lay down a withering hail of munitions.
+This ability always takes the form Firing Deck X. In your Shooting phase, each time this **^^Transport^^** is selected to shoot, if one or more units are embarked within it, resolve the following sequence:
+■ Select up to X models embarked within this **^^Transport^^** (excluding models whose units have already been selected to shoot this phase).
+■ For each selected model, select one of its ranged weapons (excluding **[ONE SHOT]** weapons).
+■ Until this **^^Transport^^** has resolved all of its attacks, it has all of those selected weapons in addition to its other weapons.
+■ Until the end of the turn, units embarked within this **^^Transport^^** are not eligible to shoot.</description>
     </rule>
     <rule id="cd26-1611-860a-91e4" name="One Shot" hidden="false">
-      <description>The bearer can only shoot with this weapon once per battle.</description>
+      <description>Some weapons are so rare, or so complex and slow to reload, that they can only be used once.
+Each weapon with this ability can only be selected to make attacks with once per battle.
+If a destroyed model is returned to a unit, all of its **[ONE SHOT]** weapons that have already been selected to make attacks with during the battle cannot be selected to make attacks with again.
+If a new unit is added to an army, all **[ONE SHOT]** weapons in that unit can be selected to make attacks with once per battle.</description>
       <alias>ONE SHOT</alias>
     </rule>
     <rule name="Crucible" id="5ce6-a3cf-e871-f081" hidden="false">
       <description>A **^^Character^^** created using Crucible rules has the Crucible ability. Your army may include up to three units with the Crucible ability and these units cannot be given Enhancements.</description>
     </rule>
     <rule id="ea1f-c7b7-cafa-43f8" name="Cleave" publicationId="48fc-15aa-b307-9443" page="79" hidden="false">
-      <description>Weapons with **[CLEAVE]** in their profile are known as Cleave weapons. This ability always takes the form **[CLEAVE X]**. Each time you gather attack dice for a Cleave weapon, if you only selected one target for all of that weapon’s attacks, add X additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down).
-
-*Example: If a [CLEAVE 1] weapon with an Attacks characteristic of 3 targets one unit containing 16 models, you would gather three additional attack dice for that weapon (for a total of six for that weapon).*</description>
+      <description>With sufficient might or skill, warriors may sweep blades or talons through their foes in long lethal arcs.
+This ability always takes the form **[CLEAVE X]**. Each time you gather attack dice for a **[CLEAVE]** weapon, if you only selected one target for all of that weapon&apos;s attacks, add X additional attack dice for every five models that were in the target unit in the Select Targets step (rounding down).
+Example: If a **[CLEAVE 1]** weapon with an A characteristic of 3 targets one unit containing 16 models, you would gather three additional attack dice for that weapon (for a total of six for that weapon).</description>
       <alias>CLEAVE</alias>
     </rule>
     <rule id="59e0-775e-fce5-43ca" name="Close-Quarters" publicationId="48fc-15aa-b307-9443" page="80" hidden="false">
-      <description>Weapons with **[CLOSE-QUARTERS]** in their profile are known as Close-quarters weapons. Units containing one or more models with a [CLOSE-QUARTERS] weapon can shoot using close-quarters shooting (10.06).
-
-When using another shooting type, for each model in that unit (excluding MONSTER/VEHICLE models), you can only select one of the following to make attacks with:
-- One or more of its [CLOSE-QUARTERS] weapons.
-- One or more of its other ranged weapons.
-
-[PISTOL] and [CLOSE-QUARTERS] are identical for all rules purposes. [PISTOL] is a pre-existing ability that is superseded by [CLOSE-QUARTERS] as this edition progresses.</description>
+      <description>Weapons designed for close-quarters fighting can be wielded effectively even in the press of melee combat.
+Units containing one or more models with a **[CLOSE-QUARTERS]** weapon can shoot using close-quarters shooting (10.06).
+When using another shooting type, for each model in that unit (excluding **^^Monster^^**/**^^Vehicle^^** models), you can only select one of the following to make attacks with:
+■ One or more of its **[CLOSE-QUARTERS]** weapons.
+■ One or more of its other ranged weapons.</description>
       <alias>CLOSE-QUARTERS</alias>
     </rule>
     <rule id="21f5-c07c-6d97-4405" name="Support" publicationId="48fc-15aa-b307-9443" page="84" hidden="false">
-      <description>Some models have ‘Support’ listed among their core abilities. Such models are support models. While a support model is on the battlefield it can be attached to one of the units listed on its datasheet (in the same manner as a Leader), forming an Attached unit to bolster that unit’s fighting effectiveness. See Attached Units (19).</description>
+      <description>Specialist combatants may be assigned to front-line squads to bolster their fighting effectiveness.
+See Attached Units (19).</description>
       <alias>SUPPORT</alias>
     </rule>
     <rule id="d4d5-4375-0e91-c7d0" name="Stratagem: Command Re-roll (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
