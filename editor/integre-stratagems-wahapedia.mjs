@@ -67,6 +67,10 @@ function parsePsv(text) {
   }
   return rows;
 }
+// Alias nom CSV → nom base (divergences ponctuelles constatées sur le dump réel).
+const DET_ALIASES = new Map([
+  ["brood brother auxilia", "brood brothers auxilia"],
+]);
 const pick = (row, ...keys) => { for (const k of keys) if (row[k]) return row[k]; return ""; };
 
 // ── 2. HTML → texte au format maison ────────────────────────────────────────
@@ -105,7 +109,7 @@ console.log(`Base : ${dets.size} détachements (${[...dets.values()].filter((d) 
 const rows = parsePsv(readFileSync(csvPath, "utf8"));
 console.log(`CSV : ${rows.length} lignes.`);
 const unmatchedDets = new Map(); const added = new Map(); const differs = [];
-let nbAdd = 0, nbSkip = 0;
+let nbAdd = 0, nbSkip = 0, nbTiming = 0;
 
 function rulesContainer(entry) {
   let r = (entry.children || []).find((ch) => ch.tag === "rules");
@@ -125,14 +129,36 @@ for (const row of rows) {
   const desc = pick(row, "description", "rules", "text");
   if (!name || !detCsv) continue;
   const cp = String(parseInt(cpRaw, 10) || 1);
-  const dn = norm(detCsv);
+  const dn = DET_ALIASES.get(norm(detCsv)) || norm(detCsv);
   let det = dets.get(dn);
   if (!det) for (const [k, v] of dets) { if (k.includes(dn) || dn.includes(k)) { det = v; break; } }
   if (!det) { unmatchedDets.set(detCsv, (unmatchedDets.get(detCsv) || 0) + 1); continue; }
+  // strat-timing : turn/phase du CSV, figés en marqueur structurel sur la
+  // règle (BattleScribe n'a aucun vocabulaire pour le timing d'un stratagème —
+  // canal <comment> légitime, comme sim-mod). L'appli groupe/badge dessus.
+  const turnRaw = pick(row, "turn"), phaseRaw = pick(row, "phase");
+  const turn = /either/i.test(turnRaw) ? "either" : /your/i.test(turnRaw) ? "your" : /opponent/i.test(turnRaw) ? "opponent" : "";
+  const phase = htmlToText(phaseRaw).toLowerCase().replace(/\s*phases?\b/g, "")
+    .split(/\s*(?:,|\bor\b|\/)\s*/).map((x) => x.trim()).filter(Boolean)
+    .map((x) => /any/.test(x) ? "any" : x).join("|");
+  const timing = (turn || phase) ? `strat-timing:${turn ? ` turn=${turn}` : ""}${phase ? ` phase=${phase}` : ""}` : "";
+  const ensureTiming = (ruleNode) => {
+    if (!timing || !APPLY) return false;
+    let com = (ruleNode.children || []).find((ch) => ch.tag === "comment");
+    const cur = com ? (xml.getText(com) || "") : "";
+    if (/strat-timing:/.test(cur)) return false; // jamais réécrit
+    if (com) xml.setText(com, (cur ? cur + "\n" : "") + timing);
+    else { com = xml.elem("comment", {}); xml.setText(com, timing); ruleNode.children.unshift(com); }
+    return true;
+  };
   const nn = norm(name);
   if (det.have.has(nn)) {
     nbSkip++;
-    continue; // diff-check : jamais réécrit ; divergence éventuelle listée à part
+    // règle déjà en base : texte JAMAIS réécrit, mais le timing manquant se pose.
+    const rules = (det.node.children || []).find((ch) => ch.tag === "rules");
+    const ex = rules && (rules.children || []).find((r) => r.tag === "rule" && norm(String((r.attrs.find((a) => a.name === "name") || {}).value || "").replace(/\s*\(Stratagem.*$/i, "")) === nn);
+    if (ex && ensureTiming(ex)) { nbTiming++; c.markDirty(det.file); }
+    continue;
   }
   det.have.add(nn);
   nbAdd++;
@@ -144,13 +170,14 @@ for (const row of rows) {
     const d = xml.elem("description", {});
     xml.setText(d, `${det.name} – STRATAGEM (${cp}CP)\n\n${body}`);
     rule.children.push(d);
+    ensureTiming(rule) && nbTiming++;
     rulesContainer(det.node).children.push(rule);
     c.markDirty(det.file);
   }
 }
 
 // ── 5. Rapport ──────────────────────────────────────────────────────────────
-console.log(`\nAjouts : ${nbAdd} stratagèmes sur ${added.size} détachements (${nbSkip} déjà présents, jamais réécrits).`);
+console.log(`\nAjouts : ${nbAdd} stratagèmes sur ${added.size} détachements (${nbSkip} déjà présents, jamais réécrits) ; ${nbTiming} marqueurs strat-timing posés.`);
 for (const [d, n] of [...added.entries()].sort((a, b) => b[1] - a[1]).slice(0, 15)) console.log(`  +${n}  ${d}`);
 if (unmatchedDets.size) {
   console.log(`\nDétachements CSV NON matchés (${unmatchedDets.size}) — à examiner :`);
