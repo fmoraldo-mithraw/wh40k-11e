@@ -3399,7 +3399,9 @@ sim-mod: sustained=1 source=&quot;Prelocational Optimiser&quot; when=ranged choi
                   <description>While a NECRONS CHARACTER model is leading this unit, each time a model in this unit makes an attack, add 1 to the Hit roll.</description>
                 </rule>
                 <rule name="PROTOCOL OF THE CONQUERING TYRANT (Stratagem, 1CP)" id="4f19-2a24-858b-c729" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PROTOCOL OF THE CONQUERING TYRANT&quot; reroll=hit1 when=ranged conditional choice=&quot;tyrant&quot;
+sim-mod: source=&quot;PROTOCOL OF THE CONQUERING TYRANT&quot; reroll=hit when=ranged conditional choice=&quot;tyrant&quot;</comment>
                   <description>Awakened Dynasty – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3407,7 +3409,9 @@ TARGET: One NECRONS unit from your army that has not been selected to shoot this
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a unit within half range, re-roll a Hit roll of 1. If a NECRONS CHARACTER is leading your unit, until the end of the phase, you can re-roll the Hit roll for that attack instead.</description>
                 </rule>
                 <rule name="PROTOCOL OF THE HUNGRY VOID (Stratagem, 1CP)" id="9f4b-65b2-57e2-fc92" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;PROTOCOL OF THE HUNGRY VOID&quot; str=+1 when=melee
+sim-mod: source=&quot;PROTOCOL OF THE HUNGRY VOID&quot; ap=+1 when=melee conditional</comment>
                   <description>Awakened Dynasty – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -3509,7 +3513,9 @@ TARGET: One DESTROYER CULT or FLAYED ONES unit from your army that started the p
 EFFECT: Roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds. Your unit can then make a Normal move, but must end that move as close as possible to that enemy unit.</description>
                 </rule>
                 <rule name="THE SPOOR OF FRAILTY (Stratagem, 1CP)" id="34da-910d-aa2c-cccb" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;THE SPOOR OF FRAILTY&quot; hit=+1 kw=&quot;Destroyer Cult,Flayed Ones&quot; conditional
+sim-mod: source=&quot;THE SPOOR OF FRAILTY&quot; wound=+1 kw=&quot;Destroyer Cult,Flayed Ones&quot; conditional</comment>
                   <description>Annihilation Legion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3541,7 +3547,8 @@ EFFECT: Until the end of the phase, each time a model from your unit makes an at
 Each time a model in a CRYPTEK or CANOPTEK unit from your army makes an attack, re-roll a Hit roll of 1. If such a unit is wholly within your Power Matrix, you can re-roll the Hit roll instead.</description>
                 </rule>
                 <rule name="CURSE OF THE CRYPTEK (Stratagem, 1CP)" id="e9ab-f7a4-d380-c201" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;CURSE OF THE CRYPTEK&quot; hit=+1 wound=+1 conditional</comment>
                   <description>Canoptek Court – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has shot or fought.
@@ -3550,7 +3557,8 @@ You can use this Stratagem on that model even though it was just destroyed.
 EFFECT: Until the end of the battle, each time a friendly CANOPTEK model makes an attack that targets the attacking unit, add 1 to the Hit roll and add 1 to the Wound roll.</description>
                 </rule>
                 <rule name="CYNOSURE OF ERADICATION (Stratagem, 2CP)" id="d62a-09a9-cf75-a2b8" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;CYNOSURE OF ERADICATION&quot; dev kw=&quot;Cryptek,Canoptek&quot; conditional</comment>
                   <description>Canoptek Court – STRATAGEM (2CP)
 
 WHEN: The start of your Shooting phase or the start of the Fight phase.
@@ -3582,7 +3590,8 @@ TARGET: One CANOPTEK unit from your army that was selected as the target of one 
 EFFECT: Until the end of the phase, your unit can only be selected as the target of a ranged attack if the attacking model is within 18&quot;.</description>
                 </rule>
                 <rule name="SOLAR PULSE (Stratagem, 1CP)" id="990b-a2c8-2ffe-b257" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;SOLAR PULSE&quot; ignores-cover when=ranged conditional</comment>
                   <description>Canoptek Court – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase.
@@ -3611,7 +3620,8 @@ EFFECT: Select one objective marker within 18&quot; of your CRYPTEK model. Until
                   <description>In your Command phase, select one enemy unit. Until the start of your next Command phase, each time a **^^Noble^^**, **^^Lychguard^^** or **^^Triarch^^** unit from your army makes an attack that targets that unit, add 1 to the Wound roll.</description>
                 </rule>
                 <rule name="ENSLAVED ARTIFICE (Stratagem, 1CP)" id="2f69-2196-3a1c-3609" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;ENSLAVED ARTIFICE&quot; crit-hit=5</comment>
                   <description>Obeisance Phalanx – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3749,7 +3759,8 @@ EFFECT: Until the end of the phase, weapons equipped by models in the attacking 
                   <description>Each time a NECRONS model from your army makes an attack that targets a unit within range of one or more objective markers, add 1 to the Hit roll. In addition, ranged weapons equipped by NECRONS VEHICLE and NECRONS MOUNTED models (excluding TITANIC models) from your army have the [ASSAULT] ability.</description>
                 </rule>
                 <rule name="Merciless Reclamation (Stratagem, 2CP)" id="71e5-4a50-033c-a9db" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Merciless Reclamation&quot; wound=+1 conditional</comment>
                   <description>Starshatter Arsenal – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3834,7 +3845,8 @@ TARGET: One Cryptek Infantry unit from your army that was selected as the target
 EFFECT: If your unit has the Necron Warriors keyword, until the end of the phase, models in your unit have a 5+ invulnerable save. If your unit has the Immortals keyword, until the end of the phase, models in your unit have a 4+ invulnerable save.</description>
                 </rule>
                 <rule name="Animus Curse (Stratagem, 1CP)" id="0741-efd9-98df-a053" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Animus Curse&quot; reroll=hit conditional</comment>
                   <description>Cryptek Conclave – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has shot or fought.
@@ -3888,7 +3900,8 @@ EFFECT: Your unit&apos;s Reanimation Protocols activate. If it is a Cryptek unit
 - The first time each turn that a ^^**Destroyer Cult^^** unit from your army makes attacks that destroy a unit or cause it to become Below Half‑strength, after that unit has finished resolving its attacks, until the end of the turn, add 2 to the Strength characteristic of weapons equipped by friendly ^^**Necrons^^** models (excluding ^^**Destroyer Cult, Monster^^** and ^^**Titanic^^** models).</description>
                 </rule>
                 <rule name="Methodical Murder (Stratagem, 1CP)" id="556a-3b00-c3e4-c166" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Methodical Murder&quot; sustained=1</comment>
                   <description>Cursed Legion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3991,7 +4004,9 @@ EFFECT: If that enemy unit was unravelling at the start of the phase, your frien
 RESTRICTIONS: You can only use this Stratagem once per turn.</description>
                 </rule>
                 <rule name="Entrophasic Aura Targeting (Stratagem, 1CP)" id="0145-2c32-ce3b-b8b8" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Entrophasic Aura Targeting&quot; reroll=hit1
+sim-mod: source=&quot;Entrophasic Aura Targeting&quot; reroll=wound1 conditional</comment>
                   <description>Pantheon of Woe – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -4140,7 +4155,8 @@ TARGET: One friendly NECRONS TITANIC FLY unit.
 EFFECT: Select one visible enemy unit within 12&quot; of your unit. That enemy unit has +3&quot; detection range.</description>
                 </rule>
                 <rule name="Cosmic Storm (Stratagem, 1CP)" id="98f7-759a-ade3-6e17" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Cosmic Storm&quot; ap=+1 weapon=&quot;Tesla Sphere&quot; when=ranged kw=&quot;Obelisk,Tesseract Vault&quot;</comment>
                   <description>The Phaeron’s Armoury – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly OBELISK/TESSERACT VAULT unit is selected to shoot.

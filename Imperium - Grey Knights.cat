@@ -10941,7 +10941,8 @@ invuln: 4+</comment>
               <description>^^**Grey Knights Terminator**^^ units from your army are eligible to shoot and declare a charge in a turn in which they Fell Back.</description>
             </rule>
             <rule name="GIANTS OF THE BATTLEFIELD (Stratagem, 1CP)" id="8c09-a4c8-49d2-1dd7" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;GIANTS OF THE BATTLEFIELD&quot; attacks=+1 when=melee kw=&quot;Terminator&quot;</comment>
               <description>Hallowed Conclave – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -10973,7 +10974,8 @@ TARGET: One Grey Knights Infantry unit from your army that was selected as the t
 EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not shot or fought this phase, roll one D6. On a 4+, do not remove the destroyed model from play; it can shoot or fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
             </rule>
             <rule name="POINT-BLANK PURGATION (Stratagem, 1CP)" id="031f-908d-21e1-8617" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;POINT-BLANK PURGATION&quot; twin-linked when=ranged weapon=&quot;storm bolter&quot; kw=&quot;Infantry&quot;</comment>
               <description>Hallowed Conclave – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -11039,7 +11041,9 @@ TARGET: One Grey Knights Infantry unit from your army that was selected as the t
 EFFECT: Until the end of the phase, models in your unit that are wholly within your Hallowed Ground have a 4+ invulnerable save.</description>
             </rule>
             <rule name="SANCTIFIED KILL ZONE (Stratagem, 1CP)" id="a865-494a-b087-f426" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;SANCTIFIED KILL ZONE&quot; reroll=wound1 conditional choice=&quot;skz&quot;
+sim-mod: source=&quot;SANCTIFIED KILL ZONE&quot; reroll=wound kw=&quot;Purifier Squad&quot; conditional choice=&quot;skz&quot;</comment>
               <description>Warpbane Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -11097,7 +11101,8 @@ sim-mod: source=&quot;Fury of Titan&quot; reroll=wound1 conditional</comment>
               <description>Each time a unit from your army is set up using the Deep Strike rule, until the end of the turn, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</description>
             </rule>
             <rule name="PURGATION PATTERN (Stratagem, 1CP)" id="d96b-2b92-c15a-9b50" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PURGATION PATTERN&quot; sustained=1 when=ranged conditional</comment>
               <description>Brotherhood Strike – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -11138,7 +11143,8 @@ EFFECT: If every model in your unit has the Deep Strike ability, remove your uni
 Designer’s Note: This Stratagem allows you to remove a unit in addition to those removed using the Gate of Infinity rule, and it allows you to remove a unit within Engagement Range of one or more enemy units.</description>
             </rule>
             <rule name="TRUESILVER CHANNELLING (Stratagem, 2CP)" id="3350-cf5e-d12d-829e" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;TRUESILVER CHANNELLING&quot; dev when=melee kw=&quot;Infantry&quot;</comment>
               <description>Brotherhood Strike – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -11173,7 +11179,8 @@ EFFECT: Until the end of the phase, Psychic weapons equipped by models in your u
 **Designer&apos;s Note**: *This means that your unit can retain its position on the battlefield at the end of your Command phase, and then be placed into Strategic Reserves at the start of your Movement phase, to set it up again in your Reinforcements step in another position.</description>
             </rule>
             <rule name="APPOINTED HOUR (Stratagem, 1CP)" id="3054-748d-234d-0ee2" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;APPOINTED HOUR&quot; crit-hit=5 kw=&quot;Psyker&quot;</comment>
               <description>Augurium Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -11181,7 +11188,8 @@ TARGET: One Grey Knights Psyker unit from your army that has not been selected t
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.</description>
             </rule>
             <rule name="AGGRESSIVE ANTICIPATION (Stratagem, 1CP)" id="6cb7-9503-d4e7-e8b7" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;AGGRESSIVE ANTICIPATION&quot; reroll=hit kw=&quot;Psyker&quot;</comment>
               <description>Augurium Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -11246,7 +11254,8 @@ EFFECT: If your unit has the Deep Strike ability, it can be placed into Strategi
               <description>Each time a ^^**Grey Knights Vehicle**^^ unit from your army Advances, do not make an Advance roll for it; until the end of the phase, add 6&quot; to the Move characteristic of models in that unit and, until the end of the turn, ranged weapons equipped by models in that unit have the [**^^Assault**^^] ability.</description>
             </rule>
             <rule name="ABOMINUS-CLASS TARGETS (Stratagem, 1CP)" id="bdcf-b138-12ab-f9e4" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;ABOMINUS-CLASS TARGETS&quot; wound=+1 vs=Monster,Vehicle</comment>
               <description>Sanctic Spearhead – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -11346,7 +11355,8 @@ TARGET: One Grey Knights Psyker unit from your army that was selected as the tar
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against attacks with an unmodified Damage characteristic of 1.</description>
             </rule>
             <rule name="CHAOS BANE (Stratagem, 1CP)" id="8a62-d1a9-ebec-0f97" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CHAOS BANE&quot; anti=Chaos:4+ when=ranged kw=&quot;Psyker&quot;</comment>
               <description>Banishers – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -11548,7 +11558,8 @@ TARGET: That PURGATION SQUAD unit.
 EFFECT: That move does not prevent your unit from being eligible to shoot.</description>
             </rule>
             <rule name="Focused Immolation (Stratagem, 1CP)" id="30b7-2f9b-7fb3-9a5c" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Focused Immolation&quot; dev sustained=1 when=ranged kw=&quot;Purgation Squad&quot;</comment>
               <description>Fires of Purgation – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly PURGATION SQUAD unit is selected to shoot.
@@ -11594,7 +11605,8 @@ In your Shooting phase, when a friendly INTERCEPTOR SQUAD unit has shot, you can
 - That unit can make a surge move of up to D6+1&quot;.</description>
             </rule>
             <rule name="Blades from the Beyond (Stratagem, 1CP)" id="3bca-353b-88ca-1df5" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Blades from the Beyond&quot; wound=+1 when=melee onCharge kw=&quot;Interceptor Squad&quot;</comment>
               <description>Immaterial Interdiction – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly INTERCEPTOR SQUAD unit that made a charge move this turn is selected to fight.

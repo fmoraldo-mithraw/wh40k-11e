@@ -27744,7 +27744,8 @@ sim-mod: source=&quot;&apos;Eadstompa (sous moitié)&quot; reroll=wound conditio
               <description>Melee weapons equipped by **^^Orks^^** models from your army have the **[SUSTAINED HITS 1]** ability.</description>
             </rule>
             <rule name="UNBRIDLED CARNAGE (Stratagem, 1CP)" id="d56a-afb8-7e72-b286" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Unbridled Carnage&quot; crit-hit=5 when=melee</comment>
               <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -27823,7 +27824,9 @@ EFFECT: Until the end of the phase, each time a model in your unit is destroyed,
 - Each time a **^^Beast Snagga^^** model from your army makes an attack that targets your Prey, improve the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="DRAG IT DOWN (Stratagem, 1CP)" id="b7ff-0267-4cb0-85a4" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Drag It Down&quot; sustained=1 when=melee kw=&quot;Beast Snagga&quot;
+sim-mod: source=&quot;Drag It Down&quot; crit-hit=5 when=melee kw=&quot;Beast Snagga&quot; conditional</comment>
               <description>Da Big Hunt – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -27899,7 +27902,9 @@ If a weapon equipped by a model from your army has the **[HAZARDOUS]** ability f
 **^^Gretchin^^** units from your army gain the **^^Battleline^^** keyword.</description>
             </rule>
             <rule name="DAKKA! DAKKA! DAKKA! (Stratagem, 1CP)" id="854c-c5d4-939c-ffdd" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Dakka! Dakka! Dakka!&quot; reroll=hit1 when=ranged kw=&quot;Walker,Grots&amp;Vehicle&quot; choice=&quot;push&quot;
+sim-mod: source=&quot;Dakka! Dakka! Dakka!&quot; reroll=hit when=ranged kw=&quot;Walker,Grots&amp;Vehicle&quot; choice=&quot;push&quot;</comment>
               <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -27915,7 +27920,9 @@ TARGET: One Orks Walker or Grots Vehicle unit from your army (excluding TITANIC 
 EFFECT: Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.</description>
             </rule>
             <rule name="KLANKIN’ KLAWS (Stratagem, 1CP)" id="ee85-c0cb-1ce1-234e" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Klankin&apos; Klaws&quot; str=+2 when=melee kw=&quot;Walker&quot; choice=&quot;push&quot;
+sim-mod: source=&quot;Klankin&apos; Klaws&quot; str=+2 dmg=+1 when=melee kw=&quot;Walker&quot; choice=&quot;push&quot;</comment>
               <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -27923,7 +27930,9 @@ TARGET: One Orks Walker unit from your army that has not been selected to fight 
 EFFECT: Each time you use this Stratagem, you can choose to push it. Until the end of the phase, add 2 to the Strength characteristic of melee weapons equipped by models in your unit and, if you chose to push it, until the end of the phase, add 1 to the Damage characteristic of those weapons and they have the [HAZARDOUS] ability as well.</description>
             </rule>
             <rule name="BIGGER SHELLS FOR BIGGER GITZ (Stratagem, 1CP)" id="6ece-d8b6-11db-f234" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Bigger Shells for Bigger Gitz&quot; wound=+1 when=ranged kw=&quot;Mek,Walker,Grots&amp;Vehicle&quot; vs=Monster,Vehicle choice=&quot;push&quot;
+sim-mod: source=&quot;Bigger Shells for Bigger Gitz&quot; wound=+1 dmg=+1 when=ranged kw=&quot;Mek,Walker,Grots&amp;Vehicle&quot; vs=Monster,Vehicle choice=&quot;push&quot;</comment>
               <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -27999,7 +28008,9 @@ TARGET: One Boyz unit from your army that has not been selected to fight this ph
 EFFECT: Until the end of the phase, each time your unit is selected to fight, when determining which models in your unit are eligible to fight, any models in your unit that are within 3&quot; of one or more enemy models are eligible to fight. When resolving those attacks, such models can target one of those enemy units that is within 3&quot; of them and within Engagement Range of their unit.</description>
             </rule>
             <rule name="COMPETITIVE STREAK (Stratagem, 1CP)" id="a0d2-b158-1170-b237" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Competitive Streak&quot; reroll=wound1 when=melee kw=&quot;Boyz&quot; choice=&quot;streak&quot;
+sim-mod: source=&quot;Competitive Streak&quot; reroll=wound when=melee kw=&quot;Boyz&quot; conditional choice=&quot;streak&quot;</comment>
               <description>Green Tide – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -28063,7 +28074,9 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
               <description>At the start of your Command phase, in a turn in which you have not called a Waaagh!, if you have one or more **^^Warboss^^** models on the battlefield (or embarked within a **^^Transport^^** that is on the battlefield), you can call a Waaagh! for a second time this battle. When doing so, that second Waaagh! only counts as having been called for **^^Warboss^^**, **^^Nobz^^** and **^^Meganobz^^** units from your army.</description>
             </rule>
             <rule name="ARMED TO DATEEF (Stratagem, 1CP)" id="7f23-c0e2-ab1c-7e83" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;ARMED TO DATEEF&quot; reroll=hit1 kw=&quot;Nobz,Meganobz&quot; choice=&quot;dateef&quot;
+sim-mod: source=&quot;ARMED TO DATEEF&quot; reroll=hit kw=&quot;Nobz,Meganobz&quot; conditional choice=&quot;dateef&quot;</comment>
               <description>Bully Boyz – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -28134,7 +28147,9 @@ EFFECT: Until the end of the phase, each time your unit makes a Consolidation mo
               <description>**^^Speed Freeks^^** units from your army are eligible to shoot and declare a charge in a turn in which they Advanced or Fell Back.</description>
             </rule>
             <rule name="BLITZA FIRE (Stratagem, 1CP)" id="7492-570d-0f63-f24f" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Blitza Fire&quot; lethal when=ranged kw=&quot;Speed Freeks&quot;
+sim-mod: source=&quot;Blitza Fire&quot; crit-hit=5 when=ranged kw=&quot;Speed Freeks&quot; conditional</comment>
               <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -28143,7 +28158,8 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
 RESTRICTIONS: A unit cannot be targeted by this and the Dakkastorm Stratagem in the same phase.</description>
             </rule>
             <rule name="FULL THROTTLE! (Stratagem, 1CP)" id="ffc2-ee99-d635-af70" hidden="false">
-              <comment>strat-timing: turn=your phase=charge</comment>
+              <comment>strat-timing: turn=your phase=charge
+sim-mod: source=&quot;Full Throttle!&quot; wound=+1 when=melee onCharge kw=&quot;Speed Freeks&quot;</comment>
               <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your Charge phase, just after a SPEED FREEKS unit from your army ends a Charge move.
@@ -28151,7 +28167,9 @@ TARGET: That Speed Freeks unit.
 EFFECT: Until the end of the turn, each time a model in your unit makes a melee attack, add 1 to the Wound roll.</description>
             </rule>
             <rule name="DAKKASTORM (Stratagem, 1CP)" id="59ea-c65b-f4c6-a5c8" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Dakkastorm&quot; sustained=1 when=ranged kw=&quot;Speed Freeks&quot; choice=&quot;dakkastorm&quot;
+sim-mod: source=&quot;Dakkastorm&quot; sustained=2 when=ranged kw=&quot;Speed Freeks&quot; conditional choice=&quot;dakkastorm&quot;</comment>
               <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -28260,7 +28278,8 @@ EFFECT: Place your unit in strategic reserves.</description>
 In your Shooting phase, if the Waaagh! is active for your army, **^^Orks Infantry^^** units&apos; ranged attacks have the **[SUSTAINED HITS 1]** ability.</description>
             </rule>
             <rule name="Long, Uncontrolled Bursts (Stratagem, 1CP)" id="7f6b-2afa-504d-1d9d" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Long, Uncontrolled Bursts&quot; ignores-cover when=ranged kw=&quot;Infantry&quot;</comment>
               <description>More Dakka! – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS INFANTRY unit is selected to shoot.
@@ -28268,7 +28287,8 @@ TARGET: That ORKS INFANTRY unit.
 EFFECT: Your unit&apos;s ranged attacks have [IGNORES COVER].</description>
             </rule>
             <rule name="Speshul Shells (Stratagem, 1CP)" id="8d5e-0aa7-8c13-9b91" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Speshul Shells&quot; ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>More Dakka! – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS INFANTRY unit is selected to shoot.
@@ -28318,7 +28338,8 @@ Each time a model in an **^^Orks Infantry^^**, **^^Orks Mounted^^** or **^^Orks 
 - That attack targets a unit within range of your loot objective.</description>
             </rule>
             <rule name="Bash and Grab (Stratagem, 1CP)" id="aedf-4e22-c1c3-fde5" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Bash and Grab&quot; reroll=wound when=melee conditional</comment>
               <description>Freebooter Krew – STRATAGEM (1CP)
 
 WHEN: The Fight phase.
@@ -28350,7 +28371,8 @@ TARGET: One Orks unit from your army that has not been selected to shoot this ph
 EFFECT: Until the end of the phase, each time a model in your unit targets an Infantry unit with a ranged weapon, that weapon has the [BLAST] ability.</description>
             </rule>
             <rule name="Rolling Loot-Heap (Stratagem, 1CP)" id="d717-b288-5886-18ad" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Rolling Loot-Heap&quot; anti=Vehicle:4+ when=ranged kw=&quot;Flash Gitz&quot;</comment>
               <description>Freebooter Krew – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -28493,7 +28515,8 @@ TARGET: One Orks unit from your army that has not been selected to move this pha
 EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back or Advanced (unless it used its turbo this turn).</description>
             </rule>
             <rule name="Mobile Dakkastorm (Stratagem, 1CP)" id="6d7e-dab3-869d-eae7" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Mobile Dakkastorm&quot; str=+2 when=ranged kw=&quot;Speed Freeks,Trukk&quot; conditional</comment>
               <description>Speedwaaagh! – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, just after a Speed Freeks or Trukk unit from your army has shot.
@@ -28501,7 +28524,8 @@ TARGET: That Speed Freeks or Trukk unit.
 EFFECT: Select one enemy unit hit by one or more of those attacks (excluding attacks made with Indirect Fire weapons). Until the end of the phase, each time a model in a Speed Freeks or Trukk unit from your army makes an attack that targets that unit, improve the Strength characteristic of that attack by 2.</description>
             </rule>
             <rule name="Speshul Ammo (Stratagem, 1CP)" id="b420-1f05-091d-8b11" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Speshul Ammo&quot; anti=Monster:4+ anti=Vehicle:4+ when=ranged</comment>
               <description>Speedwaaagh! – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -28509,7 +28533,8 @@ TARGET: One Orks unit from your army that has not been selected to shoot this ph
 EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit (excluding Torrent weapons) have the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.</description>
             </rule>
             <rule name="Ded Killy Construction (Stratagem, 1CP)" id="a786-781f-48bf-b200" hidden="false">
-              <comment>strat-timing: turn=your phase=fight</comment>
+              <comment>strat-timing: turn=your phase=fight
+sim-mod: source=&quot;Ded Killy Construction&quot; wound=+1 dmg=+1 when=melee onCharge kw=&quot;Speed Freeks,Trukk&quot;</comment>
               <description>Speedwaaagh! – STRATAGEM (1CP)
 
 WHEN: Your Fight phase.
@@ -28583,7 +28608,8 @@ TARGET: One Battlewagon, Kill Rig or Hunta Rig unit from your army that has not 
 EFFECT: Select up to two other friendly Orks Vehicle or Orks Monster units within 6&quot; of your unit. Until the end of the turn, your unit and each unit you selected are eligible to declare a charge in a turn in which they Advanced.</description>
             </rule>
             <rule name="Armoured Duellists (Stratagem, 1CP)" id="6bf3-927a-8dd3-d9de" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Armoured Duellists&quot; hit=+1 wound=+1 when=ranged kw=&quot;Vehicle&quot; vs=Monster,Vehicle</comment>
               <description>Blitz Brigade – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -28692,6 +28718,7 @@ EFFECT: Until the end of the phase, melee weapons equipped by models in your uni
               <description>In the Declare Battle Formations step, select up to three friendly **^^Mob^^**/**^^Kommandos^^** units. Those units have the Scouts 6&quot; ability until the end of the battle.</description>
             </rule>
             <rule name="Concealed Krumpin&apos; (Stratagem, 1CP)" id="4ef2-dfb7-15d4-41fb" hidden="false">
+              <comment>sim-mod: source=&quot;Concealed Krumpin&apos;&quot; lethal kw=&quot;Mob&quot; conditional</comment>
               <description>Equatorial Hordes – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly hidden MOB unit is selected to attack.

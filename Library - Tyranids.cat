@@ -6905,7 +6905,8 @@ TARGET: One TYRANIDS unit from your army that was selected as the target of one 
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 6+ ability. If your unit is within Synapse Range of your army, models in your unit have the Feel No Pain 5+ ability instead.</description>
             </rule>
             <rule name="ADRENAL SURGE (Stratagem, 2CP)" id="018d-6da5-b997-2bf8" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Adrenal Surge&quot; crit-hit=5 when=melee</comment>
               <description>Invasion Fleet – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -6982,7 +6983,8 @@ TARGET: One TYRANIDS unit from your army that just destroyed an enemy unit.
 EFFECT: Your unit immediately Regenerates (See Feed the Swarm). When doing so, if your unit is a Harvester unit and you choose for one model to regain up to D3 lost wounds, that model regains up to 3 lost wounds instead.</description>
             </rule>
             <rule name="BROODGUARD IMPULSE (Stratagem, 1CP)" id="baab-0d61-7147-31de" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;Broodguard Impulse&quot; wound=+1 conditional</comment>
               <description>Assimilation Swarm – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -7006,7 +7008,9 @@ TARGET: One Harvester unit from your army that is within range of an objective m
 EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</description>
             </rule>
             <rule name="SECURE BIOMASS (Stratagem, 1CP)" id="1d0b-28fe-88a0-408c" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Secure Biomass&quot; lethal when=melee
+sim-mod: source=&quot;Secure Biomass&quot; crit-hit=5 when=melee conditional</comment>
               <description>Assimilation Swarm – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -7056,7 +7060,8 @@ TARGET: One Tyranids Monster unit from your army that was selected as the target
 EFFECT: That enemy unit must take a Battle-shock test and, until the end of the phase, each time a model in that enemy unit makes an attack that targets your unit, subtract 1 from the Hit roll. If that Battle-shock test was failed, subtract 1 from the Wound roll as well.</description>
             </rule>
             <rule name="RAMPAGING MONSTROSITIES (Stratagem, 1CP)" id="f036-2513-3d13-ad47" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Rampaging Monstrosities&quot; reroll=hit when=melee kw=&quot;Monster&quot;</comment>
               <description>Crusher Stampede – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -7064,7 +7069,8 @@ TARGET: One Tyranids Monster unit from your army that has not been selected to f
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll.</description>
             </rule>
             <rule name="SWARM-GUIDED SALVOES (Stratagem, 1CP)" id="7d3e-c39c-a1a3-5fda" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Swarm-Guided Salvoes&quot; ignores-cover when=ranged kw=&quot;Monster&quot;</comment>
               <description>Crusher Stampede – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -7126,7 +7132,8 @@ EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by y
 - **Goaded to Slaughter:** While this unit is within Synapse Range of your army, each time a model in this unit makes a melee attack, add 1 to the Hit roll</description>
             </rule>
             <rule name="IRRESISTIBLE WILL (Stratagem, 1CP)" id="0492-f235-dc6c-08b4" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Irresistible Will&quot; reroll=hit1 reroll=wound1 conditional</comment>
               <description>Synaptic Nexus – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -7206,7 +7213,9 @@ TARGET: One Endless Multitude unit from your army.
 EFFECT: Until the end of the phase, each time your unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
             </rule>
             <rule name="SWARMING MASSES (Stratagem, 1CP)" id="8b6b-daac-3317-6720" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;SWARMING MASSES&quot; sustained=1 kw=&quot;Endless Multitude&quot;
+sim-mod: source=&quot;SWARMING MASSES&quot; crit-hit=5 kw=&quot;Endless Multitude&quot; conditional</comment>
               <description>Unending Swarm – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -7274,7 +7283,9 @@ EFFECT: When making that Surge move, you can re-roll the D6 to determine how far
               <description>**^^Tyranids^^** units with this ability are eligible to charge in a turn in which they Fell Back. Vanguard Invader units with this ability are eligible to charge in a turn in which they Advanced.</description>
             </rule>
             <rule name="SURPRISE ASSAULT (Stratagem, 1CP)" id="44ea-4799-981a-9c22" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;SURPRISE ASSAULT&quot; hit=+1 kw=&quot;Vanguard Invader&quot;
+sim-mod: source=&quot;SURPRISE ASSAULT&quot; wound=+1 kw=&quot;Vanguard Invader&quot; conditional</comment>
               <description>Vanguard Onslaught – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, just after a Vanguard Invader unit from your army has selected its targets.
@@ -7374,7 +7385,8 @@ TARGET: One friendly TYRANID WARRIORS unit.
 EFFECT: Select one objective your unit is controlling. That objective is secured.</description>
             </rule>
             <rule name="Parasitic Payload (Stratagem, 1CP)" id="e216-1111-dcac-9f08" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Parasitic Payload&quot; ignores-cover when=ranged kw=&quot;Tyranid Warriors&quot;</comment>
               <description>Warrior Bioform Onslaught – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly TYRANID WARRIORS unit is selected to shoot.
@@ -7437,7 +7449,8 @@ TARGET: One Tyranids unit from your army, wholly within 9&quot; of one or more T
 EFFECT: One model in your unit regains up to D3+1 lost wounds, or you can return up to D3+1 destroyed models with a Wounds characteristic of 1 to your unit, with their full wounds remaining, instead.</description>
             </rule>
             <rule name="Enfilading Emergence (Stratagem, 1CP)" id="69b1-12b7-7eba-53a2" hidden="false">
-              <comment>strat-timing: turn=your phase=movement</comment>
+              <comment>strat-timing: turn=your phase=movement
+sim-mod: source=&quot;Enfilading Emergence&quot; sustained=1 ignores-cover conditional</comment>
               <description>Subterranean Assault – STRATAGEM (1CP)
 
 WHEN: End of your Movement phase.
@@ -7626,7 +7639,8 @@ You can include up to three of each of the following units:
 - Friendly **^^Lictor^^**/**^^Neurolictor^^** units&apos; attacks that target a **^^Character^^** unit can re-roll Hit rolls of 1.</description>
             </rule>
             <rule name="Counterpredation (Stratagem, 1CP)" id="5d98-5138-1fd0-d1e3" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Counterpredation&quot; str=+1 ap=+1 when=melee kw=&quot;Deathleaper,Lictor,Neurolictor,Von Ryan&apos;s Leapers&quot; conditional</comment>
               <description>Ambush Predators – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly DEATHLEAPER/LICTOR/NEUROLICTOR/VON RYAN&apos;S LEAPERS unit is selected to fight.
@@ -7683,7 +7697,8 @@ TARGET: That NORN ASSIMILATOR unit.
 EFFECT: Your unit has the Feel No Pain 4+ ability against mortal wounds until the end of the phase.</description>
             </rule>
             <rule name="Lesser Prey (Stratagem, 1CP)" id="3ea8-9476-26fc-785d" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Lesser Prey&quot; str=+2 when=melee kw=&quot;Norn Assimilator,Norn Emissary&quot;</comment>
               <description>Talons of the Norn Queen – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly NORN ASSIMILATOR/NORN EMISSARY unit is selected to fight.
@@ -8841,7 +8856,8 @@ sim-mod: source=&quot;A Perfect Ambush&quot; ignores-cover conditional</comment>
               <description>Each time a GENESTEALER CULTS unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities</description>
             </rule>
             <rule name="COORDINATED TRAP (Stratagem, 2CP)" id="b208-fc00-b1db-2b68" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Coordinated Trap&quot; wound=+1 kw=&quot;Genestealer Cults&quot;</comment>
               <description>Host of Ascension – STRATAGEM (2CP)
 
 WHEN: The start of your Shooting phase or the start of the Fight phase.
@@ -8849,7 +8865,8 @@ TARGET: Two GENESTEALER CULTS units from your army that have not been selected t
 EFFECT: Select one enemy unit (if this Stratagem is used in the Fight phase, that enemy unit must be within Engagement Range of both of your units). Until the end of the phase, each time a model in either of your units makes an attack, it can only target that enemy unit (and only if it is an eligible target for that attack), and when resolving that attack, add 1 to the Wound roll.</description>
             </rule>
             <rule name="PRIMED AND READIED (Stratagem, 2CP)" id="8faa-bcb7-e732-c199" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Primed and Readied&quot; crit-hit=5 kw=&quot;Genestealer Cults&quot;</comment>
               <description>Host of Ascension – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -8920,7 +8937,8 @@ EFFECT: Roll one D6: on a 2-4, that enemy unit suffers D3 mortal wounds; on a 5+
               <description>For Each ACOLYTE HYBRIDS, HYBRID METAMORPHS, and NEOPHYTE HYBRID unit from your army, while one or more CHARACTER models are leading that unit, you can re-roll Advance and Charge rolls made for it. If that CHARACTER model is a MAGUS, PRIMUS, or ACOLYTE ICONWARD, that model has the Feel No Pain 3+ ability while leading that unit.</description>
             </rule>
             <rule name="FRENZIED DEVOTION (Stratagem, 1CP)" id="2e67-41a3-1065-6cfe" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;FRENZIED DEVOTION&quot; attacks=+1 hit=+1 when=melee kw=&quot;Acolyte Hybrids,Hybrid Metamorphs,Neophyte Hybrids&quot;</comment>
               <description>Xenocreed Congregation – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -8928,7 +8946,9 @@ TARGET: One Acolyte Hybrids, Hybrid Metamorphs or Neophyte Hybrids unit from you
 EFFECT: Until the end of the phase, improve the Attacks and Weapon Skill characteristics of melee weapons equipped by models (excluding Characters) in your unit by 1 and those weapons have the [HAZARDOUS] ability.</description>
             </rule>
             <rule name="VENGEANCE FOR THE MARTYR! (Stratagem, 1CP)" id="5fde-d1e9-4e84-67b6" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;VENGEANCE FOR THE MARTYR!&quot; reroll=hit1 conditional choice=&quot;martyr&quot;
+sim-mod: source=&quot;VENGEANCE FOR THE MARTYR!&quot; reroll=hit conditional choice=&quot;martyr&quot;</comment>
               <description>Xenocreed Congregation – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit destroys a Genestealer Cults Character model from your army.
@@ -9004,7 +9024,8 @@ TARGET: One ABERRANTS, BIOPHAGUS or PURESTRAIN GENESTEALERS unit from your army 
 EFFECT: Your unit has +2 to charge rolls.</description>
             </rule>
             <rule name="GENE-TWISTED MUSCLE (Stratagem, 1CP)" id="b221-cd66-9ba5-5ac1" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Gene-Twisted Muscle&quot; wound=+1 when=melee kw=&quot;Aberrants,Biophagus,Purestrain Genestealers&quot; vs=Monster,Vehicle</comment>
               <description>Biosanctic Broodsurge – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -9087,7 +9108,8 @@ TARGET: One Achilles Ridgerunners or Atalan Jackals unit from your army that was
 EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable save.</description>
             </rule>
             <rule name="CLOSE-RANGE SHOOT-OUT (Stratagem, 1CP)" id="1d06-e9a9-09b0-9e39" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Close-Range Shoot-Out&quot; lethal when=ranged kw=&quot;Genestealer Cults&amp;Mounted,Genestealer Cults&amp;Vehicle&quot; conditional</comment>
               <description>Outlander Claw – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -9152,7 +9174,8 @@ A **^^Genestealer Cult^^** model must be your Warlord, and **^^Astra Militarum^^
               <description>Each time an **^^Astra Militarum^^** unit from your army is selected to shoot, you can select one enemy unit within 18&quot; of and visible to that unit. If you do, until the end of the phase, models in that **^^Astra Militarum^^** unit can only target that enemy unit (and only if it is an eligible target) and that enemy unit is caught in overlapping fire. While an enemy unit is caught in overlapping fire, each time a **^^Genestealer Cult^^** model from your army targets that enemy unit with a ranged attack, add 1 to the Hit roll.</description>
             </rule>
             <rule name="SYMBIOTIC DESTRUCTION (Stratagem, 1CP)" id="6d51-9353-4e7c-bd71" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Symbiotic Destruction&quot; reroll=wound1 when=ranged kw=&quot;Astra Militarum,Genestealer Cults&quot;</comment>
               <description>Brood Brothers Auxilia – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -9238,7 +9261,9 @@ TYRANIDS units from your army have the following ability:
 Catalyst (Aura): While an enemy unit is within 6&quot; of this unit, each time a friendly GENESTEALER CULTS unit makes an attack that targets that enemy unit, add 1 to the Hit roll.</description>
             </rule>
             <rule name="Hyperferocity (Stratagem, 1CP)" id="6b68-1c6d-d933-b54c" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Hyperferocity&quot; reroll=wound1 when=melee kw=&quot;Genestealer Cults&quot; choice=&quot;hyperferocity&quot;
+sim-mod: source=&quot;Hyperferocity&quot; reroll=wound when=melee kw=&quot;Genestealer Cults&quot; conditional choice=&quot;hyperferocity&quot;</comment>
               <description>Final Day – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -9255,7 +9280,8 @@ EFFECT: Until the start of your next Command phase, increase the range of your u
 RESTRICTIONS: Each time you use this Stratagem, until the end of your next Command phase, you cannot use this Stratagem again.</description>
             </rule>
             <rule name="Avenge the Star Children (Stratagem, 1CP)" id="544b-9bdb-c8b0-38ce" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Avenge the Star Children&quot; hit=+1 wound=+1 conditional</comment>
               <description>Final Day – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has shot or fought.
@@ -9405,7 +9431,8 @@ TARGET: That KILLER unit.
 EFFECT: Each visible friendly Battle-shocked GENESTEALER CULTS unit within 12&quot; of your unit is no longer Battle-shocked.</description>
             </rule>
             <rule name="Surging Broodworship (Stratagem, 1CP)" id="da97-db51-9f68-8be7" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Surging Broodworship&quot; dev kw=&quot;Killer&quot;</comment>
               <description>Heroes of the Uprising – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly KILLER unit is selected to attack.
@@ -9508,7 +9535,8 @@ TARGET: One friendly NEOPHYTE HYBRIDS unit within a terrain area.
 EFFECT: Enemy units within that terrain area have +6&quot; detection range.</description>
             </rule>
             <rule name="Fanatical Hail (Stratagem, 1CP)" id="532f-e4eb-2395-e0a9" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Fanatical Hail&quot; reroll=hit when=ranged kw=&quot;Neophyte Hybrids&quot;</comment>
               <description>Xenocult Masses – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly NEOPHYTE HYBRIDS unit is selected to shoot.

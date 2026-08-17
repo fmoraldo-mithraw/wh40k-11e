@@ -7892,7 +7892,9 @@ invuln: 5+</comment>
 - Improve the Armour Penetration characteristic of melee weapons equipped by ^^**Adeptus Custodes^^** models from your army with the Martial Ka&apos;tah ability by 1.</description>
                 </rule>
                 <rule name="ARCHEOTECH MUNITIONS (Stratagem, 1CP)" id="086d-1edc-52bc-83f6" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;ARCHEOTECH MUNITIONS&quot; lethal when=ranged choice=&quot;archeotech&quot;
+sim-mod: source=&quot;ARCHEOTECH MUNITIONS&quot; sustained=1 when=ranged choice=&quot;archeotech&quot;</comment>
                   <description>Shield Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -7932,7 +7934,9 @@ TARGET: One Adeptus Custodes Infantry unit from your army (excluding Anathema Ps
 EFFECT: Until the end of the phase, each time a melee attack targets your unit, subtract 1 from the Hit roll.</description>
                 </rule>
                 <rule name="AVENGE THE FALLEN (Stratagem, 1CP)" id="5659-c84d-785e-23f3" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;AVENGE THE FALLEN&quot; attacks=+1 when=melee conditional choice=&quot;avenge&quot;
+sim-mod: source=&quot;AVENGE THE FALLEN&quot; attacks=+2 when=melee conditional choice=&quot;avenge&quot;</comment>
                   <description>Shield Host – STRATAGEM (1CP)
 
 WHEN: Start of the Fight phase.
@@ -7962,7 +7966,8 @@ All other **^^Adeptus Custodes**^^ units from your army gain the following abili
 **Deadly Unity (Aura)**: While an **^Anathema Psykana^^** unit is within 6&quot; of this unit, each time a model in that ^^**Anathema Psykana^^** unit makes an attack, add 1 to the Hit roll.</description>
                 </rule>
                 <rule name="EMPEROR’S EXECUTIONERS (Stratagem, 2CP)" id="221f-76f7-bb41-fc00" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;EMPEROR’S EXECUTIONERS&quot; wound=+1 when=melee conditional</comment>
                   <description>Talons of the Emperor – STRATAGEM (2CP)
 
 WHEN: Start of the Fight phase.
@@ -7971,7 +7976,8 @@ EFFECT: Until the end of the phase, each time a model in one of your units targe
 RESTRICTIONS: You can only select two units if one (and only one) of them is an Anathema Psykana unit and both are within 6&quot; of each other.</description>
                 </rule>
                 <rule name="TALONS INTERLOCKED (Stratagem, 1CP)" id="6955-adcf-6ca6-f517" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;TALONS INTERLOCKED&quot; str=+1 ap=+1 when=ranged kw=&quot;Infantry&quot;</comment>
                   <description>Talons of the Emperor – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -8031,7 +8037,9 @@ RESTRICTIONS: You can only select two units if one (and only one) of them is an 
                   <description>In the Battle-shock step of your opponent&apos;s Command phase, if an enemy unit that is either a ^^**Psyker^^** unit or below its Starting Strength is within 12&quot; of one or more ^^**Anathema Psykana^^** models from your army, that enemy unit must take a Battle-shock test. If that unit is below Half-strength, it must subtract 1 from its Battle-shock test this phase instead.</description>
                 </rule>
                 <rule name="ANATHEMA BLADEMASTERY (Stratagem, 1CP)" id="e500-8db0-0f46-61dd" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;ANATHEMA BLADEMASTERY&quot; reroll=hit when=melee kw=&quot;Vigilators&quot;
+sim-mod: source=&quot;ANATHEMA BLADEMASTERY&quot; reroll=wound when=melee kw=&quot;Vigilators&quot; conditional</comment>
                   <description>Null Maiden Vigil – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -8039,7 +8047,9 @@ TARGET: One Vigilators unit from your army that has not been selected to fight t
 EFFECT: Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll If the target of that attack is Battle-shocked or a PSYKER, you can re-roll the Wound roll as well.</description>
                 </rule>
                 <rule name="WITCH HUNTERS (Stratagem, 1CP)" id="c6bd-bac3-ae08-e95b" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;WITCH HUNTERS&quot; lethal vs=Psyker kw=&quot;Anathema Psykana&quot; choice=&quot;witch&quot;
+sim-mod: source=&quot;WITCH HUNTERS&quot; sustained=1 vs=Psyker kw=&quot;Anathema Psykana&quot; choice=&quot;witch&quot;</comment>
                   <description>Null Maiden Vigil – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -8047,7 +8057,9 @@ TARGET: One Anathema Psykana unit from your army that has not been selected to s
 EFFECT: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability, but models in your unit can only target PSYKER units with their attacks.</description>
                 </rule>
                 <rule name="PURGATION SWEEP (Stratagem, 1CP)" id="c1aa-7cfd-bbb7-ff60" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PURGATION SWEEP&quot; attacks=+1 when=ranged kw=&quot;Witchseekers&quot; weapon=&quot;Torrent&quot; choice=&quot;purgation&quot;
+sim-mod: source=&quot;PURGATION SWEEP&quot; attacks=+2 when=ranged kw=&quot;Witchseekers&quot; weapon=&quot;Torrent&quot; conditional choice=&quot;purgation&quot;</comment>
                   <description>Null Maiden Vigil – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -8063,7 +8075,8 @@ TARGET: One Anathema Psykana Infantry unit from your army that was selected as t
 EFFECT: Until the end of the phase, your unit has the Stealth ability, and Battle-shocked and PSYKER models can only select your unit as a target of a ranged attack if they are within 12&quot;.</description>
                 </rule>
                 <rule name="PSY-CHAFF VOLLEY (Stratagem, 1CP)" id="22a9-4d4b-3b4e-ef1a" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PSY-CHAFF VOLLEY&quot; ap=+1 kw=&quot;Prosecutors&quot; conditional</comment>
                   <description>Null Maiden Vigil – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -8096,7 +8109,8 @@ EFFECT: That enemy PSYKER unit must take a Leadership test If the test is passed
                   <description>At the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model in an ^^**Adeptus Custodes Character^^** unit from your army makes an attack that targets that enemy unit, add 1 to the Wound roll.</description>
                 </rule>
                 <rule name="SLAYER OF CHAMPIONS (Stratagem, 1CP)" id="3b6f-6e0f-be4a-9d2b" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;SLAYER OF CHAMPIONS&quot; wound=+1 kw=&quot;Character&quot; conditional</comment>
                   <description>Auric Champions – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -8120,7 +8134,9 @@ TARGET: One Adeptus Custodes Character model from your army that was just destro
 EFFECT: Do not remove your destroyed model from play. The destroyed model can fight after the attacking unit has finished making attacks, and is then removed from play.</description>
                 </rule>
                 <rule name="EARNING OF A NAME (Stratagem, 1CP)" id="52b0-527f-ee09-b559" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;EARNING OF A NAME&quot; reroll=hit when=melee kw=&quot;Character&quot; vs=Monster,Vehicle
+sim-mod: source=&quot;EARNING OF A NAME&quot; reroll=wound when=melee kw=&quot;Character&quot; vs=Monster,Vehicle</comment>
                   <description>Auric Champions – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -8213,7 +8229,8 @@ TARGET: That Adeptus Custodes Vehicle unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in which it Advanced. If your unit has the Walker keyword, until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced instead.</description>
                 </rule>
                 <rule name="Punishment Inescapable (Stratagem, 1CP)" id="1454-982c-5e75-5134" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Punishment Inescapable&quot; ignores-cover when=ranged</comment>
                   <description>Solar Spearhead – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -8368,7 +8385,9 @@ EFFECT: Your unit’s:
 - While a unit is nulled, that unit has +3&quot; detection range.</description>
                 </rule>
                 <rule name="Deathsong Scythes (Stratagem, 1CP)" id="2ee8-38fc-278e-7f3a" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Deathsong Scythes&quot; wound=+1 when=melee onCharge kw=&quot;Vigilators&quot;
+sim-mod: source=&quot;Deathsong Scythes&quot; attacks=+1 when=melee kw=&quot;Vigilators&quot; vs=Psyker</comment>
                   <description>Silent Hunters – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly VIGILATORS unit is selected to fight.
@@ -8377,7 +8396,8 @@ EFFECT: - Your unit’s melee attacks have [LANCE].
 - Your unit’s melee attacks that target a PSYKER unit have +1 A.</description>
                 </rule>
                 <rule name="Umbral Prosecution (Stratagem, 1CP)" id="cdc1-58a3-d025-6f7e" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Umbral Prosecution&quot; ap=+1 when=ranged kw=&quot;Prosecutors&quot; weapon=&quot;Boltgun&quot;</comment>
                   <description>Silent Hunters – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly PROSECUTORS unit is selected to shoot.

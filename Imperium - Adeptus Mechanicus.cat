@@ -15577,7 +15577,8 @@ TARGET: One SKITARII unit from your army that has not been selected to move this
 EFFECT: Until the end of the phase, each time one of those units Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in that unit.</description>
             </rule>
             <rule name="PRE-CALIBRATED PURGE SOLUTION (Stratagem, 1CP)" id="f70d-5b90-a480-679f" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PRE-CALIBRATED PURGE SOLUTION&quot; reroll=hit when=ranged conditional</comment>
               <description>Rad-zone Corps – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -15593,7 +15594,8 @@ TARGET: One Tech-Priest model from your army and one objective marker within 24&
 EFFECT: Roll one D6 for each enemy unit within range of that objective marker. On a 4+, that unit suffers 1 mortal wound and it must take a Battle-shock test.</description>
             </rule>
             <rule name="LETHAL DOSAGE (Stratagem, 1CP)" id="2e34-7f79-830c-a9fd" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;LETHAL DOSAGE&quot; lethal when=ranged</comment>
               <description>Rad-zone Corps – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -15626,7 +15628,8 @@ TARGET: One SICARIAN, PTERAXII or SYDONIAN unit from your army that was selected
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability.</description>
             </rule>
             <rule name="ISOLATE AND DESTROY (Stratagem, 1CP)" id="ed61-c9ec-e914-7398" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;ISOLATE AND DESTROY&quot; wound=+1 when=ranged kw=&quot;Sicarian,Pteraxii,Sydonian,Ironstrider Ballistarii,Skitarii Mounted&quot; conditional</comment>
               <description>Skitarii Hunter Cohort – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -15635,7 +15638,8 @@ IRONSTRIDER BALLISTARII or SKITARII MOUNTED unit from your army that has not bee
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, if there are no other enemy units within 6&quot; of the unit targeted by that attack, add 1 to the Wound roll.</description>
             </rule>
             <rule name="BINHARIC OFFENCE (Stratagem, 2CP)" id="bb25-5126-31fd-d00c" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;BINHARIC OFFENCE&quot; ap=+1 kw=&quot;Skitarii&quot;</comment>
               <description>Skitarii Hunter Cohort – STRATAGEM (2CP)
 
 WHEN: The start of your Shooting phase or the start of the Fight phase.
@@ -15689,7 +15693,8 @@ EFFECT: Until the end of the phase, your unit is eligible to declare a charge in
               <description>At the start of your Command phase, select one objective marker. Until the start of your next Command phase, that objective marker is your Acquisition objective marker. Each time an ADEPTUS MECHANICUS model from your army makes an attack, if that model’s  unit is within range of your Acquisition objective marker, or if the target of that attack is within range of your Acquisition objective marker, re-roll a Wound roll of 1.</description>
             </rule>
             <rule name="AUTO-ORACULAR RETRIEVAL (Stratagem, 2CP)" id="896b-4736-6493-8baa" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;AUTO-ORACULAR RETRIEVAL&quot; wound=+1 when=ranged conditional</comment>
               <description>Explorator Maniple – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase.
@@ -15767,7 +15772,8 @@ Citation in Savagery:
 Each time a **^^Cult Mechanicus^^** unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.</description>
             </rule>
             <rule name="CHANT OF THE REMORSELESS FIST (Stratagem, 1CP)" id="8d23-a46f-bb29-1d02" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;CHANT OF THE REMORSELESS FIST&quot; wound=+1 when=melee kw=&quot;Cult Mechanicus&quot;</comment>
               <description>Data-psalm Conclave – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -15835,7 +15841,8 @@ EFFECT: Roll one D6 for each enemy unit within 6&quot; of one or more CULT MECHA
               <description>Add 2&quot; to the Move characteristic of models in Legio Cybernetica units from your army. In addition, unless that unit is Battle‑shocked, add 1 to the Objective Control characteristic of models in that unit.</description>
             </rule>
             <rule name="AUTO-DIVINATORY TARGETING (Stratagem, 1CP)" id="1bfb-8755-dfe0-9b83" hidden="false">
-              <comment>strat-timing: turn=your phase=command</comment>
+              <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;AUTO-DIVINATORY TARGETING&quot; ignores-cover when=ranged kw=&quot;Legio Cybernetica,Vehicle&quot; conditional</comment>
               <description>Cohort Cybernetica – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -15859,7 +15866,9 @@ TARGET: One LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE unit from your army.
 EFFECT: Until the start of your next Command phase, models in your unit have the Feel No Pain 6+ ability, which is improved to Feel No Pain 5+ against mortal wounds.</description>
             </rule>
             <rule name="MACHINE SPIRIT RESURGENT (Stratagem, 1CP)" id="7c99-d395-3534-b96b" hidden="false">
-              <comment>strat-timing: turn=your phase=command</comment>
+              <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;MACHINE SPIRIT RESURGENT&quot; reroll=hit kw=&quot;Legio Cybernetica,Vehicle&quot; conditional
+sim-mod: source=&quot;MACHINE SPIRIT RESURGENT&quot; reroll=wound kw=&quot;Legio Cybernetica,Vehicle&quot; conditional</comment>
               <description>Cohort Cybernetica – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -15911,7 +15920,9 @@ Until the start of your next Command phase, those units gain the Halo Override k
 **Muted Servomotors:** Models in this unit have the Stealth ability.</description>
             </rule>
             <rule name="Eradication Protocols (Stratagem, 1CP)" id="20e8-59b0-c857-c4a6" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Eradication Protocols&quot; reroll=wound1
+sim-mod: source=&quot;Eradication Protocols&quot; reroll=hit1 conditional</comment>
               <description>Haloscreed Battle Clade – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -15919,7 +15930,8 @@ TARGET: One Adeptus Mechanicus unit from your army that has not been selected to
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1, and, if it is a Halo Override unit, re-roll a Hit roll of 1.</description>
             </rule>
             <rule name="Targeting Override (Stratagem, 1CP)" id="9ce4-5e73-a26d-9ff2" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Targeting Override&quot; crit-hit=5</comment>
               <description>Haloscreed Battle Clade – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -15980,7 +15992,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;, or up to 6&quot; ins
 - If the Conqueror Imperative is active for that unit, re‑roll a Wound roll of 1.</description>
             </rule>
             <rule name="Servo-Driven Charge (Stratagem, 1CP)" id="7f48-0424-8de6-be01" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Servo-Driven Charge&quot; wound=+1 when=melee onCharge</comment>
               <description>Eradication Cohort – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -15996,7 +16009,10 @@ TARGET: That Adeptus Mechanicus unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in which it Fell Back. If your unit has the Skitarii keyword, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back instead.</description>
             </rule>
             <rule name="Unshackled Wrath (Stratagem, 1CP)" id="7633-0f8d-84bf-c55a" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Unshackled Wrath&quot; sustained=1 when=ranged kw=&quot;Skitarii&quot; choice=&quot;wrath&quot;
+sim-mod: source=&quot;Unshackled Wrath&quot; lethal when=ranged kw=&quot;Skitarii&quot; choice=&quot;wrath&quot;
+sim-mod: source=&quot;Unshackled Wrath&quot; sustained=1 lethal when=ranged kw=&quot;Skitarii&quot; choice=&quot;wrath&quot;</comment>
               <description>Eradication Cohort – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -16004,6 +16020,7 @@ TARGET: One Skitarii unit from your army that has not been selected to shoot thi
 EFFECT: Select the [SUSTAINED HITS 1] or [LETHAL HITS] ability. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. You can instead select the [SUSTAINED HITS 1], [LETHAL HITS] and [HAZARDOUS] abilities to apply to those weapons until the end of the phase.</description>
             </rule>
             <rule name="Threat-Cogitation Targeters (Stratagem, 1CP)" id="dd68-9153-7038-3f8f" hidden="false">
+              <comment>sim-mod: source=&quot;Threat-Cogitation Targeters&quot; reroll=dmg when=ranged kw=&quot;Skitarii&amp;Vehicle&quot; vs=Monster,Vehicle</comment>
               <description>Eradication Cohort – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -16048,7 +16065,8 @@ EFFECT: Your unit can shoot as if it were your Shooting phase, but must target o
 - While a unit is analysed, that unit has +3&quot; detection range.</description>
             </rule>
             <rule name="Defect Scrutiny (Stratagem, 1CP)" id="e4be-4583-1035-481a" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Defect Scrutiny&quot; ignores-cover when=ranged conditional</comment>
               <description>Cohort Acquisitus – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS MECHANICUS unit is selected to shoot.
@@ -16142,7 +16160,8 @@ EFFECT: That action does not prevent your unit from being eligible to shoot.</de
 This detachment has the DATA-PSALM tag and cannot be taken with another DATA-PSALM detachment.</description>
             </rule>
             <rule name="Echoes of the Conduit Wars (Stratagem, 1CP)" id="30b5-f974-988d-ad41" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Echoes of the Conduit Wars&quot; reroll=hit1 reroll=wound1 kw=&quot;Electro-Priests&quot; conditional</comment>
               <description>Luminen Auto-Choir – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly ELECTRO-PRIESTS unit is selected to attack.

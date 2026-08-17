@@ -409,7 +409,9 @@ EFFECT: ■ Place your unit in strategic reserves.
 RESTRICTION: You cannot target units that are within Engagement Range of one or more enemy units with this Stratagem.</description>
                 </rule>
                 <rule name="DRAUGHT OF TERROR (Stratagem, 1CP)" id="35a2-599e-2a76-c0a8" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Draught of Terror&quot; ap=+1
+sim-mod: source=&quot;Draught of Terror&quot; reroll=wound conditional</comment>
                   <description>Daemonic Incursion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -472,7 +474,8 @@ TARGET: That LEGIONES DAEMONICA SLAANESH unit.
 EFFECT: Select one enemy unit within Engagement Range of your unit, then roll one D6 for each model in your unit that is within Engagement Range of that enemy unit, or roll six D6 instead if your unit is a MONSTER unit: for each 4+, that enemy unit suffers 1 mortal wound.</description>
                 </rule>
                 <rule name="ARCHAGONISTS (Stratagem, 2CP)" id="c0c2-71d7-3952-956a" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Archagonists&quot; wound=+1 when=melee kw=&quot;Slaanesh&quot;</comment>
                   <description>Legion of Excess – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -531,7 +534,9 @@ In your Command phase, if your opponent has one or more Flux tokens, you gain on
 **Designer’s Note**: *When using fast dice rolling, this rule can be used to spend any number of Flux tokens (up to the amount you have), to re‑roll a number of dice up to the amount spent, after rolling multiple rolls or saving throws at once.*</description>
                 </rule>
                 <rule name="PYROGENESIS (Stratagem, 1CP)" id="5101-af4d-cdaa-669d" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Pyrogenesis&quot; str=+2 kw=&quot;Tzeentch&quot; choice=&quot;pyro&quot;
+sim-mod: source=&quot;Pyrogenesis&quot; str=+3 ap=+1 kw=&quot;Tzeentch&quot; choice=&quot;pyro&quot; conditional</comment>
                   <description>Scintillating Legion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -665,7 +670,8 @@ EFFECT: Until the end of the phase, your unit is eligible to declare a charge in
                   <description>While an enemy unit is within 9&quot; of one or more LEGIONES DAEMONICA NURGLE units from your army, that enemy unit is within your army’s Shadow of Chaos. In each player’s Command phase, select one enemy unit within your army’s Shadow of Chaos. That unit must take a Battle‑shock test.</description>
                 </rule>
                 <rule name="FEVER VISIONS (Stratagem, 1CP)" id="7d5c-ab4d-d202-0f49" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Fever Visions&quot; hit=+1 kw=&quot;Nurgle&quot;</comment>
                   <description>Plague Legion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -681,7 +687,8 @@ TARGET: One Legiones Daemonica Nurgle Infantry unit from your army.
 EFFECT: Until the end of the phase, each time your unit makes a Normal move, add 5&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="SEEPING VIRULENCE (Stratagem, 1CP)" id="c5f5-aebd-b785-a486" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Seeping Virulence&quot; crit-hit=5 when=melee kw=&quot;Nurgle&quot;</comment>
                   <description>Plague Legion – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -738,7 +745,8 @@ TARGET: One friendly SHADOW LEGION unit.
 EFFECT: Select one visible enemy unit within 12&quot; of your unit. When that enemy unit declares a charge, that enemy unit has -1 to charge rolls. If your unit has Nurgle, that enemy unit must make a battle-shock roll.</description>
                 </rule>
                 <rule name="ENCROACHING DARKNESS (Stratagem, 1CP)" id="c3bf-7712-2531-2416" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Encroaching Darkness&quot; ignores-cover when=ranged conditional</comment>
                   <description>Shadow Legion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -770,7 +778,9 @@ TARGET: That SHADOW LEGION unit. You can use this Stratagem on that unit even th
 EFFECT: Roll one D6 for each enemy unit that is within Engagement Range of the last model in your unit, adding 2 to the result if your unit has the Slaanesh keyword: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds.</description>
                 </rule>
                 <rule name="CHANNELLED WRATH (Stratagem, 1CP)" id="aa4c-93bd-4b1a-190c" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Channelled Wrath&quot; wound=+1 when=melee onCharge
+sim-mod: source=&quot;Channelled Wrath&quot; ap=+1 when=melee conditional</comment>
                   <description>Shadow Legion – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -844,7 +854,8 @@ TARGET: One friendly LEGIONES DAEMONICA CHARACTER SLAANESH unit (excluding MONST
 EFFECT: Your unit has Fights First and must be the next unit you select to fight.</description>
                 </rule>
                 <rule name="Call to Murder (Stratagem, 1CP)" id="0d39-46bf-2539-f852" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Call to Murder&quot; attacks=+1 when=melee onCharge kw=&quot;Character&amp;Khorne&quot;</comment>
                   <description>Lords of the Warp – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly LEGIONES DAEMONICA KHORNE CHARACTER unit (excluding MONSTER units) that made a charge move this turn is selected to fight.
@@ -861,7 +872,8 @@ EFFECT: Select one visible enemy unit within 8&quot; of your unit and roll seven
 - For each 4+, that enemy unit suffers 1 mortal wound.</description>
                 </rule>
                 <rule name="Skirling Magicks (Stratagem, 1CP)" id="9f2f-711c-e2c1-11d1" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Skirling Magicks&quot; lethal when=ranged kw=&quot;Character&amp;Tzeentch&quot;</comment>
                   <description>Lords of the Warp – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly LEGIONES DAEMONICA CHARACTER TZEENTCH unit (excluding MONSTER units) is selected to shoot.

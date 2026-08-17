@@ -3669,7 +3669,8 @@ invuln: 5+ conditional</comment>
                   <description>At the start of the first battle round, after selecting one or more Dread abilities to be active for your army, you can select one additional Dread ability to be active for your army (this additional Dread ability cannot be randomly selected).</description>
                 </rule>
                 <rule name="CONQUERORS WITHOUT MERCY (Stratagem, 1CP)" id="fae4-9e8a-8448-54e4" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;CONQUERORS WITHOUT MERCY&quot; ap=+1 when=melee onCharge</comment>
                   <description>Traitoris Lance – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -3736,7 +3737,8 @@ RESTRICTIONS: You can only use this Stratagem once per battle round.</descriptio
 ▪ Friendly **^^Damned^^** units can re-roll Leadership rolls.</description>
                 </rule>
                 <rule name="Avenge the Masters! (Stratagem, 1CP)" id="2931-8bb1-793c-9d34" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;Avenge the Masters!&quot; lethal conditional</comment>
                   <description>Iconoclast Fiefdom – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly CHAOS KNIGHTS unit is destroyed by an enemy unit.
@@ -3813,7 +3815,9 @@ TARGET: That CHAOS KNIGHTS CHARACTER unit.
 EFFECT: Select one enemy unit (excluding MONSTERS and VEHICLES) that your unit moved over during that move and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound. If one or more models are destroyed as a result of this Stratagem, that enemy unit must take a Battle-shock test.</description>
                 </rule>
                 <rule name="TITANIC DUEL (Stratagem, 1CP)" id="7a86-9e24-94f5-07c7" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;TITANIC DUEL&quot; reroll=hit1 reroll=wound1 kw=&quot;Character&quot; vs=Monster,Vehicle choice=&quot;duel&quot;
+sim-mod: source=&quot;TITANIC DUEL&quot; reroll=hit reroll=wound kw=&quot;Character&quot; vs=Titanic conditional choice=&quot;duel&quot;</comment>
                   <description>Lords of Dread – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3862,7 +3866,8 @@ While using the Houndpack Lance Detachment, the following rules apply:
 *** Designer&apos;s Note:** *This means that the selected units can be given Enhancements and one of them can be selected as your* ^^**Warlord^^**.</description>
                 </rule>
                 <rule name="HUNGRY FOR COMBAT (Stratagem, 1CP)" id="f68c-42c4-9d67-5771" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Hungry for Combat&quot; crit-hit=5 when=melee kw=&quot;War Dog&quot; conditional</comment>
                   <description>Houndpack Lance – STRATAGEM (1CP)
 
 WHEN: Start of the Fight phase.
@@ -3972,7 +3977,8 @@ TARGET: One Chaos Knights unit from your army that was selected as the target of
 EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable save.</description>
                 </rule>
                 <rule name="WARP VISION (Stratagem, 1CP)" id="73d2-4fcb-35cb-a195" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;WARP VISION&quot; ignores-cover when=ranged</comment>
                   <description>Infernal Lance – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -4013,7 +4019,8 @@ TARGET: That CHAOS KNIGHTS unit.
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds.</description>
                 </rule>
                 <rule name="Merciless Fusillade (Stratagem, 1CP)" id="718c-e8d1-2cb6-81db" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Merciless Fusillade&quot; sustained=1 kw=&quot;Titanic,War Dog&quot; conditional</comment>
                   <description>Helhunt Lance – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase or the start of the Fight phase.

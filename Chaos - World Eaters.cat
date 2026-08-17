@@ -8967,7 +8967,8 @@ TARGET: One World Eaters unit from your army that was selected as the target of 
 EFFECT: Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.</description>
                 </rule>
                 <rule name="HACK AND SLASH (Stratagem, 1CP)" id="d383-6faf-40ab-71b9" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;HACK AND SLASH&quot; ap=+1 when=melee onCharge</comment>
                   <description>Berzerker Warband – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -9046,7 +9047,8 @@ TARGET: That WORLD EATERS CHARACTER unit.
 EFFECT: Your unit has Feel No Pain 4+ against mortal wounds.</description>
                 </rule>
                 <rule name="Aspire to Infamy (Stratagem, 1CP)" id="3f2d-95cf-be51-b86a" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Aspire to Infamy&quot; attacks=+1 str=+2 when=melee kw=&quot;Character&quot;</comment>
                   <description>Vessels of Wrath – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly WORLD EATERS CHARACTER unit (excluding EPIC HERO units) is selected to fight.
@@ -9103,7 +9105,8 @@ EFFECT: Select the Idol of Infinite Rage, Idol of Burning Wrath or Idol of Bless
 RESTRICTIONS: You can only use this Stratagem once per battle.</description>
                 </rule>
                 <rule name="BLOODY VENGEANCE (Stratagem, 1CP)" id="7e04-8afb-3e60-38d1" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;BLOODY VENGEANCE&quot; reroll=hit conditional</comment>
                   <description>Cult of Blood – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -9128,7 +9131,9 @@ EFFECT: Add a new unit to your army identical to your destroyed unit, in Strateg
 RESTRICTIONS: This Stratagem cannot be used to return destroyed Character units to Attached units. You can only use this Stratagem once per battle.</description>
                 </rule>
                 <rule name="FAIL NOT THE BLOOD GOD (Stratagem, 1CP)" id="da06-1d19-6f17-13b4" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;FAIL NOT THE BLOOD GOD&quot; reroll=hit1 when=melee kw=&quot;Jakhals,Goremongers&quot; choice=&quot;fnbg&quot;
+sim-mod: source=&quot;FAIL NOT THE BLOOD GOD&quot; reroll=hit when=melee kw=&quot;Jakhals,Goremongers&quot; conditional choice=&quot;fnbg&quot;</comment>
                   <description>Cult of Blood – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -9169,7 +9174,9 @@ Melee weapons equipped by ^^**Blood Legions^^** units from your army have the [L
 ^^**Blood Legions^^** units from your army gain the Blessings of Khorne ability.</description>
                 </rule>
                 <rule name="DAEMONIC FURY (Stratagem, 1CP)" id="8fdf-8a74-1528-0049" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DAEMONIC FURY&quot; wound=+1 when=melee onCharge conditional
+sim-mod: source=&quot;DAEMONIC FURY&quot; twin-linked when=melee conditional</comment>
                   <description>Khorne Daemonkin – STRATAGEM (1CP)
 
 WHEN: Start of your Fight phase.
@@ -9247,7 +9254,9 @@ TARGET: One World Eaters Possessed unit from your army that was selected as the 
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
                 </rule>
                 <rule name="DAEMONIC STRENGTH (Stratagem, 1CP)" id="7346-d19e-2592-a286" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DAEMONIC STRENGTH&quot; dmg=+1 when=melee kw=&quot;Possessed&quot; conditional choice=&quot;ds&quot;
+sim-mod: source=&quot;DAEMONIC STRENGTH&quot; dmg=+1 when=melee kw=&quot;Possessed&quot; vs=Monster,Vehicle conditional choice=&quot;ds&quot;</comment>
                   <description>Possessed Slaughterband – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -9422,7 +9431,8 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
                   <description>At the start of the Fight phase, if a friendly **^^Terminator Squad^^** unit is engaged, make a Blessings of Khorne roll and use the results to activate one Blessing of Khorne. Until the end of the phase, that Blessing of Khorne is active for friendly **^^Terminator Squad^^** units in addition to any other Blessings of Khorne that are currently active.</description>
                 </rule>
                 <rule name="Focused Ferocity (Stratagem, 1CP)" id="26e6-80b9-c562-23c8" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Focused Ferocity&quot; attacks=+1 when=melee kw=&quot;Terminator Squad&quot;</comment>
                   <description>Butchers of Khorne – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly TERMINATOR SQUAD unit is selected to fight.
@@ -9430,7 +9440,8 @@ TARGET: That TERMINATOR SQUAD unit.
 EFFECT: Your unit&apos;s melee attacks have +1 A.</description>
                 </rule>
                 <rule name="A Trophy for the Throne (Stratagem, 1CP)" id="e317-a155-26dd-9b52" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;A Trophy for the Throne&quot; wound=+1 when=melee kw=&quot;Terminator Squad&quot; vs=Monster,Vehicle</comment>
                   <description>Butchers of Khorne – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly TERMINATOR SQUAD unit is selected to fight.

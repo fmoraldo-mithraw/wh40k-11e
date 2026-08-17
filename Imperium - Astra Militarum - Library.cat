@@ -38758,7 +38758,8 @@ TARGET: One Regiment unit from your army and one Squadron unit from your army wi
 EFFECT: Until the end of the phase, Orders affecting one of your units affect the other, and vice versa.</description>
             </rule>
             <rule name="FIELDS OF FIRE (Stratagem, 1CP)" id="2075-fc0b-f8e1-4ee8" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FIELDS OF FIRE&quot; ap=+1 when=ranged kw=&quot;Regiment,Squadron&quot;</comment>
               <description>Combined Arms – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -38836,7 +38837,13 @@ EFFECT: Roll one D6 for each enemy unit engaged with your unit:
 Then, your unit suffers 3D3 mortal wounds.</description>
             </rule>
             <rule name="Firing Hot (Stratagem, 2CP)" id="8643-940e-aa55-f027" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Hot-shot Lascarbine&quot; conditional
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Hot-shot Lasgun&quot; conditional
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Hot-shot Laspistol&quot; conditional
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Hot-shot Marksman Rifle&quot; conditional
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Hot-shot Volley Gun&quot; conditional
+sim-mod: source=&quot;Firing Hot&quot; str=+1 ap=+1 when=ranged kw=&quot;Militarum Tempestus,Kasrkin&quot; weapon=&quot;Sentry Hot-shot Volley Gun&quot; conditional</comment>
               <description>Bridgehead Strike – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase, when a friendly MILITARUM TEMPESTUS/KASRKIN unit is selected to shoot.
@@ -38844,7 +38851,8 @@ TARGET: That MILITARUM TEMPESTUS/KASRKIN unit.
 EFFECT: Your unit’s Hot-shot Lascarbines, Hot-shot Lasguns, Hot-shot Laspistols, Hot-shot Marksman Rifles, Hot-shot Volley Guns and Sentry Hot-shot Volley Guns weapons that targeted an enemy unit within 12&quot; have +1 S and AP.</description>
             </rule>
             <rule name="Servo-Designators (Stratagem, 1CP)" id="60a0-f0de-501b-3efb" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Servo-Designators&quot; ignores-cover when=ranged kw=&quot;Militarum Tempestus&quot; conditional</comment>
               <description>Bridgehead Strike – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly MILITARUM TEMPESTUS unit has shot.
@@ -38901,7 +38909,8 @@ TARGET: One Platoon unit from your army that is within Engagement Range of one o
 EFFECT: Until the end of the phase, enemy units are not considered to be within Engagement Range of your unit for the purposes of selecting targets of ranged weapons. Until the end of the phase, each time an enemy model loses a wound, while that model’s unit is within Engagement Range of your unit, roll one D6: on a 4+, one model from your unit is destroyed after the attacking unit has finished making its attacks.</description>
             </rule>
             <rule name="FURIOUS FUSILLADE (Stratagem, 1CP)" id="6cf1-8509-f8c0-0c5c" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FURIOUS FUSILLADE&quot; attacks=+1 when=ranged kw=&quot;Platoon&quot; conditional</comment>
               <description>Siege Regiment – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -38925,7 +38934,8 @@ TARGET: One Platoon unit from your army.
 EFFECT: Until the end of the phase, each time an enemy unit ends a Charge move within Engagement Range of your unit, roll one D6 for each model in that enemy unit: for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</description>
             </rule>
             <rule name="FLARE BURST (Stratagem, 1CP)" id="c3b6-e00b-3140-747e" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FLARE BURST&quot; reroll=hit when=ranged kw=&quot;Character&quot; conditional</comment>
               <description>Siege Regiment – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -38966,7 +38976,8 @@ TARGET: One Astra Militarum Infantry unit from your army that was selected as a 
 EFFECT: Provided your unit is not within Engagement Range of one or more enemy units and every model in your unit is within 3&quot; of an AsTRA Militarum Transport from your army, it can embark within that TRANSPORT.</description>
             </rule>
             <rule name="CLEAR AND SECURE (Stratagem, 1CP)" id="585c-93e5-66d1-4de5" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CLEAR AND SECURE&quot; reroll=hit reroll=wound when=ranged conditional</comment>
               <description>Mechanised Assault – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39030,7 +39041,8 @@ EFFECT: Until the end of the phase, your unit can issue Orders even though it is
               <description>Each time a **^^Squadron^^** unit from your army Advances, do not make an Advance roll for it; until the end of the phase, add 6&quot; to the Move characteristics of models in that unit, and when making that Advance move, that unit can move within Engagement Range of enemy models but cannot end that move within Engagement Range of enemy models.</description>
             </rule>
             <rule name="FURIOUS CANNONADE (Stratagem, 1CP)" id="1511-9766-8db2-708b" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FURIOUS CANNONADE&quot; ap=+1 when=ranged kw=&quot;Squadron&quot; conditional</comment>
               <description>Hammer of the Emperor – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39195,7 +39207,8 @@ TARGET: One Astra Militarum unit from your army affected by the Duty and Honour!
 EFFECT: If your unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of a phase.</description>
             </rule>
             <rule name="Veteran Sharpshooters (Stratagem, 1CP)" id="ae76-9c23-cce1-f0f7" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Veteran Sharpshooters&quot; ignores-cover when=ranged</comment>
               <description>Grizzled Company – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39203,7 +39216,8 @@ TARGET: One Astra Militarum unit from your army that has not been selected to sh
 EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability.</description>
             </rule>
             <rule name="Purging Fire (Stratagem, 1CP)" id="6159-76ae-3117-7e3b" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Purging Fire&quot; lethal when=ranged conditional</comment>
               <description>Grizzled Company – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39211,7 +39225,8 @@ TARGET: One Astra Militarum unit from your army affected by an Order that has no
 EFFECT: If your unit is within range of an objective marker, until the end of the phase, ranged weapons equipped by models in your unit have the [LETHAL HITS] ability.</description>
             </rule>
             <rule name="Mordian Minute (Stratagem, 1CP)" id="4209-32b9-eaf5-5622" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Mordian Minute&quot; str=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>Grizzled Company – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39371,7 +39386,8 @@ Each time an **^^Officer^^** model in this unit issues an Order, that Order can 
 Designer’s Note: This means that the selected units can be given Enhancements, and one of them can be selected as your Warlord.</description>
             </rule>
             <rule name="Engine of Wrath (Stratagem, 1CP)" id="8cfc-308e-35e3-2cad" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Engine of Wrath&quot; attacks=+6 ap=+2 when=melee kw=&quot;Titanic&quot;</comment>
               <description>Steel Hammer – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -39411,7 +39427,8 @@ TARGET: That Astra Militarum Vehicle unit.
 EFFECT: Select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle-shock test, subtracting 1 from that test.</description>
             </rule>
             <rule name="Accuracy Under Pressure (Stratagem, 2CP)" id="2e59-9a25-00a6-1eb3" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Accuracy Under Pressure&quot; reroll=hit when=ranged</comment>
               <description>Steel Hammer – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase.
@@ -39472,7 +39489,8 @@ TARGET: One Astra Militarum unit from your army that did not Remain Stationary o
 EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
             </rule>
             <rule name="Supporting Ordnance (Stratagem, 1CP)" id="c187-284a-1371-8c2a" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Supporting Ordnance&quot; reroll=hit when=ranged kw=&quot;Armoured Skirmisher&quot; vs=Monster,Vehicle</comment>
               <description>Armoured Infantry – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -39480,7 +39498,8 @@ TARGET: One Armoured Skirmisher unit from your army that has not been selected t
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a visible Monster or Vehicle unit, you can re-roll the Hit roll.</description>
             </rule>
             <rule name="Combined Fire (Stratagem, 1CP)" id="9164-a137-f458-254f" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Combined Fire&quot; str=+2 ignores-cover when=ranged kw=&quot;Armoured Skirmisher&quot; conditional</comment>
               <description>Armoured Infantry – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, just after an Armoured Skirmisher unit from your army has shot.
@@ -39488,7 +39507,8 @@ TARGET: That Armoured Skirmisher unit.
 EFFECT: Select one enemy unit hit by one or more of those attacks. Until the end of the phase, that enemy unit cannot have the Benefit of Cover, and each time an Armoured Skirmisher unit from your army makes an attack that targets that unit, improve the Strength characteristic of that attack by 2.</description>
             </rule>
             <rule name="Opening Salvo (Stratagem, 1CP)" id="c47b-ea8a-dd72-0b13" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Opening Salvo&quot; wound=+1 when=ranged conditional</comment>
               <description>Armoured Infantry – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.

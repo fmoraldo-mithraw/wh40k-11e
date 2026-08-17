@@ -41715,7 +41715,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="HONOUR THE CHAPTER (Stratagem, 1CP)" id="5e33-426b-5223-8609" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Honour the Chapter&quot; wound=+1 when=melee onCharge
+sim-mod: source=&quot;Honour the Chapter&quot; ap=+1 when=melee conditional</comment>
               <description>Gladius Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -41723,7 +41725,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army.
 EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.</description>
             </rule>
             <rule name="STORM OF FIRE (Stratagem, 1CP)" id="5527-520b-3b7b-6cf9" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Storm of Fire&quot; ignores-cover when=ranged
+sim-mod: source=&quot;Storm of Fire&quot; ap=+1 when=ranged conditional</comment>
               <description>Gladius Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -41797,7 +41801,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="UNFORGIVEN FURY (Stratagem, 1CP)" id="7467-6795-07e2-cbb6" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;UNFORGIVEN FURY&quot; lethal
+sim-mod: source=&quot;UNFORGIVEN FURY&quot; crit-hit=5 conditional</comment>
               <description>Unforgiven Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -41805,7 +41811,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to s
 EFFECT: Until the end of the phase, weapons equipped by models in your unit have the [LETHAL HITS] ability. In addition, if one or more ADEPTUS ASTARTES units from your army are currently Battle-shocked, until the end of the phase, each time a model in your unit makes an attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.</description>
             </rule>
             <rule name="FIRE DISCIPLINE (Stratagem, 1CP)" id="e4ab-31eb-c447-8a93" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FIRE DISCIPLINE&quot; ignores-cover when=ranged
+sim-mod: source=&quot;FIRE DISCIPLINE&quot; hit=+1 when=ranged conditional</comment>
               <description>Unforgiven Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -41893,7 +41901,8 @@ TARGET: Up to two Kill Team units from your army, or one other ADEPTUS ASTARTES 
 EFFECT: For each unit targeted, select Furor Tactics, Malleus Tactics or Purgatus Tactics. Until the start of your next Command phase, that Mission Tactic is active for that unit instead of any Mission Tactic that is active for your army.</description>
             </rule>
             <rule name="HELLFIRE ROUNDS (Stratagem, 1CP)" id="86df-632b-143b-1077" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;HELLFIRE ROUNDS&quot; anti=Infantry:2+ anti=Monster:5+ when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -41902,7 +41911,8 @@ EFFECT: Until the end of the phase, ranged weapons (excluding Devastating Wounds
 RESTRICTIONS: You cannot select any units that have already been targeted with either the Kraken Rounds or Dragonfire Rounds Stratagems this phase.</description>
             </rule>
             <rule name="DRAGONFIRE ROUNDS (Stratagem, 1CP)" id="e9ae-3c7c-09cd-8cf2" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;DRAGONFIRE ROUNDS&quot; ignores-cover when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -41911,7 +41921,8 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
 RESTRICTIONS: You cannot select any units that have already been targeted with either the Kraken Rounds or Hellfire Rounds Stratagems this phase.</description>
             </rule>
             <rule name="KRAKEN ROUNDS (Stratagem, 1CP)" id="aea0-8eb5-b5ef-4a7f" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;KRAKEN ROUNDS&quot; ap=+1 when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -41948,7 +41959,10 @@ RESTRICTIONS: You cannot select any units that have already been targeted with e
               <description>Each time an ^^**Adeptus Astartes**^^ unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 2 to the Strength characteristic and add 1 to the Attacks characteristic of melee weapons equipped by models in that unit.</description>
             </rule>
             <rule name="RED RAMPAGE (Stratagem, 1CP)" id="6fc9-c228-9cc5-a165" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Red Rampage&quot; wound=+1 when=melee onCharge choice=&quot;rampage&quot;
+sim-mod: source=&quot;Red Rampage&quot; lethal when=melee choice=&quot;rampage&quot;
+sim-mod: source=&quot;Red Rampage&quot; wound=+1 lethal when=melee onCharge choice=&quot;rampage&quot;</comment>
               <description>Liberator Assault Group – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -41964,7 +41978,10 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="SAVAGE ECHOES (Stratagem, 1CP)" id="8176-1d21-a9b3-6259" hidden="false">
-              <comment>strat-timing: turn=opponent phase=charge</comment>
+              <comment>strat-timing: turn=opponent phase=charge
+sim-mod: source=&quot;Savage Echoes&quot; str=+1 when=melee conditional choice=&quot;echoes&quot;
+sim-mod: source=&quot;Savage Echoes&quot; attacks=+1 when=melee conditional choice=&quot;echoes&quot;
+sim-mod: source=&quot;Savage Echoes&quot; str=+1 attacks=+1 when=melee conditional choice=&quot;echoes&quot;</comment>
               <description>Liberator Assault Group – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Charge phase.
@@ -42014,7 +42031,8 @@ EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+
               <description>Ranged weapons equipped by **^^Adeptus Astartes^^** models from your army have the **[HEAVY]** ability. If such a weapon already has this ability, each time an attack is made with that weapon, if the attacking model&apos;s unit Remained Stationary this turn, add 1 to the Wound roll.</description>
             </rule>
             <rule name="NO THREAT TOO GREAT (Stratagem, 2CP)" id="4ad4-96aa-5db0-9fa4" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;NO THREAT TOO GREAT&quot; reroll=wound when=ranged vs=Monster,Vehicle</comment>
               <description>Anvil Siege Force – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase.
@@ -42022,7 +42040,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to s
 EFFECT: Until the end of the phase, each time a model in your unit makes a ranged attack that targets a MONSTER or VEHICLE unit, you can re-roll the Wound roll.</description>
             </rule>
             <rule name="BATTLE DRILL RECALL (Stratagem, 1CP)" id="4392-a404-e5c2-a191" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;BATTLE DRILL RECALL&quot; sustained=1 when=ranged
+sim-mod: source=&quot;BATTLE DRILL RECALL&quot; crit-hit=5 when=ranged conditional</comment>
               <description>Anvil Siege Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -42083,7 +42103,9 @@ sim-mod: source=&quot;Armoured Wrath&quot; reroll=dmg oncePer=phase conditional<
               <description>Once per phase for each ^^**Adeptus Astartes^^** unit in your army, you can re-roll one Hit roll, one Wound roll, or one Damage roll made for a model in that unit.</description>
             </rule>
             <rule name="MERCY IS WEAKNESS (Stratagem, 2CP)" id="a683-c46f-89f2-6a9c" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Mercy is Weakness&quot; sustained=1 conditional
+sim-mod: source=&quot;Mercy is Weakness&quot; crit-hit=5 conditional</comment>
               <description>Ironstorm Spearhead – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -42115,7 +42137,8 @@ TARGET: That ADEPTUS ASTARTES VEHICLE model. You can use this Stratagem on that 
 EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by your model’s Deadly Demise ability. Instead, mortal wounds are automatically inflicted.</description>
             </rule>
             <rule name="ANCIENT FURY (Stratagem, 1CP)" id="c415-5b7f-1736-d1f1" hidden="false">
-              <comment>strat-timing: turn=your phase=command</comment>
+              <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;Ancient Fury&quot; hit=+1 kw=&quot;Walker&quot;</comment>
               <description>Ironstorm Spearhead – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -42149,7 +42172,8 @@ EFFECT: Your unit can shoot as if it were your Shooting phase, but must target o
               <description>Ranged weapons equipped by Adeptus Astartes models from your army have the [ASSAULT] ability, and each time an attack made such a weapon targets a unit within 12&quot;, add 1 to the Strength characteristic of that attack.</description>
             </rule>
             <rule name="IMMOLATION PROTOCOLS (Stratagem, 2CP)" id="f5ca-fabc-fa69-fd21" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;IMMOLATION PROTOCOLS&quot; dev when=ranged weapon=&quot;Torrent&quot;</comment>
               <description>Firestorm Assault Force – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase.
@@ -42157,7 +42181,8 @@ TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to s
 EFFECT: Until the end of the phase, Torrent weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.</description>
             </rule>
             <rule name="ONSLAUGHT OF FIRE (Stratagem, 1CP)" id="febf-63b2-5fd8-3643" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;ONSLAUGHT OF FIRE&quot; hit=+1 when=ranged conditional</comment>
               <description>Firestorm Assault Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -42181,7 +42206,8 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="CRUCIBLE OF BATTLE (Stratagem, 1CP)" id="6449-bdb9-5025-016a" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;CRUCIBLE OF BATTLE&quot; wound=+1 kw=&quot;Infantry&quot; conditional</comment>
               <description>Firestorm Assault Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -42245,7 +42271,8 @@ TARGET: One ADEPTUS ASTARTES MOUNTED or ADEPTUS ASTARTES FLY VEHICLE unit from y
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
             </rule>
             <rule name="SHOCK ASSAULT (Stratagem, 1CP)" id="f8bc-078e-6cdb-dc2a" hidden="false">
-              <comment>strat-timing: turn=your phase=charge</comment>
+              <comment>strat-timing: turn=your phase=charge
+sim-mod: source=&quot;SHOCK ASSAULT&quot; wound=+1 when=melee onCharge</comment>
               <description>Stormlance Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -42253,7 +42280,8 @@ TARGET: That ADEPTUS ASTARTES unit.
 EFFECT: Your unit’s melee attacks have [LANCE].</description>
             </rule>
             <rule name="BLITZING FUSILLADE (Stratagem, 1CP)" id="0deb-5433-5311-6def" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;BLITZING FUSILLADE&quot; sustained=1 when=ranged conditional</comment>
               <description>Stormlance Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -42295,7 +42323,8 @@ EFFECT: Until the end of the phase, if your unit Advances, do not make an Advanc
               <description>Each time a ranged attack targets an ^^**Adeptus Astartes**^^ unit from your army, unless the attacking model is within 12&quot;, the target has the Benefit of Cover against that attack.</description>
             </rule>
             <rule name="STRIKE FROM THE SHADOWS (Stratagem, 1CP)" id="3ed7-3020-f282-ad63" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;STRIKE FROM THE SHADOWS&quot; hit=+1 ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>Vanguard Spearhead – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -42370,7 +42399,9 @@ EFFECT: That objective marker is said to be Sabotaged, and remains under your co
               <description>Once per battle, in your Command phase, you can use this ability. If you do, until the start of your next Command phase, each time a model from your army with the Oath of Moment ability makes an attack that targets your Oath of Moment target, you can re-roll the Wound roll as well.</description>
             </rule>
             <rule name="HEROES OF THE CHAPTER (Stratagem, 1CP)" id="d43a-b21e-26ee-7362" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;HEROES OF THE CHAPTER&quot; hit=+1 kw=&quot;Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot;
+sim-mod: source=&quot;HEROES OF THE CHAPTER&quot; wound=+1 kw=&quot;Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot; conditional</comment>
               <description>1st Company Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -42461,7 +42492,9 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="MARTIAL MASTERY (Stratagem, 1CP)" id="a898-096c-8ee3-fa81" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Martial Mastery&quot; reroll=wound1 when=melee kw=&quot;Deathwing&amp;Infantry&quot; choice=&quot;mastery&quot;
+sim-mod: source=&quot;Martial Mastery&quot; reroll=wound when=melee kw=&quot;Deathwing&amp;Infantry&quot; conditional choice=&quot;mastery&quot;</comment>
               <description>Inner Circle Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -42558,7 +42591,8 @@ TARGET: One Ravenwing Mounted unit from your army that is within range of an obj
 EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</description>
             </rule>
             <rule name="TALON STRIKE (Stratagem, 1CP)" id="914e-a693-3cf9-c36e" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;TALON STRIKE&quot; wound=+1 when=melee onCharge</comment>
               <description>Company of Hunters – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -42610,7 +42644,8 @@ TARGET: One Death Company unit from your army, just before that unit Piles-in.
 EFFECT: Until the end of the phase, each time a model in your unit makes a Pile-in move, it can move up to D3+3&quot; instead of up to 3&quot;. If your unit is within 12&quot; of one or more friendly Chaplain models, or if it is below Starting Strength, it can move up to 6&quot; instead. In either case, it can only do so provided your unit ends that Pile-in move in Unit Coherency and within Engagement Range of one or more enemy units.</description>
             </rule>
             <rule name="LOST TO RAGE (Stratagem, 1CP)" id="0727-6b66-02e8-e920" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;LOST TO RAGE&quot; attacks=+1 str=+1 ap=+1 when=melee kw=&quot;Death Company&quot; conditional</comment>
               <description>The Lost Brethren – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -42672,7 +42707,8 @@ Onslaught - Up to 3 units
 Once you have made your selections, remove those units from the battlefield and place them into Strategic Reserves. In the Reinforcements step of your next Movement phase, set each of those units up using their Deep Strike ability.</description>
             </rule>
             <rule name="MARTIAL EXEMPLARS (Stratagem, 1CP)" id="4f66-472d-5e0a-0bee" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;MARTIAL EXEMPLARS&quot; lethal when=melee kw=&quot;Jump Pack&quot;</comment>
               <description>The Angelic Host – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -42705,7 +42741,8 @@ EFFECT: Your unit can be set up anywhere on the battlefield that is more than 6&
 RESTRICTIONS: A unit targeted by this Stratagem is not eligible to declare a charge in the same turn.</description>
             </rule>
             <rule name="UNBRIDLED ARDOUR (Stratagem, 1CP)" id="252b-4ce8-36e3-d8e4" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;UNBRIDLED ARDOUR&quot; reroll=hit reroll=wound kw=&quot;Sanguinary Guard&quot; conditional</comment>
               <description>The Angelic Host – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -42887,7 +42924,8 @@ TARGET: That CHAPLAIN unit.
 EFFECT: Your unit's melee attacks have [PRECISION].</description>
             </rule>
             <rule name="Rite of Perfervid Wrath (Stratagem, 1CP)" id="2761-7b7b-59a5-3d65" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Rite of Perfervid Wrath&quot; str=+1 when=melee kw=&quot;Chaplain&quot;</comment>
               <description>Wrathful Procession – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly CHAPLAIN unit is selected to fight.
@@ -43003,7 +43041,9 @@ Their Appointed Hour: You can re‑roll Advance and Charge rolls made for this
 **Their Appointed Hour**: You can re‑roll Advance and Charge rolls made for this unit.</description>
             </rule>
             <rule name="FOCUSED FURY (Stratagem, 1CP)" id="39f0-281c-7f5a-1589" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;FOCUSED FURY&quot; lethal when=melee
+sim-mod: source=&quot;FOCUSED FURY&quot; wound=+1 when=melee onCharge conditional</comment>
               <description>Angelic Inheritors – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43036,7 +43076,8 @@ EFFECT: Select one non-CHARACTER model in your unit. Until the start of your nex
 Designer’s Note: While in effect, your model’s unit is therefore a CHARACTER unit, meaning it can interact with the Legacy of the Angel Detachment rule, in addition to other rules that interact with CHARACTER units.</description>
             </rule>
             <rule name="STRIKE NOW FOR GLORY (Stratagem, 1CP)" id="ce72-1a87-a066-18ea" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;STRIKE NOW FOR GLORY&quot; sustained=1 when=ranged</comment>
               <description>Angelic Inheritors – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43102,7 +43143,8 @@ EFFECT: Your unit now declares a charge that only targets one or more of those e
 RESTRICTIONS: Note that even if this charge is successful, your unit does not receive any Charge bonus this turn.</description>
             </rule>
             <rule name="LION’S WILL (Stratagem, 1CP)" id="c0dc-1fde-3c7c-f73b" hidden="false">
-              <comment>strat-timing: turn=either phase=command</comment>
+              <comment>strat-timing: turn=either phase=command
+sim-mod: source=&quot;LION&apos;S WILL&quot; hit=+1 conditional</comment>
               <description>Wrath of the Rock – STRATAGEM (1CP)
 
 WHEN: Command phase.
@@ -43110,7 +43152,8 @@ TARGET: One ADEPTUS ASTARTES unit from your army that is within Engagement Range
 EFFECT: Until the start of your next Command phase, add 1 to the Objective Control characteristic of models in your unit. In addition, until the end of the turn, if your unit does not have the Deathwing, Ravenwing or Vehicle keyword, each time a model in your unit makes an attack, add 1 to the Hit roll.</description>
             </rule>
             <rule name="RELICS OF THE DARK AGE (Stratagem, 1CP)" id="07b7-da82-3b61-bf77" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;RELICS OF THE DARK AGE&quot; str=+2 when=ranged kw=&quot;Infantry,Mounted&quot;</comment>
               <description>Wrath of the Rock – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43162,7 +43205,8 @@ Strike Force - 3
 Onslaught - 4</description>
             </rule>
             <rule name="MARKED FOR DESTRUCTION (Stratagem, 1CP)" id="6061-3334-c2a2-7bac" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;MARKED FOR DESTRUCTION&quot; reroll=wound1 when=ranged</comment>
               <description>Saga of the Hunter – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43251,7 +43295,8 @@ Each time a **^^Space Wolves Character^^** unit from your army does one of the f
 ■ Hold the Line: From the second battle round onwards, at the end of your Command phase, that unit is within range of an objective marker you control that is not within your deployment zone.</description>
             </rule>
             <rule name="INSPIRING PRESENCE (Stratagem, 1CP)" id="d55a-e99e-c250-9ce8" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Inspiring Presence&quot; lethal when=melee kw=&quot;Character&quot;</comment>
               <description>Saga of the Bold – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43259,7 +43304,8 @@ TARGET: One Adeptus Astartes Character unit from your army that has not been sel
 EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability.</description>
             </rule>
             <rule name="CHAMPION’S GUIDANCE (Stratagem, 1CP)" id="68a7-6d96-7b90-e977" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Champion’s Guidance&quot; reroll=hit kw=&quot;Space Wolves&amp;Character&quot;</comment>
               <description>Saga of the Bold – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43332,7 +43378,8 @@ Each time an **^^Adeptus Astartes**^^ unit from your army shoots or fights, afte
 Once your Beastslayer tally is equal to or greater than your Beastslayer target your Saga is completed.</description>
             </rule>
             <rule name="UNBRIDLED FEROCITY (Stratagem, 1CP)" id="7db7-df79-95ee-0a9c" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Unbridled Ferocity&quot; wound=+1 when=melee kw=&quot;Space Wolves&quot;</comment>
               <description>Saga of the Beastslayer – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43413,7 +43460,9 @@ EFFECT: Until the end of the phase, each time a model in your unit makes a Pile-
 RESTRICTIONS: A unit cannot be targeted with this and the Hearts Hardened to Duty Stratagem in the same phase unless it has the Chaplain or Judiciar keywords.</description>
             </rule>
             <rule name="PIOUS ENMITY (Stratagem, 1CP)" id="93e4-0c90-e0e6-e942" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;PIOUS ENMITY&quot; reroll=hit1 when=melee kw=&quot;Chaplain,Judiciar&quot;
+sim-mod: source=&quot;PIOUS ENMITY&quot; reroll=wound1 when=melee kw=&quot;Chaplain,Judiciar&quot; vs=Monster,Vehicle</comment>
               <description>Companions of Vehemence – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43479,7 +43528,8 @@ EFFECT: Until the end of the phase, each time a model in your unit makes a Conso
 - Each time a friendly ^^**Crusader Squad**^^ unit makes a surge move, instead of selecting a surge target, you can select the closest objective to that unit. When that unit makes that surge move, each model in that unit must end that surge move as close as possible to that objective instead.</description>
             </rule>
             <rule name="LITANIES OF PURGATION (Stratagem, 1CP)" id="3926-d7e2-d7c1-4eb9" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;LITANIES OF PURGATION&quot; ap=+1 when=melee conditional</comment>
               <description>Vindication Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43487,7 +43537,8 @@ TARGET: One ADEPTUS ASTARTES unit from your army that has not been selected to f
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, if that model’s unit is within range of one or more objective markers or the target unit is within range of one or more objective markers, improve the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="SPOOR OF THE UNHOLY (Stratagem, 1CP)" id="23ee-c250-b01e-b7c2" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;SPOOR OF THE UNHOLY&quot; ignores-cover when=ranged</comment>
               <description>Vindication Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43521,7 +43572,8 @@ TARGET: One Ancient unit from your army that was selected as the target of one o
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.</description>
             </rule>
             <rule name="RECLAIM OUR HONOUR! (Stratagem, 1CP)" id="944a-c108-3009-cdbd" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;RECLAIM OUR HONOUR!&quot; hit=+1 conditional</comment>
               <description>Vindication Task Force – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit destroys an Ancient model from your army that has not been targeted with the Refusal to Yield Stratagem this phase.
@@ -43557,7 +43609,9 @@ RESTRICTIONS: You cannot target that ANCIENT model with the Refusal to Yield Str
 - Each time an ^^**Adeptus Astartes**^^ unit from your army makes a melee attack, if it disembarked from a ^^**Transport**^^ this turn, add 1 to the Hit roll.</description>
             </rule>
             <rule name="CONDEMNATORY INFO-SCREED (Stratagem, 1CP)" id="3703-f206-b070-3cc2" hidden="false">
-              <comment>strat-timing: turn=your phase=fight</comment>
+              <comment>strat-timing: turn=your phase=fight
+sim-mod: source=&quot;Condemnatory Info-Screed&quot; reroll=wound1 when=melee conditional choice=&quot;screed&quot;
+sim-mod: source=&quot;Condemnatory Info-Screed&quot; reroll=wound when=melee conditional choice=&quot;screed&quot;</comment>
               <description>Godhammer Assault Force – STRATAGEM (1CP)
 
 WHEN: Your Fight phase.
@@ -43647,7 +43701,8 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Crucible of Battle (Stratagem, 1CP)" id="6dd3-3a5e-a9e4-2e99" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Crucible of Battle&quot; wound=+1 kw=&quot;Infantry&quot; conditional</comment>
               <description>Forgefather’s Seekers – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43663,7 +43718,8 @@ TARGET: That unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in which it Fell Back.</description>
             </rule>
             <rule name="Immolation Protocols (Stratagem, 2CP)" id="1053-7647-9168-b2cb" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Immolation Protocols&quot; dev when=ranged weapon=&quot;Torrent&quot;</comment>
               <description>Forgefather’s Seekers – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase.
@@ -43723,7 +43779,9 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Fury of the First (Stratagem, 1CP)" id="6476-e623-5ba7-fbdd" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Fury of the First&quot; hit=+1 kw=&quot;Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot;
+sim-mod: source=&quot;Fury of the First&quot; wound=+1 kw=&quot;Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot; conditional</comment>
               <description>Emperor’s Shield – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43747,7 +43805,8 @@ TARGET: One Adeptus Astartes Terminator, Bladeguard Veteran Squad, Sternguard Ve
 EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any phase.</description>
             </rule>
             <rule name="Disciplined Extermination (Stratagem, 1CP)" id="d2fe-ce12-494d-05ca" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Disciplined Extermination&quot; ignores-cover ap=+1 when=ranged kw=&quot;Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot;</comment>
               <description>Emperor’s Shield – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43816,7 +43875,8 @@ TARGET: One Adeptus Astartes unit from your army.
 EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back. If it is a Phobos or Scout Squad unit, it is also eligible to shoot and declare a charge in a turn in which it Advanced.</description>
             </rule>
             <rule name="Stunning Fusillade (Stratagem, 1CP)" id="db09-4fa4-ecd1-a920" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Stunning Fusillade&quot; hit=+1 ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43877,7 +43937,9 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Ruthless Butchery (Stratagem, 1CP)" id="4dda-5989-40a2-4e17" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Ruthless Butchery&quot; hit=+1 kw=&quot;Dreadnought,Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot;
+sim-mod: source=&quot;Ruthless Butchery&quot; wound=+1 conditional kw=&quot;Dreadnought,Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot;</comment>
               <description>Hammer of Avernii – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43893,7 +43955,9 @@ TARGET: One Adeptus Astartes Dreadnought, Terminator, Bladeguard Veteran Squad, 
 EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the end of a phase.</description>
             </rule>
             <rule name="Cogitated Ferocity (Stratagem, 1CP)" id="08a4-6bba-8447-3b24" hidden="false">
-              <comment>strat-timing: turn=your phase=fight</comment>
+              <comment>strat-timing: turn=your phase=fight
+sim-mod: source=&quot;Cogitated Ferocity&quot; sustained=1 when=melee kw=&quot;Dreadnought,Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot; choice=&quot;cogitated&quot;
+sim-mod: source=&quot;Cogitated Ferocity&quot; lethal when=melee kw=&quot;Dreadnought,Terminator,Bladeguard Veteran Squad,Sternguard Veteran Squad,Vanguard Veteran Squad&quot; choice=&quot;cogitated&quot;</comment>
               <description>Hammer of Avernii – STRATAGEM (1CP)
 
 WHEN: Your Fight phase.
@@ -43953,7 +44017,9 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Spear Thrust and Sabre Swing (Stratagem, 1CP)" id="0687-f17d-6bca-8074" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; wound=+1 when=melee onCharge choice=&quot;spear&quot;
+sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; lethal when=melee choice=&quot;spear&quot;</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -44042,7 +44108,9 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll.</description>
             </rule>
             <rule name="Courage and Honour! (Stratagem, 1CP)" id="de7c-ec0d-c03b-073c" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Courage and Honour!&quot; wound=+1 when=melee onCharge
+sim-mod: source=&quot;Courage and Honour!&quot; ap=+1 when=melee conditional</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -44058,7 +44126,9 @@ TARGET: One Adeptus Astartes unit from your army.
 EFFECT: Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for your unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that Combat Doctrine this battle.</description>
             </rule>
             <rule name="Exemplary Vigilance (Stratagem, 1CP)" id="b54b-f656-3c5e-b870" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Exemplary Vigilance&quot; ignores-cover when=ranged
+sim-mod: source=&quot;Exemplary Vigilance&quot; ap=+1 when=ranged conditional</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44149,7 +44219,8 @@ TARGET: One Space Wolves unit from your army that was selected as the target of 
 EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
             </rule>
             <rule name="EYE OF THE PACK (Stratagem, 1CP)" id="c2b7-c22b-cdc9-9aa0" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Eye of the Pack&quot; wound=+1 when=ranged</comment>
               <description>Saga of the Great Wolf – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44197,7 +44268,10 @@ TARGET: One ADEPTUS ASTARTES unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="LIMB FROM LIMB (Stratagem, 1CP)" id="f7d9-9d5f-36dd-1db0" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Limb from Limb&quot; str=+1 when=melee onCharge choice=&quot;limb&quot;
+sim-mod: source=&quot;Limb from Limb&quot; ap=+1 when=melee onCharge choice=&quot;limb&quot;
+sim-mod: source=&quot;Limb from Limb&quot; str=+1 ap=+1 when=melee onCharge choice=&quot;limb&quot;</comment>
               <description>Rage-Cursed Onslaught – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -44268,7 +44342,9 @@ EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+
 Each time an ^^**Adeptus Astartes Battleline^^** unit from your army is selected to attack, after resolving those attacks, select one enemy unit hit by one or more of those attacks. Until the end of the turn, that enemy unit is auspex scanned. Each time an ^^**Adeptus Astartes^^** model from your army makes an attack that targets an auspex scanned unit, re‑roll a Hit roll of 1.</description>
             </rule>
             <rule name="Codex Discipline (Stratagem, 1CP)" id="ea9d-c755-2f86-47f6" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Codex Discipline&quot; reroll=hit1
+sim-mod: source=&quot;Codex Discipline&quot; reroll=wound1 conditional</comment>
               <description>Bastion Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44284,7 +44360,9 @@ TARGET: That Adeptus Astartes Battleline unit.
 EFFECT: When an enemy unit is auspex scanned as a result of those attacks this turn, if that enemy unit does not have the Monster or Vehicle keywords, until the start of your next turn, it is pinned. While a unit is pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Charge rolls made for that unit.</description>
             </rule>
             <rule name="Light of Vengeance (Stratagem, 1CP)" id="09e0-5b42-319c-e4f5" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Light of Vengeance&quot; lethal conditional choice=&quot;lov&quot;
+sim-mod: source=&quot;Light of Vengeance&quot; sustained=1 conditional choice=&quot;lov&quot;</comment>
               <description>Bastion Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44346,7 +44424,8 @@ TARGET: One Adeptus Astartes unit from your army.
 EFFECT: Select one enemy unit visible to and within 18&quot; of your unit. That enemy unit takes a Battle‑shock test. When doing so, subtract 1 from that test and, if that test is failed, until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</description>
             </rule>
             <rule name="Tactical Decapitation (Stratagem, 1CP)" id="5a99-3de9-5aa5-87d8" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Tactical Decapitation&quot; hit=+1 vs=Character</comment>
               <description>Orbital Assault Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44362,7 +44441,9 @@ TARGET: One Adeptus Astartes unit from your army that has not been selected to f
 EFFECT: Until the end of the phase, each time a model in your unit makes a Pile‑in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;.</description>
             </rule>
             <rule name="Auto‑sense Coordination (Stratagem, 1CP)" id="8bf8-efcd-9a8c-9e93" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Auto‑sense Coordination&quot; lethal conditional choice=&quot;autosense&quot;
+sim-mod: source=&quot;Auto‑sense Coordination&quot; sustained=1 conditional choice=&quot;autosense&quot;</comment>
               <description>Orbital Assault Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44416,7 +44497,8 @@ TARGET: One Adeptus Astartes unit from your army.
 EFFECT: Until the start of the next Command phase, add 1 to the Objective Control characteristic of models in your unit.</description>
             </rule>
             <rule name="Furious Dedication (Stratagem, 1CP)" id="d11a-f539-5b54-6bbd" hidden="false">
-              <comment>strat-timing: turn=either phase=charge|fight</comment>
+              <comment>strat-timing: turn=either phase=charge|fight
+sim-mod: source=&quot;Furious Dedication&quot; attacks=+1 when=melee</comment>
               <description>Reclamation Force – STRATAGEM (1CP)
 
 WHEN: Your Charge phase or the Fight phase.
@@ -44494,7 +44576,8 @@ TARGET: One Adeptus Astartes unit from your army that is within Engagement Range
 EFFECT: Until the start of your next Command phase, add 1 to the Objective Control characteristics of models in your unit.</description>
             </rule>
             <rule name="Priority Strike (Stratagem, 2CP)" id="ef64-40e3-cf0f-d22b" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Priority Strike&quot; reroll=wound kw=&quot;Infantry,Mounted&quot; vs=Character,Monster,Vehicle</comment>
               <description>Ceramite Sentinels – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44518,7 +44601,10 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if it is an Entrenched unit: on a 4+, do not remove it from play. That destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
             </rule>
             <rule name="Augmented Targeting (Stratagem, 1CP)" id="0857-2cfb-9293-a390" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Augmented Targeting&quot; sustained=1 when=ranged choice=&quot;augtgt&quot;
+sim-mod: source=&quot;Augmented Targeting&quot; lethal when=ranged choice=&quot;augtgt&quot;
+sim-mod: source=&quot;Augmented Targeting&quot; sustained=1 lethal when=ranged conditional choice=&quot;augtgt&quot;</comment>
               <description>Ceramite Sentinels – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44596,7 +44682,9 @@ TARGET: One Adeptus Astartes Transport unit from your army that has not been sel
 EFFECT: Until the end of the phase, units can disembark from your Transport after it has Advanced. Units that do so count as having made a Normal move this phase, and cannot declare a charge in the same turn (unless your Transport has the Assault Ramp ability), but can otherwise act normally.</description>
             </rule>
             <rule name="Purgation Doctrine (Stratagem, 1CP)" id="a661-16fd-9904-667d" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Purgation Doctrine&quot; hit=+1 when=ranged
+sim-mod: source=&quot;Purgation Doctrine&quot; wound=+1 when=ranged conditional</comment>
               <description>Armoured Speartip – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44638,7 +44726,8 @@ TARGET: One Adeptus Astartes unit from your army that was selected as the target
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Target Weak Point (Stratagem, 1CP)" id="5ab8-287c-4205-4f60" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Target Weak Point&quot; ap=+1 when=ranged kw=&quot;Tank Ace&quot; vs=Monster,Vehicle</comment>
               <description>Headhunter Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44646,7 +44735,9 @@ TARGET: One Tank Ace unit from your army that has not been selected to shoot thi
 EFFECT: Until the end of the phase, each time a model in your unit makes a ranged attack that targets a Monster or Vehicle unit, improve the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="Kill Shot (Stratagem, 1CP)" id="7229-11f0-22e2-19fa" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Kill Shot&quot; reroll=wound1 when=ranged kw=&quot;Tank Ace&quot; vs=Monster,Vehicle choice=&quot;killshot&quot;
+sim-mod: source=&quot;Kill Shot&quot; reroll=wound when=ranged kw=&quot;Tank Ace&quot; vs=Monster,Vehicle conditional choice=&quot;killshot&quot;</comment>
               <description>Headhunter Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44805,7 +44896,8 @@ EFFECT: Select one enemy unit hit by your unit's plasma ranged attacks. That ene
 - While a unit is seared, that unit has -2&quot; M.</description>
             </rule>
             <rule name="No Sacrifice Too Great (Stratagem, 1CP)" id="0dec-c9d0-f18c-a0a6" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;No Sacrifice Too Great&quot; str=+1 when=ranged weapon=&quot;plasma&quot;</comment>
               <description>Dark Age Arsenal – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot.
@@ -44813,7 +44905,8 @@ TARGET: That ADEPTUS ASTARTES unit.
 EFFECT: Your unit's [HAZARDOUS] plasma ranged attacks have +1 S.</description>
             </rule>
             <rule name="Revelation of Guilt (Stratagem, 1CP)" id="7f4b-b22c-c0a2-0c33" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Revelation of Guilt&quot; hit=+1 when=ranged weapon=&quot;plasma&quot;</comment>
               <description>Dark Age Arsenal – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot.
@@ -45010,7 +45103,9 @@ EFFECT: Place your unit in strategic reserves.</description>
 Restrictions: Your army can include SPACE WOLVES units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.</description>
             </rule>
             <rule name="Grizzled Killers (Stratagem, 1CP)" id="6260-dbfd-b857-7c98" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Grizzled Killers&quot; sustained=1 when=melee kw=&quot;Grey Hunters&quot; choice=&quot;grizzled&quot;
+sim-mod: source=&quot;Grizzled Killers&quot; lethal when=melee kw=&quot;Grey Hunters&quot; choice=&quot;grizzled&quot;</comment>
               <description>Veterans of the Fang – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly GREY HUNTERS unit is selected to fight.
@@ -45064,7 +45159,8 @@ Friendly SWORD BRETHREN SQUAD units have +1 OC.
 Restrictions: Your army can include BLACK TEMPLARS units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.</description>
             </rule>
             <rule name="Slayers of Abominations (Stratagem, 1CP)" id="7242-bece-24a9-3526" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Slayers of Abominations&quot; str=+2 when=melee kw=&quot;Sword Brethren Squad&quot; vs=Monster,Vehicle</comment>
               <description>Marshal's Household – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly SWORD BRETHREN SQUAD unit is selected to fight.
@@ -45206,7 +45302,9 @@ This detachment has the GRACE tag and cannot be taken with another GRACE detachm
 Restrictions: Your army can include BLOOD ANGELS units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.</description>
             </rule>
             <rule name="Martial Paragon (Stratagem, 1CP)" id="be90-a030-01f9-ea3c" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Martial Paragon&quot; lethal kw=&quot;Character&quot; choice=&quot;paragon&quot;
+sim-mod: source=&quot;Martial Paragon&quot; sustained=1 kw=&quot;Character&quot; choice=&quot;paragon&quot;</comment>
               <description>Legacy of Grace – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES CHARACTER unit is selected to attack.
@@ -45267,7 +45365,8 @@ This detachment has the DOOMED tag and cannot be taken with another DOOMED detac
 Restrictions: Your army can include BLOOD ANGELS units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.</description>
             </rule>
             <rule name="Death Begets Vengeance (Stratagem, 1CP)" id="d18b-5c6a-2c35-6918" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;Death Begets Vengeance&quot; wound=+1 kw=&quot;Death Company&quot; conditional</comment>
               <description>Wrath of the Doomed – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly DEATH COMPANY unit is destroyed by an enemy unit.
@@ -45311,7 +45410,8 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
 In a turn a friendly **^^Adeptus Astartes Fly Infantry^^** unit made an ingress/charge move, that unit&apos;s attacks can re-roll hit rolls of 1.</description>
             </rule>
             <rule name="Meteoric Onslaught (Stratagem, 1CP)" id="bc6b-34d3-1b54-9a59" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Meteoric Onslaught&quot; str=+1 when=melee onCharge kw=&quot;Fly&amp;Infantry&quot;</comment>
               <description>Vengeful Hosts – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES FLY INFANTRY unit that made a charge move this turn is selected to attack.

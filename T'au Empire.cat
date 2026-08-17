@@ -20125,7 +20125,8 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
 RESTRICTIONS: You cannot target a unit that is within Engagement Range of one or more enemy units.</description>
             </rule>
             <rule name="A TEMPTING TRAP (Stratagem, 1CP)" id="cddc-f31c-e59a-b55f" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;A Tempting Trap&quot; wound=+1 when=ranged conditional</comment>
               <description>Kauyon – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -20134,7 +20135,8 @@ EFFECT: Until the end of the phase, each time a model in your unit makes a range
 RESTRICTIONS: You cannot use this Stratagem during the first or second battle rounds.</description>
             </rule>
             <rule name="POINT-BLANK AMBUSH (Stratagem, 1CP)" id="7c2e-1d1e-b809-c3b6" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Point-Blank Ambush&quot; ap=+1 when=ranged conditional</comment>
               <description>Kauyon – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -20143,7 +20145,9 @@ EFFECT: Until the end of the phase, each time a model in your unit makes a range
 RESTRICTIONS: You cannot use this Stratagem during the first or second battle rounds.</description>
             </rule>
             <rule name="COORDINATE TO ENGAGE (Stratagem, 1CP)" id="68bf-43fc-009d-b274" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Coordinate to Engage&quot; hit=+1 when=ranged conditional
+sim-mod: source=&quot;Coordinate to Engage&quot; ignores-cover when=ranged conditional</comment>
               <description>Kauyon – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -20197,7 +20201,8 @@ RESTRICTION: You cannot target a unit that is within Engagement Range of one or 
               <description>During the first, second and third battle rounds, ranged weapons equipped by **^^T’au Empire^^** models from your army have the **[ASSAULT]** ability. During the first, second and third battle rounds, while a unit is a Guided unit (see For the Greater Good), its ranged weapons have the **[LETHAL HITS]** ability.</description>
             </rule>
             <rule name="COMBAT DEBARKATION (Stratagem, 1CP)" id="2284-fd3b-846d-59f7" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Combat Debarkation&quot; reroll=wound when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>Mont&apos;ka – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -20205,7 +20210,8 @@ TARGET: One T’au Empire Infantry unit from your army that disembarked from a T
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets the closest enemy unit, you can re-roll the Wound roll.</description>
             </rule>
             <rule name="PINPOINT COUNTER-OFFENSIVE (Stratagem, 1CP)" id="59b4-82dd-af5d-3dc4" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;Pinpoint Counter-Offensive&quot; reroll=hit conditional</comment>
               <description>Mont&apos;ka – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -20221,7 +20227,8 @@ TARGET: One T’AU EMPIRE unit from your army that has not been selected to move
 EFFECT: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
             </rule>
             <rule name="FOCUSED FIRE (Stratagem, 1CP)" id="11dd-e8a3-e56c-bb6c" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Focused Fire&quot; ap=+1 when=ranged</comment>
               <description>Mont&apos;ka – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase.
@@ -20276,7 +20283,9 @@ sim-mod: source=&quot;Bonded Heroes&quot; ap=+1 when=ranged conditional</comment
               <description>Each time a **^^T&apos;au Empire Battlesuit^^** model from your army makes a ranged attack that targets a unit within 12&quot;, improve the Strength characteristic of that attack by 1. If that attack targets a unit within 8&quot;, improve the Armour Penetration characteristic of that attack by 1 as well.</description>
             </rule>
             <rule name="THE ARRO’KON PROTOCOL (Stratagem, 1CP)" id="137e-f197-df76-bd23" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;The Arro&apos;kon Protocol&quot; sustained=1 when=ranged kw=&quot;Battlesuit&quot; conditional choice=&quot;arrokon&quot;
+sim-mod: source=&quot;The Arro&apos;kon Protocol&quot; sustained=2 when=ranged kw=&quot;Battlesuit&quot; conditional choice=&quot;arrokon&quot;</comment>
               <description>Retaliation Cadre – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -20357,7 +20366,8 @@ sim-mod: source=&quot;Hunter&apos;s Instincts&quot; wound=+1 conditional</commen
               <description>**^^Kroot^^** models from your army have a 6+ invulnerable save against melee attacks and a 5+ invulnerable save against ranged attacks.</description>
             </rule>
             <rule name="A TRAP WELL LAID (Stratagem, 1CP)" id="7909-bc2f-e765-fef6" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;A Trap Well Laid&quot; ap=+1 kw=&quot;Kroot&quot; conditional</comment>
               <description>Kroot Hunting Pack – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -20440,6 +20450,7 @@ Friendly **^^Ghostkeel Battlesuit^^**/**^^Stealth Battlesuits^^** units have the
 This detachment has the **^^Auxiliaries^^** tag and cannot be taken with another **^^Auxiliaries^^** detachment.</description>
             </rule>
             <rule name="Experimental Modifications (Stratagem, 1CP)" id="7b45-5056-31b1-360f" hidden="false">
+              <comment>sim-mod: source=&quot;Experimental Modifications&quot; ap=+1 kw=&quot;Kroot,Vespid Stingwings&quot;</comment>
               <description>Auxiliary Cadre – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly KROOT/VESPID STINGWINGS unit is selected to attack.
@@ -20454,6 +20465,7 @@ TARGET: That KROOT/VESPID STINGWINGS unit.
 EFFECT: That move does not prevent your unit from being eligible to declare a charge.</description>
             </rule>
             <rule name="Guided by Unity (Stratagem, 1CP)" id="7266-db12-88ca-e580" hidden="false">
+              <comment>sim-mod: source=&quot;Guided by Unity&quot; lethal when=ranged conditional</comment>
               <description>Auxiliary Cadre – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly T&apos;AU EMPIRE unit (excluding KROOT/VESPID STINGWINGS units) is selected to shoot.
@@ -20490,7 +20502,9 @@ EFFECT: Your unit&apos;s ranged attacks that target a unit within 9&quot; of a f
 This detachment has the **^^Retaliation^^** tag and cannot be taken with another **^^Retaliation^^** detachment.</description>
             </rule>
             <rule name="Experimental Ammunition (Stratagem, 1CP)" id="cf33-e705-bc51-ac8e" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Experimental Ammunition&quot; str=+1 when=ranged kw=&quot;Battlesuit&amp;Character&quot; choice=&quot;ammo&quot;
+sim-mod: source=&quot;Experimental Ammunition&quot; str=+1 ap=+1 when=ranged kw=&quot;Battlesuit&amp;Character&quot; choice=&quot;ammo&quot;</comment>
               <description>Experimental Prototype Cadre – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly BATTLESUIT CHARACTER unit is selected to shoot.

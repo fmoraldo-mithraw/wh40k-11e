@@ -5730,7 +5730,8 @@ EFFECT: Remove your unit from the battlefield. In the Reinforcements step of you
 RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.</description>
                 </rule>
                 <rule name="KRAKEN ROUNDS (Stratagem, 1CP)" id="a91f-63ea-c78e-6d1b" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;KRAKEN ROUNDS&quot; ap=+1 when=ranged kw=&quot;Deathwatch&amp;Infantry&quot;</comment>
                   <description>Alien Hunters (Ordo Xenos) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -5739,7 +5740,8 @@ EFFECT: Until the end of the phase, improve the Armour Penetration characteristi
 RESTRICTIONS: You cannot select any units that have already been targeted with either the Dragonfire Rounds or Hellfire Rounds Stratagems this phase.</description>
                 </rule>
                 <rule name="DRAGONFIRE ROUNDS (Stratagem, 1CP)" id="d180-03e1-6f36-9148" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;DRAGONFIRE ROUNDS&quot; ignores-cover when=ranged kw=&quot;Deathwatch&amp;Infantry&quot;</comment>
                   <description>Alien Hunters (Ordo Xenos) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -5748,7 +5750,8 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
 RESTRICTIONS: You cannot select any units that have already been targeted with either the Kraken Rounds or Hellfire Rounds Stratagems this phase.</description>
                 </rule>
                 <rule name="HELLFIRE ROUNDS (Stratagem, 1CP)" id="bfff-03ca-a40a-f85b" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;HELLFIRE ROUNDS&quot; anti=Infantry:2+ anti=Monster:5+ when=ranged kw=&quot;Deathwatch&amp;Infantry&quot;</comment>
                   <description>Alien Hunters (Ordo Xenos) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -5779,7 +5782,8 @@ sim-mod: source=&quot;Root Out Heresy&quot; sustained=1 when=ranged conditional<
 Each time an ^^Adeptus Arbites, Inquisitor, Inquisitorial Agents^^ or ^^Ordo Hereticus^^ model from your army makes an attack that targets a ^^Chaos^^ unit containing 5 or more models, that attack has the [SUSTAINED HITS 1] ability.</description>
                 </rule>
                 <rule name="DISPENSE JUSTICE (Stratagem, 1CP)" id="20a5-7008-6951-97fd" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;DISPENSE JUSTICE&quot; lethal kw=&quot;Adeptus Arbites,Inquisitorial Agents,Ordo Hereticus&quot;</comment>
                   <description>Purgation Force (Ordo Hereticus) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -5846,7 +5850,8 @@ sim-mod: source=&quot;Destroy the Daemonic&quot; reroll=wound1 vs=Daemon conditi
                   <description>Each time an ^^Inquisitor, Inquisitorial Agents^^ or ^^Ordo Malleus^^ model from your army makes an attack, re-roll a Hit roll of 1 and, if the target is a ^^Daemon^^ unit, re-roll a Wound roll of 1 as well.</description>
                 </rule>
                 <rule name="RITES OF EXORCISM (Stratagem, 1CP)" id="5af5-e96e-13b5-c9bf" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;RITES OF EXORCISM&quot; dev vs=Daemon conditional</comment>
                   <description>Daemon Hunters (Ordo Malleus) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -5886,7 +5891,8 @@ TARGET: One ORDO MAllEUS unit from your army that was selected as the target of 
 EFFECT: Until the end of the phase, all Psychic weapons equipped by models in the attacking unit have the [HAZARDOUS] ability.</description>
                 </rule>
                 <rule name="PSYBOLT AMMUNITION (Stratagem, 1CP)" id="bc6a-ff8f-0f7a-734b" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PSYBOLT AMMUNITION&quot; lethal when=ranged kw=&quot;Grey Knights Terminator Squad&quot;</comment>
                   <description>Daemon Hunters (Ordo Malleus) – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -5920,7 +5926,8 @@ Select one enemy unit on the battlefield. Until the start of your next Command p
 Select one objective marker on the battlefield. Until the start of your next Command phase, while an ^^Agents of the Imperium^^ unit from your army is within range of that objective marker, improve the Leadership and Objective Control characteristics of models in that unit by 1 and models in that unit have a 5+ invulnerable save.</description>
                 </rule>
                 <rule name="CLOSE-QUARTERS BARRAGE (Stratagem, 1CP)" id="3560-7274-2db1-acdd" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CLOSE-QUARTERS BARRAGE&quot; str=+1 ap=+1 when=ranged kw=&quot;Voidfarers&quot; conditional</comment>
                   <description>Imperialis Fleet – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -5944,7 +5951,9 @@ TARGET: One AGENTS OF THE IMpERIUM Attached unit that was selected as the target
 EFFECT: Until the end of the phase, each time an attack with the [PRECISION] ability is allocated to a CHARACTER model in your unit, if there are one or more Bodyguard models in your unit, roll one D6: on a 2+, that attack is allocated to a Bodyguard model of your choice in your unit instead.</description>
                 </rule>
                 <rule name="VIOLENT ACQUISITION (Stratagem, 2CP)" id="c2e1-8183-1c86-24b6" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;VIOLENT ACQUISITION&quot; sustained=1 ignores-cover conditional
+sim-mod: source=&quot;VIOLENT ACQUISITION&quot; wound=+1 onCharge conditional</comment>
                   <description>Imperialis Fleet – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -5987,7 +5996,9 @@ EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable s
 When mustering your army, each ^^Officio Assassinorum^^ unit from your army has the relevant Extremis ability, and you must increase the points cost of each of those units by the amount shown. If this causes your army to exceed the points limit for the battle you are playing, you cannot include that unit in your army.</description>
                 </rule>
                 <rule name="Prime Target (Stratagem, 1CP)" id="6230-1484-57b3-6e4c" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Prime Target&quot; reroll=wound1 vs=Character choice=&quot;prime&quot;
+sim-mod: source=&quot;Prime Target&quot; reroll=wound vs=Character conditional choice=&quot;prime&quot;</comment>
                   <description>Veiled Blade Elimination Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -6003,7 +6014,8 @@ TARGET: One Agents of the Imperium Character unit from your army that was select
 EFFECT: Until the end of the phase, add 1 to the Toughness characteristic of models in your unit. In addition, if it is an Eversor Assassin unit, until the end of the phase, it has the Feel No Pain 4+ ability.</description>
                 </rule>
                 <rule name="Will-Sapping Salvo (Stratagem, 1CP)" id="9f26-221a-999c-2526" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Will-Sapping Salvo&quot; sustained=1 when=ranged kw=&quot;Infantry&quot;</comment>
                   <description>Veiled Blade Elimination Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -6027,7 +6039,8 @@ TARGET: One Agents of the Imperium Grenades or Vindicare Assassin unit from your
 EFFECT: Until the end of the phase, subtract 1 from Charge rolls made for that enemy unit, or, if your unit is a Vindicare Assassin, subtract 2 from Charge rolls made for that enemy unit instead.</description>
                 </rule>
                 <rule name="Ensnaring Trap (Stratagem, 1CP)" id="32fb-585b-4d54-4fa6" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=charge</comment>
+                  <comment>strat-timing: turn=opponent phase=charge
+sim-mod: source=&quot;Ensnaring Trap&quot; wound=+1 when=melee kw=&quot;Infantry&quot; onCharge conditional</comment>
                   <description>Veiled Blade Elimination Force – STRATAGEM (1CP)
 
 WHEN: End of your opponent’s Charge phase.

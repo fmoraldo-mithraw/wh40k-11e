@@ -42928,7 +42928,8 @@ Each time a unit from your army performs the Swift as the Wind Agile Manoeuvre, 
 Each time a unit from your army performs an Agile Manoeuvre that involves rolling a D6, add 1 to the result.</description>
             </rule>
             <rule name="BLITZING FIREPOWER (Stratagem, 1CP)" id="ac04-1ffa-02b5-15a0" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Blitzing Firepower&quot; sustained=1 when=ranged conditional</comment>
               <description>Warhost – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43014,7 +43015,9 @@ TARGET: Up to two Wyches units from your army, or one other Drukhari unit from y
 EFFECT: Until the end of the phase, each time one of those units Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in that unit (this is not cumulative with the Reavers’ Matchless Swiftness ability).</description>
             </rule>
             <rule name="INSTINCTIVE SPITE (Stratagem, 1CP)" id="78f4-57b4-7419-fa64" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;INSTINCTIVE SPITE&quot; hit=+1 conditional
+sim-mod: source=&quot;INSTINCTIVE SPITE&quot; wound=+1 conditional</comment>
               <description>Realspace Raiders – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase or the start of the Fight phase.
@@ -43038,7 +43041,8 @@ TARGET: One Haemonculus Covens unit from your army that was selected as the targ
 EFFECT: Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.</description>
             </rule>
             <rule name="DARK HARVEST (Stratagem, 1CP)" id="d07c-eda2-e0ac-7e23" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DARK HARVEST&quot; lethal when=melee</comment>
               <description>Realspace Raiders – STRATAGEM (1CP)
 
 WHEN: Start of the Fight phase.
@@ -43078,7 +43082,9 @@ Ranged weapons equipped by models in that disembarking units have the ^^**[Ignor
 Melee weapons equipped by models in that disembarking unit have the ^^**[Lance]**^^ ability.</description>
             </rule>
             <rule name="SKYBORNE ANNIHILATION (Stratagem, 1CP)" id="df78-8b58-d1b9-0d51" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;SKYBORNE ANNIHILATION&quot; sustained=1 when=ranged conditional choice=&quot;skyborne&quot;
+sim-mod: source=&quot;SKYBORNE ANNIHILATION&quot; sustained=2 when=ranged kw=&quot;Kabalite Warriors,Hand of the Archon&quot; conditional choice=&quot;skyborne&quot;</comment>
               <description>Skysplinter Assault – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43157,7 +43163,9 @@ While Drukhari units from your army are winning the wager, Harlequin units fro
 Each time a Drukhari or Harlequins model from your army makes an attack, if that model’s unit is winning the wager, re-roll a Hit roll of 1. If that model&apos;s unit is losing the wager, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1 instead.</description>
             </rule>
             <rule name="Malicious Frenzy (Stratagem, 1CP)" id="24fc-3512-606e-525d" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Malicious Frenzy&quot; lethal kw=&quot;Drukhari,Harlequins&quot; choice=&quot;frenzy&quot;
+sim-mod: source=&quot;Malicious Frenzy&quot; sustained=1 kw=&quot;Drukhari,Harlequins&quot; choice=&quot;frenzy&quot;</comment>
               <description>Reaper&apos;s Wager – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43293,7 +43301,8 @@ In addition, at the end of your opponent&apos;s turn, you can select a number of
 ^^Windriders^^ units from your army gain the ^^Battleline^^ keyword.</description>
             </rule>
             <rule name="DEATH FROM ON HIGH (Stratagem, 1CP)" id="33d2-a984-dde2-d580" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Death from on High&quot; reroll=wound kw=&quot;Mounted,Vyper&quot; conditional</comment>
               <description>Windrider Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43309,7 +43318,8 @@ TARGET: One Asuryani Mounted or VYPER unit from your army that was selected as t
 EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable save.</description>
             </rule>
             <rule name="FOCUSED FIREPOWER (Stratagem, 1CP)" id="561f-4819-f939-9b03" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Focused Firepower&quot; ap=+1 when=ranged kw=&quot;Mounted,Vyper&quot;</comment>
               <description>Windrider Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43388,7 +43398,8 @@ TARGET: One Wraith Construct unit from your army (excluding TiTANic units] that 
 EFFECT: Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack.</description>
             </rule>
             <rule name="BLADES FROM BEYOND (Stratagem, 1CP)" id="e93a-bf48-b329-305b" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Blades from Beyond&quot; dev when=melee kw=&quot;Wraithblades,Wraithlord,Wraithknight&quot;</comment>
               <description>Spirit Conclave – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43437,7 +43448,8 @@ EFFECT: Until the start of your next Command phase, your WRAITHBLADES, WRAITHGUA
               <description>Each time a Dire Avenger, Guardian, Support Weapon or War Walker model from your army makes an attack, if that model&apos;s unit and/or the target unit are within range of one or more objective markers, add 1 to the Hit roll.</description>
             </rule>
             <rule name="WARDING SALVOES (Stratagem, 1CP)" id="8132-9052-8303-dcfa" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;WARDING SALVOES&quot; reroll=wound kw=&quot;Dire Avengers,Guardians&quot; conditional</comment>
               <description>Guardian Battlehost – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -43625,7 +43637,9 @@ Asuryani units (excluding Epic Heroes) from your army gain the Ynnari keyword.
 You must include Yvraine and/or The Yncarne in your army, and one of those models must be your Warlord.</description>
             </rule>
             <rule name="EMISSARIES OF YNNEAD (Stratagem, 1CP)" id="97c8-8619-2445-7b97" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;EMISSARIES OF YNNEAD&quot; reroll=hit1 when=melee kw=&quot;Infantry&quot; choice=&quot;emissaries&quot;
+sim-mod: source=&quot;EMISSARIES OF YNNEAD&quot; reroll=hit when=melee kw=&quot;Infantry&quot; conditional choice=&quot;emissaries&quot;</comment>
               <description>Devoted of Ynnead – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after a Ynnari Infantry unit from your army has selected its targets.
@@ -43633,7 +43647,8 @@ TARGET: That YNNARI INFANTRY unit.
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1. If your unit is below its Starting Strength, you can re-roll the Hit roll instead.</description>
             </rule>
             <rule name="SOULSIGHT (Stratagem, 1CP)" id="c22d-0d2e-3f5c-a570" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;SOULSIGHT&quot; lethal ignores-cover when=ranged</comment>
               <description>Devoted of Ynnead – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43709,7 +43724,8 @@ Each time you use one of the detachment Stratagems, if your Fate dice pool conta
 ■ Psychic Shield - 6</description>
             </rule>
             <rule name="FATE INESCAPABLE (Stratagem, 1CP)" id="a557-771e-ede5-529e" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;FATE INESCAPABLE&quot; ignores-cover when=ranged kw=&quot;Asuryani&amp;Infantry&quot; conditional</comment>
               <description>Seer Council – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43804,7 +43820,10 @@ TARGET: One Avatar of Khaine model from your army that has not been selected to 
 EFFECT: Until the end of the phase, your model’s Wailing Doom ranged weapon has a Range characteristic of 18&quot; and a Damage characteristic of 8.</description>
             </rule>
             <rule name="PRETERNATURAL PRECISION (Stratagem, 1CP)" id="3cbe-faa8-0260-6409" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PRETERNATURAL PRECISION&quot; ignores-cover when=ranged kw=&quot;Aspect Warriors&quot; choice=&quot;precision&quot;
+sim-mod: source=&quot;PRETERNATURAL PRECISION&quot; lethal when=ranged kw=&quot;Aspect Warriors&quot; choice=&quot;precision&quot;
+sim-mod: source=&quot;PRETERNATURAL PRECISION&quot; sustained=1 when=ranged kw=&quot;Aspect Warriors&quot; choice=&quot;precision&quot;</comment>
               <description>Aspect Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43904,7 +43923,8 @@ TARGET: That DRUKHARI unit.
 EFFECT: Each enemy unit within 9&quot; of and visible to your unit must take a Battle-shock test, subtracting 1 from that test if your unit is a Haemonculus Covens unit.</description>
             </rule>
             <rule name="DISTILLERS OF FEAR (Stratagem, 2CP)" id="dfc2-ce47-0046-a91a" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DISTILLERS OF FEAR&quot; dev when=melee kw=&quot;Haemonculus Covens&quot; conditional</comment>
               <description>Covenite Coterie – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -43971,7 +43991,8 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
 **Ability:** Each time a ^^**Kabal**^^ or ^^**Blades for Hire**^^ model in this unit makes an attack that targets a ^^**Monster**^^ or ^^**Vehicle**^^ unit, that attack has the ^^**[Lethal Hits]**^^ ability.</description>
             </rule>
             <rule name="TAKEN ALIVE (Stratagem, 1CP)" id="4f24-52ae-d955-dc1e" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;TAKEN ALIVE&quot; hit=+1 when=melee</comment>
               <description>Kabalite Cartel – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -43979,7 +44000,8 @@ TARGET: One Drukhari unit from your army that has not been selected to fight thi
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Hit roll. If your Contract unit is destroyed as a result of those attacks, every unit in your opponent’s army must take a Battle-shock test. You cannot gain more than 3 Pain tokens as a result of failed Battle-shock tests caused by this Stratagem.</description>
             </rule>
             <rule name="MAKING A POINT (Stratagem, 1CP)" id="1331-e335-de71-921c" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;MAKING A POINT&quot; hit=+1 ap=+1 when=ranged kw=&quot;Kabalite Warriors,Hand of the Archon&quot;</comment>
               <description>Kabalite Cartel – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -43987,7 +44009,8 @@ TARGET: One Kabalite Warriors or Hand of the Archon unit from your army that has
 EFFECT: Until the end of the phase, improve the Ballistic Skill and Armour Penetration characteristics of ranged weapons equipped by models in your unit by 1.</description>
             </rule>
             <rule name="TAILORED TOXINS (Stratagem, 1CP)" id="fb5d-80ca-3c5b-a278" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;TAILORED TOXINS&quot; crit-hit=5 kw=&quot;Kabal,Blades for Hire&quot; conditional</comment>
               <description>Kabalite Cartel – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44071,7 +44094,9 @@ TARGET: One friendly unengaged WYCH CULT unit that is within 6&quot; of that ene
 EFFECT: Declare a charge with your unit. When selecting charge targets, you can only select enemy units that made a fall-back move this phase and are within the maximum distance.</description>
             </rule>
             <rule name="DEADLY DEBUT (Stratagem, 1CP)" id="cae6-00a2-f5ce-b773" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DEADLY DEBUT&quot; lethal when=melee onCharge
+sim-mod: source=&quot;DEADLY DEBUT&quot; ap=+1 when=melee onCharge kw=&quot;Wyches&quot;</comment>
               <description>Spectacle of Spite – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -44237,7 +44262,8 @@ TARGET: One Anhrathe unit from your army that is within Engagement Range of one 
 EFFECT: Until the start of the next Command phase, add 1 to the Objective Control characteristic of models in your unit.</description>
             </rule>
             <rule name="Ruthless Killers (Stratagem, 1CP)" id="b880-35de-2019-ba99" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Ruthless Killers&quot; dmg=+1 kw=&quot;Corsair Voidscarred&quot;</comment>
               <description>Eldritch Raiders – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -44252,7 +44278,8 @@ TARGET: One Aeldari Infantry unit from your army (excluding Wraith Construct uni
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability.</description>
             </rule>
             <rule name="No Prey Too Big (Stratagem, 1CP)" id="4db8-3e2b-baa3-23d3" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;No Prey Too Big&quot; wound=+1 vsTougher when=ranged kw=&quot;Anhrathe,Rangers,Shroud Runners&quot;</comment>
               <description>Eldritch Raiders – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44309,6 +44336,8 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
               <description>Each time you add an ^^**Anhrathe**^^ unit to your army, it can be given up to one Corsair Enhancement (see right). Each Corsair Enhancement included in your army must be unique. If a unit is given a Corsair Enhancement, you must increase the points cost of that unit by the amount shown (see Munitorum Field Manual). If this causes your army to exceed the points limit for the battle you are playing, you cannot include that unit in your army.</description>
             </rule>
             <rule name="Pirates&apos; Due (Stratagem, 1CP)" id="c8f3-6dec-4ae9-b8fb" hidden="false">
+              <comment>sim-mod: source=&quot;Pirates&apos; Due&quot; reroll=wound1 when=melee choice=&quot;due&quot;
+sim-mod: source=&quot;Pirates&apos; Due&quot; reroll=wound when=melee kw=&quot;Anhrathe&quot; conditional choice=&quot;due&quot;</comment>
               <description>Corsair Coterie – STRATAGEM (1CP)
 
 WHEN: The Fight phase.
@@ -44324,7 +44353,8 @@ TARGET: That Aeldari unit.
 EFFECT: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Fell Back. If it is an Anhrathe unit, also select one enemy unit your unit was within Engagement Range of at the start of the phase, and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.</description>
             </rule>
             <rule name="Outcast Ambush (Stratagem, 1CP)" id="6159-98e3-5a16-2c53" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Outcast Ambush&quot; ignores-cover ap=+1 when=ranged kw=&quot;Rangers,Shroud Runners&quot;</comment>
               <description>Corsair Coterie – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -44485,7 +44515,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;. Your unit is not eli
 This detachment has the **^^Acrobatic^^** tag and cannot be taken with another **^^Acrobatic^^** detachment.</description>
             </rule>
             <rule name="Presaged Rehearsal (Stratagem, 1CP)" id="0346-9979-6383-33f1" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Presaged Rehearsal&quot; wound=+1 when=melee onCharge kw=&quot;Troupe&quot;</comment>
               <description>Twilight Flickers – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly TROUPE unit is selected to fight.
@@ -44544,7 +44575,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;. Your unit is not eli
 This detachment has the **^^Wych Cult^^** tag and cannot be taken with another **^^Wych Cult^^** detachment.</description>
             </rule>
             <rule name="Planned Strikes (Stratagem, 1CP)" id="7eb2-67fe-f5a1-edc1" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Planned Strikes&quot; lethal when=melee kw=&quot;Wych Cult&quot;</comment>
               <description>Exhibition of Slaughter – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly WYCH CULT unit is selected to fight.
@@ -44603,7 +44635,8 @@ EFFECT: Your unit has a 5+ invulnerable save.</description>
 This detachment has the **^^Kabal^^** tag and cannot be taken with another **^^Kabal^^** detachment.</description>
             </rule>
             <rule name="Prioritised Victim (Stratagem, 1CP)" id="3db6-d51d-a611-ed71" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Prioritised Victim&quot; reroll=hit1 reroll=wound1 kw=&quot;Kabal,Blades for Hire&quot; vs=Character</comment>
               <description>Kabalite Agonysts – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly BLADES FOR HIRE/KABAL unit targets a CHARACTER unit.
@@ -44618,7 +44651,8 @@ TARGET: That BLADES FOR HIRE/KABAL unit.
 EFFECT: Those attacks do not prevent your unit from being hidden.</description>
             </rule>
             <rule name="Killers from the Dark Spires (Stratagem, 1CP)" id="c180-7a77-906b-27a0" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Killers from the Dark Spires&quot; ignores-cover when=ranged kw=&quot;Kabalite Warriors&quot;</comment>
               <description>Kabalite Agonysts – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly KABALITE WARRIORS unit is selected to shoot.
@@ -44660,7 +44694,8 @@ EFFECT: Your unit&apos;s ranged attacks have [IGNORES COVER].</description>
 This detachment has the **^^Covens^^** tag and cannot be taken with another **^^Covens^^** detachment.</description>
             </rule>
             <rule name="Salting the Wound (Stratagem, 1CP)" id="ea10-dae6-57b1-c79d" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Salting the Wound&quot; dev when=melee kw=&quot;Cronos,Talos&quot; conditional</comment>
               <description>Tools of Torment – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly CRONOS/TALOS unit is selected to fight.

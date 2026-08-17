@@ -2976,7 +2976,8 @@ RESTRICTIONS
 - A unit can only embark within (or start the battle embarked within) a ^^Transport^^ if both of those units share the same keyword from the list above.’</description>
                 </rule>
                 <rule name="PROFANE ZEAL (Stratagem, 1CP)" id="6793-57af-de7b-7756" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;PROFANE ZEAL&quot; reroll=wound kw=&quot;Chaos Undivided&quot;</comment>
                   <description>Pactbound Zealots – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -2992,7 +2993,8 @@ TARGET: One HERETIC ASTARTES unit from your army.
 EFFECT: One model in your unit regains up to 3 lost wounds. In addition, if your unit is a Tzeentch unit below its Starting Strength, one destroyed model (excluding Character models) is returned to your unit with its full wounds remaining.</description>
                 </rule>
                 <rule name="EYE OF THE GODS (Stratagem, 1CP)" id="874c-22e4-95d1-66b7" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;EYE OF THE GODS&quot; attacks=+1 str=+1 dmg=+1 when=melee kw=&quot;Character&quot; conditional</comment>
                   <description>Pactbound Zealots – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after a HERETIC ASTARTES CHARACTER unit from your army (excluding DAMNED, DAEMON and EPIC HERO units) destroys a enemy unit.
@@ -3040,7 +3042,8 @@ TARGET: One HERETIC ASTARTES unit from your army (excluding DAMNED units) that w
 EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="LET THE GALAXY BURN (Stratagem, 1CP)" id="6851-5436-d14d-c15e" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;LET THE GALAXY BURN&quot; ignores-cover when=ranged</comment>
                   <description>Veterans of the Long War – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3064,7 +3067,10 @@ TARGET: One HERETIC ASTARTES unit from your army (excluding DAMNED units) that i
 EFFECT: Until the end of the phase, your unit has the Fights First ability.</description>
                 </rule>
                 <rule name="BLACK CRUSADE (Stratagem, 1CP)" id="ca1f-cff0-ac60-eb33" hidden="false">
-                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <comment>strat-timing: turn=your phase=movement
+sim-mod: source=&quot;BLACK CRUSADE&quot; dev weapon=&quot;bolt pistol&quot; when=ranged kw=&quot;Infantry,Mounted&quot;
+sim-mod: source=&quot;BLACK CRUSADE&quot; dev weapon=&quot;boltgun&quot; when=ranged kw=&quot;Infantry,Mounted&quot;
+sim-mod: source=&quot;BLACK CRUSADE&quot; dev weapon=&quot;combi-bolter&quot; when=ranged kw=&quot;Infantry,Mounted&quot;</comment>
                   <description>Veterans of the Long War – STRATAGEM (1CP)
 
 WHEN: Your Movement phase
@@ -3111,7 +3117,9 @@ TARGET: One HERETIC ASTARTES unit from your army.
 EFFECT: Until the end of the phase, add 1 to Charge rolls made for your unit for each other HERETIC ASTARTES unit from your army that made a Charge move this phase (to a maximum of +3)</description>
                 </rule>
                 <rule name="PICK THEM OFF (Stratagem, 1CP)" id="e680-9100-9a44-afc4" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PICK THEM OFF&quot; reroll=hit when=ranged conditional
+sim-mod: source=&quot;PICK THEM OFF&quot; reroll=wound when=ranged conditional</comment>
                   <description>Deceptors – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3177,7 +3185,8 @@ TARGET: One HERETIC ASTARTES unit from your army that has not been selected to f
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a unit within range of an objective marker, that attack has the [PRECISION] ability.</description>
                 </rule>
                 <rule name="RUINOUS RAID (Stratagem, 1CP)" id="b031-2d36-58a9-82d7" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=your phase=shooting|fight
+sim-mod: source=&quot;RUINOUS RAID&quot; reroll=hit reroll=wound conditional</comment>
                   <description>Renegade Raiders – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or your Fight phase
@@ -3236,7 +3245,8 @@ Each time an enemy unit within 12&quot; of one or more ^^**Heretic Astartes**^^ 
 Enemy units affected by this Detachment rule do not need to take any other Battle-shock tests in the same phase.</description>
                 </rule>
                 <rule name="PITILESS HUNTERS (Stratagem, 1CP)" id="c4dc-9d4d-7d9f-32e7" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PITILESS HUNTERS&quot; reroll=hit reroll=wound when=ranged kw=&quot;Infantry&quot; conditional</comment>
                   <description>Dread Talons – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3244,7 +3254,8 @@ TARGET: One HERETIC ASTARTES INFANTRY unit from your army that has not been sele
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is Battle-shocked and/or Below Half-strength, you can re-roll the Hit roll and you can re-roll the Wound roll.</description>
                 </rule>
                 <rule name="DEPTHLESS CRUELTY (Stratagem, 1CP)" id="159a-e02c-24bc-180a" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DEPTHLESS CRUELTY&quot; ap=+1 when=melee kw=&quot;Infantry&quot; conditional</comment>
                   <description>Dread Talons – STRATAGEM (1CP)
 
 WHEN: Fight phase
@@ -3301,7 +3312,8 @@ EFFECT: Select one enemy unit that Fell Back this turn and is within 6&quot; of 
                   <description>Each time a ranged attack targets a ^^**Heretic Astartes**^^ unit from your army (excluding ^^**Damned**^^ units), if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll.</description>
                 </rule>
                 <rule name="PITILESS CANNONADE (Stratagem, 1CP)" id="da17-45c0-9b5e-dde2" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;PITILESS CANNONADE&quot; crit-hit=5 when=ranged conditional</comment>
                   <description>Fellhammer Siege-host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3317,7 +3329,9 @@ TARGET: One HERETIC ASTARTES unit from your army that is within Engagement Range
 EFFECT: Until the end of the phase, your unit’s ranged weapons (excluding Blast weapons) have the [PISTOL] ability.</description>
                 </rule>
                 <rule name="PERSISTENT ASSAILANTS (Stratagem, 1CP)" id="3f0b-f0d7-ed98-20dd" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;PERSISTENT ASSAILANTS&quot; reroll=hit when=melee conditional
+sim-mod: source=&quot;PERSISTENT ASSAILANTS&quot; reroll=wound when=melee conditional</comment>
                   <description>Fellhammer Siege-host – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -3373,7 +3387,9 @@ Each time a unit makes a Desperate Pact, it must first take a Leadership test; i
 **Keywords:** TRAITOR GUARDSMEN SQUAD units from your army gain the BATTLELINE keyword.</description>
                 </rule>
                 <rule name="INFERNAL SACRIFICE (Stratagem, 1CP)" id="6bd0-6d43-9335-1854" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;INFERNAL SACRIFICE&quot; attacks=+1 when=melee kw=&quot;Damned&quot;
+sim-mod: source=&quot;INFERNAL SACRIFICE&quot; str=+1 when=melee kw=&quot;Damned&quot; conditional</comment>
                   <description>Chaos Cult – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -3381,7 +3397,9 @@ TARGET: One DAMNED unit from your army that has not been selected to fight this 
 EFFECT: Your unit can make a Desperate Pact. If it does, your unit suffers D3 mortal wounds (in addition to any suffered for failing the resulting Leadership test), and until the end of the phase, add 1 to the Attacks characteristic of the melee weapons equipped by models in your unit, and if your unit did not fail the resulting Leadership test when making that Desperate Pact, until the end of the phase, improve the Strength characteristic of those weapons by 1 as well.</description>
                 </rule>
                 <rule name="CRAZED FOCUS (Stratagem, 1CP)" id="df03-1947-ea41-9ba7" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CRAZED FOCUS&quot; ap=+1 when=ranged kw=&quot;Damned&quot;
+sim-mod: source=&quot;CRAZED FOCUS&quot; str=+1 when=ranged kw=&quot;Damned&quot; conditional</comment>
                   <description>Chaos Cult – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3389,7 +3407,9 @@ TARGET: One DAMNED unit from your army that has not been selected to shoot this 
 EFFECT: Your unit can make a Desperate Pact. If it does, until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1, and if your unit did not fail the resulting Leadership test when making that Desperate Pact, improve the Strength characteristic of that attack by 1 as well.</description>
                 </rule>
                 <rule name="CHOSEN FOR GLORY (Stratagem, 1CP)" id="32d0-fd9f-3d67-db46" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;CHOSEN FOR GLORY&quot; reroll=hit kw=&quot;Damned&quot;
+sim-mod: source=&quot;CHOSEN FOR GLORY&quot; reroll=wound kw=&quot;Damned&quot; conditional</comment>
                   <description>Chaos Cult – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3442,7 +3462,8 @@ sim-mod: source=&quot;Debt to the Soulforge&quot; attacks=+2 when=melee conditio
 - Add 2 to the Attacks characteristic of melee weapons equipped by models in that unit.</description>
                 </rule>
                 <rule name="DESPERATE PLEDGE (Stratagem, 1CP)" id="8f41-a218-b9a5-d0f0" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;DESPERATE PLEDGE&quot; ap=+1 kw=&quot;Daemon&amp;Vehicle&quot;</comment>
                   <description>Soulforged Warpack – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3531,7 +3552,8 @@ TARGET: One HERETIC ASTARTES INFANTRY unit from your army that was selected as t
 EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, subtracting 1 from the result if it is a DAMNED unit: on a 4+, do not remove it from play. That destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
                 </rule>
                 <rule name="Specimens for the Spider (Stratagem, 2CP)" id="e5e1-3c17-b0fd-8df9" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Specimens for the Spider&quot; reroll=wound when=melee kw=&quot;Infantry&quot; vs=Character</comment>
                   <description>Creations of Bile – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -3603,7 +3625,8 @@ EFFECT: Select one visible enemy unit within 12&quot; of your unit. Roll one D6:
 These mortal wounds are inflicted by a psychic attack.</description>
                 </rule>
                 <rule name="Wreathed in Warpflame (Stratagem, 1CP)" id="d031-d4c7-b7f4-371e" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Wreathed in Warpflame&quot; ignores-cover when=ranged kw=&quot;Psyker&quot;</comment>
                   <description>Cabal of Chaos – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly HERETIC ASTARTES PSYKER unit is selected to shoot.
@@ -3631,7 +3654,8 @@ Each time an attack targets a ^^**Heretic Astartes^^** unit from your army, if t
 Each time a ^^**Heretic Astartes^^** model from your army makes an attack that targets a Battle‐shocked unit, add 1 to the Wound roll.</description>
                 </rule>
                 <rule name="Talons Sunk Deep (Stratagem, 1CP)" id="f8fd-5bae-5708-6e08" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Talons Sunk Deep&quot; ap=+1 kw=&quot;Infantry&quot; conditional</comment>
                   <description>Nightmare Hunt – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3639,7 +3663,8 @@ TARGET: One HERETIC ASTARTES INFANTRY unit from your army that has not been sele
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is Battle-shocked and/or Below Half-strength, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="Prey on the Weak (Stratagem, 1CP)" id="7518-97ba-47c4-2182" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Prey on the Weak&quot; reroll=hit kw=&quot;Infantry&quot; conditional</comment>
                   <description>Nightmare Hunt – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3708,7 +3733,9 @@ This unit is eligible to shoot and declare a charge in a turn in which it Fell B
 ***Designer’s Note:** If a unit is gaining eligibility to shoot and declare a charge in a turn in which it Fell Back as a result of being visible to Huron Blackheart, but after making a Fall Back move it is no longer visible to Huron Blackheart, that unit will not be eligible to shoot in your Shooting phase or to declare a charge in your Charge phase unless it is visible again at the start of the respective phase.*</description>
                 </rule>
                 <rule name="Hardened Killers (Stratagem, 1CP)" id="8ffb-d7fc-fe20-3f7f" hidden="false">
-                  <comment>strat-timing: turn=your phase=command</comment>
+                  <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;Hardened Killers&quot; hit=+1 when=ranged kw=&quot;Damned&quot; choice=&quot;hardened&quot;
+sim-mod: source=&quot;Hardened Killers&quot; attacks=+1 when=ranged kw=&quot;Damned&quot; conditional choice=&quot;hardened&quot;</comment>
                   <description>Huron&apos;s Marauders – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -3735,6 +3762,7 @@ TARGET: That HERETIC ASTARTES unit.
 EFFECT: Do not make an Advance roll for your unit. Instead, until the end of the phase add 6&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="Reavers&apos; Flurry (Stratagem, 1CP)" id="93ca-7bb3-9bf7-8b4e" hidden="false">
+                  <comment>sim-mod: source=&quot;Reavers&apos; Flurry&quot; attacks=+1 when=melee onCharge</comment>
                   <description>Huron&apos;s Marauders – STRATAGEM (1CP)
 
 WHEN: Your Fight phase.
@@ -3785,7 +3813,9 @@ When mustering your army, you cannot use the Cults of the Dark Gods rule.</descr
 - Until the end of the turn, this unit is eligible to declare a charge in a turn in which it Advanced.</description>
                 </rule>
                 <rule name="Never Outgunned (Stratagem, 1CP)" id="bff1-c28f-e164-17ac" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Never Outgunned&quot; lethal choice=&quot;outgunned&quot;
+sim-mod: source=&quot;Never Outgunned&quot; sustained=1 choice=&quot;outgunned&quot;</comment>
                   <description>Renegade Warband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3793,7 +3823,8 @@ TARGET: One HERETIC ASTARTES unit from your army that has just been selected to 
 EFFECT: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability.</description>
                 </rule>
                 <rule name="Vengeful Destruction (Stratagem, 1CP)" id="d7c2-0ca6-8b1d-9125" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Vengeful Destruction&quot; wound=+1 kw=&quot;Infantry,Mounted&quot; conditional</comment>
                   <description>Renegade Warband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3817,7 +3848,8 @@ TARGET: One HERETIC ASTARTES unit from your army within range of an objective ma
 EFFECT: That objective marker remains under your control until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</description>
                 </rule>
                 <rule name="Corrupted Munitions (Stratagem, 1CP)" id="9102-74df-0302-6f39" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Corrupted Munitions&quot; ap=+1 when=ranged</comment>
                   <description>Renegade Warband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3891,7 +3923,8 @@ TARGET: One HERETIC ASTARTES TERMINATOR, OBLITERATORS or MUTILATORS unit from yo
 EFFECT: That objective marker remains under your control until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</description>
                 </rule>
                 <rule name="Siegebreaker Strike (Stratagem, 1CP)" id="e1c4-4d94-656d-8696" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Siegebreaker Strike&quot; ignores-cover when=ranged conditional</comment>
                   <description>Warpstrike Champions – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -3926,7 +3959,8 @@ EFFECT: Your unit has +2 to charge rolls.</description>
 ^^**Soul Forge^^** units from your army have a 5+ invulnerable save.</description>
                 </rule>
                 <rule name="Touch of the Arkifane (Stratagem, 1CP)" id="4f03-b177-bd60-64de" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+sim-mod: source=&quot;Touch of the Arkifane&quot; lethal sustained=1 conditional</comment>
                   <description>Cult of the Arkifane – STRATAGEM (1CP)
 
 WHEN: Any phase.
@@ -3934,7 +3968,8 @@ TARGET: One HERETIC ASTARTES unit from your army (excluding DAMNED units) that h
 EFFECT: Until the end of the phase, if your unit is selected to make a Dark Pact, you can select both abilities for that unit&apos;s weapons to gain.</description>
                 </rule>
                 <rule name="Balefire Boon (Stratagem, 1CP)" id="b371-8f1b-67ad-a07f" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Balefire Boon&quot; ap=+1 kw=&quot;Soul Forge&quot;</comment>
                   <description>Cult of the Arkifane – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3942,7 +3977,8 @@ TARGET: One SOUL FORGE unit from your army that has not been selected to shoot o
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="Soul-Tally Offering (Stratagem, 2CP)" id="1be5-3b32-411d-c8a6" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Soul-Tally Offering&quot; reroll=wound kw=&quot;Soul Forge&quot; vs=Character,Monster,Vehicle</comment>
                   <description>Cult of the Arkifane – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -3997,6 +4033,7 @@ EFFECT: Until the end of the phase, add 1 to the Toughness characteristic of mod
                   <description>Friendly **^^Havocs^^**/**^^Obliterators^^** units&apos; ranged attacks have [HEAVY].</description>
                 </rule>
                 <rule name="Ruination&apos;s Bounty (Stratagem, 1CP)" id="8d96-edd5-0ed0-2597" hidden="false">
+                  <comment>sim-mod: source=&quot;Ruination&apos;s Bounty&quot; lethal sustained=1 when=ranged kw=&quot;Havocs,Obliterators&quot;</comment>
                   <description>Devotees of Destruction – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly HAVOCS/OBLITERATORS unit is selected to shoot.
@@ -4046,7 +4083,8 @@ EFFECT: Attacks that target your unit with a S greater than your unit&apos;s T h
 This detachment has the **^^Nightmare^^** tag and cannot be taken with another **^^Nightmare^^** detachment.</description>
                 </rule>
                 <rule name="Plunging Talons (Stratagem, 1CP)" id="0ea5-e8b5-f572-4175" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Plunging Talons&quot; wound=+1 when=melee onCharge kw=&quot;Infantry&amp;Fly&quot;</comment>
                   <description>Murdertalon Raiders – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly HERETIC ASTARTES INFANTRY FLY unit that made a charge move this turn is selected to fight.

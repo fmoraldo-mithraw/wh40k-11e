@@ -127,7 +127,10 @@ détachement(s) **sélectionné(s)**. Elles sont en général `conditional`
 Les règles de **stratagème** (`<rule name="X (Stratagem, NCP)">` sous l'entrée
 du détachement) portent aussi des lignes `sim-mod:` quand leur EFFET améliore
 les attaques de l'unité CIBLE — dans le **même `<comment>`** que le marqueur
-`strat-timing:` (les lignes se cumulent, une par ligne). L'appli les expose en
+`strat-timing:` (les lignes se cumulent, une par ligne). `weapon="…"` accepte
+ici aussi un **mot-clef d'arme** (`weapon="Torrent"` → toutes les armes
+[TORRENT] : l'appli matche le nom du profil OU sa liste de mots-clefs).
+L'appli les expose en
 bascules pour le(s) détachement(s) **actif(s)**, étiquetées « Strat. — Nom
 (NPC) », **toujours décochées par défaut** (un stratagème coûte des PC), et la
 restriction de cible de la ligne TARGET est encodée en `kw=` (conjonctions via

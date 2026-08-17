@@ -2143,7 +2143,9 @@ TARGET: One friendly engaged PLAGUE MARINES unit.
 EFFECT: Select one enemy unit engaged with your unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll.</description>
                 </rule>
                 <rule name="Droning Horror (Stratagem, 1CP)" id="b690-1de7-6a8d-ce6e" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Droning Horror&quot; reroll=hit1 when=ranged kw=&quot;Plague Marines&quot;
+sim-mod: source=&quot;Droning Horror&quot; reroll=wound1 when=ranged kw=&quot;Plague Marines&quot; conditional</comment>
                   <description>Flyblown Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly PLAGUE MARINES unit is selected to shoot.
@@ -2221,7 +2223,8 @@ TARGET: One Death Guard Character unit from your army.
 EFFECT: Select one enemy unit visible to your unit. Until the end of the phase, each time a DEATH GUARD unit from your army selects that enemy unit as the target of any ranged attacks, you can re-roll the dice to determine how many attacks a weapon equipped by a model in that unit makes.</description>
                 </rule>
                 <rule name="CREEPING BLIGHT (Stratagem, 1CP)" id="dad6-9944-2d09-6ba9" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CREEPING BLIGHT&quot; reroll=hit reroll=wound when=ranged kw=&quot;Infantry&quot; conditional</comment>
                   <description>Virulent Vectorium – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -2254,7 +2257,8 @@ Onslaught - Battle Round 2,3,4,5
 ^^**Poxwalkers**^^ unit from your army gain the ^^**Battleline**^^ keyword.</description>
                 </rule>
                 <rule name="GNAWING HUNGER (Stratagem, 1CP)" id="2178-0edf-1933-2ccc" hidden="false">
-                  <comment>strat-timing: turn=your phase=command</comment>
+                  <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;GNAWING HUNGER&quot; attacks=+1 str=+1 when=melee kw=&quot;Poxwalkers&quot;</comment>
                   <description>Shamblerot Vectorium – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -2319,7 +2323,8 @@ EFFECT: After the attacking unit has fought, roll one D6 for each model from you
                   <description>In your opponent&apos;s Command phase, roll 2D6 for each Afflicted enemy unit, subtracting 1 from the result if that unit is Below Half-strength. If the result is 6 or less, that enemy unit suffers D3 mortal wounds.</description>
                 </rule>
                 <rule name="GRIM REAPERS (Stratagem, 1CP)" id="db3b-8a70-aedb-8954" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;GRIM REAPERS&quot; reroll=hit when=melee kw=&quot;Terminator&quot; conditional</comment>
                   <description>Death Lord&apos;s Chosen – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -2351,6 +2356,7 @@ TARGET: One Terminator unit from your army that was selected as the target of on
 EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
                 </rule>
                 <rule name="MORTARION&apos;S TEACHINGS (Stratagem, 1CP)" id="7760-4b87-99d3-6e00" hidden="false">
+                  <comment>sim-mod: source=&quot;MORTARION&apos;S TEACHINGS&quot; hit=+1 when=ranged kw=&quot;Terminator&quot; conditional</comment>
                   <description>Death Lord&apos;s Chosen – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -2388,7 +2394,8 @@ Strike Force - 2 Units
 Onslaught - 3 Units</description>
                 </rule>
                 <rule name="DRAWN TO DESPAIR (Stratagem, 1CP)" id="2b22-71dd-2cee-3e42" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;DRAWN TO DESPAIR&quot; reroll=hit when=ranged conditional</comment>
                   <description>Mortarion&apos;s Hammer – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -2464,7 +2471,8 @@ TARGET: One Death Guard Attached unit from your army that was selected as the ta
 EFFECT: Until the end of the phase, add 2 to the Toughness characteristic of models in your unit.</description>
                 </rule>
                 <rule name="MALIGNANCE MAGNIFIED (Stratagem, 2CP)" id="b401-ec7d-1cbc-2710" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;MALIGNANCE MAGNIFIED&quot; reroll=hit reroll=wound conditional</comment>
                   <description>Champions of Contagion – STRATAGEM (2CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -2472,7 +2480,8 @@ TARGET: One Death Guard Attached unit from your army that has not been selected 
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll and you can re-roll the Wound roll.</description>
                 </rule>
                 <rule name="BLESSINGS OF FILTH (Stratagem, 1CP)" id="3749-d6e5-ba0a-5fc9" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;BLESSINGS OF FILTH&quot; crit-hit=5</comment>
                   <description>Champions of Contagion – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -2527,7 +2536,8 @@ EFFECT: Select one enemy unit (excluding VEHICLES) that is within 8&quot; of and
 While a ^^**Death Guard^^** unit from your army is within 7&quot; of one or more ^^**Plague Legions^^** units from your army, add 3&quot; to that ^^**Death Guard^^** unit&apos;s Contagion Range.</description>
                 </rule>
                 <rule name="CLUTCHING CORRUPTION (Stratagem, 1CP)" id="ab62-5dc1-6ecc-e927" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;CLUTCHING CORRUPTION&quot; reroll=hit when=melee conditional</comment>
                   <description>Tallyband Summoners – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -2599,7 +2609,8 @@ Friendly **^^Contagion Engine^^** units&apos; ranged attacks have [ASSAULT].
 This detachment has the **^^Engines^^** tag and cannot be taken with another **^^Engines^^** detachment.</description>
                 </rule>
                 <rule name="Fresh Vectors (Stratagem, 1CP)" id="bf92-3398-9816-969c" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Fresh Vectors&quot; reroll=wound1 kw=&quot;Contagion Engine&quot;</comment>
                   <description>Contagion Engines – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly CONTAGION ENGINE unit is selected to attack.
