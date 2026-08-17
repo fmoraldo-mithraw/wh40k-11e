@@ -27,14 +27,17 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   `primary-catalogue`). À lire avant toute mise à jour de points de
   `Imperium - Agents of the Imperium.cat`.
 - **`editor/REPEAT_COST_APP_PROMPT.md`** — prompt autonome (application
-  consommatrice) : le surcoût « 3e+ exemplaire plus cher » est encodé par
-  un `<modifier>` de coût + marqueur `repeat-cost: threshold=N delta=Δ` ;
-  l'appli doit n'appliquer Δ qu'aux exemplaires **au-delà du Nème** (pas à
-  tous). Remplace l'ancienne entrée dupliquée `(additional)`.
+  consommatrice) : le surcoût « 3e+ exemplaire plus cher » est en **forme
+  NATIVE** (plus de marqueur) : `increment` sur pts (value=Δ) + condition
+  `atLeast` valeur K `scope="roster"` ⟹ threshold=K−1 ; l'appli reconnaît la
+  forme et n'applique Δ qu'aux exemplaires **au-delà du seuil** (jamais aux
+  premiers, jamais à tous). Remplace le marqueur commentaire ET l'ancienne
+  entrée dupliquée `(additional)`.
 - **`editor/UNIQUE_DETACHMENT_APP_PROMPT.md`** — prompt autonome (application
-  consommatrice) : les détachements à mot-clef `UNIQUE: X` (marqueur
-  `<comment>unique-detachment: X</comment>`) sont **mutuellement exclusifs** par
-  X — une armée multi-détachements ne peut en contenir qu'un par mot-clef.
+  consommatrice) : les détachements à mot-clef `UNIQUE: X` sont **mutuellement
+  exclusifs** par X. **Forme NATIVE** (plus de marqueur commentaire) :
+  `categoryLink name="UNIQUE X"` vers une catégorie partagée à contrainte
+  `max=1 scope="roster"` — BattleScribe/NewRecruit l'appliquent donc aussi.
 - **`editor/ICON_BEARER_APP_PROMPT.md`** — prompt autonome (application
   consommatrice) pour interpréter le rattachement « 1 modèle porte
   l'amélioration » : icônes/bannières via `<association>` (`childId="model"`
@@ -133,13 +136,17 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    0 erreur), **0 id dupliqué introduit** vs HEAD, audit de la règle des
    améliorations. Diff-check : ne réécrire un texte que s'il diffère.
 5. **Prix par seuil de répétition (MFM)** : « les N premiers au prix de
-   base, au-delà du Nième à l'autre prix » → **modifier de coût**
-   `increment` + marqueur `<comment>repeat-cost: threshold=N delta=Δ</comment>`
-   sur l'unité ; l'**appli** n'applique Δ qu'aux exemplaires au-delà du
-   Nème (`editor/REPEAT_COST_APP_PROMPT.md`). **Ne plus dupliquer
-   l'entrée** : `splitRepeatTier` abandonné (l'entrée cachée
-   n'apparaissait pas dans les applis), `removeRepeatTier` ne sert qu'à
-   déposer d'anciennes jumelles `(additional)`. Détails :
+   base, au-delà du Nième à l'autre prix » → **FORME NATIVE, aucun
+   commentaire** : modifier `increment` sur pts (value=Δ) conditionné
+   `<condition type="atLeast" value=N+1 scope="roster">` sur la fiche.
+   La **convention du dépôt définit la sémantique sur cette forme** :
+   +Δ **par exemplaire au-delà du Nème** uniquement (jamais les N
+   premiers, jamais toutes les copies) — l'appli la reconnaît
+   structurellement (`editor/REPEAT_COST_APP_PROMPT.md`). L'ancien
+   marqueur `<comment>repeat-cost:…</comment>` (redondant 372/372 avec le
+   XML) est **supprimé** ; n'en réintroduire aucun. **Ne plus dupliquer
+   l'entrée** : `splitRepeatTier` abandonné, `removeRepeatTier` ne sert
+   qu'à déposer d'anciennes jumelles `(additional)`. Détails :
    `editor/MFM_PROMPT.md`.
 
 ## Git

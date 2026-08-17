@@ -1689,6 +1689,7 @@ See Attached Units (19).</description>
       <alias>SUPPORT</alias>
     </rule>
     <rule id="d4d5-4375-0e91-c7d0" name="Stratagem: Command Re-roll (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
+      <comment>strat-timing: turn=either phase=any</comment>
       <description>**CORE STRATAGEM — 1CP** (15.02)
 
 **WHEN:** Any phase, just after you make an Advance, Charge, Damage, Hazard, Hit, Save or Wound roll, or a roll to determine the number of attacks generated with a weapon, for a friendly unit or model.
@@ -1696,6 +1697,7 @@ See Attached Units (19).</description>
 **EFFECT:** You re-roll that roll. If you are rolling more than one dice together, select one of those dice to re-roll (excluding charge rolls, which you must re-roll in full).</description>
     </rule>
     <rule id="c205-a458-8cdb-5eac" name="Stratagem: Epic Challenge (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
+      <comment>strat-timing: turn=either phase=fight</comment>
       <description>**CORE STRATAGEM — 1CP** (15.03)
 
 **WHEN:** Fight phase, just after a friendly CHARACTER unit is selected to fight.
@@ -1703,6 +1705,7 @@ See Attached Units (19).</description>
 **EFFECT:** Select one CHARACTER model in your unit. Until the end of the phase, that model’s melee weapons have the [PRECISION] ability.</description>
     </rule>
     <rule id="fcbf-0c41-f037-5094" name="Stratagem: Insane Bravery (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
+      <comment>strat-timing: turn=your phase=command</comment>
       <description>**CORE STRATAGEM — 1CP** (15.04)
 
 **WHEN:** Battle-shock step of your Command phase, just before you make a battle-shock roll for a friendly unit.
@@ -1711,6 +1714,7 @@ See Attached Units (19).</description>
 **RESTRICTIONS:** You cannot use this stratagem more than once per battle.</description>
     </rule>
     <rule id="4fc8-f3ee-3d63-0dcf" name="Stratagem: Explosives (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
+      <comment>strat-timing: turn=your phase=shooting</comment>
       <description>**CORE STRATAGEM — 1CP** (15.05)
 
 **WHEN:** Your Shooting phase.
@@ -1721,6 +1725,7 @@ See Attached Units (19).</description>
 3. Roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.</description>
     </rule>
     <rule id="40e8-48bd-5c13-ac7d" name="Stratagem: Crushing Impact (1CP)" publicationId="48fc-15aa-b307-9443" page="55" hidden="false">
+      <comment>strat-timing: turn=your phase=charge</comment>
       <description>**CORE STRATAGEM — 1CP** (15.06)
 
 **WHEN:** Your Charge phase, just after a friendly MONSTER/VEHICLE unit ends a charge move.
@@ -1728,6 +1733,7 @@ See Attached Units (19).</description>
 **EFFECT:** Select one enemy unit engaged with your unit, then one model in your unit engaged with that enemy unit. Roll a number of D6 equal to that model’s Toughness: for each 1, your unit suffers 1 mortal wound; for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds per unit).</description>
     </rule>
     <rule id="3e0f-57c7-79b7-77a8" name="Stratagem: Rapid Ingress (1CP)" publicationId="48fc-15aa-b307-9443" page="56" hidden="false">
+      <comment>strat-timing: turn=opponent phase=movement</comment>
       <description>**CORE STRATAGEM — 1CP** (15.07)
 
 **WHEN:** End of your opponent’s Movement phase.
@@ -1736,6 +1742,7 @@ See Attached Units (19).</description>
 **RESTRICTIONS:** You cannot use this stratagem during the first battle round.</description>
     </rule>
     <rule id="e421-1f40-8c6e-ac44" name="Stratagem: Fire Overwatch (1CP)" publicationId="48fc-15aa-b307-9443" page="56" hidden="false">
+      <comment>strat-timing: turn=opponent phase=movement</comment>
       <description>**CORE STRATAGEM — 1CP** (15.08)
 
 **WHEN:** End of your opponent’s Movement phase.
@@ -1743,6 +1750,7 @@ See Attached Units (19).</description>
 **EFFECT:** Your unit shoots using snap shooting (15.09): you can only target one visible enemy unit within 24"; each attack only hits on an unmodified Hit roll of 6 (irrespective of BS or modifiers); you cannot re-roll Hit rolls.</description>
     </rule>
     <rule id="0212-a34f-5622-ac26" name="Stratagem: Smokescreen (1CP)" publicationId="48fc-15aa-b307-9443" page="56" hidden="false">
+      <comment>strat-timing: turn=opponent phase=shooting</comment>
       <description>**CORE STRATAGEM — 1CP** (15.10)
 
 **WHEN:** Start of your opponent’s Shooting phase.
@@ -1750,6 +1758,7 @@ See Attached Units (19).</description>
 **EFFECT:** Until the end of the phase, each time an attack targets your SMOKE unit (or a unit that is not fully visible to the attacking model because of one or more models in your SMOKE unit), the target has the benefit of cover against that attack.</description>
     </rule>
     <rule id="b60b-c9ff-cea8-a442" name="Stratagem: Heroic Intervention (1CP/2CP)" publicationId="48fc-15aa-b307-9443" page="57" hidden="false">
+      <comment>strat-timing: turn=opponent phase=charge</comment>
       <description>**CORE STRATAGEM — 1CP (or 2CP)** (15.11)
 
 **WHEN:** End of your opponent’s Charge phase.
@@ -1759,6 +1768,7 @@ See Attached Units (19).</description>
 - **Into the Fray (+1CP):** When making the charge roll, if the result is greater than 6 (after modifiers), change it to 6. When selecting charge targets, you can select any enemy units within 6" of your unit and within the maximum distance.</description>
     </rule>
     <rule id="9d34-55e4-b050-f842" name="Stratagem: Counter-offensive (2CP)" publicationId="48fc-15aa-b307-9443" page="57" hidden="false">
+      <comment>strat-timing: turn=opponent phase=fight</comment>
       <description>**CORE STRATAGEM — 2CP** (15.12)
 
 **WHEN:** Fight step of your opponent’s Fight phase, just after an enemy unit has resolved its attacks.

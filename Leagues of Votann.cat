@@ -34,6 +34,12 @@
     <categoryEntry name="Steeljack Elder" id="0f9b-b435-b8bd-466f" hidden="false"/>
     <categoryEntry name="Berehk Stornbröw" id="2783-ebf8-20d0-6836" hidden="false"/>
     <categoryEntry name="Frame" hidden="false" id="c72c-6e45-5e16-d6f0"/>
+    <categoryEntry id="1198-185d-28e4-e7a8" name="UNIQUE HEARTHBAND" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: HEARTHBAND — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="8a8f-a56c-79c8-6256"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink id="0ec6-9ba0-eef0-b5b9" name="Detachment" hidden="false" collective="false" import="true" targetId="5914-3326-fac9-bf29" type="selectionEntry"/>
@@ -87,7 +93,6 @@
           </constraints>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Hearthband" hidden="false" id="1077-70a1-0570-5685">
-              <comment>unique-detachment: HEARTHBAND</comment>
               <rules>
                 <rule name="Methodical Annihilation" id="70a5-9f3d-4e2f-8eb3" hidden="false">
                   <comment>sim-mod: source=&quot;Methodical Annihilation&quot; reroll=wound1 conditional
@@ -97,6 +102,7 @@ sim-mod: source=&quot;Methodical Annihilation&quot; ap=+1 conditional</comment>
 - If your unit is a ^^**Kâhl, Einhyr Hearthguard^^** or ^^**Ûthar the Destined^^** unit, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="40b7-ba6b-77bf-f92b" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -104,6 +110,7 @@ TARGET: One Kâhl, Ûthar the Destined or Einhyr Hearthguard unit from your army
 EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable save.</description>
                 </rule>
                 <rule name="Sure of Purpose (Stratagem, 1CP)" id="21de-a1e2-806c-a9c0" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -111,6 +118,8 @@ TARGET: One Leagues of Votann unit from your army that has not been selected to 
 EFFECT: Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;.</description>
                 </rule>
                 <rule name="Superior Craftsmanship (Stratagem, 2CP)" id="23eb-39b8-ca83-0373" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Superior Craftsmanship&quot; dmg=+1 when=melee vs=Monster,Vehicle</comment>
                   <description>Hearthband – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -118,6 +127,7 @@ TARGET: One Leagues of Votann unit from your army that has not been selected to 
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a Monster or Vehicle unit, add 1 to the Damage characteristic of that attack.</description>
                 </rule>
                 <rule name="Unyielding Aggression (Stratagem, 1CP)" id="ca4a-86fc-6b38-8f94" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, just after a Leagues of Votann Infantry unit from your army Falls Back.
@@ -125,6 +135,7 @@ TARGET: That Leagues of Votann Infantry unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back.</description>
                 </rule>
                 <rule name="Materialisation Matrices (Stratagem, 1CP)" id="5cea-7a83-31c8-1b84" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: The Reinforcements step of your Movement phase.
@@ -133,6 +144,9 @@ EFFECT: Until the end of the phase, when your unit is set up on the battlefield 
 RESTRICTIONS: Until the end of the turn, your unit is not eligible to declare a charge.</description>
                 </rule>
                 <rule name="Fury of the Hearth (Stratagem, 1CP)" id="7297-7a79-5e72-6171" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Fury of the Hearth&quot; str=+1 when=ranged kw=&quot;Einhyr Hearthguard&quot;
+sim-mod: source=&quot;Fury of the Hearth&quot; sustained=1 when=ranged kw=&quot;Einhyr Hearthguard&quot; conditional</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -140,6 +154,9 @@ TARGET: One Einhyr Hearthguard unit from your army that has not been selected to
 EFFECT: Until the end of the phase, improve the Strength characteristic of ranged weapons equipped by models in your unit by 1. If you spend 1YP, until the end of the phase, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability as well.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="7aa1-6dbf-612a-337c" name="UNIQUE HEARTHBAND" hidden="false" targetId="1198-185d-28e4-e7a8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
               </costs>
@@ -158,6 +175,57 @@ EFFECT: Until the end of the phase, improve the Strength characteristic of range
 
 **Guerrilla Adepts:** In your Shooting phase, just after this unit is selected to shoot, this unit can use this ability. If it does, select one enemy unit (excluding ^^**Monsters^^** and ^^**Vehicles^^**). Until the end of the phase, attacks made by models in this unit can only attack that enemy unit (and only if it is an eligible target) and, after resolving those attacks, if one or more of those attacks hit that enemy unit, until the start of your next Shooting phase, that enemy unit is assailed (this simply labels that unit for the purposes of this ability and some Enhancements or Stratagems). If that unit is already assailed, until the start of your next Shooting phase, it is also pinned. While a unit is pinned, subtract 2&quot; from its Move characteristic and subtract 2 from Charge rolls made for it.</description>
                 </rule>
+                <rule name="RANGER TACTICS (Stratagem, 1CP)" id="adb4-193b-b1c7-f8ce" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Ranger Tactics&quot; reroll=hit when=ranged conditional</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One LEAGUES OF VOTANN unit from your army that has not been selected to shoot this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, if that attack targets an assailed unit and/or if your unit has the Hernkyn keyword, you can re-roll the Hit roll.</description>
+                </rule>
+                <rule name="EXPOSED FLAWS (Stratagem, 1CP)" id="7680-40a7-d831-6b76" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Exposed Flaws&quot; reroll=wound when=ranged kw=&quot;Hernkyn&quot; conditional</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One Hernkyn unit from your army that has not been selected to shoot this phase.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Until the end of the phase, each time a model in your unit makes an attack, if you spent YP during this use of this Stratagem and/or if that attack targets an assailed unit, you can re-roll the Wound roll.</description>
+                </rule>
+                <rule name="FRONTIER MOMENTUM (Stratagem, 1CP)" id="85e1-a306-be5e-9a4a" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One Hernkyn unit from your army that has not been selected to move this phase.
+EFFECT: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
+                </rule>
+                <rule name="DISPERSED FORMATION (Stratagem, 1CP)" id="5f7f-0380-5674-4aeb" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+TARGET: One Leagues of Votann Infantry or Leagues of Votann Mounted unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, your unit has the Stealth ability and each time a ranged attack targets your unit, models in your unit have the Benefit of Cover against that attack.</description>
+                </rule>
+                <rule name="CLAIMSTAKER REFLEX (Stratagem, 1CP)" id="6cc5-92d6-6026-d06c" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
+TARGET: One LEAGUES OF VOTANN unit from your army (excluding Artillery and Vehicle units) that is within 8&quot; of that enemy unit.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Your unit can make a Normal move of up to D6&quot;. If you spent YP during this use of this Stratagem, your unit can make a Normal move of up to 6&quot; instead.
+RESTRICTIONS: A unit cannot embark within a Transport as part of this move.</description>
+                </rule>
+                <rule name="ADAPTABLE AVARICE (Stratagem, 1CP)" id="93a6-2ba9-cce3-ea6b" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Persecution Prospect – STRATAGEM (1CP)
+
+WHEN: Start of any phase, if units from your army have Fortify Takeover.
+TARGET: One Leagues of Votann Character unit from your army.
+EFFECT: Each time you use this Stratagem, you can spend any number of YP. Once you have done so, if you have 6 or fewer YP, until the start of your next turn, units from your army have Hostile Acquisition instead.</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
@@ -174,6 +242,59 @@ EFFECT: Until the end of the phase, improve the Strength characteristic of range
               <rules>
                 <rule name="Martial Leverage" id="8315-fab3-fc23-a835" hidden="false">
                   <description>Each time an enemy unit is destroyed, you gain 1YP.</description>
+                </rule>
+                <rule name="HONOUR OF THE HOLD (Stratagem, 1CP)" id="f268-f8d1-e362-f7ad" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Honour of the Hold&quot; ap=+1 when=melee choice=&quot;honour&quot;
+sim-mod: source=&quot;Honour of the Hold&quot; ap=+2 when=melee conditional choice=&quot;honour&quot;</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One LEAGUES OF VOTANN unit from your army that has not been selected to fight this phase.
+EFFECT: Each time you use this Stratagem, you can spend 3YP. Select one enemy unit within Engagement Range of your unit. Until the end of the phase, each time a model in your unit makes a melee attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. If you spent YP during this use of this Stratagem, improve the Armour Penetration characteristic of that attack by 2 instead.</description>
+                </rule>
+                <rule name="ANCESTRAL SENTENCE (Stratagem, 1CP)" id="3d2e-fa5b-afd5-7a09" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Ancestral Sentence&quot; sustained=1 when=ranged choice=&quot;ancestral&quot;
+sim-mod: source=&quot;Ancestral Sentence&quot; sustained=2 when=ranged conditional choice=&quot;ancestral&quot;</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One LEAGUES OF VOTANN unit from your army that has not been selected to shoot this phase.
+EFFECT: Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, ranged weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability. If you spent YP during this use of this Stratagem, until the end of the phase, those weapons have the [SUSTAINED HITS 2] ability instead.</description>
+                </rule>
+                <rule name="HUNTR’S MARK (Stratagem, 1CP)" id="a32e-efb6-2fd8-83ec" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Huntr’s Mark&quot; reroll=hit1 reroll=wound1 when=ranged</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One LEAGUES OF VOTANN unit from your army that has not been selected to shoot this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</description>
+                </rule>
+                <rule name="ORDERED RETREAT (Stratagem, 1CP)" id="cd76-33a1-db33-8082" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (1CP)
+
+WHEN: Your Movement phase, just after a LEAGUES OF VOTANN unit from your army Falls Back.
+TARGET: That LEAGUES OF VOTANN unit.
+EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back.</description>
+                </rule>
+                <rule name="REACTIVE REPRISAL (Stratagem, 2CP)" id="2f59-1c17-c3b9-7f70" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (2CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot, if units from your army have Fortify Takeover.
+TARGET: One LEAGUES OF VOTANN unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Your unit can shoot as if it were your Shooting phase, can only target that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
+                </rule>
+                <rule name="VOID HARDENED (Stratagem, 1CP)" id="9dee-5984-1c70-969c" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Needgaârd Oathband – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets, if units from your army have Fortify Takeover.
+TARGET: One LEAGUES OF VOTANN unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
               </rules>
               <costs>
@@ -194,6 +315,54 @@ EFFECT: Until the end of the phase, improve the Strength characteristic of range
 
 In your Shooting phase, each time a ^^**Brôkhyr, Ironkin Steeljacks^^** or ^^**Arkanyst Evaluator^^** unit from your army is selected to shoot, you can spend 1YP. If you do, until the end of the phase, each time a model in that unit makes an attack, re-roll a Hit roll of 1.</description>
                 </rule>
+                <rule name="UNWAVERING ACCURACY (Stratagem, 2CP)" id="c00f-5461-3435-cdef" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (2CP)
+
+WHEN: Your Shooting phase.
+TARGET: One Brôkhyr Thunderkyn unit from your army that has not been selected to shoot this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll; that attack’s Armour Penetration characteristic.</description>
+                </rule>
+                <rule name="WALL OF STEEL (Stratagem, 1CP)" id="5d5f-824a-fa4a-10be" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (1CP)
+
+WHEN: Your Charge phase, just after an Ironkin Steeljacks unit from your army ends a Charge move.
+TARGET: That IRONKIN STEELJACKS unit.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Select one enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of your unit and roll one D6 for each model in your unit, rolling two additional D6 if you spent YP during this use of this Stratagem: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</description>
+                </rule>
+                <rule name="FIRST CONCERN (Stratagem, 1CP)" id="221d-cba9-de7e-49a3" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, just after a Brôkhyr, Ironkin Steeljacks or Arkanyst Evaluator unit from your army has shot.
+TARGET: That BRÔKHYR, IRONKIN STEELJACKS or ARKANYST EVALUATOR unit.
+EFFECT: If your unit Remained Stationary in your Movement phase this turn, it can make a Normal move.</description>
+                </rule>
+                <rule name="PREVENTATIVE PURGE (Stratagem, 1CP)" id="5da6-035d-cf80-eb9b" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Fall Back move.
+TARGET: One Brôkhyr Thunderkyn or Ironkin Steeljacks unit from your army.
+EFFECT: Your unit can shoot as if it were your Shooting phase. When doing so, models in your unit can only target that enemy unit (and only if it is an eligible target) and each time a model in your unit makes an attack, subtract 1 from the Hit roll.</description>
+                </rule>
+                <rule name="COGITATED NEED (Stratagem, 1CP)" id="3095-673d-0c94-8ed6" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Movement phase.
+TARGET: One Ironkin Steeljacks unit from your army.
+EFFECT: Your unit can make a Normal move. When doing so, your unit must end that move as close as possible to the closest objective marker.</description>
+                </rule>
+                <rule name="DELAYED-FIRE ROUNDS (Stratagem, 1CP)" id="bbf3-a223-eb5b-23d0" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Hearthfyre Arsenal – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, just after a Brôkhyr, Ironkin Steeljacks or Arkanyst Evaluator unit from your army has shot.
+TARGET: That BRÔKHYR, IRONKIN STEELJACKS or ARKANYST EVALUATOR unit.
+EFFECT: Select one enemy unit (excluding MONSTERS and VEHICLES) hit by one or more of those attacks. Until the start of your next Shooting phase, each time that enemy unit makes a Normal, Advance or Fall Back move, roll one D6 for each model in that unit: for each 1, that unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
@@ -210,6 +379,56 @@ In your Shooting phase, each time a ^^**Brôkhyr, Ironkin Steeljacks^^** or ^^**
               <rules>
                 <rule name="Fury from the Dêlve" id="87c9-7c05-103b-ebe6" hidden="false">
                   <description>^^**Cthonian Beserks^^** units from your army have the Deep Strike ability.</description>
+                </rule>
+                <rule name="CYBERSTIMM INFUSION (Stratagem, 1CP)" id="dfc9-d56d-06b0-cd01" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;CYBERSTIMM INFUSION&quot; reroll=wound1 when=melee kw=&quot;Cthonian Beserks&quot; choice=&quot;cyberstimm&quot;
+sim-mod: source=&quot;CYBERSTIMM INFUSION&quot; reroll=wound when=melee kw=&quot;Cthonian Beserks&quot; choice=&quot;cyberstimm&quot;</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One Cthonian Beserks unit from your army that has not been selected to fight this phase.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Wound roll of 1. If you spent YP during this use of this Stratagem, you can re-roll the Wound roll instead.</description>
+                </rule>
+                <rule name="UNSTOPPABLE FORCE (Stratagem, 1CP)" id="e058-322c-cf85-f6da" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One Leagues of Votann unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, each time your unit Piles In or Consolidates, each model in that unit can move up to 6&quot; instead of up to 3&quot;.</description>
+                </rule>
+                <rule name="TECTONIC FRACTURE (Stratagem, 1CP)" id="2bd9-8f78-2cec-b769" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, just after a CTHONIAN EARTHSHAKERS unit from your army has shot.
+TARGET: That Cthonian Earthshakers unit.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Select one enemy unit hit by one or more of your unit’s attacks this phase. Until the start of your next Shooting phase, subtract 2 from that unit’s Move characteristic and, if you spent YP during this use of this Stratagem, subtract 2 from Charge rolls made for that unit.</description>
+                </rule>
+                <rule name="WEAVEWËRKE BUTTRESS (Stratagem, 1CP)" id="e3b8-d7f0-3703-d9df" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets, if units from your army have Hostile Acquisition.
+TARGET: One Leagues of Votann Infantry unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
+                </rule>
+                <rule name="HIDDEN ACCESSWAYS (Stratagem, 1CP)" id="77fb-e061-e40f-d67c" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One Cthonian Beserks, Hearthkyn Warriors or Hernkyn Yaegirs unit from your army that is not within Engagement Range of one or more enemy units.
+EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves.</description>
+                </rule>
+                <rule name="AUGMENTED ASSAULT (Stratagem, 1CP)" id="fc64-753d-e138-8164" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Dêlve Assault Shift – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One Cthonian Beserks unit from your army that has not been selected to move this phase.
+EFFECT: Each time you use this Stratagem, you can spend up to 2YP. Until the end of the turn, add X&quot; to the Move characteristic of models in your unit, where X is the number of YP you spent during this use of this Stratagem, and your unit is eligible to declare a charge in a turn in which it Advanced.</description>
                 </rule>
               </rules>
               <costs>
@@ -230,6 +449,55 @@ In your Shooting phase, each time a ^^**Brôkhyr, Ironkin Steeljacks^^** or ^^**
 
 **Firebase Control (Aura):** While a friendly ^^**Leagues of Votann Infantry^^** unit is wholly within 6&quot; of this ^^**Transport^^**, ranged weapons equipped by models in that ^^**Infantry^^** unit have the [^^**sustained hits 1^^**] ability.</description>
                 </rule>
+                <rule name="BASTION RUNNING (Stratagem, 1CP)" id="36c3-1848-1ce7-dd40" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Brandfast Oathband – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One Hekaton Land Fortress unit from your army that has not been selected to move this phase.
+EFFECT: Until the end of the phase, each time your unit makes a Normal or Advance move, it can move horizontally through terrain features.</description>
+                </rule>
+                <rule name="INEXORABLE EFFICIENCY (Stratagem, 1CP)" id="0b14-3def-b10f-9333" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Brandfast Oathband – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One Leagues of Votann unit from your army.
+EFFECT: Until the end of the phase, your unit is eligible to shoot in a turn in which it Fell Back.</description>
+                </rule>
+                <rule name="OPPORTUNISTIC ESCALATION (Stratagem, 1CP)" id="203b-5be0-315e-9a48" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Brandfast Oathband – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot, if units from your army have Hostile Acquisition.
+TARGET: One Leagues of Votann Vehicle unit from your army (excluding Hekaton Land Fortress units) that was hit by one or more of those attacks.
+EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
+                </rule>
+                <rule name="VENGEANCE FLARE (Stratagem, 2CP)" id="a518-d540-fe42-0fa2" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Brandfast Oathband – STRATAGEM (2CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.
+TARGET: One Leagues of Votann Infantry unit that was hit by one or more of those attacks.
+EFFECT: Each time you use this Stratagem, you can spend 2YP. Select one friendly Kapricus or Sagitaur unit within 6&quot; of your INFANTRY unit. If you spent YP during this use of this Stratagem, you can select one friendly Hekaton Land Fortress unit within 6&quot; of your INFANTRY unit instead. The selected unit can shoot as if it were your Shooting phase. When doing so, models in the selected unit can only target that enemy unit (and only if it is an eligible target).</description>
+                </rule>
+                <rule name="SECURE POSITIONS (Stratagem, 1CP)" id="8905-f617-bb84-7ff2" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Brandfast Oathband – STRATAGEM (1CP)
+
+WHEN: End of any of your phases.
+TARGET: One Leagues of Votann Transport unit from your army.
+EFFECT: One LEAGUES OF VOTANN unit embarked within your TRANSPORT can disembark. When doing so, models in that unit can be set up anywhere on the battlefield wholly within 6&quot; of your TRANSPORT. That unit cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn.</description>
+                </rule>
+                <rule name="ILLUMINATED PRIORITY (Stratagem, 1CP)" id="68b5-ec96-f538-9442" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;ILLUMINATED PRIORITY&quot; reroll=hit1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
+                  <description>Brandfast Oathband – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, just after a Leagues of Votann Vehicle unit from your army has shot.
+TARGET: That LEAGUES OF VOTANN VEHICLE unit.
+EFFECT: Select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a Leagues of Votann Infantry model from your army makes an attack that targets that enemy unit, re-roll a Hit roll of 1.</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
@@ -248,6 +516,7 @@ In your Shooting phase, each time a ^^**Brôkhyr, Ironkin Steeljacks^^** or ^^**
                   <description>Your ^^**Leagues of Votann^^** units do not have the Hostile Acquisition or Fortify Takeover abilities except as described in this rule. At the start of the battle, your ^^**Leagues of Votann^^** units have the Hostile Acquisition ability. At the end of your Command phase, you can spend 3YP. If you do, ^^**Leagues of Votann^^** units from your army lose the Hostile Acquisition ability and gain the Fortify Takeover ability, or vice versa.</description>
                 </rule>
                 <rule name="Auxiliary Contract (Stratagem, 1CP)" id="0475-5392-916f-ef3c" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -255,6 +524,9 @@ TARGET: One Leagues of Votann Infantry or Leagues of Votann Mounted unit from yo
 EFFECT: Until the end of the phase, weapons equipped by models in your unit have the [PRECISION] ability.</description>
                 </rule>
                 <rule name="Optimal Expenditure (Stratagem, 1CP)" id="472f-9ac9-ffe8-963b" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Optimal Expenditure&quot; reroll=hit1 reroll=wound1 when=melee kw=&quot;Infantry&quot; choice=&quot;optimal&quot;
+sim-mod: source=&quot;Optimal Expenditure&quot; reroll=hit1 reroll=wound when=melee kw=&quot;Infantry&quot; conditional choice=&quot;optimal&quot;</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: The Fight phase.
@@ -262,6 +534,7 @@ TARGET: One Leagues of Votann Infantry unit from your army that has not been sel
 EFFECT: Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll a Hit roll of 1 and re-roll the Wound roll instead.</description>
                 </rule>
                 <rule name="Grand Artifice (Stratagem, 1CP)" id="d803-aad1-fe13-36cf" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, just after a Leagues of Votann unit from your army Falls Back.
@@ -269,6 +542,9 @@ TARGET: That Leagues of Votann unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back.</description>
                 </rule>
                 <rule name="Privateer Arsenal (Stratagem, 1CP)" id="8b54-7183-467a-bc8c" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Privateer Arsenal&quot; reroll=hit1 reroll=wound1 when=ranged kw=&quot;Infantry&quot; choice=&quot;privateer&quot;
+sim-mod: source=&quot;Privateer Arsenal&quot; reroll=hit reroll=wound1 when=ranged kw=&quot;Infantry&quot; conditional choice=&quot;privateer&quot;</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -276,6 +552,7 @@ TARGET: One Leagues of Votann Infantry unit from your army that has not been sel
 EFFECT: Each time you use this Stratagem, you can spend 3YP. Until the end of the phase, each time a model in your unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1. If you spent YP during this usage of this Stratagem, you can re-roll the Hit roll and re-roll a Wound roll of 1 instead.</description>
                 </rule>
                 <rule name="New Horizons (Stratagem, 1CP)" id="087e-9450-3ec5-e4dc" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: End of your opponent&apos;s Fight phase.
@@ -283,6 +560,7 @@ TARGET: One Leagues of Votann Infantry unit from your army that is not within En
 EFFECT: If your Leagues of Votann unit is wholly within 6&quot; of that Transport, it can embark within it.</description>
                 </rule>
                 <rule name="Mobile Exploitation (Stratagem, 1CP)" id="d9e9-e9b6-e489-6833" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
                   <description>Mercenary Oathband – STRATAGEM (1CP)
 
 WHEN: End of your opponent&apos;s Fight phase.
@@ -308,6 +586,8 @@ EFFECT: Remove your unit(s) from the battlefield and place them into Strategic R
 Friendly SAGITAUR units have Scouts 6&quot;.</description>
                 </rule>
                 <rule name="Coordinated Crossfire (Stratagem, 1CP)" id="1348-511c-c303-6acf" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Coordinated Crossfire&quot; reroll=hit1 reroll=wound1 when=ranged kw=&quot;Sagitaur&quot;</comment>
                   <description>Armoured Trailblazers – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase.
@@ -315,6 +595,7 @@ TARGET: Up to two friendly SAGITAUR units.
 EFFECT: Select one enemy unit. Your units’ ranged attacks that target that enemy unit can re-roll Hit rolls of 1 and re-roll Wound rolls of 1.</description>
                 </rule>
                 <rule name="Outflanking Armour (Stratagem, 1CP)" id="bcaa-c1a3-b642-f04d" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
                   <description>Armoured Trailblazers – STRATAGEM (1CP)
 
 WHEN: End of your opponent’s Movement phase, from the second battle round onwards.
@@ -322,6 +603,7 @@ TARGET: Up to two friendly SAGITAUR units in Strategic Reserves.
 EFFECT: Your units each make an ingress move.</description>
                 </rule>
                 <rule name="Built to Last (Stratagem, 1CP)" id="613e-f224-e3a4-6af0" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
                   <description>Armoured Trailblazers – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly SAGITAUR unit.
@@ -347,6 +629,8 @@ EFFECT: Ranged attacks that target your unit with a Strength greater than your u
 Friendly HERNKYN units’ ranged attacks that target a unit within 12&quot; have +1 to Hit rolls.</description>
                 </rule>
                 <rule name="Scornful Analysis (Stratagem, 1CP)" id="d840-642e-c54e-3678" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Scornful Analysis&quot; ignores-cover conditional</comment>
                   <description>Farseekers – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase.
@@ -354,6 +638,8 @@ TARGET: One friendly HERNKYN unit.
 EFFECT: Select one visible enemy unit within 12&quot; of your unit. Friendly LEAGUES OF VOTANN units’ attacks that target that enemy unit have [IGNORES COVER].</description>
                 </rule>
                 <rule name="No Shot Wasted (Stratagem, 1CP)" id="fc01-c34e-8254-6aa1" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;No Shot Wasted&quot; lethal when=ranged kw=&quot;Hernkyn&quot;</comment>
                   <description>Farseekers – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly HERNKYN unit is selected to shoot.
@@ -361,6 +647,7 @@ TARGET: That HERNKYN unit.
 EFFECT: Your unit’s ranged attacks have [LETHAL HITS].</description>
                 </rule>
                 <rule name="Economy of Motion (Stratagem, 1CP)" id="559e-eb0d-3a21-9f70" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
                   <description>Farseekers – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Movement phase, when an enemy unit ends a move within 8&quot; of a friendly unengaged PIONEERS unit.
@@ -380,7 +667,6 @@ EFFECT: Your unit can make a Normal move of up to D3+3&quot;.</description>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Hearthguard Covenant" hidden="false" id="c9d3-1031-9d29-528b">
-              <comment>unique-detachment: HEARTHBAND</comment>
               <rules>
                 <rule name="Avatars of the Ancestors" id="c4b4-8475-9498-81ec" hidden="false">
                   <comment>sim-mod: source=&quot;Avatars of the Ancestors&quot; reroll=wound1 when=ranged conditional</comment>
@@ -390,6 +676,7 @@ Friendly KÂHL/EINHYR CHAMPION/EINHYR HEARTHGUARD/ÛTHAR THE DESTINED units’ r
 This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="2d7b-1ee4-db47-6db2" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
                   <description>Hearthguard Covenant – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly EINHYR HEARTHGUARD unit.
@@ -397,6 +684,9 @@ TARGET: That EINHYR HEARTHGUARD unit.
 EFFECT: Your unit has 4+ invulnerable save.</description>
                 </rule>
                 <rule name="Fury of the Hearth (Stratagem, 1CP)" id="defc-dfbf-a5e3-12c2" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Fury of the Hearth&quot; str=+1 when=ranged kw=&quot;Einhyr Hearthguard&quot;
+sim-mod: source=&quot;Fury of the Hearth&quot; sustained=1 when=ranged kw=&quot;Einhyr Hearthguard&quot; conditional</comment>
                   <description>Hearthguard Covenant – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly EINHYR HEARTHGUARD unit is selected to shoot.
@@ -404,6 +694,7 @@ TARGET: That EINHYR HEARTHGUARD unit.
 EFFECT: Your unit’s ranged attacks have +1 S. If you spend 1 YP, your unit’s ranged attacks also have [SUSTAINED HITS 1].</description>
                 </rule>
                 <rule name="Materialisation Matrices (Stratagem, 1CP)" id="9709-043a-4a33-0faf" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Hearthguard Covenant – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly EINHYR HEARTHGUARD unit with the Deep Strike ability is selected to make an ingress move.
@@ -411,6 +702,9 @@ TARGET: That EINHYR HEARTHGUARD unit.
 EFFECT: Your unit can be set up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy units, even if within your opponent’s deployment zone; your unit is not eligible to declare a charge until the end of the turn.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="744f-da59-61e6-c2c9" name="UNIQUE HEARTHBAND" hidden="false" targetId="1198-185d-28e4-e7a8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
@@ -2963,7 +3257,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="09d3-6357-7888-00d9" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3977,7 +4270,6 @@ fnp: 4+</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="9086-5272-398b-bbce" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4545,7 +4837,6 @@ fnp: 4+</comment>
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="9655-8367-7467-9e6e" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4828,7 +5119,6 @@ fnp: 4+</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="ea1b-99f6-c398-06b1" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5393,7 +5683,6 @@ fnp: 4+</comment>
       </selectionEntryGroups>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=1 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="a110-e538-4e85-159b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -6772,7 +7061,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="cfbc-9eeb-badb-b28c" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7177,7 +7465,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="1e3f-209d-798f-3a42" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7426,7 +7713,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="2add-0a08-fbef-8f5e" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>

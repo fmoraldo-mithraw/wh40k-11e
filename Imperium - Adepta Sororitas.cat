@@ -46,6 +46,12 @@
     <categoryEntry name="Reliquant Knight" id="2bbb-adc2-a26a-d425" hidden="false"/>
     <categoryEntry name="Intranzia Fraye" id="4f01-3b21-f0c5-6603" hidden="false"/>
     <categoryEntry id="8262-8bf6-9fcd-34c9" name="Frame" hidden="false"/>
+    <categoryEntry id="0246-8d80-2674-9cc8" name="UNIQUE REVEREND" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: REVEREND — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="d5c7-8552-e572-3455"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry type="unit" import="true" name="Aestred Thurga and Agathae Dolan" hidden="false" id="4b94-c22e-84f9-8d32" publicationId="7d85-6d0f-57e0-5dea">
@@ -260,6 +266,57 @@ invuln: 4+</comment>
 sim-mod: source=&quot;The Blood of Martyrs&quot; wound=+1 conditional</comment>
                   <description>Each time an ADEPTA SORORITAS model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll, as well, if that model’s unit is Below Half-strength.</description>
                 </rule>
+                <rule name="RIGHTEOUS VENGEANCE (Stratagem, 1CP)" id="2095-b9a5-16bc-6fdd" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;RIGHTEOUS VENGEANCE&quot; reroll=hit when=melee
+sim-mod: source=&quot;RIGHTEOUS VENGEANCE&quot; reroll=wound when=melee conditional</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes a melee attack, you can re-roll the Hit roll and, if your unit is Below Half-strength, you can re-roll the Wound roll as well.</description>
+                </rule>
+                <rule name="DIVINE INTERVENTION (Stratagem, 1CP)" id="b013-b56a-994a-e92a" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (1CP)
+
+WHEN: Any phase.
+TARGET: One ADEPTA SORORITAS CHARACTER unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.
+EFFECT: You can discard 1-3 Miracle dice. At the end of the phase, set up one destroyed CHARACTER model from your unit on the battlefield, unengaged and as close as possible to where it was destroyed. That model is not part of an attached unit and its unit has a starting strength of 1. Roll one D3, adding 1 to the result for each Miracle dice you discarded. That model has that number of wounds remaining (up to its starting number of wounds).
+RESTRICTION: You cannot select SAINT CELESTINE as the target of this Stratagem. You cannot select the same CHARACTER as the target of this Stratagem more than once per battle.</description>
+                </rule>
+                <rule name="SANCTIFIED IMMOLATION (Stratagem, 1CP)" id="2612-bf56-866d-0e91" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (1CP)
+
+WHEN: Any phase.
+TARGET: One ADEPTA SORORITAS VEHICLE model from your army with the Deadly Demise ability that was just destroyed. You can use this Stratagem on that model even though It was just destroyed.
+EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by your model&apos;s Deadly Demise ability. Instead, mortal wounds are automatically inflicted.</description>
+                </rule>
+                <rule name="SUFFERING AND SACRIFICE (Stratagem, 1CP)" id="5d5d-dfa9-7459-de55" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (1CP)
+
+WHEN: Start of the Fight phase.
+TARGET: One Adepta Sororitas Infantry or Adepta Sororitas Walker unit from your army.
+EFFECT: Until the end of the phase, each time an enemy model within Engagement Range of your unit selects its targets, it must select your unit as the target of its attacks.</description>
+                </rule>
+                <rule name="PRAISE THE FALLEN (Stratagem, 1CP)" id="1c39-9554-b593-dbcf" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.
+TARGET: One ADEPTA SORORITAS unit from your army that had one or more of its models destroyed as a result of the attacking unit’s attacks.
+EFFECT: Your unit can shoot as if it were your Shooting phase, but it must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
+                </rule>
+                <rule name="SPIRIT OF THE MARTYR (Stratagem, 2CP)" id="542d-cf0f-48f5-b669" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Hallowed Martyrs – STRATAGEM (2CP)
+
+WHEN: Fight phase, just after an enemy unit has selected its targets.
+TARGET: One ADEPTA SORORITAS unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
+                </rule>
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Penitent Host" hidden="false" id="a2f5-a466-96b6-d389">
@@ -289,6 +346,55 @@ Absolution in Battle: Each time a unit from your army is selected to fight, if t
 
 Death Before Disgrace: Each time a PENITENT model from your army is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 2+, do not remove it from play; the destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
                 </rule>
+                <rule name="PASSION OF THE PENITENT (Stratagem, 1CP)" id="4fc3-f28a-3538-fe92" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;PASSION OF THE PENITENT&quot; crit-hit=5 when=melee kw=&quot;Penitent&quot;</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One PENITENT unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, each time a PENITENT model in your unit makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.</description>
+                </rule>
+                <rule name="LASH OF GUILT (Stratagem, 1CP)" id="87e0-905c-9008-3e36" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Your Movement phase, just before a PENITENT unit from your army Advances.
+TARGET: That PENITENT unit.
+EFFECT: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Advanced. If your unit has the PENITENT ENGINES keyword, do not make an Advance roll for it; instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
+                </rule>
+                <rule name="PURITY OF SUFFERING (Stratagem, 1CP)" id="b59a-604d-0657-df1b" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+TARGET: One PENITENT unit from your army that was selected as the target of one or more of the attacking unit&apos;s attacks.
+EFFECT: Until the end of the phase, PENITENT models in your unit have the Feel No Pain 4+ ability.</description>
+                </rule>
+                <rule name="FINAL REDEMPTION (Stratagem, 1CP)" id="c0f3-160e-95bb-6aca" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Any phase.
+TARGET: One PENITENT unit from your army that was just destroyed while it was within range of an objective marker you controlled. You can use this Stratagem on that unit even though it was just destroyed.
+EFFECT: That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</description>
+                </rule>
+                <rule name="BOUNDLESS ZEAL (Stratagem, 1CP)" id="006c-8a81-fadb-0302" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Your Movement phase, just after an ADEPTA SORORITAS unit from your army Falls Back.
+TARGET: That ADEPTA SORORITAS unit.
+EFFECT: Until the end of the turn, your unit is eligible to shoot or declare a charge in a turn in which it Fell Back. If your unit has the PENITENT keyword, it is eligible to shoot and declare a charge in a turn in which it Fell Back instead.</description>
+                </rule>
+                <rule name="DEVOUT FANATICISM (Stratagem, 1CP)" id="7db4-412a-4625-a393" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Penitent Host – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.
+TARGET: One PENITENT unit from your army that was selected as the target as one or more of the attacking unit’s attacks.
+EFFECT: Your unit can make a surge move of up to D6&quot;&quot;.</description>
+                </rule>
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Bringers of Flame" hidden="false" id="575d-76f6-2edb-22c1">
@@ -310,6 +416,57 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                   <comment>sim-mod: source=&quot;Fervent Purgation&quot; str=+1 when=ranged conditional</comment>
                   <description>Ranged weapons equipped by ADEPTA SORORITAS models from your army have the [ASSAULT] ability, and each time an attack made with such a weapon targets a unit within 6&quot;, add 1 to the Strength characteristic of that attack.</description>
                 </rule>
+                <rule name="SHIELD OF AVERSION (Stratagem, 1CP)" id="bcec-d499-df28-d795" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Bringers of Flame – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+TARGET: One ADEPTA SORORITAS unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+                </rule>
+                <rule name="CLEANSING FLAMES (Stratagem, 2CP)" id="1747-a5ec-c703-f454" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;CLEANSING FLAMES&quot; dev when=ranged weapon=&quot;Torrent&quot;</comment>
+                  <description>Bringers of Flame – STRATAGEM (2CP)
+
+WHEN: Your Shooting phase.
+TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to shoot this phase.
+EFFECT: Until the end of the phase, Torrent weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability</description>
+                </rule>
+                <rule name="RITES OF FIRE (Stratagem, 1CP)" id="eda6-8fc5-8824-7a5b" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;RITES OF FIRE&quot; wound=+1 when=ranged conditional</comment>
+                  <description>Bringers of Flame – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase.
+TARGET: One ADEPTA SORORITAS unit from your army that disembarked from a TRANSPORT this turn and has not been selected to shoot this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit within 6&quot; that is also within range of an objective marker, add 1 to the Wound roll. If one or more enemy models are destroyed as the result of those attacks, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test.</description>
+                </rule>
+                <rule name="BLAZING IRE (Stratagem, 2CP)" id="e0aa-ad25-cf75-d9fa" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Bringers of Flame – STRATAGEM (2CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.
+TARGET: One ADEPTA SORORITAS TRANSPORT unit from your army that was selected as the target of one or more of the attacking unit&apos;s attacks.
+EFFECT: One unit embarked within your TRANSPORT can disembark as if it were your Movement phase, and can then shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
+                </rule>
+                <rule name="RIGHTEOUS BLOWS (Stratagem, 1CP)" id="dd27-5636-042f-e721" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;RIGHTEOUS BLOWS&quot; lethal when=melee</comment>
+                  <description>Bringers of Flame – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If one or more enemy models are destroyed as the result of attacks made by those weapons this phase, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test.</description>
+                </rule>
+                <rule name="CARRY FORTH THE FAITHFUL (Stratagem, 1CP)" id="5b51-225d-f481-158e" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Bringers of Flame – STRATAGEM (1CP)
+
+WHEN: Your Movement phase, just before an ADEPTA SORORITAS TRANSPORT model from your army Advances.
+TARGET: That ADEPTA SORORITAS TRANSPORT model.
+EFFECT: Until the end of the turn, you can re-roll Advance rolls made for your TRANSPORT, and units can disembark from your TRANSPORT even though it Advanced. Units that do so count as having made a Normal move, and cannot declare a charge this turn</description>
+                </rule>
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Army of Faith" hidden="false" id="6f81-1a3e-c84e-0954">
@@ -330,10 +487,60 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                 <rule name="Sacred Rites" id="f309-09a6-6f1a-3d0d" hidden="false">
                   <description>Each Adepta Sororitas unit from your army can perform up to two Acts of Faith per phase, instead of just one.</description>
                 </rule>
+                <rule name="DIVINE GUIDANCE (Stratagem, 1CP)" id="6713-ea0f-a4aa-f7a1" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;DIVINE GUIDANCE&quot; ap=+1</comment>
+                  <description>Army of Faith – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase.
+TARGET: That ADEPTA SORORITAS unit from your army that has not been selected to shoot or fight this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1. If one or more enemy models are destroyed as the result of any of those attacks, you gain 1 Miracle dice.</description>
+                </rule>
+                <rule name="SHIELD OF FAITH (Stratagem, 1CP)" id="1145-293a-ae64-ed44" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Army of Faith – STRATAGEM (1CP)
+
+WHEN: Any phase, just after an ADEPTA SORORITAS unit from your army suffers a mortal wound.
+TARGET: That ADEPTA SORORITAS unit, or one friendly ADEPTA SORORITAS JUMP PACK unit within 3&quot; of it.
+EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds. If you targeted an ADEPTA SORORITAS JUMP PACK unit from your army with this Stratagem, then until the end of the phase, while a friendly ADEPTA SORORITAS unit is unit is within 3&quot; of your unit, models in that unit have the Feel No Pain 5+ ability against mortal wounds.</description>
+                </rule>
+                <rule name="LIGHT OF THE EMPEROR (Stratagem, 2CP)" id="341e-7f78-11ef-14d1" hidden="false">
+                  <comment>strat-timing: turn=either phase=command</comment>
+                  <description>Army of Faith – STRATAGEM (2CP)
+
+WHEN: Command phase.
+TARGET: One ADEPTA SORORITAS unit from your army.
+EFFECT: Until the end of the turn, your unit is blessed. While a unit is blessed, it can ignore any or all modifiers to the following: the profile characteristics of its models; the Weapon Skill or Ballistic Skill characteristics of weapons equipped by its models; any roll or test made for it (excluding modifiers to saving throws). If your unit has the JUMP PACK keyword, until the end of the turn, while a friendly ADEPTA SORORITAS unit is within 3&quot; of your unit, that friendly unit is also blessed.</description>
+                </rule>
+                <rule name="FAITH AND FURY (Stratagem, 1CP)" id="8f8c-cb4e-81fb-3912" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;FAITH AND FURY&quot; wound=+1 when=melee onCharge</comment>
+                  <description>Army of Faith – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One ADEPTA SORORITAS unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If one or more enemy models are destroyed as the result of your unit&apos;s attacks this phase, you gain 1 Miracle dice.</description>
+                </rule>
+                <rule name="ANGELIC DESCENT (Stratagem, 1CP)" id="29b8-9ead-7a2f-9c88" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <description>Army of Faith – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One ADEPTA SORORITAS JUMP PACK unit from your army.
+EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves.
+RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.</description>
+                </rule>
+                <rule name="BLINDING RADIANCE (Stratagem, 1CP)" id="75c0-ccb3-72ba-e813" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Army of Faith – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+TARGET: One ADEPTA SORORITAS INFANTRY unit from your army that was selected as the target of one or more of the attacking unit’s attacks, or one friendly ADEPTA SORORITAS JUMP PACK unit within 3&quot; of such a unit.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll. If you targeted an ADEPTA SORORITAS JUMP PACK unit from your army with this Stratagem, then until the end of the phase, while a friendly ADEPTA SORORITAS INFANTRY unit is unit is within 3&quot; of your unit, each time an attack targets that unit, subtract 1 from the Hit roll.</description>
+                </rule>
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Champions of Faith" hidden="false" id="5c81-a47b-d3a0-31e8">
-              <comment>unique-detachment: REVEREND</comment>
               <rules>
                 <rule name="Righteous Purpose" id="7c54-8105-10e7-e8ad" hidden="false">
                   <description>In your Command phase, you can select up to 3 ^^**Adepta Sororitas^^** units from your army (including units that are embarked within ^^**Transports^^**), until the start of your next Command phase, those units are Righteous. While a unit is Righteous:
@@ -344,6 +551,7 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
 While a ^^**Celestian Sacresants^^** unit from your army is not Battle-shocked, add 1 to the Objective Control characteristic of ^^**Celestian Sacresants^^** models in that unit.</description>
                 </rule>
                 <rule name="Shield of Denial (Stratagem, 1CP)" id="1a98-ba42-7184-0319" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Any phase, just after a mortal wound is allocated to an Adepta Sororitas unit from your army.
@@ -351,6 +559,9 @@ TARGET: That Adepta Sororitas unit.
 EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 6+ ability against mortal wounds. If your unit is Righteous, until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds instead.</description>
                 </rule>
                 <rule name="Suffer Not the Unfaithful (Stratagem, 1CP)" id="ae35-8d40-f6c7-9be2" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Suffer Not the Unfaithful&quot; lethal conditional choice=&quot;suffer&quot;
+sim-mod: source=&quot;Suffer Not the Unfaithful&quot; sustained=1 conditional choice=&quot;suffer&quot;</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase.
@@ -358,6 +569,9 @@ TARGET: One Adepta Sororitas unit from your army that is Righteous and that has 
 EFFECT: Select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until the end of the phase, weapons equipped by models in your unit have the selected ability.</description>
                 </rule>
                 <rule name="To the Heart of Heresy (Stratagem, 1CP)" id="cfac-4ce4-9988-a657" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;To the Heart of Heresy&quot; str=+1 when=melee
+sim-mod: source=&quot;To the Heart of Heresy&quot; ap=+1 when=melee conditional</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -365,6 +579,7 @@ TARGET: One Adepta Sororitas unit from your army that has not been selected to f
 EFFECT: Until the end of the turn, improve the Strength characteristic of melee weapons equipped by models in your unit by 1. If your unit is Righteous, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1 as well.</description>
                 </rule>
                 <rule name="Path of the Righteous (Stratagem, 1CP)" id="4d5b-2900-7da3-3ebf" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Fight phase.
@@ -372,6 +587,7 @@ TARGET: One Adepta Sororitas unit from your army that has not been selected to f
 EFFECT: Until the end of the turn, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;. When doing so, if your unit is Righteous, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</description>
                 </rule>
                 <rule name="Bastion of Faith (Stratagem, 1CP)" id="3fa0-27a2-2c5f-3579" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -379,6 +595,7 @@ TARGET: One Celestian Sacresants unit that was selected as the target of one or 
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll. In addition, if your unit is Righteous, you can select one other Celestian Sacresants unit from your army that is not Battle-shocked and is within 6&quot; of your unit. Until the end of the phase, each time an attack targets that Celestian Sacresants unit, subtract 1 from the Hit roll as well.</description>
                 </rule>
                 <rule name="Indefatigable Dedication (Stratagem, 1CP)" id="5bc5-057d-ae54-be13" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, just after an Adepta Sororitas unit from your army Falls Back.
@@ -390,6 +607,9 @@ EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in w
                 <infoLink name="Righteous Purpose" id="cae6-40c2-6082-49ce" hidden="false" type="rule" targetId="cb5e-57b9-c416-c2a5"/>
                 <infoLink name="Keywords" id="3cc8-eaa5-8cf5-cda4" hidden="false" type="rule" targetId="f84c-5011-816f-3fb6"/>
               </infoLinks>
+              <categoryLinks>
+                <categoryLink id="18da-ce85-cc61-9a7c" name="UNIQUE REVEREND" hidden="false" targetId="0246-8d80-2674-9cc8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -410,6 +630,7 @@ EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in w
 - While a unit is condemned, that unit has +3&quot; detection range.</description>
                 </rule>
                 <rule name="Inspirational Battle Canticles (Stratagem, 1CP)" id="db17-1a01-ce11-e238" hidden="false">
+                  <comment>strat-timing: turn=either phase=command</comment>
                   <description>Chorus of Condemnation – STRATAGEM (1CP)
 
 WHEN: Start of the Command phase.
@@ -417,6 +638,8 @@ TARGET: One friendly ADEPTA SORORITAS INFANTRY FLY unit or one friendly EXORCIST
 EFFECT: Select one friendly battle-shocked ADEPTA SORORITAS unit within 6&quot; of your unit. That unit is no longer battle-shocked.</description>
                 </rule>
                 <rule name="Harmonised Exorcism (Stratagem, 1CP)" id="9304-63cb-6057-a172" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Harmonised Exorcism&quot; hit=+1 when=ranged kw=&quot;Exorcist&quot; conditional</comment>
                   <description>Chorus of Condemnation – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly EXORCIST unit is selected to shoot.
@@ -424,6 +647,8 @@ TARGET: That EXORCIST unit.
 EFFECT: Select one unit visible to and within 9&quot; of a friendly ADEPTA SORORITAS INFANTRY FLY unit. Your unit&apos;s ranged attacks that target that unit have +1 to hit rolls.</description>
                 </rule>
                 <rule name="Devastating Reprise (Stratagem, 1CP)" id="7090-8b6c-acca-b52e" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Devastating Reprise&quot; dev when=ranged kw=&quot;Infantry&amp;Fly&quot; conditional</comment>
                   <description>Chorus of Condemnation – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly EXORCIST unit has shot.
@@ -443,7 +668,6 @@ EFFECT: Select one enemy unit (excluding MONSTER/VEHICLE units) hit by those ran
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sacred Champions" hidden="false" id="bd92-20a1-15c9-66a1">
-              <comment>unique-detachment: REVEREND</comment>
               <rules>
                 <rule name="Holy Quest" id="89d1-f019-7f79-94c0" hidden="false">
                   <description>Friendly ^^**Celestian Sacresants^^** units&apos; attacks have +1 BS and WS.
@@ -451,6 +675,8 @@ EFFECT: Select one enemy unit (excluding MONSTER/VEHICLE units) hit by those ran
 This detachment has the REVEREND tag and cannot be taken with another REVEREND detachment.</description>
                 </rule>
                 <rule name="Sanctified Blows (Stratagem, 1CP)" id="a01f-3fec-b565-4036" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Sanctified Blows&quot; attacks=+1 str=+1 when=melee kw=&quot;Celestian Sacresants&quot;</comment>
                   <description>Sacred Champions – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly CELESTIAN SACRESANTS unit is selected to fight.
@@ -458,6 +684,7 @@ TARGET: That CELESTIAN SACRESANTS unit.
 EFFECT: Your unit&apos;s melee attacks have +1 A and S.</description>
                 </rule>
                 <rule name="Faithful Fortitude (Stratagem, 1CP)" id="88b8-a0ac-dbab-f965" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
                   <description>Sacred Champions – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly CELESTIAN SACRESANTS unit suffers a mortal wound.
@@ -465,6 +692,7 @@ TARGET: That CELESTIAN SACRESANTS unit.
 EFFECT: Your unit has Feel No Pain 5+ against mortal wounds until the end of the phase.</description>
                 </rule>
                 <rule name="Unflinching Determination (Stratagem, 1CP)" id="a50c-a325-f6e0-0f8c" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
                   <description>Sacred Champions – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly CELESTIAN SACRESANTS unit is selected to make an advance/fall-back move.
@@ -473,6 +701,9 @@ EFFECT: - Your unit&apos;s ranged attacks have [ASSAULT] until the end of the tu
 - That move does not prevent your unit from being eligible to shoot/declare a charge.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="a7b3-0083-aaef-9266" name="UNIQUE REVEREND" hidden="false" targetId="0246-8d80-2674-9cc8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
@@ -1777,7 +2008,6 @@ fnp: 5+</comment>
       </categoryLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="820-1e76-78cc-931a" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -2082,7 +2312,6 @@ fnp: 5+</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="f1af-4984-1a52-c5" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -2888,7 +3117,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <comment>invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="d929-b22d-3040-9707" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3229,7 +3457,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <comment>invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="40">
-          <comment>repeat-cost: threshold=1 delta=40 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="684e-4dd3-340a-23ee" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3495,7 +3722,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
 invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=1 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="938e-1c24-4e63-4cf3" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3972,7 +4198,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <comment>invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=3 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="1001-80ff-c9a8-5d9b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5293,7 +5518,6 @@ invuln: 4+</comment>
 invuln: 4+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="e75d-a7ac-7fcc-d302" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -6617,7 +6841,6 @@ sim-mod: source=&quot;Storm of Retribution&quot; hit=+1 wound=+1 when=ranged con
 invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="c49d-f150-4b3-c118" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7297,7 +7520,6 @@ invuln: 6+</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="bee9-172b-7db7-f748" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7823,7 +8045,6 @@ invuln: 6+</comment>
       <comment>invuln: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="52c7-3f6b-cece-8101" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -8314,7 +8535,6 @@ If this unit made a Charge move this turn, until the end of the phase, select bo
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="22f0-a7d8-b2b6-e26" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>

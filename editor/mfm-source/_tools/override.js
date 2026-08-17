@@ -27,7 +27,8 @@ const UNITS = [
 const ptsOf = n => { const co = (xml.child(n, 'costs') || { children: [] }).children.find(x => x.tag === 'cost' && xml.getAttr(x, 'typeId') === COST); return co ? Number(xml.getAttr(co, 'value')) : null; };
 function costMods(node) { const m = xml.child(node, 'modifiers'); return m ? m.children.filter(x => x.tag === 'modifier' && xml.getAttr(x, 'field') === COST) : []; }
 function conds(mod) { const out = []; xml.walk(mod, x => { if (x.tag === 'condition') out.push(x); }); return out; }
-function isRepeat(mod) { let f = false; xml.walk(mod, x => { if (x.tag === 'comment' && /repeat-cost/.test(xml.getText(x))) f = true; }); return f; }
+// Forme native (voir apply.js) : increment pts + atLeast scope=roster.
+function isRepeat(mod) { if (xml.getAttr(mod, 'type') !== 'increment') return false; let f = false; xml.walk(mod, x => { if (x.tag === 'condition' && xml.getAttr(x, 'type') === 'atLeast' && xml.getAttr(x, 'scope') === 'roster') f = true; }); return f; }
 
 // --- simulator: evaluate a unit's pts for (primaryCatId, large?, copyIndex) ---
 function classify(cond, unitId) {

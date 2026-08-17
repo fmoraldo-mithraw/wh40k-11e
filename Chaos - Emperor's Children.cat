@@ -621,7 +621,6 @@ invuln: 4+</comment>
       </constraints>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="7b4c-dfe0-6a0a-304a" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1485,7 +1484,6 @@ invuln: 4+</comment>
       </infoLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=1 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="ad59-b823-900d-ee2d" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1709,7 +1707,6 @@ invuln: 4+</comment>
       </infoLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="30">
-          <comment>repeat-cost: threshold=1 delta=30 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="e452-08be-33e6-3864" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3601,7 +3598,6 @@ invuln: 5+</comment>
       </entryLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
-          <comment>repeat-cost: threshold=2 delta=20 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="f10c-5f3e-c09d-0b12" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3968,7 +3964,6 @@ invuln: 5+</comment>
       </selectionEntryGroups>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=2 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="5817-0d6c-973c-68f8" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4441,7 +4436,6 @@ invuln: 5+</comment>
       </selectionEntryGroups>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="656c-8b78-8e59-0591" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4528,7 +4522,6 @@ invuln: 5+</comment>
     <selectionEntry type="model" import="true" name="Chaos Rhino" hidden="false" id="8ae1-aa47-e1d1-1b31" collective="false">
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=3 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="8ae1-aa47-e1d1-1b31" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4750,6 +4743,57 @@ At the start of the battle, your **^^Warlord^^**&apos;s unit is your army&apos;s
 
 Each time a model in your army&apos;s Favoured Champions unit makes an attack, you can re-roll the Wound roll.</description>
                 </rule>
+                <rule name="HEIGHTENED JEALOUSY (Stratagem, 1CP)" id="7840-a903-842d-ace8" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;HEIGHTENED JEALOUSY&quot; str=+1 conditional</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, just after an Emperor’s Children Character unit becomes your army’s Favoured Champions, or just after your army’s Favoured Champions unit destroys an enemy unit.
+TARGET: Your army’s Favoured Champions unit.
+EFFECT: Until the end of the phase, each time a model in an EMPEROR’S CHILDREN CHARACTER unit from your army that is not your army’s Favoured Champions makes an attack, add 1 to the Strength characteristic of that attack.</description>
+                </rule>
+                <rule name="DEVOTED DUELLISTS (Stratagem, 1CP)" id="c978-00c2-b5df-ce4e" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;DEVOTED DUELLISTS&quot; sustained=1 when=melee kw=&quot;Character&quot;</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One or more Emperor’s Children Character units from your army that have not been selected to fight this phase.
+EFFECT: Select one enemy unit. Until the end of the phase, melee weapons equipped by models in those CHARACTER units have the [SUSTAINED HITS 1] ability while targeting that enemy unit.</description>
+                </rule>
+                <rule name="REFUSAL TO BE OUTDONE (Stratagem, 1CP)" id="098e-fa75-3666-ada6" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Your Charge phase, when a friendly EMPEROR’S CHILDREN CHARACTER unit within 12&quot; of an engaged enemy unit declares a charge.
+TARGET: That EMPEROR’S CHILDREN CHARACTER unit.
+EFFECT: Your unit can re-roll charge rolls. Your unit must end that charge move engaged with one or more of those enemy units.</description>
+                </rule>
+                <rule name="DIABOLIC MAJESTY (Stratagem, 1CP)" id="014e-77b6-d32a-009b" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, just after an Emperor’s Children Character unit becomes your army’s Favoured Champions.
+TARGET: That EMPEROR’S CHILDREN unit.
+EFFECT: Each enemy unit within 6&quot; of your unit must take a Battle-shock test, subtracting 1 from the result.
+RESTRICTIONS: You can only use this Stratagem once per battle round.</description>
+                </rule>
+                <rule name="VENGEFUL SURGE (Stratagem, 1CP)" id="a2ad-e72d-f391-fe3c" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+TARGET: One EMPEROR’S CHILDREN CHARACTER unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Your unit can make a surge move of up to D6&quot;. If your unit is not your army’s Favoured Champions, you can re-roll the dice to determine the distance of that surge move.</description>
+                </rule>
+                <rule name="BEAUTIFUL DEATH (Stratagem, 1CP)" id="e517-ce87-c49c-04e2" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Slaanesh&apos;s Chosen – STRATAGEM (1CP)
+
+WHEN: Fight phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children Character unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 to the result if your unit is your army’s Favoured Champions. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
@@ -4771,6 +4815,55 @@ sim-mod: source=&quot;Exquisite Swordsmanship&quot; sustained=1 when=melee onCha
 - [^^Lethal Hits^^]
 - [^^Sustained Hits 1^^]</description>
                 </rule>
+                <rule name="INCESSANT VIOLENCE (Stratagem, 1CP)" id="df56-0604-440a-fbcd" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (1CP)
+
+WHEN: Fight phase, just before an Emperor’s Children unit from your army Consolidates.
+TARGET: That EMPEROR’S CHILDREN unit.
+EFFECT: Until the end of the phase, each time a model in your unit makes a Consolidation move, it can move up to 6&quot; instead of up to 3&quot;, provided your unit ends that Consolidation move within Engagement Range of one or more enemy units.</description>
+                </rule>
+                <rule name="DEFT PARRY (Stratagem, 1CP)" id="7857-fbba-9528-8ca5" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (1CP)
+
+WHEN: Fight phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.</description>
+                </rule>
+                <rule name="CRUEL BLADESMAN (Stratagem, 1CP)" id="b545-0dd8-5874-2aff" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;CRUEL BLADESMAN&quot; ap=+1 when=melee onCharge</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One Emperor’s Children unit from your army that made a Charge move this turn and has not been selected to fight this phase.
+EFFECT: Until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1.</description>
+                </rule>
+                <rule name="CUT DOWN THE WEAK (Stratagem, 2CP)" id="d47c-4998-1366-413b" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (2CP)
+
+WHEN: Your opponent’s Movement phase, just after an enemy unit Falls Back.
+TARGET: One Emperor’s Children unit from your army (you can only select a Vehicle if it is a Walker) that is within 6&quot; of that enemy unit and would be eligible to declare a charge against that enemy unit if it were your Charge phase.
+EFFECT: Your unit can declare a charge. When doing so, you must select that enemy unit as a target of that charge, and your unit does not receive a Charge bonus this turn.</description>
+                </rule>
+                <rule name="DEATH ECSTASY (Stratagem, 2CP)" id="2859-0c18-8fa3-f3e8" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (2CP)
+
+WHEN: Fight phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
+                </rule>
+                <rule name="TERRIFYING SPECTACLE (Stratagem, 1CP)" id="6b3f-43d8-7c8e-d7d1" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=command</comment>
+                  <description>Peerless Bladesmen – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Command phase.
+TARGET: One Emperor’s Children unit from your army that made a Charge move in the previous turn and destroyed one or more enemy units in the previous Fight phase.
+EFFECT: Each enemy unit within 6&quot; of your unit must take a Battle-shock test, subtracting 1 from that test if they are Below Half-strength. Enemy units affected by this Stratagem do not need to take any other Battle-shock tests in the same phase.</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
@@ -4789,6 +4882,54 @@ sim-mod: source=&quot;Exquisite Swordsmanship&quot; sustained=1 when=melee onCha
                   <comment>sim-mod: source=&quot;Mechanised Murder&quot; reroll=hit1 conditional
 sim-mod: source=&quot;Mechanised Murder&quot; reroll=wound1 conditional</comment>
                   <description>Each time an ^^**Emperor&apos;s Children^^** model from your army makes an attack, if it is a ^^**Transport^^** model or disembarked from a ^^**Transport^^** this turn, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</description>
+                </rule>
+                <rule name="DYNAMIC BREAKTHROUGH (Stratagem, 1CP)" id="a156-97b9-89ed-12dc" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One Emperor’s Children Vehicle unit from your army that has not been selected to move this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes a move, it can move through enemy models (excluding MONSTERS and VEHICLES). When doing so, it can move within Engagement Range of such models but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed.</description>
+                </rule>
+                <rule name="OUTFLANKING STRIKE (Stratagem, 1CP)" id="4fe6-ac64-8ef0-eb83" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One Emperor’s Children Transport from your army, or up to two Emperor’s Children Dedicated Transports from your army.
+EFFECT: For each of those TRANSPORTS wholly within 9&quot; of one or more battlefield edges, remove it from the battlefield and place it into Strategic Reserves.</description>
+                </rule>
+                <rule name="REACTIVE DISEMBARKATION (Stratagem, 1CP)" id="94dd-002d-c820-2e34" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children Transport from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: One Emperor’s Children unit embarked within your TRANSPORT can disembark. When doing so, models in that unit can be set up anywhere on the battlefield wholly within 6&quot; of that TRANSPORT and not within Engagement Range of one or more enemy units.</description>
+                </rule>
+                <rule name="CEASELESS ONSLAUGHT (Stratagem, 1CP)" id="98d0-0ddf-04c4-cc57" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: Your Charge phase.
+TARGET: One Emperor’s Children unit from your army that disembarked from a Transport that made a Normal move this turn.
+EFFECT: Until the end of the phase, your EMPEROR’S CHILDREN unit is eligible to declare a charge.</description>
+                </rule>
+                <rule name="ADVANCE AND CLAIM (Stratagem, 1CP)" id="3431-4a06-ba19-c78b" hidden="false">
+                  <comment>strat-timing: turn=your phase=command</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One Emperor’s Children Transport from your army that has one or more Tormentors units embarked within it (excluding Battle-shocked units).
+EFFECT: Select one objective marker you control that your TRANSPORT is within range of. That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</description>
+                </rule>
+                <rule name="ONTO THE NEXT (Stratagem, 1CP)" id="b93b-73d8-4191-fefe" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Rapid Evisceration – STRATAGEM (1CP)
+
+WHEN: End of the Fight phase.
+TARGET: One Emperor’s Children unit from your army that destroyed an enemy unit this phase, and one friendly Transport it is able to embark within.
+EFFECT: If your EMPEROR’S CHILDREN unit is wholly within 6&quot; of that TRANSPORT, it can embark within it.</description>
                 </rule>
               </rules>
               <costs>
@@ -4814,6 +4955,56 @@ sim-mod: source=&quot;Mechanised Murder&quot; reroll=wound1 conditional</comment
 5+: Melee weapons equipped by models in this unit have the [^^Lethal Hits^^] and [^^Sustained Hits 1^^]] abilities.
 7+: Each time a model in this unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+.</description>
                 </rule>
+                <rule name="MARTIAL PERFECTION (Stratagem, 1CP)" id="4b8e-81b5-7b07-39ec" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;MARTIAL PERFECTION&quot; reroll=hit when=melee</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One Emperor’s Children unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Hit roll.</description>
+                </rule>
+                <rule name="UNBOUND ARROGANCE (Stratagem, 1CP)" id="1c87-8e9f-474d-bc8a" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, just after an Emperor’s Children unit from your army destroys an enemy unit.
+TARGET: That EMPEROR’S CHILDREN unit.
+EFFECT: Increase your pledge to Slaanesh by 1.
+RESTRICTIONS: You can only use this Stratagem once per battle round.</description>
+                </rule>
+                <rule name="UNSHAKEABLE OPPONENTS (Stratagem, 1CP)" id="811b-d34b-eaa9-f449" hidden="false">
+                  <comment>strat-timing: turn=either phase=command</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Command phase.
+TARGET: One Emperor’s Children unit from your army.
+EFFECT: Until the end of the turn, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll; the Wound roll.</description>
+                </rule>
+                <rule name="EMBRACE THE PAIN (Stratagem, 1CP)" id="98b7-a875-a549-c4d6" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Start of the Fight phase.
+TARGET: One Emperor’s Children Infantry unit from your army.
+EFFECT: Until the end of the phase, each time an enemy model within Engagement Range of your unit selects targets, it must select your unit as the target of its attacks.</description>
+                </rule>
+                <rule name="PROTECTION OF THE DARK PRINCE (Stratagem, 1CP)" id="e699-663e-33b0-a6cb" hidden="false">
+                  <comment>strat-timing: turn=either phase=any</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Any phase, just after a mortal wound or attack is allocated to a model in an Emperor’s Children unit from your army.
+TARGET: That EMPEROR’S CHILDREN unit.
+EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 6+ ability, and the Feel No Pain 4+ ability against mortal wounds.</description>
+                </rule>
+                <rule name="ARMOUR OF ABHORRENCE (Stratagem, 1CP)" id="04a4-47d4-5a83-6e81" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <description>Coterie of the Conceited – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets a model in your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+                </rule>
               </rules>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
@@ -4830,6 +5021,55 @@ sim-mod: source=&quot;Mechanised Murder&quot; reroll=wound1 conditional</comment
               <rules>
                 <rule name="Quicksilver Grace" id="f70e-ecaa-833d-bbb7" hidden="false">
                   <description>You can re-roll Advance rolls made for **^^Emperor&apos;s Children^^** units from your army.</description>
+                </rule>
+                <rule name="VIOLENT EXCESS (Stratagem, 1CP)" id="ef48-d0cc-73d0-fb25" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;VIOLENT EXCESS&quot; sustained=1 when=melee</comment>
+                  <description>Mercurial Host – STRATAGEM (1CP)
+
+WHEN: Fight phase.
+TARGET: One Emperor’s Children unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability.</description>
+                </rule>
+                <rule name="COMBAT STIMMS (Stratagem, 2CP)" id="b493-6da9-8693-0b2a" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Mercurial Host – STRATAGEM (2CP)
+
+WHEN: Fight phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children iNFANTRY unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
+                </rule>
+                <rule name="HONOUR THE PRINCE (Stratagem, 1CP)" id="e88f-3807-e8e3-8be9" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement</comment>
+                  <description>Mercurial Host – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One Emperor’s Children Infantry unit from your army that has not been selected to move this phase.
+EFFECT: Until the end of the phase, if your unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
+                </rule>
+                <rule name="CAPRICIOUS REACTIONS (Stratagem, 1CP)" id="05a3-e73f-c748-b122" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Mercurial Host – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+TARGET: One Emperor’s Children unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.</description>
+                </rule>
+                <rule name="CRUEL RAIDERS (Stratagem, 1CP)" id="5f0e-e580-1f5c-3c1f" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <description>Mercurial Host – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One Emperor’s Children unit from your army that is wholly within 9&quot; of one or more battlefield edges and not within 3&quot; horizontally of one or more enemy units.
+EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves.</description>
+                </rule>
+                <rule name="DARK VIGOUR (Stratagem, 1CP)" id="7a7b-1efc-52e4-e466" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
+                  <description>Mercurial Host – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
+TARGET: One Emperor’s Children unit from your army (excluding Beasts and Vehicles) that is within 8&quot; of the enemy unit that just ended that move.
+EFFECT: Your unit can make a Normal move of up to 6&quot;.</description>
                 </rule>
               </rules>
               <costs>
@@ -4851,6 +5091,54 @@ sim-mod: source=&quot;Mechanised Murder&quot; reroll=wound1 conditional</comment
 - While a ^^**Legions of Excess**^^ unit from your army is within 6&quot; of one or more friendly  ^^**Emperor&apos;s Children^^** units, it is Empowered.
 
 While a unit from your army is Empowered, weapons equipped by models in that unit have the [^^Sustained Hits 1^^] ability. If such a weapon already has that ability, each time an attack is made with that weapon, an unmodified Hit roll of 5+ scores a Critical Hit.</description>
+                </rule>
+                <rule name="SYCOPHANTIC SURGE (Stratagem, 1CP)" id="0cae-868a-a4c5-81c1" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
+                  <description>Carnival of Excess – STRATAGEM (1CP)
+
+WHEN: Your Charge phase.
+TARGET: One LEGIONS OF EXCESS unit from your army.
+EFFECT: Until the end of the phase, your unit is eligible to declare a charge in a turn in which it Advanced or Fell Back, provided at least one of the targets of that charge is within Engagement Range of one or more Emperor’s Children units from your army.</description>
+                </rule>
+                <rule name="SUSTAINED BY AGONY (Stratagem, 1CP)" id="3a2e-2b84-f61b-61b8" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Carnival of Excess – STRATAGEM (1CP)
+
+WHEN: Fight phase, just after an Emperor’s Children unit from your army destroys an enemy unit.
+TARGET: That EMPEROR’S CHILDREN unit.
+EFFECT: Select one friendly Legions of Excess unit within 6&quot; of your unit. One model in that LEGIONS OF EXCESS unit recovers up to 3 lost wounds or, if it is a Daemonettes unit, return upto D3+3 destroyed models to it instead.</description>
+                </rule>
+                <rule name="UNCANNY REACTIONS (Stratagem, 1CP)" id="bab0-27ec-2f09-1bae" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <description>Carnival of Excess – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
+TARGET: One Slaanesh unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
+EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.</description>
+                </rule>
+                <rule name="ECSTATIC SLAUGHTER (Stratagem, 1CP)" id="6314-87b0-97cf-7bf3" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Carnival of Excess – STRATAGEM (1CP)
+
+WHEN: Fight phase, just after a LEGIONS OF EXCESS unit from your army destroys an enemy unit.
+TARGET: That Legions OF Excess unit and one friendly Emperor’s Children unit within 6&quot; of it that is not within Engagement Range of one or more enemy units.
+EFFECT: Your EMPEROR’S CHILDREN unit can declare a charge. If it does so and it has already been selected to fight this phase, it cannot fight again this phase.</description>
+                </rule>
+                <rule name="DARK APPARITIONS (Stratagem, 2CP)" id="9686-bdd2-8b69-0592" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <description>Carnival of Excess – STRATAGEM (2CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One Daemonettes unit from your army that is not within Engagement Range of one or more enemy units.
+EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves. If it arrives back on the battlefield in the Reinforcements step of your next Movement phase using the Deep Strike ability, it can be set up anywhere that is more than 6&quot; horizontally away from all enemy units (instead of more than 8&quot;), provided it is also set up wholly within 8&quot; of one or more friendly Emperor’s Children units.</description>
+                </rule>
+                <rule name="VIOLENT CRESCENDO (Stratagem, 2CP)" id="299f-1528-235b-5593" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <description>Carnival of Excess – STRATAGEM (2CP)
+
+WHEN: Fight phase.
+TARGET: One Slaanesh Beasts, Slaanesh Infantry or SLAANESH Mounted unit from your army that has not been selected to fight this phase.
+EFFECT: Until the end of the phase, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;. When doing so, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</description>
                 </rule>
               </rules>
               <costs>
@@ -4877,6 +5165,7 @@ While a unit from your army is Empowered, weapons equipped by models in that uni
                   <description>Once per battle round, when you target a ^^**Fulgrim^^** unit from your army with the Sinuous Breach or Prideful Superiority Stratagem, you can reduce the CP cost of that use of that Stratagem by 1CP.</description>
                 </rule>
                 <rule name="Contemptuous Disregard (Stratagem, 1CP)" id="687f-4bfa-d619-613f" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
                   <description>Court of the Phoenician – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase.
@@ -4884,6 +5173,8 @@ TARGET: One EMPEROR&apos;S CHILDREN unit from your army.
 EFFECT: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit, subtract 1 from the Wound roll.</description>
                 </rule>
                 <rule name="Prideful Superiority (Stratagem, 2CP)" id="5c0b-c6a3-93e1-609d" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Prideful Superiority&quot; reroll=hit reroll=wound when=melee vs=Character</comment>
                   <description>Court of the Phoenician – STRATAGEM (2CP)
 
 WHEN: Fight phase.
@@ -4891,6 +5182,7 @@ TARGET: One EMPEROR&apos;S CHILDREN unit from your army that has not been select
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a CHARACTER unit, you can re-roll the Hit roll and you can re-roll the Wound roll.</description>
                 </rule>
                 <rule name="Sinuous Breach (Stratagem, 1CP)" id="9cb4-0e36-8842-ae58" hidden="false">
+                  <comment>strat-timing: turn=your phase=movement|charge</comment>
                   <description>Court of the Phoenician – STRATAGEM (1CP)
 
 WHEN: Your Movement phase or your Charge phase.
@@ -4898,6 +5190,8 @@ TARGET: One EMPEROR&apos;S CHILDREN DAEMON unit from your army that has not been
 EFFECT: Until the end of the phase, each time your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features.</description>
                 </rule>
                 <rule name="Close-quarters Excruciation (Stratagem, 1CP)" id="8f05-909c-1639-13f7" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Close-quarters Excruciation&quot; str=+1 ap=+1 when=ranged conditional</comment>
                   <description>Court of the Phoenician – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -4905,6 +5199,7 @@ TARGET: One EMPEROR&apos;S CHILDREN unit from your army that has not been select
 EFFECT: Until the end of the phase, each time an EMPEROR&apos;S CHILDREN model in your unit makes an attack that targets an eligible unit within 12&quot;, improve the Strength and Armour Penetration characteristics of that attack by 1.</description>
                 </rule>
                 <rule name="Euphoric Inspiration (Stratagem, 1CP)" id="72b5-1b27-4f75-ceed" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
                   <description>Court of the Phoenician – STRATAGEM (1CP)
 
 WHEN: Your Charge phase.
@@ -4912,6 +5207,7 @@ TARGET: One EMPEROR&apos;S CHILDREN DAEMON unit from your army.
 EFFECT: Until the end of the phase, you can re-roll Charge rolls for friendly EMPEROR&apos;S CHILDREN units within 6&quot; of your unit.</description>
                 </rule>
                 <rule name="Catalytic Stimulus (Stratagem, 1CP)" id="4f20-ee47-0a6f-24e7" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting</comment>
                   <description>Court of the Phoenician – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, just after an enemy unit has shot.
@@ -4936,6 +5232,7 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
                   <description>When a friendly **^^Emperor&apos;s Children^^** **^^Terminator^^** unit is set up, that unit has +1 to Charge rolls until the end of the turn.</description>
                 </rule>
                 <rule name="Delight in Agony (Stratagem, 1CP)" id="a921-0706-03d0-d536" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
                   <description>Elegant Brutes – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, when an enemy unit targets a friendly EMPEROR&apos;S CHILDREN TERMINATOR unit.
@@ -4943,6 +5240,8 @@ TARGET: That EMPEROR&apos;S CHILDREN TERMINATOR unit.
 EFFECT: Attacks that target your unit with a S greater than your unit&apos;s T have -1 to wound rolls.</description>
                 </rule>
                 <rule name="Psychedelic Soulflame (Stratagem, 1CP)" id="0586-7f01-c8ac-9cb4" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Psychedelic Soulflame&quot; str=+2 kw=&quot;Terminator&quot;</comment>
                   <description>Elegant Brutes – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly EMPEROR&apos;S CHILDREN TERMINATOR unit is selected to attack.
@@ -4950,6 +5249,7 @@ TARGET: That EMPEROR&apos;S CHILDREN TERMINATOR unit.
 EFFECT: Your unit&apos;s attacks have +2 S.</description>
                 </rule>
                 <rule name="Warp Plunge (Stratagem, 1CP)" id="5a8f-8c66-9365-1253" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=fight</comment>
                   <description>Elegant Brutes – STRATAGEM (1CP)
 
 WHEN: End of your opponent&apos;s Fight phase.
@@ -4977,6 +5277,7 @@ EFFECT: Place your unit in strategic reserves.</description>
 This detachment has the **^^Host^^** tag and cannot be taken with another **^^Host^^** detachment.</description>
                 </rule>
                 <rule name="Possessive Mania (Stratagem, 1CP)" id="b9e3-81cc-b271-b675" hidden="false">
+                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
                   <description>Frenzied Host – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, when an enemy unit targets a friendly EMPEROR&apos;S CHILDREN BATTLELINE unit within range of an objective.
@@ -4984,6 +5285,7 @@ TARGET: That EMPEROR&apos;S CHILDREN BATTLELINE unit.
 EFFECT: Attacks that target your unit have -1 AP until that enemy unit has attacked.</description>
                 </rule>
                 <rule name="Agonised Cacophony (Stratagem, 1CP)" id="4de1-d552-cbe7-f639" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
                   <description>Frenzied Host – STRATAGEM (1CP)
 
 WHEN: Start of your Shooting phase.
@@ -4991,6 +5293,7 @@ TARGET: One friendly EMPEROR&apos;S CHILDREN BATTLELINE unit.
 EFFECT: Select one visible enemy unit within 12&quot; of your unit. That enemy unit has +6&quot; detection range.</description>
                 </rule>
                 <rule name="Absolute Sensory Overload (Stratagem, 1CP)" id="f69a-e91e-c57c-07b0" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
                   <description>Frenzied Host – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly EMPEROR&apos;S CHILDREN BATTLELINE unit is selected to shoot.
@@ -5015,6 +5318,7 @@ EFFECT: Those ranged attacks do not prevent your unit from being hidden.</descri
                   <description>Friendly **^^Flawless Blades^^** units have Fights First.</description>
                 </rule>
                 <rule name="Honour is for Fools (Stratagem, 1CP)" id="c820-6058-deea-2de5" hidden="false">
+                  <comment>strat-timing: turn=either phase=fight</comment>
                   <description>Spectacle of Slaughter – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly FLAWLESS BLADES unit is selected to fight.
@@ -5022,6 +5326,7 @@ TARGET: That FLAWLESS BLADES unit.
 EFFECT: Your unit&apos;s melee attacks have [PRECISION].</description>
                 </rule>
                 <rule name="Single-minded Strike (Stratagem, 1CP)" id="9386-8910-e5b6-4843" hidden="false">
+                  <comment>strat-timing: turn=your phase=charge</comment>
                   <description>Spectacle of Slaughter – STRATAGEM (1CP)
 
 WHEN: Your Charge phase, when a friendly FLAWLESS BLADES unit starts a charge move.
@@ -5029,6 +5334,7 @@ TARGET: That FLAWLESS BLADES unit.
 EFFECT: Your unit can move through models (excluding MONSTER/VEHICLE models).</description>
                 </rule>
                 <rule name="Intoxicated by Triumph (Stratagem, 1CP)" id="0dc3-3319-50e8-057b" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=movement</comment>
                   <description>Spectacle of Slaughter – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Movement phase, when an enemy unit that was engaged with a friendly FLAWLESS BLADES unit ends a fall-back move, if that FLAWLESS BLADES unit is unengaged.
@@ -5503,7 +5809,6 @@ invuln: 4+</comment>
           </conditionGroups>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <comment>repeat-cost: threshold=2 delta=15 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="7b2b-4508-263d-f20f" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7354,7 +7659,6 @@ invuln: 5+</comment>
       </selectionEntryGroups>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="40">
-          <comment>repeat-cost: threshold=1 delta=40 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="b541-3292-a5cc-dbeb" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>

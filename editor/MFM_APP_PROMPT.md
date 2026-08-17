@@ -45,7 +45,8 @@ Type de coût points : `typeId="51b2-306e-1021-d207"`, `name="pts"`.
    scindée** `(additional)` décrit ci-dessous a été **abandonné** (la
    jumelle cachée n'apparaissait pas dans les applis). Il est remplacé par
    un **modifier de coût `increment` + marqueur
-   `repeat-cost: threshold=N delta=Δ`** sur l'unité — voir
+   la FORME NATIVE `increment` pts + `atLeast scope="roster"`** (plus aucun
+   marqueur `repeat-cost:`) sur l'unité — voir
    `REPEAT_COST_APP_PROMPT.md` (et la règle #5 du `CLAUDE.md`). La
    description qui suit n'est conservée que pour reconnaître d'éventuelles
    anciennes jumelles `(additional)` résiduelles dans des données non

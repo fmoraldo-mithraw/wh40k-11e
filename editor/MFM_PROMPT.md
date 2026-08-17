@@ -98,7 +98,8 @@ exemplaire ne coûtait pas plus cher). `removeRepeatTier` sert désormais à
 
 ```xml
 <modifier type="increment" field="51b2-306e-1021-d207" value="Δ">
-  <comment>repeat-cost: threshold=N delta=Δ (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
+  <!-- AUCUN commentaire : la FORME (increment pts + atLeast scope=roster)
+       EST la convention — voir editor/REPEAT_COST_APP_PROMPT.md -->
   <conditions>
     <condition type="atLeast" value="N+1" field="selections" scope="roster"
                childId="<id de l'unité>" shared="true"

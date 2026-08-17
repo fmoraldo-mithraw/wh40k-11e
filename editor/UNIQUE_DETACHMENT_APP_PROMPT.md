@@ -15,22 +15,26 @@ armée (ou des annexes/alliés de détachement), elle doit empêcher de prendre
 deux détachements partageant un mot-clef UNIQUE — ce qu'elle ne fait pas
 aujourd'hui.
 
-## Encodage dans la donnée
+## Encodage : FORME NATIVE (migration aout 2026)
 
-Sur le `selectionEntry` du détachement concerné, un **marqueur** `<comment>`
-porte le mot-clef :
+Plus aucun marqueur commentaire. Chaque detachement UNIQUE: X porte un
+`<categoryLink name="UNIQUE X" targetId="<cat>">` vers une categorie partagee
+du meme fichier :
 
 ```xml
-<selectionEntry type="upgrade" name="Champions of Faith" …>
-  <comment>unique-detachment: REVEREND</comment>
-  …
-</selectionEntry>
+<categoryEntry id="<cat>" name="UNIQUE DYNASTY" hidden="false">
+  <constraints>
+    <constraint type="max" value="1" field="selections" scope="roster"
+                shared="true" includeChildSelections="true" includeChildForces="true"/>
+  </constraints>
+</categoryEntry>
 ```
 
-- Le mot-clef est la valeur après `unique-detachment:` (ici `REVEREND`),
-  normalisée en MAJUSCULES, telle quelle depuis le MFM.
-- Les détachements **sans** ce marqueur n'ont aucune restriction d'exclusivité.
-- Le marqueur est la **source de vérité** : ne te fie pas au nom du détachement.
+**Reconnaissance** : un `categoryLink` dont le nom matche `^UNIQUE\s+(.+)$`
+sur l'entree du detachement -> mot-clef X (majuscules). **Bonus de la forme
+native** : la contrainte max=1 scope=roster est appliquee par BattleScribe et
+NewRecruit eux-memes - l'exclusivite fonctionne aussi hors de votre appli.
+Ne JAMAIS deduire X du nom du detachement.
 
 ## La règle que l'application doit appliquer
 
