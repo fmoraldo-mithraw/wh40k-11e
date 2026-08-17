@@ -91,6 +91,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   **bascule** (pré-cochées si non conditionnelles) et **replie** les effets actifs
   dans l'objet `mods` de `simulate()`. Ne couvre **que** les bonus de
   capacité/amélioration — mots-clefs d'arme et règles d'armée restent côté appli.
+- **`editor/STAT_MARKERS_APP_PROMPT.md`** — prompt autonome (application
+  consommatrice) : les **marqueurs de stats** en `<comment>` (même canal que
+  `sim-mod:`) figent en données ce qui se déduisait de la prose — `invuln: 4+
+  [model="X"] [conditional]`, `fnp: 5+` (seule l'aptitude *nommée* « Feel No
+  Pain N+ »), `must-warlord`/`cannot-warlord`, `leader-kw: A & B | C`. La
+  donnée prime, la prose est le repli ; générateur
+  `editor/gen-stat-markers.mjs`, sentinelle d'audit côté appli.
 - **`editor/BSDATA_PARSING_REFERENCE.md`** — **doc de référence complète** pour
   l'agent de l'appli consommatrice : tout le vocabulaire réel du format (11 types de
   modifier, 7 de condition, scopes dont `primary-catalogue`/`ancestor`/`forces`,
