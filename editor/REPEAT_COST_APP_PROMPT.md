@@ -1,93 +1,67 @@
-# PROMPT — Prix par seuil de répétition : surcoût « au-delà du Nème » par modifier
+# Prix par seuil de répétition — prompt autonome (application consommatrice)
 
-> Prompt autonome : colle-le comme consigne à l'agent **dans le dépôt de ton
-> application** (builder de listes qui lit les `.cat`/`.gst` de `wh40k-11e`).
-> Aucune connaissance du dépôt de données n'est requise au-delà de ce fichier.
+Le Munitorum Field Manual tarife certaines fiches par répétition : « vos N
+premiers exemplaires coûtent X, chaque exemplaire au-delà du Nᵉ coûte X+Δ »
+(Fire Dragons : les 2 premiers à 110, le 3ᵉ+ à 120 ; Starweaver, Night
+Spinner, Dark Commune… — ~370 fiches).
 
-## Symptôme à corriger
+## Encodage : FORME NATIVE, aucun commentaire
 
-Les unités à palier de répétition (le MFM dit « **YOUR 1ST TO 2ND UNITS COST
-X**, YOUR 3RD + UNIT COSTS Y », ou « 1ST … / 2ND + … ») ne facturent pas le
-surcoût : p. ex. la **3e escouade Purgation** reste à 110 alors qu'elle devrait
-coûter 120. (Auparavant la donnée encodait ça par une **entrée dupliquée
-cachée** « X (additional) » qui n'apparaissait jamais dans l'appli — supprimée.)
-
-## Nouvel encodage (la donnée est correcte — c'est l'évaluation qui manque)
-
-Sur le `selectionEntry` de l'unité, un **modifier de coût** porte le surcoût et
-un **marqueur** indique la sémantique :
+Depuis août 2026, ce dépôt n'utilise **plus aucun marqueur `<comment>`** pour
+ce mécanisme. La **convention du dépôt définit la sémantique directement sur
+la forme BattleScribe standard** :
 
 ```xml
-<modifier type="increment" field="51b2-306e-1021-d207" value="Δ">
-  <comment>repeat-cost: threshold=N delta=Δ (surcout par exemplaire au-dela du Neme uniquement; ...)</comment>
-  <conditions>
-    <condition type="atLeast" value="N+1" field="selections" scope="roster"
-               childId="&lt;id de CETTE unité&gt;" shared="true"
-               includeChildSelections="true" includeChildForces="true"/>
-  </conditions>
-</modifier>
+<selectionEntry type="unit" id="UNIT-ID" name="Fire Dragons">
+  <modifiers>
+    <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+      <conditions>
+        <condition type="atLeast" value="3" field="selections"
+                   scope="roster" childId="UNIT-ID" shared="true"
+                   includeChildSelections="true" includeChildForces="true"/>
+      </conditions>
+    </modifier>
+  </modifiers>
+</selectionEntry>
 ```
 
-- `field="51b2-306e-1021-d207"` = coût en **points** ; `type="increment"`,
-  `value="Δ"` = le **surcoût par exemplaire** (Δ = prix_fort − prix_base,
-  constant quelle que soit la taille de l'unité).
-- **Marqueur** `<comment>repeat-cost: threshold=N delta=Δ …</comment>` : c'est lui
-  qui porte la sémantique. `threshold=N` = nombre d'exemplaires au **prix de
-  base** ; au-delà, surcoût `delta`. (`N` est aussi déductible de la condition :
-  `value` de la condition `atLeast` − 1.)
-- La condition `atLeast N+1 … scope="roster" childId=<unité>` ne sert qu'à
-  borner : le surcoût n'est pertinent que si l'armée contient **plus de N**
-  exemplaires de l'unité.
+**Règle de reconnaissance** — un modificateur est un prix par répétition si
+et seulement si :
+- `type="increment"` sur le champ de coût pts (`51b2-306e-1021-d207`), et
+- il porte (directement ou dans un `conditionGroup`) une
+  `<condition type="atLeast" scope="roster">` de valeur K ≥ 2.
 
-## Ce que l'application DOIT faire
+Alors : **threshold = K − 1** (les K−1 premiers au prix de base) et
+**delta = value du modificateur**, appliqué **par exemplaire à partir du
+Kᵉ** dans TOUT le roster (compter toutes les copies de la fiche, pondérées
+par quantité).
 
-Pour une unité dont un modifier de coût (`field` = points) porte un `<comment>`
-contenant `repeat-cost: threshold=N`, avec `delta` = `value` du modifier :
+## Ce que l'appli doit faire
 
-1. **Compte les exemplaires** de cette **datasheet** dans le **roster entier**
-   (`scope="roster"`, tous détachements confondus — `includeChildForces`).
-2. Les **N premiers** exemplaires coûtent leur **prix normal** (coût de base +
-   paliers de taille habituels).
-3. Chaque exemplaire **à partir du (N+1)ème** coûte **prix normal + Δ**.
-4. **N'ajoute Δ ni aux N premiers, ni à tous les exemplaires.** Le surcoût ne
-   touche **que** les exemplaires au-delà du seuil. C'est tout l'intérêt du
-   marqueur : la lecture naïve du modifier (« +Δ sur l'unité dès qu'on en a
-   N+1 ») surfacturerait les N premiers — **ne fais pas ça**.
+1. Reconnaître la forme au parse → `{threshold, delta}` sur la fiche.
+2. **Exclure** ce modificateur de l'évaluation de coût par unité (sa
+   condition roster ne peut pas s'évaluer sur une unité isolée — et
+   l'évaluation naïve BattleScribe surtaxerait TOUTES les copies dès que
+   K sont alignées, y compris les K−1 premières : c'est faux).
+3. Au total d'armée : `surtaxe = Δ × max(0, copies − threshold)`, répartie
+   par ligne si l'affichage par ligne doit sommer juste
+   (`surchargedCopies(prior, q, N) = max(0, prior+q−N) − max(0, prior−N)`).
 
-Δ est un **forfait par exemplaire**, indépendant de la taille (nombre de
-figurines) de l'exemplaire surtaxé : applique-le tel quel par-dessus le coût
-de taille déjà calculé.
+## Pourquoi cette lecture est sûre
 
-## Pseudocode
+- Vérifié **1:1 sur toute la base** au moment de la migration : 372
+  modificateurs de cette forme, tous des prix par répétition, zéro
+  contre-exemple, et l'ancien marqueur dupliquait exactement (Δ, K−1).
+- L'autre lecture possible (« toutes les copies +Δ dès que K sont
+  fielded ») **n'existe pas** dans la tarification GW — ce n'est pas un
+  mécanisme du jeu.
+- Les applis qui évaluent naïvement (NewRecruit…) voient le même fichier
+  qu'avant : le marqueur ne changeait déjà rien pour elles.
 
-```
-copies = roster.unitsMatching(datasheet)              // toutes tailles, tout le roster
-for (i, copy) in enumerate(copies):                   // i = 0,1,2,...
-    cost = sizeBasedCost(copy)                         // base + paliers de taille
-    if i >= N: cost += delta                           // (N+1)ème et au-delà
-    total += cost
-```
+## Historique
 
-L'ordre des exemplaires n'a pas d'importance pour le **total** (N au prix bas,
-le reste au prix fort) ; si tu affiches un coût par unité, montre simplement N
-exemplaires au prix bas et les autres au prix fort.
-
-## Cas de référence
-
-- **Purgation Squad** (Grey Knights) : prix de base 5 fig = **110**,
-  `threshold=2 delta=10`.
-  - 1 escouade → 110. 2 → 220. **3 → 110+110+120 = 340**. 4 → 460.
-- **Land Raider** (Grey Knights) : base **220**, `threshold=2 delta=20`.
-  - 3 Land Raiders → 220+220+240 = **680**.
-- **Brotherhood Terminator Squad** : paliers 4/5/8/10 fig (140/175/300/375),
-  `threshold=3 delta=10`. La 4e escouade (quelle que soit sa taille) paie son
-  coût de taille **+10**.
-
-## Invariants
-
-- **Aucune donnée à modifier** : le surcoût (Δ), le seuil (N) et la portée
-  (roster) sont déjà dans le modifier + le marqueur + la condition. Le correctif
-  est **purement applicatif** : compter les exemplaires et n'appliquer Δ qu'aux
-  exemplaires au-delà du Nème.
-- Plus aucune entrée « (additional) » dupliquée : si ton appli en gérait,
-  retire ce traitement — l'encodage par modifier le remplace.
+Deux encodages précédents sont morts : l'entrée jumelle cachée
+`(additional)` (ne remontait pas dans les applis — résorbée, 0 restante) et
+le marqueur `<comment>repeat-cost: threshold=N delta=Δ</comment>` (redondant
+avec le XML natif — supprimé, n'en réintroduire aucun ; l'audit de l'appli
+consommatrice signale tout marqueur réapparu).

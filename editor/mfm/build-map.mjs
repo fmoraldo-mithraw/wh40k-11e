@@ -145,12 +145,18 @@ function readCurrentCosts(bsId) {
       if (pts != null) tiers.push({ atModels, pts });
     }
   });
-  // prix par répétition : marqueur <comment>repeat-cost: threshold=N delta=Δ</comment>.
+  // prix par répétition : FORME NATIVE (convention du dépôt, plus aucun
+  // commentaire) — increment sur pts + condition atLeast scope=roster ⟹
+  // threshold = valeur de condition − 1, delta = valeur du modificateur.
   let repeat = null;
-  xml.walk(node, (c2) => {
-    if (c2.tag !== "comment") return;
-    const m = String(xml.getText(c2) || "").match(/repeat-cost:\s*threshold=(\d+)\s*delta=(-?\d+)/);
-    if (m) repeat = { threshold: Number(m[1]), delta: Number(m[2]) };
+  xml.walk(node, (mod) => {
+    if (mod.tag !== "modifier" || xml.getAttr(mod, "type") !== "increment") return;
+    if (xml.getAttr(mod, "field") !== "51b2-306e-1021-d207") return;
+    xml.walk(mod, (c2) => {
+      if (c2.tag !== "condition" || xml.getAttr(c2, "type") !== "atLeast" || xml.getAttr(c2, "scope") !== "roster") return;
+      const k = Number(xml.getAttr(c2, "value")) || 0;
+      if (k >= 2) repeat = { threshold: k - 1, delta: Number(xml.getAttr(mod, "value")) || 0 };
+    });
   });
   // options d'armes/wargear porteuses de coût (cibles adressables d'un surcoût).
   const u = cat.getUnit(ref.file, bsId);

@@ -175,7 +175,7 @@ inconditionnel parce que la condition est un cran au-dessus.)
   par le **nombre de modèles** (`childId="model"`, `equalTo/greaterThan`). Exécute-les.
 - **Surcoût par seuil de répétition** (« 3ᵉ exemplaire plus cher ») : `modifier increment
   <Δ>` sur le coût, conditionné `atLeast N+1` (scope roster, `childId` = la datasheet),
-  + marqueur `<comment>repeat-cost: threshold=N delta=Δ</comment>`. ⚠️ Applique Δ **uniquement
+  — FORME NATIVE sans commentaire (`increment` pts + `atLeast scope="roster"` valeur K ⇒ threshold=K−1, delta=value). ⚠️ Applique Δ **uniquement
   aux exemplaires au-delà du Nᵉ**, pas à tous.
 - **Coût par chapitre/faction** (Space Marines) : `modifier set <prix>` conditionné
   **`scope="primary-catalogue"`** (+ marqueur `<comment>chapter-cost: XX</comment>`).
@@ -185,7 +185,7 @@ inconditionnel parce que la condition est un cran au-dessus.)
 
 ## 8. Conventions WH40K propres à ce dépôt (marqueurs `<comment>` + structures)
 Documentés en détail dans les prompts dédiés (à lire) :
-- `repeat-cost: threshold=N delta=Δ` → `REPEAT_COST_APP_PROMPT.md`.
+- prix par répétition : FORME native (plus de marqueur `repeat-cost:`) → `REPEAT_COST_APP_PROMPT.md`.
 - `unique-detachment: X` (détachements mutuellement exclusifs par X) → `UNIQUE_DETACHMENT_APP_PROMPT.md`.
 - `chapter-cost: XX` (`set` conditionné `primary-catalogue`) → `MARINE_CHAPTER_COST_APP_PROMPT.md`.
 - Groupe `hidden`+`max=0` **`Can Lead (MFM)`** (unités menées par un chef) → `LEADER_LINKS_APP_PROMPT.md`.

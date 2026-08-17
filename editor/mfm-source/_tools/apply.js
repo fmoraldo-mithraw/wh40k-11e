@@ -16,14 +16,15 @@ const normOpt = s => norm(s).replace(/'/g, '').replace(/\s+/g, '');
 const ptsOf = n => { const co = (xml.child(n, 'costs') || { children: [] }).children.find(x => x.tag === 'cost' && xml.getAttr(x, 'typeId') === COST_PTS); return co ? xml.getAttr(co, 'value') : null; };
 const setPts = (n, v) => { n.selfClose = false; const costs = xml.ensureChild(n, 'costs'); costs.selfClose = false; let co = costs.children.find(x => x.tag === 'cost' && xml.getAttr(x, 'typeId') === COST_PTS); if (!co) { co = xml.elem('cost', { name: 'pts', typeId: COST_PTS, value: '0' }); costs.children.push(co); } xml.setAttr(co, 'value', String(v)); };
 const curTiers = node => { const o = []; xml.walk(node, n => { if (n.tag === 'modifier' && xml.getAttr(n, 'field') === COST_PTS && xml.getAttr(n, 'type') === 'set') o.push({ pts: xml.getAttr(n, 'value') }); }); return o; };
-function hasRepeatCostMod(m) { let f = false; xml.walk(m, x => { if (x.tag === 'comment' && /repeat-cost/.test(xml.getText(x))) f = true; }); return f; }
+// Détection par FORME NATIVE (convention du dépôt — plus aucun commentaire) :
+// increment sur pts + condition atLeast scope=roster = prix par répétition.
+function hasRepeatCostMod(m) { if (xml.getAttr(m, 'type') !== 'increment' || xml.getAttr(m, 'field') !== COST_PTS) return false; let f = false; xml.walk(m, x => { if (x.tag === 'condition' && xml.getAttr(x, 'type') === 'atLeast' && xml.getAttr(x, 'scope') === 'roster') f = true; }); return f; }
 function addRepeatCost(node, threshold, delta, unitId) {
   let mods = xml.child(node, 'modifiers');
   if (mods) mods.children = mods.children.filter(m => !(m.tag === 'modifier' && hasRepeatCostMod(m)));
   if (!mods) { mods = xml.elem('modifiers', {}, []); mods.selfClose = false; const ci = node.children.findIndex(ch => ch.tag === 'costs'); if (ci >= 0) node.children.splice(ci, 0, mods); else node.children.push(mods); }
-  const cmt = xml.elem('comment', {}); xml.setText(cmt, `repeat-cost: threshold=${threshold} delta=${delta} (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)`);
   const cond = xml.elem('condition', { type: 'atLeast', value: String(threshold + 1), field: 'selections', scope: 'roster', childId: unitId, shared: 'true', includeChildSelections: 'true', includeChildForces: 'true' });
-  const mod = xml.elem('modifier', { type: 'increment', field: COST_PTS, value: String(delta) }, [cmt, xml.elem('conditions', {}, [cond])]);
+  const mod = xml.elem('modifier', { type: 'increment', field: COST_PTS, value: String(delta) }, [xml.elem('conditions', {}, [cond])]);
   mods.children.push(mod);
 }
 
@@ -65,7 +66,7 @@ for (const [mn, mu] of Object.entries(fac.units)) {
         for (let i = 1; i < mu.tiers.length; i++) {
           const cmt = xml.elem('comment', {}); xml.setText(cmt, 'mfm-size');
           const cond = xml.elem('condition', { type: 'greaterThan', value: String(mu.tiers[i - 1].models), field: 'selections', scope: d.id, childId: 'model', shared: 'true' });
-          mods.children.push(xml.elem('modifier', { type: 'set', value: String(mu.tiers[i].pts), field: COST_PTS }, [cmt, xml.elem('conditions', {}, [cond])]));
+          mods.children.push(xml.elem('modifier', { type: 'set', value: String(mu.tiers[i].pts), field: COST_PTS }, [xml.elem('conditions', {}, [cond])]));
         }
       });
       log.push(`per-model->unit-tiers ${d.name}: base=${mu.tiers[0].pts} +${mu.tiers.length - 1} tier(s)`);
