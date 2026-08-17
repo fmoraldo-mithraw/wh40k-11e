@@ -42,6 +42,12 @@ The first time your selected Deed is completed your Oath is fulfilled and, until
     <categoryEntry name="Moirax" hidden="false" id="f9af-3a72-6e97-1a32"/>
     <categoryEntry name="Knight Defender" id="c470-0313-4748-4002" hidden="false"/>
     <categoryEntry name="Knight Destrier" id="364b-0033-9ed5-0b47" hidden="false"/>
+    <categoryEntry id="9d98-eced-03ef-a771" name="UNIQUE ARMIGERS" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: ARMIGERS — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="e7c3-976a-4a01-c263"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink targetId="10d8-d702-f556-5d3c" id="a482-c98a-21ce-b96e" type="selectionEntry" name="Knight Destrier"/>
@@ -7878,7 +7884,6 @@ The Qualities from Oaths you have fulfilled continue to apply to all models in y
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Spearhead-at-Arms" id="d469-239c-7e4c-4210">
-          <comment>unique-detachment: ARMIGERS</comment>
           <rules>
             <rule name="Knightly Teachings" id="cbdf-f7c7-5729-419a" hidden="false">
               <description>Each time a model from your army uses its Bondsman ability, if no other model from your army has used that Bondsman ability that turn, you can select up to three friendly **^^Armiger^^** models (instead of one) within 12&quot; of that model, or within 15&quot; of that model while your army is Honoured (you still cannot select a model that is already being affected by a Bondsman ability). Until the start of your next Command phase, those models are affected by that Bondsman ability.</description>
@@ -7887,6 +7892,9 @@ The Qualities from Oaths you have fulfilled continue to apply to all models in y
               <description>**^^Armiger^^** models from your army gain the **^^Battleline^^** keyword.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="9034-fd7b-8721-700c" name="UNIQUE ARMIGERS" hidden="false" targetId="9d98-eced-03ef-a771" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
@@ -8005,7 +8013,6 @@ EFFECT: Select one enemy unit hit by those attacks. That enemy unit makes a batt
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Throne-bonded Outriders" hidden="false" id="007a-c35b-4f7c-74d1">
-          <comment>unique-detachment: ARMIGERS</comment>
           <rules>
             <rule name="Driven from their Lairs" id="8b41-95c5-3b6a-e555" hidden="false">
               <comment>sim-mod: source=&quot;Driven from their Lairs&quot; ignores-cover when=ranged conditional</comment>
@@ -8035,6 +8042,9 @@ TARGET: That ARMIGER unit.
 EFFECT: Those attacks do not prevent your unit from being eligible to start an action.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="dd72-fe34-bb66-84e4" name="UNIQUE ARMIGERS" hidden="false" targetId="9d98-eced-03ef-a771" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>

@@ -162,6 +162,12 @@
     </categoryEntry>
     <categoryEntry name="Heretic Astartes Vehicle" id="71d8-c345-059b-e793" hidden="true"/>
     <categoryEntry id="769d-11f2-ec3d-94c6" name="Frame" hidden="false"/>
+    <categoryEntry id="5113-bba3-42b2-5d3a" name="UNIQUE NIGHTMARE" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: NIGHTMARE — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="bc12-edf9-e48c-7077"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink id="bb73-b206-9ef3-6644" name="Detachment" hidden="false" collective="false" import="true" targetId="e296-4a38-d9a5-289c" type="selectionEntry"/>
@@ -3224,7 +3230,6 @@ EFFECT: Your unit&apos;s ranged attacks have [IGNORES COVER].</description>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Nightmare Hunt" hidden="false" id="f96f-5896-93c2-fc05">
-              <comment>unique-detachment: NIGHTMARE</comment>
               <rules>
                 <rule name="Terror Made Manifest" id="0185-23fb-27a7-56d4" hidden="false">
                   <description>In the Battle‑shock step of your opponent’s Command phase, if an enemy unit that is below its Starting Strength is within 12&quot; of one or more ^^**Heretic Astartes^^** units from your army, that enemy unit must take a Battle‑shock test, subtracting 1 from the result. Enemy units affected by this Detachment rule do not need to take any other Battle‑shock tests in the same phase. 
@@ -3275,6 +3280,9 @@ TARGET: One HERETIC ASTARTES unit from your army that arrived from Reserves this
 EFFECT: Select one enemy unit (excluding MONSTER and VEHICLE units) within 12&quot; of and visible to your unit: that unit must take a Battle-shock test, subtracting 1 from the result.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="9794-37be-0efd-36d6" name="UNIQUE NIGHTMARE" hidden="false" targetId="5113-bba3-42b2-5d3a" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -3604,7 +3612,6 @@ EFFECT: Attacks that target your unit with a S greater than your unit&apos;s T h
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Murdertalon Raiders" hidden="false" id="8420-8715-45a3-72ff">
-              <comment>unique-detachment: NIGHTMARE</comment>
               <rules>
                 <rule name="Prey on the Weak" id="354c-4962-075a-0a81" hidden="false">
                   <comment>sim-mod: source=&quot;Prey on the Weak&quot; reroll=hit1 conditional</comment>
@@ -3638,6 +3645,9 @@ TARGET: That WARP TALONS unit.
 EFFECT: Select one visible enemy unit (excluding MONSTER/VEHICLE units) within 9&quot; of your unit. That enemy unit makes a battle-shock roll, with -1 to that battle-shock roll.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="38b4-db3b-8801-689e" name="UNIQUE NIGHTMARE" hidden="false" targetId="5113-bba3-42b2-5d3a" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>

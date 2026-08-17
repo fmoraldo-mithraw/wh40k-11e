@@ -46,6 +46,12 @@
     <categoryEntry name="Reliquant Knight" id="2bbb-adc2-a26a-d425" hidden="false"/>
     <categoryEntry name="Intranzia Fraye" id="4f01-3b21-f0c5-6603" hidden="false"/>
     <categoryEntry id="8262-8bf6-9fcd-34c9" name="Frame" hidden="false"/>
+    <categoryEntry id="0246-8d80-2674-9cc8" name="UNIQUE REVEREND" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: REVEREND — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="d5c7-8552-e572-3455"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry type="unit" import="true" name="Aestred Thurga and Agathae Dolan" hidden="false" id="4b94-c22e-84f9-8d32" publicationId="7d85-6d0f-57e0-5dea">
@@ -333,7 +339,6 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Champions of Faith" hidden="false" id="5c81-a47b-d3a0-31e8">
-              <comment>unique-detachment: REVEREND</comment>
               <rules>
                 <rule name="Righteous Purpose" id="7c54-8105-10e7-e8ad" hidden="false">
                   <description>In your Command phase, you can select up to 3 ^^**Adepta Sororitas^^** units from your army (including units that are embarked within ^^**Transports^^**), until the start of your next Command phase, those units are Righteous. While a unit is Righteous:
@@ -390,6 +395,9 @@ EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in w
                 <infoLink name="Righteous Purpose" id="cae6-40c2-6082-49ce" hidden="false" type="rule" targetId="cb5e-57b9-c416-c2a5"/>
                 <infoLink name="Keywords" id="3cc8-eaa5-8cf5-cda4" hidden="false" type="rule" targetId="f84c-5011-816f-3fb6"/>
               </infoLinks>
+              <categoryLinks>
+                <categoryLink id="18da-ce85-cc61-9a7c" name="UNIQUE REVEREND" hidden="false" targetId="0246-8d80-2674-9cc8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -443,7 +451,6 @@ EFFECT: Select one enemy unit (excluding MONSTER/VEHICLE units) hit by those ran
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sacred Champions" hidden="false" id="bd92-20a1-15c9-66a1">
-              <comment>unique-detachment: REVEREND</comment>
               <rules>
                 <rule name="Holy Quest" id="89d1-f019-7f79-94c0" hidden="false">
                   <description>Friendly ^^**Celestian Sacresants^^** units&apos; attacks have +1 BS and WS.
@@ -473,6 +480,9 @@ EFFECT: - Your unit&apos;s ranged attacks have [ASSAULT] until the end of the tu
 - That move does not prevent your unit from being eligible to shoot/declare a charge.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="a7b3-0083-aaef-9266" name="UNIQUE REVEREND" hidden="false" targetId="0246-8d80-2674-9cc8" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>

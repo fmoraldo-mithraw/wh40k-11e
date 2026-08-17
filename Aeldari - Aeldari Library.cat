@@ -255,6 +255,30 @@
     <categoryEntry id="11b2-24f7-1671-2292" name="Leystalker" hidden="false"/>
     <categoryEntry id="6e49-8c18-c975-070f" name="Stonesinger" hidden="false"/>
     <categoryEntry id="e429-2e02-cedf-4023" name="Clanblade" hidden="false"/>
+    <categoryEntry id="d545-abb5-b54e-eb96" name="UNIQUE ACROBATIC" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: ACROBATIC — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="e47b-232a-ddad-5928"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="b82a-fbe0-46c1-c017" name="UNIQUE COVENS" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: COVENS — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="6b04-6878-06fd-3bb1"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="91c2-c570-9b01-9a4b" name="UNIQUE KABAL" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: KABAL — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="b762-bb70-a54c-266a"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="747f-2592-7b68-9aef" name="UNIQUE WYCH CULT" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: WYCH CULT — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="5ad4-06f4-1e36-a5ff"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry id="828d-840a-9a67-9074" name="Asurmen" publicationId="442c-a37c-3908-d701" page="7" hidden="false" collective="false" import="true" type="model">
@@ -43182,7 +43206,6 @@ Wraithblades and Wraithguard units from your army gains the Battleline keyword.<
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Ghosts of the Webway" hidden="false" id="be59-ec7d-2f02-b6ec">
-          <comment>unique-detachment: ACROBATIC</comment>
           <rules>
             <rule name="Acrobatic Onslaught" id="162a-db5f-15c7-30b7" hidden="false">
               <description>Each time a **^^Harlequins^^** model from your army makes a Charge move, it can move through enemy models.</description>
@@ -43192,6 +43215,9 @@ Wraithblades and Wraithguard units from your army gains the Battleline keyword.<
 You can include up to three of each of the following models in your army: **^^Death Jester**^^, **^^Shadowseer**^^, **^^Troupe Master**^^.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="997b-314c-13dd-92f5" name="UNIQUE ACROBATIC" hidden="false" targetId="d545-abb5-b54e-eb96" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43334,7 +43360,9 @@ sim-mod: source=&quot;Path of the Warrior&quot; reroll=wound1 conditional</comme
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Covenite Coterie" hidden="false" id="47c7-52f9-c23d-1e4e">
-          <comment>unique-detachment: COVENS</comment>
+          <categoryLinks>
+            <categoryLink id="cef3-1506-d61f-924c" name="UNIQUE COVENS" hidden="false" targetId="b82a-fbe0-46c1-c017" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43362,7 +43390,9 @@ sim-mod: source=&quot;Path of the Warrior&quot; reroll=wound1 conditional</comme
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Kabalite Cartel" hidden="false" id="b033-0c01-012e-fcca">
-          <comment>unique-detachment: KABAL</comment>
+          <categoryLinks>
+            <categoryLink id="0e5b-2db0-7023-33f1" name="UNIQUE KABAL" hidden="false" targetId="91c2-c570-9b01-9a4b" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43411,7 +43441,6 @@ sim-mod: source=&quot;Path of the Warrior&quot; reroll=wound1 conditional</comme
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Spectacle of Spite" hidden="false" id="7008-2116-f479-a791">
-          <comment>unique-detachment: WYCH CULT</comment>
           <rules>
             <rule name="Combat Drugs" id="5722-e69a-a553-9dcd" hidden="false">
               <description>At the start of your Command phase, select which Combat Drugs will be active for your army until the start of your next Command phase. To do so, either select one from the list below (you cannot select the same Combat Drug more than once per battle), or randomly select two by rolling two D6. When doing so randomly, Combat Drugs you have previously selected can become active again, but if you randomly select one that is already active for your army, it has no additional effect.
@@ -43441,6 +43470,9 @@ Add 1 to the Strength characteristic of melee weapons equipped by ^^**Wych Cult*
 Improve the Leadership characteristic of ^^**Wych Cult**^^ models from your army by 1, and improve the Ballistic Skill characteristic of ranged weapons equipped by ^^**Wych Cult**^^ models from your army by 1.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="cc3d-8f9b-ebd9-15b3" name="UNIQUE WYCH CULT" hidden="false" targetId="747f-2592-7b68-9aef" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43463,7 +43495,6 @@ Improve the Leadership characteristic of ^^**Wych Cult**^^ models from your army
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Serpent&apos;s Brood" hidden="false" id="5ad5-9b0d-a70e-b9ec">
-          <comment>unique-detachment: ACROBATIC</comment>
           <rules>
             <rule name="Boons of the Brood" id="f364-f7a6-30b8-8181" hidden="false">
               <comment>sim-mod: source=&quot;Boons of the Brood&quot; sustained=1 conditional</comment>
@@ -43516,6 +43547,9 @@ TARGET: One Harlequins Vehicle or Harlequins Mounted unit from your army.
 EFFECT: If your unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="15cb-ed75-31d9-e066" name="UNIQUE ACROBATIC" hidden="false" targetId="d545-abb5-b54e-eb96" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43679,7 +43713,6 @@ EFFECT: Your unit can make a surge move of up to D6+1&quot;.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Fateful Performance" hidden="false" id="1162-5ccb-37c7-24f8">
-          <comment>unique-detachment: ACROBATIC</comment>
           <rules>
             <rule name="Acrobatic Onslaught" id="6051-8cf3-8b15-326f" hidden="false">
               <description>While a friendly **^^Harlequins^^** unit is making a Charge move, that unit can move through enemy models.
@@ -43708,6 +43741,9 @@ TARGET: That HARLEQUINS INFANTRY unit.
 EFFECT: Your unit can make a Normal move of up to D3+3&quot;.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="b3e3-2ea2-3112-990c" name="UNIQUE ACROBATIC" hidden="false" targetId="d545-abb5-b54e-eb96" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43782,7 +43818,6 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;. Your unit is not eli
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Twilight Flickers" hidden="false" id="fdff-ced9-18f5-2430">
-          <comment>unique-detachment: ACROBATIC</comment>
           <rules>
             <rule name="Dance of Distortion" id="3369-2ba1-26df-bc6f" hidden="false">
               <description>Friendly **^^Harlequins^^** units have the Stealth ability.
@@ -43811,6 +43846,9 @@ TARGET: That HARLEQUINS VEHICLE unit.
 EFFECT: Your unit can make a Normal move of up to D6&quot;. Your unit is not eligible to declare a charge until the end of the turn.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="ebc6-3606-2b6d-7a69" name="UNIQUE ACROBATIC" hidden="false" targetId="d545-abb5-b54e-eb96" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43835,7 +43873,6 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;. Your unit is not eli
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Exhibition of Slaughter" hidden="false" id="6716-bbde-55b7-2837">
-          <comment>unique-detachment: WYCH CULT</comment>
           <rules>
             <rule name="Exacting Cruelty" id="ffce-b482-0260-0c67" hidden="false">
               <comment>sim-mod: source=&quot;Exacting Cruelty&quot; lethal when=melee conditional</comment>
@@ -43865,6 +43902,9 @@ TARGET: That WYCH CULT unit.
 EFFECT: Your unit has a 5+ invulnerable save.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="e344-b866-82dd-07d7" name="UNIQUE WYCH CULT" hidden="false" targetId="747f-2592-7b68-9aef" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43889,7 +43929,6 @@ EFFECT: Your unit has a 5+ invulnerable save.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Kabalite Agonysts" hidden="false" id="ba96-337f-0839-0b2d">
-          <comment>unique-detachment: KABAL</comment>
           <rules>
             <rule name="Contracted Harvest" id="7a22-ac3e-ed11-9525" hidden="false">
               <comment>sim-mod: source=&quot;Contracted Harvest&quot; sustained=1 when=ranged conditional</comment>
@@ -43919,6 +43958,9 @@ TARGET: That KABALITE WARRIORS unit.
 EFFECT: Your unit&apos;s ranged attacks have [IGNORES COVER].</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="4c79-9d5e-7b3e-5386" name="UNIQUE KABAL" hidden="false" targetId="91c2-c570-9b01-9a4b" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43943,7 +43985,6 @@ EFFECT: Your unit&apos;s ranged attacks have [IGNORES COVER].</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Tools of Torment" hidden="false" id="fe68-3441-6d94-cdf0">
-          <comment>unique-detachment: COVENS</comment>
           <rules>
             <rule name="Darkest Artifice" id="27cb-3972-2da3-0e79" hidden="false">
               <description>Attacks that target friendly **^^Cronos^^**/**^^Talos^^** units with a Strength characteristic greater than that unit&apos;s Toughness characteristic have -1 to the Wound roll.
@@ -43972,6 +44013,9 @@ TARGET: That HAEMONCULUS COVENS unit.
 EFFECT: That move does not prevent your unit from being eligible to declare a charge.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="37a0-cd47-1e28-2e06" name="UNIQUE COVENS" hidden="false" targetId="b82a-fbe0-46c1-c017" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>

@@ -28249,7 +28249,6 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Blitz Brigade" hidden="false" id="63cc-721f-b263-9d4a">
-          <comment>unique-detachment: WAGONS</comment>
           <rules>
             <rule name="Eager For The Fight" id="5742-4494-1463-2670" hidden="false">
               <description>Each time an **^^Orks^^** unit from your army disembarks from a **^^Transport^^**, until the end of the turn, you can re‑roll Advance and Charge rolls made for that **^^Orks^^** unit.</description>
@@ -28300,6 +28299,9 @@ EFFECT: One Orks Infantry unit embarked within your model makes a disembark move
           <infoLinks>
             <infoLink name="Assault" id="f525-c8e9-8610-7eff" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
           </infoLinks>
+          <categoryLinks>
+            <categoryLink id="d9a2-01b5-7961-7f91" name="UNIQUE WAGONS" hidden="false" targetId="19b4-6d93-1585-5b9d" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -28319,7 +28321,6 @@ EFFECT: One Orks Infantry unit embarked within your model makes a disembark move
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Rollin&apos; Deff" hidden="false" id="5fe8-d907-0a71-6b85">
-          <comment>unique-detachment: WAGONS</comment>
           <rules>
             <rule name="Thundering Wagons" id="b97b-4ab3-378a-999d" hidden="false">
               <description>- Friendly **^^Battlewagon^^**/**^^Hunta Rig^^**/**^^Kill Rig^^** units have the **^^Wagon^^** keyword.
@@ -28350,6 +28351,9 @@ TARGET: That WAGON unit.
 EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [CLEAVE 1] ability.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="d1c3-d200-3c8f-a640" name="UNIQUE WAGONS" hidden="false" targetId="19b4-6d93-1585-5b9d" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -30750,6 +30754,12 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Big Mek Dakkarig" hidden="false" id="3065-30c1-c335-ef35"/>
     <categoryEntry name="Wartrakk" hidden="false" id="1677-46a5-86cb-5583"/>
     <categoryEntry name="Frame" hidden="false" id="f0f4-10e5-6f1c-a4a5"/>
+    <categoryEntry id="19b4-6d93-1585-5b9d" name="UNIQUE WAGONS" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: WAGONS — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="2bd6-4dcc-de0b-e8e3"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink targetId="2ab7-ab71-0af4-5d39" id="9f96-0177-abbe-926e" type="selectionEntry" name="Wazdakka Gutsmek" hidden="false"/>

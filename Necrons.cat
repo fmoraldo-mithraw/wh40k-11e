@@ -3378,10 +3378,12 @@ sim-mod: sustained=1 source=&quot;Prelocational Optimiser&quot; when=ranged choi
           </constraints>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Awakened Dynasty" hidden="false" id="9ebf-2bbd-6059-1d40">
-              <comment>unique-detachment: DYNASTY</comment>
               <infoLinks>
                 <infoLink name="Command Protocols" id="65f0-9dce-339d-522c" hidden="false" type="rule" targetId="388f-814a-df25-c988"/>
               </infoLinks>
+              <categoryLinks>
+                <categoryLink id="a6c9-dc17-d513-38ef" name="UNIQUE DYNASTY" hidden="false" targetId="8f76-9f02-9119-67b0" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
               </costs>
@@ -3465,10 +3467,12 @@ Each time a model in a CRYPTEK or CANOPTEK unit from your army makes an attack, 
               </rules>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Hypercrypt Legion" hidden="false" id="8861-5385-8fd1-dfee">
-              <comment>unique-detachment: HYPERCRYPT</comment>
               <infoLinks>
                 <infoLink name="Hyperphasing" id="3287-c51b-f223-8e2d" hidden="false" type="rule" targetId="bf08-bb20-d69d-1063"/>
               </infoLinks>
+              <categoryLinks>
+                <categoryLink id="4089-077b-4a60-f111" name="UNIQUE HYPERCRYPT" hidden="false" targetId="13c2-6ce3-44cf-6399" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -3753,7 +3757,6 @@ EFFECT: When that enemy unit Falls Back, all models in that enemy unit must take
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Hand of the Dynasty" hidden="false" id="5cd4-0e40-44ef-e89a">
-              <comment>unique-detachment: DYNASTY</comment>
               <rules>
                 <rule name="Hypermotility Protocols" id="960b-110e-35f3-5c73" hidden="false">
                   <description>Command protocols and neural impulses flood the mechanical bodies of these android warriors, lending them greater speed of thought and movement.
@@ -3784,6 +3787,9 @@ TARGET: That IMMORTALS/NECRON WARRIORS unit.
 EFFECT: Your unit shoots using snap shooting, but while doing so your unit can only target that enemy unit.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="7e2f-fc1a-a7fb-1988" name="UNIQUE DYNASTY" hidden="false" targetId="8f76-9f02-9119-67b0" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
@@ -3837,7 +3843,6 @@ EFFECT: Ranged attacks that target your unit with a Strength greater than your u
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="The Phaeron’s Armoury" hidden="false" id="ad53-673b-887a-e476">
-              <comment>unique-detachment: HYPERCRYPT</comment>
               <rules>
                 <rule name="Empowered Engines" id="8deb-3f9a-1e20-613d" hidden="false">
                   <description>When a Necron ruler unleashes the mightiest war engines from amongst their armoury, they may charge their finest Crypteks to enhance them first.
@@ -3867,6 +3872,9 @@ TARGET: That OBELISK/TESSERACT VAULT unit.
 EFFECT: Your unit’s Tesla Sphere weapons have +1 AP.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="c583-7fc4-4987-7340" name="UNIQUE HYPERCRYPT" hidden="false" targetId="13c2-6ce3-44cf-6399" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
@@ -17404,6 +17412,18 @@ When mustering your army, each ^^**Necrons Monster^^** unit from your army has t
     <categoryEntry name="Triarchal Overseer" id="274d-2915-abe9-12ad" hidden="false"/>
     <categoryEntry name="Stalker" id="bf46-75ca-d761-cbf3" hidden="false"/>
     <categoryEntry name="Frame" hidden="false" id="3890-58f0-eccd-ba40"/>
+    <categoryEntry id="8f76-9f02-9119-67b0" name="UNIQUE DYNASTY" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: DYNASTY — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="1713-ff7b-5bd2-a37d"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="13c2-6ce3-44cf-6399" name="UNIQUE HYPERCRYPT" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: HYPERCRYPT — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="02b4-4198-9934-fa88"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Imotekh the Stormlord" hidden="false" type="selectionEntry" id="572d-e094-2f28-92df" targetId="49fd-a80d-8cc0-c76b"/>

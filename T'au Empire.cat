@@ -20167,7 +20167,6 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Retaliation Cadre" id="3bae-cf7-b9e3-4f00">
-          <comment>unique-detachment: BATTLESUIT</comment>
           <rules>
             <rule name="Bonded Heroes" id="400b-c724-6710-76b1" hidden="false">
               <comment>sim-mod: source=&quot;Bonded Heroes&quot; str=+1 when=ranged conditional
@@ -20175,6 +20174,9 @@ sim-mod: source=&quot;Bonded Heroes&quot; ap=+1 when=ranged conditional</comment
               <description>Each time a **^^T&apos;au Empire Battlesuit^^** model from your army makes a ranged attack that targets a unit within 12&quot;, improve the Strength characteristic of that attack by 1. If that attack targets a unit within 8&quot;, improve the Armour Penetration characteristic of that attack by 1 as well.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="3f66-12cd-d536-ed98" name="UNIQUE BATTLESUIT" hidden="false" targetId="58be-cbad-0af1-caac" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -20194,7 +20196,6 @@ sim-mod: source=&quot;Bonded Heroes&quot; ap=+1 when=ranged conditional</comment
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Kroot Hunting Pack" id="452e-5b5b-cdbc-c94a">
-          <comment>unique-detachment: AUXILIARY</comment>
           <rules>
             <rule name="Hunter&apos;s Instincts" id="4129-703-44-c6c" hidden="false">
               <comment>sim-mod: source=&quot;Hunter&apos;s Instincts&quot; hit=+1 conditional
@@ -20205,6 +20206,9 @@ sim-mod: source=&quot;Hunter&apos;s Instincts&quot; wound=+1 conditional</commen
               <description>**^^Kroot^^** models from your army have a 6+ invulnerable save against melee attacks and a 5+ invulnerable save against ranged attacks.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="7ff3-9815-adc6-6cf4" name="UNIQUE AUXILIARY" hidden="false" targetId="2fbc-00bc-c137-1352" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -20224,7 +20228,6 @@ sim-mod: source=&quot;Hunter&apos;s Instincts&quot; wound=+1 conditional</commen
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Auxiliary Cadre" hidden="false" id="97bc-1349-fb9d-c04f">
-          <comment>unique-detachment: AUXILIARY</comment>
           <rules>
             <rule name="Integrated Command Structure" id="eb32-1926-a607-c01c" hidden="false">
               <description>Friendly **^^Kroot^^**/**^^Vespid Stingwings^^** units have the following ability:
@@ -20258,6 +20261,9 @@ TARGET: That T&apos;AU EMPIRE unit.
 EFFECT: Your unit&apos;s ranged attacks that target a unit within 9&quot; of a friendly KROOT/VESPID STINGWINGS unit have [LETHAL HITS].</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="28a3-6169-00ae-e166" name="UNIQUE AUXILIARY" hidden="false" targetId="2fbc-00bc-c137-1352" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -20277,7 +20283,6 @@ EFFECT: Your unit&apos;s ranged attacks that target a unit within 9&quot; of a f
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Experimental Prototype Cadre" id="1520-c344-f4fe-b414">
-          <comment>unique-detachment: BATTLESUIT</comment>
           <rules>
             <rule name="Superior Craftsmanship" id="492b-52cc-f6f2-0d20" hidden="false">
               <description>Friendly **^^Battlesuit Character^^** units&apos; ranged attacks have +6&quot; Range.
@@ -20310,6 +20315,9 @@ EFFECT: Your unit&apos;s ranged attacks have:
               </modifiers>
             </modifierGroup>
           </modifierGroups>
+          <categoryLinks>
+            <categoryLink id="94ea-8733-c72c-b890" name="UNIQUE BATTLESUIT" hidden="false" targetId="58be-cbad-0af1-caac" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -24909,6 +24917,18 @@ EFFECT: Your unit has +1 Sv.</description>
     <categoryEntry name="Kinband Champion" id="85c3-e9c6-25fd-22d9" hidden="false"/>
     <categoryEntry name="The Twin Lance" id="61b0-12ea-d5fc-1816" hidden="false"/>
     <categoryEntry name="Frame" hidden="false" id="90fc-c09e-9d1a-438c"/>
+    <categoryEntry id="58be-cbad-0af1-caac" name="UNIQUE BATTLESUIT" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: BATTLESUIT — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="b9e6-4580-996d-700b"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="2fbc-00bc-c137-1352" name="UNIQUE AUXILIARY" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: AUXILIARY — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="a24b-5ca0-fbec-2318"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <sharedProfiles>
     <profile name="Damaged: 1-4 Wounds Remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2220-2459-9f07-490e">

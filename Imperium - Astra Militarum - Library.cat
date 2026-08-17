@@ -38460,6 +38460,18 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogry
     <categoryEntry name="Centaur RSV" id="182e-9752-56ae-cd7d" hidden="false"/>
     <categoryEntry name="Cadian Recon Squad" id="5583-8ab1-47c0-4ebe" hidden="false"/>
     <categoryEntry id="74a9-11cd-45b4-aa11" name="Frame" hidden="false"/>
+    <categoryEntry id="9ba3-899b-de02-257a" name="UNIQUE RECON" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: RECON — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="6b1f-140e-bcb3-d0ad"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="8bba-fbef-a021-93ce" name="UNIQUE ABHUMAN" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: ABHUMAN — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="8c0f-3322-5390-7f46"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <sharedProfiles>
     <profile name="Damaged: 1-4 Wounds Remaining" hidden="false" id="a626-b90a-cf43-68b4" typeName="Abilities" typeId="9cc3-6d83-4dd3-9b64">
@@ -38889,12 +38901,14 @@ Onslaught - 4</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Recon Element" hidden="false" id="3d9f-5d9a-4a18-21aa">
-          <comment>unique-detachment: RECON</comment>
           <rules>
             <rule name="Masters of Camouflage" id="9878-8c91-dee3-c0a1" hidden="false">
               <description>^^**Astra Militarum Walker^^** and ^^**Regiment^^** models from your army have the Benefit of Cover. While such a model has the Benefit of Cover for any other reason, improve the Save characteristic of that model by 1 (to a maximum of 3+).</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="916f-66b6-69a2-fbae" name="UNIQUE RECON" hidden="false" targetId="9ba3-899b-de02-257a" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -38914,7 +38928,6 @@ Onslaught - 4</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Grizzled Company" hidden="false" id="cc4e-a30b-f987-c984">
-          <comment>unique-detachment: ABHUMAN</comment>
           <rules>
             <rule name="Ruthless Discipline" id="875a-bbfc-8184-0f73" hidden="false">
               <description>Add 1 to the number of Orders each **^^Astra Militarum Officer^^** model from your army can issue, as stated on their datasheet.
@@ -38964,6 +38977,9 @@ TARGET: One Astra Militarum unit from your army that was selected as the target 
 EFFECT: Until the end of the phase, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="4f25-6050-d9c0-5bda" name="UNIQUE ABHUMAN" hidden="false" targetId="8bba-fbef-a021-93ce" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -39242,7 +39258,6 @@ EFFECT: Until the end of the phase, each time a model in your unit makes an atta
           </costs>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Abhuman Auxiliaries" hidden="false" id="9ea0-0003-6712-cc77">
-          <comment>unique-detachment: ABHUMAN</comment>
           <rules>
             <rule name="Absolutist Principles" id="0ba8-f4ef-212b-7b74" hidden="false">
               <description>- Friendly ^^**Bullgryn Squad^^**/^^**Ogryn Squad^^**/^^**Ratlings^^** units have ^^**Abhuman^^**.
@@ -39274,6 +39289,9 @@ TARGET: That BULLGRYN SQUAD/OGRYN SQUAD unit.
 EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="41c8-693d-4a88-740c" name="UNIQUE ABHUMAN" hidden="false" targetId="8bba-fbef-a021-93ce" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
@@ -39286,7 +39304,6 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Designation Force" hidden="false" id="cbea-f799-e969-2bfb">
-          <comment>unique-detachment: RECON</comment>
           <rules>
             <rule name="Designated Targets" id="6427-8ff7-8f06-844c" hidden="false">
               <description>Friendly ^^**Scout Sentinel^^**/^^**Astra Militarum Infantry Smoke^^** units have the following ability:
@@ -39318,6 +39335,9 @@ TARGET: One friendly ASTRA MILITARUM INFANTRY SMOKE unit.
 EFFECT: When an attack targets either your unit, or a unit that is not fully visible to the attacking model because of one or more models in your unit, the target has the benefit of cover against that attack.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="0bba-d999-e29e-eabd" name="UNIQUE RECON" hidden="false" targetId="9ba3-899b-de02-257a" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>

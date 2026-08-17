@@ -152,6 +152,18 @@
     <categoryEntry id="473b-a649-eeff-c7e4" name="Captain with Relic Shield" hidden="false"/>
     <categoryEntry id="46ea-a4b8-5ac0-2200" name="Eradicator Squad with Heavy Bolters" hidden="false"/>
     <categoryEntry id="c8a0-e643-df37-dbc1" name="Mobile" hidden="false"/>
+    <categoryEntry id="ce0e-e79a-7b0d-1ed5" name="UNIQUE DOOMED" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: DOOMED — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="b81d-e81b-3af8-303d"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="58d4-aaf9-4b41-8289" name="UNIQUE GRACE" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: GRACE — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="8206-450c-540e-9890"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="e9ed-6763-ea0d-39fe" targetId="82cb-ba1-1aae-3b1d"/>
@@ -41976,7 +41988,9 @@ sim-mod: source=&quot;Armoured Wrath&quot; reroll=dmg oncePer=phase conditional<
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="The Lost Brethren" hidden="false" id="9d32-d514-00a8-6423">
-          <comment>unique-detachment: DOOMED</comment>
+          <categoryLinks>
+            <categoryLink id="e211-8487-aa8a-90c8" name="UNIQUE DOOMED" hidden="false" targetId="ce0e-e79a-7b0d-1ed5" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -42203,7 +42217,9 @@ EFFECT: Your unit has Stealth.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Angelic Inheritors" hidden="false" id="dcc7-f9de-d4f2-69d0">
-          <comment>unique-detachment: GRACE</comment>
+          <categoryLinks>
+            <categoryLink id="b00a-c006-95f7-6bc4" name="UNIQUE GRACE" hidden="false" targetId="58d4-aaf9-4b41-8289" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -42935,7 +42951,9 @@ Once per battle, when selecting a Hunting Pack for the Master of Wolves Detachme
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Rage-Cursed Onslaught" hidden="false" id="d8e6-a4b2-c15f-49e2">
-          <comment>unique-detachment: DOOMED</comment>
+          <categoryLinks>
+            <categoryLink id="b093-5308-4568-9dba" name="UNIQUE DOOMED" hidden="false" targetId="ce0e-e79a-7b0d-1ed5" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43839,7 +43857,9 @@ EFFECT: Your unit has Stealth.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Legacy of Grace" hidden="false" id="7133-eb27-aa98-1085">
-          <comment>unique-detachment: GRACE</comment>
+          <categoryLinks>
+            <categoryLink id="680e-531c-f595-d4d7" name="UNIQUE GRACE" hidden="false" targetId="58d4-aaf9-4b41-8289" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -43893,7 +43913,9 @@ EFFECT: Your unit has 5+ InSv.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Wrath of the Doomed" hidden="false" id="9802-6ea8-afb7-c5a3">
-          <comment>unique-detachment: DOOMED</comment>
+          <categoryLinks>
+            <categoryLink id="fb5e-ed91-6918-3dcd" name="UNIQUE DOOMED" hidden="false" targetId="ce0e-e79a-7b0d-1ed5" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>

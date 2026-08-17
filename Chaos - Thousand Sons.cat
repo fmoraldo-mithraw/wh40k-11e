@@ -89,6 +89,12 @@
     <categoryEntry name="Brayherd Chieftain" id="b81d-2277-6b02-537d" hidden="false"/>
     <categoryEntry name="Brayherd Shaman" id="0820-0661-36b4-2d14" hidden="false"/>
     <categoryEntry id="5868-6315-f8c5-25f1" name="Frame" hidden="false"/>
+    <categoryEntry id="3f57-0571-08d0-79e6" name="UNIQUE MUTANT" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: MUTANT — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="1526-d98c-f4ac-e797"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <selectionEntries>
     <selectionEntry id="87f0-0a14-9b6b-f367" name="Rituals reference" hidden="false" collective="false" import="true" type="upgrade" defaultAmount="1">
@@ -2257,7 +2263,6 @@ Psychic weapons equipped by ^^**Thousand Sons^^** models in your army have the [
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Warpmeld Pact" hidden="false" id="5be7-3aa8-5d64-cbaf">
-              <comment>unique-detachment: MUTANT</comment>
               <rules>
                 <rule name="Warpmeld Sacrifice" id="051d-bef5-f9ed-7178" hidden="false">
                   <description>Each time an enemy unit is selected to shoot or fight and one or more ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^** units from your army are selected as a target of one or more of those attacks, each of those ^^**Tzeentch Mutant^^** units can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time an attack targets that unit, subtract 1 from the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.
@@ -2265,6 +2270,9 @@ Psychic weapons equipped by ^^**Thousand Sons^^** models in your army have the [
 Each time a ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^*** unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="6a15-e17e-f91b-0892" name="UNIQUE MUTANT" hidden="false" targetId="3f57-0571-08d0-79e6" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -2401,7 +2409,6 @@ EFFECT: Ranged attacks that target your unit with a S greater than your unit&apo
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Servants of Change" hidden="false" id="eeeb-a88d-d36f-2c10">
-              <comment>unique-detachment: MUTANT</comment>
               <rules>
                 <rule name="All-Seeing Mutant Hordes" id="bc98-cfd2-5f45-57eb" hidden="false">
                   <description>▪ Friendly **^^Tzaangors^^** units have **^^Battleline^^**.
@@ -2435,6 +2442,9 @@ TARGET: That MONSTER MUTANT unit.
 EFFECT: Your unit has MOBILE.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="29fd-afd8-e069-0ef5" name="UNIQUE MUTANT" hidden="false" targetId="3f57-0571-08d0-79e6" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>

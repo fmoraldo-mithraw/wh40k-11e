@@ -8521,7 +8521,6 @@ EFFECT: Select one enemy unit hit by those attacks. That enemy unit is tethered 
     <selectionEntryGroup name="Detachment" hidden="false" id="7170-c243-d89f-6644" defaultSelectionEntryId="none">
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Host of Ascension" hidden="false" id="0a79-5968-68f0-56b5">
-          <comment>unique-detachment: HOSTS</comment>
           <infoLinks>
             <infoLink name="Ignores Cover" id="d4eb-1f63-596f-0248" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
             <infoLink name="Sustained Hits" id="6890-0ca1-a2b2-0c1e" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
@@ -8533,6 +8532,9 @@ sim-mod: source=&quot;A Perfect Ambush&quot; ignores-cover conditional</comment>
               <description>Each time a GENESTEALER CULTS unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="d0a4-e68f-59d1-d0eb" name="UNIQUE HOSTS" hidden="false" targetId="4454-d4b5-0104-2ea1" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -8579,13 +8581,15 @@ sim-mod: source=&quot;A Perfect Ambush&quot; ignores-cover conditional</comment>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Biosanctic Broodsurge" hidden="false" id="ff11-0fa4-2950-380e">
-          <comment>unique-detachment: PURESTRAIN</comment>
           <rules>
             <rule name="Hypermorphic Fury" id="0a4d-88d1-161e-213b" hidden="false">
               <comment>sim-mod: source=&quot;Hypermorphic Fury&quot; attacks=+1 when=melee onCharge</comment>
               <description>Add 1 to Charge rolls made for **^^Aberrants^^**, **^^Biophagus^^** and **^^Purestrain Genestealers^^** units from your army. In addition, each time such a unit is selected to fight, if it made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by the models in that unit.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="d724-e6fe-da39-bada" name="UNIQUE PURESTRAIN" hidden="false" targetId="1231-1a6b-ccfc-f6cc" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -8873,7 +8877,6 @@ EFFECT: When a KILLER model in your unit is destroyed, if your unit has not been
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Purestrain Broodswarm" hidden="false" id="cd0f-f308-adaf-6835">
-          <comment>unique-detachment: PURESTRAIN</comment>
           <rules>
             <rule name="Enemy Within" id="6b0c-59dd-958b-c8fc" hidden="false">
               <description>At the end of your opponent&apos;s Fight phase, friendly unengaged **^^Purestrain Genestealers^^** units can be placed in Strategic Reserves.
@@ -8902,6 +8905,9 @@ TARGET: That PURESTRAIN GENESTEALERS unit.
 EFFECT: Your unit can make a Normal move of up to D3+3&quot;.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="77bc-faa1-1674-3227" name="UNIQUE PURESTRAIN" hidden="false" targetId="1231-1a6b-ccfc-f6cc" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -8921,7 +8927,6 @@ EFFECT: Your unit can make a Normal move of up to D3+3&quot;.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Xenocult Masses" hidden="false" id="486a-1df2-cd71-00d9">
-          <comment>unique-detachment: HOSTS</comment>
           <rules>
             <rule name="Hordes of the Faithful" id="bf23-18ac-791a-9146" hidden="false">
               <description>In your Command phase, if a friendly **^^Neophyte Hybrids^^** unit is within a terrain area, that unit heals 3 wounds.
@@ -8950,6 +8955,9 @@ TARGET: That NEOPHYTE HYBRIDS unit.
 EFFECT: Ranged attacks that target your unit have -1 AP until that unit has attacked.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="3d3d-001a-9d48-3f79" name="UNIQUE HOSTS" hidden="false" targetId="4454-d4b5-0104-2ea1" primary="false"/>
+          </categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -10368,5 +10376,17 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     <categoryEntry name="Tyranid Prime with Lash Whip" id="6ed1-0e06-b0d6-0cc2" hidden="false"/>
     <categoryEntry name="The Red Terror" id="d60b-23a2-629e-dc7e" hidden="false"/>
     <categoryEntry id="32f4-b203-544e-7d36" name="Mobile" hidden="false"/>
+    <categoryEntry id="4454-d4b5-0104-2ea1" name="UNIQUE HOSTS" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: HOSTS — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="ac4f-61ac-f8c9-9930"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="1231-1a6b-ccfc-f6cc" name="UNIQUE PURESTRAIN" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: PURESTRAIN — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="f39a-eecf-956b-9681"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
 </catalogue>

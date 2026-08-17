@@ -61,6 +61,12 @@
     <categoryEntry name="Hastarii" id="57ee-67d5-c57c-bafb" hidden="false"/>
     <categoryEntry name="Fusiliers" id="3dc6-aa97-7fd4-b138" hidden="false"/>
     <categoryEntry id="8b6b-ed6b-ffe4-eb34" name="Frame" hidden="false"/>
+    <categoryEntry id="0415-86b3-98a7-a5a5" name="UNIQUE DATA-PSALM" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: DATA-PSALM — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="f6d4-1122-f5c5-23da"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink id="9bc2-4d5f-5d27-ce7a" name="Archaeopter Fusilave" hidden="false" collective="false" import="true" targetId="7662-5fde-16f1-5267" type="selectionEntry"/>
@@ -15596,7 +15602,6 @@ At the start of your Command phase during the second, third, fourth and fifth ba
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Data-psalm Conclave" hidden="false" id="e282-2b49-bd6a-679c">
-          <comment>unique-detachment: DATA-PSALM</comment>
           <rules>
             <rule name="Benediction of the Omnissiah" hidden="false" id="650a-c3b2-3606-f927">
               <comment>sim-mod: source=&quot;Benediction of the Omnissiah&quot; ap=+1 when=ranged conditional</comment>
@@ -15611,6 +15616,9 @@ Citation in Savagery:
 Each time a **^^Cult Mechanicus^^** unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="46df-c85f-6b89-557a" name="UNIQUE DATA-PSALM" hidden="false" targetId="0415-86b3-98a7-a5a5" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
@@ -15861,7 +15869,6 @@ EFFECT: That action does not prevent your unit from being eligible to shoot.</de
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Luminen Auto-Choir" hidden="false" id="c03d-a3a9-4a80-f290">
-          <comment>unique-detachment: DATA-PSALM</comment>
           <rules>
             <rule name="Cyber-Static Canticles" id="4fff-6ebd-5211-5f39" hidden="false">
               <comment>sim-mod: source=&quot;Cyber-Static Canticles&quot; lethal when=ranged conditional</comment>
@@ -15894,6 +15901,9 @@ TARGET: That ELECTRO-PRIESTS unit.
 EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="fb9d-35de-5ef0-7428" name="UNIQUE DATA-PSALM" hidden="false" targetId="0415-86b3-98a7-a5a5" primary="false"/>
+          </categoryLinks>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>

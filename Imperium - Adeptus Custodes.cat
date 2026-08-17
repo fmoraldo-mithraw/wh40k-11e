@@ -35,6 +35,18 @@
     <categoryEntry name="Null Maiden" id="5426-941b-f678-c1d6" hidden="false"/>
     <categoryEntry name="Kataphraktoi Exemplar" id="afee-965b-4eeb-2a4a" hidden="false"/>
     <categoryEntry id="553b-6dcd-47a5-3713" name="Frame" hidden="false"/>
+    <categoryEntry id="65aa-7fb1-2de4-3b4c" name="UNIQUE ARMOURY" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: ARMOURY — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="690e-9ec8-eeee-2972"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="01aa-401c-2b76-013c" name="UNIQUE LIONS" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: LIONS — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="e4b5-0276-c805-dfe3"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink id="9f10-d8db-a7b3-5784" name="Allarus Custodians" hidden="false" collective="false" import="true" targetId="c8a6-a4c5-703e-b717" type="selectionEntry"/>
@@ -7948,7 +7960,6 @@ All other **^^Adeptus Custodes**^^ units from your army gain the following abili
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Solar Spearhead" hidden="false" id="a060-3a8d-670c-25f0" sortIndex="5">
-              <comment>unique-detachment: ARMOURY</comment>
               <rules>
                 <rule name="Auric Armour" id="bd48-ecd6-2149-355e" hidden="false">
                   <comment>sim-mod: source=&quot;Auric Armour&quot; reroll=hit1 conditional</comment>
@@ -8007,6 +8018,9 @@ TARGET: One Adeptus Custodes unit from your army that has not been selected to s
 EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability, and until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and/or any or all modifiers to the Hit roll.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="452b-860d-8e98-b0a6" name="UNIQUE ARMOURY" hidden="false" targetId="65aa-7fb1-2de4-3b4c" primary="false"/>
+              </categoryLinks>
               <modifiers>
                 <modifier type="increment" value="2" field="e703-ecb6-5ce7-aec1" scope="force" affects="self.entries.5085-b471-39f3-1aa1.profiles.Unit"/>
               </modifiers>
@@ -8022,7 +8036,6 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Lions of the Emperor" hidden="false" id="3b75-a700-050c-06f5" sortIndex="2">
-              <comment>unique-detachment: LIONS</comment>
               <rules>
                 <rule name="Against All Odds" id="ddd9-c874-560d-1edf" hidden="false">
                   <comment>sim-mod: source=&quot;Against All Odds&quot; hit=+1 wound=+1 conditional</comment>
@@ -8072,6 +8085,9 @@ TARGET: One Adeptus Custodes unit from your army (excluding VEHICLE units) that 
 EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="9563-1142-1082-3289" name="UNIQUE LIONS" hidden="false" targetId="01aa-401c-2b76-013c" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
               </costs>
@@ -8084,7 +8100,6 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Might of the Moritoi" hidden="false" id="3a35-9ba0-555c-442e">
-              <comment>unique-detachment: ARMOURY</comment>
               <rules>
                 <rule name="March of the Honoured Dead" id="d17a-8a57-ee8d-d36f" hidden="false">
                   <description>Friendly ^^**Adeptus Custodes Walker^^** units:
@@ -8117,6 +8132,9 @@ EFFECT: Your unit’s:
 - Iliastus Accelerator Culverin weapons have [RAPID FIRE 2].</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="fca9-2b00-d557-b431" name="UNIQUE ARMOURY" hidden="false" targetId="65aa-7fb1-2de4-3b4c" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
@@ -8174,7 +8192,6 @@ EFFECT: Your unit’s [TORRENT] ranged attacks have [BLAST 1].</description>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Tharanatoi Hammerblow" hidden="false" id="6e4a-1ae0-d85c-7d3e">
-              <comment>unique-detachment: LIONS</comment>
               <rules>
                 <rule name="The Hammer Falls" id="648b-f9e9-573b-b05d" hidden="false">
                   <description>If a friendly ^^**Adeptus Custodes Terminator^^** unit made an ingress move this turn, that unit can re-roll charge rolls.
@@ -8203,6 +8220,9 @@ TARGET: That ADEPTUS CUSTODES TERMINATOR unit.
 EFFECT: Your unit’s Ballistus Grenade Launcher weapons have D3+3 A.</description>
                 </rule>
               </rules>
+              <categoryLinks>
+                <categoryLink id="47a1-f183-23eb-3e58" name="UNIQUE LIONS" hidden="false" targetId="01aa-401c-2b76-013c" primary="false"/>
+              </categoryLinks>
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
               </costs>
