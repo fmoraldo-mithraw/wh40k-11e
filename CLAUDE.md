@@ -27,10 +27,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   `primary-catalogue`). À lire avant toute mise à jour de points de
   `Imperium - Agents of the Imperium.cat`.
 - **`editor/REPEAT_COST_APP_PROMPT.md`** — prompt autonome (application
-  consommatrice) : le surcoût « 3e+ exemplaire plus cher » est encodé par
-  un `<modifier>` de coût + marqueur `repeat-cost: threshold=N delta=Δ` ;
-  l'appli doit n'appliquer Δ qu'aux exemplaires **au-delà du Nème** (pas à
-  tous). Remplace l'ancienne entrée dupliquée `(additional)`.
+  consommatrice) : le surcoût « 3e+ exemplaire plus cher » est en **forme
+  NATIVE** (plus de marqueur) : `increment` sur pts (value=Δ) + condition
+  `atLeast` valeur K `scope="roster"` ⟹ threshold=K−1 ; l'appli reconnaît la
+  forme et n'applique Δ qu'aux exemplaires **au-delà du seuil** (jamais aux
+  premiers, jamais à tous). Remplace le marqueur commentaire ET l'ancienne
+  entrée dupliquée `(additional)`.
 - **`editor/UNIQUE_DETACHMENT_APP_PROMPT.md`** — prompt autonome (application
   consommatrice) : les détachements à mot-clef `UNIQUE: X` sont **mutuellement
   exclusifs** par X. **Forme NATIVE** (plus de marqueur commentaire) :
