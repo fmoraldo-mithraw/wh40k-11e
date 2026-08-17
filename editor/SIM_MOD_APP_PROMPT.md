@@ -71,6 +71,9 @@ sont entre guillemets) :
     mot-clef** (« weapons equipped by ^^**Paladin Squad**^^ models », « each time a
     ^^**Beast**^^ model … »). Exclut p. ex. un chef rattaché qui n'a pas le mot-clef.
     L'appli tague chaque arme des mots-clefs de son unité et filtre dessus.
+    Syntaxe : `,` entre jetons = **OU** ; `&` dans un jeton = **ET**
+    (`kw="Psyker&Infantry,Character"` = (PSYKER et INFANTRY) ou CHARACTER) —
+    nécessaire pour les lignes CIBLE à mots-clefs composés des stratagèmes.
   - `vsTougher` — sur un `wound=+1`, le bonus n'est **appliqué par le moteur que si
     l'Endurance de la cible > la Force de l'arme** (« if its Strength is lower than
     the target's Toughness, +1 to wound », ex. Dauntless Champions / Argent Assault).
@@ -118,6 +121,20 @@ en bascules **globales** (sans `owner` → toutes les armes), étiquetées « Ar
 ou « Détach. — », pour la règle d'armée de la faction et les règles du/des
 détachement(s) **sélectionné(s)**. Elles sont en général `conditional`
 (déclencheur situationnel) — décochées par défaut.
+
+## Stratagèmes
+
+Les règles de **stratagème** (`<rule name="X (Stratagem, NCP)">` sous l'entrée
+du détachement) portent aussi des lignes `sim-mod:` quand leur EFFET améliore
+les attaques de l'unité CIBLE — dans le **même `<comment>`** que le marqueur
+`strat-timing:` (les lignes se cumulent, une par ligne). L'appli les expose en
+bascules pour le(s) détachement(s) **actif(s)**, étiquetées « Strat. — Nom
+(NPC) », **toujours décochées par défaut** (un stratagème coûte des PC), et la
+restriction de cible de la ligne TARGET est encodée en `kw=` (conjonctions via
+`&`) — seules les armes des unités qui matchent sont affectées. Généré par
+l'analyse des 1 359 stratagèmes ; intégrateur :
+`editor/integre-sim-mods-stratagems.mjs` (idempotent, ne réécrit jamais une
+ligne existante).
 
 ## Surlignage
 
