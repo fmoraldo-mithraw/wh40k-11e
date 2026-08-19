@@ -2651,6 +2651,22 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-1a20"/>
           </constraints>
         </selectionEntryGroup>
+<selectionEntryGroup name="Kult of Speed Enhancement" id="0d1a-e113-0063" hidden="false">
+    <comment>Upgrade Smoky Gubbinz (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
+    <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0064"/>
+    </constraints>
+    <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</modifier>
+    </modifiers>
+    <entryLinks>
+<entryLink import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="0d1a-e113-0065" type="selectionEntry" targetId="0d1a-e113-0000-0020"/>
+    </entryLinks>
+</selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
@@ -3373,6 +3389,22 @@ pts: inconnu (nouvelle unite, placeholder 0)</comment>
 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e101-0032"/>
 </constraints>
 </selectionEntryGroup>
+<selectionEntryGroup name="Kult of Speed Enhancement" id="0d1a-e113-0066" hidden="false">
+    <comment>Upgrade Smoky Gubbinz (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
+    <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0067"/>
+    </constraints>
+    <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</modifier>
+    </modifiers>
+    <entryLinks>
+<entryLink import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="0d1a-e113-0068" type="selectionEntry" targetId="0d1a-e113-0000-0020"/>
+    </entryLinks>
+</selectionEntryGroup>
 </selectionEntryGroups>
 <profiles>
 <profile name="Drive-by Skorchin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e101-0033">
@@ -3829,6 +3861,24 @@ pts: 85 (ancien MFM, provisoire)</comment>
 <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
 </costs>
+      <selectionEntryGroups>
+<selectionEntryGroup name="Kult of Speed Enhancement" id="0d1a-e113-0069" hidden="false">
+    <comment>Upgrade Smoky Gubbinz (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
+    <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0070"/>
+    </constraints>
+    <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</modifier>
+    </modifiers>
+    <entryLinks>
+<entryLink import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="0d1a-e113-0071" type="selectionEntry" targetId="0d1a-e113-0000-0020"/>
+    </entryLinks>
+</selectionEntryGroup>
+      </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Wartrakks" hidden="false" id="0d1a-e104-0000-0000">
 <comment>invuln: 6+
@@ -3949,6 +3999,24 @@ pts: inconnu (nouvelle unite, placeholder 0)</comment>
 <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
 </costs>
+      <selectionEntryGroups>
+<selectionEntryGroup name="Kult of Speed Enhancement" id="0d1a-e113-0072" hidden="false">
+    <comment>Upgrade Smoky Gubbinz (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
+    <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0073"/>
+    </constraints>
+    <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</modifier>
+    </modifiers>
+    <entryLinks>
+<entryLink import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="0d1a-e113-0074" type="selectionEntry" targetId="0d1a-e113-0000-0020"/>
+    </entryLinks>
+</selectionEntryGroup>
+      </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek Dakkarig" hidden="false" id="0d1a-e105-0000-0000">
 <comment>invuln: 5+
@@ -6822,6 +6890,64 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
 <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
 </costs>
 </selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="0d1a-e113-0000-0020">
+  <comment>Amelioration Upgrade (Kult of Speed) : unites SPEED FREEKS hors AIRCRAFT, cumulable, max 1 par unite, jamais Epic Hero. pts: a confirmer via MFM (placeholder 0).</comment>
+  <profiles>
+<profile name="Smoky Gubbinz Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0057">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*These loud, fume-belching devices wreathe those in the Speed Freeks&apos; wake in a thick bank of obscuring smoke.*
+
+**^^Speed Freeks^^** unit only (excluding **^^Aircraft^^** units). When an attack targets a unit that is not **fully visible** to the attacking model because of a model in this unit, the target has the **benefit of cover** against that attack.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <categoryLinks>
+<categoryLink name="Enhancement" hidden="false" id="0d1a-e113-0058" targetId="6226-9b9b-107a-9ada" primary="false"/>
+  </categoryLinks>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Temperamental Shokka Upgrade" hidden="false" id="0d1a-e113-0000-0021">
+  <comment>Amelioration Upgrade (Madcap Meks) : BIG MEK WITH SHOKK ATTACK GUN uniquement - datasheet absente du catalogue actuellement, rattachement a faire a son retour. pts placeholder 0.</comment>
+  <profiles>
+<profile name="Temperamental Shokka Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0059">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Shokk attack guns are notoriously unreliable, and even with a supposedly enhanced set of wonky bits, this Big Mek is never certain what will happen when he sets the thing off.*
+
+**^^Big Mek with Shokk Attack Gun^^** model only. In your Shooting phase, when this unit is **selected to shoot**, you can roll one D6:
+- On a 1, this model&apos;s Shokk Attack Gun weapon has **[TORRENT]**, and when this unit has shot, this model is **destroyed**.
+- On a 2-5, this model&apos;s Shokk Attack Gun weapon has +1 **A**.
+- On a 6, this model&apos;s Shokk Attack Gun weapon has **[SUSTAINED HITS 2]**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <categoryLinks>
+<categoryLink name="Enhancement" hidden="false" id="0d1a-e113-0060" targetId="6226-9b9b-107a-9ada" primary="false"/>
+  </categoryLinks>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Enhanced Runt-Maw Upgrade" hidden="false" id="0d1a-e113-0000-0022">
+  <comment>Amelioration Upgrade (Madcap Meks) : BIG MEK WITH SHOKK ATTACK GUN uniquement - datasheet absente du catalogue actuellement, rattachement a faire a son retour. pts placeholder 0.</comment>
+  <profiles>
+<profile name="Enhanced Runt-Maw Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0061">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*These kustom jobs incorporate an oversized suction device, drawing in nearby runts aplenty, as well as Squigs, loose scrap, and even poorly fastened pieces of the gun itself. The Mek&apos;s targets – those that survive – end up infested with countless screeching Snotlings.*
+
+**^^Big Mek with Shokk Attack Gun^^** model only. When this unit has shot, select one enemy unit hit by those attacks. That unit is **infested with Snotlings** until the start of your next turn:
+- While an enemy unit is **infested with Snotlings**, that unit has -1 to **leadership rolls**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <categoryLinks>
+<categoryLink name="Enhancement" hidden="false" id="0d1a-e113-0062" targetId="6226-9b9b-107a-9ada" primary="false"/>
+  </categoryLinks>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
   </sharedSelectionEntries>
   <rules>
     <rule name="Waaagh!" hidden="false" id="37c-6ef9-277-9091">
@@ -6924,6 +7050,735 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="da78-234d-79cb-0c36" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <selectionEntryGroups>
+<selectionEntryGroup name="Shoota Boyz Enhancements" id="0d1a-e114-0001" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e114-0002" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-9f3b-7c40-a002" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Supa-Glowy Fing" hidden="false" id="0d1a-e114-0000-0001">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Supa-Glowy Fing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e114-0003">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*The Mek who cobbled together this strange dakka accelerator isn&apos;t sure exactly what it does – and it glows weirdly – but its new owner proudly carries it to battle, eager to know what its big switch will do this time.*
+
+**^^Orks^^ ^^Infantry^^** model only (excluding **^^Weirdboy^^** models). This model&apos;s ranged attacks have:
+- **[ANTI-INFANTRY 4+]**
+- **[DEVASTATING WOUNDS]**
+- **[SUPA-HAZARDOUS]**
+
+**[SUPA-HAZARDOUS]**: Each time a unit is selected to shoot, after that unit has resolved all of its attacks, make two **hazard rolls** for that unit for each **[SUPA-HAZARDOUS]** weapon you selected in the Select Weapons step.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true"/>
+<condition type="instanceOf" value="1" field="selections" scope="parent" childId="b3fc-3d75-4ff1-5210" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e114-0000-0001" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e114-0000-0001" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e114-0004" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Targetin&apos; Squigs" hidden="false" id="0d1a-e114-0000-0002">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Targetin&apos; Squigs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e114-0005">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*With a couple of these boggle-eyed varieties of Squigs on hand, even Ork shooting has a chance of hitting distant targets, helped by squinting really hard.*
+
+**^^Big Mek^^**/**^^Bigboss^^**/**^^Warboss^^** model only. This unit&apos;s ranged attacks (excluding **[TORRENT]** attacks) have +3&quot; Range.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="1ea0-8b1a-ddea-4d7c" shared="true"/>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="0d1a-9f3b-7c40-a0f0" shared="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e114-0000-0002" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e114-0000-0002" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e114-0006" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+<selectionEntryGroup name="Kult of Speed Enhancements" id="0d1a-e113-0020" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0021" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Competitive Streak" hidden="false" id="0d1a-e113-0000-0011">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Competitive Streak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0018">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*This Speedboss despises the thought of coming anything less than first in a race to reach the biggest fights.*
+
+**^^Deffkilla Wartrike^^** model only. This unit can re-roll **charge rolls**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="1b8c-203a-e329-2a02" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0011" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0011" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0019" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+<selectionEntryGroup name="Da Big Hunt Enhancements" id="0d1a-e113-0026" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0027" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0002" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Glory Hog" hidden="false" id="0d1a-e113-0000-0012">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Glory Hog" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0022">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*When bigger prey is sighted, nothing can keep this hunter from it. With a roar of glee, lesser gitz are swiftly forgotten in his enthusiasm to pile into a greater challenge.*
+
+**^^Beast Snagga^^** model only. When this unit is selected to make a **fall-back move**, that **fall-back move** does not prevent this unit from being **eligible to declare a charge**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4e42-80a0-5c3b-2c7f" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0012" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0012" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0023" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="It Came From Da Drops" hidden="false" id="0d1a-e113-0000-0013">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="It Came From Da Drops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0024">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*The monstrous resilience – and odour – of this Beastboss&apos; hulking mount has inspired many lurid tales of its origin.*
+
+**^^Beastboss on Squigosaur^^** model only. This model has +1 **T**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="6b40-8456-36cb-ece2" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0013" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0013" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0025" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+<selectionEntryGroup name="Madcap Meks Enhancements" id="0d1a-e113-0030" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0031" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0003" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Mekwaaagh! Mastermind" hidden="false" id="0d1a-e113-0000-0014">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Mekwaaagh! Mastermind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0028">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*This Big Mek&apos;s obsession with feverish inventing and his dreams of ludicrous technological destruction are infectious, inspiring other Orks to excitable aggression.*
+
+**^^Big Mek^^** model only. This unit is **riled up**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="1ea0-8b1a-ddea-4d7c" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0014" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0014" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0029" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+<selectionEntryGroup name="Brute Bosses Enhancements" id="0d1a-e113-0045" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0046" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0004" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Surly As A Squiggoth" hidden="false" id="0d1a-e113-0000-0015">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Surly As A Squiggoth" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0032">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*With a lifetime of picking fights with the galaxy&apos;s most lethal fighters behind him, and a gnarled hide thicker than Battlewagon armour, this Ork has survived blows that would fell an Ambull.*
+
+**^^Infantry^^ ^^Warboss^^** model only. **(Once per battle, per army)** At the end of a phase in which this model is **destroyed**, roll one D6:
+- On a 2+, set this model back up on the battlefield as close as possible to where it was **destroyed**, **unengaged**, with 3 wounds remaining.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0015" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0015" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0033" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Brutal But Kunnin&apos;" hidden="false" id="0d1a-e113-0000-0016">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Brutal But Kunnin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0034">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*What tactics occasionally pop into this Ork&apos;s head revolve purely around how hard he needs to wallop his enemies to send their skulls flying.*
+
+**^^Warboss^^** model only. This model&apos;s melee attacks have +1 **D**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0016" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0016" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0035" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Blitzboss" hidden="false" id="0d1a-e113-0000-0017">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Blitzboss" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0036">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*It is said this Ork bleeds Squig oil and his growl is that of a revving engine. Certainly any vehicle he rides to war seems to respond powerfully to his presence.*
+
+**^^Warboss^^** model only. A **^^Transport^^** unit (excluding **^^Walker^^** units) this unit is embarked within has:
+- +2&quot; **M**.
+- 5+ **InSv**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0017" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0017" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0037" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Proper Killy" hidden="false" id="0d1a-e113-0000-0018">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Proper Killy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0038">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*This unstoppable brute is an engine of destruction whose welts of scars have been won in countless victories.*
+
+**^^Warboss^^** model only. This model can re-roll **Hit rolls** of 1.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0018" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0018" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0039" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Morgog&apos;s Finkin&apos; Cap" hidden="false" id="0d1a-e113-0000-0019">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Morgog&apos;s Finkin&apos; Cap" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0040">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Thanks to the tangle of stolen empyric electrodes wired into this helmet, a powerful Ork wearing it is capable of thinking a little further ahead than his next fight.*
+
+**^^Warboss^^** model only. **(Once per battle, per army)** At the end of your opponent&apos;s Movement phase, if this unit is **unengaged**, this unit can make a **normal move** of:
+- Up to D6&quot;.
+- If this unit is **riled up**, you can re-roll that D6.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0019" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-0019" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0041" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Da Gobshot Thunderbuss" hidden="false" id="0d1a-e113-0000-001a">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Da Gobshot Thunderbuss" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0043">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Firing gold-plated teef as its unconventional ammunition, da Gobshot Thunderbuss proclaims its owner&apos;s obscene wealth even as it sweeps away swathes of enemies.*
+
+**^^Warboss^^** model only. This model has the following weapon:</characteristic>
+</characteristics>
+</profile>
+<profile name="Da Gobshot Thunderbuss" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e113-0042">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 6</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-001a" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-001a" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0044" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+<selectionEntryGroup name="Wurrband Enhancements" id="0d1a-e113-0055" hidden="false">
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e113-0056" includeChildSelections="false" includeChildForces="false"/>
+  </constraints>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="and">
+<conditions>
+    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+    <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0005" shared="true" includeChildSelections="true" includeChildForces="true"/>
+</conditions>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Da Krunch" hidden="false" id="0d1a-e113-0000-001b">
+  <comment>pts: a confirmer via MFM (placeholder 0). Valeurs S/AP/D du profil Da Krunch illisibles sur la photo - a confirmer.</comment>
+  <profiles>
+<profile name="Da Krunch" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0048">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Roiling energies frequently erupt from this Weirdboy&apos;s eyes, solidifying above the enemy into the huge green foot of Gork (or Mork) himself, which repeatedly stomps on the foe.*
+
+**^^Orks^^ ^^Psyker^^** model only. This model has the following weapon:</characteristic>
+</characteristics>
+</profile>
+<profile name="Da Krunch" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e113-0047">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 3, Hazardous, Lethal Hits, Psychic</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="13bf-2bee-3ae0-b414" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-001b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-001b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0049" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="&apos;Eadbanger" hidden="false" id="0d1a-e113-0000-001c">
+  <comment>pts: a confirmer via MFM (placeholder 0). Valeurs du profil 'Eadbanger partiellement illisibles - a confirmer.</comment>
+  <profiles>
+<profile name="&apos;Eadbanger" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0051">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Known for yelling &apos;Kop dis, ya zogger!&apos; at his chosen target beforehand, this Weirdboy is in the habit of projecting a bolt of raw power from his forehead which splatters the victim&apos;s brains across a wide area.*
+
+**^^Orks^^ ^^Psyker^^** model only. This model has the following weapon:</characteristic>
+</characteristics>
+</profile>
+<profile name="&apos;Eadbanger" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e113-0050">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Precision, Psychic</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="13bf-2bee-3ae0-b414" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-001c" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-001c" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0052" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Warphead" hidden="false" id="0d1a-e113-0000-001d">
+  <comment>pts: a confirmer via MFM (placeholder 0)</comment>
+  <profiles>
+<profile name="Warphead" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0053">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">*Where most Weirdboyz would quite like to be left alone, so-called Warpheads become addicted to the danger, intentionally supercharging their tortured minds and revelling in venting dangerously unpredictable powers.*
+
+**^^Orks^^ ^^Psyker^^** model only. This model:
+- Has **psyker level 2**.
+- Has **Deadly Demise D6**.
+- Can re-roll **psychic rolls**.</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditionGroups>
+<conditionGroup type="or">
+<conditions>
+<condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="13bf-2bee-3ae0-b414" shared="true"/>
+</conditions>
+    <conditionGroups>
+<conditionGroup type="and">
+<conditions>
+      <condition type="atLeast" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-001d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+      <condition type="lessThan" value="1" field="selections" scope="parent" childId="0d1a-e113-0000-001d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+</conditions>
+</conditionGroup>
+    </conditionGroups>
+</conditionGroup>
+</conditionGroups>
+</modifier>
+  </modifiers>
+  <constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e113-0054" includeChildSelections="true" includeChildForces="false"/>
+  </constraints>
+  <costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+  </costs>
+</selectionEntry>
+  </selectionEntries>
+</selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntryGroup>
     <selectionEntryGroup name="Detachment" id="8b85-ad3b-752f-6502" hidden="false" defaultSelectionEntryId="none">
       <selectionEntries>
@@ -7028,6 +7883,214 @@ EFFECT: Your unit's ranged attacks have [SUSTAINED HITS 1].</description>
         <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
       </characteristics>
     </profile>
+  </profiles>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kult of Speed" hidden="false" id="0d1a-e113-0000-0001">
+  <comment>DP=1 et Force Disposition=Reconnaissance non indiques dans le codex - choisis par convention, a confirmer.</comment>
+  <rules>
+<rule name="Adrenaline Junkies" id="0d1a-e113-0001" hidden="false">
+<description>*After smashing into the foe at full tilt, a Speed Freek will pull hairpin turns to do it all again.*
+
+- Friendly **^^Warbikers^^** units have **^^Battleline^^**.
+- When a friendly **^^Speed Freeks^^** unit is selected to make an **advance/fall-back move**:
+  - That unit&apos;s ranged attacks have **[ASSAULT]** until the end of the turn.
+  - That move does not prevent that unit from being **eligible to declare a charge**.</description>
+</rule>
+<rule name="Delicious Eating Squigs (Stratagem, 1CP)" id="0d1a-e113-0002" hidden="false">
+<description>Kult of Speed – STRATAGEM (1CP)
+
+WHEN: Your Movement phase.
+TARGET: One friendly RUKKATRUKK SQUIGBUGGIES unit.
+EFFECT: Select any number of friendly ORKS INFANTRY units within 3&quot; of your unit. Each selected unit heals 3 wounds.</description>
+</rule>
+<rule name="Dakkastorm (Stratagem, 1CP)" id="0d1a-e113-0003" hidden="false">
+<description>Kult of Speed – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, when a friendly SPEED FREEKS unit is selected to shoot.
+TARGET: That SPEED FREEKS unit.
+EFFECT: Your unit&apos;s ranged attacks have [SUSTAINED HITS 1].</description>
+</rule>
+<rule name="Speediest Freeks (Stratagem, 1CP)" id="0d1a-e113-0004" hidden="false">
+<description>Kult of Speed – STRATAGEM (1CP)
+
+WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly SPEED FREEKS unit.
+TARGET: That SPEED FREEKS unit.
+EFFECT: Ranged attacks that target your unit fail on an unmodified hit roll of 1-3.</description>
+</rule>
+  </rules>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+</conditions>
+</modifier>
+  </modifiers>
+  <costs>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+  </costs>
+  <profiles>
+<profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0005">
+<characteristics>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Da Big Hunt" hidden="false" id="0d1a-e113-0000-0002">
+  <comment>DP=1 et Force Disposition=Purge the Foe non indiques dans le codex - choisis par convention, a confirmer.</comment>
+  <rules>
+<rule name="Da Hunt Is On" id="0d1a-e113-0006" hidden="false">
+<description>*Beast Snaggas fanatically hunt the biggest targets and are experts in finding their weak spots.*
+
+Friendly **^^Beast Snagga^^** units&apos; attacks that target a **^^Monster^^**/**^^Vehicle^^** unit have +1 **AP**.</description>
+</rule>
+<rule name="Where D&apos;ya Fink You&apos;re Going? (Stratagem, 1CP)" id="0d1a-e113-0007" hidden="false">
+<description>Da Big Hunt – STRATAGEM (1CP)
+
+WHEN: Your opponent&apos;s Movement phase, when an enemy unit is selected to make a fall-back move, if that enemy unit is engaged with a friendly BEAST SNAGGA unit.
+TARGET: That BEAST SNAGGA unit.
+EFFECT: When an enemy unit engaged with your unit is selected to make a fall-back move, that enemy unit must use the desperate escape mode. If that enemy unit is a MONSTER/VEHICLE unit, that enemy unit makes three additional hazard rolls for each BEAST SNAGGA unit it is engaged with, with -1 from those hazard rolls if that enemy unit is battle-shocked.</description>
+</rule>
+<rule name="Goaded Into Action (Stratagem, 1CP)" id="0d1a-e113-0008" hidden="false">
+<description>Da Big Hunt – STRATAGEM (1CP)
+
+WHEN: Your opponent&apos;s Shooting phase, when an enemy unit has shot.
+TARGET: One friendly unengaged BEAST SNAGGA unit that lost a wound as a result of those attacks.
+EFFECT: Your unit can make a surge move of up to D6&quot;. If your unit is riled up, it can re-roll that D6.</description>
+</rule>
+<rule name="Instinctive Hunters (Stratagem, 1CP)" id="0d1a-e113-0009" hidden="false">
+<description>Da Big Hunt – STRATAGEM (1CP)
+
+WHEN: End of your opponent&apos;s Fight phase.
+TARGET: One friendly unengaged BEAST SNAGGA unit within 6&quot; of a battlefield edge.
+EFFECT: Place your unit in strategic reserves.</description>
+</rule>
+  </rules>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+</conditions>
+</modifier>
+  </modifiers>
+  <costs>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+  </costs>
+  <profiles>
+<profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0010">
+<characteristics>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Madcap Meks" hidden="false" id="0d1a-e113-0000-0003">
+  <comment>DP=1 et Force Disposition=Priority Assets non indiques dans le codex - choisis par convention, a confirmer.</comment>
+  <rules>
+<rule name="Unpredictable Genius" id="0d1a-e113-0011" hidden="false">
+<description>*Meks haul all manner of weird bullets, unstable power cells and customised extras to battle.*
+
+In your Shooting phase, when all of a friendly **^^Big Mek^^**/**^^Mek Gunz^^**/**^^Morkanaut^^**/**^^Wazbom Blastajet^^** unit&apos;s ranged attacks target a single enemy unit, roll one D6:
+- **1 – Dat&apos;s Weird:** The target unit has 4+ **InSv** until your unit has shot.
+- **2-3 – Hop Splat:** Select one other enemy unit within 3&quot; of the target. That unit suffers D3 **mortal wounds**.
+- **4 – Seekerz:** Those attacks have +1 to **Hit** rolls.
+- **5 – Lifted:** The target unit has **^^Fly^^**, and cannot have the **benefit of cover**, until your next turn.
+- **6 – Runtified:** The target unit has -1 **T** until your unit has shot.</description>
+</rule>
+<rule name="Vindictive Artillerists (Stratagem, 1CP)" id="0d1a-e113-0012" hidden="false">
+<description>Madcap Meks – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, when a friendly MEK GUNZ unit is selected to shoot.
+TARGET: That MEK GUNZ unit.
+EFFECT: Your unit&apos;s ranged attacks have:
+- [LETHAL HITS]
+- Or: [SUSTAINED HITS 1]
+- Or: [HAZARDOUS], [LETHAL HITS], [SUSTAINED HITS 1]</description>
+</rule>
+  </rules>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+</conditions>
+</modifier>
+  </modifiers>
+  <costs>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+  </costs>
+  <profiles>
+<profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0013">
+<characteristics>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Brute Bosses" hidden="false" id="0d1a-e113-0000-0004">
+  <comment>DP=1 et Force Disposition=Take and Hold non indiques dans le codex - choisis par convention, a confirmer. Stratagems du detachement non fournis (page manquante) - a completer.</comment>
+  <rules>
+<rule name="&apos;Ard As Nails" id="0d1a-e113-0014" hidden="false">
+<description>*The largest Orks have risen to their position through strength, savagery and being harder than anyone else.*
+
+When a friendly **^^Warboss^^** model is **destroyed**, if this unit has not been **selected to fight** this phase, roll one D6, with +1 to the roll if your unit is **riled up**:
+- On a 3+, do not remove this **^^Warboss^^** model from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), this **^^Warboss^^** model is removed from the battlefield.</description>
+</rule>
+  </rules>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+</conditions>
+</modifier>
+  </modifiers>
+  <costs>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+  </costs>
+  <profiles>
+<profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0015">
+<characteristics>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+</characteristics>
+</profile>
+  </profiles>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Wurrband" hidden="false" id="0d1a-e113-0000-0005">
+  <comment>DP=1 et Force Disposition=Disruption non indiques dans le codex - choisis par convention, a confirmer. Stratagems du detachement non fournis (page manquante) - a completer.</comment>
+  <rules>
+<rule name="Powers of Da Waaagh!" id="0d1a-e113-0016" hidden="false">
+<description>*Surrounded by mobs of excitable Orks, Weirdboyz&apos; shamanic powers build to spectacular phenomena.*
+
+Friendly **^^Orks^^ ^^Psyker^^** models&apos; **[PSYCHIC]** attacks have:
+- +1 **S**.
+- +1 **S** for every 5 models in this unit (or embarked within this model).
+
+Friendly **^^Orks^^ ^^Psyker^^** models have the following **psychic abilities**:
+
+**Roar of Mork (psychic level 1):** In your Movement phase, if this unit is not **battle-shocked**, you can make a **psychic roll** for this unit by rolling one D6. If you do:
+- On a 1, this unit is **battle-shocked**.
+- Select one enemy unit (excluding **^^Monster^^**/**^^Vehicle^^** units) within 12&quot; of this unit. That enemy unit makes a **battle-shock roll**, with -1 from that **battle-shock roll** for every 10 models in this unit.
+
+**Visions of Violence (psychic level 1):** At the start of the Fight phase, if this unit is not **battle-shocked**, you can make a **psychic roll** for this unit by rolling one D6. If you do:
+- On a 1, this unit is **battle-shocked**.
+- This unit has **Fights First**.</description>
+</rule>
+  </rules>
+  <modifiers>
+<modifier type="set" value="true" field="hidden">
+<conditions>
+<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
+</conditions>
+</modifier>
+  </modifiers>
+  <costs>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+  </costs>
+  <profiles>
+<profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0017">
+<characteristics>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+</characteristics>
+</profile>
   </profiles>
 </selectionEntry>
       </selectionEntries>
@@ -8289,6 +9352,10 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Flash Gitz" hidden="false" id="fe29-da32-d3db-1192"/>
     <categoryEntry name="Breaka Boyz" hidden="false" id="0d1a-e10d-9990-0003"/>
     <categoryEntry name="Mek Gunz" hidden="false" id="53b0-fb83-5e75-9a51"/>
+    <categoryEntry name="Warbikers" hidden="false" id="9610-d887-1e01-a8e9"/>
+    <categoryEntry name="Deffkilla Wartrike" hidden="false" id="1b8c-203a-e329-2a02"/>
+    <categoryEntry name="Beastboss on Squigosaur" hidden="false" id="6b40-8456-36cb-ece2"/>
+    <categoryEntry name="Big Mek with Shokk Attack Gun" hidden="false" id="2810-316b-919d-657e"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Boyz" hidden="false" type="selectionEntry" id="187-93d6-1ac7-dbde" targetId="e3b1-1240-2476-cd86"/>
