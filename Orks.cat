@@ -2769,6 +2769,420 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
     <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
   </costs>
 </selectionEntry>
+<selectionEntry type="model" import="true" name="Gorkanaut" hidden="false" id="56d6-a7fc-fa08-4345">
+  <comment>invuln: 6+</comment>
+  <constraints>
+    <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-b038"/>
+  </constraints>
+  <profiles>
+    <profile name="Gorkanaut" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-9f3b-7c40-b039">
+<characteristics>
+      <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">9&quot;</characteristic>
+      <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">12</characteristic>
+      <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+      <characteristic name="W" typeId="750a-a2ec-90d3-21fe">20</characteristic>
+      <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+      <characteristic name="OC" typeId="bef7-942a-1a23-59f8">8</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Gut Hatch" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-b001">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit ends a **normal move**, units embarked within this unit can make an **assault disembark move**.</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Big an' Stompy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-b002">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit's melee attacks can re-roll **Hit** rolls of 1.</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="0d1a-9f3b-7c40-b040">
+<characteristics>
+<characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 **^^Orks Infantry^^** models. It cannot transport **^^Ghazghkull Thraka^^** models. Each **^^Mega Armour^^** or **^^Jump Pack^^** model takes up the space of 2 models.</characteristic>
+</characteristics>
+    </profile>
+  </profiles>
+  <categoryLinks>
+    <categoryLink targetId="dbd4-63-af05-998" id="0d1a-9f3b-7c40-b041" primary="true" name="Vehicle"/>
+    <categoryLink targetId="5929-ad51-d006-e008" id="0d1a-9f3b-7c40-b042" primary="false" name="Titanic"/>
+    <categoryLink targetId="d666-e2c9-b6cc-5716" id="0d1a-9f3b-7c40-b043" primary="false" name="Towering"/>
+    <categoryLink targetId="75e8-57c4-40e3-1817" id="0d1a-9f3b-7c40-b044" primary="false" name="Transport"/>
+    <categoryLink targetId="6dda-e157-334d-e93a" id="0d1a-9f3b-7c40-b045" primary="false" name="Walker"/>
+    <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-9f3b-7c40-b046" primary="false" name="Faction: Orks"/>
+    <categoryLink targetId="e6c0-9d12-619e-7517" id="0d1a-9f3b-7c40-b047" primary="false" name="Gorkanaut"/>
+  </categoryLinks>
+  <infoLinks>
+    <infoLink name="Damaged" hidden="false" type="rule" id="0d1a-9f3b-7c40-b048" targetId="f12d-58f5-c28f-692e">
+<modifiers>
+<modifier type="append" value="7" field="name"/>
+</modifiers>
+    </infoLink>
+    <infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-9f3b-7c40-b049" targetId="b68a-5ded-65ac-98c">
+<modifiers>
+<modifier type="append" value="D6" field="name"/>
+</modifiers>
+    </infoLink>
+    <infoLink name="Super-Heavy Walker" hidden="false" type="rule" id="0d1a-9f3b-7c40-b050" targetId="5e13-1624-d280-418d"/>
+    <infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-9f3b-7c40-b051" targetId="37c-6ef9-277-9091"/>
+    <infoLink name="Assault Disembark Move" hidden="false" type="rule" id="0d1a-9f3b-7c40-b052" targetId="0d1a-9f3b-7c40-1c05"/>
+    <infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-9f3b-7c40-b053" targetId="42f1-ea3d-3ff9-e56a"/>
+  </infoLinks>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Deffstorm mega-shoota" hidden="false" id="0d1a-9f3b-7c40-b005" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b006"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b007"/>
+</constraints>
+<profiles>
+<profile name="➤ Deffstorm mega-shoota - Aimed" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b003">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">20</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Deffstorm mega-shoota - Point Blank" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b004">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3D6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Torrent</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-b008" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-b009" targetId="5edf-d619-23e0-9b56"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-b010" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Dual Big Shoota" hidden="false" id="0d1a-9f3b-7c40-b012" collective="false">
+<constraints>
+<constraint type="min" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b013"/>
+<constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b014"/>
+</constraints>
+<profiles>
+<profile name="Dual Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b011">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 4</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-b015" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-b016" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-b017" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-b020" collective="false">
+<constraints>
+<constraint type="min" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b021"/>
+<constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b022"/>
+</constraints>
+<profiles>
+<profile name="➤ Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b018">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b019">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-b023" targetId="6c1f-1cf7-ff25-c99e"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-b024" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Skorcha" hidden="false" id="0d1a-9f3b-7c40-b026" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b027"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b028"/>
+</constraints>
+<profiles>
+<profile name="Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-b025">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-b029" targetId="6c1f-1cf7-ff25-c99e"/>
+<infoLink name="Torrent" hidden="false" type="rule" id="0d1a-9f3b-7c40-b030" targetId="5edf-d619-23e0-9b56"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-b031" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Klaw of Gork" hidden="false" id="0d1a-9f3b-7c40-b033" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b034"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-b035"/>
+</constraints>
+<profiles>
+<profile name="Klaw of Gork" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-b032">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">18</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 3</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-b036" targetId="ea1f-c7b7-cafa-43f8"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-b037" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+  </selectionEntries>
+  <costs>
+    <cost name="pts" typeId="51b2-306e-1021-d207" value="255"/>
+  </costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Morkanaut" hidden="false" id="9ee5-2b39-de06-dda6">
+  <comment>invuln: 5+</comment>
+  <constraints>
+    <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-c035"/>
+  </constraints>
+  <profiles>
+    <profile name="Morkanaut" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-9f3b-7c40-c036">
+<characteristics>
+      <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">9&quot;</characteristic>
+      <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">12</characteristic>
+      <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+      <characteristic name="W" typeId="750a-a2ec-90d3-21fe">20</characteristic>
+      <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+      <characteristic name="OC" typeId="bef7-942a-1a23-59f8">8</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Gut Hatch" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-c090">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit ends a **normal move**, units embarked within this unit can make an **assault disembark move**.</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Big an' Shooty" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-c001">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, this unit's ranged attacks can re-roll **Hit** rolls of 1.</characteristic>
+</characteristics>
+    </profile>
+    <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="0d1a-9f3b-7c40-c037">
+<characteristics>
+<characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 **^^Orks Infantry^^** models. It cannot transport **^^Ghazghkull Thraka^^** models. Each **^^Mega Armour^^** or **^^Jump Pack^^** model takes up the space of 2 models.</characteristic>
+</characteristics>
+    </profile>
+  </profiles>
+  <categoryLinks>
+    <categoryLink targetId="dbd4-63-af05-998" id="0d1a-9f3b-7c40-c038" primary="true" name="Vehicle"/>
+    <categoryLink targetId="5929-ad51-d006-e008" id="0d1a-9f3b-7c40-c039" primary="false" name="Titanic"/>
+    <categoryLink targetId="d666-e2c9-b6cc-5716" id="0d1a-9f3b-7c40-c040" primary="false" name="Towering"/>
+    <categoryLink targetId="75e8-57c4-40e3-1817" id="0d1a-9f3b-7c40-c041" primary="false" name="Transport"/>
+    <categoryLink targetId="6dda-e157-334d-e93a" id="0d1a-9f3b-7c40-c042" primary="false" name="Walker"/>
+    <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-9f3b-7c40-c043" primary="false" name="Faction: Orks"/>
+    <categoryLink targetId="1074-5be7-326a-af90" id="0d1a-9f3b-7c40-c044" primary="false" name="Morkanaut"/>
+  </categoryLinks>
+  <infoLinks>
+    <infoLink name="Damaged" hidden="false" type="rule" id="0d1a-9f3b-7c40-c045" targetId="f12d-58f5-c28f-692e">
+<modifiers>
+<modifier type="append" value="7" field="name"/>
+</modifiers>
+    </infoLink>
+    <infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-9f3b-7c40-c046" targetId="b68a-5ded-65ac-98c">
+<modifiers>
+<modifier type="append" value="D6" field="name"/>
+</modifiers>
+    </infoLink>
+    <infoLink name="Super-Heavy Walker" hidden="false" type="rule" id="0d1a-9f3b-7c40-c047" targetId="5e13-1624-d280-418d"/>
+    <infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-9f3b-7c40-c048" targetId="37c-6ef9-277-9091"/>
+    <infoLink name="Assault Disembark Move" hidden="false" type="rule" id="0d1a-9f3b-7c40-c049" targetId="0d1a-9f3b-7c40-1c05"/>
+    <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-9f3b-7c40-c050" targetId="27f4-7449-a636-ae8c"/>
+  </infoLinks>
+  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Dual Big Shoota" hidden="false" id="0d1a-9f3b-7c40-c003" collective="false">
+<constraints>
+<constraint type="min" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c004"/>
+<constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c005"/>
+</constraints>
+<profiles>
+<profile name="Dual Big Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-c002">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 4</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-9f3b-7c40-c006" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-9f3b-7c40-c007" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-c008" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kustom Mega-blasta" hidden="false" id="0d1a-9f3b-7c40-c010" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c011"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c012"/>
+</constraints>
+<profiles>
+<profile name="Kustom Mega-blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-c009">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Hazardous" hidden="false" type="rule" id="0d1a-9f3b-7c40-c013" targetId="8367-374c-f87-c627"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-c014" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kustom Mega-zappa" hidden="false" id="0d1a-9f3b-7c40-c016" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c017"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c018"/>
+</constraints>
+<profiles>
+<profile name="Kustom Mega-zappa" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-c015">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">4</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-c019" targetId="6c1f-1cf7-ff25-c99e"/>
+<infoLink name="Hazardous" hidden="false" type="rule" id="0d1a-9f3b-7c40-c020" targetId="8367-374c-f87-c627"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-c021" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Rokkit Launcha" hidden="false" id="0d1a-9f3b-7c40-c024" collective="false">
+<constraints>
+<constraint type="min" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c025"/>
+<constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c026"/>
+</constraints>
+<profiles>
+<profile name="➤ Rokkit Launcha - Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-c022">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Rokkit Launcha - Busta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-9f3b-7c40-c023">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-9f3b-7c40-c027" targetId="6c1f-1cf7-ff25-c99e"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-9f3b-7c40-c028" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Klaw of Mork" hidden="false" id="0d1a-9f3b-7c40-c030" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c031"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-c032"/>
+</constraints>
+<profiles>
+<profile name="Klaw of Mork" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-9f3b-7c40-c029">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">18</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-9f3b-7c40-c033" targetId="ea1f-c7b7-cafa-43f8"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-c034" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+  </selectionEntries>
+  <costs>
+    <cost name="pts" typeId="51b2-306e-1021-d207" value="270"/>
+  </costs>
+</selectionEntry>
   </sharedSelectionEntries>
   <rules>
     <rule name="Waaagh!" hidden="false" id="37c-6ef9-277-9091">
@@ -4214,6 +4628,8 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Grots" id="c7c7-ef60-67e3-def2" hidden="false"/>
     <categoryEntry name="Frame" hidden="false" id="f0f4-10e5-6f1c-a4a5"/>
     <categoryEntry name="Bigboss" hidden="false" id="0d1a-9f3b-7c40-a0f0"/>
+    <categoryEntry name="Gorkanaut" hidden="false" id="e6c0-9d12-619e-7517"/>
+    <categoryEntry name="Morkanaut" hidden="false" id="1074-5be7-326a-af90"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Boyz" hidden="false" type="selectionEntry" id="187-93d6-1ac7-dbde" targetId="e3b1-1240-2476-cd86"/>
@@ -4225,6 +4641,8 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <entryLink import="true" name="Tankbustas" hidden="false" type="selectionEntry" id="8fe6-8fee-a58c-2ed" targetId="dadc-d370-ef10-853c"/>
     <entryLink import="true" name="Trukk" hidden="false" type="selectionEntry" id="4b64-6e46-f990-e5df" targetId="1291-7ba8-2c5a-4a92"/>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="dc5b-07db-415b-a1da" targetId="73c2-d0ed-3c7e-7e17"/>
+    <entryLink import="true" name="Gorkanaut" hidden="false" type="selectionEntry" id="c5a3-4245-9b6a-fb8" targetId="56d6-a7fc-fa08-4345"/>
+    <entryLink import="true" name="Morkanaut" hidden="false" type="selectionEntry" id="5267-f96c-4491-eebe" targetId="9ee5-2b39-de06-dda6"/>
   </entryLinks>
   <sharedProfiles>
     <profile name="Bomb Squigs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e29-7605-a22c-2eab">
