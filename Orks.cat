@@ -2324,12 +2324,49 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-7035" targetId="ccdd-3987-11ed-90cd" primary="false"/>
 </categoryLinks>
 </selectionEntry>
-<selectionEntry type="upgrade" import="true" name="Pulsa Rokkit" hidden="false" id="0d1a-9f3b-7c40-7026" collective="false">
-<constraints>
-<constraint type="max" value="1" field="selections" scope="unit" shared="true" id="0d1a-9f3b-7c40-7024" includeChildSelections="true"/>
-</constraints>
-</selectionEntry>
 </selectionEntries>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Tankbusta upgrade (1 par unite)" id="0d1a-e112-0000-0006" hidden="false">
+                  <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Busta Rokkit Launcha (additionnelle)" hidden="false" id="0d1a-e112-0000-0001" collective="false">
+<profiles>
+<profile name="➤ Busta Rokkit Launcha - Standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e112-0000-0002">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Busta Rokkit Launcha - Hunter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e112-0000-0003">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hunter: MONSTER/VEHICLE</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e112-0000-0004" targetId="0d1a-9f3b-7c40-1c06"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e112-0000-0005" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Pulsa Rokkit" hidden="false" id="0d1a-9f3b-7c40-7026" collective="false"></selectionEntry>
+                  </selectionEntries>
+<constraints>
+<constraint type="max" value="1" field="selections" scope="unit" shared="true" id="0d1a-e112-0000-0007" includeChildSelections="true"/>
+</constraints>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
 </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -2417,6 +2454,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Trukk" hidden="false" id="1291-7ba8-2c5a-4a92">
+      <comment>invuln: 6+</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="d47b-7adb-35f4-a830"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c3f0-73a7-daa7-85e5" includeChildSelections="true"/>
@@ -2445,7 +2483,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         </profile>
         <profile name="Pilin&apos; Out" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fdb-9e2f-88df-12cf">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this model, units embarked within this model can make a disembark move using the rapid disembark mode.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&amp;apos;s Movement phase, when an enemy unit ends a move within 8&amp;quot; of this model, units embarked within this model can make a **disembark move** using the **rapid disembark mode**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Trukk" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="ca7e-d8e6-943-b800">
@@ -2572,8 +2610,8 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Extra Attacks</characteristic>
                   </characteristics>
