@@ -1837,6 +1837,20 @@ When a player has completed all five phases, their turn ends.</description>
       <description>This ability always takes the form Damaged X. While a model’s remaining wounds are equal to or less than X, that model is damaged:
 ■ While a model is damaged, that model’s attacks have -1 to hit rolls.</description>
     </rule>
+    <rule name="Hunter (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c06">
+      <description>Some weapons have a **[HUNTER: ^^Monster^^/^^Vehicle^^]** profile. Each time a unit is selected to shoot or fight, a weapon profile that has **[HUNTER: ^^Monster^^/^^Vehicle^^]** can only be used to make attacks against a target that is a **^^Monster^^** or **^^Vehicle^^** unit.
+
+This is a targeting restriction that depends on the enemy unit, so the format cannot enforce it automatically: it is descriptive. A consuming app must show it, and only allow that profile to be used against **^^Monster^^**/**^^Vehicle^^** targets.</description>
+    </rule>
+    <rule name="Devastating Wounds (Infantry)" hidden="false" id="0d1a-9f3b-7c40-1c07">
+      <description>Some weapons have **[DEVASTATING WOUNDS: ^^Infantry^^]** in their profile. Each time an attack is made with such a weapon against an **^^Infantry^^** unit, a Critical Wound inflicts Devastating Wounds (mortal wounds equal to the Damage characteristic). This ability has no effect against other targets.</description>
+    </rule>
+    <rule name="Devastating Wounds (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c08">
+      <description>Some weapons have **[DEVASTATING WOUNDS: ^^Monster^^/^^Vehicle^^]** in their profile. Each time an attack is made with such a weapon against a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Wound inflicts Devastating Wounds (mortal wounds equal to the Damage characteristic). This ability has no effect against other targets.</description>
+    </rule>
+<rule name="Sustained Hits (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c09">
+      <description>Weapons with **[SUSTAINED HITS N (^^Monster^^/^^Vehicle^^)]** in their profile only benefit from the Sustained Hits ability against **^^Monster^^** or **^^Vehicle^^** units. Each time an attack is made with such a weapon against a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit scores N additional hits. This ability has no effect against other targets.</description>
+</rule>
   </sharedRules>
   <sharedProfiles>
     <profile id="fa4e-5ac8-11a6-78d2" name="Fortification" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
