@@ -7124,6 +7124,2031 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
   </costs>
 </selectionEntry>
+<selectionEntry type="model" import="true" name="Warboss" hidden="false" id="2efc-c4b3-2ecc-5a37">
+<comment>pts: 85 (ancien MFM, provisoire). invuln: 5+
+sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee conditional</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0031" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Warboss" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0032">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Boss&apos; Ammo Runt" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0033">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle, per unit)** In your Shooting phase, when this unit is **selected to shoot**, you can use this ability. If you do, this unit&apos;s ranged attacks have +1 to **Hit rolls**.
+
+*Place a Boss&apos; Ammo Runt token next to the unit, removing it when this ability is used.*</characteristic>
+</characteristics>
+</profile>
+<profile name="Might Is Right" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0034">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a **charge move** this turn, this model&apos;s melee attacks have:
+- +3 **A**.
+- +2 **S**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Intimidating Motivation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0035">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle round, per army)** In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Orks^^** unit within 6&quot; of this unit. That unit:
+- Is no longer **battle-shocked**.
+- Is **riled up** until the start of your next turn.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntryGroups>
+<selectionEntryGroup name="Warboss Ranged Weapon" id="0d1a-e116-0019" hidden="false" defaultSelectionEntryId="0d1a-e116-9991-0001">
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Kustom Shoota" hidden="false" id="0d1a-e116-9991-0001" collective="false">
+<profiles>
+<profile name="Kustom Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0001">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 2</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0002" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-e116-0003" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0004" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kombi-rokkit" hidden="false" id="0d1a-e116-0005" collective="false">
+<profiles>
+<profile name="➤ Kombi-rokkit - Busta Rokkit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0006">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Kombi-rokkit - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0007">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0008" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-e116-0009" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0010" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kombi-skorcha" hidden="false" id="0d1a-e116-0011" collective="false">
+<profiles>
+<profile name="➤ Kombi-skorcha - Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0012">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Kombi-skorcha - Skorcha" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0013">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">-</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0014" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-e116-0015" targetId="c5c8-8b58-b8b6-7786"/>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-e116-0016" targetId="6c1f-1cf7-ff25-c99e"/>
+<infoLink name="Torrent" hidden="false" type="rule" id="0d1a-e116-0017" targetId="5edf-d619-23e0-9b56"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0018" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0020"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0021"/>
+</constraints>
+</selectionEntryGroup>
+<selectionEntryGroup name="Warboss Melee Weapon" id="0d1a-e116-0028" hidden="false" defaultSelectionEntryId="0d1a-e116-9991-0002">
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Kustom Choppa" hidden="false" id="0d1a-e116-9991-0002" collective="false">
+<profiles>
+<profile name="Kustom Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0022">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0023" targetId="ea1f-c7b7-cafa-43f8"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0024" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Power Klaw" hidden="false" id="0d1a-e116-0025" collective="false">
+<profiles>
+<profile name="Power Klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0026">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0027" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0029"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0030"/>
+</constraints>
+</selectionEntryGroup>
+</selectionEntryGroups>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0036" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0037"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0038" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0039" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-e116-0040" targetId="0d1a-9f3b-7c40-1c02"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0041" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e116-0042" targetId="27f4-7449-a636-ae8c"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0043" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0044" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-e116-0045" primary="false" name="Explosives"/>
+<categoryLink targetId="47cc-4071-6fda-688e" id="0d1a-e116-0046" primary="false" name="Warboss"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0047" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Weirdboy" hidden="false" id="260d-9ce4-ea1f-a957">
+<comment>pts: 65 (ancien MFM, provisoire).</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0063" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Weirdboy" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0064">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Waaagh! Energy (psyker level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0065">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the **psychic abilities** listed below.</characteristic>
+</characteristics>
+</profile>
+<profile name="Da Jump (psychic level 1, once per army, per battle round)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0066">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, if this unit is not **battle-shocked**, you can make a **psychic roll** for this unit by rolling one D6. If you do:
+- On a 1, this unit is **battle-shocked**.
+- Place this unit in **strategic reserves**.
+- This unit has **Deep Strike**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Warpath (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0067">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this unit is **selected to fight**, if this unit is not **battle-shocked**, you can make a **psychic roll** for this unit by rolling one D6. If you do:
+- On a 1, this unit is **battle-shocked**.
+- This unit&apos;s melee attacks can re-roll **Wound rolls** of 1.
+- This unit&apos;s melee attacks have **[PSYCHIC]**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Power Vomit" hidden="false" id="0d1a-e116-0048" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0049"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0050"/>
+</constraints>
+<profiles>
+<profile name="Power Vomit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0051">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">-</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous, Psychic, Torrent</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-e116-0052" targetId="6c1f-1cf7-ff25-c99e"/>
+<infoLink name="Hazardous" hidden="false" type="rule" id="0d1a-e116-0053" targetId="8367-374c-f87-c627"/>
+<infoLink name="Psychic" hidden="false" type="rule" id="0d1a-e116-0054" targetId="e9c4-2bb8-12ee-cd1b"/>
+<infoLink name="Torrent" hidden="false" type="rule" id="0d1a-e116-0055" targetId="5edf-d619-23e0-9b56"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0056" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Copper Staff" hidden="false" id="0d1a-e116-0057" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0058"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0059"/>
+</constraints>
+<profiles>
+<profile name="Copper Staff" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0060">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Psychic" hidden="false" type="rule" id="0d1a-e116-0061" targetId="e9c4-2bb8-12ee-cd1b"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0062" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0068" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0069"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0070" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-e116-0071" targetId="b68a-5ded-65ac-98c">
+<modifiers>
+<modifier type="append" value="D3" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0072" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Unstable Energies" hidden="false" type="rule" id="0d1a-e116-0073" targetId="0d1a-9f3b-7c40-1c03"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0074" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0075" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0076" primary="true" name="Character"/>
+<categoryLink targetId="13bf-2bee-3ae0-b414" id="0d1a-e116-0077" primary="false" name="Psyker"/>
+<categoryLink targetId="b3fc-3d75-4ff1-5210" id="0d1a-e116-0078" primary="false" name="Weirdboy"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0079" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Boss Snikrot" hidden="false" id="e651-5901-35e5-dc35">
+<comment>pts: 75 (ancien MFM, provisoire). invuln: 5+</comment>
+<constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0095" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Boss Snikrot" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0096">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Kunnin&apos; Infiltrator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0097">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Fight phase, if each model in this unit is **hidden** and **unengaged**, you can place this unit in **strategic reserves**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Deff from the Shadows (First battle round onwards)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0098">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Movement phase, if this unit is in **strategic reserves**, this unit can make an **ingress move**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0080" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0081"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0082"/>
+</constraints>
+<profiles>
+<profile name="Slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0083">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Lethal Hits (non-MONSTER/VEHICLE), Precision</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0084" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0085" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Precision" hidden="false" type="rule" id="0d1a-e116-0086" targetId="9143-31ae-e0a6-6007"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0087" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Mork&apos;s Teef" hidden="false" id="0d1a-e116-0088" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0089"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0090"/>
+</constraints>
+<profiles>
+<profile name="Mork&apos;s Teef" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0091">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Infantry 2+, Precision</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0092" targetId="4111-82e3-9444-e942"/>
+<infoLink name="Precision" hidden="false" type="rule" id="0d1a-e116-0093" targetId="9143-31ae-e0a6-6007"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0094" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0099" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0100"/>
+</constraints>
+</entryLink>
+</entryLinks>
+<infoLinks>
+<infoLink name="Infiltrators" hidden="false" type="rule" id="0d1a-e116-0101" targetId="c05d-f4c3-f091-4938"/>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0102" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Lone Operative" hidden="false" type="rule" id="0d1a-e116-0103" targetId="a8a0-8fe7-898-e0f3"/>
+<infoLink name="Stealth" hidden="false" type="rule" id="0d1a-e116-0104" targetId="bec5-4288-34a6-ccfa"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0105" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e116-0106" targetId="27f4-7449-a636-ae8c"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0107" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0108" primary="false" name="Character"/>
+<categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-e116-0109" primary="true" name="Epic Hero"/>
+<categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-e116-0110" primary="false" name="Explosives"/>
+<categoryLink targetId="6df-937-16bc-8c1a" id="0d1a-e116-0111" primary="false" name="Smoke"/>
+<categoryLink targetId="7f4-5604-28be-4415" id="0d1a-e116-0112" primary="false" name="Boss Snikrot"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0113" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Bannernob" hidden="false" id="8350-e8f1-2196-c557">
+<comment>pts: 50 (ancien MFM, provisoire).</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0126" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Bannernob" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0127">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+</characteristics>
+</profile>
+<profile name="Waaagh! Banner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0128">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to **Charge rolls**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="0d1a-e116-0114" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0115"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0116"/>
+</constraints>
+<profiles>
+<profile name="Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0117">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0118" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-e116-0119" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0120" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kustom Choppa" hidden="false" id="0d1a-e116-0121" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0122"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0123"/>
+</constraints>
+<profiles>
+<profile name="Kustom Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0124">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0125" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0129" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0130"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0131" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0132" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0133" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0134" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0135" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-e116-9990-0003" id="0d1a-e116-0136" primary="false" name="Bannernob"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0137" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Bigboss" hidden="false" id="116d-d6e9-633a-ac62">
+<comment>pts: 55 (ancien MFM, provisoire).
+sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0151" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Bigboss" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0152">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Sumfin&apos; to Prove" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0153">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 to **Hit rolls**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0138" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0139"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0140"/>
+</constraints>
+<profiles>
+<profile name="Slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0141">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0142" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0143" targetId="0d1a-9f3b-7c40-1c01"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0144" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Big Choppa" hidden="false" id="0d1a-e116-0145" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0146"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0147"/>
+</constraints>
+<profiles>
+<profile name="Big Choppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0148">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Precision" hidden="false" type="rule" id="0d1a-e116-0149" targetId="9143-31ae-e0a6-6007"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0150" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0154" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0155"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0156" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0157" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0158" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0159" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0160" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-9f3b-7c40-a0f0" id="0d1a-e116-0161" primary="false" name="Bigboss"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0162" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Big Mek with Shokk Attack Gun" hidden="false" id="dde2-ca42-e3bc-2ef6">
+<comment>pts: 70 (ancien MFM, provisoire).
+sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0175" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Big Mek with Shokk Attack Gun" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0176">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="More Dakka" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0177">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s ranged attacks have:
+- **[IGNORES COVER]**.
+- If this unit is **riled up**, **[SUSTAINED HITS 1]**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Support Shokka" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0178">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of a friendly **^^Orks^^ ^^Infantry^^** unit (excluding **^^Big Mek with Shokk Attack Gun^^** units), this model has **Lone Operative**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Shokk Attack Gun" hidden="false" id="0d1a-e116-0163" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0164"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0165"/>
+</constraints>
+<profiles>
+<profile name="Shokk Attack Gun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0166">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">60&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">D3+3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Heavy</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-e116-0167" targetId="6c1f-1cf7-ff25-c99e"/>
+<infoLink name="Heavy" hidden="false" type="rule" id="0d1a-e116-0168" targetId="1202-10a8-78e9-4c67"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0169" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Big Mek&apos;s Toolz" hidden="false" id="0d1a-e116-0170" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0171"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0172"/>
+</constraints>
+<profiles>
+<profile name="Big Mek&apos;s Toolz" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0173">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0174" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0179" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0180"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0181" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0182" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0183" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0184" primary="false" name="Infantry"/>
+<categoryLink targetId="1ea0-8b1a-ddea-4d7c" id="0d1a-e116-0185" primary="false" name="Big Mek"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0186" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-e116-0187" primary="false" name="Explosives"/>
+<categoryLink targetId="2810-316b-919d-657e" id="0d1a-e116-0188" primary="false" name="Big Mek with Shokk Attack Gun"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0189" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Mek" hidden="false" id="3b2-8c11-616a-1005">
+<comment>pts: 55 (ancien MFM, provisoire).</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0202" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Mek" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0203">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Kustom Dakka" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0204">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s ranged attacks have **[IGNORES COVER]**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Clever Know-wotz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0205">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Orks^^ ^^Vehicle^^** model (excluding **^^Aircraft^^**/**^^Titanic^^** models) within 3&quot; of this model:
+- That **^^Vehicle^^** model **heals** D3 wounds.
+- That **^^Vehicle^^** model&apos;s attacks have +1 to **Hit rolls** until the start of your next Movement phase.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Kustom Mega-slugga" hidden="false" id="0d1a-e116-0190" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0191"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0192"/>
+</constraints>
+<profiles>
+<profile name="Kustom Mega-slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0193">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Hazardous</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0194" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Hazardous" hidden="false" type="rule" id="0d1a-e116-0195" targetId="8367-374c-f87-c627"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0196" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Mek&apos;s Toolz" hidden="false" id="0d1a-e116-0197" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0198"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0199"/>
+</constraints>
+<profiles>
+<profile name="Mek&apos;s Toolz" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0200">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0201" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0206" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0207"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0208" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0209" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0210" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0211" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0212" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-e116-0213" primary="false" name="Explosives"/>
+<categoryLink targetId="f802-1e3a-d9ce-aa99" id="0d1a-e116-0214" primary="false" name="Mek"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0215" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Deffkilla Wartrike" hidden="false" id="ca85-1d18-dc30-d64e">
+<comment>pts: 70 (ancien MFM, provisoire). invuln: 5+
+Valeurs des profils Killa Jet et Snagga Klaw (tir) partiellement illisibles sur la photo - a confirmer.</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0240" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Deffkilla Wartrike" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0241">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">9</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+</characteristics>
+</profile>
+<profile name="Get Back in da Race!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0242">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle round, per army)** In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Speed Freeks^^** unit within 6&quot; of this unit. That unit (and any units embarked within that unit):
+- Is no longer **battle-shocked**.
+- Is **riled up** until the start of your next turn.</characteristic>
+</characteristics>
+</profile>
+<profile name="Fuel-mixa Grot" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0243">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to **Advance rolls**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Boomstikks" hidden="false" id="0d1a-e116-0216" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0217"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0218"/>
+</constraints>
+<profiles>
+<profile name="Boomstikks" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0219">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Assault" hidden="false" type="rule" id="0d1a-e116-0220" targetId="fc8a-8c24-bae9-cc1c"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0221" targetId="0d1a-9f3b-7c40-1c01"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0222" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Killa Jet" hidden="false" id="0d1a-e116-0223" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0224"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0225"/>
+</constraints>
+<profiles>
+<profile name="➤ Killa Jet - Burna" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0226">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Extra Attacks</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Killa Jet - Cutta" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0227">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">D6+2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0228" targetId="ea1f-c7b7-cafa-43f8"/>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0229" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0230" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Snagga Klaw" hidden="false" id="0d1a-e116-0231" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0232"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0233"/>
+</constraints>
+<profiles>
+<profile name="Snagga Klaw (shooting)" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0234">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Precision</characteristic>
+</characteristics>
+</profile>
+<profile name="Snagga Klaw (melee)" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0235">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Assault" hidden="false" type="rule" id="0d1a-e116-0236" targetId="fc8a-8c24-bae9-cc1c"/>
+<infoLink name="Precision" hidden="false" type="rule" id="0d1a-e116-0237" targetId="9143-31ae-e0a6-6007"/>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0238" targetId="ea1f-c7b7-cafa-43f8"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0239" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0244" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0245"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0246" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-e116-0247" targetId="b68a-5ded-65ac-98c">
+<modifiers>
+<modifier type="append" value="1" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0248" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-e116-0249" targetId="0d1a-9f3b-7c40-1c02"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0250" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e116-0251" targetId="27f4-7449-a636-ae8c"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="14a0-40c9-2748-ae6e" id="0d1a-e116-0252" primary="false" name="Mounted"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0253" primary="true" name="Character"/>
+<categoryLink targetId="fe8b-9078-9a3d-fed" id="0d1a-e116-0254" primary="false" name="Speed Freeks"/>
+<categoryLink targetId="47cc-4071-6fda-688e" id="0d1a-e116-0255" primary="false" name="Warboss"/>
+<categoryLink targetId="1b8c-203a-e329-2a02" id="0d1a-e116-0256" primary="false" name="Deffkilla Wartrike"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0257" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Beastboss" hidden="false" id="5a5d-c5a4-39b8-4a3f">
+<comment>pts: 80 (ancien MFM, provisoire). invuln: 5+
+fnp: 6+
+BS du Shoota illisible (4+ ou 5+) : 5+ retenu par analogie avec les autres Shootas - a confirmer.
+sim-mod: source=&quot;Dodge Dis!&quot; hit=+1</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0271" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Beastboss" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0272">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Keep Huntin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0273">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle round, per army)** In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Beast Snagga^^** unit within 6&quot; of this unit. That unit:
+- Is no longer **battle-shocked**.
+- Is **riled up** until the start of your next turn.</characteristic>
+</characteristics>
+</profile>
+<profile name="Dodge Dis!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0274">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks have +1 to **Hit rolls**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="0d1a-e116-0258" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0259"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0260"/>
+</constraints>
+<profiles>
+<profile name="Shoota" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0261">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits (non-MONSTER/VEHICLE), Rapid Fire 1</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0262" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Rapid Fire" hidden="false" type="rule" id="0d1a-e116-0263" targetId="c5c8-8b58-b8b6-7786"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0264" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Beast Snagga Klaw and Beastchoppa" hidden="false" id="0d1a-e116-0265" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0266"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0267"/>
+</constraints>
+<profiles>
+<profile name="Beast Snagga Klaw and Beastchoppa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0268">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 2 (MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Sustained Hits (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0269" targetId="0d1a-9f3b-7c40-1c09"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0270" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0275" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0276"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0277" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Feel No Pain" hidden="false" type="rule" id="0d1a-e116-0278" targetId="9bf4-280f-bbe2-6fbb">
+<modifiers>
+<modifier type="append" value="6+" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0279" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-e116-0280" targetId="0d1a-9f3b-7c40-1c02"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0281" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e116-0282" targetId="27f4-7449-a636-ae8c"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0283" primary="false" name="Infantry"/>
+<categoryLink targetId="4e42-80a0-5c3b-2c7f" id="0d1a-e116-0284" primary="false" name="Beast Snagga"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0285" primary="true" name="Character"/>
+<categoryLink targetId="47cc-4071-6fda-688e" id="0d1a-e116-0286" primary="false" name="Warboss"/>
+<categoryLink targetId="0d1a-e116-9990-0002" id="0d1a-e116-0287" primary="false" name="Beastboss"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0288" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Beastboss on Squigosaur" hidden="false" id="a8b7-351-d911-a4d6">
+<comment>pts: 95 (ancien MFM, provisoire). invuln: 5+
+fnp: 5+
+Valeurs des profils Beastchoppa et Squigosaur&apos;s Jaws partiellement illisibles - a confirmer.</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0318" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Beastboss on Squigosaur" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0319">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">9</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+</characteristics>
+</profile>
+<profile name="Thundering Stampede (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0320">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">Friendly **^^Beast Snagga^^** units within 6&quot; of this unit have +1 to **Charge rolls**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Keep Huntin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0321">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle round, per army)** In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Beast Snagga^^** unit within 6&quot; of this unit. That unit:
+- Is no longer **battle-shocked**.
+- Is **riled up** until the start of your next turn.</characteristic>
+</characteristics>
+</profile>
+<profile name="Boss of da Hunt" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0322">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 3&quot; of a friendly **^^Beast Snagga^^** unit (excluding **^^Monster^^ ^^Character^^** units), this unit has **Lone Operative**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0289" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0290"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0291"/>
+</constraints>
+<profiles>
+<profile name="Slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0292">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0293" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0294" targetId="0d1a-9f3b-7c40-1c01"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0295" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Thump Gun" hidden="false" id="0d1a-e116-0296" collective="false">
+<constraints>
+<constraint type="min" value="0" field="selections" scope="parent" shared="true" id="0d1a-e116-0297"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0298"/>
+</constraints>
+<profiles>
+<profile name="Thump Gun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0299">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Monster/Vehicle 4+</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0300" targetId="4111-82e3-9444-e942"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0301" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Beastchoppa" hidden="false" id="0d1a-e116-0302" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0303"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0304"/>
+</constraints>
+<profiles>
+<profile name="➤ Beastchoppa - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0305">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Beastchoppa - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0306">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">D6+1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Hunter (MONSTER/VEHICLE), Lethal Hits</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0307" targetId="ea1f-c7b7-cafa-43f8"/>
+<infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0308" targetId="0d1a-9f3b-7c40-1c06"/>
+<infoLink name="Lethal Hits" hidden="false" type="rule" id="0d1a-e116-0309" targetId="d1d1-611e-5191-1095"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0310" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Squigosaur&apos;s Jaws" hidden="false" id="0d1a-e116-0311" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0312"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0313"/>
+</constraints>
+<profiles>
+<profile name="Squigosaur&apos;s Jaws" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0314">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster/Vehicle 3+, Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0315" targetId="4111-82e3-9444-e942"/>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0316" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0317" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0323" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0324"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0325" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Feel No Pain" hidden="false" type="rule" id="0d1a-e116-0326" targetId="9bf4-280f-bbe2-6fbb">
+<modifiers>
+<modifier type="append" value="5+" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-e116-0327" targetId="0d1a-9f3b-7c40-1c02"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0328" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e116-0329" targetId="27f4-7449-a636-ae8c"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="9693-cf84-fe69-37a9" id="0d1a-e116-0330" primary="false" name="Monster"/>
+<categoryLink targetId="4e42-80a0-5c3b-2c7f" id="0d1a-e116-0331" primary="false" name="Beast Snagga"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0332" primary="true" name="Character"/>
+<categoryLink targetId="47cc-4071-6fda-688e" id="0d1a-e116-0333" primary="false" name="Warboss"/>
+<categoryLink targetId="6b40-8456-36cb-ece2" id="0d1a-e116-0334" primary="false" name="Beastboss on Squigosaur"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0335" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Mozrog Skragbad" hidden="false" id="b42b-ea0-38f1-6300">
+<comment>pts: 125 (ancien MFM, provisoire). invuln: 4+
+fnp: 5+
+Valeurs des profils de melee (Big Chompa&apos;s Jaws, Gutrippa) partiellement illisibles - a confirmer.</comment>
+<constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0358" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Mozrog Skragbad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0359">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">9</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+</characteristics>
+</profile>
+<profile name="One Last Kill" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0360">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this model is **destroyed**, if this unit has not been **selected to fight** this phase, roll one D6:
+- On a 2+, do not remove this model from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), this model is removed from the battlefield.</characteristic>
+</characteristics>
+</profile>
+<profile name="Da Bigger Dey Iz..." typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0361">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks that target a **^^Monster^^**/**^^Vehicle^^** unit can re-roll **Wound rolls**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Beast Snagga Following" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0362">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 3&quot; of a friendly **^^Beast Snagga^^** unit (excluding **^^Monster^^ ^^Character^^** units), this unit has **Lone Operative**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Thump Gun" hidden="false" id="0d1a-e116-0336" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0337"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0338"/>
+</constraints>
+<profiles>
+<profile name="Thump Gun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0339">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Monster/Vehicle 4+</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0340" targetId="4111-82e3-9444-e942"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0341" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Big Chompa&apos;s Jaws" hidden="false" id="0d1a-e116-0342" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0343"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0344"/>
+</constraints>
+<profiles>
+<profile name="Big Chompa&apos;s Jaws" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0345">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster/Vehicle 3+, Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0346" targetId="4111-82e3-9444-e942"/>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0347" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0348" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Gutrippa" hidden="false" id="0d1a-e116-0349" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0350"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0351"/>
+</constraints>
+<profiles>
+<profile name="➤ Gutrippa - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0352">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1</characteristic>
+</characteristics>
+</profile>
+<profile name="➤ Gutrippa - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0353">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">D6+1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Hunter (MONSTER/VEHICLE), Lethal Hits</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0354" targetId="ea1f-c7b7-cafa-43f8"/>
+<infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0355" targetId="0d1a-9f3b-7c40-1c06"/>
+<infoLink name="Lethal Hits" hidden="false" type="rule" id="0d1a-e116-0356" targetId="d1d1-611e-5191-1095"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0357" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0363" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0364"/>
+</constraints>
+</entryLink>
+</entryLinks>
+<infoLinks>
+<infoLink name="Feel No Pain" hidden="false" type="rule" id="0d1a-e116-0365" targetId="9bf4-280f-bbe2-6fbb">
+<modifiers>
+<modifier type="append" value="5+" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0366" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (4+)" hidden="false" type="profile" id="0d1a-e116-0367" targetId="5b77-29f8-7b77-75e3"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="9693-cf84-fe69-37a9" id="0d1a-e116-0368" primary="false" name="Monster"/>
+<categoryLink targetId="4e42-80a0-5c3b-2c7f" id="0d1a-e116-0369" primary="false" name="Beast Snagga"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0370" primary="false" name="Character"/>
+<categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-e116-0371" primary="true" name="Epic Hero"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0372" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Zodgrod Wortsnagga" hidden="false" id="ce45-db08-3795-18a9">
+<comment>pts: 80 (ancien MFM, provisoire). invuln: 6+</comment>
+<constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0386" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Zodgrod Wortsnagga" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0387">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Super Runts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0388">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit is **riled up**.
+- This unit&apos;s Scavenged Shivs weapons have +1 **A**, **WS** and **S**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Squigstoppa" hidden="false" id="0d1a-e116-0373" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0374"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0375"/>
+</constraints>
+<profiles>
+<profile name="Squigstoppa" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0376">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Monster/Vehicle 4+, Close-Quarters, Devastating Wounds (MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0377" targetId="4111-82e3-9444-e942"/>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0378" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Devastating Wounds (Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0379" targetId="0d1a-9f3b-7c40-1c08"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0380" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Da Grabzappa" hidden="false" id="0d1a-e116-0381" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0382"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0383"/>
+</constraints>
+<profiles>
+<profile name="Da Grabzappa" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0384">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0385" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0389" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0390"/>
+</constraints>
+</entryLink>
+</entryLinks>
+<infoLinks>
+<infoLink name="Leader" hidden="false" type="rule" id="0d1a-e116-0391" targetId="b4dd-3e1f-41cb-218f"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0392" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-e116-0393" targetId="42f1-ea3d-3ff9-e56a"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0394" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0395" primary="false" name="Character"/>
+<categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-e116-0396" primary="true" name="Epic Hero"/>
+<categoryLink targetId="0d1a-e116-9990-0001" id="0d1a-e116-0397" primary="false" name="Runtherd"/>
+<categoryLink targetId="238f-f38b-1614-a849" id="0d1a-e116-0398" primary="false" name="Zodgrod Wortsnagga"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0399" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Wazdakka Gutsmek" hidden="false" id="2ab7-ab71-0af4-5d39">
+<comment>pts: 175 (ancien MFM, provisoire). invuln: 4+
+Valeurs de plusieurs profils (Psyko-gatler, Grabba Dragga tir, armes de melee) partiellement illisibles - a confirmer.</comment>
+<constraints>
+<constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0431" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Wazdakka Gutsmek" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0432">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">14&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">8</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+</characteristics>
+</profile>
+<profile name="Full Throttle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0433">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, select one **Throttlerokkit Shokka Engine** ability. This unit has that ability until the start of your next Command phase.</characteristic>
+</characteristics>
+</profile>
+<profile name="Throttlerokkit Shokka Engine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0434">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Turbo Engine:** When this unit is selected to make an **advance/fall-back move**, that move does not prevent this unit from being **eligible to declare a charge**.
+
+**Shokk Attack Engine:** In your Command phase, if this unit is **unengaged**, you can place this unit in **strategic reserves**.
+
+**Pulse Jet:** In your Movement phase, when this unit is **selected to move**, if this unit is **unengaged**, this unit can make a **pulse jet move**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Psyko-gatler" hidden="false" id="0d1a-e116-0400" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0401"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0402"/>
+</constraints>
+<profiles>
+<profile name="Psyko-gatler" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0403">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">12</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Lethal Hits (non-MONSTER/VEHICLE), Sustained Hits 1</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Assault" hidden="false" type="rule" id="0d1a-e116-0404" targetId="fc8a-8c24-bae9-cc1c"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0405" targetId="0d1a-9f3b-7c40-1c01"/>
+<infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e116-0406" targetId="1897-c22c-9597-12b1"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0407" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Grabba Dragga" hidden="false" id="0d1a-e116-0408" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0409"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0410"/>
+</constraints>
+<profiles>
+<profile name="Grabba Dragga (shooting)" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0411">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Precision</characteristic>
+</characteristics>
+</profile>
+<profile name="Grabba Dragga (melee)" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0412">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 2, Lance</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Assault" hidden="false" type="rule" id="0d1a-e116-0413" targetId="fc8a-8c24-bae9-cc1c"/>
+<infoLink name="Precision" hidden="false" type="rule" id="0d1a-e116-0414" targetId="9143-31ae-e0a6-6007"/>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0415" targetId="ea1f-c7b7-cafa-43f8"/>
+<infoLink name="Lance" hidden="false" type="rule" id="0d1a-e116-0416" targetId="2ebc-abdf-8129-6c57"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0417" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Speeding Bulk and Flaming Exhaust" hidden="false" id="0d1a-e116-0418" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0419"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0420"/>
+</constraints>
+<profiles>
+<profile name="Speeding Bulk and Flaming Exhaust" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0421">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Cleave" hidden="false" type="rule" id="0d1a-e116-0422" targetId="ea1f-c7b7-cafa-43f8"/>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0423" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0424" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Fixit&apos;s Wrench" hidden="false" id="0d1a-e116-0425" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0426"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0427"/>
+</constraints>
+<profiles>
+<profile name="Fixit&apos;s Wrench" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0428">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0429" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0430" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0435" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0436"/>
+</constraints>
+</entryLink>
+</entryLinks>
+<infoLinks>
+<infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-e116-0437" targetId="b68a-5ded-65ac-98c">
+<modifiers>
+<modifier type="append" value="D3" field="name"/>
+</modifiers>
+</infoLink>
+<infoLink name="Deep Strike" hidden="false" type="rule" id="0d1a-e116-0438" targetId="7cb5-dd6b-dd87-ad3b"/>
+<infoLink name="Lone Operative" hidden="false" type="rule" id="0d1a-e116-0439" targetId="a8a0-8fe7-898-e0f3"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0440" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Pulse Jet Move" hidden="false" type="rule" id="0d1a-e116-0441" targetId="0d1a-9f3b-7c40-1c04"/>
+<infoLink name="Invulnerable Save (4+)" hidden="false" type="profile" id="0d1a-e116-0442" targetId="5b77-29f8-7b77-75e3"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="14a0-40c9-2748-ae6e" id="0d1a-e116-0443" primary="false" name="Mounted"/>
+<categoryLink targetId="dbd4-63-af05-998" id="0d1a-e116-0444" primary="false" name="Vehicle"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0445" primary="false" name="Character"/>
+<categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-e116-0446" primary="true" name="Epic Hero"/>
+<categoryLink targetId="6df-937-16bc-8c1a" id="0d1a-e116-0447" primary="false" name="Smoke"/>
+<categoryLink targetId="fe8b-9078-9a3d-fed" id="0d1a-e116-0448" primary="false" name="Speed Freeks"/>
+<categoryLink targetId="4191-d7e3-2b04-9e8e" id="0d1a-e116-0449" primary="false" name="Wazdakka Gutsmek"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0450" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Painboy" hidden="false" id="7669-1442-2c0b-e0c9">
+<comment>pts: 90 (ancien MFM, provisoire). Valeurs de &apos;Urty Syringe et Dok&apos;s Toolz partiellement illisibles - a confirmer.</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0464" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Painboy" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0465">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Crude Surgery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0466">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, this unit **heals** 3 wounds.</characteristic>
+</characteristics>
+</profile>
+<profile name="Catch Dat Red Bit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0467">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle, per unit)** When this model uses its **Crude Surgery** ability, you can add D3 to the number of wounds **healed**.
+
+*Place a Grot Orderly token next to the unit, removing it when this ability is used.*</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="&apos;Urty Syringe" hidden="false" id="0d1a-e116-0451" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0452"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0453"/>
+</constraints>
+<profiles>
+<profile name="&apos;Urty Syringe" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0454">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">2</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Infantry 4+, Devastating Wounds (INFANTRY), Extra Attacks</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0455" targetId="4111-82e3-9444-e942"/>
+<infoLink name="Devastating Wounds (Infantry)" hidden="false" type="rule" id="0d1a-e116-0456" targetId="0d1a-9f3b-7c40-1c07"/>
+<infoLink name="Extra Attacks" hidden="false" type="rule" id="0d1a-e116-0457" targetId="115b-79dc-f723-d761"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0458" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Dok&apos;s Toolz" hidden="false" id="0d1a-e116-0459" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0460"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0461"/>
+</constraints>
+<profiles>
+<profile name="Dok&apos;s Toolz" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0462">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0463" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0468" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0469"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0470" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0471" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0472" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0473" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0474" primary="true" name="Character"/>
+<categoryLink targetId="d844-fb57-f3b6-1560" id="0d1a-e116-0475" primary="false" name="Painboy"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0476" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Painboss" hidden="false" id="a74a-107a-e2ac-7e4c">
+<comment>pts: 70 (ancien MFM, provisoire). invuln: 6+</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0483" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Painboss" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0484">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Push Dat Bit Back In" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0485">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle, per unit)** In your Command phase, select one friendly **^^Beast Snagga^^** unit within 6&quot; of this unit. That unit **heals** 3 wounds.
+
+*Place a Grot Orderly token next to the unit, removing it when this ability is used.*</characteristic>
+</characteristics>
+</profile>
+<profile name="Hardy Bioniks" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0486">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">Attacks that target this unit with a **S** greater than this unit&apos;s **T** have -1 to **Wound rolls**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Runnin&apos; wiv da Herd" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0487">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is attached to a **^^Mounted^^** unit, this model:
+- Does not have **^^Infantry^^**.
+- Has **^^Mobile^^** and **^^Mounted^^**.
+- Has +4&quot; **M**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Beast Snagga Klaw" hidden="false" id="0d1a-e116-0477" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0478"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0479"/>
+</constraints>
+<profiles>
+<profile name="Beast Snagga Klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0480">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster/Vehicle 4+</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Anti-" hidden="false" type="rule" id="0d1a-e116-0481" targetId="4111-82e3-9444-e942"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0482" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0488" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0489"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0490" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0491" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0492" targetId="37c-6ef9-277-9091"/>
+<infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-e116-0493" targetId="42f1-ea3d-3ff9-e56a"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0494" primary="false" name="Infantry"/>
+<categoryLink targetId="4e42-80a0-5c3b-2c7f" id="0d1a-e116-0495" primary="false" name="Beast Snagga"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0496" primary="true" name="Character"/>
+<categoryLink targetId="697d-7e4d-e117-fd5d" id="0d1a-e116-0497" primary="false" name="Painboss"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0498" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+</costs>
+</selectionEntry>
+<selectionEntry type="model" import="true" name="Runtherd" hidden="false" id="552d-6c0d-80e8-ac32">
+<comment>pts: inconnu (fiche independante nouvelle en 11e - dans l&apos;ancien MFM le Runtherd etait inclus dans l&apos;unite Gretchin), placeholder 0.</comment>
+<constraints>
+<constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0511" includeChildSelections="true"/>
+</constraints>
+<profiles>
+<profile name="Runtherd" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="0d1a-e116-0512">
+<characteristics>
+<characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+<characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+<characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+<characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
+<characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+<characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+</characteristics>
+</profile>
+<profile name="Dat&apos;ll Learn Ya" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0513">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**(Once per battle round, per unit)** When this unit becomes **battle-shocked**, if this unit contains 4+ Gretchin models, you can roll one D3:
+- That number of Gretchin models in this unit are **destroyed**.
+- This unit is no longer **battle-shocked**.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0499" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0500"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0501"/>
+</constraints>
+<profiles>
+<profile name="Slugga" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e116-0502">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Lethal Hits (non-MONSTER/VEHICLE)</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Close-Quarters" hidden="false" type="rule" id="0d1a-e116-0503" targetId="59e0-775e-fce5-43ca"/>
+<infoLink name="Lethal Hits (non-Monster/Vehicle)" hidden="false" type="rule" id="0d1a-e116-0504" targetId="0d1a-9f3b-7c40-1c01"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e116-0505" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Runtherd&apos;s Toolz" hidden="false" id="0d1a-e116-0506" collective="false">
+<constraints>
+<constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0507"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0508"/>
+</constraints>
+<profiles>
+<profile name="Runtherd&apos;s Toolz" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e116-0509">
+<characteristics>
+<characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+<characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+<characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+<characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<categoryLinks>
+<categoryLink name="Melee Weapon" hidden="false" id="0d1a-e116-0510" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+</selectionEntries>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e116-0514" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e116-0515"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e116-0516" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
+<infoLinks>
+<infoLink name="Support" hidden="false" type="rule" id="0d1a-e116-0517" targetId="21f5-c07c-6d97-4405"/>
+<infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e116-0518" targetId="37c-6ef9-277-9091"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e116-0519" primary="false" name="Infantry"/>
+<categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0520" primary="true" name="Character"/>
+<categoryLink targetId="0d1a-e116-9990-0001" id="0d1a-e116-0521" primary="false" name="Runtherd"/>
+<categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0522" primary="false" name="Faction: Orks"/>
+</categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+</costs>
+</selectionEntry>
   </sharedSelectionEntries>
   <rules>
     <rule name="Waaagh!" hidden="false" id="37c-6ef9-277-9091">
@@ -7204,6 +9229,9 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
     <rule name="Devastating Wounds (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c08">
       <description>Some weapons have **[DEVASTATING WOUNDS: ^^Monster^^/^^Vehicle^^]** in their profile. Each time an attack is made with such a weapon against a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Wound inflicts Devastating Wounds (mortal wounds equal to the Damage characteristic). This ability has no effect against other targets.</description>
     </rule>
+<rule name="Sustained Hits (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c09">
+      <description>Weapons with **[SUSTAINED HITS N (^^Monster^^/^^Vehicle^^)]** in their profile only benefit from the Sustained Hits ability against **^^Monster^^** or **^^Vehicle^^** units. Each time an attack is made with such a weapon against a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit scores N additional hits. This ability has no effect against other targets.</description>
+</rule>
   </rules>
   <sharedSelectionEntryGroups>
     <selectionEntryGroup name="Enhancements" id="1dd8-39ae-cbd8-a9fa" collapsible="true">
@@ -10263,6 +12291,10 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <categoryEntry name="Deffkilla Wartrike" hidden="false" id="1b8c-203a-e329-2a02"/>
     <categoryEntry name="Beastboss on Squigosaur" hidden="false" id="6b40-8456-36cb-ece2"/>
     <categoryEntry name="Big Mek with Shokk Attack Gun" hidden="false" id="2810-316b-919d-657e"/>
+    <categoryEntry name="Runtherd" hidden="false" id="0d1a-e116-9990-0001"/>
+    <categoryEntry name="Beastboss" hidden="false" id="0d1a-e116-9990-0002"/>
+    <categoryEntry name="Bannernob" hidden="false" id="0d1a-e116-9990-0003"/>
+    <categoryEntry name="Mobile" hidden="false" id="0d1a-e116-9990-0004"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Boyz" hidden="false" type="selectionEntry" id="187-93d6-1ac7-dbde" targetId="e3b1-1240-2476-cd86"/>
@@ -10293,6 +12325,22 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
     <entryLink import="true" name="Warboss in Mega Armour" hidden="false" type="selectionEntry" id="5c34-a534-2c39-a073" targetId="494b-11ce-5af-5b50"/>
     <entryLink import="true" name="Big Mek" hidden="false" type="selectionEntry" id="0d1a-e110-9990-0003" targetId="0d1a-e110-0000-0000"/>
     <entryLink import="true" name="Big Mek in Mega Armour" hidden="false" type="selectionEntry" id="f552-367d-f8b5-d220" targetId="95e9-6da3-5e75-2566"/>
+<entryLink import="true" name="Warboss" hidden="false" type="selectionEntry" id="9189-6889-492c-a43e" targetId="2efc-c4b3-2ecc-5a37"/>
+<entryLink import="true" name="Weirdboy" hidden="false" type="selectionEntry" id="fe9e-86a2-ca17-27f1" targetId="260d-9ce4-ea1f-a957"/>
+<entryLink import="true" name="Boss Snikrot" hidden="false" type="selectionEntry" id="e2d-60fc-decf-8062" targetId="e651-5901-35e5-dc35"/>
+<entryLink import="true" name="Bannernob" hidden="false" type="selectionEntry" id="c40b-860d-9010-7ac4" targetId="8350-e8f1-2196-c557"/>
+<entryLink import="true" name="Bigboss" hidden="false" type="selectionEntry" id="cae5-d053-d214-897c" targetId="116d-d6e9-633a-ac62"/>
+<entryLink import="true" name="Big Mek with Shokk Attack Gun" hidden="false" type="selectionEntry" id="5a0a-1194-3fed-a785" targetId="dde2-ca42-e3bc-2ef6"/>
+<entryLink import="true" name="Mek" hidden="false" type="selectionEntry" id="3ec6-40d0-f2d2-814b" targetId="3b2-8c11-616a-1005"/>
+<entryLink import="true" name="Deffkilla Wartrike" hidden="false" type="selectionEntry" id="8816-46a6-6b0f-833d" targetId="ca85-1d18-dc30-d64e"/>
+<entryLink import="true" name="Beastboss" hidden="false" type="selectionEntry" id="2f80-26a6-9486-b348" targetId="5a5d-c5a4-39b8-4a3f"/>
+<entryLink import="true" name="Beastboss on Squigosaur" hidden="false" type="selectionEntry" id="bd8-4180-6880-1f45" targetId="a8b7-351-d911-a4d6"/>
+<entryLink import="true" name="Mozrog Skragbad" hidden="false" type="selectionEntry" id="5900-ac22-4595-69be" targetId="b42b-ea0-38f1-6300"/>
+<entryLink import="true" name="Zodgrod Wortsnagga" hidden="false" type="selectionEntry" id="56d-75fd-cbd1-88a5" targetId="ce45-db08-3795-18a9"/>
+<entryLink import="true" name="Wazdakka Gutsmek" hidden="false" type="selectionEntry" id="9f96-0177-abbe-926e" targetId="2ab7-ab71-0af4-5d39"/>
+<entryLink import="true" name="Painboy" hidden="false" type="selectionEntry" id="5177-1de8-ebd5-e09d" targetId="7669-1442-2c0b-e0c9"/>
+<entryLink import="true" name="Painboss" hidden="false" type="selectionEntry" id="a917-fc12-41a-8cb1" targetId="a74a-107a-e2ac-7e4c"/>
+<entryLink import="true" name="Runtherd" hidden="false" type="selectionEntry" id="8174-47f9-ff47-f870" targetId="552d-6c0d-80e8-ac32"/>
   </entryLinks>
   <sharedProfiles>
     <profile name="Bomb Squigs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e29-7605-a22c-2eab">
