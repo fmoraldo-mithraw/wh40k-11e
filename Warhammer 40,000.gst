@@ -1851,6 +1851,9 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
 <rule name="Sustained Hits (Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c09">
       <description>Weapons with **[SUSTAINED HITS N (^^Monster^^/^^Vehicle^^)]** in their profile only benefit from the Sustained Hits ability against **^^Monster^^** or **^^Vehicle^^** units. Each time an attack is made with such a weapon against a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit scores N additional hits. This ability has no effect against other targets.</description>
 </rule>
+    <rule name="Lethal Hits (non-Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c01">
+      <description>Weapons with **[LETHAL HITS: non-^^Monster^^/^^Vehicle^^]** in their profile are known as Lethal Hits weapons. Each time an attack is made with such a weapon against a unit that is not a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit automatically wounds the target. This ability has no effect against **^^Monster^^** or **^^Vehicle^^** units.</description>
+    </rule>
   </sharedRules>
   <sharedProfiles>
     <profile id="fa4e-5ac8-11a6-78d2" name="Fortification" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
