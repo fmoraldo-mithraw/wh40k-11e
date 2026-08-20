@@ -836,7 +836,7 @@ invuln: 5+</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0002">
@@ -1297,7 +1297,6 @@ invuln: 6+</comment>
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="8c36-c946-2e0f-f648" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1766,7 +1765,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </conditions>
         </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="b16a-7132-3f8a-abe5" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1947,7 +1945,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
       </infoLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="100">
-          <comment>repeat-cost: threshold=1 delta=100 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="6c08-9131-14a3-a3b4" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -2222,7 +2219,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
       </infoLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
-          <comment>repeat-cost: threshold=2 delta=10 (surcout par exemplaire au-dela du Neme uniquement; voir editor/REPEAT_COST_APP_PROMPT.md)</comment>
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="dadc-d370-ef10-853c" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5087,6 +5083,13 @@ pts: 90 (ancien MFM, provisoire)</comment>
 <constraints>
 <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="0d1a-e109-0049"/>
 </constraints>
+      <modifiers>
+<modifier type="set" value="180" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="10" field="selections" scope="b7c3-d00e-daf2-76fb" childId="model" shared="true"/>
+</conditions>
+</modifier>
+      </modifiers>
 <profiles>
 <profile name="Mobbed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e109-0042">
 <characteristics>
@@ -5320,6 +5323,13 @@ pts: 140 (ancien MFM, provisoire)</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10a-0057"/>
 </constraints>
+      <modifiers>
+<modifier type="set" value="280" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="4" field="selections" scope="6a83-8e1f-63ef-50c3" childId="model" shared="true"/>
+</conditions>
+</modifier>
+      </modifiers>
 <profiles>
 <profile name="Bomb Squig" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e10a-0049">
 <characteristics>
@@ -5574,7 +5584,7 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Flash Gitz" hidden="false" id="1de9-b138-28a1-9c4b">
-<comment>pts: 75 (ancien MFM, provisoire)</comment>
+<comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10b-0048"/>
 </constraints>
@@ -5815,7 +5825,7 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Meganobz" hidden="false" id="7067-34f4-5272-e05f">
@@ -5823,6 +5833,18 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10c-0037"/>
 </constraints>
+      <modifiers>
+<modifier type="set" value="120" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="2" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
+</conditions>
+</modifier>
+<modifier type="set" value="180" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="4" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
+</conditions>
+</modifier>
+      </modifiers>
 <profiles>
 <profile name="Arrogant Invulnerability" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e10c-0032">
 <characteristics>
@@ -6533,7 +6555,7 @@ Place five Grot Crew tokens next to each Mek Gun model, removing one each time i
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Warboss in Mega Armour" hidden="false" id="494b-11ce-5af-5b50">
 <comment>invuln: 5+
-pts: 80 (ancien MFM, provisoire). BS du Big Shoota conserve a 5+ (photo ambigue, 4+ possible). Cibles Leader non visibles sur la fiche.</comment>
+pts: 95 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10f-0028" includeChildSelections="true"/>
 </constraints>
@@ -6640,7 +6662,7 @@ pts: 80 (ancien MFM, provisoire). BS du Big Shoota conserve a 5+ (photo ambigue,
 <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e10f-0027" targetId="27f4-7449-a636-ae8c"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0010">
@@ -6655,7 +6677,7 @@ pts: 80 (ancien MFM, provisoire). BS du Big Shoota conserve a 5+ (photo ambigue,
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek" hidden="false" id="0d1a-e110-0000-0000">
-<comment>pts: 60 deduit (entre Mek 55 et Big Mek with SAG 70) - a confirmer via MFM. Mot-clef BIG MEK ajoute (ligne mots-clefs partiellement lisible). Drilla confirmee (3/3+/12/-3/3). Cibles Leader non visibles.</comment>
+<comment>pts: 65 estime d&apos;apres la fiche 11e (ancien MFM 60) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e110-0032" includeChildSelections="true"/>
 </constraints>
@@ -6818,12 +6840,12 @@ pts: 80 (ancien MFM, provisoire). BS du Big Shoota conserve a 5+ (photo ambigue,
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e110-0031" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek in Mega Armour" hidden="false" id="95e9-6da3-5e75-2566">
 <comment>invuln: 4+ conditional
-pts: 80 (ancien MFM, provisoire). Tellyport Blasta lue 12 A6 4+ F9 -2 D3 [Blast 1] - a confirmer. Kustom Force Field = 4+ InSv contre le tir uniquement (marqueur conditional). Choix Tellyport OU KFF non force mutuellement exclusif. Cibles Leader non visibles.</comment>
+pts: 100 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e111-0056" includeChildSelections="true"/>
 </constraints>
@@ -7080,7 +7102,7 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e111-0055" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="8e84-a731-d51d-73c2">
@@ -7254,7 +7276,7 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
   </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Warboss" hidden="false" id="2efc-c4b3-2ecc-5a37">
-<comment>pts: 85 (ancien MFM, provisoire). invuln: 5+
+<comment>pts: 90 estime d&apos;apres la fiche 11e (ancien MFM 85) - a confirmer via MFM.
 sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0031" includeChildSelections="true"/>
@@ -7472,11 +7494,11 @@ sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee con
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0047" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Weirdboy" hidden="false" id="260d-9ce4-ea1f-a957">
-<comment>pts: 65 (ancien MFM, provisoire).</comment>
+<comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 65) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0063" includeChildSelections="true"/>
 </constraints>
@@ -7594,7 +7616,7 @@ sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee con
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0079" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0027">
@@ -7610,7 +7632,7 @@ sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee con
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Boss Snikrot" hidden="false" id="e651-5901-35e5-dc35">
-<comment>pts: 75 (ancien MFM, provisoire). invuln: 5+</comment>
+<comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0095" includeChildSelections="true"/>
 </constraints>
@@ -7716,7 +7738,7 @@ sim-mod: source=&quot;Might Is Right&quot; attacks=+3 strength=+2 when=melee con
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0113" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0030">
@@ -7951,7 +7973,7 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek with Shokk Attack Gun" hidden="false" id="dde2-ca42-e3bc-2ef6">
-<comment>pts: 70 (ancien MFM, provisoire).
+<comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 70) - a confirmer via MFM.
 sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0175" includeChildSelections="true"/>
@@ -8051,7 +8073,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0189" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Madcap Meks Enhancement" id="0d1a-e117-0449" hidden="false">
@@ -8085,7 +8107,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Mek" hidden="false" id="3b2-8c11-616a-1005">
-<comment>pts: 55 (ancien MFM, provisoire).</comment>
+<comment>pts: 50 estime d&apos;apres la fiche 11e (ancien MFM 55) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0202" includeChildSelections="true"/>
 </constraints>
@@ -8183,7 +8205,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0215" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0053">
@@ -8201,7 +8223,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Deffkilla Wartrike" hidden="false" id="ca85-1d18-dc30-d64e">
-<comment>pts: 70 (ancien MFM, provisoire). invuln: 5+</comment>
+<comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 70) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0240" includeChildSelections="true"/>
 </constraints>
@@ -8360,7 +8382,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0257" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Kult of Speed Enhancement" id="0d1a-e117-0453" hidden="false">
@@ -8391,7 +8413,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Beastboss" hidden="false" id="5a5d-c5a4-39b8-4a3f">
-<comment>pts: 80 (ancien MFM, provisoire). invuln: 5+
+<comment>pts: 85 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.
 fnp: 6+
 sim-mod: source=&quot;Dodge Dis!&quot; hit=+1</comment>
 <constraints>
@@ -8502,7 +8524,7 @@ sim-mod: source=&quot;Dodge Dis!&quot; hit=+1</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0288" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0059">
@@ -8517,7 +8539,7 @@ sim-mod: source=&quot;Dodge Dis!&quot; hit=+1</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Beastboss on Squigosaur" hidden="false" id="a8b7-351-d911-a4d6">
-<comment>pts: 95 (ancien MFM, provisoire). invuln: 5+
+<comment>pts: 115 estime d&apos;apres la fiche 11e (ancien MFM 95) - a confirmer via MFM.
 fnp: 5+</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0318" includeChildSelections="true"/>
@@ -8695,7 +8717,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0335" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0062">
@@ -8710,7 +8732,7 @@ fnp: 5+</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Mozrog Skragbad" hidden="false" id="b42b-ea0-38f1-6300">
-<comment>pts: 125 (ancien MFM, provisoire). invuln: 4+
+<comment>pts: 135 estime d&apos;apres la fiche 11e (ancien MFM 125) - a confirmer via MFM.
 fnp: 5+</comment>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0358" includeChildSelections="true"/>
@@ -8858,7 +8880,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0372" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0065">
@@ -8873,7 +8895,7 @@ fnp: 5+</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Zodgrod Wortsnagga" hidden="false" id="ce45-db08-3795-18a9">
-<comment>pts: 80 (ancien MFM, provisoire). invuln: 6+</comment>
+<comment>pts: 70 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0386" includeChildSelections="true"/>
 </constraints>
@@ -8967,7 +8989,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0399" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0068">
@@ -9166,7 +9188,7 @@ Grabba Dragga (tir) : portee encodee 12&quot; - correction utilisateur lue &quot
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Painboy" hidden="false" id="7669-1442-2c0b-e0c9">
-<comment>pts: 90 (ancien MFM, provisoire).</comment>
+<comment>pts: 65 estime d&apos;apres la fiche 11e (ancien MFM 90) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0464" includeChildSelections="true"/>
 </constraints>
@@ -9264,7 +9286,7 @@ Grabba Dragga (tir) : portee encodee 12&quot; - correction utilisateur lue &quot
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0476" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0074">
@@ -9381,7 +9403,7 @@ Grabba Dragga (tir) : portee encodee 12&quot; - correction utilisateur lue &quot
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Runtherd" hidden="false" id="552d-6c0d-80e8-ac32">
-<comment>pts: 45 deduit (personnage Support d&apos;entree de gamme, sous le Mek 55) - a confirmer via MFM.</comment>
+<comment>pts: 40 estime d&apos;apres la fiche 11e (ancien MFM 45) - a confirmer via MFM.</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0511" includeChildSelections="true"/>
 </constraints>
@@ -9473,7 +9495,7 @@ Grabba Dragga (tir) : portee encodee 12&quot; - correction utilisateur lue &quot
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0522" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0080">
@@ -10294,7 +10316,7 @@ sim-mod: source="Deff from Above" hit=+1 when=ranged conditional</comment>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Hunta Rig" hidden="false" id="70de-d621-8465-f7b8">
-<comment>pts: 125 (ancien MFM, provisoire). invuln: 6+
+<comment>pts: 165 estime d&apos;apres la fiche 11e (ancien MFM 125) - a confirmer via MFM.
 fnp: 5+</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0172" includeChildSelections="true"/>
@@ -10489,11 +10511,11 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0221" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Kill Rig" hidden="false" id="eb21-c97f-2d9a-b363">
-<comment>pts: 145 (ancien MFM, provisoire). invuln: 6+
+<comment>pts: 190 estime d&apos;apres la fiche 11e (ancien MFM 145) - a confirmer via MFM.
 fnp: 5+</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0222" includeChildSelections="true"/>
@@ -10722,7 +10744,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0282" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Blitza-bommer" hidden="false" id="a20-d3af-2c3e-3267">
@@ -12835,7 +12857,7 @@ EFFECT: Your unit's ranged attacks have [SUSTAINED HITS 1].</description>
     </modifier>
   </modifiers>
   <costs>
-    <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+    <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
   </costs>
   <profiles>
     <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-9f3b-7c40-a112">
