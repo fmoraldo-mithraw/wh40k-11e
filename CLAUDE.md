@@ -101,6 +101,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   Pain N+ »), `must-warlord`/`cannot-warlord`, `leader-kw: A & B | C`. La
   donnée prime, la prose est le repli ; générateur
   `editor/gen-stat-markers.mjs`, sentinelle d'audit côté appli.
+- **`editor/ENHANCEMENT_BEARERS_PROMPT.md`** — invariant **permanent** de
+  liaison améliorations↔mots-clefs, à exécuter à CHAQUE modification de
+  base touchant personnages ou améliorations : liens de menu
+  (Warlord+Enhancements) sur chaque personnage éligible, portes de
+  visibilité = clause de prose (table d'encodage OR/AND, exclusions),
+  vérification des porteurs synthétisés + sentinelle CI
+  `amelioration-porteur-manquant` côté appli.
 - **`editor/BSDATA_PARSING_REFERENCE.md`** — **doc de référence complète** pour
   l'agent de l'appli consommatrice : tout le vocabulaire réel du format (11 types de
   modifier, 7 de condition, scopes dont `primary-catalogue`/`ancestor`/`forces`,

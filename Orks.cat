@@ -4224,6 +4224,14 @@ invuln: 5+</comment>
 </characteristics>
 </profile>
 </profiles>
+<entryLinks>
+<entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e105-0900" targetId="8b5-898c-f79b-5a9c">
+<constraints>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e105-0901"/>
+</constraints>
+</entryLink>
+<entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="0d1a-e105-0902" targetId="1dd8-39ae-cbd8-a9fa" collapsible="false"/>
+</entryLinks>
 <categoryLinks>
 <categoryLink targetId="dbd4-63-af05-998" id="0d1a-e105-0022" primary="false" name="Vehicle"/>
 <categoryLink targetId="1ea0-8b1a-ddea-4d7c" id="0d1a-e105-0023" primary="false" name="Big Mek"/>
@@ -9036,13 +9044,19 @@ invuln: 4+</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, select one **Throttlerokkit Shokka Engine** ability. This unit has that ability until the start of your next Command phase.</characteristic>
 </characteristics>
 </profile>
-<profile name="Throttlerokkit Shokka Engine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e116-0434">
+<profile name="Turbo Engine" typeId="6a05-f3cf-0d60-56a7" typeName="Throttlerokkit Shokka Engine" hidden="false" id="0d1a-e116-0900">
 <characteristics>
-<characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Turbo Engine:** When this unit is selected to make an **advance/fall-back move**, that move does not prevent this unit from being **eligible to declare a charge**.
-
-**Shokk Attack Engine:** In your Command phase, if this unit is **unengaged**, you can place this unit in **strategic reserves**.
-
-**Pulse Jet:** In your Movement phase, when this unit is **selected to move**, if this unit is **unengaged**, this unit can make a **pulse jet move**.</characteristic>
+<characteristic name="Description" typeId="5b8c-0fc0-bf7b-a96f">When this unit is selected to make an **advance/fall-back move**, that move does not prevent this unit from being **eligible to declare a charge**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Shokk Attack Engine" typeId="6a05-f3cf-0d60-56a7" typeName="Throttlerokkit Shokka Engine" hidden="false" id="0d1a-e116-0901">
+<characteristics>
+<characteristic name="Description" typeId="5b8c-0fc0-bf7b-a96f">In your Command phase, if this unit is **unengaged**, you can place this unit in **strategic reserves**.</characteristic>
+</characteristics>
+</profile>
+<profile name="Pulse Jet" typeId="6a05-f3cf-0d60-56a7" typeName="Throttlerokkit Shokka Engine" hidden="false" id="0d1a-e116-0902">
+<characteristics>
+<characteristic name="Description" typeId="5b8c-0fc0-bf7b-a96f">In your Movement phase, when this unit is **selected to move**, if this unit is **unengaged**, this unit can make a **pulse jet move**.</characteristic>
 </characteristics>
 </profile>
 </profiles>
@@ -12056,7 +12070,7 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
 <conditionGroups>
 <conditionGroup type="or">
 <conditionGroups>
-<conditionGroup type="and">
+<conditionGroup type="or">
 <conditions>
 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="47cc-4071-6fda-688e" shared="true"/>
 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true"/>
