@@ -108,6 +108,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   profils-capacité à `typeName` non-`Abilities`…), le pipeline résoudre→évaluer→agréger,
   les **idiomes multiples** (sources de trous silencieux) et un renvoi vers chaque prompt
   spécialisé. À donner à toute appli qui parse la base.
+- **`editor/CONDITIONAL_WEAPON_RULES_APP_PROMPT.md`** — prompt autonome
+  (application consommatrice) : les règles d'arme **conditionnées à la
+  cible** de la 11e (Lethal Hits non-M/V, Hunter M/V, Devastating Wounds
+  Infantry/M-V, Sustained Hits M/V), désormais dans les `sharedRules` du
+  gst ; double canal mot-clef littéral + `infoLink`, sémantique évaluée
+  avec les mots-clefs du défenseur, Hunter = restriction de ciblage par
+  profil (`➤`).
 - **`editor/BATTLELINE_GRANT_APP_PROMPT.md`** — grants Battleline (catégorie
   conditionnelle `add`/`set-primary` + plafond 0-3→0-6), conditionnés détachement
   (`scope="force"`) ou Warlord (drapeau de catégorie sur la sélection Warlord).
