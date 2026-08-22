@@ -29,6 +29,8 @@
       </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Boyz" hidden="false" id="e3b1-1240-2476-cd86">
+<comment>sim-mod: source=&quot;Ammo Runts&quot; hit=+1 when=ranged oncePer=battle
+sim-mod: source=&quot;Tide of Muscle&quot; lethal when=melee onCharge</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="a648-a8b2-7dbe-5710"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d69e-4a59-6b45-6fdf" includeChildSelections="true"/>
@@ -669,7 +671,8 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2001">
       <comment>pts placeholder (95) : non indique sur la feuille d&apos;unite, a confirmer via le MFM. Regle d&apos;armee &quot;Da Boss&quot; non encodee (indisponible).
-invuln: 5+ model=&quot;Nazdreg&quot;</comment>
+invuln: 5+ model=&quot;Nazdreg&quot;
+sim-mod: source=&quot;Nazdreg&apos;s Know-wotz&quot; ignores-cover when=ranged</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-2002"/>
       </constraints>
@@ -1388,6 +1391,8 @@ invuln: 6+</comment>
       </profiles>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nobz" hidden="false" id="b16a-7132-3f8a-abe5">
+<comment>sim-mod: source=&quot;Ammo Runts&quot; hit=+1 when=ranged oncePer=battle
+sim-mod: source=&quot;Paired Krumpas&quot; reroll=hit reroll=wound weapon=&quot;Kustom Krumpa&quot; when=melee</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3968-386b-498c-d909"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5264-5776-0bbf-992e" includeChildSelections="true"/>
@@ -2167,7 +2172,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Tankbustas" hidden="false" id="dadc-d370-ef10-853c">
-      <comment>sim-mod: source=&quot;Tank Hunters&quot; hit=+1 wound=+1 vs=Monster,Vehicle</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4eb-a5f-a0bd-ff31"/>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b0f5-00c4-26aa-9e2c" includeChildSelections="true"/>
@@ -2903,7 +2907,8 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
   </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Gorkanaut" hidden="false" id="56d6-a7fc-fa08-4345">
-  <comment>invuln: 6+</comment>
+  <comment>invuln: 6+
+sim-mod: source=&quot;Big an&apos; Stompy&quot; reroll=hit1 when=melee</comment>
   <constraints>
     <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-b038"/>
   </constraints>
@@ -3116,7 +3121,8 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
   </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Morkanaut" hidden="false" id="9ee5-2b39-de06-dda6">
-  <comment>invuln: 5+</comment>
+  <comment>invuln: 5+
+sim-mod: source=&quot;Big an&apos; Shooty&quot; reroll=hit1 when=ranged</comment>
   <constraints>
     <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-9f3b-7c40-c035"/>
   </constraints>
@@ -3975,7 +3981,8 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Wartrakks" hidden="false" id="0d1a-e104-0000-0000">
 <comment>pts: 70 deduit (buggy plus leger que Warbuggies, T6 W7) - a confirmer via MFM.
-invuln: 6+</comment>
+invuln: 6+
+sim-mod: source=&quot;Bust &apos;Em&quot; lethal conditional</comment>
 <constraints>
 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d1a-e104-0028"/>
 <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-e104-0029"/>
@@ -4120,7 +4127,9 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek Dakkarig" hidden="false" id="0d1a-e105-0000-0000">
 <comment>pts: 120 deduit (analogie Deff Dread 110 + personnage) - a confirmer via MFM.
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Even More Dakka&quot; sustained=1 when=ranged conditional
+sim-mod: source=&quot;Blitz Dem Gitz!&quot; attacks=+6 weapon=&quot;Blitzkannon&quot; when=ranged conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e105-0032" includeChildSelections="true"/>
 </constraints>
@@ -4440,7 +4449,8 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Gunwagon" hidden="false" id="0d1a-e107-0000-0000">
 <comment>pts: 130 deduit (analogie Battlewagon 145, plateforme de tir T12 W16) - a confirmer via MFM. Valeurs Kannon/Killkannon/Zzap Gun lues sur photo - a confirmer.
-invuln: 6+</comment>
+invuln: 6+
+sim-mod: source=&quot;Mobile Arsenal&quot; reroll=hit1 when=ranged</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e107-0067" includeChildSelections="true"/>
 </constraints>
@@ -4732,7 +4742,8 @@ invuln: 6+</comment>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Kommandos" hidden="false" id="303-267f-e45c-6aa9">
-<comment>pts: 120 (ancien MFM, provisoire)</comment>
+<comment>pts: 120 (ancien MFM, provisoire)
+sim-mod: source=&quot;Nowhere to Hide&quot; hit=+1 conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e108-0076"/>
 </constraints>
@@ -5352,7 +5363,8 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Squighog Boyz" hidden="false" id="6a83-8e1f-63ef-50c3">
 <comment>pts: 140/280 (Big Choppa Cleave 2 + arsenal anti-M/V propre) - estime fiche 11e, a confirmer via MFM.
-invuln: 6+</comment>
+invuln: 6+
+sim-mod: source=&quot;Brutal Impact&quot; dmg=+1 onCharge</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10a-0057"/>
 </constraints>
@@ -5617,7 +5629,8 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Flash Gitz" hidden="false" id="1de9-b138-28a1-9c4b">
-<comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.</comment>
+<comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.
+sim-mod: source=&quot;Finderz Keeperz&quot; ap=+1 when=ranged conditional</comment>
 <modifiers>
 <modifier type="set" value="210" field="51b2-306e-1021-d207">
 <conditions>
@@ -5869,7 +5882,8 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Meganobz" hidden="false" id="7067-34f4-5272-e05f">
-<comment>pts: 60 (ancien MFM, provisoire). Echange combine: Twin Killsaws vide l'emplacement ranged (set 0).</comment>
+<comment>pts: 60 (ancien MFM, provisoire). Echange combine: Twin Killsaws vide l'emplacement ranged (set 0).
+sim-mod: source=&quot;Krumpin&apos; Time&quot; hit=+1 when=melee conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10c-0037"/>
 </constraints>
@@ -6728,7 +6742,9 @@ invuln: 5+</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek" hidden="false" id="0d1a-e110-0000-0000">
-<comment>pts: 65 estime d&apos;apres la fiche 11e (ancien MFM 60) - a confirmer via MFM.</comment>
+<comment>pts: 65 estime d&apos;apres la fiche 11e (ancien MFM 60) - a confirmer via MFM.
+sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged
+sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e110-0032" includeChildSelections="true"/>
 </constraints>
@@ -6897,7 +6913,9 @@ invuln: 5+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek in Mega Armour" hidden="false" id="95e9-6da3-5e75-2566">
 <comment>pts: 100 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.
-invuln: 4+ conditional</comment>
+invuln: 4+ conditional
+sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged
+sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e111-0056" includeChildSelections="true"/>
 </constraints>
@@ -7177,7 +7195,9 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Temperamental Shokka Upgrade" hidden="false" id="0d1a-e113-0000-0021">
-  <comment>Amelioration Upgrade (Madcap Meks) : BIG MEK WITH SHOKK ATTACK GUN uniquement - rattachee a sa fiche. pts: 15 deduit par analogie MFM 10e - a confirmer.</comment>
+  <comment>Amelioration Upgrade (Madcap Meks) : BIG MEK WITH SHOKK ATTACK GUN uniquement - rattachee a sa fiche. pts: 15 deduit par analogie MFM 10e - a confirmer.
+sim-mod: source=&quot;Temperamental Shokka Upgrade&quot; attacks=+1 weapon=&quot;Shokk Attack Gun&quot; when=ranged conditional choice=&quot;shokka&quot;
+sim-mod: source=&quot;Temperamental Shokka Upgrade&quot; sustained=2 weapon=&quot;Shokk Attack Gun&quot; when=ranged conditional choice=&quot;shokka&quot;</comment>
   <profiles>
 <profile name="Temperamental Shokka Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0059">
 <characteristics>
@@ -7255,7 +7275,8 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Throat-Slittas Upgrade" hidden="false" id="0d1a-e115-0000-0022">
-  <comment>Amelioration Upgrade (Taktikal Brigade) : unites KOMMANDOS/STORMBOYZ, cumulable, max 1 par unite, jamais Epic Hero. Rattachee aux fiches Kommandos et Stormboyz. pts: 15 deduit par analogie MFM 10e - a confirmer.</comment>
+  <comment>Amelioration Upgrade (Taktikal Brigade) : unites KOMMANDOS/STORMBOYZ, cumulable, max 1 par unite, jamais Epic Hero. Rattachee aux fiches Kommandos et Stormboyz. pts: 15 deduit par analogie MFM 10e - a confirmer.
+sim-mod: source=&quot;Throat-Slittas Upgrade&quot; lethal when=melee conditional</comment>
   <profiles>
 <profile name="Throat-Slittas Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e115-0059">
 <characteristics>
@@ -7273,7 +7294,8 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Supa-Snazz Dakka Upgrade" hidden="false" id="0d1a-e115-0000-0023">
-  <comment>Amelioration Upgrade (Wreckas) : unite FLASH GITZ, cumulable, max 1 par unite, jamais Epic Hero. pts: 15 deduit par analogie MFM 10e - a confirmer.</comment>
+  <comment>Amelioration Upgrade (Wreckas) : unite FLASH GITZ, cumulable, max 1 par unite, jamais Epic Hero. pts: 15 deduit par analogie MFM 10e - a confirmer.
+sim-mod: source=&quot;Supa-Snazz Dakka Upgrade&quot; attacks=+1 weapon=&quot;Snazzgun&quot; when=ranged conditional</comment>
   <profiles>
 <profile name="Supa-Snazz Dakka Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e115-0061">
 <characteristics>
@@ -7331,7 +7353,8 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
 <selectionEntry type="model" import="true" name="Warboss" hidden="false" id="2efc-c4b3-2ecc-5a37">
 <comment>pts: 90 (Kustom Choppa Cleave 2 + Might Is Right compensent le nerf du Waaagh!) - estime fiche 11e, a confirmer via MFM.
 sim-mod: source=&quot;Might Is Right&quot; attacks=+3 str=+2 when=melee conditional
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Boss&apos; Ammo Runt&quot; hit=+1 when=ranged oncePer=battle</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0031" includeChildSelections="true"/>
 </constraints>
@@ -7552,7 +7575,8 @@ invuln: 5+</comment>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Weirdboy" hidden="false" id="260d-9ce4-ea1f-a957">
-<comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 65) - a confirmer via MFM.</comment>
+<comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 65) - a confirmer via MFM.
+sim-mod: source=&quot;Warpath (psychic level 1)&quot; reroll=wound1 when=melee conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0063" includeChildSelections="true"/>
 </constraints>
@@ -8027,7 +8051,8 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek with Shokk Attack Gun" hidden="false" id="dde2-ca42-e3bc-2ef6">
 <comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 70) - a confirmer via MFM.
-sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
+sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional
+sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged</comment>
 <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -8167,7 +8192,8 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Mek" hidden="false" id="3b2-8c11-616a-1005">
-<comment>pts: 50 estime d&apos;apres la fiche 11e (ancien MFM 55) - a confirmer via MFM.</comment>
+<comment>pts: 50 estime d&apos;apres la fiche 11e (ancien MFM 55) - a confirmer via MFM.
+sim-mod: source=&quot;Kustom Dakka&quot; ignores-cover when=ranged</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0202" includeChildSelections="true"/>
 </constraints>
@@ -8787,7 +8813,8 @@ fnp: 5+</comment>
 <selectionEntry type="model" import="true" name="Mozrog Skragbad" hidden="false" id="b42b-ea0-38f1-6300">
 <comment>pts: 135 (Gutrippa Cleave 1 + rerolls vs M/V + 4++/5+++) - estime fiche 11e, a confirmer via MFM.
 invuln: 4+
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Da Bigger Dey Iz...&quot; reroll=wound when=melee vs=Monster,Vehicle</comment>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0358" includeChildSelections="true"/>
 </constraints>
@@ -8939,7 +8966,8 @@ fnp: 5+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Zodgrod Wortsnagga" hidden="false" id="ce45-db08-3795-18a9">
 <comment>pts: 70 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.
-invuln: 6+</comment>
+invuln: 6+
+sim-mod: source=&quot;Super Runts&quot; attacks=+1 hit=+1 str=+1 weapon=&quot;Scavenged Shivs&quot; when=melee whileLeading</comment>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e116-0386" includeChildSelections="true"/>
 </constraints>
@@ -10388,7 +10416,8 @@ invuln: 6+</comment>
 <selectionEntry type="model" import="true" name="Hunta Rig" hidden="false" id="70de-d621-8465-f7b8">
 <comment>pts: 165 estime d&apos;apres la fiche 11e (ancien MFM 125) - a confirmer via MFM.
 invuln: 6+
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Fully Loaded Butchery&quot; attacks=+22 weapon=&quot;Butcha Boyz&quot; when=melee conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0172" includeChildSelections="true"/>
 </constraints>
@@ -10607,7 +10636,8 @@ fnp: 5+</comment>
 <selectionEntry type="model" import="true" name="Kill Rig" hidden="false" id="eb21-c97f-2d9a-b363">
 <comment>pts: 190 estime d&apos;apres la fiche 11e (ancien MFM 145) - a confirmer via MFM.
 invuln: 6+
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Warpath (psychic level 1)&quot; lethal when=melee conditional</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0222" includeChildSelections="true"/>
 </constraints>
@@ -11299,7 +11329,8 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Wazbom Blastajet" hidden="false" id="3832-ad97-2b3b-8775">
 <comment>pts: 165 (ancien MFM, provisoire). invuln: 6+
-invuln: 6+</comment>
+invuln: 6+
+sim-mod: source=&quot;Go fer da Weak Spot&quot; reroll=wound when=ranged vs=Monster,Vehicle</comment>
 <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
@@ -11649,7 +11680,9 @@ invuln: 6+</comment>
 </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Targetin&apos; Gizmos Upgrade" hidden="false" id="4807-8e0f-a2bc-4610">
-  <comment>Amelioration Upgrade (Blitz Brigade) : unites WAGON, cumulable, max 1 par unite, jamais Epic Hero. pts: 15 (ancien MFM 10e &apos;Targetin&apos; Gizmos&apos;, id d&apos;origine reutilise).</comment>
+  <comment>Amelioration Upgrade (Blitz Brigade) : unites WAGON, cumulable, max 1 par unite, jamais Epic Hero. pts: 15 (ancien MFM 10e &apos;Targetin&apos; Gizmos&apos;, id d&apos;origine reutilise).
+sim-mod: source=&quot;Targetin&apos; Gizmos Upgrade&quot; ignores-cover when=ranged conditional
+sim-mod: source=&quot;Targetin&apos; Gizmos Upgrade&quot; sustained=1 when=ranged conditional</comment>
   <profiles>
 <profile name="Targetin&apos; Gizmos Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e11d-0005">
 <characteristics>
@@ -11793,7 +11826,8 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
   </modifiers>
   <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Supa-Glowy Fing" hidden="false" id="7b08-5d22-81ac-5b65">
-  <comment>pts: 20 deduit par analogie MFM 10e - a confirmer.</comment>
+  <comment>pts: 20 deduit par analogie MFM 10e - a confirmer.
+sim-mod: source=&quot;Supa-Glowy Fing&quot; anti=Infantry:4+ dev when=ranged scope=model</comment>
   <profiles>
 <profile name="Supa-Glowy Fing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e114-0003">
 <characteristics>
@@ -12147,7 +12181,8 @@ pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Brutal But Kunnin&apos;" hidden="false" id="2297-d724-700d-9821">
-  <comment>pts: 25 (ancien MFM 10e, provisoire).</comment>
+  <comment>pts: 25 (ancien MFM 10e, provisoire).
+sim-mod: source=&quot;Brutal But Kunnin&apos;&quot; dmg=+1 when=melee scope=model</comment>
   <profiles>
 <profile name="Brutal But Kunnin&apos;" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0034">
 <characteristics>
@@ -12224,7 +12259,8 @@ pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Proper Killy" hidden="false" id="3000-401c-cb1c-b4dd">
   <comment>pts: A REMPLIR (valeur actuelle provisoire, non confirmee par la source Art of War).
-pts: 15 (ancien MFM 10e, provisoire).</comment>
+pts: 15 (ancien MFM 10e, provisoire).
+sim-mod: source=&quot;Proper Killy&quot; reroll=hit1 scope=model</comment>
   <profiles>
 <profile name="Proper Killy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e113-0038">
 <characteristics>
@@ -12527,7 +12563,8 @@ pts: 25 deduit par analogie MFM 10e - a confirmer.</comment>
   <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Headwoppa&apos;s Killchoppa" hidden="false" id="40fb-e485-dca0-cb12">
   <comment>pts: A REMPLIR (valeur actuelle provisoire, non confirmee par la source Art of War).
-pts: 20 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
+pts: 20 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.
+sim-mod: source=&quot;Headwoppa&apos;s Killchoppa&quot; ap=+1 when=melee onCharge scope=model</comment>
   <profiles>
 <profile name="Headwoppa&apos;s Killchoppa" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e115-0029">
 <characteristics>
@@ -12685,7 +12722,9 @@ pts: 25 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
   </modifiers>
   <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Ferocious Show-Off" hidden="false" id="647-4242-1022-5d0a">
-  <comment>pts: 10 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
+  <comment>pts: 10 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.
+sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+1 when=melee scope=model choice=&quot;showoff&quot;
+sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model conditional choice=&quot;showoff&quot;</comment>
   <profiles>
 <profile name="Ferocious Show-Off" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e115-0039">
 <characteristics>
@@ -13188,6 +13227,7 @@ EFFECT: Ranged attacks that target your unit fail on an unmodified hit roll of 1
   <comment>DP=2 et Force Disposition repris de l&apos;ancien catalogue (id d&apos;origine reutilise).</comment>
   <rules>
 <rule name="Da Hunt Is On" id="0d1a-e113-0006" hidden="false">
+<comment>sim-mod: source=&quot;Da Hunt Is On&quot; ap=+1 vs=Monster,Vehicle kw=&quot;Beast Snagga&quot;</comment>
 <description>*Beast Snaggas fanatically hunt the biggest targets and are experts in finding their weak spots.*
 
 Friendly **^^Beast Snagga^^** units&apos; attacks that target a **^^Monster^^**/**^^Vehicle^^** unit have +1 **AP**.</description>
@@ -13239,6 +13279,7 @@ EFFECT: Place your unit in strategic reserves.</description>
   <comment>DP=2 deduit (analogie Dread Mob DP2, detachement mek) - a confirmer via MFM. Force Disposition=Priority Assets par convention.</comment>
   <rules>
 <rule name="Unpredictable Genius" id="0d1a-e113-0011" hidden="false">
+<comment>sim-mod: source=&quot;Unpredictable Genius&quot; hit=+1 when=ranged kw=&quot;Big Mek,Mek Gunz,Morkanaut,Wazbom Blastajet&quot; conditional</comment>
 <description>*Meks haul all manner of weird bullets, unstable power cells and customised extras to battle.*
 
 In your Shooting phase, when all of a friendly **^^Big Mek^^**/**^^Mek Gunz^^**/**^^Morkanaut^^**/**^^Wazbom Blastajet^^** unit&apos;s ranged attacks target a single enemy unit, roll one D6:
@@ -13314,6 +13355,8 @@ When a friendly **^^Warboss^^** model is **destroyed**, if this unit has not bee
 Force Disposition : A REMPLIR (valeur actuelle provisoire, non confirmee par la source Art of War).</comment>
   <rules>
 <rule name="Powers of Da Waaagh!" id="0d1a-e113-0016" hidden="false">
+<comment>sim-mod: source=&quot;Powers of Da Waaagh!&quot; str=+1 weapon=&quot;Psychic&quot; kw=&quot;Psyker&quot;
+sim-mod: source=&quot;Powers of Da Waaagh!&quot; str=+1 weapon=&quot;Psychic&quot; kw=&quot;Psyker&quot; conditional</comment>
 <description>*Surrounded by mobs of excitable Orks, Weirdboyz&apos; shamanic powers build to spectacular phenomena.*
 
 Friendly **^^Orks^^ ^^Psyker^^** models&apos; **[PSYCHIC]** attacks have:
@@ -13406,7 +13449,8 @@ TARGET: That ORKS MOUNTED/VEHICLE unit.
 EFFECT: Your unit has +2&quot; M.</description>
 </rule>
 <rule name="Close-Range Dakka (Stratagem, 1CP)" id="0d1a-e115-0006" hidden="false">
-<comment>strat-timing: turn=your phase=shooting</comment>
+<comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Close-Range Dakka&quot; attacks=+1 when=ranged conditional</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS unit is selected to shoot.
@@ -13443,6 +13487,8 @@ EFFECT: Your unit&apos;s ranged attacks have:
   <comment>DP=2 et Force Disposition repris de l&apos;ancien catalogue (id d&apos;origine reutilise).</comment>
   <rules>
 <rule name="Mob-Handed Brutality" id="0d1a-e115-0007" hidden="false">
+<comment>sim-mod: source=&quot;Mob-Handed Brutality&quot; sustained=1 when=melee kw=&quot;Boyz&quot;
+sim-mod: source=&quot;Mob-Handed Brutality&quot; lethal when=melee onCharge kw=&quot;Infantry&quot; conditional</comment>
 <description>*In the massive fights that Orks enjoy, the only way to ensure a slice of the action is to fight harder.*
 
 - Friendly **^^Boyz^^** units&apos; melee attacks have **[SUSTAINED HITS 1]**.
@@ -13496,6 +13542,7 @@ EFFECT: Your unit has +2 to advance rolls.</description>
   <comment>DP=2 et Force Disposition repris de l&apos;ancien catalogue (id d&apos;origine reutilise).</comment>
   <rules>
 <rule name="Displays of Savagery" id="0d1a-e115-0011" hidden="false">
+<comment>sim-mod: source=&quot;Displays of Savagery&quot; sustained=1 when=melee kw=&quot;Meganobz,Nobz&quot;</comment>
 <description>*Nobz have a position of dominance to maintain, and do so in vicious eruptions of violence.*
 
 Friendly **^^Meganobz^^**/**^^Nobz^^** units&apos; melee attacks have **[SUSTAINED HITS 1]**.</description>
@@ -13605,6 +13652,7 @@ EFFECT: Your unit can make a normal move of up to 6&quot;.</description>
   <comment>DP=1 deduit (reroll 1s conditionnel, etroit) - a confirmer via MFM. Force Disposition=Take and Hold par convention. Textes des stratagems confirmes.</comment>
   <rules>
 <rule name="Wreckin&apos; and Lootin&apos;" id="0d1a-e115-0019" hidden="false">
+<comment>sim-mod: source=&quot;Wreckin&apos; and Lootin&apos;&quot; reroll=hit1 when=ranged kw=&quot;Breaka Boyz,Flash Gitz,Tankbustas&quot; conditional</comment>
 <description>*Whether piratical or merely larcenous, Orks with an eye for loot react forcefully to rival claims.*
 
 In your Shooting phase, when a friendly **^^Breaka Boyz^^**/**^^Flash Gitz^^**/**^^Tankbustas^^** unit is **selected to shoot**, if any of the following apply, that unit&apos;s attacks can re-roll **Hit rolls** of 1:
@@ -13662,6 +13710,7 @@ EFFECT: Your unit shoots using normal shooting, but while doing so your unit can
 Force Disposition : A REMPLIR (valeur actuelle provisoire, non confirmee par la source Art of War).</comment>
   <rules>
 <rule name="Skyborne Loons" id="0d1a-e115-0024" hidden="false">
+<comment>sim-mod: source=&quot;Skyborne Loons&quot; hit=+1 when=ranged kw=&quot;Aircraft,Deffkoptas&quot; conditional</comment>
 <description>*When attacking en masse, crazed and excitable Flyboyz unleash torrential quantities of dakka.*
 
 - Friendly **^^Orks^^ ^^Aircraft^^** units do not count towards the combined points value of your **strategic reserves** units.
@@ -13719,6 +13768,9 @@ EFFECT: Your unit can make a normal move of:
   <comment>DP=2 et Force Disposition=Purge the Foe repris de l'ancien catalogue (id d'origine reutilise).</comment>
   <rules>
 <rule name="Try Dat Button!" id="3664-2bb3-64e4-e684" hidden="false">
+<comment>sim-mod: source=&quot;Try Dat Button!&quot; attacks=+1 kw=&quot;Walker&quot; conditional
+sim-mod: source=&quot;Try Dat Button!&quot; str=+2 kw=&quot;Walker&quot; conditional
+sim-mod: source=&quot;Try Dat Button!&quot; ap=+1 kw=&quot;Walker&quot; conditional</comment>
 <description>*Inviting Mek-wired buttons offer varied and erratic lethality.*
 
 In your Shooting phase or the Fight phase, when a friendly **^^Orks^^ ^^Walker^^** unit (excluding **^^Titanic^^** units) is **selected to attack**, you can use this ability. If you do, roll either one D6 or two D6 (keep re-rolling duplicate results). This unit&apos;s attacks have the relevant rule(s):
