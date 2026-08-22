@@ -12965,6 +12965,7 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
 - When a friendly **^^Gretchin^^** unit is selected to make an **advance/fall-back move**, that move does not prevent this unit from being **eligible to start an action**.</description>
 </rule>
 <rule name="Infested War Zone (Stratagem, 2CP)" id="0d1a-9f3b-7c40-a102" hidden="false">
+<comment>strat-timing: turn=either phase=any</comment>
 <description>Runt Swarm – STRATAGEM (2CP)
 
 WHEN: Any phase, when an enemy unit has attacked.
@@ -12972,6 +12973,7 @@ TARGET: One friendly GRETCHIN unit that was just destroyed. You can target that 
 EFFECT: Add a new unit identical to your destroyed unit, in strategic reserves, at its starting strength, with its full wounds remaining.</description>
 </rule>
 <rule name="Scarper! (Stratagem, 1CP)" id="0d1a-9f3b-7c40-a103" hidden="false">
+<comment>strat-timing: turn=opponent phase=movement</comment>
 <description>Runt Swarm – STRATAGEM (1CP)
 
 WHEN: Your opponent's Movement phase, when an enemy unit ends a move within 8&quot; of a friendly unengaged GRETCHIN unit.
@@ -12981,6 +12983,7 @@ EFFECT: Your unit can make a normal move of:
 - Or: Up to 6&quot; instead if your unit is an attached unit.</description>
 </rule>
 <rule name="Grot Shields (Stratagem, 1CP)" id="0d1a-9f3b-7c40-a104" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
 <description>Runt Swarm – STRATAGEM (1CP)
 
 WHEN: Your opponent's Shooting phase, when an enemy unit targets a friendly ORKS INFANTRY unit (excluding GRETCHIN units).
@@ -13016,7 +13019,8 @@ Friendly **^^Orks^^ ^^Infantry^^** units' ranged attacks have:
 - While the unit is **riled up**, +3&quot; Range.</description>
 </rule>
 <rule name="Kustom Dakka (Stratagem, 1CP)" id="0d1a-9f3b-7c40-a106" hidden="false">
-              <comment>sim-mod: source=&quot;Kustom Dakka&quot; wound=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Kustom Dakka&quot; wound=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
 <description>Shoota Boyz – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS INFANTRY unit is selected to shoot.
@@ -13024,7 +13028,8 @@ TARGET: That ORKS INFANTRY unit.
 EFFECT: Your unit's ranged attacks that target a unit (excluding MONSTER/VEHICLE units) have +1 to wound rolls.</description>
 </rule>
 <rule name="Glowin' Dakka (Stratagem, 1CP)" id="0d1a-9f3b-7c40-a107" hidden="false">
-              <comment>sim-mod: source=&quot;Glowin&apos; Dakka&quot; ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Glowin&apos; Dakka&quot; ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
 <description>Shoota Boyz – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS INFANTRY unit is selected to shoot.
@@ -13032,7 +13037,8 @@ TARGET: That ORKS INFANTRY unit.
 EFFECT: Your unit's ranged attacks that target a unit within 9&quot; have +1 AP.</description>
 </rule>
 <rule name="Never Enough Dakka (Stratagem, 1CP)" id="0d1a-9f3b-7c40-a108" hidden="false">
-              <comment>sim-mod: source=&quot;Never Enough Dakka&quot; sustained=1 when=ranged kw=&quot;Infantry&quot;</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Never Enough Dakka&quot; sustained=1 when=ranged kw=&quot;Infantry&quot;</comment>
 <description>Shoota Boyz – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS INFANTRY unit is selected to shoot.
@@ -13052,7 +13058,7 @@ EFFECT: Your unit's ranged attacks have [SUSTAINED HITS 1].</description>
     </modifier>
   </modifiers>
   <costs>
-    <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+    <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
   <profiles>
     <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-9f3b-7c40-a112">
@@ -13074,6 +13080,7 @@ EFFECT: Your unit's ranged attacks have [SUSTAINED HITS 1].</description>
   - That move does not prevent that unit from being **eligible to declare a charge**.</description>
 </rule>
 <rule name="Delicious Eating Squigs (Stratagem, 1CP)" id="0d1a-e113-0002" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your Movement phase.
@@ -13081,7 +13088,8 @@ TARGET: One friendly RUKKATRUKK SQUIGBUGGIES unit.
 EFFECT: Select any number of friendly ORKS INFANTRY units within 3&quot; of your unit. Each selected unit heals 3 wounds.</description>
 </rule>
 <rule name="Dakkastorm (Stratagem, 1CP)" id="0d1a-e113-0003" hidden="false">
-              <comment>sim-mod: source=&quot;Dakkastorm&quot; sustained=1 when=ranged kw=&quot;Speed Freeks&quot;</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Dakkastorm&quot; sustained=1 when=ranged kw=&quot;Speed Freeks&quot;</comment>
 <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly SPEED FREEKS unit is selected to shoot.
@@ -13089,6 +13097,7 @@ TARGET: That SPEED FREEKS unit.
 EFFECT: Your unit&apos;s ranged attacks have [SUSTAINED HITS 1].</description>
 </rule>
 <rule name="Speediest Freeks (Stratagem, 1CP)" id="0d1a-e113-0004" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
 <description>Kult of Speed – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly SPEED FREEKS unit.
@@ -13123,6 +13132,7 @@ EFFECT: Ranged attacks that target your unit fail on an unmodified hit roll of 1
 Friendly **^^Beast Snagga^^** units&apos; attacks that target a **^^Monster^^**/**^^Vehicle^^** unit have +1 **AP**.</description>
 </rule>
 <rule name="Where D&apos;ya Fink You&apos;re Going? (Stratagem, 1CP)" id="0d1a-e113-0007" hidden="false">
+<comment>strat-timing: turn=opponent phase=movement</comment>
 <description>Da Big Hunt – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Movement phase, when an enemy unit is selected to make a fall-back move, if that enemy unit is engaged with a friendly BEAST SNAGGA unit.
@@ -13130,6 +13140,7 @@ TARGET: That BEAST SNAGGA unit.
 EFFECT: When an enemy unit engaged with your unit is selected to make a fall-back move, that enemy unit must use the desperate escape mode. If that enemy unit is a MONSTER/VEHICLE unit, that enemy unit makes three additional hazard rolls for each BEAST SNAGGA unit it is engaged with, with -1 from those hazard rolls if that enemy unit is battle-shocked.</description>
 </rule>
 <rule name="Goaded Into Action (Stratagem, 1CP)" id="0d1a-e113-0008" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
 <description>Da Big Hunt – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit has shot.
@@ -13137,6 +13148,7 @@ TARGET: One friendly unengaged BEAST SNAGGA unit that lost a wound as a result o
 EFFECT: Your unit can make a surge move of up to D6&quot;. If your unit is riled up, it can re-roll that D6.</description>
 </rule>
 <rule name="Instinctive Hunters (Stratagem, 1CP)" id="0d1a-e113-0009" hidden="false">
+<comment>strat-timing: turn=opponent phase=fight</comment>
 <description>Da Big Hunt – STRATAGEM (1CP)
 
 WHEN: End of your opponent&apos;s Fight phase.
@@ -13152,7 +13164,7 @@ EFFECT: Place your unit in strategic reserves.</description>
 </modifier>
   </modifiers>
   <costs>
-<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
   <profiles>
 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0010">
@@ -13176,7 +13188,8 @@ In your Shooting phase, when all of a friendly **^^Big Mek^^**/**^^Mek Gunz^^**/
 - **6 – Runtified:** The target unit has -1 **T** until your unit has shot.</description>
 </rule>
 <rule name="Vindictive Artillerists (Stratagem, 1CP)" id="0d1a-e113-0012" hidden="false">
-              <comment>sim-mod: source=&quot;Vindictive Artillerists&quot; lethal when=ranged kw=&quot;Mek Gunz&quot; choice=&quot;vindic&quot;
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Vindictive Artillerists&quot; lethal when=ranged kw=&quot;Mek Gunz&quot; choice=&quot;vindic&quot;
 sim-mod: source=&quot;Vindictive Artillerists&quot; sustained=1 when=ranged kw=&quot;Mek Gunz&quot; choice=&quot;vindic&quot;
 sim-mod: source=&quot;Vindictive Artillerists&quot; lethal sustained=1 when=ranged kw=&quot;Mek Gunz&quot; choice=&quot;vindic&quot;</comment>
 <description>Madcap Meks – STRATAGEM (1CP)
@@ -13197,7 +13210,7 @@ EFFECT: Your unit&apos;s ranged attacks have:
 </modifier>
   </modifiers>
   <costs>
-<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
   <profiles>
 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0013">
@@ -13284,6 +13297,7 @@ Friendly **^^Orks^^ ^^Psyker^^** models have the following **psychic abilities**
 Friendly **^^Orks^^** units&apos; melee attacks have **[SUSTAINED HITS 1]**.</description>
 </rule>
 <rule name="Breakin&apos; Heads (Stratagem, 1CP)" id="0d1a-e115-0001" hidden="false">
+<comment>strat-timing: turn=either phase=any</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly attached ORKS INFANTRY unit becomes battle-shocked. You can target that unit with this stratagem even though it is battle-shocked.
@@ -13293,7 +13307,8 @@ EFFECT: Roll one D3:
 - Your unit is no longer battle-shocked.</description>
 </rule>
 <rule name="Hit &apos;Em Harder (Stratagem, 1CP)" id="0d1a-e115-0002" hidden="false">
-              <comment>sim-mod: source=&quot;Hit &apos;Em Harder&quot; lethal when=melee</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Hit &apos;Em Harder&quot; lethal when=melee</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ORKS unit is selected to fight.
@@ -13301,6 +13316,7 @@ TARGET: That ORKS unit.
 EFFECT: Your unit&apos;s melee attacks have [LETHAL HITS].</description>
 </rule>
 <rule name="Orks Is Never Beaten (Stratagem, 1CP)" id="0d1a-e115-0003" hidden="false">
+<comment>strat-timing: turn=either phase=fight</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Fight phase, when an enemy unit targets a friendly ORKS unit (excluding TITANIC units).
@@ -13309,6 +13325,7 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
 - On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield.</description>
 </rule>
 <rule name="Mow &apos;Em Down (Stratagem, 1CP)" id="0d1a-e115-0004" hidden="false">
+<comment>strat-timing: turn=your phase=fight</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ORKS VEHICLE unit (excluding WALKER units) that made a charge move this turn is selected to fight.
@@ -13318,6 +13335,7 @@ EFFECT: Your unit&apos;s melee attacks have:
 - Or: if that attack already has [CLEAVE], +1 to the value of that [CLEAVE] (e.g. [CLEAVE 1] becomes [CLEAVE 2]).</description>
 </rule>
 <rule name="Fungus-Fuel Injection (Stratagem, 1CP)" id="0d1a-e115-0005" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly ORKS MOUNTED/VEHICLE unit is selected to move.
@@ -13325,6 +13343,7 @@ TARGET: That ORKS MOUNTED/VEHICLE unit.
 EFFECT: Your unit has +2&quot; M.</description>
 </rule>
 <rule name="Close-Range Dakka (Stratagem, 1CP)" id="0d1a-e115-0006" hidden="false">
+<comment>strat-timing: turn=your phase=shooting</comment>
 <description>War Horde – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS unit is selected to shoot.
@@ -13362,7 +13381,8 @@ EFFECT: Your unit&apos;s ranged attacks have:
 - If a friendly **^^Orks^^ ^^Infantry^^** unit made a **charge move** this turn, that unit&apos;s melee attacks have **[LETHAL HITS: non-MONSTER/VEHICLE]**.</description>
 </rule>
 <rule name="Unbridled Carnage (Stratagem, 1CP)" id="0d1a-e115-0008" hidden="false">
-              <comment>sim-mod: source=&quot;Unbridled Carnage&quot; attacks=+1 when=melee onCharge kw=&quot;Boyz&quot;</comment>
+              <comment>strat-timing: turn=your phase=fight
+sim-mod: source=&quot;Unbridled Carnage&quot; attacks=+1 when=melee onCharge kw=&quot;Boyz&quot;</comment>
 <description>Green Tide – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly BOYZ unit that made a charge move this turn is selected to fight.
@@ -13370,6 +13390,7 @@ TARGET: That BOYZ unit.
 EFFECT: Your unit&apos;s melee attacks have +1 A.</description>
 </rule>
 <rule name="Mob Mentality (Stratagem, 1CP)" id="0d1a-e115-0009" hidden="false">
+<comment>strat-timing: turn=your phase=command</comment>
 <description>Green Tide – STRATAGEM (1CP)
 
 WHEN: Start of the Battle-shock step of your Command phase.
@@ -13377,6 +13398,7 @@ TARGET: One friendly ORKS INFANTRY unit of 13+ models.
 EFFECT: Select one visible friendly ORKS unit within 12&quot; of your unit. That unit&apos;s battle-shock rolls are automatically successful.</description>
 </rule>
 <rule name="&apos;Ere We Go (Stratagem, 1CP)" id="0d1a-e115-0010" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Green Tide – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly BEAST SNAGGA BOYZ/BOYZ unit is selected to move.
@@ -13411,6 +13433,7 @@ EFFECT: Your unit has +2 to advance rolls.</description>
 Friendly **^^Meganobz^^**/**^^Nobz^^** units&apos; melee attacks have **[SUSTAINED HITS 1]**.</description>
 </rule>
 <rule name="Too Arrogant To Die (Stratagem, 1CP)" id="0d1a-e115-0012" hidden="false">
+<comment>strat-timing: turn=either phase=fight</comment>
 <description>Bully Boyz – STRATAGEM (1CP)
 
 WHEN: Fight phase, when an enemy unit targets a friendly MEGANOBZ/NOBZ unit.
@@ -13419,7 +13442,8 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
 - On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield.</description>
 </rule>
 <rule name="Armed To Da Teef (Stratagem, 1CP)" id="0d1a-e115-0013" hidden="false">
-              <comment>sim-mod: source=&quot;Armed To Da Teef&quot; reroll=hit1 kw=&quot;Meganobz,Nobz&quot; choice=&quot;teef&quot;
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Armed To Da Teef&quot; reroll=hit1 kw=&quot;Meganobz,Nobz&quot; choice=&quot;teef&quot;
 sim-mod: source=&quot;Armed To Da Teef&quot; reroll=hit kw=&quot;Meganobz,Nobz&quot; conditional choice=&quot;teef&quot;</comment>
 <description>Bully Boyz – STRATAGEM (1CP)
 
@@ -13430,6 +13454,7 @@ EFFECT: Your unit&apos;s attacks can:
 - If your unit is riled up, re-roll hit rolls.</description>
 </rule>
 <rule name="Hulking Brutes (Stratagem, 1CP)" id="0d1a-e115-0014" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
 <description>Bully Boyz – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly MEGANOBZ/NOBZ unit.
@@ -13446,7 +13471,7 @@ Or (for 1 additional CP): Ranged attacks that target your unit have -1 to wound 
 </modifier>
   </modifiers>
   <costs>
-<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+<cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
   <profiles>
 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0391-e52e-4197-aa04">
@@ -13466,6 +13491,7 @@ Or (for 1 additional CP): Ranged attacks that target your unit have -1 to wound 
 - When a friendly **^^Boyz^^**/**^^Kommandos^^**/**^^Stormboyz^^** unit is selected to make a **fall-back move**, that **fall-back move** does not prevent that unit from being **eligible to declare a charge**.</description>
 </rule>
 <rule name="Dubious Restraint (Stratagem, 1CP)" id="0d1a-e115-0016" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Taktikal Brigade – STRATAGEM (1CP)
 
 WHEN: Start/end of your Movement phase.
@@ -13473,6 +13499,7 @@ TARGET: One friendly BOYZ/KOMMANDOS/STORMBOYZ unit.
 EFFECT: Select one objective your unit is controlling. That objective is secured.</description>
 </rule>
 <rule name="Mind Mostly On The Mission (Stratagem, 1CP)" id="0d1a-e115-0017" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Taktikal Brigade – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly BOYZ/KOMMANDOS/STORMBOYZ unit is selected to make an advance/fall-back move.
@@ -13480,6 +13507,7 @@ TARGET: That BOYZ/KOMMANDOS/STORMBOYZ unit.
 EFFECT: That move does not prevent your unit from being eligible to start an action.</description>
 </rule>
 <rule name="While Their Backs Are Turned (Stratagem, 1CP)" id="0d1a-e115-0018" hidden="false">
+<comment>strat-timing: turn=opponent phase=movement</comment>
 <description>Taktikal Brigade – STRATAGEM (1CP)
 
 WHEN: End of your opponent&apos;s Movement phase.
@@ -13516,7 +13544,8 @@ In your Shooting phase, when a friendly **^^Breaka Boyz^^**/**^^Flash Gitz^^**/*
 - The target of that attack is within range of an **objective**.</description>
 </rule>
 <rule name="Drive-By Bustin&apos; (Stratagem, 1CP)" id="0d1a-e115-0020" hidden="false">
-              <comment>sim-mod: source=&quot;Drive-By Bustin&apos;&quot; hit=+1 when=ranged kw=&quot;Transport&quot; conditional</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Drive-By Bustin&apos;&quot; hit=+1 when=ranged kw=&quot;Transport&quot; conditional</comment>
 <description>Wreckas – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS TRANSPORT unit is selected to shoot.
@@ -13524,6 +13553,7 @@ TARGET: That ORKS TRANSPORT unit.
 EFFECT: Your unit&apos;s ranged attacks made with weapons selected for the Firing Deck ability have +1 to hit rolls.</description>
 </rule>
 <rule name="Grab It (Stratagem, 1CP)" id="0d1a-e115-0021" hidden="false">
+<comment>strat-timing: turn=your phase=shooting</comment>
 <description>Wreckas – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly unengaged BREAKA BOYZ/FLASH GITZ/TANKBUSTAS unit has shot.
@@ -13533,6 +13563,7 @@ EFFECT:
 - Your unit is not eligible to declare a charge until the end of the turn.</description>
 </rule>
 <rule name="Gun-Crazy Show-Offs (Stratagem, 1CP)" id="0d1a-e115-0022" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
 <description>Wreckas – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit has shot.
@@ -13568,6 +13599,7 @@ EFFECT: Your unit shoots using normal shooting, but while doing so your unit can
 - While a friendly **^^Orks^^ ^^Aircraft^^**/**^^Deffkoptas^^** unit is **riled up**, this unit&apos;s ranged attacks have +1 to **Hit rolls**.</description>
 </rule>
 <rule name="Flyin&apos; Headbutt (Stratagem, 1CP)" id="0d1a-e115-0025" hidden="false">
+<comment>strat-timing: turn=either phase=any</comment>
 <description>Flyboyz – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly ORKS AIRCRAFT unit is destroyed.
@@ -13577,7 +13609,8 @@ EFFECT: Your unit does not use the Deadly Demise ability. Select one enemy unit 
 Then remove your unit from the battlefield.</description>
 </rule>
 <rule name="Long, Uncontrolled Bursts (Stratagem, 1CP)" id="0d1a-e115-0026" hidden="false">
-              <comment>sim-mod: source=&quot;Long, Uncontrolled Bursts&quot; reroll=hit when=ranged kw=&quot;Aircraft,Deffkoptas&quot; vs=Fly</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Long, Uncontrolled Bursts&quot; reroll=hit when=ranged kw=&quot;Aircraft,Deffkoptas&quot; vs=Fly</comment>
 <description>Flyboyz – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ORKS AIRCRAFT/DEFFKOPTAS unit is selected to shoot.
@@ -13585,6 +13618,7 @@ TARGET: That ORKS AIRCRAFT/DEFFKOPTAS unit.
 EFFECT: When your unit&apos;s ranged attacks target a FLY unit, those attacks can re-roll hit rolls.</description>
 </rule>
 <rule name="Whirligig Evasion (Stratagem, 1CP)" id="0d1a-e115-0027" hidden="false">
+<comment>strat-timing: turn=opponent phase=movement</comment>
 <description>Flyboyz – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Movement phase, when an enemy unit ends a move.
@@ -13626,6 +13660,7 @@ In your Shooting phase or the Fight phase, when a friendly **^^Orks^^ ^^Walker^^
 If you rolled two D6, when this unit has attacked, this unit makes one **hazard roll**.</description>
 </rule>
 <rule name="Crazed Rampage (Stratagem, 1CP)" id="0d1a-e11c-0001" hidden="false">
+<comment>strat-timing: turn=either phase=fight</comment>
 <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Fight phase, when an enemy unit targets a friendly ORKS WALKER unit (excluding TITANIC units).
@@ -13634,6 +13669,7 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
 - On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield.</description>
 </rule>
 <rule name="Dread Power (Stratagem, 1CP)" id="0d1a-e11c-0002" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Your Movement phase.
@@ -13641,6 +13677,7 @@ TARGET: One friendly ORKS WALKER unit.
 EFFECT: Your unit is riled up until the start of your next turn.</description>
 </rule>
 <rule name="Stomping Juggernaut (Stratagem, 1CP)" id="0d1a-e11c-0003" hidden="false">
+<comment>strat-timing: turn=your phase=movement|charge</comment>
 <description>Dread Mob – STRATAGEM (1CP)
 
 WHEN: Your Movement/Charge phase, when a friendly ORKS WALKER unit is selected to move or declares a charge.
@@ -13676,6 +13713,7 @@ EFFECT: Your unit has MOBILE.</description>
 - When a friendly **^^Wagon^^** unit is selected to make an **advance move**, that unit can change **Advance rolls** to a 6.</description>
 </rule>
 <rule name="Keep It Runnin&apos; (Stratagem, 1CP)" id="0d1a-e11d-0002" hidden="false">
+<comment>strat-timing: turn=either phase=fight</comment>
 <description>Blitz Brigade – STRATAGEM (1CP)
 
 WHEN: End of the Fight phase.
@@ -13683,6 +13721,7 @@ TARGET: One friendly unengaged ORKS INFANTRY unit that was eligible to fight thi
 EFFECT: Your INFANTRY unit embarks within that TRANSPORT unit.</description>
 </rule>
 <rule name="Readied Brawlers (Stratagem, 1CP)" id="0d1a-e11d-0003" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
 <description>Blitz Brigade – STRATAGEM (1CP)
 
 WHEN: Your Movement phase, when a friendly WAGON unit ends a normal move.
@@ -13690,6 +13729,7 @@ TARGET: That WAGON unit.
 EFFECT: Units embarked within your unit can make an assault disembark move.</description>
 </rule>
 <rule name="Impending Krunch (Stratagem, 1CP)" id="0d1a-e11d-0004" hidden="false">
+<comment>strat-timing: turn=your phase=charge</comment>
 <description>Blitz Brigade – STRATAGEM (1CP)
 
 WHEN: Your Charge phase, when a friendly WAGON unit ends a charge move.

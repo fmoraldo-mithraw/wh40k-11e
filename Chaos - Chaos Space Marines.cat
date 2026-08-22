@@ -3747,6 +3747,7 @@ EFFECT: Select one of the following effects:
 Until the start of your next turn, your unit has the benefit of that effect.</description>
                 </rule>
                 <rule name="At the Tyrant&apos;s Command (Stratagem, 1CP)" id="2dc2-83a2-b1a6-d7ed" hidden="false">
+<comment>strat-timing: turn=your phase=movement</comment>
                   <description>Huron&apos;s Marauders – STRATAGEM (1CP)
 
 WHEN: Your Movement phase.
@@ -3762,7 +3763,8 @@ TARGET: That HERETIC ASTARTES unit.
 EFFECT: Do not make an Advance roll for your unit. Instead, until the end of the phase add 6&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="Reavers&apos; Flurry (Stratagem, 1CP)" id="93ca-7bb3-9bf7-8b4e" hidden="false">
-                  <comment>sim-mod: source=&quot;Reavers&apos; Flurry&quot; attacks=+1 when=melee onCharge</comment>
+                  <comment>strat-timing: turn=your phase=fight
+sim-mod: source=&quot;Reavers&apos; Flurry&quot; attacks=+1 when=melee onCharge</comment>
                   <description>Huron&apos;s Marauders – STRATAGEM (1CP)
 
 WHEN: Your Fight phase.
@@ -3857,6 +3859,7 @@ TARGET: One HERETIC ASTARTES unit in your army that has just been selected to sh
 EFFECT: Until the end of the phase, each time a model in this unit makes a ranged attack, improve the Armour Penetration of that attack by 1.</description>
                 </rule>
                 <rule name="Reavers&apos; Reaction (Stratagem, 1CP)" id="8e03-ff0b-c54d-1a9e" hidden="false">
+<comment>strat-timing: turn=opponent phase=shooting</comment>
                   <description>Renegade Warband – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, just after an enemy unit has shot.
@@ -4033,7 +4036,8 @@ EFFECT: Until the end of the phase, add 1 to the Toughness characteristic of mod
                   <description>Friendly **^^Havocs^^**/**^^Obliterators^^** units&apos; ranged attacks have [HEAVY].</description>
                 </rule>
                 <rule name="Ruination&apos;s Bounty (Stratagem, 1CP)" id="8d96-edd5-0ed0-2597" hidden="false">
-                  <comment>sim-mod: source=&quot;Ruination&apos;s Bounty&quot; lethal sustained=1 when=ranged kw=&quot;Havocs,Obliterators&quot;</comment>
+                  <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Ruination&apos;s Bounty&quot; lethal sustained=1 when=ranged kw=&quot;Havocs,Obliterators&quot;</comment>
                   <description>Devotees of Destruction – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly HAVOCS/OBLITERATORS unit is selected to shoot.
