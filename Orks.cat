@@ -544,14 +544,14 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
 </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
         <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
         <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
         <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
         <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="150" field="51b2-306e-1021-d207">
+        <modifier type="set" value="180" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="10" field="selections" scope="e3b1-1240-2476-cd86" childId="model" shared="true"/>
           </conditions>
@@ -836,7 +836,7 @@ invuln: 5+ model=&quot;Nazdreg&quot;</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
       </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0002">
@@ -1023,7 +1023,7 @@ Place one Makari token next to the unit, removing it after this ability is used.
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="275"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Crusade" id="9d3a-3796-cd9f-f492" hidden="false" sortIndex="1">
@@ -1940,7 +1940,7 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="600"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="700"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="395f-d6e3-3801-171c" hidden="false" sortIndex="2">
@@ -3112,7 +3112,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </selectionEntry>
   </selectionEntries>
   <costs>
-    <cost name="pts" typeId="51b2-306e-1021-d207" value="255"/>
+    <cost name="pts" typeId="51b2-306e-1021-d207" value="325"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Morkanaut" hidden="false" id="9ee5-2b39-de06-dda6">
@@ -3313,7 +3313,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </selectionEntry>
   </selectionEntries>
   <costs>
-    <cost name="pts" typeId="51b2-306e-1021-d207" value="270"/>
+    <cost name="pts" typeId="51b2-306e-1021-d207" value="345"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Warbuggies" hidden="false" id="0d1a-e101-0000-0000">
@@ -3517,7 +3517,7 @@ invuln: 6+</comment>
 <infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-e101-0041" targetId="42f1-ea3d-3ff9-e56a"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Deff Dread" hidden="false" id="1594-b986-e77e-d89d">
@@ -4416,7 +4416,7 @@ invuln: 6+</comment>
 <infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-e106-0039" targetId="42f1-ea3d-3ff9-e56a"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Blitz Brigade Enhancement" id="0d1a-e11d-0009" hidden="false">
@@ -5107,7 +5107,7 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Beast Snagga Boyz" hidden="false" id="b7c3-d00e-daf2-76fb">
@@ -5618,6 +5618,13 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Flash Gitz" hidden="false" id="1de9-b138-28a1-9c4b">
 <comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.</comment>
+<modifiers>
+<modifier type="set" value="210" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="5" field="selections" scope="1de9-b138-28a1-9c4b" childId="model" shared="true"/>
+</conditions>
+</modifier>
+</modifiers>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10b-0048"/>
 </constraints>
@@ -5858,7 +5865,7 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Meganobz" hidden="false" id="7067-34f4-5272-e05f">
@@ -5867,14 +5874,19 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10c-0037"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="120" field="51b2-306e-1021-d207">
+<modifier type="set" value="110" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="2" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
 </conditions>
 </modifier>
-<modifier type="set" value="180" field="51b2-306e-1021-d207">
+<modifier type="set" value="185" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="4" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
+</conditions>
+</modifier>
+<modifier type="set" value="235" field="51b2-306e-1021-d207">
+<conditions>
+<condition type="greaterThan" value="5" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
 </conditions>
 </modifier>
       </modifiers>
@@ -5958,6 +5970,9 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 <categoryLinks>
 <categoryLink name="Melee Weapon" hidden="false" id="0d1a-e10c-0021" targetId="ccdd-3987-11ed-90cd" primary="false"/>
 </categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+</costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Twin Killsaws" hidden="false" id="0d1a-e10c-9990-0013" collective="false">
 <profiles>
@@ -5979,6 +5994,9 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 <categoryLinks>
 <categoryLink name="Melee Weapon" hidden="false" id="0d1a-e10c-0024" targetId="ccdd-3987-11ed-90cd" primary="false"/>
 </categoryLinks>
+<costs>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+</costs>
 </selectionEntry>
 </selectionEntries>
 <constraints>
@@ -6097,7 +6115,7 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Breaka Boyz" hidden="false" id="a596-3d99-257e-0ea1">
@@ -6389,7 +6407,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Mek Gunz" hidden="false" id="b37a-8686-db2c-8cbd">
@@ -6399,12 +6417,12 @@ invuln: 6+</comment>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10e-0034"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="90" field="51b2-306e-1021-d207">
+<modifier type="set" value="110" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="1" field="selections" scope="b37a-8686-db2c-8cbd" childId="model" shared="true"/>
 </conditions>
 </modifier>
-<modifier type="set" value="135" field="51b2-306e-1021-d207">
+<modifier type="set" value="165" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="2" field="selections" scope="b37a-8686-db2c-8cbd" childId="model" shared="true"/>
 </conditions>
@@ -6583,7 +6601,7 @@ Place five Grot Crew tokens next to each Mek Gun model, removing one each time i
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Warboss in Mega Armour" hidden="false" id="494b-11ce-5af-5b50">
@@ -6695,7 +6713,7 @@ invuln: 5+</comment>
 <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e10f-0027" targetId="27f4-7449-a636-ae8c"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0010">
@@ -6873,7 +6891,7 @@ invuln: 5+</comment>
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e110-0031" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek in Mega Armour" hidden="false" id="95e9-6da3-5e75-2566">
@@ -7135,7 +7153,7 @@ Place a Grot Oiler token next to the unit, removing it when this ability is used
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e111-0055" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Smoky Gubbinz Upgrade" hidden="false" id="8e84-a731-d51d-73c2">
@@ -7650,7 +7668,7 @@ invuln: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0079" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0027">
@@ -7878,7 +7896,7 @@ invuln: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0137" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0037">
@@ -7991,7 +8009,7 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0162" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0042">
@@ -8010,6 +8028,13 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
 <selectionEntry type="model" import="true" name="Big Mek with Shokk Attack Gun" hidden="false" id="dde2-ca42-e3bc-2ef6">
 <comment>pts: 75 estime d&apos;apres la fiche 11e (ancien MFM 70) - a confirmer via MFM.
 sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
+<modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="dde2-ca42-e3bc-2ef6" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+</modifiers>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0175" includeChildSelections="true"/>
 </constraints>
@@ -8108,7 +8133,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0189" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Madcap Meks Enhancement" id="0d1a-e117-0449" hidden="false">
@@ -8240,7 +8265,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0215" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0053">
@@ -8561,7 +8586,7 @@ fnp: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0288" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0059">
@@ -8755,7 +8780,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0335" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Mozrog Skragbad" hidden="false" id="b42b-ea0-38f1-6300">
@@ -8908,7 +8933,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0372" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Zodgrod Wortsnagga" hidden="false" id="ce45-db08-3795-18a9">
@@ -9007,7 +9032,7 @@ invuln: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0399" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0068">
@@ -9209,7 +9234,7 @@ invuln: 4+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0450" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Painboy" hidden="false" id="7669-1442-2c0b-e0c9">
@@ -9311,7 +9336,7 @@ invuln: 4+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0476" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0074">
@@ -9687,7 +9712,7 @@ sim-mod: source=&quot;Rokkit Charge&quot; attacks=+1 str=+1 when=melee condition
 <condition type="atLeast" value="1" field="selections" scope="force" childId="fdd5-9868-a9ee-e9f1" shared="true" includeChildSelections="true"/>
 </conditions>
 </modifier>
-<modifier type="set" value="130" field="51b2-306e-1021-d207">
+<modifier type="set" value="140" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="5" field="selections" scope="4adf-8249-c6b2-dd4f" childId="model" shared="true"/>
 </conditions>
@@ -9895,7 +9920,7 @@ sim-mod: source=&quot;Rokkit Charge&quot; attacks=+1 str=+1 when=melee condition
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0074" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Warbikers" hidden="false" id="83a7-ea20-ed9-d14a">
@@ -10793,7 +10818,7 @@ fnp: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0282" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Blitz Brigade Enhancement" id="0d1a-e11d-0021" hidden="false">
@@ -10959,7 +10984,7 @@ invuln: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0318" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Burna-bommer" hidden="false" id="93a1-386a-e40f-472f">
@@ -11133,7 +11158,7 @@ invuln: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0362" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Dakkajet" hidden="false" id="3b42-b41f-d11e-bdca">
@@ -11258,6 +11283,13 @@ invuln: 6+</comment>
 <selectionEntry type="model" import="true" name="Wazbom Blastajet" hidden="false" id="3832-ad97-2b3b-8775">
 <comment>pts: 165 (ancien MFM, provisoire). invuln: 6+
 invuln: 6+</comment>
+<modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="3832-ad97-2b3b-8775" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+</modifiers>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0428" includeChildSelections="true"/>
 </constraints>
@@ -11467,7 +11499,7 @@ invuln: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0445" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big'ed Bossbunka" hidden="false" id="b82a-6b65-7050-ac48">
