@@ -182,16 +182,6 @@ invuln: 4+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="507d-5ea4-6ef1-bf66" name="Winged Tyranid Prime" hidden="false" collective="false" import="true" type="model">
@@ -335,44 +325,6 @@ invuln: 5+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="2" field="e86d-792-10b7-df58">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cbfd-453f-6288-6157" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="cbfd-453f-6288-6157" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="ceil" value="9" field="e703-ecb6-5ce7-aec1" affects="self.entries.recursive.profiles.Unit">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="e2d6-8046-4b2f-2395" hidden="false" sortIndex="4">
@@ -507,36 +459,7 @@ cannot-warlord</comment>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 3 Lictor-like models in a Boarding Swarm" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="6467-972f-c95c-d414" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="de12-e6b6-16c1-47b0" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="1ff-bd00-eca8-bff7" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry id="9ce8-7a63-15c3-0347" name="Gargoyles" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
@@ -712,16 +635,6 @@ cannot-warlord</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -909,16 +822,6 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -1161,44 +1064,6 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="ed75-3ce-a894-9253">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 3 Lictor-like models in a Boarding Swarm" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="6467-972f-c95c-d414" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="de12-e6b6-16c1-47b0" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="1ff-bd00-eca8-bff7" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="023b-114d-712b-c219" hidden="false" sortIndex="3">
@@ -1336,16 +1201,6 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -1571,44 +1426,6 @@ invuln: 4+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="6a75-a5f5-1da7-a85c">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 3 Lictor-like models in a Boarding Swarm" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="6467-972f-c95c-d414" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="de12-e6b6-16c1-47b0" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="1ff-bd00-eca8-bff7" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="e9a2-14cd-8730-04c5" hidden="false" sortIndex="3">
@@ -1769,16 +1586,6 @@ invuln: 4+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -1949,31 +1756,6 @@ invuln: 4+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="6da2-caf8-12c9-798c">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="5a94-e725-d771-6f44" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
@@ -2049,62 +1831,10 @@ invuln: 4+</comment>
                   <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="3" field="d330-8212-66df-b7bd">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                    <modifier type="set" value="3" field="f4a2-df52-5897-f540">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                    <modifier type="set" value="3" field="defaultAmount">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
+              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <comment>Boarding Actions modifiers</comment>
-              <modifiers>
-                <modifier type="set" value="Raveners" field="name">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
+          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -2243,16 +1973,6 @@ invuln: 4+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -2454,16 +2174,6 @@ invuln: 4+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="c121-985e-5ed5-dcd5" hidden="false" sortIndex="2">
@@ -2629,31 +2339,6 @@ invuln: 6+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="40be-d448-295c-f3f3">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="b1dc-c22a-b592-afbd" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
@@ -2726,42 +2411,10 @@ invuln: 6+</comment>
                   </characteristics>
                 </profile>
               </profiles>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="3" field="eb36-fa83-7d24-3c75">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
+              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <comment>Boarding Actions modifiers</comment>
-              <modifiers>
-                <modifier type="set" value="Von Ryan&apos;s Leapers" field="name">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7a6f-7334-fa6c-290e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
+          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Ambush Predators Enhancement" hidden="false" id="ceb0-cc58-b831-7c76">
           <modifiers>
@@ -2869,18 +2522,7 @@ invuln: 6+</comment>
               </entryLinks>
             </selectionEntryGroup>
           </selectionEntryGroups>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <comment>Boarding Actions modifiers</comment>
-              <modifiers>
-                <modifier type="set" value="3" field="787-2337-ccc2-c523">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
+          <modifierGroups></modifierGroups>
           <infoLinks>
             <infoLink name="Ripper Swarm" id="06a7-ba31-c975-9a8c" hidden="false" targetId="fdd3-f5cd-d338-974c" type="profile"/>
           </infoLinks>
@@ -2922,44 +2564,7 @@ invuln: 6+</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="cbfd-453f-6288-6157" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="aaa4-ecd6-4d33-9def">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="3" field="aaa4-ecd6-4d33-9def">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="cbfd-453f-6288-6157" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -3371,50 +2976,6 @@ invuln: 6+</comment>
       <comment>Reference version for spawned units
 sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Infestation Swarm" hidden="false" id="24e1-c66e-98e9-135b">
-      <comment>Boarding Actions - Great Devourer</comment>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-      <rules>
-        <rule name="Rules Adaptions" id="b5d9-5b50-81dc-fbcc" hidden="false">
-          <description>- **^^Genestealers^^** and **^^Purestrain Genestealers^^** units can perform the Secure Site Tactical Manoeuvre as if they had the **^^Battleline^^** keyword.
-- The **^^Purestrain Genestealers^^** unit loses the Swift and Deadly ability.
-- All models lose the Deep Strike ability.</description>
-        </rule>
-        <rule name="Auspex Ghosts" id="bdee-3334-ed02-9877" hidden="false">
-          <description>Units from your army with the Synapse or Cult Ambush abilities replace those abilities with this one.
-
-In the Deploy Armies step, your opponent must set up their entire army before you set up any of your units. If both players have a rule that allows them to do this, both players set up their units normally.</description>
-        </rule>
-        <rule name="Mustering A Boarding Patrol" id="369f-6d90-ba8c-fe12" hidden="false">
-          <description>When selecting this Detachment, you must select either the **^^Tyranids^^** or **^^Genestealer Cults^^** keyword.
-
-----------
-
-If you selected **^^Tyranids^^**, you can include up to one of the following unit:
-- **^^Broodlord^^**
-
-You can include up to three of the following unit:
-- **^^Genestealers^^** (5 or 10 models)
-
-----------
-
-If you selected **^^Genestealer Cults^^**, you can include up to one of the following unit:
-- **^^Patriarch^^**
-
-You can include up to three of the following unit:
-- **^^Purestrain Genestealers^^** (5 or 10 models)</description>
-        </rule>
-        <rule name="Half-glimpsed Shadows" id="73f9-655d-1321-73d2" hidden="false">
-          <description>Each time a ranged attack targets a **^^Great Devourer^^** unit from your army, if the attacking model is not within 6&quot; of that unit, subtract 1 from the Hit roll.</description>
-        </rule>
-      </rules>
-    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Spinemaw" hidden="false" id="3849-e3e0-4d2d-a259" collective="true">
       <profiles>
         <profile name="Spinemaw" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ab41-fe74-24c7-1b48">
@@ -3501,18 +3062,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a7a9-2d13-2212-3890" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="b067-ca10-d4df-88b9" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -5586,434 +5136,8 @@ sim-mod: source=&quot;Denunciator of Tyrants&quot; wound=+1 vs=Character</commen
           </modifiers>
           <comment>Genestealer Cults</comment>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Tyranid Attack Enhancements" id="4682-fc99-fdf3-efc1" hidden="false">
-          <comment>Boarding Actions content - Tyranids</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Reinforced Carapace" hidden="false" id="7d8c-eb0a-a42e-3e6b">
-              <profiles>
-                <profile name="Reinforced Carapace" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d414-297a-ae9e-7023">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack (note that if given to a Tyranid Prime model, this only affects that model and not other models in its unit).</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="7d8c-eb0a-a42e-3e6b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="7d8c-eb0a-a42e-3e6b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="5f26-df4e-1827-4811" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a5e0-4d9c-0994-4657" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Synaptic Goad" hidden="false" id="84f8-855d-96eb-0afa">
-              <profiles>
-                <profile name="Synaptic Goad" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6f52-fd81-9982-0feb">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, select one friendly **^^Tyranid Warriors with Melee Bio-weapons^^** or **^^Tyranid Warriors with Ranged Bio-weapons^^** unit within 6&quot; of the bearer. Until the end of the turn, add 2&quot; to the Move characteristic of models in that unit.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="84f8-855d-96eb-0afa" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="84f8-855d-96eb-0afa" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="86ae-9b25-ffe3-cdfe" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7ab4-2721-fd86-4947" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Biotide Enhancements" id="2bb4-fe9a-3a14-fe97" hidden="false">
-          <comment>Boarding Actions content - Tyranids</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="cbfd-453f-6288-6157" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Synaptic Beacon" hidden="false" id="bae9-a3ed-7437-5c9b">
-              <profiles>
-                <profile name="Synaptic Beacon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eb75-dbeb-6171-a907">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **^^Tyranids^^** unit is within 9&quot; of the bearer (ignoring Walls and closed Hatchways), that unit is within Synapse Range of the bearer and of your army.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="bae9-a3ed-7437-5c9b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="bae9-a3ed-7437-5c9b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="3f90-9ce7-6369-0733" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3457-7676-ae8f-768e" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Hypersurge Gland" hidden="false" id="909e-b90f-de9d-4aca">
-              <profiles>
-                <profile name="Hypersurge Gland" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d843-7ef5-2e57-b704">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the end of your opponent&apos;s Charge phase, the bearer can use this Enhancement. If it does, it can declare a charge as if it were your Charge phase.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="909e-b90f-de9d-4aca" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="909e-b90f-de9d-4aca" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="835a-9bee-f35c-c5ac" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="e085-f0f0-96c0-1425" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Cult Unveiled Enhancements" id="4689-360e-cac7-ef3d" hidden="false">
-          <comment>Boarding Actions content - Genestealer Cults</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="24fc-8c17-7d50-bec9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Primary Detonator" hidden="false" id="9c6d-1f1f-45ea-fe5b">
-              <profiles>
-                <profile name="Primary Detonator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="66be-e539-7616-2db1">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, when an enemy unit opens a closed Hatchway, if the bearer is on the battlefield, it can use this Enhancement. If it does, roll one D6: on a 3-4, that enemy unit suffers 1 mortal wound; on a 5+, that enemy unit suffers 2 mortal wounds.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="9c6d-1f1f-45ea-fe5b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="9c6d-1f1f-45ea-fe5b" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="4d33-286e-ee11-3628" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ad1a-c28b-0131-4bdd" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Master Saboteur" hidden="false" id="f793-7dfa-d20a-7410">
-              <profiles>
-                <profile name="Master Saboteur" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32ed-89d5-c7bb-268c">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time in the battle that your opponent&apos;s army Secures an objective marker while the bearer is on the battlefield, roll one D6: on a 3+, that objective marker is not Secured by your opponent&apos;s army.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="f793-7dfa-d20a-7410" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="f793-7dfa-d20a-7410" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="36d2-2c57-a370-45f8" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3b9d-fb7e-86ca-90fd" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Genespawn Onslaught Enhancements" id="430b-565b-0327-aa79" hidden="false">
-          <comment>Boarding Actions content - Genestealer Cults</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="be7f-de0b-6659-198a" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Spiteful Imp" hidden="false" id="f0ea-be65-e5b3-25a6">
-              <profiles>
-                <profile name="Spiteful Imp" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1137-83bb-da46-2606">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Abominant^^** model only. Each time an enemy unit opens a Hatchway, if the bearer is within 1&quot; of that Hatchway, roll one D6: one a 3-4, that enemy unit suffers 1 mortal wound; on a 5+, that enemy unit suffers 2 mortal wounds.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="f0ea-be65-e5b3-25a6" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="f0ea-be65-e5b3-25a6" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                      <conditions>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="7cc8-a037-cc71-6377" shared="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="0c87-15eb-c06c-7a57" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="48aa-9489-bc4f-4266" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Miasmic Fumes" hidden="false" id="8cbf-0bd3-350d-4cd0">
-              <profiles>
-                <profile name="Miasmic Fumes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="622d-aeba-2cd7-5577">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Biophagus^^** model only. Each time an attack targets the bearer, subtract 1 from the Hit roll and subtract 1 from the Wound roll.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="8cbf-0bd3-350d-4cd0" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="8cbf-0bd3-350d-4cd0" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                      <conditions>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="b72b-ca20-1fe1-c23b" shared="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="02cf-da57-c8da-fac6" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b725-9925-d43e-756c" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Biotide Enhancements" id="43d4-800e-33df-e468" hidden="false">
-          <comment>Boarding Actions content - Great Devourer</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="24e1-c66e-98e9-135b" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Psi-spoor Sensitivity" hidden="false" id="8f01-371b-ea62-40fc">
-              <profiles>
-                <profile name="Psi-spoor Sensitivity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9079-c8a9-bf58-6fa6">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time the bearer declares a charge, it can target enemy units that are not visible to it.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="8f01-371b-ea62-40fc" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="8f01-371b-ea62-40fc" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="29fc-6a4b-fe2d-2355" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="339e-604f-cc55-e2d2" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Stalking Menace" hidden="false" id="916b-b065-5189-7ee6">
-              <profiles>
-                <profile name="Stalking Menace" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="691e-ff09-c323-9840">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the end of your opponent&apos;s Fight phase, if the bearer is not within Engagement Range of one or more enemy units, it can use this Enhancement. If it does, remove the bearer from the battlefield and place it into Strategic Reserves. It will arrive back on the battlefield in the Reinforcements step of your next Movement phase as if it had the Deep Strike ability. If this is not possible, the bearer is destroyed. When the bearer is set back up on the battlefield, until the end of the turn, it cannot declare a charge.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="916b-b065-5189-7ee6" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="916b-b065-5189-7ee6" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="51ee-0d5c-a897-8b06" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1727-4a39-c1dc-5c17" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Boarding Actions Enhancements" hidden="false" id="3387-f5ff-d9ec-b8a9" type="selectionEntryGroup" targetId="5a79-2c0b-66e4-2122">
-          <comment>Boarding Actions content</comment>
-        </entryLink>
-        <entryLink import="true" name="Breaching Operation Enhancements" hidden="false" id="f53d-a37c-851d-d22f" type="selectionEntryGroup" targetId="fc3b-5a53-47b1-4b2d">
-          <comment>Boarding Actions content</comment>
-        </entryLink>
-      </entryLinks>
+      <entryLinks></entryLinks>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="c966-309b-a2e9-c1f0" primary="false" name="Enhancement"/>
       </categoryLinks>
@@ -6647,137 +5771,6 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Tyranid Attack" hidden="false" id="0f40-fb6c-49f7-9541">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Forming Boarding Squads" id="e207-ef0b-4be5-c91d" hidden="false">
-              <description>The following units do not split into separate units in the Form Boarding Squads step:
-- ^^**Hormagaunts**^^
-- ^^**Neurogaunts**^^
-- ^^**Termagants**^^</description>
-            </rule>
-            <rule name="Mustering A Boarding Patrol" id="72d4-2fdb-7150-b325" hidden="false">
-              <description>You can include up to two of the following unit:
-- **^^Winged Tyranid Prime^^**
-
-You can include up to two of the following units:
-- **^^Tyranid Warriors with Melee Bio-weapons^^** (3 models)
-- **^^Tyranid Warriors with Ranged Bio-weapons^^** (3 models)
-
-You can include up to one of each of the following units:
-- **^^Hormagaunts^^** (10 models)
-- **^^Neurogaunts^^** (10 models)
-- **^^Ripper Swarms^^** (3 models)
-- **^^Termagants^^** (10 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="7a38-f020-b03b-67d3" hidden="false">
-              <description>- **^^Endless Multitude^^** and **^^Ripper Swarms^^** units from your army are ignored for the purposes of determining visibility for friendly **^^Tyranids^^** models that do not have the **^^Endless Multitude^^** or **^^Ripper Swarms^^** keyword.
-- You can give the Tyranid Prime models in **^^Tyranid Warriors with Melee Bio-weapons^^**  and **^^Tyranid Warriors with Ranged Bio-weapons^^** units Enhancements as if they were **^^Character^^** models.
-- **^^Tyranid Warriors with Melee Bio-weapons^^** and **^^Tyranid Warriors with Ranged Bio-weapons^^** units can perform the Secure Site Tactical Manoeuvre as if they had the **^^Battleline^^** keyword.
-- **^^Endless Multitude^^** units cannot perform the Secure Site Tactical Manoeuvre.
-- The **^^Ripper Swarms^^** unit loses the Deep Strike ability.
-- The **^^Termagants^^** unit loses the Skulking Horrors ability.
-- The **^^Winged Tyranid Prime^^** model loses the Deep Strike ability.</description>
-            </rule>
-            <rule name="Xeno-Terror" id="9603-0af4-20ef-dce8" hidden="false">
-              <description>When you unleash the Shadow in the Warp, subtract 1 from the Battle-shock test each enemy unit on the battlefield must take as a result. For each enemy unit that fails one of those tests, that enemy unit cannot Fire Overwatch this turn.</description>
-            </rule>
-          </rules>
-          <infoLinks>
-            <infoLink targetId="1ce8-4f31-68c3-7bb0" id="11a6-e1aa-1566-3303" type="rule" name="Synaptic Web" hidden="false"/>
-          </infoLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Boarding Swarm" hidden="false" id="7a6f-7334-fa6c-290e">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Forming Boarding Squads" id="e6a7-e5ab-e385-b9ae" hidden="false">
-              <description>Do not split ^^**Hormagaunts**^^ into separate units in the Form Boarding Squads step.</description>
-            </rule>
-            <rule name="Mustering A Boarding Patrol" id="76e9-d929-a6d9-68ba" hidden="false">
-              <description>You can include up to two of the following units (duplicates are not allowed):
-- **^^Deathleaper^^**
-- **^^Lictor^^**
-- **^^Neurolictor^^**
-
-You can include up to two of each of the following units:
-- **^^Hormagaunts^^** (10 models)
-- **^^Raveners^^** (3 models)
-- **^^Von Ryan&apos;s Leaders^^** (3 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="0225-ca34-ba14-5d5e" hidden="false">
-              <description>- **^^Hormagaunts^^** units cannot perform the Secure Site Tactical Manoeuvre.
-- The **^^Lictor^^** model loses the Pheromone Trail ability.
-- The **^^Raveners^^** unit loses the Death From Below ability.
-- The **^^Von Ryan&apos;s Leapers^^** unit loses the Pouncing Leap ability.</description>
-            </rule>
-            <rule name="Priority Predation" id="ef72-7adf-ee08-72b0" hidden="false">
-              <description>Each time an enemy unit within Engagement Range of one or more **^^Tyranids^^** units from your army is select to Fall Back, after that enemy unit has made that Fall Back move, for each of those **^^Tyranids^^** units, if there are no other enemy units within Engagement Range of it, it can make a Normal move of up to 3&quot;.</description>
-            </rule>
-          </rules>
-          <infoLinks>
-            <infoLink targetId="1ce8-4f31-68c3-7bb0" id="3b57-9700-3d9d-6dc5" type="rule" name="Synaptic Web" hidden="false"/>
-          </infoLinks>
-          <profiles>
-            <profile name="Monoform Predators" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca6f-3978-2524-bd21">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Tyranids^^** models in this Detachment cannot be given Enhancements.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Biotide" hidden="false" id="cbfd-453f-6288-6157">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Forming Boarding Squads" id="7389-af41-7668-ab8e" hidden="false">
-              <description>The following units do not split into separate units in the Form Boarding Squads step:
-- ^^**Hormagaunts**^^
-- ^^**Neurogaunts**^^
-- ^^**Termagants**^^</description>
-            </rule>
-            <rule name="Mustering A Boarding Patrol" id="310c-875f-2ddb-6969" hidden="false">
-              <description>You can include up to two of the following unit:
-- **^^Winged Tyranid Prime^^**
-
-You can include up to three of each of the following units:
-- **^^Hormagaunts^^** (10 models)
-- **^^Neurogaunts^^** (10 models)
-- **^^Ripper Swarms^^** (3 models)
-- **^^Termagants^^** (10 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="38ba-39ef-c45e-1d85" hidden="false">
-              <description>- The **^^Ripper Swarms^^** unit loses the Deep Strike ability.
-- The **^^Termagants^^** unit loses the Skulking Horrors ability.
-- The **^^Winged Tyranid Prime^^** model loses the Deep Strike ability.</description>
-            </rule>
-            <rule name="Unstoppable Swarm" id="4523-9912-7f85-abdc" hidden="false">
-              <description>Each time a **^^Tyranids^^** unit from your army moves, models in that unit can move through friendly **^^Tyranids^^** models as if they were not there. In addition, each time a **^^Tyranids^^** unit from your army attempts to operate a closed Hatchway, if your opponent tries to prevent it, add 1 to your result of the roll-off.</description>
-            </rule>
-          </rules>
-          <infoLinks>
-            <infoLink targetId="1ce8-4f31-68c3-7bb0" id="bb37-70b8-6f54-2df9" type="rule" name="Synaptic Web" hidden="false"/>
-          </infoLinks>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Ambush Predators" hidden="false" id="7086-0396-c1f3-6d75">
           <rules>
             <rule name="Mindhunger" id="12df-8a25-c5b1-3401" hidden="false">
@@ -6881,11 +5874,7 @@ EFFECT: Select one enemy unit hit by those attacks. That enemy unit is tethered 
         </selectionEntry>
       </selectionEntries>
       <comment>Tyranids</comment>
-      <entryLinks>
-        <entryLink targetId="24e1-c66e-98e9-135b" id="c2ee-c921-7c5c-ad29" type="selectionEntry" name="Infestation Swarm" hidden="false">
-          <comment>Boarding Actions - Great Devourer</comment>
-        </entryLink>
-      </entryLinks>
+      <entryLinks></entryLinks>
     </selectionEntryGroup>
     <selectionEntryGroup name="Devouring Worlds" id="247c-f03c-f6c4-99dd" hidden="false">
       <selectionEntries>
@@ -7916,87 +6905,6 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Cult Unveiled" hidden="false" id="24fc-8c17-7d50-bec9">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Forming Boarding Squads" id="d7ac-9b05-c811-76eb" hidden="false">
-              <description>Do not split ^^**Neophyte Hybrids**^^ into separate units in the Form Boarding Squads step.</description>
-            </rule>
-            <rule name="Mustering A Boarding Patrol" id="e802-74a2-7034-c9c0" hidden="false">
-              <description>You can include up to one of the following units:
-- **^^Magus^^**
-- **^^Primus^^**
-
-You can include up to two of the following units (duplicates are not allowed):
-- **^^Acolyte Iconward^^**
-- **^^Clamavus^^**
-- **^^Kelermorph^^**
-- **^^Locus^^**
-- **^^Sanctus^^**
-
-You can include up to three of each of the following units:
-- **^^Acolyte Hybrids with Autopistols^^** (5 or 10 models)
-- **^^Neophyte Hybrids^^** (10 models)
-
-You can include up to one of the following unit:
-- **^^Acolyte Hybrids with Hand Flamers^^** (5 or 10 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="15ac-afc2-87aa-eaa7" hidden="false">
-              <description>- **^^Genestealer Cults^^** units lose the Deep Strike ability.
-- The **^^Acolyte Hybrids with Autopistols^^** unit loses the Claimed for the Cult ability.
-- The **^^Acolyte Iconward^^** model loses the Summon the Cult ability.
-- The **^^Neophyte Hybrids^^** unit loses the A Plan Generations in the Making ability.
-- The **^^Primus^^** model loses the Decoys and Misdirection ability.</description>
-            </rule>
-            <rule name="Harassing Fire" id="45a4-7a75-b404-4be2" hidden="false">
-              <description>At the end of your Shooting phase, you can select one **^^Genestealer Cults^^** unit from your army that is not within Engagement Range of one or more enemy units. If you do, that unit can attempt to operate one open Hatchway it is within 1&quot; of (if there is one), and can then make a Normal move of up to 3&quot; (regardless of whether it attempted to operate a Hatchway or not). Until the end of the turn, that unit is not eligible to declare a charge.</description>
-            </rule>
-          </rules>
-          <infoLinks>
-            <infoLink targetId="4c34-1bd0-8565-fd5a" id="dd8c-45c0-b26f-6fc2" type="rule" name="Insidious Ambushers" hidden="false"/>
-          </infoLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Genespawn Onslaught" hidden="false" id="be7f-de0b-6659-198a">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Mustering A Boarding Patrol" id="329e-430a-c60b-a190" hidden="false">
-              <description>You can include up to two of the following units (duplicates are not allowed):
-- **^^Abominant^^**
-- **^^Benefictus^^**
-- **^^Biophagus^^**
-
-You can include up to two of the following unit:
-- **^^Aberrants^^** (5 or 10 models)
-
-You can include up to one of the following unit:
-- **^^Hybrid Metamorphs^^** (5 or 10 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="2944-4f78-48d1-6626" hidden="false">
-              <description>- **^^Genestealer Cults^^** units lose the Deep Strike ability.
-- The **^^Hybrid Metamorphs^^** unit loses the Brood Surge ability.</description>
-            </rule>
-            <rule name="Blessed Visages" id="5389-de27-ddda-bd2a" hidden="false">
-              <description>Each time an enemy unit declares a charge that targets one or more **^^Genestealer Cults^^** units from your army, that enemy unit must take a Leadership test. If failed, until the end of the turn, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll.</description>
-            </rule>
-          </rules>
-          <infoLinks>
-            <infoLink targetId="4c34-1bd0-8565-fd5a" id="7f97-5a65-3cb8-d131" type="rule" name="Insidious Ambushers" hidden="false"/>
-          </infoLinks>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Heroes of the Uprising" hidden="false" id="af08-257b-da2c-a358">
           <rules>
             <rule name="Killer Reputation" id="f5fb-9a56-3690-4dfa" hidden="false">
@@ -8164,11 +7072,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0fc5-7bb0-0193-6f30-max" includeChildSelections="false"/>
       </constraints>
       <comment>Genestealer Cults</comment>
-      <entryLinks>
-        <entryLink import="true" name="Infestation Swarm" hidden="false" id="b9a2-7c0b-93f9-ad86" targetId="24e1-c66e-98e9-135b" type="selectionEntry">
-          <comment>Boarding Actions - Great Devourer</comment>
-        </entryLink>
-      </entryLinks>
+      <entryLinks></entryLinks>
     </selectionEntryGroup>
     <selectionEntryGroup name="Ability" id="3e82-2186-c604-2a76" hidden="false" defaultSelectionEntryId="none">
       <comment>Crucible content</comment>

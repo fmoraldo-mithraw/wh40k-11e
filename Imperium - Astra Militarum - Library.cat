@@ -1630,23 +1630,7 @@
             <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="f4c7-7f0e-6774-eae"/>
             <constraint type="max" value="5" field="selections" scope="parent" shared="true" id="d3b8-71d9-a144-f2a6"/>
           </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <comment>Boarding Actions modifiers</comment>
-              <modifiers>
-                <modifier type="set" value="2 Bullgryns" field="name">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="d3b8-71d9-a144-f2a6">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
+          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Bullgryn Bone &apos;ead" id="483c-0d47-0040-e64f" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -1783,39 +1767,6 @@
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -2048,53 +1999,6 @@ invuln: 5+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Cadian Command Squad" hidden="false" id="4d28-f2a7-67c1-eb2e">
@@ -2219,53 +2123,6 @@ invuln: 5+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -2846,31 +2703,6 @@ invuln: 5+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="3" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Catachan Jungle Fighters" hidden="false" id="fe5a-764e-37ed-7cef">
@@ -3148,31 +2980,6 @@ invuln: 5+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="3" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -3659,79 +3466,6 @@ invuln: 5+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Tempestus Boarding Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="2f53-8ca8-fcd2-b526" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="c9b4-6df9-ed6a-ae49" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Korps of Krieg" hidden="false" id="ade0-fa44-d4cf-4fc8">
@@ -4198,31 +3932,6 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="3" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -5379,45 +5088,7 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
         <infoLink name="Voice Of Command" hidden="false" type="rule" id="26bc-9db1-b489-b5fe" targetId="53c9-34f6-2443-a95e"/>
       </infoLinks>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Cadian Heavy Weapons Squad" hidden="false" id="91a9-15e-b5f0-700f">
       <categoryLinks>
@@ -5692,16 +5363,6 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -6845,31 +6506,6 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Leman Russ Battle Tank" hidden="false" id="c581-3ab5-49a0-9ec0">
@@ -6994,16 +6630,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -7147,16 +6773,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="c58f-b084-c174-8e7a" hidden="false" sortIndex="2">
@@ -7298,16 +6914,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -7452,16 +7058,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="02a6-7e13-844d-4dec" hidden="false" sortIndex="2">
@@ -7603,16 +7199,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -7764,16 +7350,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="6ddf-05de-1921-7031" hidden="false" sortIndex="2">
@@ -7916,16 +7492,6 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -8750,31 +8316,6 @@ must-warlord</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Nork Deddog" hidden="false" id="bcda-f4bb-e726-9bfe">
@@ -8878,44 +8419,7 @@ This model cannot be selected as your **^^Warlord^^**.</characteristic>
           </constraints>
         </entryLink>
       </entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="add" value="Cannot take 2 support Characters in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="2f53-8ca8-fcd2-b526" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="c9b4-6df9-ed6a-ae49" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Ogryn Bodyguard" hidden="false" id="a7c2-1534-93b0-c0eb">
       <comment>fnp: 6+
@@ -9139,79 +8643,6 @@ This model cannot be selected as your **^^Warlord^^** and cannot be given Enhanc
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="2f53-8ca8-fcd2-b526" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="c9b4-6df9-ed6a-ae49" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Tempestus Boarding Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Ogryn Squad" hidden="false" id="c9eb-2007-af01-a853">
@@ -9279,42 +8710,10 @@ fnp: 6+</comment>
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <comment>Boarding Actions modifiers</comment>
-                  <modifiers>
-                    <modifier type="set" value="2" field="6ffd-f753-3016-de36">
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </modifierGroup>
-              </modifierGroups>
+              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <comment>Boarding Actions modifiers</comment>
-              <modifiers>
-                <modifier type="set" value="2 Ogryns" field="name">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
+          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Ogryn Bone &apos;ead" id="3a60-2d7d-3a29-a33e" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -9425,31 +8824,6 @@ fnp: 6+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -9590,79 +8964,6 @@ fnp: 6+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="acd1-da30-2656-832a">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="2f53-8ca8-fcd2-b526" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="c9b4-6df9-ed6a-ae49" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 support Characters in an Tempestus Boarding Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="cf38-2338-aa71-ed56" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="1a39-50fb-5af6-e77" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="84ab-93bd-e2f5-21d7" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -9908,16 +9209,6 @@ fnp: 6+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="4c94-c7e2-2b7f-7e91" hidden="false" sortIndex="4">
@@ -10146,16 +9437,6 @@ fnp: 6+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -10905,45 +10186,7 @@ fnp: 6+</comment>
         <infoLink name="Lone Operative" hidden="false" type="rule" id="d230-1577-1f3e-749a" targetId="a8a0-8fe7-898-e0f3"/>
       </infoLinks>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Stormlord" hidden="false" id="892b-678c-72e6-ee58">
       <costs>
@@ -11788,16 +11031,6 @@ fnp: 6+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -12774,21 +12007,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="f726-7b3d-7e35-e734" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="adc2-ed8a-195a-47a6" type="selectionEntry" targetId="ea3f-b52b-8dc7-d365" sortIndex="2">
@@ -12924,45 +12142,7 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Valkyrie" hidden="false" id="9665-3160-8a04-d2bc">
       <categoryLinks>
@@ -16369,16 +15549,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Hot-shot lascarbine" hidden="false" id="a210-87ac-255e-7b8a" collective="true">
@@ -16705,16 +15875,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Sniper rifle" hidden="false" id="0b70-2702-788f-b739" collective="true">
@@ -17006,53 +16166,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="fe52-8371-5cc4-bbcc">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -17620,18 +16733,7 @@ fnp: 6+</comment>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Catachan Command Squad" hidden="false" id="7d22-9fb6-a7e0-c21b">
       <costs>
@@ -18300,53 +17402,6 @@ fnp: 6+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="1" field="8f66-9131-b63b-bc38">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="add" value="Cannot take 2 Officers in an Embarked Regiment" field="error">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="count" min="2">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4f3d-65b8-9542-878f" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="61e6-b057-7e6-f3b8" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6b-acdf-f86b-abb7" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="4100-95dc-a489-ffbc" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="7c52-4f28-e70f-292e" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="58f2-4399-d56e-e20e" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Rogal Dorn Commander" hidden="false" id="78b6-f280-bba9-0594">
@@ -18490,16 +17545,6 @@ fnp: 6+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
@@ -18895,16 +17940,6 @@ invuln: 4+</comment>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="8fe1-438f-f00a-ef5c" collective="true">
@@ -19277,16 +18312,6 @@ invuln: 4+</comment>
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -19664,16 +18689,6 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Krieg Heavy Weapons Squad" hidden="false" id="1669-d311-eff9-243b">
@@ -19965,16 +18980,6 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Artillery Team" hidden="false" id="0595-6d6c-a783-12ab">
@@ -20228,16 +19233,6 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -20890,18 +19885,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Commissar Graves" hidden="false" id="50b8-1f13-9807-0069">
       <comment>invuln: 4+</comment>
@@ -21090,16 +20074,6 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
       <selectionEntryGroups></selectionEntryGroups>
       <modifierGroups>
         <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-        <modifierGroup type="and">
           <comment>Armoured Infantry detachment modifiers</comment>
           <modifiers>
             <modifier type="add" value="afea-7db3-401c-2cb2" field="category">
@@ -21258,18 +20232,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
+      <modifierGroups></modifierGroups>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="3177-93d1-a0ad-fa1e" type="selectionEntry" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
       </entryLinks>
@@ -22271,16 +21234,6 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
             </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
-        </modifierGroup>
-        <modifierGroup type="and">
-          <comment>Boarding Actions modifiers</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
@@ -23554,118 +22507,6 @@ EFFECT: Until the end of the phase, each time an attack targets your unit, worse
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Embarked Regiment" hidden="false" id="5ccc-76f0-d28e-672d">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Mustering A Boarding Patrol" id="ba94-4fbe-1318-668a" hidden="false">
-              <description>You can include up to one of the following units:
-- **^^Cadian Castellan^^**
-- **^^Cadian Command Squad^^**
-- **^^Gaunt&apos;s Ghosts^^**
-- **^^&apos;Iron Hand&apos; Straken^^**
-- **^^Platoon Command Squad^^**
-- **^^Sly Marbo^^**
-- **^^Ursula Creed^^**
-
-You can include up to one of the following units:
-- **^^Commissar^^**
-- **^^Ogryn Bodyguard^^**
-- **^^Nork Deddog^^**
-- **^^Primaris Psyker^^**
-- **^^Regimental Enginseer^^**
-- **^^Regimental Preacher^^**
-- **^^Sergeant Harker^^**
-
-You can include up to three of each of the following units:
-- **^^Cadian Shock Troops^^** (10 models)
-- **^^Catachan Jungle Fighters^^** (10 models)
-- **^^Death Korps of Krieg^^** (10 models)
-- **^^Infantry Squad^^** (10 models)
-
-You can include up to one of each of the following units:
-- **^^Bullgryn Squad^^** (3 models)
-- **^^Kaskrin^^** (5 or 10 models)
-- **^^Ratling Snipers^^** (5 models)
-- **^^Ogryn Squad^^** (3 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="2b05-c8ac-5f39-f45d" hidden="false">
-              <description>- The Master Vox wargear ability only allows the unit&apos;s **^^Officer^^** to issue Orders to units up to 12&quot; away, instead of up to 24&quot; away, but when doing so Walls and closed Hatchways are ignored.
-- The **^^Cadian Shock Troops^^** unit loses the Shock Troops ability.
-- The **^^Gaunt&apos;s Ghosts^^** unit loses the Covert Stealth Team ability.
-- The **^^Nork Deddog^^** model loses the Thunderous Head-butt ability.
-- The **^^Ratling Snipers^^** unit loses the Shoot Sharp and Scarper ability.
-- The **^^Sly Marbo^^** model loses the Like Fighting a Shadow ability.
-- The **^^Ursula Creed^^** model loses the Tactical Genius ability.</description>
-            </rule>
-            <rule name="Direct Orders" id="3706-b59a-944e-fcc4" hidden="false">
-              <description>Units from your army with the Voice of Command ability retain that ability and gain this one.
-
-Each time an **^^Officer^^** model in this unit issues an Order, that Order can be issued to any one friendly **^^Astra Militarum^^** unit within range, regardless of any keywords that unit is normally required to have.</description>
-            </rule>
-            <rule name="Forming Boarding Squads" id="6763-0676-8b47-0f7c" hidden="false">
-              <description>- In the Form Boarding Squads step, you must attach any **^^Loyal Protector^^** models in your Boarding Patrol to a **^^Command Squad^^** unit as specified in its Loyal Protector rule.
-- The following units do not split into separate units in the Form Boarding Squads step:
--- **^^Cadian Shock Troops^^**
--- **^^Catachan Jungle Fighters^^**
--- **^^Death Korps of Krieg^^**
--- **^^Infantry Squad^^**</description>
-            </rule>
-            <rule name="Get Down!" id="43f2-6e27-bb5f-cfee" hidden="false">
-              <description>Each time an **^^Astra Militarum^^** unit from your army is selected to shoot, you can select one other friendly **^^Astra Militarum^^** unit (excluding **^^Ogryn^^** units). Until the end of the phase, models in the attacking unit can ignore models in that friendly unit for the purposes of determining visibility.</description>
-            </rule>
-          </rules>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Tempestus Boarding Regiment" hidden="false" id="f726-7b3d-7e35-e734">
-          <comment>Boarding Actions</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <rules>
-            <rule name="Mustering A Boarding Patrol" id="554f-85f1-53ec-88de" hidden="false">
-              <description>You can include up to one of the following unit:
-- **^^Militarum Tempestus Command Squad^^**
-
-You can include up to one of the following units:
-- **^^Commissar^^**
-- **^^Ogryn Bodyguard^^**
-- **^^Primaris Psyker^^**
-- **^^Regimental Enginseer^^**
-- **^^Regimental Preacher^^**
-
-You can include up to three of each of the following units:
-- **^^Tempestus Scions^^** (5 or 10 models)
-
-You can include up to one of the following units:
-- **^^Bullgryn Squad^^** (3 models)</description>
-            </rule>
-            <rule name="Rules Adaptions" id="716e-fe2d-4fa3-1e55" hidden="false">
-              <description>- **^^Tempestus Scions^^** units can perform the Secure Site Tactical Manoeuvre as if they had the **^^Battleline^^** keyword.
-- The **^^Militarum Tempestus^^** unit loses the Deep Strike ability.</description>
-            </rule>
-            <rule name="Direct Orders" id="920f-97d9-c68a-c2eb" hidden="false">
-              <description>Units from your army with the Voice of Command ability retain that ability and gain this one.
-
-Each time an **^^Officer^^** model in this unit issues an Order, that Order can be issued to any one friendly **^^Astra Militarum^^** unit within range, regardless of any keywords that unit is normally required to have.</description>
-            </rule>
-            <rule name="Forming Boarding Squads" id="c72c-0eb6-a876-c19d" hidden="false">
-              <description>In the Form Boarding Squads step, you must attach a **^^Loyal Protector^^** model to a **^^Command Squad^^** unit as specified in its Loyal Protector rule.</description>
-            </rule>
-            <rule name="Purge-sweep Protocols" id="7f7a-16b9-b85b-d930" hidden="false">
-              <description>Each time a **^^Militarum Tempestus^^** unit from your army is selected to shoot, if one or more models in that unit are within 1&quot; of an open Hatchway and every model in that unit is on the same side of that Hatchway, select one enemy unit on the opposite side of that Hatchway from that unit. Until the end of the phase, ranged weapons equipped by models in that unit have the **[LETHAL HITS]** ability while targeting that enemy unit.</description>
-            </rule>
-          </rules>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Steel Hammer" hidden="false" id="419a-c366-aa63-ebb5">
           <rules>
             <rule name="Ceaseless Cannonade" id="c324-bc40-8caa-5e2d" hidden="false">
@@ -24717,168 +23558,6 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogr
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ff6e-0f0c-f6ac-12b2"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Embarked Regiment Enhancements" id="1e79-dabb-78a3-14d4" hidden="false">
-          <comment>Boarding Actions content</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Rigged Blind Grenades" hidden="false" id="50d9-d1a1-16ac-5feb">
-              <profiles>
-                <profile name="Rigged Blind Grenades" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4f94-5a6d-570c-2112">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, when an enemy unit opens a Hatchway, if the bearer is on the battlefield, it can use this Enhancement. If it does, roll one D6: on a 2+, that enemy unit is Battle-shocked.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="50d9-d1a1-16ac-5feb" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="50d9-d1a1-16ac-5feb" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="c4dd-adb3-9fe4-d056" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="fe1d-1e1a-3b3b-61a2" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Shipboard Veteran" hidden="false" id="b758-b168-3cf3-0089">
-              <profiles>
-                <profile name="Shipboard Veteran" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5b1b-e88f-c57e-9e9e">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you target an **^^Astra Militarum^^** unit from your army with a Stratagem, if that unit is visible to the bearer, roll one D6: on a 4+, you gain 1CP.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="b758-b168-3cf3-0089" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="b758-b168-3cf3-0089" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="a806-3fac-5ead-5e52" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="9250-f182-fea2-1204" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Tempestus Boarding Regiment Enhancements" id="5490-f767-5885-1054" hidden="false">
-          <comment>Boarding Actions content</comment>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="force" childId="5ccc-76f0-d28e-672d" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Covert Breach" hidden="false" id="7a52-fa1e-df02-f1de">
-              <profiles>
-                <profile name="Covert Breach" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ebe4-ab70-4300-a69e">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, the bearer&apos;s unit can make a Normal move of up to 6&quot;.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="7a52-fa1e-df02-f1de" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="7a52-fa1e-df02-f1de" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="84dd-5663-fa82-9a8a" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="17e5-62c4-d95f-67e6" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Elimination Force" hidden="false" id="4f0a-390d-bdf5-2a8d">
-              <profiles>
-                <profile name="Elimination Force" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb12-ef22-e61a-2859">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, select one enemy unit. Each time a model in the bearer&apos;s unit makes an attack that targets that enemy unit, if the Strength characteristic of that attack is less than the Toughness characteristic of that enemy unit, add 1 to the Wound roll.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="4f0a-390d-bdf5-2a8d" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="4f0a-390d-bdf5-2a8d" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Grenades" hidden="false" id="981d-3170-20bf-28c8" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
-              </categoryLinks>
-              <costs>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="84e7-3c53-c99d-4a42" includeChildForces="true" includeChildSelections="true"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Steel Hammer Enhancements" hidden="false" id="5b13-7e24-5776-4621">
           <modifiers>
             <modifier type="set" value="true" field="hidden">
@@ -25071,14 +23750,7 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogr
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Boarding Actions Enhancements" hidden="false" id="5d88-a1a8-08ab-9235" type="selectionEntryGroup" targetId="5a79-2c0b-66e4-2122">
-          <comment>Boarding Actions content</comment>
-        </entryLink>
-        <entryLink import="true" name="Breaching Operation Enhancements" hidden="false" id="6874-f821-ff4a-9b53" type="selectionEntryGroup" targetId="fc3b-5a53-47b1-4b2d">
-          <comment>Boarding Actions content</comment>
-        </entryLink>
-      </entryLinks>
+      <entryLinks></entryLinks>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="7efb-a1dc-cdd3-4a1c" primary="false" name="Enhancement"/>
       </categoryLinks>

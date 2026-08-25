@@ -528,26 +528,6 @@
     <categoryEntry name="Assault Weapon" id="e106-0758-7137-2432" hidden="true"/>
     <categoryEntry name="Reference" id="eef1-be80-500a-edfc" hidden="false"/>
     <categoryEntry id="c97c-376-e2e0-1dd2" name="Dreadnought" hidden="false"/>
-    <categoryEntry name="Docked Vehicle" id="bdc8-7127-287c-a267" hidden="false">
-      <comment>Boarding Actions mission special unit tracker</comment>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0f8b-aea2-227c-248f" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="min" value="0" field="selections" scope="roster" shared="true" id="f298-5931-6cbc-0115" includeChildSelections="true" includeChildForces="true"/>
-      </constraints>
-      <modifiers>
-        <modifier type="set" value="1" field="f298-5931-6cbc-0115">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="roster" childId="227e-45aa-4d8b-4171" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </categoryEntry>
-    <categoryEntry name="Critical Threat" id="0cc6-ca49-ee2f-4294" hidden="false">
-      <comment>Boarding Actions mission special unit tracker</comment>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f61e-2b47-32cb-14d3" includeChildSelections="true" includeChildForces="true"/>
-      </constraints>
-    </categoryEntry>
     <categoryEntry name="Supreme Commander" id="75fe-c657-43c6-7c09" hidden="true"/>
     <categoryEntry name="Bellatus" id="1cf9-0660-4ef2-4d18" hidden="false"/>
     <categoryEntry name="Unbound Adversaries" id="9440-07f1-b09d-ce8b" hidden="false"/>
@@ -596,25 +576,6 @@
         <modifier type="set" field="readme"/>
       </modifiers>
     </forceEntry>
-    <forceEntry name="Boarding Actions" hidden="true" id="1d6e-2579-8e7f-1ed4">
-      <categoryLinks>
-        <categoryLink id="4f79-1f3a-7f95-ae21" name="Configuration" hidden="false" targetId="4ac9-fd30-1e3d-b249" primary="false"/>
-        <categoryLink id="73b6-764d-b0ab-977c" name="Epic Hero" hidden="false" targetId="4f3a-f0f7-6647-348d" primary="false"/>
-        <categoryLink id="95ea-911f-b9a5-2d3e" name="Character" hidden="false" targetId="9cfd-1c32-585f-7d5c" primary="false"/>
-        <categoryLink id="57d9-fc38-a603-fdd2" name="Battleline" hidden="false" targetId="e338-111e-d0c6-b687" primary="false"/>
-        <categoryLink id="ee07-d0f5-deb6-b64c" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="false"/>
-        <categoryLink id="6d07-c461-1f18-a3eb" name="Swarm" hidden="false" targetId="b00b-5bae-444f-964e" primary="false"/>
-        <categoryLink id="d9fd-28fe-bd15-d67e" name="Mounted" hidden="false" targetId="14a0-40c9-2748-ae6e" primary="false"/>
-        <categoryLink id="9835-544c-d9d1-72bf" name="Beast" hidden="false" targetId="4c3e-9310-a516-3590" primary="false"/>
-        <categoryLink id="bc76-9342-c298-99c9" name="Monster" hidden="false" targetId="9693-cf84-fe69-37a9" primary="false"/>
-        <categoryLink id="61bf-bd6b-cba7-70b2" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="false"/>
-        <categoryLink id="5db7-9406-f21f-2de0" name="Drone" hidden="false" targetId="2471-e2e0-3f55-d6cb" primary="false"/>
-        <categoryLink id="fe2b-ae0-8572-b6ff" name="Dedicated Transport" hidden="false" targetId="ba07-411c-2832-1f79" primary="false"/>
-        <categoryLink name="Retinue" hidden="false" id="d932-86b9-29ec-c799" targetId="cc77-a53-fca8-f48e"/>
-        <categoryLink name="Allied Units" hidden="false" id="ea52-2956-b106-5ec2" targetId="887b-ab87-92a2-20f5"/>
-        <categoryLink name="Reference" hidden="false" id="27b1-2602-d1bc-fa43" targetId="eef1-be80-500a-edfc"/>
-      </categoryLinks>
-    </forceEntry>
   </forceEntries>
   <entryLinks>
     <entryLink id="7380-3e40-6ed6-b7cc" name="Battle Size" hidden="false" collective="false" import="true" targetId="564e-fbc6-5266-3ea4" type="selectionEntry"/>
@@ -662,25 +623,6 @@
               </conditions>
             </modifier>
           </modifiers>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Boarding Actions" id="30b5-5345-e180-13af" hidden="false">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Standard Boarding Patrol" hidden="false" id="21b-48a5-24c-152c" sortIndex="1"/>
-            <selectionEntry type="upgrade" import="true" name="Narrative Mission: Seize the Engine Dock (Defender)" hidden="false" id="227e-45aa-4d8b-4171"/>
-            <selectionEntry type="upgrade" import="true" name="Narrative Mission: Macro-junction IV-B" hidden="false" id="6d4e-233a-387d-6fc9"/>
-            <selectionEntry type="upgrade" import="true" name="Breaching Operation Mission" hidden="false" id="f3ef-6eb6-31d1-8d0d"/>
-          </selectionEntries>
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4d79-cd5a-699f-7813" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="258c-a3b8-c0b0-d9af" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-          </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
@@ -765,24 +707,7 @@
           </conditionGroups>
         </modifier>
       </modifiers>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Boarding Actions Options" id="bcb6-3ad0-ad8a-0c30" hidden="false" flatten="true">
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Show Killzone Upgrade: Shadowvaults content" hidden="false" id="9869-d845-89a6-6273">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="64ec-d604-9232-79b4" includeChildSelections="false"/>
-              </constraints>
-            </selectionEntry>
-          </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
+      <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Experience Points" hidden="false" id="2dbf-4d49-5d74-85c9">
       <constraints>
@@ -5178,254 +5103,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
           </constraints>
         </entryLink>
       </entryLinks>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Boarding Actions Enhancements" id="5a79-2c0b-66e4-2122" hidden="false">
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Close-quarters Killer" hidden="false" id="3180-1582-d15c-fb6f">
-          <profiles>
-            <profile name="Close-quarters Killer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="73af-ab1f-6d21-3645">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time the bearer makes a melee attack, you can re-roll the Wound roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="adda-bfc8-5629-da7a" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="3180-1582-d15c-fb6f" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="3180-1582-d15c-fb6f" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Expert Breacher" hidden="false" id="4952-6a30-3d10-3de9">
-          <profiles>
-            <profile name="Expert Breacher" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1cb3-0d95-5d5b-d715">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer&apos;s unit can attempt to operate a Hatchway at the start or end of the Move Units step of your Movement phase. The bearer&apos;s unit cannot attempt to operate more than one Hatchway per turn.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="31e5-2a60-71a5-768f" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="4952-6a30-3d10-3de9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="4952-6a30-3d10-3de9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Peerless Leader" hidden="false" id="4de4-9fb2-35cb-f5ad">
-          <profiles>
-            <profile name="Peerless Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bbc6-1deb-3d70-0fdd">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, the bearer can be targeted with the Battlefield Command Stratagem for 0CP, even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="9063-2ef4-b26b-51d1" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="4952-6a30-3d10-3de9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="4952-6a30-3d10-3de9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Personal Teleporter" hidden="false" id="f23e-54e8-e8e7-c789">
-          <profiles>
-            <profile name="Personal Teleporter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3875-c0db-7439-0466">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has the Deep Strike ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <infoLinks>
-            <infoLink name="Deep Strike" id="1845-7a49-adf7-a878" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
-          </infoLinks>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3c30-3603-ad0e-f720" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="f23e-54e8-e8e7-c789" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="f23e-54e8-e8e7-c789" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Superior Boarding Tactics" hidden="false" id="d63a-df06-dfed-ce99">
-          <profiles>
-            <profile name="Superior Boarding Tactics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5872-2ad1-05b9-7a8b">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You start the battle with 2CP.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3345-d240-3d8e-4c98" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="d63a-df06-dfed-ce99" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="d63a-df06-dfed-ce99" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Trademark Weapon" hidden="false" id="69c3-5579-d475-e5a5">
-          <profiles>
-            <profile name="Trademark Weapon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecd2-a98c-6bc2-7276">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When you select this Enhancement, select one ranged weapon equipped by the bearer (excluding Torrent weapons) and make a note of this on your Army Roster. Add 1 to the Strength and Damage characteristics of that weapon.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="9ce1-4261-a2a7-e74a" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="69c3-5579-d475-e5a5" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="69c3-5579-d475-e5a5" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-      </selectionEntries>
-      <comment>Boarding Actions content</comment>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Breaching Operation Enhancements" id="fc3b-5a53-47b1-4b2d" hidden="false">
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Paralysing Assault" hidden="false" id="cfe1-3457-9fa3-aed9">
-          <profiles>
-            <profile name="Paralysing Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="61f1-6a68-83eb-c57c">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when the bearer is selected to move, at the start or the end of that move if the bearer is within 1&quot; of a Weakened Wall that has not been breached, it can use this Enhancement. If it does so, each enemy unit that is on the opposite side of and visible to that Weakened Wall is stunned. Each time a unit is stunned, until the end of the turn, that unit cannot fire Overwatch and each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4e85-1b4d-8dce-92ec" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="cfe1-3457-9fa3-aed9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="cfe1-3457-9fa3-aed9" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Breaching Charges" hidden="false" id="268a-88b3-a5c1-fd98">
-          <profiles>
-            <profile name="Breaching Charges" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0f42-46a6-5b4f-9252">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when the bearer is selected to move, at the start or the end of that move if the bearer is within 1&quot; of a Weakened Wall that has not been breached, it can use this Enhancement. If it does so, that Weakened Wall&apos;s Vulnerable Section is destroyed. In addition, each unit that is on the opposite side of that Weakened Wall and is visible to and within 6&quot; of it suffers 1 mortal wound.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8442-560a-cd49-6ad1" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="268a-88b3-a5c1-fd98" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="268a-88b3-a5c1-fd98" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Spoor Seeker" hidden="false" id="7270-0ae0-e331-d15f">
-          <profiles>
-            <profile name="Spoor Seeker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="965d-bce2-021d-f3e2">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when the bearer is selected to move, at the start or the end of that move if the bearer is within 1&quot; of a Weakened Wall that has not been breached, it can use this Enhancement. If it does so, select one enemy unit that is on the opposite side of and visible to that Weakened Wall. Until the end of the turn, each time a friendly model makes an attack against that enemy unit, add 1 to the Hit roll and add 1 to the Wound roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2a02-c502-acf8-21d5" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="7270-0ae0-e331-d15f" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="7270-0ae0-e331-d15f" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-      </selectionEntries>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditionGroups>
-            <conditionGroup type="or">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="f3ef-6eb6-31d1-8d0d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-      </modifiers>
-      <comment>Boarding Actions content</comment>
     </selectionEntryGroup>
     <selectionEntryGroup name="Boarding Actiions Upgrades" id="3167-0f5b-caba-d96e" hidden="false">
       <selectionEntries>
