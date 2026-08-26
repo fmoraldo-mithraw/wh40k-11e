@@ -360,8 +360,8 @@ Each time a unit with one of these keywords gains a weapon ability as the result
 
 RESTRICTIONS
 - You cannot select the ^^Khorne^^ keyword for a ^^Psyker^^ unit.
-- A ^^Character^^ unit can only be attached to a unit if both units share the same keyword from the list below.
-- A unit can only embark within (or start the battle embarked within) a ^^Transport^^ if both of those units share the same keyword from the list above.’</description>
+- A ^^Character^^/^^Epic Hero^^ unit can only be attached to a unit if both units share the same keyword from the list above.
+- A unit can only embark within (or start the battle embarked within) a ^^Transport^^ if both of those units share the same keyword from the list above.</description>
                 </rule>
                 <rule name="PROFANE ZEAL (Stratagem, 1CP)" id="6793-57af-de7b-7756" hidden="false">
                   <comment>strat-timing: turn=either phase=shooting|fight
@@ -672,7 +672,7 @@ EFFECT: Until the end of the turn, your unit is eligible to declare a charge in 
 
 WHEN: Reinforcements step of your Movement phase, from the second battle round onwards.
 TARGET: One HERETIC ASTARTES JUMP PACK unit from your army that is in Reserves.
-EFFECT: Set your unit up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge. Then select one enemy INFANTRY or MOUNTED unit within 9&quot; of and visible to your unit: that unit must take a Battle-shock test.</description>
+EFFECT: Set your unit up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge. Then select one enemy INFANTRY or MOUNTED unit within 9&quot; of and visible to your unit: that unit makes a battle-shock roll.</description>
                 </rule>
                 <rule name="MERCILESS PURSUIT (Stratagem, 1CP)" id="8784-b95c-914e-96d1" hidden="false">
                   <comment>strat-timing: turn=opponent phase=movement</comment>
@@ -887,7 +887,7 @@ EFFECT: Until the end of the phase, if your unit invokes its contract, each time
                   <description>Soulforged Warpack – STRATAGEM (1CP)
 
 WHEN: Your Movement phase or Charge phase.
-TARGET: One Heretic Astartes Vehicle or Vashtorr the Arkifane unit from your army that has not been selected to move or charge this phase.
+TARGET: One Heretic Astartes Daemon Vehicle or Vashtorr the Arkifane unit from your army that has not been selected to move or charge this phase.
 EFFECT: Until the end of the phase, each time your unit makes Normal, Advance or charge move, it can move horizontally through terrain features as if they were not there.</description>
                 </rule>
                 <rule name="PREDATORY PURSUIT (Stratagem, 1CP)" id="46e5-6750-a049-2c08" hidden="false">
@@ -895,7 +895,7 @@ EFFECT: Until the end of the phase, each time your unit makes Normal, Advance or
                   <description>Soulforged Warpack – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall back move.
-TARGET: One HERETIC ASTARTES VEHICLE or Vashtorr the Arkifane unit from your army that is within 8&quot; of that enemy unit and not within Engagement Range of one or more enemy units.
+TARGET: One HERETIC ASTARTES DAEMON VEHICLE or Vashtorr the Arkifane unit from your army that is within 8&quot; of that enemy unit and not within Engagement Range of one or more enemy units.
 EFFECT: Your unit can make a Normal move of up to 6&quot;, but must end that move as close as possible to that enemy unit.</description>
                 </rule>
               </rules>
@@ -2480,7 +2480,7 @@ fnp: 5+</comment>
         </profile>
         <profile id="8f97-ea59-d469-e0bc" name="Chirurgeon" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this unit’s ^^**Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining. If that model was attached to a unit when it was destroyed, it must be set up attached to that unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this unit’s ^^**Fabius Bile^^** model is destroyed, at the end of the phase, roll one D6: on a 2+, set it back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy models, with its full wounds remaining.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -11846,7 +11846,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </profile>
         <profile id="b25d-bdc-de8f-c811" name="Chaos Land Raider" hidden="false" typeId="74f8-5443-9d6d-1f1e" typeName="Transport">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 ^^**Heretic Astartes Infantry**^^ (excluding ^^**Obliterator^^** and ^^**Jump Pack^^** models). Each ^^**Possessed, Mutilators^^** and ^^**Terminator^^** model takes up the space of 2 models.</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 ^^**Heretic Astartes Infantry**^^ models (excluding ^^**Obliterator^^** and ^^**Jump Pack^^** models). Each ^^**Possessed, Mutilators^^** and ^^**Terminator^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -13541,7 +13541,7 @@ invuln: 5+</comment>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">12</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">-</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
           </characteristics>
         </profile>
         <profile id="f5b7-5902-2fb6-1086" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
