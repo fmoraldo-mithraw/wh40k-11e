@@ -34755,6 +34755,32 @@ Roll one D6: on a 4+, you gain 1CP.</characteristic>
                 </modifier>
               </modifiers>
             </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Archraider" hidden="false" id="975b-7718-2400-78c9">
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+              </costs>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="cbf5-eaec-7538-6071" includeChildSelections="true"/>
+              </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <profiles>
+                <profile name="Archraider" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="deb3-9f0e-6469-cc8a">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Anhrathe Character**^^ unit only. At the start of the battle, select one ^^**Character**^^ model in this unit. That model has the following ability: 
+
+
+**Lord of Deceit (Aura):** Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12” of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+            </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="db16-d9bd-bdd0-9ff5"/>
@@ -35917,34 +35943,7 @@ Each time a ranged attack targets the bearer&apos;s unit, models in that unit ha
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="aa61-4508-01e7-83c1" includeChildSelections="false"/>
           </constraints>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Archraider" hidden="false" id="975b-7718-2400-78c9">
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-              </costs>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="cbf5-eaec-7538-6071" includeChildSelections="true"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Archraider" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="deb3-9f0e-6469-cc8a">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Anhrathe Character**^^ unit only. At the start of the battle, select one ^^**Character**^^ model in this unit. That model has the following ability: 
-
-
-**Lord of Deceit (Aura):** Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12” of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-          </selectionEntries>
+          <selectionEntries></selectionEntries>
         </selectionEntryGroup>
         <selectionEntryGroup name="Twilight Flickers Enhancements" id="d495-3779-ed7a-680f" hidden="false">
           <selectionEntries>
