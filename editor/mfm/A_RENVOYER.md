@@ -2,9 +2,8 @@
 
 ╔══ ⚑ À ME RENVOYER — non traité automatiquement ══╗
 
-② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [37]
+② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [36]
    • [Adeptus Custodes] Honoured Fallen (SOLAR SPEARHEAD) — aucune amélioration bdd pour ce nom MFM
-   • [Craftworlds] Infamy (CORSAIR COTERIE) — aucune amélioration bdd pour ce nom MFM
    • [Astra Militarum] Omnissian Unguents (ARMOURED INFANTRY) — aucune amélioration bdd pour ce nom MFM
    • [Black Templars] Astartes Tank Ace (HEADHUNTER TASK FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Blood Angels] Astartes Tank Ace (HEADHUNTER TASK FORCE) — aucune amélioration bdd pour ce nom MFM
@@ -70,8 +69,7 @@
    • [Space Marines] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
    • [Space Wolves] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
 
-④ COÛT DE BASE IMBRIQUÉ (hors entrée unité) à changer — confirme la nouvelle valeur (écriture manuelle sur le modèle).  [3]
-   • [Craftworlds] WAR WALKERS — coût effectif 85 porté hors de l'entrée unité (modèle/imbriqué), MFM=80 — écriture manuelle
+④ COÛT DE BASE IMBRIQUÉ (hors entrée unité) à changer — confirme la nouvelle valeur (écriture manuelle sur le modèle).  [2]
    • [Death Guard] MYPHITIC BLIGHT-HAULERS — coût effectif 100 porté hors de l'entrée unité (modèle/imbriqué), MFM=95 — écriture manuelle
    • [Leagues of Votann] KAPRICUS DEFENDERS — coût effectif 65 porté hors de l'entrée unité (modèle/imbriqué), MFM=70 — écriture manuelle
 
@@ -87,13 +85,10 @@
    • [Space Wolves] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
-⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [29]
+⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [26]
    • [Adeptus Custodes] ALLARUS CUSTODIANS — prix de taille MFM [280,340] non atteignable(s) par la bdd (paliers actuels [110,165,275,330])
    • [Adeptus Mechanicus] KASTELAN ROBOTS — prix de taille MFM [300] non atteignable(s) par la bdd (paliers actuels [160,320])
    • [Adeptus Mechanicus] PTERAXII STERYLIZORS — prix de taille MFM [150] non atteignable(s) par la bdd (paliers actuels [80,160])
-   • [Craftworlds] DARK REAPERS — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [100,210])
-   • [Craftworlds] DIRE AVENGERS — prix de taille MFM [140] non atteignable(s) par la bdd (paliers actuels [75,150])
-   • [Craftworlds] WAR WALKERS — prix de taille MFM [160] non atteignable(s) par la bdd (paliers actuels [85,170])
    • [Astra Militarum] CATACHAN JUNGLE FIGHTERS — prix de taille MFM [135] non atteignable(s) par la bdd (paliers actuels [75,145])
    • [Astra Militarum] DEATH KORPS OF KRIEG — prix de taille MFM [135] non atteignable(s) par la bdd (paliers actuels [75,145])
    • [Black Templars] SWORD BRETHREN SQUAD — prix de taille MFM [125,225,250] non atteignable(s) par la bdd (paliers actuels [105,130,235,260])

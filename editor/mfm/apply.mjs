@@ -200,7 +200,10 @@ for (const slug of slugs) {
   // ── améliorations ───────────────────────────────────────────────────────────
   for (const det of (Array.isArray(mfm.detachments) ? mfm.detachments : [])) {
     for (const me of (det.enhancements || [])) {
-      const em = map.enhancements && map.enhancements[me.name];
+      // Clef primaire « DET / NOM » (un même nom peut vivre dans deux
+      // détachements à des prix différents) ; repli nom-seul pour les
+      // matrices générées avant ce changement de contrat.
+      const em = map.enhancements && (map.enhancements[det.name + " / " + me.name] || map.enhancements[me.name]);
       if (!em) continue;                                    // non-mappée → traité via map.enhUnmapped
       let p; try { p = safePts(me.points, `enh ${me.name}`); } catch (e) { review("valeur-douteuse", "enh " + me.name, e.message); continue; }
       if (em.currentPts == null) { review("enh-cout-absent", "enh " + me.name + " (" + em.det + ")", `coût bdd absent, MFM=${p}`); continue; }

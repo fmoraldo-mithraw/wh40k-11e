@@ -260,23 +260,41 @@ for (const slug of slugs) {
     tot.matched++;
   }
 
-  // ── améliorations : nom MFM (par détachement) → entrée bdd (bsId + pts) ──
-  // Indexé par mots-clef nom (distinctifs), dédup par bsId. Une amélioration MFM
-  // sans équivalent bdd tombe en `enhUnmapped` (review), jamais devinée.
-  const enhByNorm = new Map();
+  // ── améliorations : (détachement, nom) MFM → entrée bdd (bsId + pts) ──
+  // Clef PRIMAIRE = le couple (détachement, nom) : un même nom peut exister
+  // dans plusieurs détachements À DES PRIX DIFFÉRENTS (Aeldari « Mistweave » :
+  // Fateful Performance 20 / Ghosts of the Webway 15) — un match par nom seul
+  // écrase l'un avec le prix de l'autre. Les suffixes de mécanique que la bdd
+  // ajoute au nom — « (Aura) », « (Upgrade) », « (Psychic) » — sont tolérés
+  // des deux côtés (MFM « Infamy » ↔ bdd « Infamy (Aura) »). Repli nom-seul
+  // UNIQUEMENT si non ambigu (une seule candidate bdd sous ce nom, tous
+  // détachements confondus). Sinon `enhUnmapped` (review), jamais deviné.
+  const enhStrip = (x) => norm(String(x || "").replace(/\s*\((?:Aura|Upgrade|Psychic)\)\s*/gi, " "));
+  const enhByDetName = new Map();          // "DET / NOM" (suffixes tolérés) → entrée
+  const enhByName = new Map();             // NOM → [entrées] (repli, ambigu ⇒ rejet)
   for (const facName of pool) for (const e of (all[facName] || {}).enhs || []) {
-    const k = norm(e.name);
-    if (e.bsId && !enhByNorm.has(k)) enhByNorm.set(k, e);
+    if (!e.bsId) continue;
+    for (const nk of new Set([norm(e.name), enhStrip(e.name)])) {
+      const dk = norm(e.det) + " / " + nk;
+      if (!enhByDetName.has(dk)) enhByDetName.set(dk, e);
+      if (!enhByName.has(nk)) enhByName.set(nk, []);
+      if (!enhByName.get(nk).some((x) => x.bsId === e.bsId)) enhByName.get(nk).push(e);
+    }
   }
   const enhancements = {}, enhUnmapped = [];
   for (const det of (Array.isArray(mfm.detachments) ? mfm.detachments : [])) {
     for (const me of (det.enhancements || [])) {
       if (!me || typeof me.name !== "string") continue;
-      const hit = enhByNorm.get(norm(me.name));
+      let hit = enhByDetName.get(norm(det.name) + " / " + norm(me.name))
+             || enhByDetName.get(norm(det.name) + " / " + enhStrip(me.name));
+      if (!hit) {
+        const cands = enhByName.get(enhStrip(me.name)) || [];
+        if (cands.length === 1) hit = cands[0];
+      }
       if (!hit) { enhUnmapped.push(`${me.name} (${det.name})`); continue; }
       let cur = null;
       try { cur = ptsInt(hit.pts, `enh ${hit.name}`); } catch (e) { errors.push({ name: me.name, why: e.message }); tot.errors++; continue; }
-      enhancements[me.name] = { bsId: hit.bsId, det: hit.det, catName: hit.name, currentPts: cur };
+      enhancements[`${det.name} / ${me.name}`] = { bsId: hit.bsId, det: hit.det, catName: hit.name, currentPts: cur };
     }
   }
 
