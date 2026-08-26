@@ -375,7 +375,9 @@ invuln: 4+</comment>
         </profile>
         <profile name="Grand Master of the Ravenwing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8858-35c5-7be5-9f0a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Advanced. If that unit is already eligible to shoot and declare a charge in a turn in which it Advanced, add 1 to Advance and Charge rolls made for that unit instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit&apos;s ranged attacks have **[ASSAULT]**.
+- When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge.
+- This unit has **^^Mobile^^**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Cut Off Their Escape" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="226-2678-90ed-5d5" page="11">
@@ -856,7 +858,9 @@ invuln: 3+</comment>
         </profile>
         <profile name="Mist-wreathed Shadow Realms" typeId="a400-f511-a59-fca7" typeName="Primarch of the First Legion" hidden="false" id="b8af-d4a-e67e-5308" page="41">
           <characteristics>
-            <characteristic name="Effect" typeId="d9a-5fdb-d4de-51a8">In your Command phase, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.</characteristic>
+            <characteristic name="Effect" typeId="d9a-5fdb-d4de-51a8">In your Command phase, if this unit is unengaged, you can use this ability. If you do:
+- Place this unit in strategic reserves.
+- This unit can make an ingress move in your next Movement phase (including in your first turn).</characteristic>
           </characteristics>
         </profile>
         <profile name="Martial Exemplar [Aura]" typeId="a400-f511-a59-fca7" typeName="Primarch of the First Legion" hidden="false" id="5e13-be29-6e38-997d" page="41">
@@ -894,6 +898,7 @@ invuln: 3+</comment>
         <categoryLink targetId="6e7-40c-58d9-e402" id="c911-6d9-56ad-18d2" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="6474-0ce3-6b5a-120c" id="dc1b-1d3e-6b2a-436a" primary="false" name="Primarch"/>
         <categoryLink targetId="42a0-db93-ff81-d939" id="d249-a5a-dcf0-6cdf" primary="false" name="Lion El&apos;Jonson"/>
+        <categoryLink targetId="e228-a2d3-d863-b438" id="8c56-8f01-5018-91c0" primary="false" name="Mobile"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a38-8830-2c5f-3c8f"/>
@@ -1136,7 +1141,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Lightning-fast Manoeuvres" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8639-6848-43d7-63e7" page="39">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a ranged attack targets this model, subtract 1 from the Hit roll. If that attack was made by a model that can Fly, subtract 1 from the Wound roll as well.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Ranged attacks that target this unit have -1 to wound rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Damaged: 1-3 Wounds Remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2cff-f9b1-965c-5e8d">
@@ -1904,7 +1909,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Icon of Old Caliban (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a79a-fb98-5a0b-66ca" page="33">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adeptus Astartes unit is within 6&quot; of this model, models in that unit have the Stealth ability and each time a ranged attack targets that unit, that unit has the Benefit of Cover against that attack.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Friendly **^^Adeptus Astartes^^** units within 6&quot; of this unit have Stealth.</characteristic>
           </characteristics>
         </profile>
         <profile name="Ravenwing Darkshroud" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="e2ad-7d12-d9ea-d35e" page="33">
@@ -2535,7 +2540,7 @@ invuln: 5+</comment>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="6b63-c6f6-8391-604c" primary="true" name="Character"/>
       </categoryLinks>
       <profiles>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d06d-eddc-33f1-f9cc" page="31">
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d06d-eddc-33f1-f9cc" page="31">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit can be attached to the following units:
 ■ Outrider Squad
@@ -3017,7 +3022,7 @@ invuln: 5+</comment>
         </modifierGroup>
       </modifierGroups>
       <selectionEntryGroups>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="a2df-8dc4-8ede-3c3a">
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="a2df-8dc4-8ede-3c3a">
           <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="e8bc-0ea4-e061-1e92"/>
@@ -3774,7 +3779,8 @@ sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional</comment>
         </profile>
         <profile name="Braziers of Judgement" hidden="false" id="7a96-3999-3c95-cfa8" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a Character model is leading this unit, each time an attack targets this unit, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has Stealth.
+- Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Emnity for the Unworthy" hidden="false" id="884d-4284-89ea-32d5" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">

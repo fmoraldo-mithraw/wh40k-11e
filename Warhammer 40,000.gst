@@ -535,6 +535,7 @@
     <categoryEntry name="Lesser Daemon" id="f927-898a-ebe2-1aca" hidden="false"/>
     <categoryEntry name="Abomination" id="e17d-56fd-1957-071f" hidden="false"/>
     <categoryEntry name="Daemonic Beasts" id="a783-fe90-2280-47ec" hidden="false"/>
+    <categoryEntry id="e228-a2d3-d863-b438" name="Mobile" hidden="false"/>
   </categoryEntries>
   <forceEntries>
     <forceEntry id="bb9d-299a-ed60-2d8a" name="Army Roster" hidden="false">
