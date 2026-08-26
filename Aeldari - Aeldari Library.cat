@@ -8874,7 +8874,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Acrobatic Grace" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="86c3-f40-66e8-f70c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has the Stealth ability.
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has Stealth.
 - Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
@@ -10883,7 +10883,7 @@ invuln: 5+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, other Character models attached to that unit have the Feel No Pain 4+ ability.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b762-ef83-2f56-ded">
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b762-ef83-2f56-ded">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
 ■ Corsair Voidreavers
@@ -11010,13 +11010,13 @@ You can attach this unit to one of the above units, even if Yvraine has already 
       <infoLinks>
         <infoLink id="4605-e814-e134-205e" name="Battle Focus" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
         <infoLink name="Disparate Paths" id="978d-d648-5549-c675" hidden="false" type="rule" targetId="10d8-3547-47ae-baab"/>
-        <infoLink name="Leader" id="0670-a0e0-789f-85fc" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
+        <infoLink name="Support" id="0670-a0e0-789f-85fc" hidden="false" type="rule" targetId="21f5-c07c-6d97-4405"/>
       </infoLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="6387-2af0-1a7f-f590" collective="false" targetId="3f04-19ab-bfb0-6c67" type="selectionEntry"/>
       </entryLinks>
       <selectionEntryGroups>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="c816-dbe3-0239-25c8">
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="c816-dbe3-0239-25c8">
           <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="47d1-809c-dde5-13d2"/>
@@ -12315,7 +12315,7 @@ invuln: 4+</comment>
         <entryLink import="true" name="Enhancements" hidden="false" id="2d97-2ed1-6ad0-1e1f" type="selectionEntryGroup" targetId="4e2c-4ba5-749f-745a" sortIndex="3"/>
       </entryLinks>
       <profiles>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="510b-2196-2fab-2f43">
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="510b-2196-2fab-2f43">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
 ■ Guardian Defenders
@@ -12446,16 +12446,6 @@ You can attach this model to a unit, even  if one ^^Autarch^^ or ^^Farseer^^ m
             <entryLink type="selectionEntry" import="true" name="Guiding Presence" hidden="false" id="a9b7-99f4-8674-e8ea" targetId="6716-5adc-b3c9-2acb"/>
           </entryLinks>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="2bd6-536a-f106-2f37">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="34ff-9dfd-eff9-5925"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="cfbb-b3f7-378a-cee8" type="selectionEntry" targetId="e78a-4442-4ed2-66bf"/>
-            <entryLink import="true" name="" hidden="true" id="46bd-b5e3-c00d-0a67" type="selectionEntry" targetId="5452-c4a7-59fb-f05c"/>
-          </entryLinks>
-        </selectionEntryGroup>
         <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="4804-9f3b-843b-2c0e">
           <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
@@ -12468,7 +12458,6 @@ You can attach this model to a unit, even  if one ^^Autarch^^ or ^^Farseer^^ m
         </selectionEntryGroup>
       </selectionEntryGroups>
       <infoLinks>
-        <infoLink name="Leader" id="74ed-2509-b22f-0388" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Battle Focus" id="62d0-8548-f601-6cc0" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
         <infoLink id="9d22-da75-9b2d-23a0" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
       </infoLinks>
@@ -12596,11 +12585,6 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each ^^Warlock^^ model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model&apos;s Destructor weapon for each other friendly ^^Aeldari Psyker^^ model within 6&quot; of this model (to a maximum of +2).</characteristic>
           </characteristics>
         </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a805-d678-6dcd-efe9">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Declare Battle Formations step, if this unit is not an Attached unit, this unit can join one ^^Guardian Defenders^^ or ^^Storm Guardians^^ unit from your army (a unit cannot have more than one ^^Warlock Conclave^^ unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="aa83-44e2-b45f-7d08"/>
@@ -12611,7 +12595,7 @@ invuln: 4+</comment>
       </constraints>
       <infoLinks>
         <infoLink id="e63d-bfd3-c7f-9be1" name="Battle Focus" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
-        <infoLink name="Leader" id="1bed-a796-3705-66cf" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
+        <infoLink id="4a6d-ae94-024d-cfa3" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="2-4 Warlocks" id="cd58-23d0-0140-6b60" hidden="false" defaultSelectionEntryId="ab89-7505-ff1e-4ed" sortIndex="2">
@@ -12734,16 +12718,6 @@ invuln: 4+</comment>
               </entryLinks>
             </selectionEntry>
           </selectionEntries>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="155d-2f6e-ab53-dec4">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="b06c-74e2-5346-dbe8"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="0702-e3a8-42e6-30d8" type="selectionEntry" targetId="e78a-4442-4ed2-66bf"/>
-            <entryLink import="true" name="" hidden="true" id="3f23-4df4-e17a-500b" type="selectionEntry" targetId="5452-c4a7-59fb-f05c"/>
-          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks></entryLinks>
@@ -22518,11 +22492,6 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each ^^Warlock^^ model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model&apos;s Destructor weapon for each other friendly ^^Aeldari Psyker^^ model within 6&quot; of this model (to a maximum of +2).</characteristic>
           </characteristics>
         </profile>
-        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="507a-d5a-b40e-333a">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Declare Battle Formations step, if this unit is not an Attached unit, this unit can join one ^^Windriders^^ unit from your army (a unit cannot have more than one ^^Warlock Skyrunners^^ unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Runes of Battle (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca83-0825-3a7d-a3b5">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Weapons equipped by models in this unit have the [Ignores Cover] ability.</characteristic>
@@ -22775,19 +22744,10 @@ invuln: 4+</comment>
             <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="6b8f-9d96-0267-75c0" includeChildSelections="false"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="774a-5241-f46f-c6e7">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
-          <constraints>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="b6ec-6b13-4ee4-313c"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="" hidden="true" id="e046-bd59-624b-1ae8" type="selectionEntry" targetId="592a-b255-6c58-19ec"/>
-          </entryLinks>
-        </selectionEntryGroup>
       </selectionEntryGroups>
       <infoLinks>
         <infoLink name="Battle Focus" id="341c-7899-08f7-b94c" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
-        <infoLink name="Leader" id="7cc3-8a02-04c5-b699" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
+        <infoLink id="d5fa-48ab-432f-5b09" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
       </infoLinks>
       <entryLinks></entryLinks>
       <modifierGroups>
@@ -26656,7 +26616,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Lithe Embarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3667-e9e8-b00b-d9f1">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if there are no models currently embarked within this Transport, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit&apos;s Transport section, that has 6 or fewer models and that is wholly within 6&quot; of this Transport. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this Transport.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if there are no models currently embarked within this Transport, you can select one friendly Ynnari Infantry unit that only includes models from the units listed in this unit&apos;s Transport section, that has 6 or fewer models and that is wholly within 6&quot; of this Transport. Unless that unit is within Engagement Range of one or more enemy units, it can embark within this Transport. That unit can embark within this Transport in a turn it disembarked from this Transport.</characteristic>
           </characteristics>
         </profile>
         <profile name="Venom" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="e418-b9fb-a867-37f5">
@@ -32069,7 +32029,8 @@ EFFECT: If your unit is not within Engagement Range of one or more enemy units, 
             </rule>
             <rule name="Travelling Players" id="1f90-f7c5-9c60-e64d" hidden="false">
               <description>**^^Troupe^^** units from you army gain the **^^Battleline^^** keyword and **^^Troupe^^** models in those units have an Objective Control characteristic of 2.
-You can include up to three of each of the following models in your army: **^^Death Jester**^^, **^^Shadowseer**^^, **^^Troupe Master**^^.</description>
+You can include up to three of each of the following models in your army: **^^Death Jester**^^, **^^Shadowseer**^^, **^^Troupe Master**^^.
+When mustering your army, you can select a friendly **^^Harlequins^^** **^^Character^^** model to be your **^^Warlord^^**.</description>
             </rule>
             <rule name="TRICKSTERS’ RETORT (Stratagem, 1CP)" id="c644-f915-d894-be75" hidden="false">
               <comment>strat-timing: turn=opponent phase=movement</comment>
@@ -32171,7 +32132,7 @@ At the end of your opponent&apos;s Shooting phase, if one or more Ynnari units f
 
 
 Lethal Surge
-Once per turn, when a Ynnari unit from your army performs the Fade Back Agile Manoeuvre, it can make a Lethal Surge move instead of a Normal move. If it does, roll one D6 and add 1 to the result: that unit can be moved a number of inches up to the total. When doing so, those models can be moved within Engagement Range of the enemy unit that just triggered that Agile Manoeuvre.
+Once per turn, when a Ynnari unit from your army performs the Fade Back Agile Manoeuvre, it can make a surge move of up to D6+1&quot; instead of a Normal move.
 
 
 Lethal Reprisal
