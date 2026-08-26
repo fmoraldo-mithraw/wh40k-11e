@@ -151,6 +151,24 @@ for (const slug of slugs) {
     if (seen.has(mu.name)) continue; seen.add(mu.name);
     if (changedOnly && !mu.changed) continue;
     tot.units++;
+    // Étiquettes de changement portées par la carte MFM (le site les matérialise
+    // en clair : « UPDATED », « WARGEAR COSTS REMOVED »…). Elles sont dans le
+    // dump (change_tags) — on les EXPLOITE ici au lieu de les laisser mourir :
+    //  · WARGEAR COSTS REMOVED → toutes les options d'armes payantes de la
+    //    fiche passent à 0 (listées une à une, avec leurs ids, en Δ auto) ;
+    //  · toute autre étiquette inconnue → ligne de review, pour qu'un futur
+    //    MFM n'introduise jamais un type de changement silencieusement ignoré.
+    for (const tag0 of (mu.change_tags || [])) {
+      const tagU = String(tag0).toUpperCase();
+      if (tagU === "UPDATED") continue;                      // porté par les deltas eux-mêmes
+      if (tagU === "WARGEAR COSTS REMOVED") {
+        for (const tgt of entry.targets) {
+          const paid = (tgt.weaponOptions || []).filter((o) => Number(o.pts) > 0);
+          if (!paid.length) { facLines.push(`  ✓ ${mu.name} : WARGEAR COSTS REMOVED — aucune option payante en bdd, déjà aligné`); continue; }
+          for (const o of paid) { facLines.push(`  Δ ${mu.name} OPTION « ${o.name} » (${o.id}): ${o.pts} → 0  [WARGEAR COSTS REMOVED]`); tot.deltas++; }
+        }
+      } else review("etiquette-mfm", mu.name, `étiquette « ${tag0} » non exploitée — vérifier la carte`);
+    }
     let costs;
     try { costs = mfmUnitCosts(mu); }
     catch (e) { review("valeur-douteuse", mu.name, e.message); continue; }

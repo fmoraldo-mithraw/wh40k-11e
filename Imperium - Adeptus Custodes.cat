@@ -212,17 +212,22 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee condition
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="c8a6-a4c5-703e-b717" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
         <modifier type="set" field="51b2-306e-1021-d207" value="165">
           <conditions>
             <condition field="selections" scope="c8a6-a4c5-703e-b717" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="275">
+        <modifier type="set" field="51b2-306e-1021-d207" value="280">
           <conditions>
             <condition field="selections" scope="c8a6-a4c5-703e-b717" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="330" field="51b2-306e-1021-d207">
+        <modifier type="set" value="340" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="c8a6-a4c5-703e-b717" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3670,6 +3675,13 @@ sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional ch
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="918b-c9ed-7af7-74df" name="Vertus Praetors" hidden="false" collective="false" import="true" type="unit">
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="25">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="918b-c9ed-7af7-74df" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>

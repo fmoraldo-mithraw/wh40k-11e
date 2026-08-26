@@ -163,6 +163,7 @@
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="8206-450c-540e-9890"/>
       </constraints>
     </categoryEntry>
+    <categoryEntry name="Crusade Ancient" id="0a13-c3aa-6dbc-287a" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="e9ed-6763-ea0d-39fe" targetId="82cb-ba1-1aae-3b1d"/>
@@ -6482,6 +6483,9 @@ invuln: 4+</comment>
         <selectionEntryGroup name="Assault Terminators" hidden="false" id="f0a0-fda7-8b75-5ec1" defaultSelectionEntryId="f5e2-f383-5061-9393" sortIndex="2">
           <selectionEntries>
             <selectionEntry type="model" import="true" name="Assault Terminator w/ Thunder Hammer &amp; Storm Shield" hidden="false" id="f5e2-f383-5061-9393">
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+              </costs>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Storm Shield" hidden="false" id="4691-7ec1-cfff-819e" collective="true">
                   <profiles>
@@ -7532,7 +7536,11 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <selectionEntryGroup name="Weapon Option" hidden="false" id="a461-656d-b18-a31f" defaultSelectionEntryId="f6a1-a037-fa1c-4cb5">
                   <entryLinks>
                     <entryLink import="true" name="Twin heavy bolter" hidden="false" type="selectionEntry" id="177e-5011-437e-c8e1" targetId="d107-1e89-9d3f-c9c7"/>
-                    <entryLink import="true" name="Twin lascannon" hidden="false" type="selectionEntry" id="fa3d-edc1-e04f-7d7c" targetId="e008-470a-83cb-c5e6"/>
+                    <entryLink import="true" name="Twin lascannon" hidden="false" type="selectionEntry" id="fa3d-edc1-e04f-7d7c" targetId="e008-470a-83cb-c5e6">
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+                      </costs>
+                    </entryLink>
                   </entryLinks>
                   <selectionEntries>
                     <selectionEntry type="upgrade" import="true" name="Grav-cannon" hidden="false" id="f6a1-a037-fa1c-4cb5">
@@ -7584,6 +7592,20 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <modifier type="set" value="350" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="6ba0-cede-e278-f86b" childId="cd88-5a62-bbb7-eb2a" shared="true" id="4e3a-158a-baa1-87c8"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="365">
+          <comment>chapter-cost: DW (palier de taille)</comment>
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="f89b-84e0-6e3b-f1e2" shared="true"/>
+            <condition type="atLeast" value="4" field="selections" scope="6ba0-cede-e278-f86b" childId="cd88-5a62-bbb7-eb2a" shared="true"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="365">
+          <comment>chapter-cost: SM (palier de taille)</comment>
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="e0af-67df-9d63-8fb7" shared="true"/>
+            <condition type="atLeast" value="4" field="selections" scope="6ba0-cede-e278-f86b" childId="cd88-5a62-bbb7-eb2a" shared="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -30530,7 +30552,7 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
                 <categoryLink targetId="6226-9b9b-107a-9ada" id="9031-34a1-28e3-31dd" primary="false" name="Enhancement"/>
               </categoryLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
