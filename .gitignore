@@ -30,10 +30,18 @@ Chaos - Renegade Militarum.cat
 Zephyran Corsairs.cat
 
 # Scraped Wahapedia dumps (transient, upload instead of commit)
+# EXCEPTION : les dumps MFM anglais SONT commités — c'est le canal de
+# transmission vers l'agent d'intégration (le site MFM est inaccessible depuis
+# son environnement, et la matrice seule ne porte pas les prix MFM). Constaté
+# en v1.3 : seul aeldari.json, tracké de force jadis, était arrivé — les 29
+# autres factions n'ont pas pu être traitées depuis le dépôt.
 wahapedia/
 # A_RENVOYER.md est COMMITÉ (le mainteneur transmet le rapport via git —
 # run.sh l'ajoute avec les matrices) ; seul le dump brut reste transient.
-editor/mfm/dump/
+editor/mfm/dump/*
+!editor/mfm/dump/en/
+editor/mfm/dump/en/*
+!editor/mfm/dump/en/*.json
 
 # Profil de navigation Playwright (cookies de session) — jamais commité
 editor/translations/wh-profile/
