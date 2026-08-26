@@ -41,7 +41,7 @@
    • [Tyranids] Psychostatic Disruption (Aura) (SYNAPTIC NEXUS) — aucune amélioration bdd pour ce nom MFM
    • [Tyranids] The Dirgeheart of Kharis (SYNAPTIC NEXUS) — aucune amélioration bdd pour ce nom MFM
 
-③ COÛT DE CHAPITRE (datasheet partagée, prix divergent) — confirme les prix par chapitre : j'encode un modifier primary-catalogue.  [13]
+③ COÛT DE CHAPITRE (datasheet partagée, prix divergent) — confirme les prix par chapitre : j'encode un modifier primary-catalogue.  [15]
    • [Blood Angels] ASSAULT INTERCESSOR SQUAD — datasheet partagée, prix divergent selon la faction (bdd 75 → MFM 80)
    • [Blood Angels] ASSAULT INTERCESSORS WITH JUMP PACKS — datasheet partagée, prix divergent selon la faction (bdd 85 → MFM 95)
    • [Blood Angels] ASSAULT INTERCESSORS WITH JUMP PACKS — paliers divergents selon la faction (MFM [180] non produits par la bdd [85,160])
@@ -53,15 +53,13 @@
    • [Blood Angels] VANGUARD VETERAN SQUAD WITH JUMP PACKS — datasheet partagée, prix divergent selon la faction (bdd 105 → MFM 110)
    • [Blood Angels] VANGUARD VETERAN SQUAD WITH JUMP PACKS — paliers divergents selon la faction (MFM [220] non produits par la bdd [105,210])
    • [Dark Angels] REPULSOR EXECUTIONER — datasheet partagée, prix divergent selon la faction (bdd 255 → MFM 230)
+   • [Deathwatch] CENTURION DEVASTATOR SQUAD — paliers divergents selon la faction (MFM [365] non produits par la bdd [175,350])
    • [Deathwatch] REPULSOR EXECUTIONER — datasheet partagée, prix divergent selon la faction (bdd 255 → MFM 230)
+   • [Space Marines] CENTURION DEVASTATOR SQUAD — paliers divergents selon la faction (MFM [365] non produits par la bdd [175,350])
    • [Space Wolves] REPULSOR EXECUTIONER — datasheet partagée, prix divergent selon la faction (bdd 255 → MFM 230)
 
-④ COÛT PORTÉ PAR LES MODÈLES (unité à 0, prix sur les modèles) — confirme le barème par modèle de composition.  [14]
+④ COÛT PORTÉ PAR LES MODÈLES (unité à 0, prix sur les modèles) — confirme le barème par modèle de composition.  [10]
    • [Adeptus Mechanicus] IRONSTRIDER BALLISTARII — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Craftworlds] CLANBLADE — coût unité 0 (probablement porté par les modèles de composition), MFM base=70
-   • [Craftworlds] DRAGON KNIGHTS — coût unité 0 (probablement porté par les modèles de composition), MFM base=90
-   • [Craftworlds] LEYSTALKER — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Craftworlds] STONESINGER — coût unité 0 (probablement porté par les modèles de composition), MFM base=60
    • [Astra Militarum] HIPPOGRIFF AFV — coût unité 0 (probablement porté par les modèles de composition), MFM base=70
    • [Black Templars] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
    • [Blood Angels] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
@@ -71,6 +69,11 @@
    • [Orks] MEK GUNZ — coût unité 0 (probablement porté par les modèles de composition), MFM base=45
    • [Space Marines] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
    • [Space Wolves] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=75
+
+④ COÛT DE BASE IMBRIQUÉ (hors entrée unité) à changer — confirme la nouvelle valeur (écriture manuelle sur le modèle).  [3]
+   • [Craftworlds] WAR WALKERS — coût effectif 85 porté hors de l'entrée unité (modèle/imbriqué), MFM=80 — écriture manuelle
+   • [Death Guard] MYPHITIC BLIGHT-HAULERS — coût effectif 100 porté hors de l'entrée unité (modèle/imbriqué), MFM=95 — écriture manuelle
+   • [Leagues of Votann] KAPRICUS DEFENDERS — coût effectif 65 porté hors de l'entrée unité (modèle/imbriqué), MFM=70 — écriture manuelle
 
 ⑤ PRIX À COMPOSITION (tailles spéciales : Runtherds…) — le barème MFM est donné ci-dessous, confirme l'encodage voulu.  [10]
    • [Black Templars] CRUSADER SQUAD — composition (taille non « N model ») — barème MFM: 1 Sword Brother, 4 Neophytes, 5 Initiates=150, 1 Sword Brother, 8 Neophytes, 11 Initiates=290
@@ -84,7 +87,45 @@
    • [Space Wolves] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
-⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [1]
+⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [29]
+   • [Adeptus Custodes] ALLARUS CUSTODIANS — prix de taille MFM [280,340] non atteignable(s) par la bdd (paliers actuels [110,165,275,330])
+   • [Adeptus Mechanicus] KASTELAN ROBOTS — prix de taille MFM [300] non atteignable(s) par la bdd (paliers actuels [160,320])
+   • [Adeptus Mechanicus] PTERAXII STERYLIZORS — prix de taille MFM [150] non atteignable(s) par la bdd (paliers actuels [80,160])
+   • [Craftworlds] DARK REAPERS — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [100,210])
+   • [Craftworlds] DIRE AVENGERS — prix de taille MFM [140] non atteignable(s) par la bdd (paliers actuels [75,150])
    • [Craftworlds] WAR WALKERS — prix de taille MFM [160] non atteignable(s) par la bdd (paliers actuels [85,170])
+   • [Astra Militarum] CATACHAN JUNGLE FIGHTERS — prix de taille MFM [135] non atteignable(s) par la bdd (paliers actuels [75,145])
+   • [Astra Militarum] DEATH KORPS OF KRIEG — prix de taille MFM [135] non atteignable(s) par la bdd (paliers actuels [75,145])
+   • [Black Templars] SWORD BRETHREN SQUAD — prix de taille MFM [125,225,250] non atteignable(s) par la bdd (paliers actuels [105,130,235,260])
+   • [Chaos Daemons] BEASTS OF NURGLE — prix de taille MFM [150] non atteignable(s) par la bdd (paliers actuels [70,140])
+   • [Chaos Daemons] BLOODCRUSHERS — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [95,190])
+   • [Chaos Daemons] FIENDS — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [90,180])
+   • [Death Guard] BLIGHTLORD TERMINATORS — prix de taille MFM [180,360] non atteignable(s) par la bdd (paliers actuels [115,185,370])
+   • [Death Guard] MYPHITIC BLIGHT-HAULERS — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
+   • [Emperor's Children] FIENDS — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [90,180])
+   • [Grey Knights] PALADIN SQUAD — prix de taille MFM [460] non atteignable(s) par la bdd (paliers actuels [170,215,360,450])
+   • [Grey Knights] PURGATION SQUAD — prix de taille MFM [210] non atteignable(s) par la bdd (paliers actuels [110,220])
+   • [Leagues of Votann] BRÔKHYR THUNDERKYN — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [80,160])
+   • [Leagues of Votann] CTHONIAN BESERKS — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
+   • [Leagues of Votann] IRONKIN STEELJACKS WITH HEAVY VOLKANITE DISINTEGRATORS — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [80,160])
+   • [Leagues of Votann] IRONKIN STEELJACKS WITH MELEE WEAPONS — prix de taille MFM [150] non atteignable(s) par la bdd (paliers actuels [80,160])
+   • [Leagues of Votann] KAPRICUS DEFENDERS — prix de taille MFM [140] non atteignable(s) par la bdd (paliers actuels [65,130])
+   • [Necrons] LOKHUST DESTROYERS — prix de taille MFM [175] non atteignable(s) par la bdd (paliers actuels [40,55,80,170])
+   • [Necrons] OPHYDIAN DESTROYERS — prix de taille MFM [150] non atteignable(s) par la bdd (paliers actuels [80,145])
+   • [Space Wolves] WOLF GUARD TERMINATORS — prix de taille MFM [310] non atteignable(s) par la bdd (paliers actuels [150,300])
+   • [Tyranids] PYROVORES — prix de taille MFM [70,100] non atteignable(s) par la bdd (paliers actuels [45,65,95])
+   • [Tyranids] TYRANT GUARD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [80,160])
+   • [Tyranids] ZOANTHROPES — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [90,200])
+   • [World Eaters] KHORNE BERZERKERS — prix de taille MFM [320] non atteignable(s) par la bdd (paliers actuels [170,330])
+
+⑦ PRIX PAR RÉPÉTITION absent en base — confirme le seuil et le delta à encoder.  [8]
+   • [Adeptus Custodes] ALLARUS CUSTODIANS — MFM a un prix par répétition (Δ=30) que la bdd n'encode pas
+   • [Adeptus Custodes] VERTUS PRAETORS — MFM a un prix par répétition (Δ=25) que la bdd n'encode pas
+   • [Adeptus Mechanicus] SERVITOR BATTLECLADE — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
+   • [Chaos Daemons] CONTORTED EPITOME — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
+   • [Chaos Daemons] FIENDS — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
+   • [Chaos Daemons] POXBRINGER — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
+   • [Dark Angels] RAVENWING BLACK KNIGHTS — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
+   • [Leagues of Votann] KAPRICUS DEFENDERS — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
 
 ════ DRY-RUN ════
