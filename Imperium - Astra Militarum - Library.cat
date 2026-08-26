@@ -5064,7 +5064,10 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
         </profile>
         <profile name="Covert Stealth Team" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13ff-2ceb-fce3-df15">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove this unit from the battlefield. In your next Movement phase, set it up anywhere on the battlefield that is more than 8&quot; horizontally away from all enemy models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s turn, if this unit is unengaged, you can use this ability. If you do:
+- Place this unit in strategic reserves.
+- This unit has Deep Strike until the start of your next Shooting phase.
+- This unit must make an ingress move in your next Movement phase (including in your first turn).</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
@@ -10810,7 +10813,8 @@ fnp: 6+</comment>
         </profile>
         <profile name="Death Befitting An Officer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c082-8d5a-82a8-68dc">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this model is destroyed, roll one D6: on a 2+, do not remove it from play – it can, after the attacking model’s unit has finished making its attacks, shoot as if it were your Shooting phase and as if it had its full wounds remaining. This model is then removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when this unit is destroyed, before this unit&apos;s deadly demise roll, roll one D6:
+- On a 2+, do not remove this unit from the battlefield. After the attacking unit has shot, this unit can shoot using normal shooting, but while doing so this unit can only target that enemy unit. When this unit has shot, or at the end of the phase (whichever comes first), resolve this unit&apos;s deadly demise roll, then this unit is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Vox-net" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4ff0-53df-403a-f934">
@@ -12160,7 +12164,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
         <categoryLink targetId="75e8-57c4-40e3-1817" id="7f06-fdfb-6f18-3de4" primary="false" name="Transport"/>
         <categoryLink targetId="dbd4-63-af05-998" id="1be6-7308-7e2d-e9c9" primary="true" name="Vehicle"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="659e-1ad4-494d-de98" primary="false" name="Fly"/>
-        <categoryLink targetId="63f1-e6e8-f6f6-a4f0" id="647c-cbbf-e26a-14f9" primary="false" name="Aircraft"/>
         <categoryLink name="Imperium" hidden="false" id="cb09-53af-3494-2451" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink id="b1d5-2465-b633-c9e0" name="Frame" hidden="false" targetId="74a9-11cd-45b4-aa11" primary="false"/>
       </categoryLinks>
@@ -12188,12 +12191,12 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
       <profiles>
         <profile name="Valkyrie" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8217-783e-8882-4be0">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20+&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">14&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">10</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">14</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">-</characteristic>
           </characteristics>
         </profile>
         <profile name="Airborne Insertion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5e32-3bdc-afc7-78f5">
@@ -22364,7 +22367,7 @@ EFFECT: Until the end of the phase, each time an attack is allocated to your uni
         <selectionEntry type="upgrade" import="true" name="Recon Element" hidden="false" id="3d9f-5d9a-4a18-21aa">
           <rules>
             <rule name="Masters of Camouflage" id="9878-8c91-dee3-c0a1" hidden="false">
-              <description>^^**Astra Militarum Walker^^** and ^^**Regiment^^** models from your army have the Benefit of Cover. While such a model has the Benefit of Cover for any other reason, improve the Save characteristic of that model by 1 (to a maximum of 3+).</description>
+              <description>Friendly **^^Astra Militarum^^** units (excluding **^^Titanic^^** units) have Stealth.</description>
             </rule>
             <rule name="SCOUTING OUTRIDERS (Stratagem, 1CP)" id="99b0-3704-c5cb-dfd4" hidden="false">
               <comment>strat-timing: turn=opponent phase=any</comment>
@@ -22877,7 +22880,7 @@ EFFECT: When an attack targets either your unit, or a unit that is not fully vis
               <profiles>
                 <profile name="Reactive Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="18ea-5365-499c-610b">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Officer^^** model only. Each time an enemy unit is set up within 9&quot; of the bearer&apos;s unit, the bearer can issue one Order. This is not counted towards the number of Orders the bearer can issue each battle round.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Officer^^** model only. Each time an enemy unit is set up within 8&quot; of the bearer&apos;s unit, the bearer can issue one Order. This is not counted towards the number of Orders the bearer can issue each battle round.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -23374,7 +23377,7 @@ EFFECT: When an attack targets either your unit, or a unit that is not fully vis
               <profiles>
                 <profile name="Tripwires" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b18b-1cff-ce93-3eb1">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Astra Militarum Infantry^^** model only. Each time an enemy **^^Infantry^^** or **^^Mounted^^** unit ends a Normal, Advance, Charge, or Fall Back move within 9&quot; of the bearer&apos;s unit, roll a D6; on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Astra Militarum Infantry^^** model only. Each time an enemy **^^Infantry^^** or **^^Mounted^^** unit ends a Normal, Advance, Charge, or Fall Back move within 8&quot; of the bearer&apos;s unit, roll a D6; on a 4+, until the start of your next turn, that enemy unit is stunned. While a unit is stunned, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
