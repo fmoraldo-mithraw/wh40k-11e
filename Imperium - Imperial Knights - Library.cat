@@ -7553,28 +7553,6 @@ EFFECT: Those attacks do not prevent your unit from being eligible to start an a
     </selectionEntryGroup>
     <selectionEntryGroup name="Questor Forgepact Enhancements" id="c6b4-5090-67be-ea17" hidden="false">
       <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Vocifer Magnificat (Aura)" hidden="false" id="7385-ce64-2f90-3115">
-          <profiles>
-            <profile name="Vocifer Magnificat (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2870-c3d4-ed26-94f1">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Imperial Knights^^** model only. While an enemy unit is within 6&quot; of the bearer, worsen the Leadership characteristic of models in that unit by 1. While a friendly **^^Adeptus Mechanicus^^** unit is within 6&quot; of the bearer, improve the Leadership characteristic of 1 models in that **^^Adeptus Mechanicus^^** unit by 1.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="b5e4-3253-c157-54fd" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
-          </costs>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b228-0f03-b33c-b2d9" includeChildForces="true" includeChildSelections="true"/>
-          </constraints>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Magos Questoris" hidden="false" id="0f43-39c6-8a98-6817">
           <profiles>
             <profile name="Magos Questoris" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5031-2795-5f01-0c68">
@@ -7621,36 +7599,6 @@ EFFECT: Those attacks do not prevent your unit from being eligible to start an a
           <constraints>
             <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="73bd-61f9-9d22-33ee" includeChildForces="true" includeChildSelections="true"/>
           </constraints>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Omnissian Champion" hidden="false" id="917e-6609-8abe-504e">
-          <profiles>
-            <profile name="Omnissian Champion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="464b-bf8b-311c-754b">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Imperial Knights^^** model only. Add 4 to the bearer’s Wounds characteristic.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="b5e4-3253-c157-54fd" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
-          </costs>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0971-cc03-ce7c-2d9e" includeChildForces="true" includeChildSelections="true"/>
-          </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Omnissian Champion" field="annotation" join=", " scope="model" affects="self.entries.profiles.Unit"/>
-                <modifier type="increment" value="4" field="750a-a2ec-90d3-21fe" scope="model" affects="self.entries.profiles.Unit" join=", "/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
         </selectionEntry>
       </selectionEntries>
       <constraints>
