@@ -2793,6 +2793,7 @@ sim-mod: sustained=1 source=&quot;Prelocational Optimiser&quot; when=ranged choi
               </profiles>
               <rules>
                 <rule name="Command Protocols" id="b939-20ef-3894-efd4" hidden="false">
+                  <comment>sim-mod: source=&quot;Command Protocols&quot; hit=+1 whileLeading</comment>
                   <description>While a NECRONS CHARACTER model is leading this unit, each time a model in this unit makes an attack, add 1 to the Hit roll.</description>
                 </rule>
                 <rule name="PROTOCOL OF THE CONQUERING TYRANT (Stratagem, 1CP)" id="4f19-2a24-858b-c729" hidden="false">
@@ -2937,6 +2938,8 @@ EFFECT: Until the end of the phase, each time a model from your unit makes an at
               </profiles>
               <rules>
                 <rule name="Power Matrix" id="5127-4d08-a0c7-262b" hidden="false">
+                  <comment>sim-mod: source=&quot;Power Matrix&quot; reroll=hit1 kw=&quot;Cryptek,Canoptek&quot; choice=&quot;power-matrix&quot;
+sim-mod: source=&quot;Power Matrix (wholly within)&quot; reroll=hit kw=&quot;Cryptek,Canoptek&quot; conditional choice=&quot;power-matrix&quot;</comment>
                   <description>Certain areas of the battlefield are considered to be within your army&apos;s Power Matrix, as follows:
 - Your deployment zone is always within your army&apos;s Power Matrix.
 - At the start of any phase, if you control at least half of the objective markers within No Man&apos;s Land, until the end of that phase, No Man&apos;s Land is within your army&apos;s Power Matrix.
@@ -3222,6 +3225,9 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;.</description>
               </costs>
               <rules>
                 <rule name="Technosorcerous Augmentations" id="f6fe-52f3-9e41-f1ea" hidden="false">
+                  <comment>sim-mod: source=&quot;Technosorcerous Augmentations (Ignores Cover)&quot; ignores-cover when=ranged kw=&quot;Cryptek&quot; conditional choice=&quot;technosorcery&quot;
+sim-mod: source=&quot;Technosorcerous Augmentations (Anti-Infantry 3+)&quot; anti=Infantry:3+ when=ranged kw=&quot;Cryptek&quot; conditional choice=&quot;technosorcery&quot;
+sim-mod: source=&quot;Technosorcerous Augmentations (Anti-Mounted 4+)&quot; anti=Mounted:4+ when=ranged kw=&quot;Cryptek&quot; conditional choice=&quot;technosorcery&quot;</comment>
                   <description>- Ranged weapons equipped by ^^**Cryptek^^** models from your army have the [ASSAULT] ability.
 - In your Shooting phase, each time a ^^**Cryptek^^** unit from your army is selected to shoot, select one of the following abilities: [ANTI‑INFANTRY 3+], [ANTI‑MOUNTED 4+], [ASSAULT], [HEAVY], [IGNORES COVER]. Until the end of the phase, ranged weapons equipped by models in that unit have that ability</description>
                 </rule>
