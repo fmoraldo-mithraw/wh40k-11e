@@ -12594,6 +12594,7 @@ EFFECT: Until the end of the phase, your unit is eligible to declare a charge in
         <selectionEntry type="upgrade" import="true" name="Explorator Maniple" hidden="false" id="e01f-8783-4769-2eb6">
           <rules>
             <rule name="Acquisition at any cost" hidden="false" id="1bc3-7b38-21d2-2d73">
+              <comment>sim-mod: source=&quot;Acquisition at any cost&quot; reroll=wound1 conditional</comment>
               <description>At the start of your Command phase, select one objective marker. Until the start of your next Command phase, that objective marker is your Acquisition objective marker. Each time an ADEPTUS MECHANICUS model from your army makes an attack, if that model’s  unit is within range of your Acquisition objective marker, or if the target of that attack is within range of your Acquisition objective marker, re-roll a Wound roll of 1.</description>
             </rule>
             <rule name="AUTO-ORACULAR RETRIEVAL (Stratagem, 2CP)" id="896b-4736-6493-8baa" hidden="false">
@@ -12891,6 +12892,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;, or up to 6&quot; ins
         <selectionEntry type="upgrade" import="true" name="Eradication Cohort" hidden="false" id="6d06-9e26-0d3c-5317">
           <rules>
             <rule name="Murderous Imperative" hidden="false" id="dc09-cb01-528e-56d9">
+              <comment>sim-mod: source=&quot;Murderous Imperative (Protector)&quot; reroll=hit1 kw=&quot;Skitarii&quot; conditional choice=&quot;murderous-imperative&quot;
+sim-mod: source=&quot;Murderous Imperative (Conqueror)&quot; reroll=wound1 kw=&quot;Skitarii&quot; conditional choice=&quot;murderous-imperative&quot;</comment>
               <description>Each time a model in a **^^Skitarii^^** unit from your army makes an attack: 
 - If the Protector Imperative is active for that unit, re‑roll a Hit roll of 1.
 - If the Conqueror Imperative is active for that unit, re‑roll a Wound roll of 1.</description>
@@ -13111,6 +13114,9 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
   </sharedSelectionEntryGroups>
   <sharedRules>
     <rule id="7a21-a958-e47d-5c0d" name="Doctrina Imperatives" hidden="false">
+      <comment>sim-mod: source=&quot;Doctrina Imperatives (Protector)&quot; hit=+1 when=ranged conditional choice=&quot;doctrina&quot;
+sim-mod: source=&quot;Doctrina Imperatives (Conqueror)&quot; hit=+1 when=melee conditional choice=&quot;doctrina&quot;
+sim-mod: source=&quot;Doctrina Imperatives (Conqueror, près Battleline)&quot; ap=+1 conditional</comment>
       <description>At the start of the battle round, you can select one of the Doctrina Imperatives below. Until the end of the battle round, that Doctrina Imperative is active for your army, and all units from your army that have the Doctrina Imperatives ability gain the relevant abilities shown below.
 
 PROTECTOR IMPERATIVE
