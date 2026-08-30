@@ -22077,6 +22077,7 @@ EFFECT: Until the end of the phase, your Officers can issue Orders to Regiment u
         <selectionEntry type="upgrade" import="true" name="Bridgehead Strike" hidden="false" id="7afb-a0f6-b95d-e791">
           <rules>
             <rule name="Fire Zone Purge" id="c0cb-43e7-e7e6-11ea" hidden="false">
+              <comment>sim-mod: source=&quot;Fire Zone Purge&quot; hit=+1 when=ranged kw=&quot;Militarum Tempestus&quot; conditional</comment>
               <description>- If a friendly ^^**Militarum Tempestus Officer^^** model is your ^^**Warlord^^**, friendly ^^**Tempestus Scions^^** units have:
   - BATTLELINE.
   - +1 OC.
@@ -22442,6 +22443,7 @@ EFFECT: Select one visible enemy unit within 12&quot; of your unit. When that en
         <selectionEntry type="upgrade" import="true" name="Grizzled Company" hidden="false" id="cc4e-a30b-f987-c984">
           <rules>
             <rule name="Ruthless Discipline" id="875a-bbfc-8184-0f73" hidden="false">
+              <comment>sim-mod: source=&quot;Ruthless Discipline&quot; reroll=hit1 conditional</comment>
               <description>Add 1 to the number of Orders each **^^Astra Militarum Officer^^** model from your army can issue, as stated on their datasheet.
 
 While an **^^Astra Militarum^^** unit from your army is affected by an Order, each time a model in that unit makes an attack, re‑roll a Hit roll of 1.</description>
@@ -26472,6 +26474,9 @@ In addition:
   </sharedSelectionEntryGroups>
   <sharedRules>
     <rule name="Voice Of Command" hidden="false" id="53c9-34f6-2443-a95e">
+      <comment>sim-mod: source=&quot;Ordre : Take Aim!&quot; hit=+1 when=ranged conditional choice=&quot;ordre&quot;
+sim-mod: source=&quot;Ordre : Fix Bayonets!&quot; hit=+1 when=melee conditional choice=&quot;ordre&quot;
+sim-mod: source=&quot;Ordre : First Rank, Fire! Second Rank, Fire! (armes Rapid Fire)&quot; attacks=+1 when=ranged conditional choice=&quot;ordre&quot;</comment>
       <description>If your Army Faction is **^^Astra Militarum^^**, **^^Officer^^** models with this ability can issue Orders. Each **^^Officer^^**&apos;s datasheet will specify how many Orders it can issue and which units are eligible to receive those Orders. Each time an **^^Officer^^** model issues an Order, select one of the Orders below, then select one eligible friendly unit within 6&quot; of that **^^Officer^^** model to issue it to. **^^Officer^^** models can issue Orders in your Command phase and at the end of a phase in which they disembarked from a **^^Transport^^** or were set up on the battlefield.
 
 Until the start of your next Command phase, the unit you selected is affected by that Order. Unless otherwise stated, a unit can only be affected by one Order at a time (any Order subsequently issued to that unit replaces the current one). Orders cannot be issued to Battle-shocked units, and if a unit being affected by an Order becomes Battle-shocked, that Order ceases to affect that unit.
