@@ -5398,6 +5398,7 @@ EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by y
         <selectionEntry type="upgrade" import="true" name="Synaptic Nexus" hidden="false" id="16ff-a068-4c31-285a">
           <rules>
             <rule name="Synaptic Imperitives" id="443e-6ef5-6bdd-e418" hidden="false">
+              <comment>sim-mod: source=&quot;Synaptic Imperitives (Goaded to Slaughter)&quot; hit=+1 when=melee conditional</comment>
               <description>At the start of the battle round, you can select one of the Synaptic Imperatives shown below. Until the end of the battle round, that Synaptic Imperative is active for your army and while a **^^Tyranids^^** unit from your army is within Synapse Range of your army, it will benefit from it. Each Synaptic Imperative can only be selected once per battle.
 
 - **Synaptic Augmentation:** While this unit is within Synapse Range of your army, models in this unit have a 5+ invulnerable save.
@@ -6747,6 +6748,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
 A **^^Genestealer Cult^^** model must be your Warlord, and **^^Astra Militarum^^** models from your army lose the Voice of Command ability if they have it. You cannot include units with any of the following keywords in your army using this rule: **^^Aircraft^^**; **^^Commisar^^**; **^^Epic Hero^^**; **^^Militarum Tempestus^^**; **^^Ogryn^^**; **^^Ratling^^**; **^^Tech-Priest Enginseer^^**; **^^Ministorum Priest^^**.</description>
             </rule>
             <rule name="Integrated Tactics" id="2ac6-4080-aea3-847e" hidden="false">
+              <comment>sim-mod: source=&quot;Integrated Tactics&quot; hit=+1 when=ranged kw=&quot;Genestealer Cults&quot; conditional</comment>
               <description>Each time an **^^Astra Militarum^^** unit from your army is selected to shoot, you can select one enemy unit within 18&quot; of and visible to that unit. If you do, until the end of the phase, models in that **^^Astra Militarum^^** unit can only target that enemy unit (and only if it is an eligible target) and that enemy unit is caught in overlapping fire. While an enemy unit is caught in overlapping fire, each time a **^^Genestealer Cult^^** model from your army targets that enemy unit with a ranged attack, add 1 to the Hit roll.</description>
             </rule>
             <rule name="SYMBIOTIC DESTRUCTION (Stratagem, 1CP)" id="6d51-9353-4e7c-bd71" hidden="false">
@@ -6830,6 +6832,8 @@ EFFECT: Select one of those Cult Ambush markers. You can set up that Cult Ambush
 No TYRANIDS models from your army can be your WARLORD.</description>
             </rule>
             <rule name="Psionic Parasitism" id="8db4-851f-477e-325e" hidden="false">
+              <comment>sim-mod: source=&quot;Psionic Parasitism&quot; hit=+1 kw=&quot;Tyranids&quot; conditional
+sim-mod: source=&quot;Psionic Parasitism (Catalyst)&quot; hit=+1 kw=&quot;Genestealer Cults&quot; conditional</comment>
               <description>At the end of your Movement phase, for each TYRANIDS SYNAPSE unit from your army, you can select one friendly GENESTEALER CULTS unit (excluding PURESTRAIN GENESTEALER and PATRIARCH units) and one friendly TYRANIDS unit each within 9&quot; of and visible to that SYNAPSE unit. If you do, that GENESTEALER CULTS unit from your army suffers D3+1 mortal wounds and one model in the selected TYRANIDS unit regains up to that many lost wounds and until the start of your next Movement phase, each time a model in the selected TYRANIDS unit makes an attack, add 1 to the Hit roll.
 
 TYRANIDS units from your army have the following ability:
