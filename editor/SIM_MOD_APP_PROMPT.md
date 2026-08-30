@@ -42,6 +42,9 @@ sont entre guillemets) :
   - `crit-hit=N` `crit-wound=N` — seuil de critique abaissé.
   - `twin-linked` — relance de blessure pleine.
   - `anti=KEYWORD:N+` — Anti-KEYWORD N+.
+  - `cleave=N` — accorde [CLEAVE N] en mêlée (+N dés d'attaque par
+    tranche de 5 figurines dans l'unité cible) ; **s'additionne** au
+    CLEAVE imprimé de l'arme (« +1 to the value » = `cleave=1` aussi).
 - **Portée / conditions** :
   - `weapon="…"` — l'effet ne vaut **en théorie** que pour cette arme
     (affiché sur la puce ; voir limite ci-dessous).
