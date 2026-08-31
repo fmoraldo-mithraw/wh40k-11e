@@ -60,13 +60,22 @@ origin/main`), puis :
 
 ## Lancer / relancer le cron cowork
 
-Les crons de session sont **éphémères** (liés à la session, expiration 7
-jours). Dans une session Claude Code/Cowork disposant des deux dépôts, une
-seule phrase suffit :
+Le mécanisme en service est une **Routine Claude** (déclencheur planifié
+stocké côté serveur Claude — durable : il survit aux conteneurs et aux
+sessions, contrairement aux crons de session, volatils). Routine active :
+« MFM cowork — intégration des nouveaux dumps », horaire (:23 UTC),
+chaque tir ouvre une session fraîche dans l'environnement des deux dépôts
+et exécute CETTE tâche ; notification push à l'utilisateur quand un tir a
+réellement intégré quelque chose (les no-op sont silencieux).
 
-> « Planifie un cron horaire qui exécute `editor/mfm/COWORK_TASK.md` »
+Gestion : visible et modifiable dans l'interface Routines de claude.ai,
+ou depuis une session Claude Code (« liste mes routines », « mets la
+routine MFM cowork en pause », « change sa cadence »). Pour la recréer si
+elle a été supprimée, dans une session Claude Code de cet environnement :
 
-L'agent doit alors créer un cron (~horaire, minute décalée) dont le prompt
-est : *« Exécute la tâche editor/mfm/COWORK_TASK.md du dépôt wh40k-11e :
-détection d'un dump MFM non intégré, intégration si besoin, sinon no-op
-silencieux. »*
+> « Crée une routine horaire qui exécute `editor/mfm/COWORK_TASK.md`
+> (session fraîche à chaque tir, notification push) »
+
+Repli sans Routine : un cron de session (« Planifie un cron horaire qui
+exécute editor/mfm/COWORK_TASK.md ») fonctionne aussi, mais il est
+éphémère (lié à la session, 7 jours max) — à relancer à chaque session.
