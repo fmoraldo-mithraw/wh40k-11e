@@ -6,6 +6,21 @@
 > Claude/Cowork, détecte ce push et intègre les points. Elle est écrite pour
 > être **idempotente et silencieuse** quand il n'y a rien à faire.
 
+## Étape 0 — auto-provisionnement (session sans clones)
+
+Si `/home/user/wh40k-11e` n'existe pas (session planifiée ouverte dans un
+environnement non provisionné — répertoire home vide), clone d'abord :
+
+```sh
+git clone --filter=blob:none https://github.com/fmoraldo-mithraw/wh40k-11e.git /home/user/wh40k-11e
+git clone --depth 1 https://github.com/fmoraldo-mithraw/cogitator-bellicum.git /home/user/cogitator-bellicum
+```
+
+(Le second est requis seulement pour `build-map` ; en cas d'échec du
+clone, continuer — les matrices commitées font l'affaire.) Si le clone de
+wh40k-11e échoue aussi (pas de credentials git dans l'environnement),
+terminer en signalant l'échec de provisionnement — ne rien inventer.
+
 ## Déclencheur — détection d'un dump non intégré
 
 1. `git fetch origin main` dans le clone local de wh40k-11e.
