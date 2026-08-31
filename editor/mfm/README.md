@@ -132,9 +132,13 @@ Deux versants, complémentaires :
 Installation sur le serveur — **une commande** :
 
 ```sh
-git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
+git clone --filter=blob:none git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
   && ~/wh40k-mfm/wh40k-11e/editor/mfm/install-automation.sh
 ```
+
+(`--filter=blob:none` : clone sans blobs historiques, ~10× plus léger que
+le clone complet — l'historique des `.cat` pèse ~400 Mio et casse
+facilement en route ; l'automatisation n'en a pas besoin.)
 
 (Le clone initial est directement le clone dédié : l'installeur le détecte
 et le synchronise — pas de second clone, rien en /tmp.)

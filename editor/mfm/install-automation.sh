@@ -12,8 +12,11 @@
 # en cron par une session Claude/Cowork — aucune clef API, rien à installer
 # côté serveur pour lui (voir « Lancer / relancer » dans COWORK_TASK.md).
 #
-# Usage (sur le serveur) — le clone initial EST le clone final, rien en /tmp :
-#   git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
+# Usage (sur le serveur) — le clone initial EST le clone final, rien en /tmp.
+# --filter=blob:none : clone « sans blobs » (~10× plus léger que les ~400 Mio
+# du clone complet — l'historique des .cat pèse lourd et l'automatisation n'en
+# a pas besoin ; git récupère les blobs à la demande) :
+#   git clone --filter=blob:none git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
 #     && ~/wh40k-mfm/wh40k-11e/editor/mfm/install-automation.sh
 #
 # Options :
@@ -81,13 +84,23 @@ if [ -d "$DATA_DIR/.git" ]; then
   git -C "$DATA_DIR" fetch origin main -q && git -C "$DATA_DIR" reset -q --hard origin/main
   ok "wh40k-11e déjà cloné — synchronisé sur origin/main"
 else
-  git clone -q "$REPO_DATA_URL" "$DATA_DIR" || die "clone de $REPO_DATA_URL impossible (auth ssh/https ?)"
-  ok "wh40k-11e cloné"
+  # Clone sans blobs (léger) avec retries — le clone complet (~400 Mio
+  # d'historique) casse facilement sur une liaison moyenne (early EOF).
+  cloned=0
+  for attempt in 1 2 3; do
+    if git clone -q --filter=blob:none "$REPO_DATA_URL" "$DATA_DIR"; then cloned=1; break; fi
+    rm -rf "$DATA_DIR"
+    warn "clone interrompu (tentative $attempt/3) — nouvelle tentative dans $((attempt*5))s…"
+    sleep $((attempt*5))
+  done
+  [ "$cloned" = 1 ] || git clone -q "$REPO_DATA_URL" "$DATA_DIR" \
+    || die "clone de $REPO_DATA_URL impossible (auth ssh ? liaison ? réessaie : git clone --filter=blob:none $REPO_DATA_URL $DATA_DIR)"
+  ok "wh40k-11e cloné (sans blobs historiques)"
 fi
 if [ -d "$APP_DIR/.git" ]; then
   git -C "$APP_DIR" fetch origin -q && ok "cogitator-bellicum déjà cloné — synchronisé"
 else
-  if git clone -q --depth 1 "$REPO_APP_URL" "$APP_DIR"; then
+  if git clone -q --depth 1 "$REPO_APP_URL" "$APP_DIR" || { sleep 5; git clone -q --depth 1 "$REPO_APP_URL" "$APP_DIR"; }; then
     ok "cogitator-bellicum cloné (lecture seule, pour la clôture d'import)"
   else
     warn "clone de cogitator-bellicum impossible — build-map sera dégradé (le dump partira quand même, l'agent régénérera les matrices)."
