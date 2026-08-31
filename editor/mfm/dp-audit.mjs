@@ -1,4 +1,5 @@
-// dp-audit.mjs — audit DP + Force Disposition des détachements vs le dump MFM.
+// dp-audit.mjs — audit DP + Force Disposition + mot-clef UNIQUE des
+// détachements vs le dump MFM.
 //
 // Comble le trou constaté à l'intégration v1.3 : apply.mjs ne compare que les
 // POINTS (unités/améliorations) alors que le dump porte aussi, par détachement,
@@ -55,6 +56,12 @@ for (const [file, doc] of c.docs) {
       if (p.tag === "profile" && xml.getAttrDecoded(p, "name") === "Force Disposition")
         xml.walk(p, (k) => { if (k.tag === "characteristic" && !fd) fd = xml.getText(k).trim(); });
     }
+    const uniques = [];
+    const cls = (n.children || []).find((k) => k.tag === "categoryLinks");
+    if (cls) for (const l of cls.children || []) {
+      const ln = xml.getAttrDecoded(l, "name") || "";
+      if (/^UNIQUE\b/i.test(ln)) uniques.push(ln.toUpperCase().replace(/\s+/g, " ").trim());
+    }
     const over = {};
     const mods = (n.children || []).find((k) => k.tag === "modifiers");
     if (mods) for (const m of mods.children || []) {
@@ -64,7 +71,7 @@ for (const [file, doc] of c.docs) {
           over[xml.getAttr(k, "childId")] = parseInt(xml.getAttr(m, "value"), 10);
       });
     }
-    const rec = { file, nm, dp: parseInt(xml.getAttr(dp, "value"), 10), fd, over };
+    const rec = { file, nm, dp: parseInt(xml.getAttr(dp, "value"), 10), fd, over, uniques };
     (byName.get(norm(nm)) || byName.set(norm(nm), []).get(norm(nm))).push(rec);
     (byBag.get(bag(nm)) || byBag.set(bag(nm), []).get(bag(nm))).push(rec);
   });
@@ -85,6 +92,11 @@ for (const f of fs.readdirSync(DUMP).sort()) {
       const fdm = (det.force_disposition || "").trim();
       if (fdm && b.fd && norm(b.fd) !== norm(fdm)) bad.push(`FD «${b.fd}»→«${fdm}»`);
       if (fdm && !b.fd) bad.push(`FD ABSENT→«${fdm}»`);
+      let uWant = String(det.unique || "").toUpperCase().replace(/\s+/g, " ").trim();
+      if (/REMOVED/.test(uWant)) uWant = "";
+      const uHave = b.uniques.join(" + ");
+      if (norm(uWant.replace(/^UNIQUE:?\s*/, "UNIQUE ")) !== norm(uHave.replace(/^UNIQUE:?\s*/, "UNIQUE ")))
+        bad.push(`UNIQUE «${uHave || "aucun"}»→«${det.unique || "aucun"}»`);
       if (!bad.length) continue;
       const line = `[${d.slug}] ${b.nm} (${b.file}) : ${bad.join("; ")}`;
       // Exception Orks : le codex en base est plus récent qu'un MFM ≤ v1.3.
@@ -102,9 +114,9 @@ if (orksSkipped.length) {
   console.log(`~ écarts Orks ignorés (MFM ≤ v1.3, codex plus récent) : ${orksSkipped.length}`);
 }
 if (issues.length) {
-  console.log(`✗ ÉCARTS DP/FD (${issues.length}) — à corriger via editor/lib/catalog.js :`);
+  console.log(`✗ ÉCARTS DP/FD/UNIQUE (${issues.length}) — à corriger via editor/lib/catalog.js :`);
   for (const x of [...new Set(issues)]) console.log("  ✗", x);
   process.exitCode = 1;
 } else {
-  console.log("✓ DP et Force Dispositions alignés sur le MFM.");
+  console.log("✓ DP, Force Dispositions et mots-clefs UNIQUE alignés sur le MFM.");
 }
