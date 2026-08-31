@@ -8,10 +8,9 @@
 #   • un premier passage immédiat pour valider la chaîne de bout en bout.
 #
 # Le versant « cowork » (l'agent Claude qui intègre les points quand un
-# nouveau dump est poussé) est le workflow .github/workflows/mfm-cowork.yml,
-# déjà versionné dans le dépôt — il n'y a rien à installer côté serveur pour
-# lui, seulement le secret ANTHROPIC_API_KEY côté GitHub (rappelé en fin
-# d'installation).
+# nouveau dump est poussé) est la tâche editor/mfm/COWORK_TASK.md, exécutée
+# en cron par une session Claude/Cowork — aucune clef API, rien à installer
+# côté serveur pour lui (voir « Lancer / relancer » dans COWORK_TASK.md).
 #
 # Usage (sur le serveur) :
 #   git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git /tmp/wh40k-11e \
@@ -143,12 +142,12 @@ say "
 ${c_g}${c_b}Installation terminée.${c_0}
   • Toutes les heures : récupération du MFM ; s'il est nouveau → dump +
     matrices + rapport poussés sur main.
-  • Ce push déclenche le workflow ${c_b}mfm-cowork${c_0} (GitHub Actions) : l'agent
-    Claude applique les points et ouvre une PR avec le résidu à relire.
+  • Côté cowork, la session Claude en cron détecte ce push (marqueur
+    state/integre.txt), applique les points et rend compte du résidu.
 
-${c_y}Rappel unique côté GitHub${c_0} (si pas déjà fait) : le workflow a besoin du
-secret ${c_b}ANTHROPIC_API_KEY${c_0} (ou CLAUDE_CODE_OAUTH_TOKEN) —
-  Settings → Secrets and variables → Actions → New repository secret.
+${c_y}Versant cowork${c_0} : dans une session Claude/Cowork, dis simplement
+  « Planifie un cron horaire qui exécute editor/mfm/COWORK_TASK.md »
+(les crons de session expirent au bout de 7 jours — même phrase pour relancer).
 
 Commandes utiles :
   tail -f $STATE_DIR/cron.log            # suivre le cron

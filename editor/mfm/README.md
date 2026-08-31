@@ -119,14 +119,15 @@ Deux versants, complémentaires :
    main** (matrices/rapport en best-effort : le dump part toujours, c'est le
    canal de transmission — le site MFM est inaccessible depuis
    l'environnement de l'agent).
-2. **Cowork** — `.github/workflows/mfm-cowork.yml` : déclenché par ce push
-   (chemins `editor/mfm/dump/en/*.json`), il lance l'agent Claude qui
-   applique les deltas via `editor/lib/catalog.js`, traite ce qu'il peut du
-   résidu, valide (`editor/audit/valider.mjs`) et ouvre une **PR** avec le
-   reste à relire. Prérequis unique : secret `ANTHROPIC_API_KEY` (ou
-   `CLAUDE_CODE_OAUTH_TOKEN`) dans les Actions du dépôt.
-   Échappatoire : un commit contenant `[skip cowork]` ne déclenche pas
-   l'agent.
+2. **Cowork** — `COWORK_TASK.md` : la tâche d'intégration, exécutée en
+   **cron par une session Claude/Cowork** (aucune clef API, aucun workflow
+   GitHub). À chaque tick elle compare le hash d'arbre du dump sur
+   origin/main au marqueur commité `state/integre.txt` : égaux → no-op
+   silencieux ; différents → intégration complète (deltas via
+   `editor/lib/catalog.js`, résidu, validation `editor/audit/valider.mjs`,
+   marqueur mis à jour, push par faction, compte-rendu). Les crons de
+   session étant éphémères (7 jours max, liés à la session), la relance
+   tient en une phrase — voir « Lancer / relancer » dans `COWORK_TASK.md`.
 
 Installation sur le serveur — **une commande** :
 
