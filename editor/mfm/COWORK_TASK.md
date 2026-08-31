@@ -49,11 +49,17 @@ origin/main`), puis :
    parseur de l'app, `COGITATOR_DIR=…/cogitator-bellicum`), puis
    `node editor/mfm/apply.mjs editor/mfm/dump/en` (dry-run) pour obtenir
    les **DELTAS AUTO-APPLICABLES** et le bloc **« À ME RENVOYER »**.
-2bis. **Audit DP / Force Disposition** : `node editor/mfm/dp-audit.mjs
-   editor/mfm/dump/en` — apply.mjs ne couvre que les POINTS ; les coûts DP
-   et Force Dispositions des détachements se vérifient avec cet outil
-   (overrides par chapitre évalués, exception Orks bornée à ≤ v1.3).
-   Corriger chaque écart signalé via `editor/lib/catalog.js`.
+2bis. **Audit détachements** : `node editor/mfm/dp-audit.mjs
+   editor/mfm/dump/en` — apply.mjs ne couvre que les POINTS ; les coûts DP,
+   Force Dispositions et mots-clefs UNIQUE (retraits compris) se vérifient
+   avec cet outil (overrides par chapitre évalués, exception Orks bornée à
+   ≤ v1.3). Corriger chaque écart signalé via `editor/lib/catalog.js`.
+2ter. **Audit surcoûts d'armes** : `node editor/mfm/wpn-audit.mjs
+   editor/mfm/dump/en` — les profils « per <arme> = N pts » sont aussi hors
+   du périmètre d'apply. L'outil accepte les formes réelles d'encodage
+   (option nommée, paire de sponsons 2×N, option combinée, modèle-variante,
+   coût porté par l'entryLink). Corriger les « ✗ » ; vérifier à la main les
+   « ? » restants avant de conclure.
 3. **Appliquer les deltas AUTO** via `editor/lib/catalog.js` UNIQUEMENT
    (jamais de sed/regex sur les `.cat`) : coût de base, paliers de taille,
    prix par répétition (forme NATIVE increment + atLeast), points

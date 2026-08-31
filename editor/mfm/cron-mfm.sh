@@ -113,6 +113,15 @@ else
   { echo; echo "## Audit DP / Force Disposition (ÉCARTS)"; echo; printf '%s\n' "${DPA_OUT:-<échec du script>}"; } >> "$REPORT"
   log "⚠ audit DP/FD : écarts détectés (ou échec) — voir A_RENVOYER.md."
 fi
+# Audit des surcoûts d'armes (« per <arme> », hors périmètre d'apply) —
+# best-effort, annexé au rapport.
+if WPA_OUT="$(node editor/mfm/wpn-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
+  { echo; echo "## Audit surcoûts d'armes"; echo; printf '%s\n' "$WPA_OUT"; } >> "$REPORT"
+  log "audit surcoûts d'armes : OK."
+else
+  { echo; echo "## Audit surcoûts d'armes (ÉCARTS)"; echo; printf '%s\n' "${WPA_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ audit surcoûts d'armes : écarts détectés (ou échec) — voir A_RENVOYER.md."
+fi
 
 git add editor/mfm
 if git diff --cached --quiet; then

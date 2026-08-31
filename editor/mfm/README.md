@@ -99,6 +99,10 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
 ## Fichiers
 
 - `build-map.mjs`, `apply.mjs` — les deux phases.
+- `wpn-audit.mjs` — audit des surcoûts d'armes (« per <arme> = N pts »),
+  hors périmètre d'apply : accepte les 5 formes réelles d'encodage (option
+  nommée, paire de sponsons 2×N, option combinée, modèle-variante, coût sur
+  l'entryLink) ; état courant : 103 conformes, 0 écart.
 - `dp-audit.mjs` — audit DP + Force Disposition des détachements vs le dump
   (trou v1.3 : apply ne couvre que les points ; Lions of the Emperor 3 DP
   était passé inaperçu). Overrides par chapitre évalués, alias par sac de
