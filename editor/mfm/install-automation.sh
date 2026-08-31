@@ -12,9 +12,9 @@
 # en cron par une session Claude/Cowork — aucune clef API, rien à installer
 # côté serveur pour lui (voir « Lancer / relancer » dans COWORK_TASK.md).
 #
-# Usage (sur le serveur) :
-#   git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git /tmp/wh40k-11e \
-#     && /tmp/wh40k-11e/editor/mfm/install-automation.sh
+# Usage (sur le serveur) — le clone initial EST le clone final, rien en /tmp :
+#   git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
+#     && ~/wh40k-mfm/wh40k-11e/editor/mfm/install-automation.sh
 #
 # Options :
 #   --dir <chemin>       racine d'installation   (défaut: ~/wh40k-mfm)

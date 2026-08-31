@@ -132,9 +132,12 @@ Deux versants, complémentaires :
 Installation sur le serveur — **une commande** :
 
 ```sh
-git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git /tmp/wh40k-11e \
-  && /tmp/wh40k-11e/editor/mfm/install-automation.sh
+git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git ~/wh40k-mfm/wh40k-11e \
+  && ~/wh40k-mfm/wh40k-11e/editor/mfm/install-automation.sh
 ```
+
+(Le clone initial est directement le clone dédié : l'installeur le détecte
+et le synchronise — pas de second clone, rien en /tmp.)
 
 L'installeur vérifie les prérequis (git, node ≥ 18, python3+requests,
 crontab), pose les clones dédiés dans `~/wh40k-mfm/` (données + app en
