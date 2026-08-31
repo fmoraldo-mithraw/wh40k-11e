@@ -10,8 +10,8 @@
 #      (build-map.mjs, best-effort), recalcule le diff (apply.mjs, best-effort,
 #      → A_RENVOYER.md), committe le tout et pousse sur main.
 #
-# Le push déclenche côté GitHub le workflow .github/workflows/mfm-cowork.yml
-# (l'agent Claude qui intègre les points — voir ce fichier).
+# Le push est détecté par le versant cowork (session Claude en cron, tâche
+# editor/mfm/COWORK_TASK.md) qui intègre les points.
 #
 # Installé par install-automation.sh ; configuration lue dans
 # ${MFM_STATE_DIR:-~/.local/state/wh40k-mfm}/config (REPO_DIR, COGITATOR_DIR,
@@ -78,7 +78,7 @@ for f in glob.glob(os.path.join(sys.argv[1], "*.json")):
 print("+".join(sorted(vs)) or "?")
 PY
 )"
-NCH="$(diff -rq "$DUMP_DIR" "$TMP" 2>/dev/null | wc -l | tr -d ' ')"
+NCH="$({ diff -rq "$DUMP_DIR" "$TMP" 2>/dev/null || true; } | wc -l | tr -d ' ')"
 log "NOUVEAU MFM détecté (version ${VERSION}, ${NCH} fichier(s) modifié(s))."
 
 # ── 4) copie + matrices + diff (best-effort) + commit + push ────────────────
@@ -114,7 +114,8 @@ git commit -q -m "MFM ${VERSION} : nouveau dump détecté (auto, cron horaire)
 
 Dump ${MFM_LANG} + matrices nom↔id + rapport A_RENVOYER régénérés par
 editor/mfm/cron-mfm.sh. L'intégration des points est prise en charge par
-le workflow mfm-cowork déclenché par ce push."
+le versant cowork (COWORK_TASK.md), qui détecte ce push via le marqueur
+state/integre.txt."
 
 n=0; delay=2
 until git push -u origin "$MFM_BRANCH" -q 2>> "$LOG"; do

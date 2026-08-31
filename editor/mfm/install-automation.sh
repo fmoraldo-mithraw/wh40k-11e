@@ -137,7 +137,9 @@ if [ -z "$SCHEDULE" ]; then
   SCHEDULE="$(( RANDOM % 60 )) * * * *"   # minute aléatoire : poli envers le site
 fi
 CRON_LINE="$SCHEDULE $CRON_SCRIPT >> $STATE_DIR/cron.log 2>&1 $CRON_TAG"
-( crontab -l 2>/dev/null | grep -vF "$CRON_TAG"; echo "$CRON_LINE" ) | crontab -
+# « || true » : sur une machine sans crontab (ou crontab vide), crontab -l
+# et/ou grep sortent en erreur — sous set -e/pipefail ça tuait le script ici.
+( { crontab -l 2>/dev/null | grep -vF "$CRON_TAG"; } || true; echo "$CRON_LINE" ) | crontab -
 ok "crontab installé : ${c_b}$SCHEDULE${c_0}  →  $CRON_SCRIPT"
 ok "journal : $STATE_DIR/cron.log"
 
