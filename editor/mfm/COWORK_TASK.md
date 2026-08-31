@@ -49,6 +49,11 @@ origin/main`), puis :
    parseur de l'app, `COGITATOR_DIR=…/cogitator-bellicum`), puis
    `node editor/mfm/apply.mjs editor/mfm/dump/en` (dry-run) pour obtenir
    les **DELTAS AUTO-APPLICABLES** et le bloc **« À ME RENVOYER »**.
+2bis. **Audit DP / Force Disposition** : `node editor/mfm/dp-audit.mjs
+   editor/mfm/dump/en` — apply.mjs ne couvre que les POINTS ; les coûts DP
+   et Force Dispositions des détachements se vérifient avec cet outil
+   (overrides par chapitre évalués, exception Orks bornée à ≤ v1.3).
+   Corriger chaque écart signalé via `editor/lib/catalog.js`.
 3. **Appliquer les deltas AUTO** via `editor/lib/catalog.js` UNIQUEMENT
    (jamais de sed/regex sur les `.cat`) : coût de base, paliers de taille,
    prix par répétition (forme NATIVE increment + atLeast), points

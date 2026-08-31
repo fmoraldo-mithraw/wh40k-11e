@@ -104,6 +104,15 @@ if APPLY_OUT="$(node editor/mfm/apply.mjs "$DUMP_DIR" 2>>"$LOG")"; then
 else
   log "⚠ apply (dry-run) a échoué — rapport non régénéré."
 fi
+# Audit DP / Force Disposition des détachements (trou v1.3 : apply ne couvre
+# que les points) — best-effort, annexé au rapport.
+if DPA_OUT="$(node editor/mfm/dp-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
+  { echo; echo "## Audit DP / Force Disposition"; echo; printf '%s\n' "$DPA_OUT"; } >> "$REPORT"
+  log "audit DP/FD : OK."
+else
+  { echo; echo "## Audit DP / Force Disposition (ÉCARTS)"; echo; printf '%s\n' "${DPA_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ audit DP/FD : écarts détectés (ou échec) — voir A_RENVOYER.md."
+fi
 
 git add editor/mfm
 if git diff --cached --quiet; then
