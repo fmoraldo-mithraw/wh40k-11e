@@ -107,3 +107,37 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   (targets[] avec `current` + `weaponOptions`), `unmapped`, `orphans`, `errors`,
   `enhancements`, `enhUnmapped`.
 - `poc/` — scripts de mesure de couverture (52 % par fichier vs 98/99 % parsé).
+
+## Automatisation (cron serveur + cowork GitHub)
+
+Deux versants, complémentaires :
+
+1. **Cron serveur** — `cron-mfm.sh`, lancé toutes les heures : synchronise un
+   clone dédié, régénère le dump depuis mfm.warhammer-community.com, le
+   compare au dump commité (`dump/en/`). Identique → silence. Nouveau →
+   dump + matrices + `A_RENVOYER.md` régénérés, commités et **poussés sur
+   main** (matrices/rapport en best-effort : le dump part toujours, c'est le
+   canal de transmission — le site MFM est inaccessible depuis
+   l'environnement de l'agent).
+2. **Cowork** — `.github/workflows/mfm-cowork.yml` : déclenché par ce push
+   (chemins `editor/mfm/dump/en/*.json`), il lance l'agent Claude qui
+   applique les deltas via `editor/lib/catalog.js`, traite ce qu'il peut du
+   résidu, valide (`editor/audit/valider.mjs`) et ouvre une **PR** avec le
+   reste à relire. Prérequis unique : secret `ANTHROPIC_API_KEY` (ou
+   `CLAUDE_CODE_OAUTH_TOKEN`) dans les Actions du dépôt.
+   Échappatoire : un commit contenant `[skip cowork]` ne déclenche pas
+   l'agent.
+
+Installation sur le serveur — **une commande** :
+
+```sh
+git clone git@github.com:fmoraldo-mithraw/wh40k-11e.git /tmp/wh40k-11e \
+  && /tmp/wh40k-11e/editor/mfm/install-automation.sh
+```
+
+L'installeur vérifie les prérequis (git, node ≥ 18, python3+requests,
+crontab), pose les clones dédiés dans `~/wh40k-mfm/` (données + app en
+lecture seule pour la clôture d'import), teste le droit de push, installe
+l'entrée crontab horaire (minute aléatoire) et fait un premier passage de
+validation. Journal : `~/.local/state/wh40k-mfm/cron.log`. Options :
+`--dir`, `--lang`, `--schedule "<expr cron>"`, `--uninstall`.
