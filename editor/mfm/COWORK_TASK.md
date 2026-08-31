@@ -94,13 +94,43 @@ chaque tir ouvre une session fraîche dans l'environnement des deux dépôts
 et exécute CETTE tâche ; notification push à l'utilisateur quand un tir a
 réellement intégré quelque chose (les no-op sont silencieux).
 
-Gestion : visible et modifiable dans l'interface Routines de claude.ai,
-ou depuis une session Claude Code (« liste mes routines », « mets la
-routine MFM cowork en pause », « change sa cadence »). Pour la recréer si
-elle a été supprimée, dans une session Claude Code de cet environnement :
+### ⚠ La Routine DOIT être créée avec le dépôt attaché
 
-> « Crée une routine horaire qui exécute `editor/mfm/COWORK_TASK.md`
-> (session fraîche à chaque tir, notification push) »
+Piège constaté (tirs en échec en boucle) : une routine créée **sans
+source attachée** ouvre un conteneur **vide** — ni `/home/user/wh40k-11e`,
+ni credentials de push. Elle ne peut alors ni lire CETTE tâche (le fichier
+vit dans le dépôt absent), ni pousser quoi que ce soit : chaque tir échoue
+et notifie.
+
+**Créer la routine depuis l'interface Routines de claude.ai en
+sélectionnant le dépôt `wh40k-11e`** (même environnement que les sessions
+interactives : dépôt cloné + droit de push). Prompt à coller — autonome,
+il ne dépend pas d'un fichier pour démarrer :
+
+```
+Versant cowork de l'automatisation MFM du dépôt wh40k-11e.
+1. Si /home/user/wh40k-11e n'existe pas, clone-le (lecture anonyme OK) :
+   git clone --filter=blob:none https://github.com/fmoraldo-mithraw/wh40k-11e.git /home/user/wh40k-11e
+   puis, best-effort : git clone --depth 1 https://github.com/fmoraldo-mithraw/cogitator-bellicum.git /home/user/cogitator-bellicum
+   Si le clone échoue, termine en signalant l'échec de provisionnement.
+2. cd /home/user/wh40k-11e && git fetch origin main, puis compare
+   `git rev-parse origin/main:editor/mfm/dump/en` à
+   `git show origin/main:editor/mfm/state/integre.txt`.
+   ÉGAUX -> no-op TOTAL et SILENCIEUX : ne notifie pas, n'écris rien, termine.
+   DIFFÉRENTS -> lis editor/mfm/COWORK_TASK.md et applique-la intégralement.
+3. Ne notifie l'utilisateur QUE si une intégration a réellement eu lieu,
+   ou si un écart de données exige un arbitrage humain. Un échec technique
+   d'environnement se signale UNE fois, pas à chaque tir.
+Réponses en français.
+```
+
+Cadence conseillée : **quotidienne**, pas horaire — un MFM sort tous les
+quelques mois, le cron serveur le détecte dans l'heure, et le marqueur
+`state/integre.txt` fait que le cowork rattrape n'importe quel retard à
+son premier tir. 24× moins de tirs pour le même résultat.
+
+Gestion : interface Routines de claude.ai (pause, cadence, suppression) —
+c'est aussi là qu'on **met en pause une routine qui échoue en boucle**.
 
 Repli sans Routine : un cron de session (« Planifie un cron horaire qui
 exécute editor/mfm/COWORK_TASK.md ») fonctionne aussi, mais il est
