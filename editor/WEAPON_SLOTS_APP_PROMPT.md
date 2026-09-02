@@ -27,6 +27,14 @@ de base **+** emplacement « Pintle weapon » = 0 ou 1 arme, au choix **Combi-bo
 3. **Proposer toutes** les options du groupe (pas seulement la première / le défaut).
 4. **Ne pas fusionner** base et option de même nom : compte-les séparément (loadout final
    peut lister 2× la même arme).
+   **Convention de nommage (base)** : quand l'option est **la même arme** que la base
+   sur le **même modèle** (2ᵉ exemplaire), l'entrée d'option porte un nom **distinct**
+   qui **contient** celui du profil — « Rokkit Pistol (2nd) » (Nob des Breaka Boyz /
+   Tankbustas : 2 rokkit pistols OU rokkit pistol + smash hammer), « Additional Busta
+   Rokkit Launcha ». L'appli en déduit **un exemplaire de plus** (compte 2×). Un choix
+   nommé **exactement** comme le profil (« Bolt Rifle » dans le radio « Weapon 1 » de
+   l'Intercessor Sergeant, à côté du Bolt Rifle fixe) reste un **échange** : rien à
+   ajouter. Un choix composé « A & B » n'est jamais un ajout.
 5. **Coût** : chaque arme sélectionnée ajoute son propre coût (base + option). Évalue
    par modèle (`scope="parent"`) vs par unité (`scope="unit"`).
 
