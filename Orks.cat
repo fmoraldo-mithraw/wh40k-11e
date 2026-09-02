@@ -1120,7 +1120,7 @@ invuln: 6+</comment>
             <condition type="greaterThan" value="3" field="selections" scope="8c36-c946-2e0f-f648" childId="model" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="8c36-c946-2e0f-f648" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1477,6 +1477,9 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
       <categoryLinks>
         <categoryLink name="Melee Weapon" hidden="false" id="0d1a-9f3b-7c40-6043" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+                      </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Kombi-rokkit" hidden="false" id="0d1a-9f3b-7c40-6044" collective="false">
       <profiles>
@@ -1552,7 +1555,7 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
             <condition type="greaterThan" value="5" field="selections" scope="b16a-7132-3f8a-abe5" childId="model" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="b16a-7132-3f8a-abe5" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -3751,7 +3754,7 @@ sim-mod: source=&quot;Bust &apos;Em&quot; lethal conditional</comment>
 <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="0d1a-e104-0029"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="140" field="51b2-306e-1021-d207">
+<modifier type="set" value="130" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="1" field="selections" scope="0d1a-e104-0000-0000" childId="model" shared="true"/>
 </conditions>
@@ -4211,7 +4214,7 @@ invuln: 6+</comment>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Gunwagon" hidden="false" id="0d1a-e107-0000-0000">
-<comment>pts: 130 deduit (analogie Battlewagon 145, plateforme de tir T12 W16) - a confirmer via MFM. Valeurs Kannon/Killkannon/Zzap Gun lues sur photo - a confirmer.
+<comment>pts: 150 (3e+ : 160, per Zzap Gun : 10) confirmes par le MFM v1.4.
 invuln: 6+
 sim-mod: source=&quot;Mobile Arsenal&quot; reroll=hit1 when=ranged</comment>
 <constraints>
@@ -4441,6 +4444,9 @@ sim-mod: source=&quot;Mobile Arsenal&quot; reroll=hit1 when=ranged</comment>
 <categoryLinks>
 <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e107-0051" targetId="eeda-8544-a2f3-3fab" primary="false"/>
 </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+              </costs>
 </selectionEntry>
 </selectionEntries>
 <constraints>
@@ -4503,6 +4509,13 @@ sim-mod: source=&quot;Mobile Arsenal&quot; reroll=hit1 when=ranged</comment>
 <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
 </costs>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="0d1a-e107-0000-0000" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Kommandos" hidden="false" id="303-267f-e45c-6aa9">
 <comment>pts: 120 (ancien MFM, provisoire)
@@ -11311,7 +11324,7 @@ sim-mod: source=&quot;Go fer da Weak Spot&quot; reroll=wound when=ranged vs=Mons
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0445" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="215"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big'ed Bossbunka" hidden="false" id="b82a-6b65-7050-ac48">
@@ -12358,7 +12371,7 @@ sim-mod: source=&quot;Headwoppa&apos;s Killchoppa&quot; ap=+1 when=melee onCharg
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e115-0030" includeChildSelections="true" includeChildForces="false"/>
   </constraints>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Da Boss Is Watchin&apos;" hidden="false" id="0d1a-e115-0000-0011">
@@ -12428,7 +12441,7 @@ pts: 15 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e115-0034" includeChildSelections="true" includeChildForces="false"/>
   </constraints>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Follow Me Ladz" hidden="false" id="ed0c-e9cb-399f-a5a2">
@@ -12463,7 +12476,7 @@ pts: 25 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e115-0036" includeChildSelections="true" includeChildForces="false"/>
   </constraints>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
   </costs>
 </selectionEntry>
   </selectionEntries>
@@ -12523,7 +12536,7 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e115-0040" includeChildSelections="true" includeChildForces="false"/>
   </constraints>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
   </costs>
 </selectionEntry>
   </selectionEntries>
@@ -12982,7 +12995,7 @@ EFFECT: Ranged attacks that target your unit fail on an unmodified hit roll of 1
   <profiles>
 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e113-0005">
 <characteristics>
-<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
 </characteristics>
 </profile>
   </profiles>
@@ -13471,8 +13484,7 @@ EFFECT: Your unit shoots using normal shooting, but while doing so your unit can
   </profiles>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Flyboyz" hidden="false" id="0d1a-e115-0000-0002">
-  <comment>DP=1 deduit (detachement aircraft, etroit) - a confirmer via MFM. Force Disposition=Disruption par convention.
-Force Disposition : A REMPLIR (valeur actuelle provisoire, non confirmee par la source Art of War).</comment>
+  <comment>DP=1, Force Disposition=Reconnaissance confirmes par le MFM v1.4.</comment>
   <rules>
 <rule name="Skyborne Loons" id="0d1a-e115-0024" hidden="false">
 <comment>sim-mod: source=&quot;Skyborne Loons&quot; hit=+1 when=ranged kw=&quot;Aircraft,Deffkoptas&quot; conditional</comment>
@@ -13524,7 +13536,7 @@ EFFECT: Your unit can make a normal move of:
   <profiles>
 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0d1a-e115-0028">
 <characteristics>
-<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+<characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
 </characteristics>
 </profile>
   </profiles>
