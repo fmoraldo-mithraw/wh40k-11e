@@ -106,7 +106,7 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
 - `dp-audit.mjs` — audit DP + Force Disposition des détachements vs le dump
   (trou v1.3 : apply ne couvre que les points ; Lions of the Emperor 3 DP
   était passé inaperçu). Overrides par chapitre évalués, alias par sac de
-  mots (dets Agents), exception Orks ≤ v1.3.
+  mots (dets Agents), exception Orks ≤ v1.3 (inerte depuis le MFM v1.4, Orks traités normalement).
 - `aliases.json` — résidu nom MFM → datasheet(s) bdd (nom cat, bsId, ou tableau
   pour un nom générique couvrant plusieurs datasheets, ex. `SOUL GRINDER` → 4
   variantes de dieu). Fusionné avant l'auto-match ; revérifié à chaque build.

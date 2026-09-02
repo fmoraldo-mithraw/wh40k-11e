@@ -67,8 +67,26 @@ origin/main`), puis :
 4. **Traiter le résidu** (« À ME RENVOYER ») quand la donnée en base suffit
    à trancher ; ne JAMAIS inventer une valeur douteuse — le reste est
    rapporté tel quel à l'utilisateur.
-5. **Exception Orks** : ne pas appliquer un MFM de version ≤ v1.3 aux Orks
-   (le codex en base est plus récent). Un MFM v1.4+ s'applique normalement.
+5. **Orks** : plus d'exception depuis le MFM v1.4 (intégré, codex 11e en
+   base) — les Orks se traitent comme toute faction. La borne « ≤ v1.3 » des
+   outils (dp-audit, wpn-audit) est inerte pour tout MFM ≥ v1.4.
+5bis. **Résidu qui N'EST PAS du résidu** — à APPLIQUER, pas à renvoyer :
+   - « MFM a un prix par répétition (Δ=…) que la bdd n'encode pas » → poser
+     la **forme native** (modifier `increment` pts value=Δ + condition
+     `atLeast` value=N+1 `scope="roster"` childId=id de l'unité, voir
+     `editor/MFM_PROMPT.md`) sur chaque cible de la matrice ; N = « 1ST TO
+     Nth » (ou 1 pour « 1ST UNIT »), Δ constant sur tous les paliers (sinon
+     → renvoyer).
+   - « prix de taille MFM [X] non atteignable » → corriger le `set` du palier
+     (valeur unique dans l'unité) ; « composition (taille non “N model”) »
+     (Gretchin : « 10 Gretchin ») → comparer à la main le barème, souvent déjà
+     conforme.
+   - Régénérer les matrices (`build-map.mjs`) **avant** le diff (les champs
+     `current` des matrices sont un cache de la bdd : périmés, ils font
+     ressortir des écarts déjà corrigés) **et après** les écritures, puis
+     re-lancer `apply.mjs` : le résidu Orks doit tomber à « pas de datasheet
+     » (Gargantuan Squiggoth, hors base) + composition Gretchin. **Committer
+     les matrices** régénérées avec les données.
 6. **Validation obligatoire** avant tout commit :
    `node editor/audit/valider.mjs` → 0 erreur, 0 id dupliqué nouveau.
    Ne jamais committer un état non validé.
@@ -118,6 +136,10 @@ Versant cowork de l'automatisation MFM du dépôt wh40k-11e.
    `git show origin/main:editor/mfm/state/integre.txt`.
    ÉGAUX -> no-op TOTAL et SILENCIEUX : ne notifie pas, n'écris rien, termine.
    DIFFÉRENTS -> lis editor/mfm/COWORK_TASK.md et applique-la intégralement.
+   Orks : aucune exception (MFM ≥ v1.4). Régénère les matrices AVANT le diff
+   et APRÈS tes écritures ; les « prix par répétition non encodés » et les
+   « paliers non atteignables » s'APPLIQUENT (forme native), ils ne se
+   renvoient pas (COWORK_TASK.md § 5bis).
 3. Ne notifie l'utilisateur QUE si une intégration a réellement eu lieu,
    ou si un écart de données exige un arbitrage humain. Un échec technique
    d'environnement se signale UNE fois, pas à chaque tir.

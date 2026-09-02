@@ -2,19 +2,10 @@
 
 ╔══ ⚑ À ME RENVOYER — non traité automatiquement ══╗
 
-① NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias.  [10]
-   • [Orks] BOOMDAKKA SNAZZWAGON — aucune datasheet .cat pour ce nom MFM
-   • [Orks] BURNA BOYZ — aucune datasheet .cat pour ce nom MFM
+① NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias.  [1]
    • [Orks] GARGANTUAN SQUIGGOTH — aucune datasheet .cat pour ce nom MFM
-   • [Orks] KUSTOM BOOSTA-BLASTA — aucune datasheet .cat pour ce nom MFM
-   • [Orks] LOOTAS — aucune datasheet .cat pour ce nom MFM
-   • [Orks] MEGATRAKK SCRAPJET — aucune datasheet .cat pour ce nom MFM
-   • [Orks] RUKKATRUKK SQUIGBUGGY — aucune datasheet .cat pour ce nom MFM
-   • [Orks] SHOKKJUMP DRAGSTA — aucune datasheet .cat pour ce nom MFM
-   • [Orks] WARTRAKK — aucune datasheet .cat pour ce nom MFM
-   • [Orks] WURRBOY — aucune datasheet .cat pour ce nom MFM
 
-② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [54]
+② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [19]
    • [Black Templars] Fervent Exemplars (Upgrade) (MARSHAL'S HOUSEHOLD) — aucune amélioration bdd pour ce nom MFM
    • [Black Templars] Inheritors of Sigismund (Upgrade) (MARSHAL'S HOUSEHOLD) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Nightforged Battery (Upgrade) (DARKFLIGHT PURSUIT) — aucune amélioration bdd pour ce nom MFM
@@ -23,7 +14,6 @@
    • [Dark Angels] Raptorial Cogitator Core (Upgrade) (FULGURIS TASK FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Pennant of Remembrance (UNFORGIVEN TASK FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Deathwatch] Death in the Dark (Upgrade) (SUBVERSION ASSETS) — aucune amélioration bdd pour ce nom MFM
-   • [Drukhari] Archraider (REAPER’S WAGER) — aucune amélioration bdd pour ce nom MFM
    • [Agents of the Imperium] Decoy Targets (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Agents of the Imperium] Esoteric Explosives (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Agents of the Imperium] Introneural Biotech (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
@@ -33,40 +23,6 @@
    • [Necrons] Reletavistic Tether (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
    • [Necrons] Singularity Matrix (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
    • [Necrons] Mortality Shroud (Aura) (Upgrade) (THE PHAERON'S ARMOURY) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Blitzkaptin (BLITZ BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Runnin’ Boots (BLITZ BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Supercharged Squig Oil (BLITZ BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Tuff Git (BLITZ BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Big Gob (BULLY BOYZ) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Da Biggest Boss (BULLY BOYZ) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] ’Eadstompa (BULLY BOYZ) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Tellyporta (BULLY BOYZ) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Skrag Every Stash! (DA BIG HUNT) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Gitfinder Gogglez (DREAD MOB) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Press It Fasta! (DREAD MOB) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Smoky Gubbinz (DREAD MOB) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Kunnin’ Hunta (EQUATORIAL HORDES) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Unkillable Scourge (EQUATORIAL HORDES) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Bionik Workshop (FREEBOOTER KREW) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Da Kaptin (FREEBOOTER KREW) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Git-Spotter Squig (FREEBOOTER KREW) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Razgit’s Magik Map (FREEBOOTER KREW) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Bloodthirsty Belligerence (GREEN TIDE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Raucous Warcaller (GREEN TIDE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Fasta Than Yooz (KULT OF SPEED) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Speed Makes Right (KULT OF SPEED) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Squig-hide Tyres (KULT OF SPEED) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Wazblasta (KULT OF SPEED) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Dead Shiny Shootas (Upgrade) (MORE DAKKA!) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Boarding Ramps (Upgrade) (ROLLIN' DEFF) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Targetin’ Gizmos (Upgrade) (ROLLIN' DEFF) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Dakkamek (SPEEDWAAAGH!) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Kustom Shokk Box (SPEEDWAAAGH!) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Master Meknologist (SPEEDWAAAGH!) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Supa-Burny Fuel (SPEEDWAAAGH!) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Mork’s Kunnin’ (TAKTIKAL BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Slippery Git (TAKTIKAL BRIGADE) — aucune amélioration bdd pour ce nom MFM
-   • [Orks] Supa-Cybork Body (WAR HORDE) — aucune amélioration bdd pour ce nom MFM
    • [Space Wolves] Fierce Example (Upgrade) (LEGENDS OF SAGA AND SONG) — aucune amélioration bdd pour ce nom MFM
    • [Space Wolves] Death in the Dark (Upgrade) (SUBVERSION ASSETS) — aucune amélioration bdd pour ce nom MFM
 
@@ -110,43 +66,13 @@
    • [Space Wolves] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
-⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [1]
-   • [Orks] MEGANOBZ — prix de taille MFM [225] non atteignable(s) par la bdd (paliers actuels [75,110,185,235])
-
-⑦ PRIX PAR RÉPÉTITION absent en base — confirme le seuil et le delta à encoder.  [20]
-   • [Orks] BATTLEWAGON — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] BEASTBOSS ON SQUIGOSAUR — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Orks] BEAST SNAGGA BOYZ — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] BIG MEK — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] BIG MEK DAKKARIG — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] BOYZ — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] BREAKA BOYZ — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] DEFF DREAD — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] DEFFKOPTAS — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] FLASH GITZ — MFM a un prix par répétition (Δ=30) que la bdd n'encode pas
-   • [Orks] GORKANAUT — MFM a un prix par répétition (Δ=30) que la bdd n'encode pas
-   • [Orks] HUNTA RIG — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] KILL RIG — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] MEGANOBZ — MFM a un prix par répétition (Δ=40) que la bdd n'encode pas
-   • [Orks] MEK GUNZ — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] MORKANAUT — MFM a un prix par répétition (Δ=30) que la bdd n'encode pas
-   • [Orks] PAINBOSS — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] SQUIGHOG BOYZ — MFM a un prix par répétition (Δ=20) que la bdd n'encode pas
-   • [Orks] TRUKK — MFM a un prix par répétition (Δ=10) que la bdd n'encode pas
-   • [Orks] WARBOSS IN MEGA ARMOUR — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-
 ════ DRY-RUN ════
 
-## Audit DP / Force Disposition (ÉCARTS)
+## Audit DP / Force Disposition
 
-✗ ÉCARTS DP/FD/UNIQUE (2) — à corriger via editor/lib/catalog.js :
-  ✗ [orks] Flyboyz (Orks.cat) : FD «Disruption»→«RECONNAISSANCE»
-  ✗ [orks] Kult of Speed (Orks.cat) : FD «Disruption»→«RECONNAISSANCE»
+✓ DP, Force Dispositions et mots-clefs UNIQUE alignés sur le MFM.
 
 ## Audit surcoûts d'armes
 
-✓ surcoûts d'armes conformes : 105
-? À VÉRIFIER À LA MAIN (2) — pas de correspondance de nom, pas forcément un écart :
-  ? [orks] GUNWAGON per Zzap Gun=10 — unité non mappée
-  ? [orks] NOBZ per Paired Krumpas=5 — aucun nœud coûté au nom correspondant (encodage à vérifier à la main)
+✓ surcoûts d'armes conformes : 107
 ✓ aucun écart de surcoût d'arme détecté.
