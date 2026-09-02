@@ -1954,17 +1954,9 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
 Place two Bomb Squig tokens next to the unit, removing one each time this ability is used.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Pulsa Rokkit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-7f90"/>
       </profiles>
       <infoLinks>
         <infoLink name="Waaagh!" hidden="false" type="rule" id="6e4b-30ae-1a0c-17bb" targetId="37c-6ef9-277-9091"/>
-        <infoLink name="Bomb Squigs" id="668e-1e6a-d006-d328" hidden="false" type="profile" targetId="1e29-7605-a22c-2eab">
-          <modifiers>
-            <modifier type="append" value="**Designer’s Note:** *Place two Bomb Squig tokens next to the unit, removing one each time this unit uses this ability.*
-" field="9b8f-694b-e5e-b573" join="
-"/>
-          </modifiers>
-        </infoLink>
       </infoLinks>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
@@ -2193,7 +2185,17 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e112-0000-0005" targetId="eeda-8544-a2f3-3fab" primary="false"/>
 </categoryLinks>
 </selectionEntry>
-<selectionEntry type="upgrade" import="true" name="Pulsa Rokkit" hidden="false" id="0d1a-9f3b-7c40-7026" collective="false"></selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Pulsa Rokkit" hidden="false" id="0d1a-9f3b-7c40-7026" collective="false">
+                      <profiles>
+        <profile name="Pulsa Rokkit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-9f3b-7c40-7f90">
+                          <characteristics>
+                            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Once per battle, per unit.** In your Shooting phase, when this unit is **selected to shoot**, you can select one enemy **^^Monster^^**/**^^Vehicle^^** unit within 24&quot; of this unit. If you do, this unit&apos;s attacks that target that unit have:
+- +1 **AP**.
+- **[LETHAL HITS]**.</characteristic>
+                          </characteristics>
+        </profile>
+                      </profiles>
+</selectionEntry>
                   </selectionEntries>
 <constraints>
 <constraint type="max" value="1" field="selections" scope="unit" shared="true" id="0d1a-e112-0000-0007" includeChildSelections="true"/>
@@ -14504,13 +14506,7 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
 <entryLink import="true" name="Wazbom Blastajet" hidden="false" type="selectionEntry" id="5996-535f-507b-3177" targetId="3832-ad97-2b3b-8775"/>
 <entryLink import="true" name="Big&apos;ed Bossbunka" hidden="false" type="selectionEntry" id="f5ac-46c9-972f-c0c3" targetId="b82a-6b65-7050-ac48"/>
   </entryLinks>
-  <sharedProfiles>
-    <profile name="Bomb Squigs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e29-7605-a22c-2eab">
-      <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12&quot; and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds.</characteristic>
-      </characteristics>
-    </profile>
-  </sharedProfiles>
+  <sharedProfiles></sharedProfiles>
   <catalogueLinks>
     <catalogueLink type="catalogue" name="Unaligned Forces" id="9a77-c467-98e7-6ddf" targetId="581a-46b9-5b86-44b7" importRootEntries="true"/>
   </catalogueLinks>
