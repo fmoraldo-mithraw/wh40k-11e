@@ -115,6 +115,27 @@ sont entre guillemets) :
    ne frappe que la Purifying Flame, pas le psycannon d'un Purificateur de la
    même unité.
 
+## Options d'équipement (aptitude accordée par un choix de wargear)
+
+Quand l'aptitude n'existe que si une **option d'équipement** est prise
+(Tankbustas : *Pulsa Rokkit* — « once per battle… +1 AP et [LETHAL HITS]
+contre une unité Monster/Vehicle »), le marqueur est posé en **1ᵉʳ enfant
+de la `selectionEntry` de l'option** (celle qui porte le profil `Abilities`),
+pas sur l'unité :
+
+```xml
+<selectionEntry type="upgrade" name="Pulsa Rokkit" …>
+  <comment>sim-mod: source="Pulsa Rokkit" ap=+1 lethal when=ranged vs=MONSTER,VEHICLE oncePer=battle</comment>
+  <profiles>…</profiles>
+</selectionEntry>
+```
+
+Côté appli : le parseur range ces marqueurs sur le **choix** (tuple d'option,
+slot 11 `simMods`) ; le simulateur ne les propose que **si l'option est
+sélectionnée** dans le roster (même mécanique que les marqueurs d'amélioration,
+qui ne remontent que pour l'amélioration réellement portée). `source` vaut par
+défaut le nom de l'option.
+
 ## Règles d'armée & de détachement
 
 Les marqueurs `sim-mod:` peuvent aussi être posés sur une **règle d'armée**
