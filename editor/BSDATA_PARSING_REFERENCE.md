@@ -236,6 +236,7 @@ Pour CHAQUE concept, plusieurs encodages existent — teste-les tous :
 | Catégorie/rôle | `categoryLink` statique · `add`/`set-primary` conditionnel · `categoryLink` sur une **sélection** (flag) |
 | Limite par datasheet | `max scope="roster"` (3, ou 1 si Epic Hero) · relevée à 6 par un `set` (Battleline) |
 | Compte par figurine vs unité | `scope="parent"` (par modèle) vs `scope="unit"` (total) — **les deux peuvent coexister** |
+| Plafond de **groupe** par unité | `max` `scope="unit"` (ou `scope="<id de l'unité>"`) posé sur le **`selectionEntryGroup`** lui-même, niché sous un modèle collectif : c'est un **total pour l'unité**, jamais un nombre d'emplacements par figurine. Optionnel (min 0) → groupe simple plafonné (Tankbustas « 1 Tankbusta model can be equipped with one of… » : max 1 `scope="unit"` sous 5 figurines) ; obligatoire (min ≥ 1) → par figurine, N × S **borné par le plafond** (Death Company « Replace Bolt Rifle » : max 1 parent **et** max 2 unité sur 0-2 porteurs) |
 | Coût | fixe · par instance (×N) · par palier de taille (`set` conditionné modèles) · repeat-cost (`increment` conditionné) · par faction (`set` conditionné `primary-catalogue`) |
 | Faction/détachement actif | condition `scope="force"`/`roster" childId=<détachement>` · `scope="primary-catalogue"` · `field="forces"` |
 
