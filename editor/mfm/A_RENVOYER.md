@@ -104,7 +104,7 @@
    • [Blood Angels] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=75, 6 models=140, + 1 Invader ATV=60
    • [Dark Angels] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
    • [Deathwatch] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
-   • [Orks] GRETCHIN — composition (taille non « N model ») — barème MFM: 10 Gretchin=45, 11 Gretchin=80
+   • [Orks] GRETCHIN — composition (taille non « N model ») — barème MFM: 10 Gretchin=45, 20 Gretchin=80
    • [Space Marines] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
    • [Space Wolves] WOLF GUARD HEADTAKERS — composition (taille non « N model ») — barème MFM: 3 Wolf Guard Headtakers=85, 3 Wolf Guard Headtakers, 3 Hunting Wolves=115, 6 Wolf Guard Headtakers=170, 6 Wolf Guard Headtakers, 6 Hunting Wolves=230, 3 Wolf Guard Headtakers=95, 3 Wolf Guard Headtakers, 3 Hunting Wolves=125, 6 Wolf Guard Headtakers=180, 6 Wolf Guard Headtakers, 6 Hunting Wolves=240
    • [Space Wolves] OUTRIDER SQUAD — composition (taille non « N model ») — barème MFM: 3 models=70, 6 models=140, + 1 Invader ATV=60
