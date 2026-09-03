@@ -66,6 +66,13 @@ l'option est prise.
   distance passe à **min=0 / max=0** ⇒ **ne propose plus** (et ne compte plus) d'arme
   distance pour ce modèle. Ne te fie **pas** au `min=1` statique de l'emplacement : **réévalue
   les bornes après modifiers** (piège classique : afficher une arme distance déjà « consommée »).
+- **Modèle collectif (par figurine)** : la condition `atLeast 1 scope="parent"` se lit **par
+  figurine**. Meganobz (2-6 figurines) : « Twin Killsaws remplace Power Klaw **et** Kustom
+  Shoota » ⇒ l'emplacement distance de l'escouade compte **figurines − exemplaires de Twin
+  Killsaws** (6 Twin Killsaws ⇒ 0 Kustom Shoota ; 2 ⇒ 4). Ne pas traiter les deux groupes
+  comme indépendants (piège vu : 6 Twin Killsaws **et** 6 Kustom Shootas affichés et simulés).
+  L'appli résout la **cible du `childId`** dans les autres groupes du même modèle (« vidé par
+  <choix> ») et retire un emplacement par exemplaire sélectionné, avant défauts et prix.
 
 ## Invariants
 - `min ≥ 1` ⇒ base (lecture seule) ; `max=1` + min 0 ⇒ choix « 0/1 ».
