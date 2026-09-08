@@ -6,7 +6,10 @@
 //      interne de la lib) — catalog.validate() est désormais COMPLET par
 //      défaut : l'ancien défaut dirtyOnly:true rendait {ok, checked:0} hors
 //      session d'édition, un feu vert sur zéro fichier ;
-//   2. le cliquet des ids dupliqués (dup-ids.mjs), qui borne le stock hérité.
+//   2. le cliquet des ids dupliqués (dup-ids.mjs), qui borne le stock hérité ;
+//   3. les defaultSelectionEntryId cassés (defauts-groupes.mjs) — un groupe
+//      dont le défaut ne vise plus aucun enfant ne présélectionne rien (77
+//      cas corrigés en série le 2026-09-03, plus aucun toléré).
 // Code de sortie ≠ 0 au premier échec — c'est le contrat de la CI.
 
 import { spawnSync } from "node:child_process";
@@ -35,4 +38,8 @@ if (!v.ok || errs.length) process.exit(1);
 
 console.log("\n── cliquet des ids dupliqués ──");
 const r = spawnSync(process.execPath, [join(HERE, "dup-ids.mjs")], { stdio: "inherit" });
-process.exit(r.status || 0);
+if (r.status) process.exit(r.status);
+
+console.log("\n── defaultSelectionEntryId des groupes ──");
+const r3 = spawnSync(process.execPath, [join(HERE, "defauts-groupes.mjs")], { stdio: "inherit" });
+process.exit(r3.status || 0);

@@ -147,8 +147,10 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    Disposition** ; stratagems = `<rule name="X (Stratagem, NCP)">` au
    format uniforme.
 4. Validation avant tout commit : `xmllint`, `catalog.validate` (ok,
-   0 erreur), **0 id dupliqué introduit** vs HEAD, audit de la règle des
-   améliorations. Diff-check : ne réécrire un texte que s'il diffère.
+   0 erreur), **0 id dupliqué introduit** vs HEAD, **0 `defaultSelectionEntryId`
+   cassé** (`editor/audit/defauts-groupes.mjs`, enchaîné par `valider.mjs` :
+   le défaut d'un groupe vise un enfant direct ou vaut `none`), audit de la
+   règle des améliorations. Diff-check : ne réécrire un texte que s'il diffère.
 5. **Prix par seuil de répétition (MFM)** : « les N premiers au prix de
    base, au-delà du Nième à l'autre prix » → **FORME NATIVE, aucun
    commentaire** : modifier `increment` sur pts (value=Δ) conditionné
