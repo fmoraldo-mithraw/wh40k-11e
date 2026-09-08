@@ -74,6 +74,19 @@ l'option est prise.
   L'appli résout la **cible du `childId`** dans les autres groupes du même modèle (« vidé par
   <choix> ») et retire un emplacement par exemplaire sélectionné, avant défauts et prix.
 
+## Emplacement compté : « prendre de N à M » vs « exactement N »
+Un groupe **obligatoire multi-emplacements** (`min ≥ 1`, `max ≥ 2`) porte des armes
+comptées. Deux cas :
+- **effectif exact** (`min = max`, Ravager : 3 lances noires, Wraithlord : 2 bras) :
+  toujours plein ; changer une arme **déplace** un emplacement ;
+- **fourchette** (`min < max`, Commander in Enforcer Battlesuit : « Support Systems
+  (1-4) », min 1 / max 4) : le **minimum** est rempli par défaut, le reste est
+  **optionnel** — « + » **ajoute** tant qu'il reste de la place (jamais de remplacement
+  silencieux), « − » libère au-dessus du minimum.
+- Dans les deux cas, un choix **sans `max` propre** est libre **jusqu'au total du
+  groupe** (sémantique BattleScribe) ; un `max` explicite sur le choix (« 1 Battlesuit
+  support system », « 4 Missile pods ») le plafonne.
+
 ## Invariants
 - `min ≥ 1` ⇒ base (lecture seule) ; `max=1` + min 0 ⇒ choix « 0/1 ».
 - Arme en base **et** en option = deux emplacements indépendants.
