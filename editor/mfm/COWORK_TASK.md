@@ -60,6 +60,11 @@ origin/main`), puis :
    (option nommée, paire de sponsons 2×N, option combinée, modèle-variante,
    coût porté par l'entryLink). Corriger les « ✗ » ; vérifier à la main les
    « ? » restants avant de conclure.
+2quater. **Audit des seuils de paliers** : `node editor/mfm/tier-audit.mjs
+   editor/mfm/dump/en` — apply compare les prix des paliers, pas leurs
+   seuils ; un palier doit s'appliquer dès la taille listée précédente + 1
+   (règle MFM du palier supérieur). Corriger les « ✗ » via la lib (valeur
+   de la condition), vérifier les « ? » à la main.
 3. **Appliquer les deltas AUTO** via `editor/lib/catalog.js` UNIQUEMENT
    (jamais de sed/regex sur les `.cat`) : coût de base, paliers de taille,
    prix par répétition (forme NATIVE increment + atLeast), points

@@ -123,6 +123,15 @@ else
   log "⚠ audit surcoûts d'armes : écarts détectés (ou échec) — voir A_RENVOYER.md."
 fi
 
+# Audit des seuils de paliers (règle du palier supérieur) — best-effort, annexé.
+if TIA_OUT="$(node editor/mfm/tier-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
+  { echo; echo "## Audit seuils de paliers"; echo; printf '%s\n' "$TIA_OUT"; } >> "$REPORT"
+  log "audit seuils de paliers : OK."
+else
+  { echo; echo "## Audit seuils de paliers (ÉCARTS)"; echo; printf '%s\n' "${TIA_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ audit seuils de paliers : écarts détectés (ou échec) — voir A_RENVOYER.md."
+fi
+
 git add editor/mfm
 if git diff --cached --quiet; then
   log "rien à committer après régénération (curieux) — abandon."

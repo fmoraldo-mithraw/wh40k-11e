@@ -26,6 +26,11 @@ par faction. Le PDF est dans `/root/.claude/uploads/<session>/`.
    de modèles (`field="selections"`). La lib les lit/écrit :
    `readTiers(unitNode)` et `editUnit(file, id, { tiers })`
    (→ `applyTiers`). Lis ces deux fonctions avant d'écrire.
+   **Seuil du palier = taille listée PRÉCÉDENTE + 1**, pas la taille du
+   palier : règle MFM « un effectif entre deux tailles listées coûte le
+   palier supérieur » (Meganobz 2 = 75, 3 = 110, 5 = 185 ⇒ 4 modèles =
+   185 ⇒ `atLeast 4` ou `greaterThan 3`, jamais `atLeast 5`). Audit :
+   `node editor/mfm/tier-audit.mjs` (0 seuil à corriger avant commit).
 3. **Options d'armes** : aujourd'hui presque toutes à `value="0"`. Elles
    existent sous deux formes : selectionEntry `type="upgrade"` (ou
    variante de modèle `type="model"`, ex. « Khorne Berzerker w/
