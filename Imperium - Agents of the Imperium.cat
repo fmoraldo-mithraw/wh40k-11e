@@ -137,33 +137,6 @@ cannot-warlord</comment>
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Micromelta Rounds" hidden="true" id="5497-0da4-5c96-bb5f">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1d8e-93f8-6d8f-f19b" includeChildSelections="false"/>
-            <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="df0f-4613-7f90-31c6" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
-          </costs>
-          <profiles>
-            <profile name="Micromelta Rounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="455c-5dcc-a966-396b">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="df0f-4613-7f90-31c6"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
       </selectionEntries>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
@@ -185,7 +158,23 @@ cannot-warlord</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Veiled Blade Elimination Force Enhancement" hidden="false" id="5354-c6d5-d297-b408">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1962-550f-eac0-c862"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Micromelta Rounds" hidden="false" id="8d5b-578b-1362-025c" targetId="15fe-2df8-192e-56ce"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Warlord" hidden="false" id="bb9a-14e7-b947-793b">
       <constraints>
@@ -304,33 +293,6 @@ cannot-warlord</comment>
             </rule>
           </rules>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Esoteric Explosives" hidden="true" id="cb38-27d5-6d94-baca">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="817a-e756-2a83-061b" includeChildSelections="false"/>
-            <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="b178-2e42-4b6c-804f" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
-          </costs>
-          <profiles>
-            <profile name="Esoteric Explosives" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3228-4b06-ece1-3172">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model is targeted with the Grenades Stratagem, 1 mortal wound is inflicted for each D6 roll of 3+ instead of for each 4+</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="b178-2e42-4b6c-804f"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
       </selectionEntries>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -345,7 +307,23 @@ cannot-warlord</comment>
           <comment>Agents visibility</comment>
         </modifier>
       </modifiers>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Veiled Blade Elimination Force Enhancement" hidden="false" id="4c32-14f3-5050-750c">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8498-0d86-29cc-2d1a"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Esoteric Explosives" hidden="false" id="ca61-cac8-3857-9b7b" targetId="d02d-8019-a8d9-439c"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Eversor Assassin" hidden="false" id="f201-1f4a-b907-d9d1">
       <comment>sim-mod: source=&quot;Overkill&quot; attacks=+3 when=melee oncePer=battle scope=model
@@ -456,33 +434,6 @@ cannot-warlord</comment>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="aa5d-9820-fe62-e35f"/>
           </constraints>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Introneural Biotech" hidden="true" id="f81b-99df-9a06-5673">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7e3e-11e2-a260-c4f0" includeChildSelections="false"/>
-            <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="84a4-2c4f-904c-aa88" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
-          </costs>
-          <profiles>
-            <profile name="Introneural Biotech" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a89-54a4-8a07-ea36">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">EVERSOR ASSASSIN models only. Once per battle round, you can target this model with the Heroic Intervention or Counter-offensive Stratagem for 1 less CP, and you can do so even if you have already used that Stratagem on a different unit this phase.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="84a4-2c4f-904c-aa88"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
       </selectionEntries>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -502,7 +453,23 @@ cannot-warlord</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Veiled Blade Elimination Force Enhancement" hidden="false" id="820e-2c6c-55ca-9cea">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="38be-5db6-832d-8dd4"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Introneural Biotech" hidden="false" id="3237-1ea4-fa53-36ae" targetId="2c23-ce8b-1984-28ed"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Callidus Assassin" hidden="false" id="1cfe-be05-5603-133">
       <comment>invuln: 4+
@@ -559,33 +526,6 @@ cannot-warlord</comment>
         </profile>
       </profiles>
       <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Decoy Targets" hidden="true" id="eb7b-611d-308e-6436">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="34eb-75e3-0ede-d629" includeChildSelections="false"/>
-            <constraint type="min" value="-1" field="selections" scope="parent" shared="true" id="8a04-ccf3-9c4f-4e4e" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
-          </costs>
-          <profiles>
-            <profile name="Decoy Targets" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2acb-2bfc-7514-1867">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Twice per battle, in your Movement phase, you can select one other friendly INFANTRY model that is on the battlefield and not within Engagement Range of one or more enemy units. The selected model is destroyed (ignoring any rules that are triggered when a model is destroyed) and this model is removed from the battlefield and set up again as close as possible to where that destroyed model was and not within Engagement Range of one or more enemy units. This ability cannot be used more than once in the same battle round.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="8a04-ccf3-9c4f-4e4e"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Neural shredder" hidden="false" id="b9bc-32e4-2345-7bbb">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7d1d-d9b3-d04-b3be"/>
@@ -647,7 +587,23 @@ cannot-warlord</comment>
           <comment>Agents visibility</comment>
         </modifier>
       </modifiers>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Veiled Blade Elimination Force Enhancement" hidden="false" id="76a6-2def-36ab-a4bb">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="e203-73dc-18d9-f390" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6184-995b-b53e-fb4f"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Decoy Targets" hidden="false" id="9fa7-98cd-42fa-250d" targetId="a124-08c5-ffbb-71d0"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Rogue Trader Entourage" hidden="false" id="9360-d8b2-cd92-9e7f">
       <comment>invuln: 4+</comment>
@@ -10503,6 +10459,78 @@ invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b665-fcaa-62ca-a835" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Micromelta Rounds" hidden="false" id="15fe-2df8-192e-56ce">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1bb9-0f53-7be3-087c" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Micromelta Rounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d41e-09dd-6b3c-c120">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">VINDICARE ASSASSIN model only. This model’s exitus rifle has the [ANTI-MONSTER 4+] and [ANTI-VEHICLE 4+] abilities.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="ddc7-5d59-ad25-3ddd" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Esoteric Explosives" hidden="false" id="d02d-8019-a8d9-439c">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8c72-b930-af53-6a15" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Esoteric Explosives" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0cc4-3450-8775-544b">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">CULEXUS ASSASSIN model only. Each time this model is targeted with the Grenades Stratagem, 1 mortal wound is inflicted for each D6 roll of 3+ instead of for each 4+</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="6dab-8f75-746e-15f2" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Introneural Biotech" hidden="false" id="2c23-ce8b-1984-28ed">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="6501-3a19-ee98-97c7" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Introneural Biotech" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ff0e-8c97-7fa8-bbda">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">EVERSOR ASSASSIN models only. Once per battle round, you can target this model with the Heroic Intervention or Counter-offensive Stratagem for 1 less CP, and you can do so even if you have already used that Stratagem on a different unit this phase.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="d675-ad94-32bb-d851" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Decoy Targets" hidden="false" id="a124-08c5-ffbb-71d0">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="67d4-6204-c5eb-8243" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Decoy Targets" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="947e-34af-87cb-ad6f">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">CALLIDUS ASSASSIN model only. Twice per battle, in your Movement phase, you can select one other friendly INFANTRY model that is on the battlefield and not within Engagement Range of one or more enemy units. The selected model is destroyed (ignoring any rules that are triggered when a model is destroyed) and this model is removed from the battlefield and set up again as close as possible to where that destroyed model was and not within Engagement Range of one or more enemy units. This ability cannot be used more than once in the same battle round.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="fd23-435b-3920-ca8a" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
     </selectionEntry>
   </sharedSelectionEntries>
   <categoryEntries>

@@ -8055,37 +8055,24 @@ cannot-warlord</comment>
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Singularity Matrix" hidden="true" id="e402-fe4a-b246-540e">
-          <constraints>
-            <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="955d-e8db-0071-a49c-min" includeChildSelections="false" automatic="true"/>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="955d-e8db-0071-a49c-max" includeChildSelections="false" automatic="true"/>
-          </constraints>
-          <profiles>
-            <profile name="Lord of Deceit (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="be97-c23f-c4e7-fd26">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12&quot; of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="955d-e8db-0071-a49c-min"/>
-                <modifier type="set" value="1" field="955d-e8db-0071-a49c-max"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="1707-57c5-676e-90d9" shared="true" id="943d-497e-4b88-e5ff" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
-            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-          </costs>
-        </selectionEntry>
       </selectionEntries>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Pantheon of Woe Enhancement" hidden="false" id="6e3f-172e-038e-8e11">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="1707-57c5-676e-90d9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="227c-a2e0-8267-1b43"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Singularity Matrix" hidden="false" id="d4b5-0734-7b16-acda" targetId="9da7-b07d-c01c-c5ff"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="C&apos;tan Shard of the Nightbringer" hidden="false" id="f926-a2fe-3494-24b7">
       <comment>invuln: 4+
@@ -8189,37 +8176,24 @@ cannot-warlord</comment>
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Quantum Goad" hidden="true" id="8389-2298-cdf5-548f">
-          <constraints>
-            <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="70d0-17b9-f6a3-2f3d-min" includeChildSelections="false" automatic="true"/>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="70d0-17b9-f6a3-2f3d-max" includeChildSelections="false" automatic="true"/>
-          </constraints>
-          <profiles>
-            <profile name="Quantum Goad" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e249-d4ac-31c8-9dee">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model is eligible to declare a charge in a turn in which it Advanced.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="70d0-17b9-f6a3-2f3d-min"/>
-                <modifier type="set" value="1" field="70d0-17b9-f6a3-2f3d-max"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="1707-57c5-676e-90d9" shared="true" id="2498-6ae6-4764-5922" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
-            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-          </costs>
-        </selectionEntry>
       </selectionEntries>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Pantheon of Woe Enhancement" hidden="false" id="25cc-9cf0-d1ea-debe">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="1707-57c5-676e-90d9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a250-13f6-e160-8323"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Quantum Goad" hidden="false" id="363a-6d4f-4402-f84d" targetId="25bd-c339-c6cb-54d8"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="C&apos;tan Shard of the Void Dragon" hidden="false" id="8065-e9c0-dcb5-be1d">
       <comment>invuln: 4+
@@ -8366,37 +8340,24 @@ cannot-warlord</comment>
             <categoryLink name="Extra Attacks Weapon" hidden="false" id="a47c-a21e-a4f7-b8d3" targetId="84c4-6d1e-e724-bd6e" primary="false"/>
           </categoryLinks>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Animus Damper" hidden="true" id="f5b0-0570-d832-eb0b">
-          <constraints>
-            <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="1c71-e933-8c48-de5a-min" includeChildSelections="false" automatic="true"/>
-            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="1c71-e933-8c48-de5a-max" includeChildSelections="false" automatic="true"/>
-          </constraints>
-          <profiles>
-            <profile name="Animus Damper" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8b66-9566-b3ef-5f11">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, at the start of your opponent’s Shooting phase, select one enemy ^^**Vehicle^^** unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll and, if that Leadership test was failed, subtract 1 from the Wound roll as well.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="false" field="hidden"/>
-                <modifier type="set" value="1" field="1c71-e933-8c48-de5a-min"/>
-                <modifier type="set" value="1" field="1c71-e933-8c48-de5a-max"/>
-              </modifiers>
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="1707-57c5-676e-90d9" shared="true" id="382f-b7bb-7461-fe2f" includeChildSelections="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
-            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-          </costs>
-        </selectionEntry>
       </selectionEntries>
-      <selectionEntryGroups></selectionEntryGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Pantheon of Woe Enhancement" hidden="false" id="4cc9-0577-a528-3ed1">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="1707-57c5-676e-90d9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4cda-0c1c-346d-0165"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Animus Damper" hidden="false" id="9ffd-02bf-00f2-d602" targetId="19c0-b5ef-dcaa-6c01"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Transcendent C&apos;tan" hidden="false" id="276e-bc21-e1d0-3c41">
       <comment>invuln: 4+
@@ -8528,36 +8489,22 @@ cannot-warlord</comment>
               </categoryLinks>
               <entryLinks></entryLinks>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Reletavistic Tether" hidden="true" id="4b7a-0ee7-9cf0-8434">
-              <constraints>
-                <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="6143-e14a-c400-fa58-min" includeChildSelections="false" automatic="true"/>
-                <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="6143-e14a-c400-fa58-max" includeChildSelections="false" automatic="true"/>
-              </constraints>
-              <profiles>
-                <profile name="Reletavistic Tether" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="de3c-6924-0b09-f175">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Transcendent C&apos;tan^^** model only. In your turn, when this unit makes an ingress or Advance move using its Transdimensional Displacement ability, this unit can end that move more than 6&quot; horizontally from all enemy units (instead of more than 8&quot;). When this unit ends that move within 8&quot; of an enemy unit, this unit is not eligible to declare a charge until the end of the turn.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <modifiers>
-                    <modifier type="set" value="false" field="hidden"/>
-                    <modifier type="set" value="1" field="6143-e14a-c400-fa58-min"/>
-                    <modifier type="set" value="1" field="6143-e14a-c400-fa58-max"/>
-                  </modifiers>
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="1707-57c5-676e-90d9" shared="true" id="3116-bf19-6750-85a6" includeChildSelections="true"/>
-                  </conditions>
-                </modifierGroup>
-              </modifierGroups>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
-                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-              </costs>
-            </selectionEntry>
           </selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Pantheon of Woe Enhancement" hidden="false" id="5071-dcb4-12c8-cc43">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="1707-57c5-676e-90d9" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="424f-faa3-2f92-0cdd"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Reletavistic Tether" hidden="false" id="497d-528a-cea0-ce3d" targetId="7c0f-9a7b-821f-9d89"/>
+          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks></entryLinks>
@@ -14043,6 +13990,78 @@ fnp: 5+</comment>
             </modifier>
           </modifiers>
         </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Singularity Matrix" hidden="false" id="9da7-b07d-c01c-c5ff">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2d9c-4d46-496e-1032" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Singularity Matrix" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e753-d2f9-0300-5d9a">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">C&apos;TAN SHARD OF THE DECEIVER model only. Lord of Deceit (Aura): Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12&quot; of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="a9c4-c801-5707-7c88" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Quantum Goad" hidden="false" id="25bd-c339-c6cb-54d8">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="59cc-c7c2-c1e9-44bb" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Quantum Goad" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="31ce-6c9a-b86c-6528">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">C&apos;TAN SHARD OF THE NIGHTBRINGER model only. This model is eligible to declare a charge in a turn in which it Advanced.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="e01a-c53e-9754-5c79" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Animus Damper" hidden="false" id="19c0-b5ef-dcaa-6c01">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0ab9-9977-1b00-fdb2" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Animus Damper" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1beb-c5d1-c9d6-657a">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">C&apos;TAN SHARD OF THE VOID DRAGON model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy ^^**Vehicle^^** unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll and, if that Leadership test was failed, subtract 1 from the Wound roll as well.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="8893-bd1d-a476-9c02" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Reletavistic Tether" hidden="false" id="7c0f-9a7b-821f-9d89">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="d237-14a5-ac4f-8ad4" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Reletavistic Tether" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0f3e-fba6-4301-3b14">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Transcendent C&apos;tan^^** model only. In your turn, when this unit makes an ingress or Advance move using its Transdimensional Displacement ability, this unit can end that move more than 6&quot; horizontally from all enemy units (instead of more than 8&quot;). When this unit ends that move within 8&quot; of an enemy unit, this unit is not eligible to declare a charge until the end of the turn.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink id="6ce3-3032-476c-8715" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
   </sharedSelectionEntries>
   <sharedRules>
     <rule name="Reanimation Protocols" hidden="false" id="a511-d9ca-17d0-42c5">
