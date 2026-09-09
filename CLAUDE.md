@@ -128,6 +128,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
 - **`editor/WEAPON_SLOTS_APP_PROMPT.md`** — arme de **base fixe** (`min≥1`) +
   **emplacement optionnel à choix** (groupe `max=1`/min 0) ; même arme en base ET en
   option = deux emplacements (ex. Chaos Rhino : combi-bolter + pintle combi-bolter/weapon).
+- **`editor/AUDIT_VOCABULAIRE_APP.md`** — audit exhaustif (2026-09) du
+  vocabulaire BattleScribe présent dans la base (59 tags, 170 attributs,
+  combinaisons modifier × champ × portée) croisé avec sa prise en compte par
+  l'appli consommatrice : ✅ / 🟡 / ❌ / ➖ par élément, écarts classés par
+  impact (modifiers d'armes, options révélées, erreurs hors unité, bornes de
+  groupes conditionnées).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les
