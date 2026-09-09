@@ -239,6 +239,11 @@ Pour CHAQUE concept, plusieurs encodages existent — teste-les tous :
 | Plafond de **groupe** par unité | `max` `scope="unit"` (ou `scope="<id de l'unité>"`) posé sur le **`selectionEntryGroup`** lui-même, niché sous un modèle collectif : c'est un **total pour l'unité**, jamais un nombre d'emplacements par figurine. Optionnel (min 0) → groupe simple plafonné (Tankbustas « 1 Tankbusta model can be equipped with one of… » : max 1 `scope="unit"` sous 5 figurines) ; obligatoire (min ≥ 1) → par figurine, N × S **borné par le plafond** (Death Company « Replace Bolt Rifle » : max 1 parent **et** max 2 unité sur 0-2 porteurs) |
 | Coût | fixe · par instance (×N) · par palier de taille (`set` conditionné modèles) · repeat-cost (`increment` conditionné) · par faction (`set` conditionné `primary-catalogue`) |
 | Faction/détachement actif | condition `scope="force"`/`roster" childId=<détachement>` · `scope="primary-catalogue"` · `field="forces"` |
+| Option **révélée** par le contexte | `hidden="true"` + `<modifier set hidden=false>` gardé `atLeast 1 <détachement> scope="roster"/"force"` (Assassins sous Veiled Blade, C'tan sous Pantheon of Woe) — souvent avec `set 1` sur ses contraintes `min`/`max` `automatic` (= **forcée** une fois révélée) ; à exposer comme option à porte runtime, jamais à sauter d'office |
+| Amélioration à porteur **révélé** | `hidden="true"` + `set hidden=false` conditionné `instanceOf scope="ancestor" <catégorie>` (Pennant of Remembrance : Ancient) — équivaut à « masquée sauf pour » : négation de la condition = restriction de porteur |
+| Message de liste | `add error/warning/info` sur la datasheet (ou un de ses upgrades) à conditions **toutes** `roster`/`force` (Warlord obligatoire, exclusions mutuelles, prérequis d'upgrade) — évaluer avec les comptes roster : datasheets, détachements, **id du lien « Warlord »**, **catégories comptées** (`equalTo 1 <catégorie Captain>` = nombre de sélections de cette catégorie), ids d'options sélectionnées |
+| Plafond de datasheet conditionnel | `set`/`increment`/`decrement` sur la contrainte `max scope="roster"/"force"` de la datasheet (Company Heroes 0→1/2/3, Krootox Riders 0→3 hors Boarding Actions, 3→6 sous détachement, 6→3 hors Dêlve) — dans l'ordre du document, `-1` = illimité ; ne lire que la portée dont vient le plafond de base |
+| Bonus d'arme d'une amélioration/option | `<modifier increment/decrement/set/floor/append field=<typeId de caractéristique d'arme> scope="model"/"root-entry"/"model-or-unit" affects="self.entries.recursive[.<id>].profiles.(Melee|Ranged) Weapons">` — `<id>` = entrée/profil ciblé (résoudre en noms d'armes) ; `append "+0"` + `replace` + `add category` = astuces sans sémantique ; conditions `instanceOf` = test du porteur |
 
 ### Homonymes d'armes : règle d'affichage côté appli
 Les noms d'armes **collident** à l'échelle d'une faction (7 « Plasma pistol »
@@ -299,5 +304,14 @@ risque, pour attraper les trous avant l'utilisateur :
   conditions du groupe** — jamais par le conteneur ou un nom.
 - `min 0` = optionnel · `min≥1` = base · `max 1` = choix « 0/1 » · `automatic` = dérivé.
 - `scope=parent` = par figurine · `scope=unit` = total · `scope=primary-catalogue` = selon la faction jouée.
+- **Portée des conditions (invariant de la base)** : un modifier porté par une datasheet / un
+  modèle / une option ne porte que des conditions **locales** (`self`, `parent`, `unit`,
+  `model`, `ancestor`, `root-entry`, `<id>`) ou `primary-catalogue` ; les conditions
+  `roster` / `force` (et `field="forces"`) ne vivent que sur : les **coûts** (répétition,
+  allié), les **plafonds de datasheet** (`max roster/force`), les **messages de liste**
+  (`add error/warning/info`), les **portes de révélation** (`set hidden`) et les **grants de
+  catégorie** (`add`/`set-primary`). Un évaluateur peut donc choisir le sac de comptes par
+  **site** (unité vs roster) sans lire `scope` — à condition d'ajouter au sac roster les
+  catégories comptées, l'id du lien « Warlord » et les ids d'options sélectionnées.
 - En cas de doute sur un idiome : cherche le **prompt dédié** (§8) ; sinon, traite-le
   comme une variante des règles ci-dessus, et ajoute un test diagnostique (§11).
