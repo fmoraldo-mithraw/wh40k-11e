@@ -1018,15 +1018,6 @@ invuln: 6+</comment>
               </profiles>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Wargear" id="e899-c378-555d-4087" hidden="false" sortIndex="2">
-                  <entryLinks>
-                    <entryLink import="true" name="Kan klaw" hidden="false" id="6962-90bc-6a8e-57ad" type="selectionEntry" targetId="d7b7-a7e-ef2-783a">
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0344-d310-12f3-2e40"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="523f-bad9-6155-7514"/>
-                      </constraints>
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                  </entryLinks>
                   <selectionEntries>
                     <selectionEntry type="upgrade" import="true" name="Kan Blasta" hidden="false" id="1e1f-c4f8-c26f-eaa8" collective="true">
                       <constraints>
@@ -1198,21 +1189,6 @@ invuln: 6+</comment>
           </modifiers>
         </modifierGroup>
       </modifierGroups>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Kan klaw" hidden="false" id="d7b7-a7e-ef2-783a" collective="true">
-      <profiles>
-        <profile name="Kan klaw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b5d1-4e50-edae-b2af">
-          <characteristics>
-            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
-            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-            <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nobz" hidden="false" id="b16a-7132-3f8a-abe5">
 <comment>sim-mod: source=&quot;Ammo Runts&quot; hit=+1 when=ranged oncePer=battle
@@ -3027,7 +3003,7 @@ sim-mod: source=&quot;Big an&apos; Shooty&quot; reroll=hit1 when=ranged</comment
 <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
 <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">4</characteristic>
 <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
 </characteristics>
 </profile>
@@ -5146,6 +5122,7 @@ invuln: 6+</comment>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Thump Gun" hidden="false" id="0d1a-e109-0032" collective="false">
 <constraints>
+                    <constraint type="min" value="0" field="selections" scope="unit" shared="true" id="f34c-d06b-37cb-61c3"/>
 <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="0d1a-e109-0035" includeChildSelections="true"/>
 </constraints>
 <profiles>
@@ -6501,7 +6478,7 @@ invuln: 5+</comment>
 <characteristics>
 <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
 <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-<characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
 <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
@@ -6822,44 +6799,6 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <categoryLink name="Melee Weapon" hidden="false" id="0d1a-e111-0005" targetId="ccdd-3987-11ed-90cd" primary="false"/>
 </categoryLinks>
 </selectionEntry>
-<selectionEntry type="upgrade" import="true" name="Tellyport Blasta" hidden="false" id="0d1a-e111-0006" collective="false">
-<constraints>
-<constraint type="min" value="0" field="selections" scope="parent" shared="true" id="0d1a-e111-0007"/>
-<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e111-0008"/>
-</constraints>
-<profiles>
-<profile name="Tellyport Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e111-0009">
-<characteristics>
-<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
-<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-<characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
-<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
-</characteristics>
-</profile>
-</profiles>
-<infoLinks>
-<infoLink name="Blast" hidden="false" type="rule" id="0d1a-e111-0010" targetId="6c1f-1cf7-ff25-c99e"/>
-</infoLinks>
-<categoryLinks>
-<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e111-0011" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-</categoryLinks>
-</selectionEntry>
-<selectionEntry type="upgrade" import="true" name="Kustom Force Field" hidden="false" id="0d1a-e111-9990-0005" collective="false">
-<constraints>
-<constraint type="min" value="0" field="selections" scope="parent" shared="true" id="0d1a-e111-0012"/>
-<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e111-0013"/>
-</constraints>
-<profiles>
-<profile name="Kustom Force Field" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e111-0014">
-<characteristics>
-<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has a 4+ **InSv** against ranged attacks.</characteristic>
-</characteristics>
-</profile>
-</profiles>
-</selectionEntry>
 </selectionEntries>
 <selectionEntryGroups>
 <selectionEntryGroup name="Kustom Shoota slot" id="0d1a-e111-0038" hidden="false" defaultSelectionEntryId="0d1a-e111-9990-0001">
@@ -7000,6 +6939,51 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0002" type="selectionEntry" targetId="b37a-8686-db2c-8cbd"/>
   </entryLinks>
 </selectionEntryGroup>
+        <selectionEntryGroup name="Tellyport Blasta / Kustom Force Field" id="39ce-5223-18c6-964d" hidden="false">
+          <selectionEntries>
+<selectionEntry type="upgrade" import="true" name="Tellyport Blasta" hidden="false" id="0d1a-e111-0006" collective="false">
+<constraints>
+<constraint type="min" value="0" field="selections" scope="parent" shared="true" id="0d1a-e111-0007"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e111-0008"/>
+</constraints>
+<profiles>
+<profile name="Tellyport Blasta" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0d1a-e111-0009">
+<characteristics>
+<characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+<characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+<characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+<characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+<characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+</characteristics>
+</profile>
+</profiles>
+<infoLinks>
+<infoLink name="Blast" hidden="false" type="rule" id="0d1a-e111-0010" targetId="6c1f-1cf7-ff25-c99e"/>
+</infoLinks>
+<categoryLinks>
+<categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e111-0011" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+</categoryLinks>
+</selectionEntry>
+<selectionEntry type="upgrade" import="true" name="Kustom Force Field" hidden="false" id="0d1a-e111-9990-0005" collective="false">
+<constraints>
+<constraint type="min" value="0" field="selections" scope="parent" shared="true" id="0d1a-e111-0012"/>
+<constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0d1a-e111-0013"/>
+</constraints>
+<profiles>
+<profile name="Kustom Force Field" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e111-0014">
+<characteristics>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has a 4+ **InSv** against ranged attacks.</characteristic>
+</characteristics>
+</profile>
+</profiles>
+</selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fadf-ed51-d23c-0b73"/>
+          </constraints>
+        </selectionEntryGroup>
 </selectionEntryGroups>
 <entryLinks>
 <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="0d1a-e111-0041" targetId="8b5-898c-f79b-5a9c">
@@ -10172,9 +10156,9 @@ invuln: 6+</comment>
 <profile name="Spinnin&apos; Blades" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0d1a-e117-0138">
 <characteristics>
 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-<characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-<characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-<characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+<characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+<characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+<characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Hazardous</characteristic>
@@ -10214,12 +10198,13 @@ invuln: 6+</comment>
 <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+<characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits</characteristic>
 </characteristics>
 </profile>
 </profiles>
 <infoLinks>
 <infoLink name="Blast" hidden="false" type="rule" id="0d1a-e117-0144" targetId="6c1f-1cf7-ff25-c99e"/>
+                    <infoLink name="Lethal Hits" hidden="false" type="rule" id="688b-8b75-76fb-b20f" targetId="d1d1-611e-5191-1095"/>
 </infoLinks>
 <categoryLinks>
 <categoryLink name="Ranged Weapon" hidden="false" id="0d1a-e117-0145" targetId="eeda-8544-a2f3-3fab" primary="false"/>
@@ -10637,7 +10622,7 @@ sim-mod: source=&quot;Warpath (psychic level 1)&quot; lethal when=melee conditio
 <characteristic name="BS" typeId="94d-8a98-cf90-183e">-</characteristic>
 <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
 <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-<characteristic name="D" typeId="a354-c1c8-a745-f9e3">5</characteristic>
+<characteristic name="D" typeId="a354-c1c8-a745-f9e3">6</characteristic>
 <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Psychic, Torrent</characteristic>
 </characteristics>
 </profile>
