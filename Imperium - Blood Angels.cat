@@ -8,7 +8,6 @@
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Astorath" hidden="false" id="f943-72c8-581c-e6f2">
       <comment>sim-mod: source=&quot;Mass of Doom&quot; dev when=melee onCharge
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
 invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="373e-99de-ce49-806b"/>
@@ -57,7 +56,7 @@ invuln: 4+</comment>
       </profiles>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="7b0-1020-2ea9-e14e" targetId="b4dd-3e1f-41cb-218f"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="adae-4433-67ed-1793" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="adae-4433-67ed-1793" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="87bd-4a20-9d91-21bd" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="5e2e-f2fa-5963-b8e4" targetId="db19-dee7-9530-ef0e"/>
       </infoLinks>
@@ -115,7 +114,6 @@ invuln: 4+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Baal Predator" hidden="false" id="640-9969-d5b9-875c">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional</comment>
       <categoryLinks>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="70fc-e940-f904-d4c" primary="false" name="Imperium"/>
         <categoryLink targetId="6df-937-16bc-8c1a" id="fecf-7176-e00e-f0a" primary="false" name="Smoke"/>
@@ -136,7 +134,7 @@ invuln: 4+</comment>
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="3b35-c8d2-daed-4eb1" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="f51b-2b2b-7a41-9aed" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="f51b-2b2b-7a41-9aed" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Damaged: 1-4 Wounds Remaining" hidden="false" type="profile" id="9351-f221-b8f7-ad3" targetId="ee64-aaaf-75df-8da9"/>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="7a3-55ae-a742-e844" targetId="b68a-5ded-65ac-98c">
           <modifiers>
@@ -163,7 +161,6 @@ invuln: 4+</comment>
       </profiles>
       <entryLinks>
         <entryLink import="true" name="Tank Ace Character" hidden="false" id="e70a-9007-294a-a103" type="selectionEntry" targetId="8810-ebe3-94f2-8eab"/>
-        <entryLink import="true" name="Headhunter Task Force Enhancements" hidden="false" id="86ee-3eb6-eae3-11d8" type="selectionEntryGroup" targetId="f545-8ae0-b440-8407"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="af3f-e75e-0a33-495f" hidden="false" sortIndex="2">
@@ -378,11 +375,6 @@ invuln: 4+</comment>
         </modifierGroup>
       </modifierGroups>
       <modifiers>
-        <modifier type="add" value="b6a1-a3f9-16eb-2d31" field="category">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="roster" childId="cf4f-5c50-4a22-6960" shared="true" includeChildSelections="true" includeChildForces="true" childName="Headhunter Task Force"/>
-          </conditions>
-        </modifier>
         <modifier type="add" value="9cfd-1c32-585f-7d5c" field="category">
           <conditions>
             <condition type="atLeast" value="1" field="selections" scope="parent" childId="8810-ebe3-94f2-8eab" shared="true" childName="Tank Ace Character" includeChildSelections="true" includeChildForces="true"/>
@@ -396,8 +388,7 @@ invuln: 4+</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chief Librarian Mephiston" hidden="false" id="ab35-2c36-9389-d1d5">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-invuln: 5+
+      <comment>invuln: 5+
 fnp: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
@@ -425,7 +416,7 @@ fnp: 4+</comment>
             <modifier type="append" value="4+" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Oath of Moment" id="f68e-d897-dfbc-6937" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" id="f68e-d897-dfbc-6937" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <profiles>
         <profile name="Chief Librarian Mephiston" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5bf5-5db9-18d4-55d1">
@@ -534,8 +525,7 @@ fnp: 4+</comment>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Commander Dante" hidden="false" id="7323-ebf-9afe-7e7a">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-invuln: 4+</comment>
+      <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="573f-bbc-4c57-25ce"/>
       </constraints>
@@ -588,7 +578,7 @@ invuln: 4+</comment>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="c160-102b-4a96-6800" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="9f0a-5bd0-d9ad-c5dd" targetId="7cb5-dd6b-dd87-ad3b"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="9b64-f32e-a05d-fa35" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="9b64-f32e-a05d-fa35" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="36e7-4ae0-3619-8e6" targetId="db19-dee7-9530-ef0e"/>
       </infoLinks>
       <selectionEntries>
@@ -668,8 +658,7 @@ invuln: 4+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Intercessors" hidden="true" id="bb83-db85-6ce1-9a61">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
+      <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
 fnp: 6+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
@@ -701,7 +690,7 @@ fnp: 6+</comment>
             <modifier type="append" value="6+" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="ea03-d8f6-3c8b-8580" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="ea03-d8f6-3c8b-8580" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Black Rage" hidden="false" type="profile" id="a27e-60e7-d711-33b0" targetId="3e0a-31f-8be-e293"/>
         <infoLink name="Visions of Heresy" hidden="false" type="profile" id="c8a9-d894-da08-cea4" targetId="6b69-8f10-6d74-706c"/>
       </infoLinks>
@@ -1040,7 +1029,6 @@ fnp: 6+</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Marines with Jump Packs" hidden="false" id="65f6-18df-f6df-7e39">
       <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
 fnp: 6+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
@@ -1088,7 +1076,7 @@ fnp: 6+</comment>
         </infoLink>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="e219-6ef-4e05-b7f5" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Black Rage" hidden="false" type="profile" id="77ac-5760-e406-c03b" targetId="3e0a-31f-8be-e293"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="f664-ff26-126a-6ec4" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="f664-ff26-126a-6ec4" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Death Company Marines" hidden="false" id="38dc-f876-6405-8f17" defaultSelectionEntryId="27ea-4039-2794-db20" sortIndex="2">
@@ -1508,7 +1496,6 @@ fnp: 6+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Lemartes" hidden="false" id="cbc2-18c9-45b6-6327">
       <comment>sim-mod: source=&quot;Fury Unbound&quot; lethal when=melee whileLeading
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
 invuln: 4+
 fnp: 6+</comment>
       <costs>
@@ -1534,7 +1521,7 @@ fnp: 6+</comment>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="8e3d-3cd-cef3-8a9a" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Leader" hidden="false" type="rule" id="18ce-e4f9-e8d6-c31e" targetId="b4dd-3e1f-41cb-218f"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="fc0f-90ee-d8d7-18ec" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="fc0f-90ee-d8d7-18ec" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Deep Strike" id="ff09-2842-cdf2-0b23" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Feel No Pain" id="2896-d4b4-a766-d0a9" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb">
           <modifiers>
@@ -1641,8 +1628,7 @@ fnp: 6+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sanguinary Guard" hidden="false" id="25e4-ead-faac-2531">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-invuln: 4+</comment>
+      <comment>invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -1837,7 +1823,7 @@ invuln: 4+</comment>
       </selectionEntries>
       <infoLinks>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="446-c76b-af18-5955" targetId="7cb5-dd6b-dd87-ad3b"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="d9bb-e847-88d0-2cc3" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="d9bb-e847-88d0-2cc3" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" id="9a95-d3f2-1c4d-a00e" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
       </infoLinks>
       <entryLinks></entryLinks>
@@ -1910,8 +1896,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sanguinary Priest" hidden="false" id="f80-be5-d17c-db23">
-      <comment>sim-mod: source=&quot;Blood Chalice&quot; ap=+1 when=melee whileLeading
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional</comment>
+      <comment>sim-mod: source=&quot;Blood Chalice&quot; ap=+1 when=melee whileLeading</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -1978,7 +1963,7 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
       </entryLinks>
       <infoLinks>
         <infoLink name="Support" hidden="false" type="rule" id="3a4e-3214-5775-830a" targetId="21f5-c07c-6d97-4405"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="c4f-5b51-9480-12ee" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="c4f-5b51-9480-12ee" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e307-825-e350-b927"/>
@@ -2098,11 +2083,9 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
             <entryLink import="true" name="" hidden="true" id="3ce9-a9fe-1ee2-9f96" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
             <entryLink import="true" name="" hidden="true" id="0ecf-a4bc-d3a8-bee4" type="selectionEntry" targetId="7044-bf1-f949-c32d"/>
             <entryLink import="true" name="" hidden="true" id="07d8-1023-910b-2ee2" type="selectionEntry" targetId="a3ea-7a0d-fef8-23bf"/>
-            <entryLink import="true" name="" hidden="true" id="9897-6acc-f727-ad43" type="selectionEntry" targetId="3f4c-1e67-66dc-ffa5"/>
             <entryLink import="true" name="" hidden="true" id="d065-dbcf-3092-8abd" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
             <entryLink import="true" name="" hidden="true" id="2a14-002b-7192-ea90" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
             <entryLink import="true" name="" hidden="true" id="2886-5c01-69ea-e379" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
-            <entryLink import="true" name="" hidden="true" id="c808-303f-f54a-33ae" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
             <entryLink import="true" name="" hidden="true" id="75a4-222b-8444-2ac0" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
             <entryLink import="true" name="" hidden="true" id="2676-cac1-3501-7498" type="selectionEntry" targetId="6c10-5b51-5bc0-8d2c"/>
             <entryLink import="true" name="" hidden="true" id="f4c6-62ef-1936-205e" type="selectionEntry" targetId="ce15-e87e-7cff-b129"/>
@@ -2117,19 +2100,16 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
             <entryLink import="true" name="" hidden="true" id="9499-905d-33c9-d2ba" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
             <entryLink import="true" name="" hidden="true" id="285b-8157-187c-8675" type="selectionEntry" targetId="7044-bf1-f949-c32d"/>
             <entryLink import="true" name="" hidden="true" id="a289-757d-bda4-981f" type="selectionEntry" targetId="a3ea-7a0d-fef8-23bf"/>
-            <entryLink import="true" name="" hidden="true" id="16c0-f634-1580-a8f4" type="selectionEntry" targetId="3f4c-1e67-66dc-ffa5"/>
             <entryLink import="true" name="" hidden="true" id="3c7c-7af8-404c-1b0d" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
             <entryLink import="true" name="" hidden="true" id="7c9e-32bf-2339-9616" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
             <entryLink import="true" name="" hidden="true" id="11d9-6a72-514d-4fdd" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
             <entryLink import="true" name="" hidden="true" id="4d54-66c5-3384-8960" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
-            <entryLink import="true" name="" hidden="true" id="99cc-44b9-d1df-d279" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="The Sanguinor" hidden="false" id="29f1-bb28-6424-6d14">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-invuln: 4+</comment>
+      <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f8a8-20a9-9ba4-1851"/>
       </constraints>
@@ -2137,7 +2117,7 @@ invuln: 4+</comment>
         <infoLink name="Lone Operative" hidden="false" type="rule" id="500a-4188-24fe-2fa6" targetId="a8a0-8fe7-898-e0f3"/>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="e0f3-23fc-e379-144b" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Fights First" hidden="false" type="rule" id="2da8-9c6e-5181-3fbc" targetId="24-c886-e8ba-5a89"/>
-        <infoLink name="Oath of Moment" hidden="false" type="rule" id="df39-e8fc-3c61-7a37" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="df39-e8fc-3c61-7a37" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="91ee-a59-f248-6fde" targetId="db19-dee7-9530-ef0e"/>
       </infoLinks>
       <profiles>
@@ -2218,13 +2198,12 @@ invuln: 4+</comment>
     <selectionEntry type="model" import="true" name="Blood Angels Captain" hidden="false" id="829b-da42-2d62-6daf">
       <comment>sim-mod: source=&quot;Finest Hour&quot; attacks=+3 when=melee oncePer=battle scope=model
 sim-mod: source=&quot;Finest Hour&quot; dev when=melee oncePer=battle scope=model
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
 invuln: 4+</comment>
       <infoLinks>
         <infoLink name="Invulnerable Save" id="b7c0-e928-c33b-8d2a" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Rites of Battle" id="3bd4-65eb-4488-6318" hidden="false" type="profile" targetId="90c7-c55c-21e2-2232"/>
         <infoLink name="Finest Hour" id="d2dd-00bd-2593-14d1" hidden="false" type="profile" targetId="fdf1-64a5-906c-3474"/>
-        <infoLink name="Oath of Moment" id="5347-1f36-4ca8-529a" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" id="5347-1f36-4ca8-529a" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Leader" id="92c7-5369-1aab-afcf" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
       </infoLinks>
       <profiles>
@@ -2246,8 +2225,7 @@ invuln: 4+</comment>
 ■ Infernus Squad
 ■ Intercessor Squad
 ■ Sternguard Veteran Squad
-■ Company Heroes
-■ Tactical Squad</characteristic>
+■ Company Heroes</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2354,7 +2332,6 @@ invuln: 4+</comment>
             <entryLink import="true" name="" hidden="true" id="6e94-2389-4b58-2806" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
             <entryLink import="true" name="" hidden="true" id="5c67-c253-7d64-1452" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
             <entryLink import="true" name="" hidden="true" id="5c63-aa02-4ae1-6f2f" type="selectionEntry" targetId="2f2e-d99b-b235-163a"/>
-            <entryLink import="true" name="" hidden="true" id="b795-8f46-d1e2-ea83" type="selectionEntry" targetId="c09a-6504-d25f-477"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -2918,8 +2895,7 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Marines with Bolt Rifles" hidden="false" id="4aab-3ca5-0435-ed5e">
-      <comment>sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
-sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
+      <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
 fnp: 6+</comment>
       <selectionEntryGroups>
         <selectionEntryGroup name="Death Company Marines" id="2ed1-aba1-feec-a885" hidden="false" defaultSelectionEntryId="e047-0de8-e48f-d8cd" sortIndex="3">
@@ -3181,7 +3157,7 @@ fnp: 6+</comment>
             <modifier type="append" value="6+" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Oath of Moment" id="a625-03a6-2102-fd31" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" id="a625-03a6-2102-fd31" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Black Rage" id="2f67-b257-0ec2-3146" hidden="false" type="profile" targetId="3e0a-31f-8be-e293"/>
         <infoLink name="Visions of Heresy" id="6d11-aabe-7a22-5518" hidden="false" type="profile" targetId="6b69-8f10-6d74-706c"/>
       </infoLinks>
@@ -3282,7 +3258,6 @@ fnp: 6+</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Marines" hidden="false" id="3825-ac3a-75ec-fa0d">
       <comment>sim-mod: source=&quot;An Honourable Death in Combat&quot; sustained=1 conditional
-sim-mod: source=&quot;Oath of Moment&quot; reroll=hit conditional
 sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
 fnp: 6+</comment>
       <selectionEntryGroups>
@@ -3450,7 +3425,7 @@ fnp: 6+</comment>
             <modifier type="append" value="6+" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Oath of Moment" id="744f-ae49-2f2b-8ed2" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Combat Doctrines" id="744f-ae49-2f2b-8ed2" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Black Rage" id="ee15-207e-ba73-770c" hidden="false" type="profile" targetId="3e0a-31f-8be-e293"/>
       </infoLinks>
       <categoryLinks>
