@@ -15,6 +15,7 @@
     <entryLink import="true" name="Victrix Honour Guard" hidden="false" id="7f97-8d4d-477d-3b35" type="selectionEntry" targetId="9b89-f132-4fef-8e51"/>
     <entryLink import="true" name="Captain Titus" hidden="false" id="69f6-bff7-d28a-e0c3" type="selectionEntry" targetId="596f-dbdc-41e7-088a"/>
     <entryLink import="true" name="Wardens of Ultramar" hidden="false" id="67b4-7b11-a48e-1791" type="selectionEntry" targetId="b793-b77e-9e49-d397"/>
+    <entryLink import="true" name="Kaius Konorius" hidden="false" type="selectionEntry" id="288a-ee64-0455-dacb" targetId="76c4-8e69-b32e-3a90"/>
   </entryLinks>
   <catalogueLinks>
     <catalogueLink name="Imperium - Space Marines" id="da8e-75bd-17ec-90f8" targetId="e0af-67df-9d63-8fb7" importRootEntries="true" type="catalogue"/>
@@ -148,6 +149,8 @@ invuln: 4+</comment>
         <infoLink name="Leader" hidden="false" type="rule" id="9235-eccd-784c-2ef8" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="820d-2d59-522c-c62d" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="f6b7-65b6-fabe-c676" targetId="db19-dee7-9530-ef0e"/>
+        <infoLink name="Librarius" hidden="false" type="rule" id="5e82-95af-00e3-662d" targetId="c785-7fe3-ce79-1599"/>
+        <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="b5bd-0536-5dd0-9e68" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
@@ -156,33 +159,27 @@ invuln: 4+</comment>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="6344-c0ab-95ea-c513" primary="false" name="Character"/>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="1c77-30b8-9e92-b837" primary="true" name="Epic Hero"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="6d7c-2a3a-961e-4e3" primary="false" name="Infantry"/>
-        <categoryLink targetId="aff3-d6a3-2a95-9dc" id="6fc3-3d3a-7764-f633" primary="false" name="Imperium"/>
         <categoryLink targetId="13bf-2bee-3ae0-b414" id="1ae7-a004-de10-19e2" primary="false" name="Psyker"/>
         <categoryLink targetId="2d6b-f80f-ac70-ecc7" id="a4a1-f9aa-a4f1-2060" primary="false" name="Chief Librarian Tigurius"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="9257-36a2-e9f2-edaf" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="1a2d-2f00-c054-4dcb" id="af-ed2c-ee3b-7b1c" primary="false" name="Faction: Ultramarines"/>
+        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="af92-d9de-58e1-7dde" primary="false" name="Explosives"/>
+        <categoryLink targetId="5179-8ede-45e3-49a2" id="44d1-f5ec-6478-5986" primary="false" name="Tacticus"/>
       </categoryLinks>
       <profiles>
         <profile name="Chief Librarian Tigurius" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="9080-53c7-c334-b989">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Hood of Hellfire" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6d80-d11e-231d-1014">
+        <profile name="Hood of Hellfire (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6d80-d11e-231d-1014">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks and mortal wounds.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Master of Prescience (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="712b-2536-4360-4d74">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit has Stealth.
-■ Melee attacks that target this unit have -1 to hit rolls.
-■ (Once per battle round, per army) When you target this unit with the Counteroffensive, Fire Overwatch or Heroic Intervention Stratagem, that use is -1 CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has Feel No Pain 4+ against psychic attacks and mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af75-67b0-4fcb-d9e8">
@@ -194,6 +191,25 @@ invuln: 4+</comment>
 ■ Desolation Squad
 ■ Intercessor Squad
 ■ Sternguard Veteran Squad</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Chief Librarian (psyker level 3)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="df6d-c363-ba94-5f75">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the psychic abilities listed in the Psychic Abilities section (see left).</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Prescience (psychic level 2)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae85-480f-e09e-8cf9">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+■ On a 1, this unit is battle-shocked.
+■ This unit has +1 Sv until the start of your next turn.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Telepathic Assault (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1537-0d55-0a32-df4a">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+■ On a 1, this unit is battle-shocked.
+■ Select one visible enemy unit within 24&quot; of this unit. That enemy unit suffers 2D3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -213,32 +229,20 @@ invuln: 4+</comment>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9bd6-1a73-16be-ac64"/>
           </constraints>
           <profiles>
-            <profile name="➤ Storm of the Emperor’s Wrath - Witchfire" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dcf9-9637-5df4-dc5e">
+            <profile name="Storm of the Emperor&apos;s Wrath" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dcf9-9637-5df4-dc5e">
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3+6</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Psychic</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="➤ Storm of the Emperor’s Wrath - Focused Witchfire" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="72f9-1db7-ac4d-9fe2">
-              <characteristics>
-                <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                <characteristic name="A" typeId="3bb-c35f-f54-fb08">2D6</characteristic>
-                <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-                <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Hazardous, Psychic</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Psychic</characteristic>
               </characteristics>
             </profile>
           </profiles>
           <infoLinks>
             <infoLink name="Blast" hidden="false" type="rule" id="555f-d4e-6484-dea6" targetId="6c1f-1cf7-ff25-c99e"/>
-            <infoLink name="Hazardous" hidden="false" type="rule" id="a9ea-1518-7b4b-9efb" targetId="8367-374c-f87-c627"/>
             <infoLink name="Psychic" hidden="false" type="rule" id="b2b-5a0c-7140-55dd" targetId="e9c4-2bb8-12ee-cd1b"/>
           </infoLinks>
         </selectionEntry>
@@ -252,10 +256,10 @@ invuln: 4+</comment>
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
               </characteristics>
             </profile>
@@ -289,6 +293,8 @@ invuln: 4+</comment>
         <infoLink name="Leader" hidden="false" type="rule" id="5cb2-408a-1f6-3bd6" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="a2f4-78b2-55de-a579" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="8606-4035-22c1-ba02" targetId="db19-dee7-9530-ef0e"/>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="5cf0-7062-4cbc-f418" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="3a3c-a4ee-7489-4e4b" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
@@ -305,29 +311,9 @@ invuln: 4+</comment>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Victrix Honour Guard" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="1e8a-bb9c-65cf-6b32">
-          <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
-            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Inspiring Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aa9c-84b5-b51-8755">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Master Tactician" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7370-225b-feb9-5d86">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, if this unit’s Marneus Calgar model is your WARLORD and is on the battlefield, you gain 1CP.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Honour Guard of Macragge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5bb-e17c-f1ac-9efc">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit contains one or more Victrix Honour Guard models, this unit’s Marneus Calgar model has the Feel No Pain 4+ ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, you can select one visible friendly **^^Adeptus Astartes^^** unit within 9&quot; of this model, and select one combat doctrine. That combat doctrine is active for that unit until the start of your next Command phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="19d7-a45d-830a-99">
@@ -343,6 +329,16 @@ invuln: 4+</comment>
 ■ Infernus Squad
 ■ Intercessor Squad
 ■ Sternguard Veteran Squad</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Codex Adept" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="965f-bbfa-b00a-f531">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The assault doctrine, devastator doctrine and tactical doctrine are active for this unit.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Thunderhawk Insertion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="164b-3af8-845d-8405">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Declare Battle Formations step, you can select one friendly **^^Gravis^^**/**^^Phobos^^**/**^^Tacticus^^** unit. That unit has Deep Strike.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -373,10 +369,10 @@ invuln: 4+</comment>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol, Twin-linked</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Twin-linked</characteristic>
                   </characteristics>
                 </profile>
                 <profile name="Gauntlets of Ultramar" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="d126-71fe-a7b1-b32e">
@@ -384,51 +380,42 @@ invuln: 4+</comment>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Twin-linked</characteristic>
                   </characteristics>
                 </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Pistol" hidden="false" type="rule" id="f13e-ce0-2276-b2b0" targetId="8bf7-8812-923d-29e4"/>
-                <infoLink name="Twin-linked" hidden="false" type="rule" id="efbd-ceb6-4896-79b4" targetId="cf93-ad4d-2f08-a79d"/>
-              </infoLinks>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntry>
-        <selectionEntry type="model" import="true" name="Victrix Honour Guard" hidden="false" id="3719-2013-c91c-1838">
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Victrix Power Sword" hidden="false" id="639c-f60f-581e-71d" collective="true">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1a5d-5408-3a9f-1760"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1075-7f1f-ab46-8b4d"/>
-              </constraints>
-              <profiles>
-                <profile name="Victrix Power Sword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8782-c965-4294-6766">
+                <profile name="Gauntlets of Ultramar - Overhead Smash" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="dc1a-495f-b211-ece2">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3+3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks, Twin-linked</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
+              <infoLinks>
+                <infoLink name="Twin-linked" hidden="false" type="rule" id="efbd-ceb6-4896-79b4" targetId="cf93-ad4d-2f08-a79d"/>
+                <infoLink name="Close-Quarters" hidden="false" type="rule" id="7fce-849b-8e02-486f" targetId="59e0-775e-fce5-43ca"/>
+                <infoLink name="Extra Attacks" hidden="false" type="rule" id="8176-6b5b-5e8d-ed02" targetId="115b-79dc-f723-d761"/>
+              </infoLinks>
             </selectionEntry>
           </selectionEntries>
-          <constraints>
-            <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="f42e-e626-6412-8613"/>
-            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="394f-1ae5-91dd-3b08"/>
-          </constraints>
         </selectionEntry>
       </selectionEntries>
       <categoryLinks>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="f299-1703-3cc5-66e3" primary="false" name="Imperium"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="7252-c269-18e9-9a11" primary="false" name="Infantry"/>
+        <categoryLink targetId="5bd8-882d-302b-48f3" id="ed81-5507-2cd1-1f16" primary="false" name="Chapter Master"/>
+        <categoryLink targetId="9cfd-1c32-585f-7d5c" id="f6e6-6e28-3be7-3b8d" primary="false" name="Character"/>
+        <categoryLink targetId="4f3a-f0f7-6647-348d" id="72d6-c315-c2b8-27f1" primary="false" name="Epic Hero"/>
+        <categoryLink targetId="740a-892c-8958-defa" id="611d-2a1e-7636-a4f1" primary="false" name="Terminator"/>
+        <categoryLink targetId="6e7-40c-58d9-e402" id="1d1d-cc12-1595-e00d" primary="false" name="Faction: Adeptus Astartes"/>
+        <categoryLink targetId="1a2d-2f00-c054-4dcb" id="d0de-ac14-d7ad-102c" primary="false" name="Faction: Ultramarines"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f645-ed9f-3464-84a0"/>
@@ -838,34 +825,33 @@ fnp: 5+</comment>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="05e1-f89b-2764-adbc" primary="false" name="Character"/>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="6a93-a1c7-c45a-1b28" primary="true" name="Epic Hero"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="cbf1-51e0-e4df-e765" primary="false" name="Infantry"/>
-        <categoryLink targetId="2d7f-1892-2fd0-e29c" id="1b7e-5c45-781c-f2dd" primary="false" name="Captain"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="a975-4109-6e3d-020c" primary="false" name="Imperium"/>
         <categoryLink targetId="5179-8ede-45e3-49a2" id="955a-09aa-2e95-5caa" primary="false" name="Tacticus"/>
         <categoryLink targetId="8fee-e096-4a53-3790" id="0482-fc5d-f636-f693" primary="false" name="Sicarius"/>
         <categoryLink targetId="bb0b-4d5c-086d-c75a" id="e21e-c12f-dc5c-dd36" primary="false" name="Cato"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="ee96-e343-268e-2a52" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="1a2d-2f00-c054-4dcb" id="21c8-612c-33c5-d03d" primary="false" name="Faction: Ultramarines"/>
+        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="d1fd-e738-8338-e7be" primary="false" name="Explosives"/>
       </categoryLinks>
       <profiles>
         <profile name="Cato Sicarius" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="faac-4a1c-d55d-e187">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Knight Champion of Macragge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1826-c5e3-0789-3e47">
+        <profile name="Knight Champion of Macragge (Once per phase, per army)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1826-c5e3-0789-3e47">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9&quot; of this model’s unit, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent’s Movement phase, when an enemy unit ends a move within 8&quot; of this unit, if this unit is unengaged, this unit can make a normal move of up to 6&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile name="Honour or Death" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b7f6-25ea-33f0-655f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 0CP, even if you have already used
-that Stratagem on a different unit this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When you target this unit with the Heroic Intervention stratagem, that use is -1 CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="41c1-b2e0-571b-12ae">
@@ -878,12 +864,18 @@ to it. If you do, and that Bodyguard unit is destroyed, the Leader units attache
 units, with their original Starting Strengths</characteristic>
           </characteristics>
         </profile>
+        <profile name="Captain of the Honour Guard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="50f8-177f-c598-aceb">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your army includes a **^^Marneus Calgar^^** unit, replace this unit’s Leader ability with the Support ability (this unit can still be attached to the same units).</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Invulnerable Save (4+)" id="21c0-bf8f-bb31-bbca" hidden="false" type="profile" targetId="5b77-29f8-7b77-75e3"/>
         <infoLink name="Leader" id="ff50-bb6a-6255-4731" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Combat Doctrines" id="ba17-7cb0-6fd5-7023" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
-        <infoLink id="cf1a-163a-97c3-7c06" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
+        <infoLink name="Invulnerable Save" hidden="false" type="profile" id="4c41-ad16-9ecb-7043" targetId="db19-dee7-9530-ef0e"/>
+        <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="63b9-76f5-d31d-781e" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="88df-d70e-55fd-552f">
@@ -920,12 +912,12 @@ units, with their original Starting Strengths</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
               </characteristics>
             </profile>
           </profiles>
           <infoLinks>
-            <infoLink name="Pistol" id="c1ed-7040-294d-a0c4" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+            <infoLink name="Close-Quarters" hidden="false" type="rule" id="8417-5f61-0eb6-dbc5" targetId="59e0-775e-fce5-43ca"/>
           </infoLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Talassarian Tempest Blade" hidden="false" id="2c26-cc55-1c4a-5ceb">
@@ -933,7 +925,7 @@ units, with their original Starting Strengths</characteristic>
             <profile name="➤ Talassarian Tempest Blade - Strike" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0964-f809-a007-1562">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
@@ -944,9 +936,9 @@ units, with their original Starting Strengths</characteristic>
             <profile name="➤ Talassarian Tempest Blade - Coup de Grace" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="84a3-a338-13a7-4dac">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">7</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
@@ -960,7 +952,7 @@ units, with their original Starting Strengths</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1: INFANTRY</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1011,13 +1003,17 @@ units, with their original Starting Strengths</characteristic>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Rapid Fire 1</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
+                  <infoLinks>
+                    <infoLink name="Assault" hidden="false" type="rule" id="485d-7368-f92a-7fd9" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="2f1e-f4b4-dc9f-cdeb" targetId="c5c8-8b58-b8b6-7786"/>
+                  </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
@@ -1054,7 +1050,7 @@ units, with their original Starting Strengths</characteristic>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision, Twin-linked</characteristic>
@@ -1097,7 +1093,8 @@ units, with their original Starting Strengths</characteristic>
                   <profiles>
                     <profile name="Banner of Macragge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9b12-3d8f-7b51-eb52">
                       <characteristics>
-                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, the bearer can use this ability. If it does, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in the bearer’s unit.</characteristic>
+                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.
+■ (Once per battle, per army) When this unit is selected to fight, you can use this ability. If you do, this unit’s melee attacks have +1 A and S.</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -1116,20 +1113,29 @@ units, with their original Starting Strengths</characteristic>
             <profile name="Victrix Honour Guard" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="cbcf-7309-33a0-e4d7">
               <characteristics>
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                 <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
                 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
               </characteristics>
             </profile>
-            <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7c79-5f28-18a4-7f75">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Captain or Chapter Master unit from your army can be attached to a Company Heroes unit, it can
-be attached to this unit instead.</characteristic>
-              </characteristics>
-            </profile>
           </profiles>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Assault Brethren Enhancement" hidden="false" id="cc36-062a-5ac1-cafe">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="e0d4-4374-82dd-f7a0" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="dfba-502a-c3ed-dfc7"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Furious Assault Upgrade" hidden="false" id="a600-255d-3fd5-622a" targetId="ce34-bd3f-69af-1c22"/>
+          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
@@ -1145,6 +1151,7 @@ be attached to this unit instead.</characteristic>
         <categoryLink targetId="7fdf-c640-c1ab-6aba" id="f9a8-aab2-0b98-eef4" primary="false" name="Honor Guard"/>
         <categoryLink targetId="22cb-9e28-8b9f-bbdf" id="baf1-6437-131b-ae59" primary="false" name="Victrix"/>
         <categoryLink targetId="1a2d-2f00-c054-4dcb" id="7ccf-3269-1dc5-2655" primary="false" name="Faction: Ultramarines"/>
+        <categoryLink targetId="6e7-40c-58d9-e402" id="6e27-af6a-1ad0-685a" primary="false" name="Faction: Adeptus Astartes"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Combat Doctrines" id="4d2c-02ca-03aa-c142" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
@@ -1162,16 +1169,14 @@ be attached to this unit instead.</characteristic>
         </modifier>
       </modifiers>
       <profiles>
-        <profile name="Ultramarines Honour Guard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="dac0-5dcc-dca5-b00a">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a Captain or Chapter Master model is leading this unit, each time an attack targets this unit, subtract 1 from the Wound roll</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Glory of Ultramar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f114-0598-c696-6d57">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent’s Shooting phase, each time an enemy unit has shot, if any models from this unit
-were destroyed as a result of those attacks, this unit can make a Surge move. To do so, roll one D6: models in this unit move a number of inches up to the result, but this unit must end that move as close as possible to the closest enemy unit (excluding Aircraft). When doing so, those models can be
-moved within Engagement Range of that enemy unit. This unit cannot make a Surge move while it is Battle‑shocked or within Engagement Range of one or more enemy units, and can only make one Surge move per phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent’s Shooting phase, when an enemy unit has shot, if a model in this unit was destroyed by those attacks, this unit can make a surge move of up to D6&quot;.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Honour Guard of Macragge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="276c-0a59-616c-a24e">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Attacks that target this unit have -1 to wound rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1282,6 +1287,7 @@ fnp: 5+</comment>
             <modifier type="append" value="5+" field="name"/>
           </modifiers>
         </infoLink>
+        <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="62a6-8385-aef8-baab" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="6db3-cc3f-51ea-d259" type="selectionEntry" targetId="caa-f869-3cbd-b48e" sortIndex="2"/>
@@ -1299,7 +1305,7 @@ fnp: 5+</comment>
         <profile name="Captain Titus" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="9408-1cca-7765-159c">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -1308,13 +1314,15 @@ fnp: 5+</comment>
         </profile>
         <profile name="Press the Attack" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5403-758b-7dcc-6733">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Weapons equipped by models in this model’s unit have the [SUSTAINED HITS 1] ability</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s melee attacks have:
+■ **[SUSTAINED HITS 1: non-^^Monster^^/^^Vehicle^^]**.
+■ Or: If the assault doctrine is active for this unit, **[SUSTAINED HITS 1]**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Honour of Ultramar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="881c-c896-6d69-b2b9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 2+,
-do not remove it from play. This model can fight after the attacking unit has finished making its attacks. If one or more enemy models are destroyed as a result of those attacks, this model regains D3 lost wounds and is not destroyed; otherwise, it is removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this model is destroyed, if this unit has not been selected to fight this phase, roll one D6:
+■ On a 2+, do not remove this model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), this model is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="446d-a792-b36b-0a21">
@@ -1330,6 +1338,13 @@ do not remove it from play. This model can fight after the attacking unit has f
 ■  Intercessor Squad 
 ■  Sternguard Veteran Squad 
 ■  Wardens of Ultramar</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Righteous Fury (Once per battle, per army)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e1f-8f7c-524b-5abe">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, you can use this ability. If you do, this unit’s melee attacks have +1 S, and when this unit has fought:
+■ This unit heals D3 wounds.
+■ Or: If this unit destroyed an enemy model this phase, this unit heals 2D3 wounds.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1348,7 +1363,7 @@ do not remove it from play. This model can fight after the attacking unit has f
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-infantry 2+</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-non-MONSTER/VEHICLE 2+</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1367,16 +1382,17 @@ do not remove it from play. This model can fight after the attacking unit has f
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Heavy</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Heavy, Rapid Fire 1</characteristic>
               </characteristics>
             </profile>
           </profiles>
           <infoLinks>
             <infoLink name="Assault" id="86db-c59d-6d56-9167" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
             <infoLink name="Heavy" id="7fe8-57bb-e0af-3ba6" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
+            <infoLink name="Rapid Fire" hidden="false" type="rule" id="c04b-5ca7-a190-0460" targetId="c5c8-8b58-b8b6-7786"/>
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
@@ -1387,7 +1403,7 @@ do not remove it from play. This model can fight after the attacking unit has f
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="9e47-75ac-4968-3702" primary="true" name="Epic Hero"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="6e1b-8b45-377c-4b7d" primary="false" name="Imperium"/>
         <categoryLink targetId="5179-8ede-45e3-49a2" id="48d4-5511-01fd-771d" primary="false" name="Tacticus"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="6a9f-5318-c688-a878" primary="false" name="Grenades"/>
+        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="6a9f-5318-c688-a878" primary="false" name="Explosives"/>
         <categoryLink targetId="2d7f-1892-2fd0-e29c" id="8809-c7ee-33f9-739f" primary="false" name="Captain"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="1bca-ba42-6a75-8221" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="1a2d-2f00-c054-4dcb" id="f69a-857a-0067-4afe" primary="false" name="Faction: Ultramarines"/>
@@ -1401,11 +1417,11 @@ do not remove it from play. This model can fight after the attacking unit has f
         <profile name="Ancient Gadriel, Veteran Sergeant Metaurus" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="573d-8756-1e35-cf4a">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
           </characteristics>
         </profile>
         <profile name="Gaius Silva, Aemelia Minervas, Dainal Kornelius, Lucia Vestha" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="fec7-5099-b5b8-9760">
@@ -1418,20 +1434,20 @@ do not remove it from play. This model can fight after the attacking unit has f
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Second Company Banner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="061c-2a25-4596-64bf">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit contains Ancient Gadriel, add 1 to the Objective Control characteristic of models in this unit. While this unit contains Ancient Gadriel and Captain Titus, improve the Leadership characteristic of models in this unit by 1 as well.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Strategium Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4925-3113-252d-675c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After both players have deployed their armies, if this unit is on the battlefield (or any Transport it
-is embarked within is on the battlefield), select up to three Adeptus Astartes units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When both players have deployed their armies, you can redeploy up to three friendly **^^Adeptus Astartes^^** units. When doing so, you can set those units up in strategic reserves, regardless of how many units are already in strategic reserves.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Raise the Banner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4ad-a169-15d8-2267">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.</characteristic>
           </characteristics>
         </profile>
       </profiles>
       <infoLinks>
         <infoLink id="5b41-af2b-fb88-e4cc" name="Support" hidden="false" targetId="21f5-c07c-6d97-4405" type="rule"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="dc73-9547-e114-9527" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Ancient Gadriel" hidden="false" id="0157-e958-1a91-3024">
@@ -1574,12 +1590,12 @@ is embarked within is on the battlefield), select up to three Adeptus Astartes 
                 <profile name="Astropathic Blast" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c020-4324-351a-15f9">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Psychic</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Psychic</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1654,7 +1670,7 @@ is embarked within is on the battlefield), select up to three Adeptus Astartes 
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="71a4-41fb-1324-d09e" primary="false" name="Infantry"/>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="2150-2cde-8261-3369" primary="true" name="Epic Hero"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="a59b-a604-e71d-1d76" primary="false" name="Grenades"/>
+        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="a59b-a604-e71d-1d76" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="a6b2-b6c8-1c45-35c2" primary="false" name="Imperium"/>
         <categoryLink targetId="5179-8ede-45e3-49a2" id="204c-8175-a22f-1d9e" primary="false" name="Tacticus"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="be32-89b9-6d51-3e23" primary="false" name="Faction: Adeptus Astartes"/>
@@ -1692,12 +1708,12 @@ is embarked within is on the battlefield), select up to three Adeptus Astartes 
             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
           </characteristics>
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Pistol" id="00ba-9cb5-bb06-1f23" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+        <infoLink name="Close-Quarters" hidden="false" type="rule" id="3a81-9d4a-fda2-d716" targetId="59e0-775e-fce5-43ca"/>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="6dc0-a9d5-a111-daf2">
@@ -1714,6 +1730,68 @@ is embarked within is on the battlefield), select up to three Adeptus Astartes 
           </characteristics>
         </profile>
       </profiles>
+    </selectionEntry>
+    <selectionEntry type="model" import="true" name="Kaius Konorius" hidden="false" id="76c4-8e69-b32e-3a90">
+      <comment>codex-11e: nouvelle fiche (Codex Space Marines p.180) ; points non publies (0 provisoire)
+invuln: 4+</comment>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <profiles>
+        <profile id="b709-693b-678c-28fa" name="Kaius Konorius" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
+          <characteristics>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Veteran Bodyguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d6ed-b38d-4a9e-a485">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is attached to a unit, other **^^Character^^** models in this unit have Feel No Pain 4+.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Calgar’s Champion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="776f-e838-3e81-11aa">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model’s attacks that target a **^^Character^^** unit can:
+■ Re-roll hit rolls of 1.
+■ Re-roll wound rolls of 1.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink targetId="cf47-a0d7-7207-29dc" id="cd32-109c-29cf-5c03" primary="true" name="Infantry"/>
+        <categoryLink targetId="9cfd-1c32-585f-7d5c" id="56de-eb3a-6ddb-df3f" primary="false" name="Character"/>
+        <categoryLink targetId="4f3a-f0f7-6647-348d" id="ed7d-966b-62a5-757f" primary="false" name="Epic Hero"/>
+        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="3e44-27a0-98cd-0e5b" primary="false" name="Explosives"/>
+        <categoryLink targetId="5179-8ede-45e3-49a2" id="0e3d-a963-9b0d-fad7" primary="false" name="Tacticus"/>
+        <categoryLink targetId="6e7-40c-58d9-e402" id="b661-1f8a-04fb-d488" primary="false" name="Faction: Adeptus Astartes"/>
+        <categoryLink targetId="1a2d-2f00-c054-4dcb" id="1a4c-ee08-858f-5934" primary="false" name="Faction: Ultramarines"/>
+      </categoryLinks>
+      <infoLinks>
+        <infoLink name="Invulnerable Save" hidden="false" type="profile" id="064c-1066-3e3d-afd2" targetId="db19-dee7-9530-ef0e"/>
+        <infoLink name="Support" hidden="false" type="rule" id="3ea7-f3b8-6ded-69e0" targetId="21f5-c07c-6d97-4405"/>
+        <infoLink name="Combat Doctrines" hidden="false" type="rule" id="f328-0710-e422-258f" targetId="3b76-4053-ece9-6e7d"/>
+      </infoLinks>
+      <entryLinks>
+        <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="7e5e-d290-b935-ff34" type="selectionEntry" targetId="eca4-d5d2-18a1-01a8">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8646-d379-2587-2f09"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4d39-d0ce-bb2d-4885"/>
+          </constraints>
+        </entryLink>
+        <entryLink import="true" name="Severance and Rebuke" hidden="false" id="f769-d9f1-8237-0c69" type="selectionEntry" targetId="4186-413a-e380-09dc">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="53d7-da42-5a97-14e6"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e1f1-730c-ef9f-022b"/>
+          </constraints>
+        </entryLink>
+      </entryLinks>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4e82-7792-b02e-aa1e"/>
+      </constraints>
     </selectionEntry>
   </sharedSelectionEntries>
   <categoryEntries>
