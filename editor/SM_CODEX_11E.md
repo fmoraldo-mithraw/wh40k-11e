@@ -56,6 +56,22 @@ page de points : le MFM reste à intégrer.
 - Héros de chapitre du codex mis à jour dans leurs fichiers (Ultramarines,
   Imperial Fists, Raven Guard, Salamanders, Iron Hands, White Scars).
 
+## Audit de complétude (2026-09-16)
+
+Scripts `scratchpad/audit_units.js` et `audit_dets.js` : comparaison
+systématique spec codex ↔ `.cat` (statlines par profil, marqueur invuln,
+règles de base/d'armée, mots-clefs, capacités nom+texte, équipements à
+capacité, transport, chaque arme profil par profil avec infoLinks de règles,
+armes hors codex). Résultat : 82/82 fiches et 15/15 détachements sans écart
+(les seuls restes sont les modèles-variantes « w/ X » qui remplacent
+légitimement l'arme de base). Corrigés par l'audit : entrées partagées à
+mauvaise BS (Plasma Pistol/Storm Bolter 2+ sur des escouades), armes
+héritées de la 10e sur Captain/Chaplain JP/Ancient Terminator/Librarian
+Terminator, renommages (Ceramite Fists, Servo-armature, Relics of Battle,
+Omnissian Power Axe and Servo-arm, Combat Knife/MC Bolt Pistol des Company
+Heroes, Raven's Talons, Artificer Grav-gun), Anzuq ajouté à Kor'sarro Khan,
+Combi-weapon à deux profils, Lieutenant Phobos (SIBP/MC Bolt Carbine).
+
 ## Provisoire / déduit
 
 | Objet | État |
