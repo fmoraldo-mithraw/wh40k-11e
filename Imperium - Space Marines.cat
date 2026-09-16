@@ -3528,9 +3528,17 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <categoryLink targetId="6e7-40c-58d9-e402" id="de4-261d-a066-5abe" primary="false" name="Faction: Adeptus Astartes"/>
       </categoryLinks>
       <profiles>
-        <profile name="Multi-spectrum Array" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="19f7-84bb-8aca-b2de">
+        <profile name="Divinator-class Auspexes (Once per phase, per unit)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c2e7-eafe-21e3-a40e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy unit that was hit by one or more attacks made by this unit this phase. Until the end of the phase, each time a friendly Adeptus Astartes unit makes an attack that targets that enemy unit, add 1 to the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot, you can use this ability. If you do, select one visible enemy unit within 18&quot; of this unit. That unit is scanned:
+■ While a unit is scanned, ranged attacks that target that unit can re-roll hit rolls of 1.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Haywire Mine (Once per battle, per unit)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5272-b7c8-e8de-d1fa">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, you can select one visible enemy unit within 6&quot; of this unit and roll one D6. On a 2+:
+■ That enemy unit suffers D3 mortal wounds.
+■ Or: If that enemy unit is a VEHICLE unit, that enemy unit suffers 2D3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3543,7 +3551,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6ca2-97c-766f-a1ed"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="cd78-ba6a-c45e-d0cb" targetId="18b0-8c2-173f-5" collective="false">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="cd78-ba6a-c45e-d0cb" targetId="18b0-8c2-173f-5" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ef60-66f8-3922-161a"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ac01-afd-2211-1194"/>
@@ -3572,6 +3580,10 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5ce3-93d8-2fb2-57e5"/>
                   </constraints>
                   <entryLinks></entryLinks>
+                  <infoLinks>
+                    <infoLink name="Assault" hidden="false" type="rule" id="0129-1119-2bbd-c6fc" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Ignores Cover" hidden="false" type="rule" id="d8e9-aabb-6866-99e5" targetId="4640-43e7-30b-215a"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Paired Combat Blades" hidden="false" id="3a31-37b3-c61f-b6c0">
                   <constraints>
@@ -3592,13 +3604,16 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     </profile>
                   </profiles>
                   <entryLinks></entryLinks>
+                  <infoLinks>
+                    <infoLink name="Sustained Hits" hidden="false" type="rule" id="0804-27bf-96e4-5dc4" targetId="1897-c22c-9597-12b1"/>
+                  </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <profiles>
                 <profile name="Incursor Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="fb81-ddcc-8458-a708">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3613,7 +3628,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="5f77-3b5b-57b6-f323"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="ab39-8daf-3727-d6ec" targetId="18b0-8c2-173f-5" collective="false">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="ab39-8daf-3727-d6ec" targetId="18b0-8c2-173f-5" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ef60-66f8-3922-161a"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ac01-afd-2211-1194"/>
@@ -3639,6 +3654,10 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8c85-b4bb-5f93-b465"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5ce3-93d8-2fb2-57e5"/>
                   </constraints>
+                  <infoLinks>
+                    <infoLink name="Assault" hidden="false" type="rule" id="0277-1f1b-59f6-732e" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Ignores Cover" hidden="false" type="rule" id="041f-508c-cba5-ea41" targetId="4640-43e7-30b-215a"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Paired Combat Blades" hidden="false" id="4848-cb36-bb7b-79d3" collective="true">
                   <constraints>
@@ -3658,13 +3677,16 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                       </characteristics>
                     </profile>
                   </profiles>
+                  <infoLinks>
+                    <infoLink name="Sustained Hits" hidden="false" type="rule" id="8d8e-6dce-4ef2-93b1" targetId="1897-c22c-9597-12b1"/>
+                  </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <profiles>
                 <profile name="Incursor Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="a7b3-985a-baf7-c52c">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3691,23 +3713,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Haywire Mine" hidden="false" id="7821-bef6-34a0-a567" sortIndex="2">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="93ad-ccea-fbe6-6591"/>
-          </constraints>
-          <profiles>
-            <profile name="Haywire Mine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4f32-49a9-f45b-3eb9">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one enemy unit within 3&quot; of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds, or 2D3 mortal wounds instead if it is a Vehicle unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <associations>
-            <association min="1" max="1" scope="527c-120e-9e4e-9bfe" childId="e1c2-7d32-4d16-8ab9" name="Haywire Mine" id="9781-f8f9-8610-9d47"/>
-          </associations>
-        </selectionEntry>
-      </selectionEntries>
+      <selectionEntries></selectionEntries>
       <infoLinks>
         <infoLink name="Scouts" hidden="false" type="rule" id="a0ef-a5eb-8b96-f1d9" targetId="ada6-bac1-ffe0-d6f7">
           <modifiers>
@@ -4287,19 +4293,19 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <modifier type="set" value="0" field="8d74-363-99cc-e6ce"/>
               </modifiers>
               <entryLinks>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="71ce-6b09-a5c-7e53" targetId="b3b-a615-f023-94ef">
+                <entryLink import="true" name="Combat Knife" hidden="false" type="selectionEntry" id="71ce-6b09-a5c-7e53" targetId="2e6e-a915-09a7-28ce">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38f0-2b6d-2cb-8d15"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="275b-c6ab-bda9-93d6"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Boltgun" hidden="false" type="selectionEntry" id="3256-e6ac-d5b2-e40c" targetId="beac-9df8-7247-c8ab">
+                <entryLink import="true" name="Boltgun" hidden="false" type="selectionEntry" id="3256-e6ac-d5b2-e40c" targetId="a03f-c6f8-4b00-b9fe">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="592f-365e-dd14-42f2"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ceb-d185-e2d8-44d8"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="d55-815-395c-12c7" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="d55-815-395c-12c7" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="87a9-7716-3736-daab"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1f39-dab5-5379-e1e2"/>
@@ -4310,7 +4316,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Scout Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7f66-ba3e-d54e-8080">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4325,14 +4331,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5960-5413-5364-892e"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="f59e-4d33-c178-807d" targetId="b3b-a615-f023-94ef">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38f0-2b6d-2cb-8d15"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="275b-c6ab-bda9-93d6"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="199e-ab71-f29f-51a2" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="199e-ab71-f29f-51a2" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="cb72-939b-4f49-96ec-min"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cb72-939b-4f49-96ec-max"/>
@@ -4342,63 +4341,32 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="86e9-581a-cd7d-a968" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <selectionEntryGroups>
-                <selectionEntryGroup name="Weapon option" hidden="false" id="fe9c-f9ed-2182-bd33" defaultSelectionEntryId="3a23-5cef-c475-6b59">
+                <selectionEntryGroup name="Boltgun or replacement" hidden="false" id="3cd8-3462-68b2-2a77" defaultSelectionEntryId="370c-3f41-cfc6-cb37">
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c143-70e6-138e-6440"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2216-11f-b43c-45cf"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d576-a371-c953-c4ea"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3424-2119-0fad-44c9"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Astartes Chainsword" hidden="false" type="selectionEntry" id="3372-7d35-b60e-24a9" targetId="efcd-180-d07-b4d6">
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                    <entryLink import="true" name="Boltgun" hidden="false" type="selectionEntry" id="3a23-5cef-c475-6b59" targetId="beac-9df8-7247-c8ab">
-                      <entryLinks></entryLinks>
-                    </entryLink>
+                    <entryLink import="true" name="Boltgun" hidden="false" id="370c-3f41-cfc6-cb37" type="selectionEntry" targetId="a03f-c6f8-4b00-b9fe"/>
+                    <entryLink import="true" name="Shotgun" hidden="false" id="4534-38b5-6eda-faf7" type="selectionEntry" targetId="60ac-185a-1f3e-dd48"/>
                   </entryLinks>
-                  <selectionEntries>
-                    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="16c0-9ced-c92a-c42f" collective="false">
-                      <profiles>
-                        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b415-bae0-aaf7-3117">
-                          <characteristics>
-                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <entryLinks></entryLinks>
-                    </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Astartes Shotgun" hidden="false" id="2bfb-f524-c9a9-de4" collective="false">
-                      <profiles>
-                        <profile name="Astartes Shotgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2165-d95a-73f9-56c1">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <infoLinks>
-                        <infoLink name="Assault" hidden="false" type="rule" id="b9ee-7025-b7fd-f77d" targetId="fc8a-8c24-bae9-cc1c"/>
-                      </infoLinks>
-                      <entryLinks></entryLinks>
-                    </selectionEntry>
-                  </selectionEntries>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Combat Knife or replacement" hidden="false" id="8574-af00-6ce9-01f2" defaultSelectionEntryId="4c1f-bc8b-806a-bbed">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c225-313d-7361-9925"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b36d-b29e-94a2-4413"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Combat Knife" hidden="false" id="4c1f-bc8b-806a-bbed" type="selectionEntry" targetId="2e6e-a915-09a7-28ce"/>
+                    <entryLink import="true" name="Chainsword" hidden="false" id="a3ab-1a8f-4d85-d80e" type="selectionEntry" targetId="0584-9c50-9abc-9769"/>
+                  </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <profiles>
                 <profile name="Scout Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="dc00-8ea2-eab4-0a7e">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4407,15 +4375,15 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 </profile>
               </profiles>
             </selectionEntry>
-            <selectionEntry type="model" import="true" name="Scouts w/ Astartes Shotgun" hidden="false" id="9348-3b0f-f0dc-978b">
+            <selectionEntry type="model" import="true" name="Scouts w/ Shotgun" hidden="false" id="9348-3b0f-f0dc-978b">
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="9fbe-a721-1e37-83aa" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="9fbe-a721-1e37-83aa" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="87a9-7716-3736-daab"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1f39-dab5-5379-e1e2"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="1375-4cdc-9ffe-76e8" targetId="b3b-a615-f023-94ef">
+                <entryLink import="true" name="Combat Knife" hidden="false" type="selectionEntry" id="1375-4cdc-9ffe-76e8" targetId="2e6e-a915-09a7-28ce">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38f0-2b6d-2cb-8d15"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="275b-c6ab-bda9-93d6"/>
@@ -4426,26 +4394,27 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="242c-90da-2099-af4f"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Astartes Shotgun" hidden="false" id="de02-10d8-697a-6b2c" collective="true">
+                <selectionEntry type="upgrade" import="true" name="Shotgun" hidden="false" id="de02-10d8-697a-6b2c" collective="true">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f28a-3ab4-5bf2-418e"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="337c-ea75-da50-373a"/>
                   </constraints>
                   <profiles>
-                    <profile name="Astartes Shotgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d551-4c0f-74d3-dc34">
+                    <profile name="Shotgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="1048-f156-ae6f-4fe7">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Blast 1</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Assault" hidden="false" type="rule" id="805e-c44c-feb6-f2b8" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Assault" hidden="false" type="rule" id="3c40-a14b-f2b7-87f2" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Blast" hidden="false" type="rule" id="48b4-6e1d-5569-ec2c" targetId="6c1f-1cf7-ff25-c99e"/>
                   </infoLinks>
                 </selectionEntry>
               </selectionEntries>
@@ -4453,59 +4422,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Scout Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="e5f5-b282-7707-d323">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-            <selectionEntry type="model" import="true" name="Scouts w/ Combat Knife" hidden="false" id="5173-cc7b-b53a-514">
-              <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="9660-bb43-b2d5-2c31" targetId="18b0-8c2-173f-5">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="87a9-7716-3736-daab"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1f39-dab5-5379-e1e2"/>
-                  </constraints>
-                </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="7423-b86e-d57a-2568" targetId="b3b-a615-f023-94ef">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38f0-2b6d-2cb-8d15"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="275b-c6ab-bda9-93d6"/>
-                  </constraints>
-                </entryLink>
-              </entryLinks>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="bb81-7856-64-f9e" collective="true">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b50d-cebe-c7c7-9e13"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="55d1-df9d-de6a-80dc"/>
-                  </constraints>
-                  <profiles>
-                    <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="40a9-dff6-e209-c7ae">
-                      <characteristics>
-                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                        <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                </selectionEntry>
-              </selectionEntries>
-              <constraints>
-                <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="1754-f208-a1a7-f8a"/>
-              </constraints>
-              <profiles>
-                <profile name="Scout Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="a376-b4e6-860-1ca0">
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4516,13 +4433,13 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Scout w/ Heavy Weapon" hidden="false" id="9ed8-177c-3a9-f928">
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="1ab7-7996-2c8-2570" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="1ab7-7996-2c8-2570" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="87a9-7716-3736-daab"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1f39-dab5-5379-e1e2"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="6990-5802-328-1b32" targetId="b3b-a615-f023-94ef">
+                <entryLink import="true" name="Combat Knife" hidden="false" type="selectionEntry" id="6990-5802-328-1b32" targetId="2e6e-a915-09a7-28ce">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38f0-2b6d-2cb-8d15"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="275b-c6ab-bda9-93d6"/>
@@ -4536,8 +4453,8 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6add-6e61-2741-86d4"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Heavy Bolter" hidden="false" type="selectionEntry" id="a651-281-d9b3-296e" targetId="58c-876b-8430-a0e6"/>
-                    <entryLink import="true" name="Missile Launcher" hidden="false" type="selectionEntry" id="4c26-4e20-643e-3e24" targetId="1c19-102c-9058-c35d">
+                    <entryLink import="true" name="Heavy Bolter" hidden="false" type="selectionEntry" id="a651-281-d9b3-296e" targetId="4f65-0f5a-a16e-8802"/>
+                    <entryLink import="true" name="Missile Launcher" hidden="false" type="selectionEntry" id="4c26-4e20-643e-3e24" targetId="06e3-ccc7-c438-7102">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="82b0-8c91-6d19-b997"/>
                       </constraints>
@@ -4546,7 +4463,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5ccd-4fd1-59d5-a1a6"/>
+                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="5ccd-4fd1-59d5-a1a6"/>
               </constraints>
               <modifiers>
                 <modifier type="set" value="2" field="5ccd-4fd1-59d5-a1a6">
@@ -4559,7 +4476,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Scout Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="99b0-6607-b911-4171">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4568,23 +4485,23 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 </profile>
               </profiles>
             </selectionEntry>
-            <selectionEntry type="model" import="true" name="Scout w/ Scout Sniper Rifle" hidden="false" id="428c-bf14-96d3-4692">
+            <selectionEntry type="model" import="true" name="Scout w/ Sniper Rifle" hidden="false" id="428c-bf14-96d3-4692">
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1d3b-6c89-f925-3e63"/>
+                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="1d3b-6c89-f925-3e63"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Scout Sniper Rifle" hidden="false" id="58dc-bd5e-fe8-7bd" collective="false">
+                <selectionEntry type="upgrade" import="true" name="Sniper Rifle" hidden="false" id="58dc-bd5e-fe8-7bd" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2767-3f74-6710-dd49"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8474-6dc8-22ca-8881"/>
                   </constraints>
                   <profiles>
-                    <profile name="Scout Sniper Rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="48f8-6d7-84e8-1434">
+                    <profile name="Sniper Rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3650-5bd0-1d24-84eb">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Precision</characteristic>
@@ -4592,19 +4509,19 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Heavy" hidden="false" type="rule" id="ded1-43c3-221b-cf75" targetId="1202-10a8-78e9-4c67"/>
-                    <infoLink name="Precision" hidden="false" type="rule" id="3f55-afd1-5f85-c747" targetId="9143-31ae-e0a6-6007"/>
+                    <infoLink name="Heavy" hidden="false" type="rule" id="7ce8-d943-c8d1-9241" targetId="1202-10a8-78e9-4c67"/>
+                    <infoLink name="Precision" hidden="false" type="rule" id="efa3-ea4f-a270-b56c" targetId="9143-31ae-e0a6-6007"/>
                   </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="5183-2014-a66d-dc7b" targetId="b3b-a615-f023-94ef">
+                <entryLink import="true" name="Combat Knife" hidden="false" type="selectionEntry" id="5183-2014-a66d-dc7b" targetId="2e6e-a915-09a7-28ce">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7beb-33e1-c79b-36ee"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2c46-5d5f-cf73-237"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="5076-e3eb-c3f8-6438" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="5076-e3eb-c3f8-6438" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b56c-eee8-441e-af68"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d5ec-8325-df1d-3bf1"/>
@@ -4622,7 +4539,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Scout Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="02ca-076e-1a1e-0634">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4650,10 +4567,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         </selectionEntryGroup>
       </selectionEntryGroups>
       <profiles>
-        <profile name="Guerrilla Tactics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e18-73a0-a8ca-130d">
+        <profile name="Flexible Asset" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="26d1-44b8-68e0-944f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent’s turn, if this unit is more than 6&quot; away from all enemy models, you can remove this unit from the battlefield and place it into
-Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to make an advance/fall-back move, that advance/fall-back move does not prevent this unit from being eligible to start an action.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5034,7 +4950,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Vanguard Veteran Squad with Jump Packs" hidden="false" id="9e9c-bf4d-2d40-be82">
-      <comment>sim-mod: source=&quot;Vanguard Assault&quot; lethal when=melee onCharge
+      <comment>sim-mod: source=&quot;Vanguard Assault&quot; attacks=+1 when=melee onCharge
 sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
@@ -5051,11 +4967,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
         <categoryLink targetId="dda2-bb0a-215e-ad9c" id="7941-f971-21f3-da90" primary="false" name="Jump Pack"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="d801-2033-8c10-2067" primary="false" name="Fly"/>
         <categoryLink name="Vanguard Veteran Squad" hidden="false" id="5ce2-f67b-a337-b353" targetId="c7d2-a98d-4ad2-c426" primary="false"/>
+        <categoryLink targetId="5179-8ede-45e3-49a2" id="b688-c63d-bd13-f990" primary="false" name="Tacticus"/>
       </categoryLinks>
       <profiles>
         <profile name="Vanguard Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d6a5-7f38-ea6f-5043">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit ends a Charge move, until the end of the turn, melee weapons equipped by models in this unit have the [LETHAL HITS] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a charge move this turn, this unit’s melee attacks have +1 A.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5104,60 +5021,16 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="1f4-2e60-49fb-3"/>
               </constraints>
               <selectionEntryGroups>
-                <selectionEntryGroup name="Pistol Option" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="c252-ce95-be5e-ac20">
+                <selectionEntryGroup name="Heavy Bolt Pistol or replacement" hidden="false" id="1afc-6f0a-4423-db37" defaultSelectionEntryId="2809-af51-7809-5c28">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="21a2-c26f-42dd-99be" targetId="25c2-104f-fa0c-809e"/>
-                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" id="c252-ce95-be5e-ac20" type="selectionEntry" targetId="576a-9a88-1cc6-680f"/>
-                    <entryLink import="true" name="Bolt pistol" hidden="false" id="296c-e51c-3295-570c" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                    <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="2809-af51-7809-5c28" type="selectionEntry" targetId="83a1-feb8-d495-aa28"/>
+                    <entryLink import="true" name="Plasma Pistol" hidden="false" id="330a-0711-5c67-35dd" type="selectionEntry" targetId="c27c-b505-4fd6-a143"/>
+                    <entryLink import="true" name="Combat Shield" hidden="false" id="91c1-a96c-3250-212e" type="selectionEntry" targetId="6ffe-9779-3b09-5715"/>
                   </entryLinks>
-                </selectionEntryGroup>
-                <selectionEntryGroup name="Melee Option" hidden="false" id="9853-1613-45af-cb6a" defaultSelectionEntryId="4fab-9370-8ba1-b1bc">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="700d-ed26-83c1-1a37"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1144-bb07-730d-9d3b"/>
-                  </constraints>
-                  <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Master-crafted power weapon" hidden="false" id="4fab-9370-8ba1-b1bc" collective="true">
-                  <profiles>
-                    <profile name="Master-crafted power weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ca66-54e3-a097-55b0">
-                      <characteristics>
-                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                        <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <constraints>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9343-e602-e906-688b"/>
-                  </constraints>
-                </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Vanguard Veteran Weapon" hidden="false" id="2d81-6ddd-5144-55cd" collective="true">
-                      <profiles>
-                        <profile name="Vanguard Veteran Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1db4-8ea4-b641-398b">
-                          <characteristics>
-                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <constraints>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e969-e470-d692-ece2"/>
-                      </constraints>
-                    </selectionEntry>
-                  </selectionEntries>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <profiles>
@@ -5172,6 +5045,14 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                   </characteristics>
                 </profile>
               </profiles>
+              <entryLinks>
+                <entryLink import="true" name="Master-crafted Power Weapon" hidden="false" id="0080-b116-80a9-0ae6" type="selectionEntry" targetId="a4bd-5e51-bdd9-4364">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="96c5-0c8a-64e4-77fe"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="531f-930e-180f-1841"/>
+                  </constraints>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Vanguard Veteran Sergeant with Jump Pack" hidden="false" id="20d9-b1de-d9db-72ef">
               <constraints>
@@ -5182,31 +5063,26 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="11d0-1cc1-eec4-a97c" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <selectionEntryGroups>
-                <selectionEntryGroup name="Pistol Option" hidden="false" id="6f57-8789-8362-12e6" defaultSelectionEntryId="3920-2e53-55d7-7b50">
+                <selectionEntryGroup name="Heavy Bolt Pistol or replacement" hidden="false" id="6f57-8789-8362-12e6" defaultSelectionEntryId="393b-11d4-bfe7-a55a">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="33c-6407-f7a-5170"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1e5e-4895-4b44-34dc"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Heavy bolt pistol" hidden="false" type="selectionEntry" id="3920-2e53-55d7-7b50" targetId="576a-9a88-1cc6-680f">
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="78d7-5800-5cb-80f7" targetId="25c2-104f-fa0c-809e">
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                    <entryLink import="true" name="Bolt pistol" hidden="false" id="4763-5c2e-4acd-edec" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                    <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="393b-11d4-bfe7-a55a" type="selectionEntry" targetId="83a1-feb8-d495-aa28"/>
+                    <entryLink import="true" name="Plasma Pistol" hidden="false" id="4734-0045-bf58-3310" type="selectionEntry" targetId="c27c-b505-4fd6-a143"/>
+                    <entryLink import="true" name="Combat Shield" hidden="false" id="1972-2021-83f5-ff4f" type="selectionEntry" targetId="6ffe-9779-3b09-5715"/>
                   </entryLinks>
                 </selectionEntryGroup>
-                <selectionEntryGroup name="Melee Option" hidden="false" id="c5e6-a372-62e6-dda9" defaultSelectionEntryId="5eaa-19f1-e3b2-8652">
+                <selectionEntryGroup name="Relic Blade or replacement" hidden="false" id="c5e6-a372-62e6-dda9" defaultSelectionEntryId="5d56-9db2-29de-f48b">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="474b-d5d3-c946-da91"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0c65-6bc6-5707-18c2"/>
                   </constraints>
                   <entryLinks>
-                <entryLink import="true" name="Master-crafted power weapon" hidden="false" type="selectionEntry" id="5eaa-19f1-e3b2-8652" targetId="4fab-9370-8ba1-b1bc">
-                  <entryLinks></entryLinks>
-                </entryLink>
-                    <entryLink import="true" name="Vanguard Veteran Weapon" hidden="false" id="3beb-1d1f-6f40-e212" type="selectionEntry" targetId="2d81-6ddd-5144-55cd"/>
+                    <entryLink import="true" name="Relic Blade" hidden="false" id="5d56-9db2-29de-f48b" type="selectionEntry" targetId="12cd-4a14-b8de-99ea"/>
+                    <entryLink import="true" name="Power Fist" hidden="false" id="4d81-eeca-a301-81cf" type="selectionEntry" targetId="f8d8-7e77-4b71-faac"/>
+                    <entryLink import="true" name="Thunder Hammer" hidden="false" id="131e-db60-2431-88bc" type="selectionEntry" targetId="4913-96d4-2b1f-2c21"/>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -5608,12 +5484,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
       <profiles>
         <profile name="Fearsome Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2a6f-de17-6e0-6a6e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test, subtracting 1 from that test.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, each enemy unit engaged with a unit with this ability makes a battle-shock roll, with -1 to that battle-shock roll.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Terror Troops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="234b-7f36-5b91-8b49">
+        <profile name="Terror Troops (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="234b-7f36-5b91-8b49">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit (excluding Monsters and Vehicles) is within 3&quot; of one or more units with this ability, subtract 1 from the Objective Control characteristic of models in that enemy unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy model is within 3&quot; of this unit, that enemy model has -1 OC.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5625,104 +5501,13 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="d7ba-9bd0-460b-cd92"/>
                 <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="f270-d1cd-45ed-7de9"/>
               </constraints>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Special Issue Bolt Pistol" hidden="false" id="3f4f-efd-2d8f-e37d" collective="true">
-                  <profiles>
-                    <profile name="Special Issue Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2bfe-7c74-7b70-a846">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Precision, Close-Quarters</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="788-bd84-361d-6c00"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="71c2-187d-c6b7-5efd"/>
-                  </constraints>
-                  <infoLinks>
-                    <infoLink name="Precision" hidden="false" type="rule" id="72f5-d22d-59a9-8b5c" targetId="9143-31ae-e0a6-6007"/>
-                    <infoLink name="Close-Quarters" hidden="false" type="rule" id="e50b-fa5e-2d7d-140d" targetId="59e0-775e-fce5-43ca"/>
-                  </infoLinks>
-                </selectionEntry>
-              </selectionEntries>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Weapon Option" hidden="false" id="8e17-47eb-4468-a856" collective="false" defaultSelectionEntryId="118c-911c-2f73-6803">
-                  <selectionEntries>
-                    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="118c-911c-2f73-6803" collective="true">
-                      <constraints>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="32e7-dbcb-b86-977c"/>
-                      </constraints>
-                      <profiles>
-                        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="23cb-a1c9-87be-722d">
-                          <characteristics>
-                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
-                          </characteristics>
-                        </profile>
-                      </profiles>
-                      <infoLinks>
-                        <infoLink name="Precision" hidden="false" type="rule" id="8259-9038-cc01-a3bf" targetId="9143-31ae-e0a6-6007"/>
-                      </infoLinks>
-                    </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Bolt Carbine and Close Combat Weapon" hidden="false" id="db7a-af1e-7c27-7673" collective="true">
-                      <constraints>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a240-5af2-8167-4e84"/>
-                      </constraints>
-                      <selectionEntries>
-                        <selectionEntry type="upgrade" import="true" name="Bolt Carbine" hidden="false" id="a5fb-aa4d-100f-e1bb" collective="true">
-                          <profiles>
-                            <profile name="Bolt Carbine" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ba44-a36e-9207-a5e">
-                              <characteristics>
-                                <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                                <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                                <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                                <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                                <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                                <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Precision</characteristic>
-                              </characteristics>
-                            </profile>
-                          </profiles>
-                          <infoLinks>
-                            <infoLink name="Precision" hidden="false" type="rule" id="73d3-6552-f63a-e564" targetId="9143-31ae-e0a6-6007"/>
-                          </infoLinks>
-                          <constraints>
-                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5a53-af86-cf89-8597"/>
-                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4b95-11cb-88e4-663f"/>
-                          </constraints>
-                        </selectionEntry>
-                      </selectionEntries>
-                      <entryLinks>
-                        <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="7098-16ef-52a6-f17e" targetId="6c7d-af5b-482-6fbe">
-                          <constraints>
-                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e656-525d-70a0-5f55"/>
-                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c8c3-4a75-d01b-84cb"/>
-                          </constraints>
-                        </entryLink>
-                      </entryLinks>
-                    </selectionEntry>
-                  </selectionEntries>
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b057-e7cd-4763-426"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4ca2-8868-4de0-713c"/>
-                  </constraints>
-                </selectionEntryGroup>
-              </selectionEntryGroups>
+              <selectionEntries></selectionEntries>
+              <selectionEntryGroups></selectionEntryGroups>
               <profiles>
                 <profile name="Reiver Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="416b-4ee9-e9dc-52a1">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -5730,56 +5515,59 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                   </characteristics>
                 </profile>
               </profiles>
+              <entryLinks>
+                <entryLink import="true" name="Bolt Carbine" hidden="false" id="2b96-6917-b7b9-9039" type="selectionEntry" targetId="3e07-7164-d315-711d">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c65f-5b9f-938c-54ac"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="078f-ccbd-4534-1d76"/>
+                  </constraints>
+                </entryLink>
+                <entryLink import="true" name="Monomolecular Combat Knife" hidden="false" id="9df0-ab9f-3dcb-eccb" type="selectionEntry" targetId="39f7-0f64-98d0-7196">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fe80-0d7c-58c7-800b"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="973a-bb31-45f3-483f"/>
+                  </constraints>
+                </entryLink>
+                <entryLink import="true" name="Special-issue Bolt Pistol" hidden="false" id="260c-92a0-ea98-ef0d" type="selectionEntry" targetId="b0d9-732e-af09-abf2">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f31a-abc2-0da4-2be0"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1dd3-ac01-7c1c-d718"/>
+                  </constraints>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Reiver Sergeant" hidden="false" id="a18e-7629-e4fd-53c6">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d3f2-a13-7f03-6d98"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="713a-205f-a7b3-c696"/>
               </constraints>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Bolt Carbine" hidden="false" id="51b8-ba4a-c6e6-e111">
-                  <infoLinks>
-                    <infoLink name="Bolt Carbine" hidden="false" type="profile" id="8877-cf83-31f9-9b09" targetId="ba44-a36e-9207-a5e"/>
-                  </infoLinks>
-                  <constraints>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="420c-7790-5a54-a349"/>
-                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="d51c-144a-a934-b641"/>
-                  </constraints>
-                  <modifiers>
-                    <modifier type="set" value="true" field="hidden">
-                      <conditions>
-                        <condition type="lessThan" value="1" field="selections" scope="a7ae-e495-683b-7c90" childId="db7a-af1e-7c27-7673" shared="true" id="148c-c1eb-358c-fcdd" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                    <modifier type="set" value="1" field="d51c-144a-a934-b641">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="a7ae-e495-683b-7c90" childId="db7a-af1e-7c27-7673" shared="true" id="b4da-9732-b8e1-ab51" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                  </modifiers>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-              </selectionEntries>
+              <selectionEntries></selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Combat Knife" hidden="false" type="selectionEntry" id="ec5d-f3fc-26df-5b7a" targetId="118c-911c-2f73-6803">
+                <entryLink import="true" name="Bolt Carbine" hidden="false" id="adec-cd7c-0f88-65c8" type="selectionEntry" targetId="3e07-7164-d315-711d">
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a759-a5d1-b2a5-2ae"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4ef2-6fb7-c451-0603"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9f6b-021e-a28b-dd9e"/>
                   </constraints>
-                  <modifiers>
-                    <modifier type="set" value="0" field="a759-a5d1-b2a5-2ae"/>
-                  </modifiers>
-                  <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Special Issue Bolt Pistol" hidden="false" type="selectionEntry" id="c1bb-f158-1d11-22c3" targetId="3f4f-efd-2d8f-e37d">
-                  <entryLinks></entryLinks>
+                <entryLink import="true" name="Monomolecular Combat Knife" hidden="false" id="aaa3-f939-c129-46b7" type="selectionEntry" targetId="39f7-0f64-98d0-7196">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="949c-fa59-6967-eeda"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="702a-67a0-1745-df4a"/>
+                  </constraints>
+                </entryLink>
+                <entryLink import="true" name="Special-issue Bolt Pistol" hidden="false" id="932d-9143-f03e-8700" type="selectionEntry" targetId="b0d9-732e-af09-abf2">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8eb9-1426-8721-8085"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ca4d-beb9-bb40-82a2"/>
+                  </constraints>
                 </entryLink>
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="2013-66a4-037d-433f" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <profiles>
                 <profile name="Reiver Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="1902-03de-74d6-078e">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -5823,20 +5611,21 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
           <profiles>
             <profile name="Grapnel Launchers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="85a4-4177-8c1b-e355">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time the bearer’s unit makes a Normal, Advance, Fall Back or Charge move, ignore any vertical distance when determining the total distance the
-bearer can be moved during that move</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit makes a move, this unit can:
+■ Move through all types of model.
+■ Ignore all vertical distance for the purposes of how far this unit has moved.</characteristic>
               </characteristics>
             </profile>
           </profiles>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Reiver Grav-chute" hidden="false" id="f9d9-174e-accb-eef0" sortIndex="3">
+        <selectionEntry type="upgrade" import="true" name="Grav-chutes" hidden="false" id="f9d9-174e-accb-eef0" sortIndex="3">
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6554-55da-fe97-a461"/>
           </constraints>
           <profiles>
-            <profile name="Reiver Grav-chute" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d035-b128-7039-4b37">
+            <profile name="Grav-chutes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d035-b128-7039-4b37">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has the Deep Strike ability.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has Deep Strike.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -8662,7 +8451,9 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Outrider Squad" hidden="false" id="b5e8-c34b-566b-8bda">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;
+sim-mod: source=&quot;Full-throttle Assault&quot; dmg=+1 sustained=1 when=melee onCharge
+sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quot;Thunder Hammer&quot; when=melee onCharge</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
@@ -8671,19 +8462,13 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
           <selectionEntries>
             <selectionEntry type="model" import="true" name="Outrider" hidden="false" id="d210-e1d4-4d3-e692">
               <entryLinks>
-                <entryLink import="true" name="Astartes Chainsword" hidden="false" type="selectionEntry" id="5fe4-62d1-3aac-6642" targetId="efcd-180-d07-b4d6">
+                <entryLink import="true" name="Chainsword" hidden="false" id="4a51-14b2-cff4-6f00" type="selectionEntry" targetId="de4b-bcfa-7824-5142">
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7615-81e5-8cd2-483e"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9a96-6d70-7d8a-bf5c"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3f8e-450d-2eac-08bf"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b708-2e9d-9f56-ac87"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" type="selectionEntry" id="6d82-544e-66eb-e910" targetId="83a1-feb8-d495-aa28">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="32e9-b1d9-b473-3365"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5b6-af7e-36e-3056"/>
-                  </constraints>
-                </entryLink>
-                <entryLink import="true" name="Twin bolt rifle" hidden="false" type="selectionEntry" id="95e7-5670-24c7-e191" targetId="3451-a59-ad9d-cc65">
+                <entryLink import="true" name="Twin Bolt Rifle" hidden="false" type="selectionEntry" id="95e7-5670-24c7-e191" targetId="99c3-7661-0d5f-714c">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="db99-ddf5-8df7-2e1c"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7fb8-2b3f-2c28-11ef"/>
@@ -8706,6 +8491,22 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
                   </characteristics>
                 </profile>
               </profiles>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Heavy Bolt Pistol or replacement" hidden="false" id="721d-d4ec-251e-16ec" defaultSelectionEntryId="eb56-30a3-d69f-9ee6">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9fa8-0b3b-d2a9-6e13"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ce8d-0242-f150-4fbc"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="eb56-30a3-d69f-9ee6" type="selectionEntry" targetId="83a1-feb8-d495-aa28"/>
+                    <entryLink import="true" name="Plasma Pistol" hidden="false" id="e180-74d6-4237-eb8a" type="selectionEntry" targetId="c27c-b505-4fd6-a143">
+                      <constraints>
+                        <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="3eb9-15cd-8f6b-1021"/>
+                      </constraints>
+                    </entryLink>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Outrider Sergeant" hidden="false" id="c8e5-e034-e794-c00c">
               <constraints>
@@ -8713,21 +8514,7 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fe10-e7ac-9e27-e878"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Astartes Chainsword" hidden="false" type="selectionEntry" id="6c57-6ffc-2df8-feb3" targetId="efcd-180-d07-b4d6">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7615-81e5-8cd2-483e"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9a96-6d70-7d8a-bf5c"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" type="selectionEntry" id="85e6-4cf5-52c3-d04d" targetId="83a1-feb8-d495-aa28">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="32e9-b1d9-b473-3365"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5b6-af7e-36e-3056"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Twin bolt rifle" hidden="false" type="selectionEntry" id="be97-c3f5-d00f-809c" targetId="3451-a59-ad9d-cc65">
+                <entryLink import="true" name="Twin Bolt Rifle" hidden="false" type="selectionEntry" id="be97-c3f5-d00f-809c" targetId="99c3-7661-0d5f-714c">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="db99-ddf5-8df7-2e1c"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7fb8-2b3f-2c28-11ef"/>
@@ -8748,6 +8535,29 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
                   </characteristics>
                 </profile>
               </profiles>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Chainsword or replacement" hidden="false" id="3494-2890-b1ca-3342" defaultSelectionEntryId="4883-0ea9-7d30-7021">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c6d9-db43-cc79-75f2"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fe86-399d-a9e6-9e45"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Chainsword" hidden="false" id="4883-0ea9-7d30-7021" type="selectionEntry" targetId="de4b-bcfa-7824-5142"/>
+                    <entryLink import="true" name="Power Weapon" hidden="false" id="9d6b-b4f3-0f92-2137" type="selectionEntry" targetId="4d28-5123-0979-9cd5"/>
+                    <entryLink import="true" name="Thunder Hammer" hidden="false" id="2047-0086-f01d-dc84" type="selectionEntry" targetId="4913-96d4-2b1f-2c21"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+                <selectionEntryGroup name="Heavy Bolt Pistol or replacement" hidden="false" id="5c22-9a9a-a5a4-716c" defaultSelectionEntryId="eb51-2fab-4df7-ec81">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="665b-f0c2-fcce-4cc8"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="07b6-fc12-cb96-5df1"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="eb51-2fab-4df7-ec81" type="selectionEntry" targetId="83a1-feb8-d495-aa28"/>
+                    <entryLink import="true" name="Plasma Pistol" hidden="false" id="0ab7-696d-a54a-5c10" type="selectionEntry" targetId="c27c-b505-4fd6-a143"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -8812,19 +8622,15 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
         </modifier>
       </modifiers>
       <profiles>
-        <profile name="Thunderous Impact" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b4bd-e247-b596-4db2">
+        <profile name="Full-throttle Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c7e4-605c-c4fe-da6d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a melee attack, if this unit made a Charge move this turn, improve the Strength and Damage characteristics of that attack by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a charge move this turn, this unit’s:
+■ Thunder Hammer weapons have +1 to hit rolls and [SUSTAINED HITS 1].
+■ Other melee weapons have +1 D and [SUSTAINED HITS 1].</characteristic>
           </characteristics>
         </profile>
       </profiles>
-      <entryLinks>
-        <entryLink import="true" name="Invader ATV" hidden="false" type="selectionEntry" id="eb06-eea4-a9d6-dba5" targetId="8d7b-3dfe-7b91-2490" sortIndex="3">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e4a4-ea58-4d47-8fff"/>
-          </constraints>
-        </entryLink>
-      </entryLinks>
+      <entryLinks></entryLinks>
       <categoryLinks>
         <categoryLink targetId="14a0-40c9-2748-ae6e" id="116d-2c55-b1dc-e838" primary="true" name="Mounted"/>
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="a5b4-2dd7-cb17-c829" primary="false" name="Explosives"/>
@@ -10237,21 +10043,21 @@ codex-11e: 1-2 Invader ATV (points du 2e modele non publies)</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Eliminator Squad" hidden="false" id="d6c3-e9d2-430d-6c2f">
-      <comment>sim-mod: source=&quot;Mark the Target&quot; dev when=ranged conditional
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <profiles>
-        <profile name="Reposition Under Covering Fire" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d2ad-d0a2-4079-f902">
+        <profile name="Chameleoline Cloaks" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="df2a-b030-e7e7-73eb">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, if it contains an Eliminator Sergeant equipped with an instigator bolt carbine, this unit can make a
-Normal move. If it does so, until the end of the turn, this unit is not eligible to declare a charge.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has -3&quot; detection range.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Mark the Target" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bda1-520a-6fd7-c422">
+        <profile name="Special-issue Optics and Ammunition" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d4f-bc0b-0655-6b68">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit Remains Stationary, until the start of your next Movement phase, ranged weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when this unit is selected to shoot, you can select one of the following:
+■ This unit’s ranged attacks have [IGNORES COVER].
+■ Or: Select one enemy unit within 24&quot; of this unit. That enemy unit has +6&quot; detection range until this unit has shot.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -10270,14 +10076,14 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b4a4-865f-e660-bf31"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="b9c0-2a5c-2c7a-341d" targetId="6c7d-af5b-482-6fbe">
+                <entryLink import="true" name="Ceramite Fists" hidden="false" type="selectionEntry" id="b9c0-2a5c-2c7a-341d" targetId="0b35-6b34-743d-03cf">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="50ff-fc8a-79dd-c9ec"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2c77-45a3-6164-1cd3"/>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="ce5a-e2c7-b6d6-2f65" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="ce5a-e2c7-b6d6-2f65" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3284-efa6-db92-d8ae"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="95e7-b102-6e1e-aae2"/>
@@ -10296,7 +10102,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                     <entryLink import="true" name="Bolt Sniper Rifle" hidden="false" type="selectionEntry" id="30cd-9443-83f7-d3ad" targetId="ab36-4f93-71d9-3d73">
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Las fusil" hidden="false" type="selectionEntry" id="4088-5114-c292-f780" targetId="631b-bd1f-e76a-e166">
+                    <entryLink import="true" name="Las Fusil" hidden="false" type="selectionEntry" id="4088-5114-c292-f780" targetId="631b-bd1f-e76a-e166">
                       <entryLinks></entryLinks>
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d55f-44c2-e1cd-ad15"/>
@@ -10309,17 +10115,19 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                         <profile name="Instigator Bolt Carbine" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ffe3-a16e-ce0a-98a4">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Precision</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits: non-MONSTER/VEHICLE, Precision, Rapid Fire 2</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
                       <infoLinks>
                         <infoLink name="Precision" hidden="false" type="rule" id="1857-4c14-b9e9-3072" targetId="9143-31ae-e0a6-6007"/>
+                        <infoLink name="Lethal Hits" hidden="false" type="rule" id="0e46-62d2-ea8f-b0ed" targetId="d1d1-611e-5191-1095"/>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="32e1-c441-d359-bbb8" targetId="c5c8-8b58-b8b6-7786"/>
                       </infoLinks>
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2a8a-9355-862a-749d"/>
@@ -10332,8 +10140,8 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
               <profiles>
                 <profile name="Eliminator Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="58d1-ca8c-a173-a1f2">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -10357,7 +10165,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Precision</characteristic>
@@ -10378,7 +10186,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="698e-b58e-8a49-75ab"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Las fusil" hidden="false" id="16fa-a678-e50a-dbcb" type="selectionEntry" targetId="631b-bd1f-e76a-e166">
+                    <entryLink import="true" name="Las Fusil" hidden="false" id="16fa-a678-e50a-dbcb" type="selectionEntry" targetId="631b-bd1f-e76a-e166">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="608b-58c9-7ce4-1563"/>
                       </constraints>
@@ -10387,13 +10195,13 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="55f1-4c41-76a7-a85e" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="55f1-4c41-76a7-a85e" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3284-efa6-db92-d8ae"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="95e7-b102-6e1e-aae2"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="13d5-b217-a0ab-50d6" targetId="6c7d-af5b-482-6fbe">
+                <entryLink import="true" name="Ceramite Fists" hidden="false" type="selectionEntry" id="13d5-b217-a0ab-50d6" targetId="0b35-6b34-743d-03cf">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="50ff-fc8a-79dd-c9ec"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2c77-45a3-6164-1cd3"/>
@@ -10403,8 +10211,8 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
               <profiles>
                 <profile name="Eliminator Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="30dc-3474-7760-e932">
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -10438,6 +10246,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
         <categoryLink targetId="7295-ed65-8ff4-7a5f" id="a293-6c4-f59f-c7f" primary="false" name="Phobos"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="4cfc-a5e9-bbb5-20ba" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="ad98-e844-f9ec-7551" id="101f-da86-fffc-e440" primary="false" name="Eliminator Squad"/>
+        <categoryLink targetId="6df-937-16bc-8c1a" id="6ec4-b4ff-9032-e8bb" primary="false" name="Smoke"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="f064-9bb2-998-80d1"/>
@@ -10515,9 +10324,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Eradicator Squad" hidden="false" id="c570-c6ba-c9dc-5a44">
-      <comment>sim-mod: source=&quot;Total Obliteration&quot; reroll=hit when=ranged vs=Monster,Vehicle
-sim-mod: source=&quot;Total Obliteration&quot; reroll=wound when=ranged vs=Monster,Vehicle
-sim-mod: source=&quot;Total Obliteration&quot; reroll=dmg when=ranged vs=Monster,Vehicle
+      <comment>sim-mod: source=&quot;Total Obliteration&quot; reroll=dmg when=ranged
 sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction=&quot;Black Templars&quot;</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
@@ -10548,21 +10355,21 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cf3d-3190-e4f1-71b1"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="a6b1-b8e9-a5d3-ede7" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="a6b1-b8e9-a5d3-ede7" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="495b-f3b2-1871-b3c1"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c07f-ba42-939a-e3cc"/>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="7e6f-89f4-9e86-af28" targetId="6c7d-af5b-482-6fbe">
+                <entryLink import="true" name="Ceramite Fists" hidden="false" type="selectionEntry" id="7e6f-89f4-9e86-af28" targetId="0b35-6b34-743d-03cf">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="abbc-33c6-f019-cb1e"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f05f-df83-e97f-ae17"/>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Melta rifle" hidden="false" type="selectionEntry" id="5dfc-2a10-6e16-48e9" targetId="c88c-d4a0-4ec4-625c">
+                <entryLink import="true" name="Melta Rifle" hidden="false" type="selectionEntry" id="5dfc-2a10-6e16-48e9" targetId="36eb-2934-0789-0c40">
                   <entryLinks></entryLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c173-7248-24e6-ed0e"/>
@@ -10575,7 +10382,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Eradicator Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="f433-7a0d-99a0-7441">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -10589,19 +10396,19 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <constraint type="max" value="5" field="selections" scope="parent" shared="true" id="b10c-4842-7fd2-a010"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="f2d1-2098-d300-6caf" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="f2d1-2098-d300-6caf" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="495b-f3b2-1871-b3c1"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c07f-ba42-939a-e3cc"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="a42b-9b01-bdc5-66eb" targetId="6c7d-af5b-482-6fbe">
+                <entryLink import="true" name="Ceramite Fists" hidden="false" type="selectionEntry" id="a42b-9b01-bdc5-66eb" targetId="0b35-6b34-743d-03cf">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="abbc-33c6-f019-cb1e"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f05f-df83-e97f-ae17"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Melta rifle" hidden="false" id="2011-40ab-4683-22d1" type="selectionEntry" targetId="c88c-d4a0-4ec4-625c">
+                <entryLink import="true" name="Melta Rifle" hidden="false" id="2011-40ab-4683-22d1" type="selectionEntry" targetId="36eb-2934-0789-0c40">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="393b-8cfc-9ca1-6b2b"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f866-9723-267d-7de1"/>
@@ -10612,7 +10419,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Eradicator Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3983-ea05-c15a-4ffa">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -10623,7 +10430,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Eradicator with Multi-melta" hidden="false" id="eba8-6f8c-759-4e22">
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7c84-186-8c7b-bd20"/>
+                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="7c84-186-8c7b-bd20"/>
               </constraints>
               <modifiers>
                 <modifier type="increment" value="1" field="7c84-186-8c7b-bd20">
@@ -10633,19 +10440,19 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 </modifier>
               </modifiers>
               <entryLinks>
-                <entryLink import="true" name="Multi-melta" hidden="false" type="selectionEntry" id="ff9c-5c7d-78d-f0d7" targetId="59c-91b5-f87b-1395">
+                <entryLink import="true" name="Multi-melta" hidden="false" type="selectionEntry" id="ff9c-5c7d-78d-f0d7" targetId="209e-cc25-643d-d1b7">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="723f-eb7c-5fae-e7e0"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4724-3b92-dade-cc6"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="59bb-ed84-ce7d-68ad" targetId="6c7d-af5b-482-6fbe">
+                <entryLink import="true" name="Ceramite Fists" hidden="false" type="selectionEntry" id="59bb-ed84-ce7d-68ad" targetId="0b35-6b34-743d-03cf">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="abbc-33c6-f019-cb1e"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f05f-df83-e97f-ae17"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="8b44-4db1-462a-ee1c" targetId="18b0-8c2-173f-5">
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="8b44-4db1-462a-ee1c" targetId="18b0-8c2-173f-5">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="495b-f3b2-1871-b3c1"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c07f-ba42-939a-e3cc"/>
@@ -10656,7 +10463,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 <profile name="Eradicator Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7aed-fd20-cd2c-bff6">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -10717,7 +10524,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
       <profiles>
         <profile name="Total Obliteration" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4d12-6568-2ca8-dbf7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a ranged attack made by a model in this unit targets a Monster or Vehicle model, you can re-roll the Hit roll, you can re-roll the Wound roll and you can re-roll the Damage roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s ranged attacks can re-roll damage rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -21186,14 +20993,14 @@ invuln: 5+ conditional</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Las fusil" hidden="false" id="631b-bd1f-e76a-e166" collective="true">
       <profiles>
-        <profile name="Las fusil" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b2aa-30c5-6209-acf6">
+        <profile name="Las Fusil" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b2aa-30c5-6209-acf6">
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+3</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
           </characteristics>
         </profile>
@@ -21783,9 +21590,9 @@ invuln: 4+</comment>
         <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2fb0-bd12-2bdf-4cf1" includeChildSelections="true"/>
       </constraints>
       <profiles>
-        <profile name="Overlapping Detonations" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4e34-9254-ddea-ee43">
+        <profile name="Overlapping Destruction" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e375-e509-184d-de77">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when this unit is selected to shoot, you can select one non-MONSTER/VEHICLE enemy unit visible to it. While making attacks, this unit’s heavy bolters that target that selected unit have the [BLAST 1] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, you can select one enemy unit. This unit’s Heavy Bolter weapons that target that enemy unit have [BLAST 1].</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -21801,13 +21608,13 @@ invuln: 4+</comment>
               <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="dda2-1f5f-c446-8976"/>
             </constraints>
             <selectionEntries>
-              <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="3ab1-2c4a-3ca0-a860" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="3ab1-2c4a-3ca0-a860" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5906-f301-b9f5-dafd"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7469-bddf-4483-747b"/>
                 </constraints>
                 <profiles>
-                  <profile name="Bolt pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6852-7e5b-3e6c-4012">
+                  <profile name="Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6852-7e5b-3e6c-4012">
                     <characteristics>
                       <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                       <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -21826,21 +21633,21 @@ invuln: 4+</comment>
                   <categoryLink name="Ranged Weapon" hidden="false" id="8ef2-c460-dc79-ceb5" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                 </categoryLinks>
               </selectionEntry>
-              <selectionEntry type="upgrade" import="true" name="Heavy bolter" hidden="false" id="4382-995e-d842-0afd" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Heavy Bolter" hidden="false" id="4382-995e-d842-0afd" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="aaaa-de25-faec-c8fe"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="51f0-8e8a-8867-d56c"/>
                 </constraints>
                 <profiles>
-                  <profile name="Heavy bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9ae9-fcbf-7f4a-d707">
+                  <profile name="Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9ae9-fcbf-7f4a-d707">
                     <characteristics>
                       <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                       <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                       <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                      <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                      <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                       <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                       <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                      <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Sustained Hits 1, Rapid Fire 2</characteristic>
+                      <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
                     </characteristics>
                   </profile>
                 </profiles>
@@ -21853,23 +21660,23 @@ invuln: 4+</comment>
                   <categoryLink name="Ranged Weapon" hidden="false" id="02fc-6a96-ab07-cb36" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                 </categoryLinks>
               </selectionEntry>
-              <selectionEntry type="upgrade" import="true" name="Close-combat weapon" hidden="false" id="ec7b-baaa-de74-217d" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Ceramite Fists" hidden="false" id="ec7b-baaa-de74-217d" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4f42-310f-3b73-de79"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ed7a-3cce-fb8f-fc49"/>
                 </constraints>
                 <profiles>
-                  <profile name="Close-combat weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b352-9597-95cf-8e14">
-                    <characteristics>
-                      <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                      <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                      <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                      <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                      <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-                      <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                      <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                    </characteristics>
-                  </profile>
+                    <profile name="Ceramite Fists" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7946-2adc-ca05-03e0">
+                      <characteristics>
+                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+                        <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                      </characteristics>
+                    </profile>
                 </profiles>
                 <categoryLinks>
                   <categoryLink name="Melee Weapon" hidden="false" id="b4bc-a54b-86ea-fea4" targetId="ccdd-3987-11ed-90cd" primary="false"/>
@@ -21880,7 +21687,7 @@ invuln: 4+</comment>
               <profile name="Eradicator Sergeant with Heavy Bolter" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="36ab-c264-5777-bce0">
                 <characteristics>
                   <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                  <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                  <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                   <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                   <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                   <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -21895,13 +21702,13 @@ invuln: 4+</comment>
               <constraint type="max" value="5" field="selections" scope="parent" shared="true" id="e748-5458-a638-950a"/>
             </constraints>
             <selectionEntries>
-              <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="3c70-b974-9071-0e54" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="3c70-b974-9071-0e54" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="35a6-6794-d0ca-5a1d"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f9a5-46f5-aefb-fcf9"/>
                 </constraints>
                 <profiles>
-                  <profile name="Bolt pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c96d-354a-ca1b-4911">
+                  <profile name="Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c96d-354a-ca1b-4911">
                     <characteristics>
                       <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                       <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -21920,21 +21727,21 @@ invuln: 4+</comment>
                   <categoryLink name="Ranged Weapon" hidden="false" id="b055-0b91-70db-c6a5" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                 </categoryLinks>
               </selectionEntry>
-              <selectionEntry type="upgrade" import="true" name="Heavy bolter" hidden="false" id="03d7-fc0b-82c4-fde8" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Heavy Bolter" hidden="false" id="03d7-fc0b-82c4-fde8" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9d9d-2969-c49d-1860"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c52c-f53d-c57c-13b2"/>
                 </constraints>
                 <profiles>
-                  <profile name="Heavy bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ce24-7905-eabe-ac33">
+                  <profile name="Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ce24-7905-eabe-ac33">
                     <characteristics>
                       <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                       <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                       <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                      <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                      <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                       <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                       <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                      <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Sustained Hits 1, Rapid Fire 2</characteristic>
+                      <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
                     </characteristics>
                   </profile>
                 </profiles>
@@ -21947,23 +21754,23 @@ invuln: 4+</comment>
                   <categoryLink name="Ranged Weapon" hidden="false" id="6db5-d195-e1d6-e3ef" targetId="eeda-8544-a2f3-3fab" primary="false"/>
                 </categoryLinks>
               </selectionEntry>
-              <selectionEntry type="upgrade" import="true" name="Close-combat weapon" hidden="false" id="e963-cd6e-e45e-9734" collective="false">
+              <selectionEntry type="upgrade" import="true" name="Ceramite Fists" hidden="false" id="e963-cd6e-e45e-9734" collective="false">
                 <constraints>
                   <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c768-5357-4c85-b3dd"/>
                   <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5fd9-d636-6219-d9c2"/>
                 </constraints>
                 <profiles>
-                  <profile name="Close-combat weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="6a14-7ba3-1b69-714e">
-                    <characteristics>
-                      <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                      <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                      <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                      <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                      <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-                      <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                      <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                    </characteristics>
-                  </profile>
+                    <profile name="Ceramite Fists" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="2bc1-cb18-d3df-39a0">
+                      <characteristics>
+                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+                        <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                      </characteristics>
+                    </profile>
                 </profiles>
                 <categoryLinks>
                   <categoryLink name="Melee Weapon" hidden="false" id="439f-fe20-a047-429b" targetId="ccdd-3987-11ed-90cd" primary="false"/>
@@ -21974,7 +21781,7 @@ invuln: 4+</comment>
               <profile name="Eradicator with Heavy Bolter" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="fb7a-7f6a-1e15-1868">
                 <characteristics>
                   <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                  <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
+                  <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                   <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                   <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                   <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -23165,6 +22972,342 @@ invuln: 4+</comment>
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Ranged Weapon" hidden="false" id="cc88-0798-ecdf-6684" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Combat Shield" hidden="false" id="6ffe-9779-3b09-5715">
+      <profiles>
+        <profile name="Combat Shield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fa0c-94dc-7c21-946c">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has 5+ InSv.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Master-crafted Power Weapon" hidden="false" id="a4bd-5e51-bdd9-4364" collective="true">
+      <profiles>
+        <profile name="Master-crafted Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="df2c-3c2b-760a-2301">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="8326-62f3-6b9f-9e01" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Relic Blade" hidden="false" id="12cd-4a14-b8de-99ea" collective="true">
+      <profiles>
+        <profile name="Relic Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="cbbc-e611-82b4-275c">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1, Lethal Hits: non-MONSTER/VEHICLE</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Cleave" hidden="false" type="rule" id="203f-e433-4a4d-9eb6" targetId="ea1f-c7b7-cafa-43f8"/>
+        <infoLink name="Lethal Hits" hidden="false" type="rule" id="9a55-1cdd-0ea0-f04e" targetId="d1d1-611e-5191-1095"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="1fd9-3fd5-9efb-c336" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Bolt Carbine" hidden="false" id="3e07-7164-d315-711d">
+      <profiles>
+        <profile name="Bolt Carbine" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="49b9-d11e-9920-94fc">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Precision</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Assault" hidden="false" type="rule" id="457d-b632-7c9c-7eef" targetId="fc8a-8c24-bae9-cc1c"/>
+        <infoLink name="Precision" hidden="false" type="rule" id="452f-e9eb-8bb4-a077" targetId="9143-31ae-e0a6-6007"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="fd90-5986-7e2c-d645" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Monomolecular Combat Knife" hidden="false" id="39f7-0f64-98d0-7196" collective="true">
+      <profiles>
+        <profile name="Monomolecular Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="eeba-cac3-888f-9e29">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Precision" hidden="false" type="rule" id="365d-0de7-1967-6258" targetId="9143-31ae-e0a6-6007"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="90c0-8eeb-3e37-0af2" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Special-issue Bolt Pistol" hidden="false" id="b0d9-732e-af09-abf2">
+      <profiles>
+        <profile name="Special-issue Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d7df-64c4-74b5-e3b8">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Precision</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Close-Quarters" hidden="false" type="rule" id="61eb-782e-3092-400f" targetId="59e0-775e-fce5-43ca"/>
+        <infoLink name="Precision" hidden="false" type="rule" id="d838-1c9e-ed7b-65a5" targetId="9143-31ae-e0a6-6007"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0a2f-85ac-fa6a-d7b5" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="2e6e-a915-09a7-28ce" collective="true">
+      <profiles>
+        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0f40-faa4-e17d-7826">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="5329-7cdf-93eb-02de" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Boltgun" hidden="false" id="a03f-c6f8-4b00-b9fe">
+      <profiles>
+        <profile name="Boltgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="45a9-bf2a-a3d4-3f65">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="3660-22bf-8c36-14ad" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="10fd-bf01-cbf2-5ca2" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Heavy Bolter" hidden="false" id="4f65-0f5a-a16e-8802">
+      <profiles>
+        <profile name="Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6be5-c95a-1c79-6e01">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Heavy" hidden="false" type="rule" id="9626-4f5a-d8e9-cc5a" targetId="1202-10a8-78e9-4c67"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0400-aa3f-178c-02bc" targetId="c5c8-8b58-b8b6-7786"/>
+        <infoLink name="Sustained Hits" hidden="false" type="rule" id="ee3a-2908-e2ef-1f82" targetId="1897-c22c-9597-12b1"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="0c87-d4ae-98f4-d30c" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Missile Launcher" hidden="false" id="06e3-ccc7-c438-7102">
+      <profiles>
+        <profile name="➤ Missile Launcher - Frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="305c-8953-a4d8-22cf">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Heavy</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Missile Launcher - Krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7cd9-91f0-9ec5-6153">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" hidden="false" type="rule" id="14cb-b9b0-6b53-5fd8" targetId="6c1f-1cf7-ff25-c99e"/>
+        <infoLink name="Heavy" hidden="false" type="rule" id="fe70-faeb-eac5-978b" targetId="1202-10a8-78e9-4c67"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="6adc-e836-d034-876a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="258a-abc1-8e60-10e5" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Shotgun" hidden="false" id="60ac-185a-1f3e-dd48">
+      <profiles>
+        <profile name="Shotgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="17e7-50b5-5b1f-978d">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Blast 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Assault" hidden="false" type="rule" id="5d2c-f6b7-036a-74dd" targetId="fc8a-8c24-bae9-cc1c"/>
+        <infoLink name="Blast" hidden="false" type="rule" id="33e0-7862-856e-802e" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="edf2-8f22-b602-7fc7" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Chainsword" hidden="false" id="0584-9c50-9abc-9769" collective="true">
+      <profiles>
+        <profile name="Chainsword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="d360-dd91-ed5d-9e77">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="9791-cda9-f5d8-c0eb" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="4d28-5123-0979-9cd5" collective="true">
+      <profiles>
+        <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c4df-e458-58fc-c796">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="44d8-8491-18cf-6c42" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Melta Rifle" hidden="false" id="36eb-2934-0789-0c40">
+      <profiles>
+        <profile name="➤ Melta Rifle - Standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e19b-eeed-aa1c-ce45">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 2</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Melta Rifle - Hunter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4b07-7752-1a48-e646">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 2, Hunter (MONSTER/VEHICLE)</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Melta" hidden="false" type="rule" id="2013-6621-634b-1860" targetId="7cdb-fb99-44a9-8849"/>
+        <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="9d79-e34f-a14f-5f29" targetId="0d1a-9f3b-7c40-1c06"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="f637-2181-6281-452a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="6854-c8ae-bc87-a61a" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Multi-melta" hidden="false" id="209e-cc25-643d-d1b7">
+      <profiles>
+        <profile name="➤ Multi-melta - Standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8bb0-440d-2288-2f82">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 3</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Multi-melta - Hunter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2f2a-443a-a44b-b4f0">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 3, Hunter (MONSTER/VEHICLE)</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Melta" hidden="false" type="rule" id="acf5-baa3-7bce-db77" targetId="7cdb-fb99-44a9-8849"/>
+        <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="f2eb-261b-7510-92f3" targetId="0d1a-9f3b-7c40-1c06"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="71e5-c18d-caa7-b146" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="6c14-64e5-79f1-faf1" targetId="4986-bf86-beb4-13ac" primary="false"/>
       </categoryLinks>
     </selectionEntry>
   </sharedSelectionEntries>
