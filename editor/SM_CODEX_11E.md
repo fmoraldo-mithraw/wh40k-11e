@@ -8,27 +8,27 @@
 
 Codex Space Marines 11e, photos des pages 156-229 (fichier
 `Space Marine Codex - 11th Edition.pdf`, uploads découpés par 5 pages).
-**Pages non reçues** : 161-165 (Tactical Brethren, Devastator Brethren,
-Tacticus Attack Force, Tacticus Firestorm Force, Terminator Storm Force) et
-208-212 (Incursor, Reiver, Eliminator, Scout, Vanguard Veteran, Eradicator,
-Outrider… — à confirmer). Aucune page de points : le MFM reste à intégrer.
+**Pages non reçues** : 208-212 (Incursor, Reiver, Eliminator, Scout,
+Vanguard Veteran, Eradicator, Outrider… — à confirmer). Aucune page de points : le MFM reste à intégrer.
 
 ## Sourcé et intégré
 
 - **Règles d'armée** : Combat Doctrines (texte complet, id partagé
   `3b76-4053-ece9-6e7d`), Transhuman Strategist, Librarius, Space Marine
   Chapters (règle partagée, non liée).
-- **Détachements complets** (règle, améliorations, stratagems) : Gladius Task
-  Force, Assault Brethren, Phobos Shadow Force, Phobos Shock Force, Stormlance
-  Task Force, Ironclad Champions, Gauntlet Task Force, Ironstorm Spearhead,
-  Gravis Linebreaker Force, Gravis Siege Force. Améliorations « Upgrade »
+- **Les 15 détachements sont complets** (règle, améliorations, stratagems) :
+  Gladius Task Force, Assault/Tactical/Devastator Brethren, Tacticus Attack
+  Force, Tacticus Firestorm Force, Phobos Shadow/Shock Force, Terminator
+  Storm Force, Stormlance Task Force, Ironclad Champions, Gauntlet Task
+  Force, Ironstorm Spearhead, Gravis Linebreaker/Siege Force. Améliorations « Upgrade »
   (règle maison n°1) liées aux unités par mots-clefs, Epic Heroes exclus :
   Furious Assault (INFANTRY), Supercharged Engines (MOUNTED), Auspex
   Triangulation Shrines (SPEEDER — nouvelle catégorie), Artificer Sarcophagus
   et Venerable Champion (DREADNOUGHT), Redoubtable Machine Spirit et Gunnery
   Honours (VEHICLE hors DEDICATED TRANSPORT/FLY/WALKER), Immovable
   Conquerors (GRAVIS). Portes des améliorations de personnage = clause de
-  prose (Ancient, Captain, Phobos, Infantry).
+  prose (Ancient, Captain, Phobos, Infantry, Terminator, Tacticus,
+  Infantry/Mounted en alternative).
 - **Fiches** : 74 fiches transcrites (`scratchpad/codex/units.jsonl`) et
   appliquées : stats, armes (profils, mots-clefs, infoLinks), capacités,
   règles de base, règles d'armée, mots-clefs, transport. Renommages d'armes
@@ -47,7 +47,6 @@ Outrider… — à confirmer). Aucune page de points : le MFM reste à intégrer
 
 | Objet | État |
 |---|---|
-| 5 détachements des pages manquantes | squelette « preview » (annonce), commentaire `codex-11e: contenu non publie…` |
 | DP et Force Disposition (15 détachements) | provisoires, MFM à intégrer |
 | Points des unités, des améliorations, du 2e Invader ATV, des 2 nouvelles fiches | non publiés (améliorations et nouvelles fiches à 0) |
 | Fiches des pages 208-212 | valeurs **déduites** (voir table ci-dessous) — à écraser |
@@ -67,8 +66,8 @@ cartes (T6).
 
 ## À faire
 
-1. Recevoir les pages 161-165 et 208-212 ; intégrer les 5 détachements et
-   les fiches restantes (même pipeline : `units.jsonl` → `s7`/`s8`).
+1. Recevoir les pages 208-212 ; intégrer les fiches restantes (même
+   pipeline : `units.jsonl` → `s7`/`s8`).
 2. MFM : points, DP, Force Disposition.
 3. Vérifier les options d'équipement fiche par fiche (rapport
    `scratchpad/codex/apply_report.txt`, lignes `OPTIONS codex`).
