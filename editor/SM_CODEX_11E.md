@@ -72,6 +72,31 @@ Omnissian Power Axe and Servo-arm, Combat Knife/MC Bolt Pistol des Company
 Heroes, Raven's Talons, Artificer Grav-gun), Anzuq ajouté à Kor'sarro Khan,
 Combi-weapon à deux profils, Lieutenant Phobos (SIBP/MC Bolt Carbine).
 
+## Seconde passe complète (2026-09-17)
+
+Relecture visuelle de **toutes** les pages (158-229) contre les données :
+84 fiches (82 du codex + Sternguard Veteran Squad et Terminator Squad, issues
+des leaks, désormais transcrites p.207/214) et 15 détachements (règle,
+améliorations, stratagèmes, texte par texte). Écarts trouvés et corrigés :
+Sternguard Power Weapon A5, Terminator Squad Storm Bolter 3+ et Power Weapon
+A5, Victrix Chapter Ancient avec Master-crafted Bolt Carbine et groupe 1-8,
+catégories Dx périmées sur des armes sans dé.
+
+**Errata fonctionnels (marqués `errata-11e:` en commentaire de fiche)** : le
+codex omet systématiquement le mot-clef de rôle sur la fiche générique
+(Captain sans CAPTAIN, Chaplain, Librarian ×3, Lieutenant ×3, Ancient,
+Techmarine, Apothecary, Judiciar), Librarian in Terminator Armour sans
+CHARACTER, Kayvaan Shrike sans CHARACTER/EPIC HERO, Kaius Konorius sans
+IMPERIUM. Ces mots-clefs sont rétablis car les améliorations « X model only »,
+Leader et les portes d'unicité en dépendent ; `units.jsonl` porte le champ
+`errataKeywords`.
+
+**Fiches du dépôt absentes du codex 11e** (non touchées, à trancher) :
+Captain with Relic Shield, Lieutenant in Reiver Armour (tronc commun) ;
+Captain Sicarius (déjà cachée, Legends), Lieutenant Titus, Marneus Calgar in
+Armour of Antilochus (Ultramarines) ; Astraeus et Thunderhawk Gunship (Forge
+World, hors codex).
+
 ## Provisoire / déduit
 
 | Objet | État |
