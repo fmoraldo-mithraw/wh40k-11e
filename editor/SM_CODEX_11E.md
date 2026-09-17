@@ -123,7 +123,7 @@ attaque^0,2 × résistance^0,3, borné à ±30 %, arrondi à 5 ; paliers de tail
 même ratio, surcoûts de chapitre (`chapter-cost`) conservés en delta. Quelques
 ajustements manuels (Captain 90, Bladeguard Ancient 45, Lieutenant with
 Combi-weapon 100, Reiver Squad 85, Sternguard 125), nouveautés à la main (Captain
-on Bike 85, Kaius Konorius 90). Améliorations : valeurs de jugement (10-25).
+on Bike 85, Kaius Konorius 90). Améliorations : valeurs de jugement (10-25), sauf Adept of the Codex et Artificer Armour repris du MFM v1.4 (20).
 Scripts : `scratchpad/pts_analyze.js`, `pts_apply.js`. **À écraser par le MFM.**
 
 | Fiche | 10e | 11e (estimé) | paliers |
@@ -217,7 +217,8 @@ Améliorations : Gravis Linebreaker Force — Indefatigable Fortitude = 20 ; Gra
 
 | Objet | État |
 |---|---|
-| DP et Force Disposition (15 détachements) | provisoires, MFM à intégrer |
+| DP des 15 détachements | **déduits de la règle constatée sur les 348 détachements du MFM v1.4** : 2 améliorations ⇒ 1 DP (98/98), 4 améliorations ⇒ 2 ou 3 DP ; Gladius Task Force 3 (valeur MFM v1.4), les 14 autres 1 |
+| Force Disposition (15 détachements) | provisoire ; Gladius/Stormlance/Ironstorm conformes au MFM v1.4 |
 | Points des unités et des améliorations | **estimés** (section ci-dessus), MFM à intégrer ; 2e Invader ATV non chiffré |
 | Options « pour 5 (ou 3) figurines » (Scout lourds/snipers, Eradicator multi-melta, Outrider/Vanguard plasma) | plafond simple (max 2, ou max 4) sans modificateur par tranche |
 | Composition Terminator Assault Squad (variantes TH/SS), Heavy Intercessor (modèle heavy bolter), Wardens (profil fusionné Gadriel/Metaurus OC) | simplifications du dépôt conservées |
