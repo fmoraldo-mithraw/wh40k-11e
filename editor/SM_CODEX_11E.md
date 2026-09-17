@@ -91,11 +91,11 @@ IMPERIUM. Ces mots-clefs sont rétablis car les améliorations « X model only �
 Leader et les portes d'unicité en dépendent ; `units.jsonl` porte le champ
 `errataKeywords`.
 
-**Fiches du dépôt absentes du codex 11e** (non touchées, à trancher) :
-Captain with Relic Shield, Lieutenant in Reiver Armour (tronc commun) ;
-Captain Sicarius (déjà cachée, Legends), Lieutenant Titus, Marneus Calgar in
-Armour of Antilochus (Ultramarines) ; Astraeus et Thunderhawk Gunship (Forge
-World, hors codex).
+**Fiches du dépôt absentes du codex 11e, supprimées** (avec leurs liens
+inter-fichiers et catégories propres) : Captain with Relic Shield, Lieutenant in
+Reiver Armour, Astraeus, Thunderhawk Gunship (tronc commun) ; Captain Sicarius,
+Lieutenant Titus, Marneus Calgar in Armour of Antilochus (Ultramarines). Le
+Thunderhawk des Grey Knights (fiche propre) est conservé.
 
 ## Provisoire / déduit
 
