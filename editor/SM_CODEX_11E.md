@@ -112,12 +112,113 @@ Squad retirés), catégories orphelines des unités supprimées, fiches cachées
 sans lien visible, coûts nuls (Captain on Bike, Kaius Konorius : MFM),
 aucune référence pendante sur les 47 fichiers.
 
+## Points ESTIMÉS (2026-09-17) — en attente du MFM 11e
+
+Aucune page de points dans le codex. Les points ci-dessous sont des **estimations**
+dérivées des changements de profil : pour chaque fiche, indice d'attaque (dégâts
+espérés de l'armement par défaut contre T5/3+, T10/3+, T4/5+) et indice de
+résistance (PV / probabilité d'être blessé et de rater la sauvegarde) calculés
+sur la fiche 10e (commit a39d2c6) et sur la fiche 11e ; nouveau coût = ancien ×
+attaque^0,2 × résistance^0,3, borné à ±30 %, arrondi à 5 ; paliers de taille au
+même ratio, surcoûts de chapitre (`chapter-cost`) conservés en delta. Quelques
+ajustements manuels (Captain 90, Bladeguard Ancient 45, Lieutenant with
+Combi-weapon 100, Reiver Squad 85, Sternguard 125), nouveautés à la main (Captain
+on Bike 85, Kaius Konorius 90). Améliorations : valeurs de jugement (10-25).
+Scripts : `scratchpad/pts_analyze.js`, `pts_apply.js`. **À écraser par le MFM.**
+
+| Fiche | 10e | 11e (estimé) | paliers |
+|---|---|---|---|
+| Marneus Calgar | 200 | 170 |  |
+| Chief Librarian Tigurius | 85 | 100 |  |
+| Cato Sicarius | 105 | 115 |  |
+| Captain Titus | 100 | 110 |  |
+| Wardens of Ultramar | 120 | 130 |  |
+| Victrix Honour Guard | 110 | 120 | 230→250 |
+| Kaius Konorius | — | 90 |  |
+| Darnath Lysander | 100 | 100 |  |
+| Tor Garadon | 80 | 80 |  |
+| Aethon Shaan | 100 | 105 |  |
+| Kayvaan Shrike | 100 | 100 |  |
+| Vulkan He'stan | 95 | 100 |  |
+| Adrax Agatone | 80 | 85 |  |
+| Caanok Var | 90 | 95 |  |
+| Iron Father Feirros | 85 | 90 |  |
+| Kor'sarro Khan | 55 | 65 |  |
+| Suboden Khan | 90 | 90 |  |
+| Captain | 80 | 90 |  |
+| Captain with Jump Pack | 75 | 90 | 80→95 |
+| Captain in Phobos Armour | 70 | 80 |  |
+| Captain in Terminator Armour | 85 | 90 |  |
+| Captain in Gravis Armour | 80 | 85 |  |
+| Captain on Bike | — | 85 |  |
+| Lieutenant | 45 | 50 |  |
+| Lieutenant in Phobos Armour | 45 | 50 |  |
+| Lieutenant with Combi-weapon | 95 | 100 |  |
+| Chaplain | 60 | 65 |  |
+| Chaplain with Jump Pack | 75 | 80 | 80→85 |
+| Chaplain in Terminator Armour | 75 | 80 |  |
+| Chaplain on Bike | 70 | 75 |  |
+| Judiciar | 55 | 60 |  |
+| Librarian | 70 | 80 |  |
+| Librarian in Phobos Armour | 70 | 75 |  |
+| Librarian in Terminator Armour | 85 | 90 |  |
+| Ancient | 40 | 45 |  |
+| Bladeguard Ancient | 40 | 45 |  |
+| Ancient in Terminator Armour | 65 | 65 |  |
+| Techmarine | 55 | 60 |  |
+| Apothecary | 40 | 45 |  |
+| Apothecary Biologis | 70 | 75 |  |
+| Company Heroes | 105 | 120 |  |
+| Intercessor Squad | 80 | 95 | 150→180 |
+| Assault Intercessor Squad | 75 | 85 | 150→170, 80→90, 150→160 |
+| Assault Intercessors with Jump Packs | 85 | 95 | 160→180, 95→105, 180→190 |
+| Heavy Intercessor Squad | 100 | 105 | 200→215 |
+| Hellblaster Squad | 110 | 125 | 220→245 |
+| Desolation Squad | 180 | 210 |  |
+| Infernus Squad | 85 | 90 | 180→195 |
+| Infiltrator Squad | 110 | 125 | 180→200 |
+| Bladeguard Veteran Squad | 80 | 85 | 160→175, 85→90, 170→175 |
+| Aggressor Squad | 80 | 80 | 165→165 |
+| Inceptor Squad | 125 | 125 | 250→250 |
+| Terminator Assault Squad | 155 | 160 | 310→320 |
+| Invader ATV | 60 | 65 |  |
+| Rhino | 65 | 70 |  |
+| Impulsor | 70 | 85 |  |
+| Repulsor | 170 | 185 |  |
+| Repulsor Executioner | 255 | 275 | 230→250, 230→250, 230→250, 230→250 |
+| Land Raider | 220 | 230 |  |
+| Land Raider Crusader | 220 | 245 |  |
+| Land Raider Redeemer | 260 | 255 |  |
+| Redemptor Dreadnought | 195 | 220 |  |
+| Ballistus Dreadnought | 150 | 160 |  |
+| Brutalis Dreadnought | 150 | 170 |  |
+| Invictor Tactical Warsuit | 125 | 135 |  |
+| Storm Speeder Hailstrike | 105 | 115 |  |
+| Storm Speeder Hammerstrike | 140 | 150 |  |
+| Storm Speeder Thunderstrike | 135 | 145 |  |
+| Land Speeder | 105 | 105 |  |
+| Gladiator Lancer | 160 | 160 |  |
+| Gladiator Reaper | 160 | 190 |  |
+| Gladiator Valiant | 150 | 160 |  |
+| Vanguard Veteran Squad with Jump Packs | 105 | 115 | 210→230, 110→120, 220→230 |
+| Incursor Squad | 85 | 95 | 150→165 |
+| Reiver Squad | 75 | 85 | 150→170 |
+| Scout Squad | 65 | 75 | 120→135 |
+| Eliminator Squad | 75 | 80 |  |
+| Outrider Squad | 70 | 80 | 140→160, 75→85, 140→150 |
+| Eradicator Squad with Heavy Bolters | 80 | 90 |  |
+| Eradicator Squad | 90 | 95 | 180→195 |
+| Sternguard Veteran Squad | 100 | 125 | 200→250 |
+| Terminator Squad | 160 | 180 | 320→355 |
+
+Améliorations : Gravis Linebreaker Force — Indefatigable Fortitude = 20 ; Gravis Linebreaker Force — Relentless Advance = 15 ; Gravis Siege Force — Narthecis Gauntlet = 15 ; Gladius Task Force — Standard of the Emperor Ascendant = 25 ; Gladius Task Force — Laurels of Triumph = 20 ; Gladius Task Force — Adept of the Codex = 15 ; Gladius Task Force — Artificer Armour = 15 ; Assault Brethren — Imperium’s Sword = 25 ; Phobos Shadow Force — Venator Omni-auspex = 15 ; Phobos Shadow Force — Execute and Redeploy = 20 ; Phobos Shock Force — Seal of Shrouding = 10 ; Phobos Shock Force — Venator Omni-auspex = 15 ; Gauntlet Task Force — Linebreaker Onslaught = 15 ; Gauntlet Task Force — Damocles-class Uplink = 25 ; Tactical Brethren — Laurels of Vigilance = 15 ; Tactical Brethren — Tactical Insight = 15 ; Devastator Brethren — Master-forged Firearms = 20 ; Devastator Brethren — Honour of Vigilance = 25 ; Terminator Storm Force — Champion of the First Company = 20 ; Terminator Storm Force — Corporeum Reliquary = 15 ; Tacticus Attack Force — Martial Paragon = 20 ; Tacticus Attack Force — Spearpoint War Leader = 15 ; Tacticus Firestorm Force — Cyber-familiar = 20 ; Tacticus Firestorm Force — Tempered in Battle (Aura) = 10 ; Upgrade — Immovable Conquerors Upgrade = 10 ; Upgrade — Furious Assault Upgrade = 10 ; Upgrade — Supercharged Engines Upgrade = 10 ; Upgrade — Auspex Triangulation Shrines Upgrade = 15 ; Upgrade — Artificer Sarcophagus Upgrade = 20 ; Upgrade — Venerable Champion (Aura) Upgrade = 20 ; Upgrade — Redoubtable Machine Spirit Upgrade = 20 ; Upgrade — Gunnery Honours Upgrade = 15.
+
 ## Provisoire / déduit
 
 | Objet | État |
 |---|---|
 | DP et Force Disposition (15 détachements) | provisoires, MFM à intégrer |
-| Points des unités, des améliorations, du 2e Invader ATV, des 2 nouvelles fiches | non publiés (améliorations et nouvelles fiches à 0) |
+| Points des unités et des améliorations | **estimés** (section ci-dessus), MFM à intégrer ; 2e Invader ATV non chiffré |
 | Options « pour 5 (ou 3) figurines » (Scout lourds/snipers, Eradicator multi-melta, Outrider/Vanguard plasma) | plafond simple (max 2, ou max 4) sans modificateur par tranche |
 | Composition Terminator Assault Squad (variantes TH/SS), Heavy Intercessor (modèle heavy bolter), Wardens (profil fusionné Gadriel/Metaurus OC) | simplifications du dépôt conservées |
 | Mots-clefs par figurine (Company Heroes : Ancient/Champion ; Victrix : Chapter Ancient/Champion Epic Hero) | à poser à la main |
