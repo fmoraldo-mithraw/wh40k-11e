@@ -62,6 +62,17 @@ commit/push par faction (conteneur éphémère). Le/les PDF sont dans
      sinon rattacher au set exact. **Ne change rien sans confirmation.**
 
 ## Résolution des porteurs par mots-clefs
+- **Mot-clef « nom de fiche » (règle 11e, obligatoire)** : toute unité porte
+  son nom de datasheet comme mot-clef. Chaque `selectionEntry type="unit|model"`
+  de datasheet doit avoir un `categoryLink` vers une `categoryEntry` de nom
+  **identique** (même casse, même orthographe que le codex), créée dans le
+  fichier de la fiche si elle n'existe pas. Conséquences : les cartes du
+  codex **omettent** ce mot-clef quand il est égal au nom (Captain, Chaplain,
+  Librarian, Ancient, Apothecary Biologis…) — ne pas le déduire absent ;
+  une amélioration « APOTHECARY BIOLOGIS model only » se résout par la
+  catégorie « Apothecary Biologis ». Vérification : 0 datasheet sans lien
+  homonyme (script type `unitname_kw.js` : parcours `datasheetsForTargeting`,
+  réutilise la catégorie existante du fichier ou du `.gst`, sinon la crée).
 - « KROOT SHAPER model only » = datasheets ayant **à la fois** KROOT et
   SHAPER (partition exacte par noms de catégories complètes ; fallback =
   union de mots, à signaler). « WAGON » = Battlewagon/Hunta Rig/Kill Rig.
@@ -137,6 +148,8 @@ commit/push par faction (conteneur éphémère). Le/les PDF sont dans
 4. Audit règle Upgrade : 0 violation (epic / non-personnage / unicité /
    classe Upgrade-vs-autre) sur l'inventaire complet des améliorations.
 5. Force Disposition : 1 profil par détachement classé.
+6. Mot-clef « nom de fiche » : 0 datasheet de la faction sans `categoryLink`
+   homonyme (voir « Résolution des porteurs »).
 
 ## Demander confirmation (AskUserQuestion) pour
 - réductions destructives (supprimer des améliorations absentes du pack) ;
