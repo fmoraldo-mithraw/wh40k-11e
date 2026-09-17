@@ -213,6 +213,17 @@ Scripts : `scratchpad/pts_analyze.js`, `pts_apply.js`. **À écraser par le MFM.
 
 Améliorations : Gravis Linebreaker Force — Indefatigable Fortitude = 20 ; Gravis Linebreaker Force — Relentless Advance = 15 ; Gravis Siege Force — Narthecis Gauntlet = 15 ; Gladius Task Force — Standard of the Emperor Ascendant = 25 ; Gladius Task Force — Laurels of Triumph = 20 ; Gladius Task Force — Adept of the Codex = 15 ; Gladius Task Force — Artificer Armour = 15 ; Assault Brethren — Imperium’s Sword = 25 ; Phobos Shadow Force — Venator Omni-auspex = 15 ; Phobos Shadow Force — Execute and Redeploy = 20 ; Phobos Shock Force — Seal of Shrouding = 10 ; Phobos Shock Force — Venator Omni-auspex = 15 ; Gauntlet Task Force — Linebreaker Onslaught = 15 ; Gauntlet Task Force — Damocles-class Uplink = 25 ; Tactical Brethren — Laurels of Vigilance = 15 ; Tactical Brethren — Tactical Insight = 15 ; Devastator Brethren — Master-forged Firearms = 20 ; Devastator Brethren — Honour of Vigilance = 25 ; Terminator Storm Force — Champion of the First Company = 20 ; Terminator Storm Force — Corporeum Reliquary = 15 ; Tacticus Attack Force — Martial Paragon = 20 ; Tacticus Attack Force — Spearpoint War Leader = 15 ; Tacticus Firestorm Force — Cyber-familiar = 20 ; Tacticus Firestorm Force — Tempered in Battle (Aura) = 10 ; Upgrade — Immovable Conquerors Upgrade = 10 ; Upgrade — Furious Assault Upgrade = 10 ; Upgrade — Supercharged Engines Upgrade = 10 ; Upgrade — Auspex Triangulation Shrines Upgrade = 15 ; Upgrade — Artificer Sarcophagus Upgrade = 20 ; Upgrade — Venerable Champion (Aura) Upgrade = 20 ; Upgrade — Redoubtable Machine Spirit Upgrade = 20 ; Upgrade — Gunnery Honours Upgrade = 15.
 
+## Mot-clef « nom de fiche » (2026-09-17)
+
+Convention 11e : toute unité porte son nom de fiche comme mot-clef. Chaque
+datasheet du tronc commun et des chapitres du codex a désormais un
+`categoryLink` vers une catégorie de même nom (65 l'avaient déjà, 20 ajoutés,
+19 catégories créées ; `Ancient in Terminator Armor` renommé « Armour » au
+passage). Même traitement appliqué au codex Orks (50 déjà, 4 ajoutés). Les
+errata de mots-clefs de rôle restent en place : pour Captain, Chaplain,
+Librarian, Lieutenant, Ancient, Techmarine, Apothecary, Judiciar la catégorie
+de rôle **est** la catégorie « nom de fiche », les deux coïncident.
+
 ## Provisoire / déduit
 
 | Objet | État |
