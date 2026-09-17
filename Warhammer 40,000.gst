@@ -1437,6 +1437,36 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
     <rule name="Lethal Hits (non-Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c01">
       <description>Weapons with **[LETHAL HITS: non-^^Monster^^/^^Vehicle^^]** in their profile are known as Lethal Hits weapons. Each time an attack is made with such a weapon against a unit that is not a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit automatically wounds the target. This ability has no effect against **^^Monster^^** or **^^Vehicle^^** units.</description>
     </rule>
+    <rule name="Assault Disembark Move" hidden="false" id="0d1a-9f3b-7c40-1c05">
+      <description>A special **move type**.
+
+**Set-up distance:** 3&quot;
+
+**Eligible if:** As stated in the rule allowing this **move type**, if all of the following apply to your unit:
+- Embarked within a **^^Transport^^** model that is on the battlefield.
+- Did not embark within that **^^Transport^^** this phase.
+- That **^^Transport^^** has not made an **Advance/Fall Back move** this phase.
+
+**Effect:** Your unit is set up as described in Set Up (Core Rules, 03.02).
+
+**While moving:**
+- Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.</description>
+    </rule>
+    <rule id="2be5-85fb-e165-e3da" name="Shock Disembark Move" hidden="false">
+      <description>A special **move type**.
+
+**Set-up distance:** 3&quot;
+
+**Eligible if:** As stated in the rule allowing this **move type**, if all of the following apply to your unit:
+- Embarked within a **^^Transport^^** model that is on the battlefield.
+- Did not embark within that **^^Transport^^** this phase.
+
+**Effect:** Your unit is set up as described in Set Up (Core Rules, 03.02).
+
+**While moving:** Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.
+
+**After moving:** Your unit is not **eligible to declare a charge** until the end of the turn.</description>
+    </rule>
   </sharedRules>
   <sharedProfiles>
     <profile id="fa4e-5ac8-11a6-78d2" name="Fortification" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
