@@ -97,6 +97,21 @@ Reiver Armour, Astraeus, Thunderhawk Gunship (tronc commun) ; Captain Sicarius,
 Lieutenant Titus, Marneus Calgar in Armour of Antilochus (Ultramarines). Le
 Thunderhawk des Grey Knights (fiche propre) est conservé.
 
+## Troisième passe (2026-09-17) — structurelle
+
+Audits automatiques rejoués (fiches, détachements, compositions, Dx) + nouveaux
+contrôles : marqueurs `sim-mod` dont la source n'existe plus (8 fiches
+corrigées : Close-quarters Firestorm, Vivispectral Analysis Targeting,
+Targeted Intercession, Deeds of Legend, Aquilon Optics, Reaping Tally,
+Priority Target Acquisition ; Silent Fury retiré du Judiciar), atteignabilité
+de chaque amélioration de menu (Narthecis Gauntlet inatteignable → mot-clef
+BIOLOGIS rétabli sur Apothecary Biologis, errata), menu Warlord/Enhancements
+sur chaque personnage non-Epic (Lieutenant with Combi-weapon complété),
+prose *Leader* citant des fiches disparues (Relic Terminator Squad, Bike
+Squad retirés), catégories orphelines des unités supprimées, fiches cachées
+sans lien visible, coûts nuls (Captain on Bike, Kaius Konorius : MFM),
+aucune référence pendante sur les 47 fichiers.
+
 ## Provisoire / déduit
 
 | Objet | État |
