@@ -1951,6 +1951,7 @@ sim-mod: source=&quot;Reavers of the Void (objectif)&quot; reroll=hit conditiona
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Mistshield" hidden="false" id="e33b-918f-dca2-2327" collective="false">
                   <constraints>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="109d-1f2c-5420-4349"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="55a1-ac8d-7842-ec35" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                   <profiles>
@@ -2891,6 +2892,7 @@ sim-mod: source=&quot;Reavers of the Void (objectif)&quot; reroll=hit conditiona
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Mistshield" hidden="false" id="91cf-e52b-cd9a-c580" collective="false">
                   <constraints>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="c535-62de-4f19-22a5"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="603b-fbb7-d72f-3582" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                   <profiles>
@@ -8498,6 +8500,7 @@ invuln: 4+</comment>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Shimmershield" hidden="false" id="f853-f354-6b8c-daa6">
                   <constraints>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="1cf4-d3a4-1aee-2cc7"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="420f-e488-1057-2b35"/>
                   </constraints>
                   <profiles>
@@ -16499,6 +16502,7 @@ invuln: 6+</comment>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Phantasm Grenade Launcher" hidden="false" id="80d5-318f-4ee9-9304">
                   <constraints>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="ea1a-f962-cb7b-3738"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e911-3962-2284-de9f"/>
                   </constraints>
                   <profiles>
@@ -16880,7 +16884,9 @@ invuln: 5+</comment>
             </profile>
           </profiles>
           <constraints>
+            <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="759f-c982-7082-7f70"/>
             <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="2eeb-827c-4ca3-9da0" includeChildSelections="false"/>
+            <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="b216-833e-5ff7-1e07" includeChildSelections="true"/>
           </constraints>
           <modifiers>
             <modifier type="add" value="1 Token per 5 Models" field="error">
@@ -16892,6 +16898,11 @@ invuln: 5+</comment>
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
+            </modifier>
+            <modifier type="increment" value="1" field="b216-833e-5ff7-1e07">
+              <repeats>
+                <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" includeChildSelections="true"/>
+              </repeats>
             </modifier>
           </modifiers>
         </selectionEntry>
@@ -24898,6 +24909,7 @@ invuln: 4+</comment>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Phantasm Grenade Launcher" hidden="false" id="f8b3-e437-5f03-76a0">
                   <constraints>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="d974-2bae-b5c9-ed39"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1a47-df2b-c562-51e6"/>
                   </constraints>
                   <profiles>
