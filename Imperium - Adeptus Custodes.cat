@@ -75,6 +75,7 @@
     <entryLink id="dee1-2f23-d810-23dd" name="Custodian Guard with Adrasite and Pyrithite spears" hidden="false" collective="false" import="true" targetId="af0f-5212-907e-7125" type="selectionEntry"/>
     <entryLink id="a6f7-e352-b6b3-dfe8" name="Sagittarum Custodians" hidden="false" collective="false" import="true" targetId="6f9f-e6aa-ba13-aab1" type="selectionEntry"/>
     <entryLink id="5874-5546-e4b2-4724" name="Aquilon Custodians" hidden="false" collective="false" import="true" targetId="03bc-0141-b967-40e0" type="selectionEntry"/>
+    <entryLink id="b6a0-be8f-196e-0609" name="Aquilon Terminators with Solarite Power Talons" hidden="false" collective="false" import="true" targetId="45da-9e65-8bc4-a016" type="selectionEntry"/>
     <entryLink id="28a9-923b-c230-bc66" name="Agamatus Custodians" hidden="false" collective="false" import="true" targetId="00ab-41c4-cf52-4ad2" type="selectionEntry"/>
     <entryLink id="15e2-1903-8d94-f574" name="Venatari Custodians" hidden="false" collective="false" import="true" targetId="201e-e502-a8d1-3974" type="selectionEntry"/>
     <entryLink id="fccb-aa74-dcb9-5209" name="Contemptor-Galatus Dreadnought" hidden="false" collective="false" import="true" targetId="4988-d93e-5034-2b3c" type="selectionEntry"/>
@@ -2515,6 +2516,7 @@ invuln: 4+</comment>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="1d80-3d94-ca11-a2df" type="selectionEntry" targetId="c8a6-a4c5-703e-b717"/>
             <entryLink import="true" name="" hidden="true" id="daeb-2c17-9722-30d8" type="selectionEntry" targetId="03bc-0141-b967-40e0"/>
+            <entryLink import="true" name="" hidden="true" id="0144-eeb9-a4ae-1793" type="selectionEntry" targetId="45da-9e65-8bc4-a016"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -4938,6 +4940,142 @@ invuln: 4+</comment>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
       </modifierGroups>
+    </selectionEntry>
+    <selectionEntry id="45da-9e65-8bc4-a016" name="Aquilon Terminators with Solarite Power Talons" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: source=&quot;Reap a Terrible Tally&quot; reroll=hit1 vs=Infantry
+sim-mod: source=&quot;Reap a Terrible Tally&quot; reroll=wound1 vs=Infantry
+sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
+sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
+pts: 195 (prix de l&apos;ancienne unite Aquilon Custodians a 3 figurines) - fiche 11e, a confirmer via MFM.
+invuln: 4+</comment>
+      <profiles>
+        <profile id="9889-1127-67a2-d7d2" name="Reap a Terrible Tally" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks that target an **^^Infantry^^** unit can:
+■ Re-roll **hit rolls** of 1.
+■ Re-roll **wound rolls** of 1.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="8b5c-8f48-4c2f-a83c" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
+        <infoLink id="efda-86f5-e449-40c8" name="Martial Ka&apos;tah" hidden="false" targetId="e348-7090-3aff-ee2c" type="rule"/>
+        <infoLink id="574e-4833-3a02-cdb2" name="Invulnerable Save" hidden="false" targetId="0300-84b9-69cf-b64f" type="profile"/>
+        <infoLink name="Talons" id="2b41-2bc8-d9e4-aafe" hidden="false" type="infoGroup" targetId="1cd2-aeaf-6c00-ec0"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink id="89d3-acd4-fa45-e967" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="true"/>
+        <categoryLink id="d925-4ecf-910e-c9a5" name="Terminator" hidden="false" targetId="740a-892c-8958-defa" primary="false"/>
+        <categoryLink id="c14d-2458-0535-4ca0" name="Imperium" hidden="false" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
+        <categoryLink id="a806-a140-6d8e-68ea" name="Faction: Adeptus Custodes" hidden="false" targetId="eea5-aeaf-bbf0-d5ee" primary="false"/>
+        <categoryLink id="a479-ba43-407c-f424" name="Aquilon Custodians" hidden="false" targetId="59aa-a7e1-0c60-b3ce" primary="false"/>
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry id="e63f-4096-b43b-9b93" name="Aquilon Terminator" hidden="false" collective="false" import="true" type="model">
+          <constraints>
+            <constraint type="min" value="3" field="selections" scope="parent" shared="true" id="ba75-eb2c-ba1a-2150"/>
+            <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="60cc-1c47-34ae-98c7"/>
+          </constraints>
+          <profiles>
+            <profile id="4938-26f7-67b1-1bd6" name="Aquilon Terminator" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
+              <characteristics>
+                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">7&quot;</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">8</characteristic>
+                <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
+                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">5+</characteristic>
+                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Solarite Power Talon" hidden="false" id="c020-249e-4e64-f6b9" collective="true">
+              <profiles>
+                <profile name="Solarite Power Talon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="52e0-e904-f07d-b824">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 2</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Sustained Hits" hidden="false" type="rule" id="114c-ec4f-5d45-517b" targetId="1897-c22c-9597-12b1"/>
+              </infoLinks>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9b9e-8a64-392a-bc0d"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4a60-1fda-0299-f443"/>
+              </constraints>
+            </selectionEntry>
+          </selectionEntries>
+          <selectionEntryGroups>
+            <selectionEntryGroup id="6d3b-7ec4-bde8-c29f" name="Ranged Weapon" hidden="false" collective="false" import="true" defaultSelectionEntryId="0d7a-b82b-b300-8d26">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e279-1f55-b69a-74ac"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="52d2-3d00-5245-2662"/>
+              </constraints>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Lastrum Storm Bolter" hidden="false" id="0d7a-b82b-b300-8d26" collective="false">
+                  <profiles>
+                    <profile name="Lastrum Storm Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d3e0-d2f4-215a-73c8">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 3</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <infoLinks>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="2793-3c66-b552-e59f" targetId="c5c8-8b58-b8b6-7786"/>
+                  </infoLinks>
+                </selectionEntry>
+                <selectionEntry type="upgrade" import="true" name="Infernus Firepike" hidden="false" id="1305-efcb-ae0b-828e" collective="false">
+                  <profiles>
+                    <profile name="Infernus Firepike" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="724d-c879-b67c-4bc9">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <infoLinks>
+                    <infoLink name="Blast" hidden="false" type="rule" id="c1c9-e579-b187-6e47" targetId="6c1f-1cf7-ff25-c99e"/>
+                    <infoLink name="Torrent" hidden="false" type="rule" id="afe0-b8f9-6999-fd3b" targetId="5edf-d619-23e0-9b56"/>
+                  </infoLinks>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="195"/>
+      </costs>
     </selectionEntry>
     <selectionEntry id="00ab-41c4-cf52-4ad2" name="Agamatus Custodians" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
