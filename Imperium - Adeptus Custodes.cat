@@ -6368,34 +6368,23 @@ invuln: 5+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="e7d8-1c73-7d03-8b62" name="Telemon Heavy Dreadnought" hidden="false" collective="false" import="true" type="model">
-      <comment>sim-mod: source=&quot;Devoted to Destruction&quot; attacks=+2 weapon=&quot;Telemon caestus&quot; conditional scope=model
-sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
+      <comment>sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <profiles>
         <profile id="013b-ab38-f992-ff77" name="Telemon Heavy Dreadnought" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">10</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">11</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">12</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">14</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">5+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">4</characteristic>
           </characteristics>
         </profile>
         <profile id="47d3-771a-7668-fd15" name="Guardian Eternal" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.</characteristic>
-          </characteristics>
-        </profile>
-        <profile id="c0e2-de2c-19fb-6a94" name="Damaged: 1-4 wounds remaining" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model has 1-4 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Devoted to Destruction" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="true" id="bad7-0704-956b-29e3">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with 2 Telemon caestus weapons in addition to its armoured feet weapon, add 2 to the Attacks characteristic of those Telemon caestus weapons.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Ranged attacks that target this unit have -1 **D**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6407,6 +6396,11 @@ invuln: 4+</comment>
             <modifier type="append" value="D3" field="name"/>
           </modifiers>
         </infoLink>
+        <infoLink name="Damaged" hidden="false" type="rule" id="8971-ed95-e8b1-6527" targetId="f12d-58f5-c28f-692e">
+          <modifiers>
+            <modifier type="append" value="5" field="name"/>
+          </modifiers>
+        </infoLink>
         <infoLink name="Talons" id="3905-9fc6-a34b-d0a8" hidden="false" type="infoGroup" targetId="1cd2-aeaf-6c00-ec0"/>
       </infoLinks>
       <categoryLinks>
@@ -6416,45 +6410,26 @@ invuln: 4+</comment>
         <categoryLink id="d42e-fb61-01b8-db7c" name="Telemon Heavy Dreadnought" hidden="false" targetId="1667-41fe-52be-6171" primary="false"/>
         <categoryLink id="37c2-c887-9319-8864" name="Walker" hidden="false" targetId="6dda-e157-334d-e93a" primary="false"/>
         <categoryLink name="AC Walker" hidden="false" id="c79d-a227-7f42-883b" targetId="5085-b471-39f3-1aa1" primary="false"/>
+        <categoryLink id="90dd-81ab-2b56-db71" name="Dreadnought" hidden="false" targetId="c97c-376-e2e0-1dd2" primary="false"/>
       </categoryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="01f8-6c1d-3f4f-63c5" hidden="false" sortIndex="3">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Armoured feet" hidden="false" id="80e0-3d7a-702a-a745">
-              <profiles>
-                <profile name="Armoured feet" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="434b-e859-6049-eb07">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="876c-b061-4c7f-4d7a-min"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="876c-b061-4c7f-4d7a-max"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Spiculus bolt launcher" hidden="false" id="1189-dcd8-e3ed-7837">
+            <selectionEntry type="upgrade" import="true" name="Spiculus Bolt Launcher" hidden="false" id="1189-dcd8-e3ed-7837">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8aff-1f7d-6924-c4ac-min"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8aff-1f7d-6924-c4ac-max"/>
               </constraints>
               <profiles>
-                <profile name="Spiculus bolt launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="cac3-5b7e-537f-9f67">
+                <profile name="Spiculus Bolt Launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="cac3-5b7e-537f-9f67">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+3</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -6465,107 +6440,25 @@ invuln: 4+</comment>
             </selectionEntry>
           </selectionEntries>
           <selectionEntryGroups>
-            <selectionEntryGroup name="Wargear Options" id="1ad8-749e-76ed-07e6" hidden="false" collective="false" import="true" defaultSelectionEntryId="896a-dae8-2bad-b241">
+            <selectionEntryGroup name="Arms" id="1ad8-749e-76ed-07e6" hidden="false" collective="false" import="true" defaultSelectionEntryId="d0d1-74ce-ec54-c122">
               <constraints>
-                <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="13d1-8fa4-e979-1a33" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="42be-ea0e-bca5-4769" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="13d1-8fa4-e979-1a33" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="42be-ea0e-bca5-4769" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Arachnus storm cannon" hidden="false" id="bf6b-9538-d9ff-4f9c" collective="false">
-                  <profiles>
-                    <profile name="Arachnus storm cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="eec2-26cf-677e-3596">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">12</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                  </costs>
-                  <infoLinks>
-                    <infoLink name="Devastating Wounds" id="77db-d06d-7063-eff7" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-                  </infoLinks>
-                  <constraints>
-                    <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="b9f7-4de5-ab7d-0dfe" includeChildSelections="false"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Iliastus accelerator culverin" hidden="false" id="896a-dae8-2bad-b241" collective="false" defaultAmount="2">
-                  <profiles>
-                    <profile name="Iliastus accelerator culverin" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7489-b958-21a3-a105">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <costs>
-                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                  </costs>
-                  <constraints>
-                    <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="2e59-749b-531d-e503" includeChildSelections="false"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Telemon caestus and twin plasma projector" hidden="false" id="d0d1-74ce-ec54-c122">
+                <selectionEntry type="upgrade" import="true" name="Dual Caestus Fists and 2 Twin Neutronium Cascade Projectors" hidden="false" id="d0d1-74ce-ec54-c122" collective="false">
                   <selectionEntries>
-                    <selectionEntry type="upgrade" import="true" name="Telemon caestus" hidden="false" id="7317-2717-46b6-a19e" collective="false">
+                    <selectionEntry type="upgrade" import="true" name="Dual Caestus Fists" hidden="false" id="7317-2717-46b6-a19e" collective="false">
                       <profiles>
-                        <profile name="Telemon Caestus" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0373-eed1-b39f-953a">
+                        <profile name="Dual Caestus Fists" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="33f0-48f4-eac8-2124">
                           <characteristics>
                             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">7</characteristic>
                             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
-                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                            <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                          </characteristics>
-                          <modifiers>
-                            <modifier type="set" value="7" field="2337-daa1-6682-b110">
-                              <conditions>
-                                <condition type="atLeast" value="2" field="selections" scope="e7d8-1c73-7d03-8b62" childId="d0d1-74ce-ec54-c122" shared="true"/>
-                              </conditions>
-                            </modifier>
-                            <modifier type="append" value="Devoted to Destruction" field="annotation" join=", ">
-                              <conditions>
-                                <condition type="atLeast" value="2" field="selections" scope="e7d8-1c73-7d03-8b62" childId="d0d1-74ce-ec54-c122" shared="true"/>
-                              </conditions>
-                            </modifier>
-                          </modifiers>
-                        </profile>
-                      </profiles>
-                      <costs>
-                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                      </costs>
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3b88-0222-1655-d26f" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5616-48fb-2e65-363f" includeChildSelections="false"/>
-                      </constraints>
-                      <entryLinks></entryLinks>
-                    </selectionEntry>
-                    <selectionEntry type="upgrade" import="true" name="Twin plasma projector" hidden="false" id="d4fe-2fd9-4fe8-ed98" collective="false">
-                      <profiles>
-                        <profile name="Twin plasma projector" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8750-854c-4dc4-6d2c">
-                          <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Torrent, Twin-linked</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Twin-linked</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -6573,22 +6466,285 @@ invuln: 4+</comment>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                       <infoLinks>
-                        <infoLink name="Torrent" id="8bdd-a8cf-2542-8f73" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
-                        <infoLink name="Twin-linked" id="b858-5a41-2856-0005" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
+                        <infoLink name="Twin-linked" hidden="false" type="rule" id="9895-e1d5-1f9d-9156" targetId="cf93-ad4d-2f08-a79d"/>
                       </infoLinks>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d132-61c3-5ff4-170d" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1a3d-5374-7d28-d93f" includeChildSelections="false"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="49bd-d7b6-1909-7208"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4461-9a6c-7952-16d9"/>
                       </constraints>
-                      <entryLinks></entryLinks>
-                      <categoryLinks>
-                        <categoryLink name="Attacks Dx Weapon" hidden="false" id="1ba9-2d7c-ff45-2a1a" targetId="e993-e086-6de1-12af" primary="false"/>
-                      </categoryLinks>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Twin Neutronium Cascade Projectors" hidden="false" id="d4fe-2fd9-4fe8-ed98" collective="false">
+                      <profiles>
+                        <profile name="Twin Neutronium Cascade Projectors" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0725-7789-a33e-0438">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent, Twin-linked</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="9134-2a72-6ee9-ce21" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="d903-c338-f5be-6c41" targetId="5edf-d619-23e0-9b56"/>
+                        <infoLink name="Twin-linked" hidden="false" type="rule" id="b993-b80b-218c-164d" targetId="cf93-ad4d-2f08-a79d"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="b19c-b34c-7fd8-ae75"/>
+                        <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="6b63-0438-d341-3cb5"/>
+                      </constraints>
                     </selectionEntry>
                   </selectionEntries>
-                  <constraints>
-                    <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="7226-c275-7152-f3d0" includeChildSelections="false"/>
-                  </constraints>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                </selectionEntry>
+                <selectionEntry type="upgrade" import="true" name="Adrathic Desolator, Caestus Fist and Twin Neutronium Cascade Projectors" hidden="false" id="c827-77a8-c99a-d02a" collective="false">
+                  <selectionEntries>
+                    <selectionEntry type="upgrade" import="true" name="Adrathic Desolator" hidden="false" id="2d6f-cbe5-be46-ef63" collective="false">
+                      <profiles>
+                        <profile name="Adrathic Desolator" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d271-8877-e91f-0ef2">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">4</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="17eb-c322-3b79-846e"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f735-2746-9aca-bc5b"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Caestus Fist" hidden="false" id="366a-7b5d-73e1-4370" collective="false">
+                      <profiles>
+                        <profile name="Caestus Fist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="3673-8a74-4d5e-dfc7">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="08e6-0958-48b9-9c6b"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="66be-b594-2d5f-58bd"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Twin Neutronium Cascade Projectors" hidden="false" id="54b7-4fbe-27cf-ce8e" collective="false">
+                      <profiles>
+                        <profile name="Twin Neutronium Cascade Projectors" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dfa5-3116-9e0d-0970">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent, Twin-linked</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="6e50-9fea-04c9-3cc5" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="5916-4eb2-904f-06dc" targetId="5edf-d619-23e0-9b56"/>
+                        <infoLink name="Twin-linked" hidden="false" type="rule" id="124a-d08c-89f3-f0a9" targetId="cf93-ad4d-2f08-a79d"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ba07-556a-b8cb-ef50"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6558-13f9-b4a5-b192"/>
+                      </constraints>
+                    </selectionEntry>
+                  </selectionEntries>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                </selectionEntry>
+                <selectionEntry type="upgrade" import="true" name="Arachnus Storm Cannon, Caestus Fist and Twin Neutronium Cascade Projectors" hidden="false" id="02b5-701f-57b5-cc32" collective="false">
+                  <selectionEntries>
+                    <selectionEntry type="upgrade" import="true" name="Arachnus Storm Cannon" hidden="false" id="bf6b-9538-d9ff-4f9c" collective="false">
+                      <profiles>
+                        <profile name="Arachnus Storm Cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e638-9369-2781-f494">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">12</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Sustained Hits 1</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Devastating Wounds" hidden="false" type="rule" id="e01d-1b52-f6e2-be95" targetId="be1e-ac8e-1e2c-3528"/>
+                        <infoLink name="Sustained Hits" hidden="false" type="rule" id="b3d9-84c3-0b70-78e1" targetId="1897-c22c-9597-12b1"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="69eb-7bf8-7acb-f511"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e7a3-01a4-7ee3-3c48"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Caestus Fist" hidden="false" id="e555-d9c3-4125-bc25" collective="false">
+                      <profiles>
+                        <profile name="Caestus Fist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="86d8-347c-f4c4-cd68">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8fb1-8e0e-b654-adb0"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b28f-e2c2-c3df-80b0"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Twin Neutronium Cascade Projectors" hidden="false" id="8e01-9e34-ee45-ed32" collective="false">
+                      <profiles>
+                        <profile name="Twin Neutronium Cascade Projectors" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0308-58e4-09a3-c27e">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent, Twin-linked</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="7ce1-4172-0eb1-e692" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="cdc3-4559-7eeb-093c" targetId="5edf-d619-23e0-9b56"/>
+                        <infoLink name="Twin-linked" hidden="false" type="rule" id="b40c-2f73-61a8-1b27" targetId="cf93-ad4d-2f08-a79d"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4b16-367e-623c-3732"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="44f9-80a5-ce56-dcbb"/>
+                      </constraints>
+                    </selectionEntry>
+                  </selectionEntries>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                </selectionEntry>
+                <selectionEntry type="upgrade" import="true" name="Iliastus Accelerator Culverin, Caestus Fist and Twin Neutronium Cascade Projectors" hidden="false" id="9ca9-e4d0-efdb-1540" collective="false">
+                  <selectionEntries>
+                    <selectionEntry type="upgrade" import="true" name="Iliastus Accelerator Culverin" hidden="false" id="896a-dae8-2bad-b241" collective="false">
+                      <profiles>
+                        <profile name="Iliastus Accelerator Culverin" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="74c7-e641-b474-d311">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 3</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0587-97fc-33e9-483d" targetId="c5c8-8b58-b8b6-7786"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7580-1255-91d0-4a5c"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3e12-06cb-cc8b-175c"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Caestus Fist" hidden="false" id="8dbe-b91b-4268-6b1d" collective="false">
+                      <profiles>
+                        <profile name="Caestus Fist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="426f-c1ec-47ab-53cb">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ccae-37a9-0ae7-5054"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8516-fd26-72b7-e15b"/>
+                      </constraints>
+                    </selectionEntry>
+                    <selectionEntry type="upgrade" import="true" name="Twin Neutronium Cascade Projectors" hidden="false" id="60d4-7929-1860-4f3e" collective="false">
+                      <profiles>
+                        <profile name="Twin Neutronium Cascade Projectors" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3d5c-c967-03fb-0894">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent, Twin-linked</characteristic>
+                          </characteristics>
+                        </profile>
+                      </profiles>
+                      <costs>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                      </costs>
+                      <infoLinks>
+                        <infoLink name="Blast" hidden="false" type="rule" id="c136-b48b-9c48-eff7" targetId="6c1f-1cf7-ff25-c99e"/>
+                        <infoLink name="Torrent" hidden="false" type="rule" id="357c-f0cd-bd13-cc7f" targetId="5edf-d619-23e0-9b56"/>
+                        <infoLink name="Twin-linked" hidden="false" type="rule" id="45ad-8815-6f87-3cdd" targetId="cf93-ad4d-2f08-a79d"/>
+                      </infoLinks>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6734-e429-a09e-7f90"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b4c5-fff6-2e34-aebc"/>
+                      </constraints>
+                    </selectionEntry>
+                  </selectionEntries>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
                 </selectionEntry>
               </selectionEntries>
             </selectionEntryGroup>
