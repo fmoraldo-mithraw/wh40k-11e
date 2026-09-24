@@ -10,6 +10,7 @@
     <categoryEntry id="2b2e-7f16-71e7-7241" name="Prosecutors" hidden="false"/>
     <categoryEntry id="6bfb-3b18-fd53-9ff1" name="Shield-Captain" hidden="false"/>
     <categoryEntry id="ddeb-4b17-98d-5d25" name="Trajann Valoris" hidden="false"/>
+    <categoryEntry id="1c60-ac83-e34a-9d49" name="Trusted Sentinel" hidden="false"/>
     <categoryEntry id="54c0-dc92-7373-55fc" name="Valerian" hidden="false"/>
     <categoryEntry id="813a-760f-1ad5-c4f2" name="Venerable Contemptor Dreadnought" hidden="false"/>
     <categoryEntry id="dbb4-b5e-bd73-e2d9" name="Venerable Land Raider" hidden="false"/>
@@ -50,7 +51,7 @@
   </categoryEntries>
   <entryLinks>
     <entryLink id="9f10-d8db-a7b3-5784" name="Allarus Custodians" hidden="false" collective="false" import="true" targetId="c8a6-a4c5-703e-b717" type="selectionEntry"/>
-    <entryLink id="d0ce-f2d3-358f-4530" name="Custodian Guard" hidden="false" collective="false" import="true" targetId="91b3-2e1c-e642-d213" type="selectionEntry"/>
+    <entryLink id="d0ce-f2d3-358f-4530" name="Custodian Guard Sodality" hidden="false" collective="false" import="true" targetId="91b3-2e1c-e642-d213" type="selectionEntry"/>
     <entryLink id="718c-e2b1-4ba5-28a7" name="Aleya" hidden="false" collective="false" import="true" targetId="9e42-7207-9c30-6122" type="selectionEntry"/>
     <entryLink id="2139-e547-edf5-74ce" name="Anathema Psykana Rhino" hidden="false" collective="false" import="true" targetId="d7cb-7d30-715b-50d2" type="selectionEntry"/>
     <entryLink id="473-b72d-a70b-e3aa" name="Blade Champion" hidden="false" collective="false" import="true" targetId="48b7-e713-d5b1-f11c" type="selectionEntry"/>
@@ -918,18 +919,12 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
-    <selectionEntry id="91b3-2e1c-e642-d213" name="Custodian Guard" hidden="false" collective="false" import="true" type="unit">
-      <comment>sim-mod: source=&quot;Stand Vigil&quot; reroll=wound1 choice=&quot;Stand Vigil&quot;
-sim-mod: source=&quot;Stand Vigil (objectif)&quot; reroll=wound conditional choice=&quot;Stand Vigil&quot;
+    <selectionEntry id="91b3-2e1c-e642-d213" name="Custodian Guard Sodality" hidden="false" collective="false" import="true" type="unit">
+      <comment>sim-mod: source=&quot;Impenetrable Defence&quot; sustained=1 conditional
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; sustained=1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah&quot; lethal when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="215">
-          <conditions>
-            <condition field="selections" scope="91b3-2e1c-e642-d213" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="91b3-2e1c-e642-d213" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -937,14 +932,11 @@ invuln: 4+</comment>
         </modifier>
       </modifiers>
       <profiles>
-        <profile id="07c7-730f-5219-ef8f" name="Stand Vigil" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile id="07c7-730f-5219-ef8f" name="Impenetrable Defence" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" id="65e8-f5-cf2-27bf" hidden="false" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack, re-roll a Wound roll of 1. While this unit is within range of an objective marker you control, you can re-roll the Wound roll instead.</characteristic>
-          </characteristics>
-        </profile>
-        <profile id="9c46-e189-463c-266e" name="Sentinel Storm" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in your Shooting phase, after the unit has shot, it can shoot again.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks have **[SUSTAINED HITS 1: non-^^Monster^^/^^Vehicle^^]** if any of the following apply:
+■ This unit is within range of an **objective**.
+■ The target of those attacks is within range of an **objective**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -960,15 +952,37 @@ invuln: 4+</comment>
         <categoryLink id="dcb0-ca32-5099-4a7b" name="Battleline" hidden="false" targetId="e338-111e-d0c6-b687" primary="true"/>
         <categoryLink id="226d-dfed-65e6-3bb4" name="Imperium" hidden="false" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink id="2786-903b-da5e-432d" name="Faction: Adeptus Custodes" hidden="false" targetId="eea5-aeaf-bbf0-d5ee" primary="false"/>
+        <categoryLink id="e8d7-b716-f511-08d1" name="Trusted Sentinel" hidden="false" targetId="1c60-ac83-e34a-9d49" primary="false"/>
       </categoryLinks>
-      <selectionEntryGroups>
-        <selectionEntryGroup id="a293-9470-77c1-c8da" name="4-5 Custodian Guard" hidden="false" collective="false" import="true" defaultSelectionEntryId="5bbc-172f-4cb8-e6da" sortIndex="2">
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Vexilla" hidden="false" id="4ee6-017c-7ca4-b7a8" collective="false">
           <constraints>
-            <constraint field="selections" scope="parent" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="2678-0eb8-9438-f632" type="max"/>
-            <constraint field="selections" scope="parent" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="acf3-068c-d098-383b" type="min"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="74cb-21eb-9eb7-5662"/>
+          </constraints>
+          <associations>
+            <association min="1" max="1" scope="91b3-2e1c-e642-d213" childId="model" includeChildSelections="true" name="Vexilla bearer" id="1938-0ed8-1e76-08ee"/>
+          </associations>
+          <profiles>
+            <profile id="68e5-0345-07f4-563c" name="Vexilla" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit has +1 **OC**.
+■ This unit can ignore modifiers to this unit&apos;s **Ld**.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <selectionEntryGroups>
+        <selectionEntryGroup id="a293-9470-77c1-c8da" name="3 Custodian Guard" hidden="false" collective="false" import="true" defaultSelectionEntryId="5bbc-172f-4cb8-e6da" sortIndex="2">
+          <constraints>
+            <constraint field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="2678-0eb8-9438-f632" type="max"/>
+            <constraint field="selections" scope="parent" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="acf3-068c-d098-383b" type="min"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="5bbc-172f-4cb8-e6da" name="Custodian Guard (Guardian Spear)" hidden="false" collective="false" import="true" type="model">
+            <selectionEntry id="5bbc-172f-4cb8-e6da" name="Custodian Guard" hidden="false" collective="false" import="true" type="model">
               <profiles>
                 <profile id="ffb0-e197-3a20-7515" name="Custodian Guard" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
                   <modifiers>
@@ -976,19 +990,19 @@ invuln: 4+</comment>
                       <conditionGroups>
                         <conditionGroup type="or">
                           <conditions>
-                            <condition field="selections" scope="91b3-2e1c-e642-d213" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="01d2-1f35-606f-1664" type="equalTo"/>
+                            <condition field="selections" scope="91b3-2e1c-e642-d213" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="4ee6-017c-7ca4-b7a8" type="equalTo"/>
                           </conditions>
                         </conditionGroup>
                       </conditionGroups>
                     </modifier>
                   </modifiers>
                   <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
+                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">5+</characteristic>
+                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1005,9 +1019,9 @@ invuln: 4+</comment>
                     <profile id="3665-5bcf-a899-fad" name="Guardian Spear" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -1018,146 +1032,20 @@ invuln: 4+</comment>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Rapid Fire 2</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
                     <infoLink name="Assault" hidden="false" type="rule" id="5bc9-d2bd-8495-ee7a" targetId="fc8a-8c24-bae9-cc1c"/>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="59cf-dd24-3257-7f09" targetId="c5c8-8b58-b8b6-7786"/>
                   </infoLinks>
                   <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
-            </selectionEntry>
-            <selectionEntry id="c5ee-8179-ecc0-cafb" name="Custodian Guard (Sentinel Blade &amp; Praesidium Shield)" hidden="false" collective="false" import="true" type="model">
-              <profiles>
-                <profile id="f36e-c3a3-477c-21d4" name="Custodian Guard (Shield)" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
-                  <modifiers>
-                    <modifier type="increment" field="bef7-942a-1a23-59f8" value="1">
-                      <conditionGroups>
-                        <conditionGroup type="or">
-                          <conditions>
-                            <condition field="selections" scope="91b3-2e1c-e642-d213" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="01d2-1f35-606f-1664" type="equalTo"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                    <modifier type="set" value="4" field="750a-a2ec-90d3-21fe"/>
-                  </modifiers>
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink id="b25b-62a0-e201-affe" name="Praesidium Shield" hidden="false" targetId="2184-10e8-fe1e-9731" type="profile"/>
-              </infoLinks>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Sentinel blade" hidden="false" id="c24c-78c1-8221-eae" collective="true">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f44f-a8eb-c69d-dde5-min"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f44f-a8eb-c69d-dde5-max"/>
-                  </constraints>
-                  <profiles>
-                    <profile id="52f5-f956-571d-51e2" name="Sentinel Blade" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
-                      <characteristics>
-                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                        <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                      </characteristics>
-                    </profile>
-                    <profile id="888d-3f8f-2d0-297" name="Sentinel Blade" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Pistol</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Assault" hidden="false" type="rule" id="5e6b-ade2-f553-39f7" targetId="fc8a-8c24-bae9-cc1c"/>
-                    <infoLink name="Pistol" hidden="false" type="rule" id="e0ba-82f0-c8a7-278b" targetId="8bf7-8812-923d-29e4"/>
-                  </infoLinks>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-              </selectionEntries>
-            </selectionEntry>
-            <selectionEntry id="01d2-1f35-606f-1664" name="Custodian Guard (Vexilla, Praesidium Shield &amp; Misericordia)" hidden="false" collective="false" import="true" type="model">
-              <constraints>
-                <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="4772-db15-862a-7419" type="max"/>
-              </constraints>
-              <profiles>
-                <profile id="25f8-74d6-cba6-9806" name="Custodian Guard (Vexilla)" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
-                  <characteristics>
-                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
-                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
-                  </characteristics>
-                  <modifiers>
-                    <modifier type="set" value="4" field="750a-a2ec-90d3-21fe"/>
-                  </modifiers>
-                </profile>
-              </profiles>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Vexilla" hidden="false" id="c2f7-f244-8efb-42ff">
-                  <infoLinks>
-                    <infoLink id="9557-4837-18f1-a379" name="Vexilla" hidden="false" targetId="ac43-e2b3-63cb-ecb2" type="profile"/>
-                  </infoLinks>
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d723-bd4e-b985-e4de-min"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d723-bd4e-b985-e4de-max"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Misericordia" hidden="false" id="d7ff-997-fc78-bac">
-                  <profiles>
-                    <profile id="f33d-a12e-44fc-42dc" name="Misericordia" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
-                      <characteristics>
-                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                        <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e708-21fc-22b5-e3d4-min"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e708-21fc-22b5-e3d4-max"/>
-                  </constraints>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
-              </selectionEntries>
-              <infoLinks>
-                <infoLink name="Praesidium Shield" id="7441-cb48-8702-b4cd" hidden="false" targetId="2184-10e8-fe1e-9731" type="profile"/>
-              </infoLinks>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -2932,15 +2820,19 @@ invuln: 4+</comment>
     <selectionEntry id="7d7c-c212-47a3-38e4" name="Trajann Valoris" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: sustained=1 source=&quot;Martial Ka&apos;tah&quot; when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: lethal source=&quot;Martial Ka&apos;tah&quot; when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
-sim-mod: attacks=+6 source=&quot;Moment Shackle&quot; weapon=&quot;Watcher&apos;s Axe&quot; when=melee oncePer=battle scope=model
-invuln: 4+</comment>
+sim-mod: reroll=hit1 source=&quot;Captain-General (Aura)&quot;
+sim-mod: reroll=wound1 source=&quot;Captain-General (Aura)&quot;
+sim-mod: attacks=+3 source=&quot;Moment Shackle&quot; weapon=&quot;Watcher&apos;s Axe&quot; when=melee oncePer=battle scope=model
+invuln: 4+
+invuln: 3+ conditional
+must-warlord</comment>
       <profiles>
         <profile id="d583-46c4-e043-e8e2" name="Trajann Valoris" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">7</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">7</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">5+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
           </characteristics>
@@ -2957,16 +2849,23 @@ invuln: 4+</comment>
 ■ Custodian Wardens</characteristic>
           </characteristics>
         </profile>
-        <profile id="7797-8174-31bb-6e9f" name="Captain-General" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile id="7797-8174-31bb-6e9f" name="Captain-General (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" id="1086-6bc1-a07d-780d" hidden="false" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes an attack, you can ignore any or all modifiers to that attack&apos;s Ballistic Skill or Weapon Skill characteristics and/or all modifiers to the Hit roll.</characteristic>
+            <characteristic name="Description" id="1086-6bc1-a07d-780d" hidden="false" typeId="9b8f-694b-e5e-b573">Friendly **^^Adeptus Custodes^^** units (excluding **^^Monster^^**/**^^Vehicle^^** units) within 6&quot; of this model can:
+■ Re-roll **hit rolls** of 1.
+■ Re-roll **wound rolls** of 1.</characteristic>
           </characteristics>
         </profile>
         <profile id="0d01-a562-a398-9775" name="Moment Shackle" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" id="6ce7-db1f-e8d-7489" hidden="false" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, you can select one of the following to take effect until the end of the phase:
-■ This model&apos;s Watcher&apos;s Axe melee weapon has an Attacks characteristic of 12.
-■ This model has a 2+ invulnerable save.</characteristic>
+            <characteristic name="Description" id="6ce7-db1f-e8d-7489" hidden="false" typeId="9b8f-694b-e5e-b573">**Once per battle, per army.** At the start of any phase, you can select one of the following to take effect until the end of the phase:
+■ This model&apos;s Watcher&apos;s Axe weapon has +3 **A**.
+■ This model has 3+ **InSv**.</characteristic>
+          </characteristics>
+        </profile>
+        <profile id="1c7d-a4c8-80f6-b654" name="Supreme Commander" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your **^^Warlord^^**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3008,10 +2907,10 @@ invuln: 4+</comment>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -3019,6 +2918,9 @@ invuln: 4+</comment>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e093-ab36-829c-9c8f-min"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e093-ab36-829c-9c8f-max"/>
           </constraints>
+          <infoLinks>
+            <infoLink name="Cleave" id="812f-e359-5c02-6ef1" hidden="false" type="rule" targetId="ea1f-c7b7-cafa-43f8"/>
+          </infoLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Eagle&apos;s Scream" hidden="false" id="b330-bad6-ea21-ecb">
           <profiles>
@@ -3027,10 +2929,10 @@ invuln: 4+</comment>
                 <characteristic name="Range" id="f486-c9cf-138e-87ea" hidden="false" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                 <characteristic name="A" id="8f03-2cd7-91a8-1ca7" hidden="false" typeId="3bb-c35f-f54-fb08">2</characteristic>
                 <characteristic name="BS" id="ee4b-3c39-63eb-e6a" hidden="false" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                <characteristic name="S" id="60f4-11e4-fbf8-bf81" hidden="false" typeId="2229-f494-25db-c5d3">5</characteristic>
+                <characteristic name="S" id="60f4-11e4-fbf8-bf81" hidden="false" typeId="2229-f494-25db-c5d3">6</characteristic>
                 <characteristic name="AP" id="4666-9b01-8222-ac40" hidden="false" typeId="9ead-8a10-520-de15">-2</characteristic>
-                <characteristic name="D" id="8858-16f2-1f3-edbc" hidden="false" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                <characteristic name="Keywords" id="73f0-461e-5cbb-546d" hidden="false" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
+                <characteristic name="D" id="8858-16f2-1f3-edbc" hidden="false" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                <characteristic name="Keywords" id="73f0-461e-5cbb-546d" hidden="false" typeId="7f1b-8591-2fcf-d01c">Assault, Rapid Fire 2</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -3040,6 +2942,7 @@ invuln: 4+</comment>
           </constraints>
           <infoLinks>
             <infoLink name="Assault" id="39ea-6b34-41cd-a9b3" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
+            <infoLink name="Rapid Fire" id="ddec-a37b-e7c6-2d18" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
