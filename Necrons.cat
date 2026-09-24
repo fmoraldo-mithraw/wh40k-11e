@@ -9280,6 +9280,7 @@ cannot-warlord</comment>
                   <constraints>
                     <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="2904-b9b6-7d65-249c"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="918f-cf7c-7827-ffaf"/>
+                    <constraint type="max" value="0" field="selections" scope="unit" shared="true" id="dcfe-ddaa-99e6-6cc2" includeChildSelections="true"/>
                   </constraints>
                   <profiles>
                     <profile name="Shieldvanes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d6d-bb49-bf4c-d1d">
@@ -9288,6 +9289,13 @@ cannot-warlord</comment>
                       </characteristics>
                     </profile>
                   </profiles>
+                  <modifiers>
+                    <modifier type="increment" value="1" field="dcfe-ddaa-99e6-6cc2">
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" includeChildSelections="true"/>
+                      </repeats>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="c6ea-6387-14b2-fc83">
                   <constraints>
