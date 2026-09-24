@@ -20987,14 +20987,14 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
               <modifiers>
                 <modifier type="set" value="1" field="168b-be04-4b6f-45e9">
                   <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="6805-e14f-c1bc-b8e3" shared="true" childName="Weapons Team"/>
+                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="4b10-bc1c-678d-6292" shared="true" childName="Weapons Team"/>
                   </conditions>
                 </modifier>
                 <modifier type="add" value="Cannot have 2 Recon Troopers equipped with Long-las and also a Weapons Team in the unit." field="error">
                   <conditionGroups>
                     <conditionGroup type="and">
                       <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="6805-e14f-c1bc-b8e3" shared="true" childName="Weapons Team"/>
+                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="4b10-bc1c-678d-6292" shared="true" childName="Weapons Team"/>
                         <condition type="atLeast" value="2" field="selections" scope="parent" childId="0e86-93ae-7e93-9ca0" shared="true" childName="Recon Trooper w/ Long-las"/>
                       </conditions>
                     </conditionGroup>
@@ -21002,14 +21002,9 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
                 </modifier>
               </modifiers>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Weapons Team" hidden="false" id="6805-e14f-c1bc-b8e3">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="802f-5280-9e44-a3eb" includeChildSelections="false"/>
-              </constraints>
-              <selectionEntries>
                 <selectionEntry type="model" import="true" name="Recon Trooper w/ Missile launcher" hidden="false" id="4b10-bc1c-678d-6292">
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="38ae-f079-e7de-9ada" includeChildSelections="false"/>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="38ae-f079-e7de-9ada" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="bc33-6ab4-412b-10b9" includeChildSelections="false"/>
                   </constraints>
                   <infoLinks>
@@ -21039,10 +21034,18 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
                       </constraints>
                     </entryLink>
                   </entryLinks>
+              <modifiers>
+                <modifier type="add" value="Weapons team: a Recon Trooper with a missile launcher must be paired with a Recon Trooper with a laspistol." field="error">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="4b10-bc1c-678d-6292" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="74b1-4d53-1117-f988" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
                 </selectionEntry>
                 <selectionEntry type="model" import="true" name="Recon Trooper w/ Laspistol" hidden="false" id="74b1-4d53-1117-f988">
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="32d1-d2d9-6cfc-78db" includeChildSelections="false"/>
+                    <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="32d1-d2d9-6cfc-78db" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8e28-9679-7dd2-cbfa" includeChildSelections="false"/>
                   </constraints>
                   <infoLinks>
@@ -21066,9 +21069,15 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
                       </constraints>
                     </entryLink>
                   </entryLinks>
+              <modifiers>
+                <modifier type="add" value="Weapons team: a Recon Trooper with a laspistol must be paired with a Recon Trooper with a missile launcher." field="error">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="74b1-4d53-1117-f988" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="4b10-bc1c-678d-6292" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
                 </selectionEntry>
-              </selectionEntries>
-            </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="min" value="9" field="selections" scope="parent" shared="true" id="b698-2196-078e-5bcb-min" includeChildSelections="false" automatic="false"/>
@@ -21135,18 +21144,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
               </constraints>
             </selectionEntryGroup>
           </selectionEntryGroups>
-          <modifiers>
-            <modifier type="set" value="8" field="b698-2196-078e-5bcb-min">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="parent" childId="6805-e14f-c1bc-b8e3" shared="true" childName="Weapons Team" includeChildSelections="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="8" field="b698-2196-078e-5bcb-max">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="parent" childId="6805-e14f-c1bc-b8e3" shared="true" childName="Weapons Team" includeChildSelections="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
+          <comment>weapons-team: fiche 11e « up to two Recon Troopers … can form a weapons team » = 2 variantes (lance-missiles + laspistol) appariees par erreurs de validation ; exclusive avec le 2e long-las (erreur sur Long-las).</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <profiles>
