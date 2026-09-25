@@ -75,6 +75,17 @@ l'identique** sous un groupe nommé **`Can Support (MFM)`** :
   (ex. **Ministorum Priest**, **Master of Executions**) — fie-toi au groupe présent
   (`Can Lead` vs `Can Support`) et à la présence du mot-clef SUPPORT, pas au nom.
 
+## Rattachement accordé par une AMÉLIORATION (encodé)
+
+Le MFM imprime sous certaines améliorations « LEADER: X, Y » (FR : « MENEUR :
+… ») — ex. **Kaptin's Hat → Flash Gitz**, Kill Kommanda → Kommandos. C'est
+encodé avec le **même groupe** `Can Lead (MFM)` (hidden, `max=0`), mais posé
+**sur la `selectionEntry` de l'amélioration** (pas sur la fiche du chef) :
+ses `entryLink` ciblent les datasheets que le **porteur** peut mener **tant
+qu'il a l'amélioration**, en plus de ses cibles normales. Pas d'exigence de
+règle *Leader* sur l'amélioration (c'est justement elle qui l'accorde).
+Généré depuis le MFM par `editor/mfm/enh-leaders.mjs` (idempotent).
+
 ## Ce qui n'est PAS encodé en liens (rester sur la prose)
 
 Quelques rattachements ne se réduisent pas à une liste de datasheets et
@@ -84,8 +95,8 @@ continuer à les lire dans le texte :
 - **Par mot-clef** (« *any* ^^**DESTROYER CULT**^^ *unit* », « *an* INQUISITORIAL
   AGENTS *unit* », « IMPERIUM BATTLELINE INFANTRY »…) : cible une **catégorie**, pas
   une datasheet précise.
-- **Rattachement accordé par une amélioration** (ex. enhancement Necron qui
-  permet d'attacher le porteur à telle unité) : conditionné à l'amélioration.
+- **Rattachement accordé par une amélioration** *dont seule la prose parle*
+  (« the bearer can be attached to … ») : à lire dans la description.
 - **Inter-fichiers hors clôture d'import** (rare) : ex. un Inquisiteur (Agents)
   listant des kill teams Deathwatch non importées dans son catalogue.
 
