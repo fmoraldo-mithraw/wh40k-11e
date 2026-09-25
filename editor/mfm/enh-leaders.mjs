@@ -19,7 +19,9 @@
 // datasheets (clôture d'import résolue). Idempotent : n'ajoute que les liens
 // manquants ; les liens en trop sont SIGNALÉS, jamais supprimés.
 //
-// usage : node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]
+// usage : node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply | --check]
+//   --check : audit (chaîne run.sh / cron) — dry-run qui sort en code 1 s'il
+//             reste des liens à ajouter ou des noms non résolus.
 //   ex.   node editor/mfm/enh-leaders.mjs editor/mfm/dump/en            (dry-run)
 //         node editor/mfm/enh-leaders.mjs editor/mfm/dump/en --apply
 import fs from "node:fs";
@@ -36,6 +38,7 @@ const xml = require(path.join(REPO, "editor/lib/xml"));
 
 const mfmDir = process.argv[2];
 const APPLY = process.argv.includes("--apply");
+const CHECK = process.argv.includes("--check");
 if (!mfmDir || !fs.existsSync(mfmDir)) {
   console.error("usage: node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]");
   process.exit(1);
@@ -112,7 +115,10 @@ for (const t of byEnh.values()) {
 
 console.log(`\n${byEnh.size} amélioration(s) avec octroi LEADER, ${added} lien(s) ${APPLY ? "ajouté(s)" : "à ajouter"}.`);
 if (residue.length) { console.log("\n⚑ À ME RENVOYER :"); for (const r of residue) console.log("  " + r); }
-if (!APPLY) { console.log("\n(dry-run — relancer avec --apply pour écrire)"); process.exit(0); }
+if (!APPLY) {
+  console.log("\n(dry-run — relancer avec --apply pour écrire)");
+  process.exit(CHECK && (added || residue.length) ? 1 : 0);
+}
 if (!touched) process.exit(0);
 c.buildIndex();
 const v = c.validate({ dirtyOnly: false });

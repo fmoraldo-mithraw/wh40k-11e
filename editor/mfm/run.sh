@@ -72,6 +72,15 @@ AUTO="$(printf '%s\n' "$APPLY_OUT" | sed -n '/DELTAS AUTO-APPLICABLES/,/⚑ À M
 STATLINE="$(printf '%s\n' "$APPLY_OUT" | grep -E 'Unités examinées:' || true)"
 TORESEND="$(printf '%s\n' "$APPLY_OUT" | grep -oE 'À ME RENVOYER: [0-9]+' | grep -oE '[0-9]+' || echo 0)"
 
+# Octrois de LEADER par amélioration (« LEADER: X » / « MENEUR : X » sous une
+# amélioration) : liens manquants en base → annexés au rapport.
+if ENHL_OUT="$(node editor/mfm/enh-leaders.mjs "$MFM_DIR" --check 2>&1)"; then
+  ENHL_STATE="${c_g}à jour${c_0}"
+else
+  ENHL_STATE="${c_y}liens à ajouter : node editor/mfm/enh-leaders.mjs ${MFM_DIR#$REPO/} --apply${c_0}"
+  { echo; echo "## Octrois de LEADER par amélioration (ÉCARTS)"; echo; printf '%s\n' "$ENHL_OUT"; } >> "$REPORT"
+fi
+
 # ── 3) résumé ───────────────────────────────────────────────────────────────
 say "\n${c_b}▸ 3/3  Résumé${c_0}"
 say "\n${c_g}── Modifications auto-applicables (Phase 3) ──${c_0}"
@@ -81,6 +90,7 @@ say "  Détail complet écrit dans : ${c_b}editor/mfm/A_RENVOYER.md${c_0}"
 # En-têtes de catégorie (terminent par « [N] ») = ventilation par type d'action.
 printf '%s\n' "$APPLY_OUT" | grep -E '\[[0-9]+\]$' | sed 's/^/  /' || true
 say "\n  ${STATLINE}"
+say "  Octrois de LEADER par amélioration : ${ENHL_STATE}"
 
 # ── état git ────────────────────────────────────────────────────────────────
 # Modifications versionnées à committer : matrices + alias + rapport, ET tout
