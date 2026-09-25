@@ -31095,6 +31095,24 @@ Place one Drakolithe token next to the unit for each Drakolithe the unit is equi
           <comment>Crusade modifiers</comment>
         </modifierGroup>
       </modifierGroups>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Armoured Warhost Enhancement" hidden="false" id="97f1-1f93-c4ed-24e9">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="a27b-ac32-f0fd-8111" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="bb8d-e765-9b6b-831c"/>
+          </constraints>
+          <entryLinks>
+            <entryLink type="selectionEntry" import="true" name="Spirit Stone of Raelyth" hidden="false" id="a55a-6f79-d5b6-927d" targetId="4196-9426-5925-ce63"/>
+            <entryLink type="selectionEntry" import="true" name="Guiding Presence" hidden="false" id="06af-0fbd-873c-750d" targetId="6716-5adc-b3c9-2acb"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="10b0-9175-5ca4-0fbb" name="Clanblade" hidden="false" collective="false" import="true" type="model">
       <profiles>
