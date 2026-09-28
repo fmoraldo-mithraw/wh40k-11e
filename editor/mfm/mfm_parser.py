@@ -301,7 +301,11 @@ def parse_cost_node(node: Any) -> dict | None:
 # Badges affichés en bas de carte : "UPDATED", "FORCE DISPOSITION(S) CHANGED",
 # "REQUISITION THRESHOLDS REMOVED", ... (divs px-1 font-bold bg-slate-200/300)
 _BADGE_RE = re.compile(r"^(NEW|UPDATED)$|CHANGED|REMOVED|ADDED")
-_BADGE_EXCLUDE = {"ENHANCEMENTS", "WARGEAR OPTIONS", "LEADER"}
+# Libellés de section, en anglais ET dans les versions traduites (FR :
+# OPTIMISATIONS / OPTIONS D'ÉQUIPEMENT / MENEUR) — jamais des badges.
+_BADGE_EXCLUDE = {"ENHANCEMENTS", "WARGEAR OPTIONS", "LEADER", "OPTIMISATIONS", "MENEUR"}
+# Libellé LEADER selon la langue du MFM (FR : « MENEUR »).
+_LEADER_WORDS = ("LEADER", "MENEUR")
 
 # Couleur d'en-tête d'une carte modifiée -> nature du changement
 _HEADER_COLORS = {
@@ -551,10 +555,11 @@ def _name_and_cost(li: Any) -> tuple[str | None, dict | None]:
 
 def _leader_targets_from_text(text: str) -> list[str] | None:
     """
-    Extrait les unités cibles d'un libellé "LEADER: UNIT A, UNIT B".
+    Extrait les unités cibles d'un libellé "LEADER: UNIT A, UNIT B" — ou de sa
+    version française "MENEUR : FRIMEURS" (espace insécable avant le « : »).
     Renvoie ["UNIT A", "UNIT B"] ou None si le texte n'est pas un tel libellé.
     """
-    m = re.match(r"\s*LEADER\s*:?\s*(.+)$", text, re.I)
+    m = re.match(r"\s*(?:LEADER|MENEUR)\s*:?\s*(.+)$", text.replace("\u00a0", " ").replace("\u202f", " "), re.I)
     if not m:
         return None
     targets = [u.strip() for u in m.group(1).split(",") if u.strip()]
@@ -754,12 +759,12 @@ def _parse_leader_targets(card: Any) -> str | None:
     found_leader = False
     for el in iter_elements(card):
         cls = el_class(el)
-        if el_type(el) == "span" and collect_text(el).strip().upper() == "LEADER":
+        if el_type(el) == "span" and collect_text(el).strip().upper() in _LEADER_WORDS:
             found_leader = True
             continue
         if found_leader and el_type(el) == "span" and "font-bold" in cls:
             t = collect_text(el)
-            if t and t.upper() != "LEADER":
+            if t and t.upper() not in _LEADER_WORDS:
                 return t
     return None
 

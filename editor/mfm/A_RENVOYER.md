@@ -1,27 +1,18 @@
-# MFM — à renvoyer (en, v1.4)
+# MFM — à renvoyer (en)
 
 ╔══ ⚑ À ME RENVOYER — non traité automatiquement ══╗
 
 ① NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias.  [1]
    • [Orks] GARGANTUAN SQUIGGOTH — aucune datasheet .cat pour ce nom MFM
 
-② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [19]
+② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [10]
    • [Black Templars] Fervent Exemplars (Upgrade) (MARSHAL'S HOUSEHOLD) — aucune amélioration bdd pour ce nom MFM
    • [Black Templars] Inheritors of Sigismund (Upgrade) (MARSHAL'S HOUSEHOLD) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Nightforged Battery (Upgrade) (DARKFLIGHT PURSUIT) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Thundercowl Turbines (Upgrade) (DARKFLIGHT PURSUIT) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Bellicose Weapon Spirits (Upgrade) (FULGURIS TASK FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Dark Angels] Raptorial Cogitator Core (Upgrade) (FULGURIS TASK FORCE) — aucune amélioration bdd pour ce nom MFM
-   • [Dark Angels] Pennant of Remembrance (UNFORGIVEN TASK FORCE) — aucune amélioration bdd pour ce nom MFM
    • [Deathwatch] Death in the Dark (Upgrade) (SUBVERSION ASSETS) — aucune amélioration bdd pour ce nom MFM
-   • [Agents of the Imperium] Decoy Targets (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
-   • [Agents of the Imperium] Esoteric Explosives (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
-   • [Agents of the Imperium] Introneural Biotech (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
-   • [Agents of the Imperium] Micromelta Rounds (VEILED BLADE ELIMINATION FORCE) — aucune amélioration bdd pour ce nom MFM
-   • [Necrons] Animus Damper (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
-   • [Necrons] Quantum Goad (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
-   • [Necrons] Reletavistic Tether (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
-   • [Necrons] Singularity Matrix (PANTHEON OF WOE) — aucune amélioration bdd pour ce nom MFM
    • [Necrons] Mortality Shroud (Aura) (Upgrade) (THE PHAERON'S ARMOURY) — aucune amélioration bdd pour ce nom MFM
    • [Space Wolves] Fierce Example (Upgrade) (LEGENDS OF SAGA AND SONG) — aucune amélioration bdd pour ce nom MFM
    • [Space Wolves] Death in the Dark (Upgrade) (SUBVERSION ASSETS) — aucune amélioration bdd pour ce nom MFM
@@ -67,12 +58,3 @@
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
 ════ DRY-RUN ════
-
-## Audit DP / Force Disposition
-
-✓ DP, Force Dispositions et mots-clefs UNIQUE alignés sur le MFM.
-
-## Audit surcoûts d'armes
-
-✓ surcoûts d'armes conformes : 107
-✓ aucun écart de surcoût d'arme détecté.

@@ -123,6 +123,16 @@ else
   log "⚠ audit surcoûts d'armes : écarts détectés (ou échec) — voir A_RENVOYER.md."
 fi
 
+# Octrois de LEADER par amélioration (« LEADER: X » sous une amélioration,
+# hors périmètre d'apply) — best-effort, annexé.
+if ENHL_OUT="$(node editor/mfm/enh-leaders.mjs "$DUMP_DIR" --check 2>>"$LOG")"; then
+  { echo; echo "## Octrois de LEADER par amélioration"; echo; printf '%s\n' "$ENHL_OUT"; } >> "$REPORT"
+  log "octrois LEADER par amélioration : OK."
+else
+  { echo; echo "## Octrois de LEADER par amélioration (ÉCARTS)"; echo; printf '%s\n' "${ENHL_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ octrois LEADER : liens à ajouter (enh-leaders.mjs --apply) — voir A_RENVOYER.md."
+fi
+
 # Audit des seuils de paliers (règle du palier supérieur) — best-effort, annexé.
 if TIA_OUT="$(node editor/mfm/tier-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
   { echo; echo "## Audit seuils de paliers"; echo; printf '%s\n' "$TIA_OUT"; } >> "$REPORT"

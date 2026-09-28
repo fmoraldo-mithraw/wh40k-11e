@@ -53,6 +53,15 @@ dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
 - **Phase 3** *(à venir)* : écriture réelle via `editor/lib/catalog.js`
   (`editUnit` costs/tiers, repeat-cost, enhancements) + gauntlet + PR.
 
+## Octrois de LEADER par amélioration — `enh-leaders.mjs`
+
+Une ligne « LEADER: X » (FR « MENEUR : X ») sous une amélioration du MFM est
+extraite par `mfm_parser.py` (champ `leader`) puis écrite en base par
+`node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]` : groupe
+`Can Lead (MFM)` sur l'amélioration (voir `editor/LEADER_LINKS_APP_PROMPT.md`).
+Dry-run par défaut ; résout les noms via `map/` ; n'ajoute que les liens
+manquants, signale les liens en trop et le résidu non résolu.
+
 ## Usage
 
 ```sh

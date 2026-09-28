@@ -6697,7 +6697,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 </constraints>
 </selectionEntryGroup>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0015">
-  <comment>leader-link: cibles confirmees par la liste Art of War (arbitrage utilisateur 2026-08-22).</comment>
+  <comment>leader-link: cibles alignees sur le MFM 11e (Boyz, Breaka Boyz, Flash Gitz, Mek Gunz, Nobz, Tankbustas) - arbitrage utilisateur 2026-09-14.</comment>
   <constraints>
 <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="0d1a-e118-0016"/>
   </constraints>
@@ -6706,6 +6706,8 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0014" type="selectionEntry" targetId="b16a-7132-3f8a-abe5"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0000" type="selectionEntry" targetId="1de9-b138-28a1-9c4b"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0001" type="selectionEntry" targetId="dadc-d370-ef10-853c"/>
+            <entryLink import="true" name="" hidden="true" id="9878-4f4e-9ef7-b80a" type="selectionEntry" targetId="e3b1-1240-2476-cd86"/>
+            <entryLink import="true" name="" hidden="true" id="09e7-934b-6def-5638" type="selectionEntry" targetId="a596-3d99-257e-0ea1"/>
   </entryLinks>
 </selectionEntryGroup>
 </selectionEntryGroups>
@@ -8033,15 +8035,15 @@ sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged</comment>
     </entryLinks>
 </selectionEntryGroup>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0047">
-  <comment>leader-link: memes cibles que le Big Mek (arbitrage utilisateur 2026-08-23) - il est Leader, Support Shokka n&apos;est qu&apos;une regle Lone Operative.</comment>
+  <comment>leader-link: cibles alignees sur le MFM 11e (Boyz, Mek Gunz, Nobz, Tankbustas) - pas les Flash Gitz, contrairement au Big Mek (arbitrage utilisateur 2026-09-14).</comment>
   <constraints>
 <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="0d1a-e118-0048"/>
   </constraints>
   <entryLinks>
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0045" type="selectionEntry" targetId="b37a-8686-db2c-8cbd"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0046" type="selectionEntry" targetId="b16a-7132-3f8a-abe5"/>
-<entryLink import="true" name="" hidden="true" id="0d1a-e119-0100" type="selectionEntry" targetId="1de9-b138-28a1-9c4b"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0101" type="selectionEntry" targetId="dadc-d370-ef10-853c"/>
+            <entryLink import="true" name="" hidden="true" id="0f7b-dd16-07cf-9b4c" type="selectionEntry" targetId="e3b1-1240-2476-cd86"/>
   </entryLinks>
 </selectionEntryGroup>
       </selectionEntryGroups>
@@ -11220,7 +11222,7 @@ invuln: 6+</comment>
 <selectionEntry type="model" import="true" name="Wazbom Blastajet" hidden="false" id="3832-ad97-2b3b-8775">
 <comment>pts: 165 (ancien MFM, provisoire). invuln: 6+
 invuln: 6+
-sim-mod: source=&quot;Go fer da Weak Spot&quot; reroll=wound when=ranged vs=Monster,Vehicle</comment>
+sim-mod: source=&quot;Go fer da Weak Spot&quot; wound=+1 when=ranged vs=Monster,Vehicle</comment>
 <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
@@ -11244,7 +11246,7 @@ sim-mod: source=&quot;Go fer da Weak Spot&quot; reroll=wound when=ranged vs=Mons
 </profile>
 <profile name="Go fer da Weak Spot" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0d1a-e117-0430">
 <characteristics>
-<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, this unit&apos;s ranged attacks that target a **^^Monster^^**/**^^Vehicle^^** unit can re-roll **Wound rolls**.</characteristic>
+<characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, this unit&apos;s ranged attacks that target a **^^Monster^^**/**^^Vehicle^^** unit have +1 to **Wound rolls**.</characteristic>
 </characteristics>
 </profile>
 </profiles>
@@ -12758,6 +12760,16 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
   <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
   </costs>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="b21a-9a5d-3235-49fd">
+                  <constraints>
+                    <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="fc5e-5275-38c8-12ab"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="" hidden="true" id="f805-3f1e-a74d-f5fc" type="selectionEntry" targetId="303-267f-e45c-6aa9"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
 </selectionEntry>
   </selectionEntries>
 </selectionEntryGroup>
@@ -12822,6 +12834,16 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
   <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
   </costs>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="553c-9907-de86-302a">
+                  <constraints>
+                    <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="1fc8-10a3-5bef-1a05"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="" hidden="true" id="56e1-9800-5e5b-6e68" type="selectionEntry" targetId="1de9-b138-28a1-9c4b"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
 </selectionEntry>
   </selectionEntries>
 </selectionEntryGroup>
