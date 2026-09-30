@@ -7763,6 +7763,18 @@ sim-mod: source=&quot;Interred Expertise Upgrade&quot; reroll=wound1</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="5171-5868-df0a-ef12" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="6dda-e157-334d-e93a" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Auramite Sarcophagus Upgrade" hidden="false" id="b21a-cb57-5640-915e">
       <profiles>
@@ -7778,6 +7790,18 @@ sim-mod: source=&quot;Interred Expertise Upgrade&quot; reroll=wound1</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="dc43-28f6-0288-fdba" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="6dda-e157-334d-e93a" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Psyk-Out Grenades Upgrade" hidden="false" id="a719-7135-cf7b-67b3">
       <profiles>
@@ -7795,6 +7819,17 @@ sim-mod: source=&quot;Interred Expertise Upgrade&quot; reroll=wound1</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="dc3a-45e4-53aa-29d4" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9177-5477-63dd-38d" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>
@@ -8091,6 +8126,15 @@ sim-mod: source=&quot;Raptor Blade (vs Psyker choqué)&quot; attacks=+2 str=+2 d
                   <conditions>
                     <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
                     <condition type="lessThan" value="1" field="selections" scope="force" childId="757a-b5ed-a43f-3cdd" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
@@ -8438,6 +8482,15 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
                 <condition type="lessThan" value="1" field="selections" scope="ancestor" childId="cb63-f563-eecd-6e15" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
           </modifiers>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="fde0-0aeb-9e31-cdbd" includeChildSelections="true"/>
@@ -8469,6 +8522,15 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
               <conditions>
                 <condition type="lessThan" value="1" field="selections" scope="ancestor" childId="cb63-f563-eecd-6e15" shared="true" includeChildSelections="true"/>
               </conditions>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
             </modifier>
           </modifiers>
           <constraints>
@@ -8721,6 +8783,25 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9177-5477-63dd-38d" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="f6bc-27f8-a4ba-733b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="f6bc-27f8-a4ba-733b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -8758,6 +8839,26 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="740a-892c-8958-defa" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ae13-e88f-02aa-9abd" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ae13-e88f-02aa-9abd" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Efficient Aggression" hidden="false" id="39ca-944b-0123-a66d">
               <constraints>
@@ -8773,6 +8874,26 @@ sim-mod: source=&quot;Oblivion Knight&quot; wound=+1 whileLeading vs=Psyker cond
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="eea5-aeaf-bbf0-d5ee" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="740a-892c-8958-defa" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="39ca-944b-0123-a66d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="39ca-944b-0123-a66d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
