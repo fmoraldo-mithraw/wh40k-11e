@@ -286,7 +286,13 @@ for (const slug of slugs) {
   // des deux côtés (MFM « Infamy » ↔ bdd « Infamy (Aura) »). Repli nom-seul
   // UNIQUEMENT si non ambigu (une seule candidate bdd sous ce nom, tous
   // détachements confondus). Sinon `enhUnmapped` (review), jamais deviné.
-  const enhStrip = (x) => norm(String(x || "").replace(/\s*\((?:Aura|Upgrade|Psychic)\)\s*/gi, " "));
+  // Variantes vues en base/MFM : « X (Upgrade) », « X Upgrade » (sans
+  // parenthèses, tronc SM 11e), coquille MFM « (Upgarde) », article initial
+  // (MFM « The Thief of Secrets » ↔ bdd « Thief of Secrets »).
+  const enhStrip = (x) => norm(String(x || "")
+    .replace(/\s*\((?:Aura|Upgrade|Upgarde|Psychic)\)\s*/gi, " ")
+    .replace(/\s+Upgrade\s*$/i, "")
+    .replace(/^\s*The\s+/i, ""));
   const enhByDetName = new Map();          // "DET / NOM" (suffixes tolérés) → entrée
   const enhByName = new Map();             // NOM → [entrées] (repli, ambigu ⇒ rejet)
   for (const facName of pool) for (const e of (all[facName] || {}).enhs || []) {
