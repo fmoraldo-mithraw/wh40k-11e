@@ -21,7 +21,12 @@ une faction « importateur mince » possède réellement) et ainsi matcher les n
 MFM. Sans lui, un match par fichier ne couvre que ~52 % (cf. `poc/`). Ce parser
 ne fait que LIRE ; il ne touche jamais aux données. Chemin configurable :
 `BSDATA_PARSER=/chemin/bsdata-parser.mjs` ou `COGITATOR_DIR=/chemin/cogitator-bellicum`
-(défaut : le dépôt frère `../cogitator-bellicum`).
+(défaut : le dépôt frère `../cogitator-bellicum`). **Repli sans le dépôt de
+l'app** : copie autonome commitée `vendor/bsdata-parser.mjs` (bundle esbuild,
+aucune dépendance npm) — la routine cowork, qui n'a pas accès à
+cogitator-bellicum, régénère donc les matrices sans blocage. Après une
+modification du parser dans l'app : `editor/mfm/vendor/sync-parser.sh` puis
+commit (`--check` : code 1 si la copie est périmée).
 
 Résumé du flux : **extraction** (python, ce dépôt) → **matrice** (build-map, ce
 dépôt, lit la clôture d'import via le parser de l'app) → **diff** (apply, ce

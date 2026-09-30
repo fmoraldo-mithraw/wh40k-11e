@@ -35,7 +35,8 @@ CONFIG="$STATE_DIR/config"
 REPO_DIR="${REPO_DIR:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
 MFM_LANG="${MFM_LANG:-en}"
 MFM_BRANCH="${MFM_BRANCH:-main}"
-# COGITATOR_DIR : requis par build-map.mjs (clôture d'import) ; défaut = dépôt frère.
+# COGITATOR_DIR : parser de l'app pour build-map.mjs (clôture d'import) ; défaut =
+# dépôt frère. Absent → repli automatique sur editor/mfm/vendor/bsdata-parser.mjs.
 export COGITATOR_DIR="${COGITATOR_DIR:-$(dirname "$REPO_DIR")/cogitator-bellicum}"
 # cron a un PATH minimal : couvre les emplacements usuels de node/python3.
 export PATH="$PATH:/usr/local/bin:/usr/bin:/opt/homebrew/bin:$HOME/.local/bin"
