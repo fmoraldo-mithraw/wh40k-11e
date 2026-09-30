@@ -5178,7 +5178,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
                 </profile>
               </profiles>
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" id="4c0f-b31f-0154-b391" type="selectionEntry" targetId="18b0-8c2-173f-5"/>
+                <entryLink import="true" name="Bolt Pistol" hidden="false" id="4c0f-b31f-0154-b391" type="selectionEntry" targetId="18b0-8c2-173f-5">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fd23-205a-e796-15b3"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a728-74da-f4b3-ac02"/>
+                  </constraints>
+                </entryLink>
                 <entryLink import="true" name="Artificer Firearm" hidden="false" id="9917-2231-fa2e-7446" type="selectionEntry" targetId="2ad7-3578-b4e7-267b">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="692a-e868-80cf-5f81"/>
@@ -5201,6 +5206,10 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
               <entryLinks>
                 <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="eece-4d41-4cd6-7185" targetId="18b0-8c2-173f-5">
                   <entryLinks></entryLinks>
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7901-4631-0922-a51a"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5443-daca-48ee-7937"/>
+                  </constraints>
                 </entryLink>
                 <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="f906-92ad-82a8-86c0" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
                 <entryLink import="true" name="Artificer Firearm" hidden="false" id="e859-1d2d-20ab-3614" type="selectionEntry" targetId="2ad7-3578-b4e7-267b">
@@ -5244,7 +5253,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional faction
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Sternguard Veteran w/ Heavy Weapon" hidden="false" id="afda-2132-147f-d0f1">
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="5fa1-7d11-730-b2b" targetId="18b0-8c2-173f-5"/>
+                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="5fa1-7d11-730-b2b" targetId="18b0-8c2-173f-5">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="db51-576f-77da-133e"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a08d-29af-dde4-c79b"/>
+                  </constraints>
+                </entryLink>
                 <entryLink import="true" name="Ceramite Fists" hidden="false" id="9f53-e5ad-731f-a7e1" type="selectionEntry" targetId="a5ac-d60a-3d09-1a2c">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="023f-35cf-8918-a5e3"/>
@@ -32147,7 +32161,7 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -32192,7 +32206,7 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -32241,7 +32255,7 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -32954,7 +32968,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -32995,7 +33009,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                         <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dda2-bb0a-215e-ad9c" shared="true"/>
                       </conditions>
                     </conditionGroup>
@@ -33047,7 +33061,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -33613,7 +33627,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -33654,7 +33668,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -33699,7 +33713,7 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35310,7 +35324,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35352,7 +35366,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                       </conditionGroups>
                       <conditions>
                         <condition type="notInstanceOf" value="31" field="selections" scope="ancestor" childId="1fb1-3603-a4bd-485" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35393,7 +35407,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35445,7 +35459,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35918,7 +35932,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -35971,7 +35985,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -36464,7 +36478,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="31" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="31" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -36513,7 +36527,7 @@ sim-mod: source=&quot;Adaptable Executioner (Sustained)&quot; sustained=1 weapon
                         </conditionGroup>
                       </conditionGroups>
                       <conditions>
-                        <condition type="lessThan" value="51" field="a623-fe74-1d33-cddf" scope="root-entry" childId="any" shared="true" includeChildSelections="true"/>
+                        <condition type="lessThan" value="51" field="selections" scope="root-entry" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
