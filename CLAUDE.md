@@ -134,6 +134,14 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   l'appli consommatrice : ✅ / 🟡 / ❌ / ➖ par élément, écarts classés par
   impact (modifiers d'armes, options révélées, erreurs hors unité, bornes de
   groupes conditionnées).
+- **`editor/AUDIT_MOTEURS_2026-09.md`** — audit 2026-09-30 par **diff de deux
+  moteurs** : évaluateur BattleScribe de référence réécrit de zéro
+  (`scripts/refengine/` + `scripts/engine-diff*.mjs` dans cogitator-bellicum)
+  confronté au parseur de l'appli sur les 36 factions ; écarts classés (bug
+  appli corrigé / bug du nouveau moteur / équivalent par conception / défaut
+  de données), verdicts de `AUDIT_VOCABULAIRE_APP.md` corrigés (§7), points
+  restants côté données (§8 : Sternguard sans `min`, Venerable Dreadnought SW,
+  `defaultSelectionEntryId` visant une cible, ids morts, portes d'améliorations).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les

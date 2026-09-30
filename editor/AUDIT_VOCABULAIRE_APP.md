@@ -8,6 +8,15 @@
 > qu'il porte du sens · ➖ sans objet pour l'appli (Crusade, métadonnées,
 > multi-force).
 
+> **Addendum 2026-09-30** — plusieurs verdicts ✅ de cette grille ont été
+> infirmés par le diff contre un évaluateur de référence réécrit de zéro
+> (modifiers de lien sur la contrainte de la cible, coût du lien, `max`
+> `scope="force"`, `infoLink type="rule"` de modèle, noms de `categoryLink`,
+> armes optionnelles sans `min`, portes de détachement `equalTo 0`, fiches
+> masquées par catalogue primaire…) : voir `AUDIT_MOTEURS_2026-09.md` §7
+> (verdicts changés) et §5 (corrections livrées côté appli). Le reste de la
+> grille reste valable.
+
 ## 1. Chiffres
 
 | Mesure | Valeur |
