@@ -21,7 +21,7 @@ commentaire.
 ## Grammaire
 
 ```
-invuln: 4+ [model="Nom du modèle"] [conditional]
+invuln: 4+ [model="Nom du modèle"] [conditional] [note="condition"]
 fnp: 5+
 must-warlord
 cannot-warlord
@@ -31,7 +31,12 @@ leader-kw: KW [& KW] [| KW & KW]
 - `invuln:` — une ligne par sauvegarde. `model="X"` la restreint à un modèle
   (Ghazghkull 4+, Makari 2+ conditional) ; sans `model`, toute l'unité.
   `conditional` = situationnelle (affichage étoilé « 2+* », jamais un état de
-  base).
+  base). `note="…"` (optionnel, en dernier) = la CONDITION en clair
+  (« against melee attacks only ») : l'appli l'affiche sous le profil
+  (« * Invulnérable 4+ : … », traduite via le pack). Sans note, l'appli se
+  rabat sur le texte du profil « Invulnerable Save » correspondant. Le
+  générateur conserve telle quelle une ligne `invuln:` existante de même
+  valeur/modèle (retouche manuelle : `conditional`, `note`).
 - `fnp:` — UNIQUEMENT la stat de fiche, c'est-à-dire l'aptitude **nommée**
   « Feel No Pain N+ ». Les dons conditionnels (aura de Painboy, chef qui
   confère un FNP à l'escouade) ne sont PAS des stats : ils restent des
