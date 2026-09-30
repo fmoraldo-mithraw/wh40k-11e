@@ -99,7 +99,8 @@ factions, ligne d'armée par défaut construite par le code de l'appli :
 |---|---|---|
 | avant | 3 (Warlock 40≠45, Tyrannofex 190≠170, Wolf Scouts — bruit du harnais) | 78 lignes / **31 fiches distinctes** (46 / 27 après alignement du harnais sur `addUnit`) |
 | après la 1ʳᵉ salve (§5-1 à 17) | **0** | 14 lignes / **4 fiches** : Crusader Squad, The Twin Lance (appli), Sternguard et Venerable Dreadnought SW (données) |
-| après la 2ᵉ salve (§5-18 à 31) | **0** | 12 lignes / **2 fiches**, toutes côté **données** (§8) : Sternguard Veteran Squad (×11 chapitres, liens « Bolt Pistol » sans `min`), Venerable Dreadnought SW (aucun `min` sur ses armes) |
+| après la 2ᵉ salve (§5-18 à 31) | **0** | 12 lignes / **2 fiches** : Sternguard Veteran Squad (×11 chapitres, liens « Bolt Pistol » sans `min` — **données**, §8-1), Venerable Dreadnought SW (radio portée par le lien jamais lue — **appli**, §5-32) |
+| après la base corrigée (§8) et §5-32 | **0** | **0 ligne / 0 fiche** sur les 1 666 fiches (`runtime-report.json` : `ptsDiff 0, loadoutDiff 0`) |
 
 Le diff statique (parseur contre moteur, 3 093 fiches) est décrit en §6 avec ses
 chiffres avant/après.
