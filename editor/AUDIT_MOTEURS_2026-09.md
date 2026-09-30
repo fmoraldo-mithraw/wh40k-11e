@@ -174,6 +174,7 @@ remonter ») — les trois points laissés ouverts ci-dessus et ce que le diff f
 | 29 | fiche masquée **sauf présence d'une autre fiche** (unités engendrées : `lessThan 1 roster` sur la catégorie du parent) | toujours listées : Ripper Swarms (Parasite of Mortrex), Spore Mines (Biovore), Mucolid Spores (Sporocyst) | 4 fiches | `reqUnitIds` (catégorie → fiches porteuses) ; le catalogue les cache tant que le parent n'est pas dans la liste |
 | 30 | capacité portée par un **enfant obligatoire** d'une option | non attachée au choix : « Cutting Gear » du Breaching Robot | 12 fiches (Unaligned, toutes factions) | `pickOptionAbilityDesc` descend d'un niveau |
 | 31 | **contenu Croisade** hors fiches : option / toggle masqué sauf force Crusade | proposé en jeu égal : « Master of the Ravenwing » de Sammael ; reliques révélées seulement en Croisade | 1 option + toggles | exclus de `getOpts` (liens, inline, révélations) — **périmètre** : Croisade et Légendes hors appli |
+| 32 | radio **imbriquée sous un `entryLink`** ; radio d'un upgrade **optionnel** non sélectionné | Venerable Dreadnought SW : Heavy Flamer (radio de la hache non choisie, `min 1` appliqué) au lieu du Storm bolter (radio du lien Dreadnought Combat Weapon, jamais lue) | 1 fiche | groupes portés par le lien lus sous son nom ; radio d'un upgrade optionnel gardée par le choix parent (`{g,c}`) |
 
 Bilan sur la liste des fiches : 3 093 fiches listées avant, **3 052** après (−23
 Drukhari « alliés » de Craftworlds, −17 fiches masquées pour la faction primaire,
@@ -278,33 +279,21 @@ Verdicts changés par cette passe (le reste de `AUDIT_VOCABULAIRE_APP.md` reste 
 | capacité d'un enfant obligatoire d'une option | ✅ | ❌ → ✅ | §5-30 |
 | ligne de stats principale (multi-lignes) | ✅ (« première ligne ») | 🟡 → ✅ | §5-20 |
 
-## 8. Points côté données (à traiter dans ce dépôt)
+## 8. Points côté données — traités le 2026-09-30 (seconde passe)
 
-1. **Sternguard Veteran Squad** : les liens « Bolt Pistol » n'ont **aucune contrainte**
-   → BattleScribe ne les équipe pas ; l'appli les équipe par heuristique. Poser `min 1`.
-2. **Venerable Dreadnought (Space Wolves)** : aucun `min` sur les armes ni sur le groupe
-   « Replace assault cannon » (Assault Cannon a même un `min 0` explicite) → aucune
-   arme par défaut chez BattleScribe.
-3. Les **5** `defaultSelectionEntryId` qui nomment la cible d'un lien (Tyrannofex,
-   Castellan « Chainsword », « Huge Knife », deux « Wargear Options » T'au) : pointer
-   le lien (l'appli accepte désormais les deux, `defauts-groupes.mjs` aussi).
-4. Ids morts (§2) : 698 `set 2` inertes, 2 395 pseudo-contraintes `716d…`/`75bb…`,
-   19 conditions sur `a623…` — à purger ou à re-cibler.
-5. **Mark of Chaos** sur les véhicules CSM : le groupe partagé porte `set hidden`
-   + `set 1` sur son min ; à vérifier que l'intention (pas de Marque sur un Rhino) est
-   bien celle-là.
-6. **Restrictions d'améliorations par mot-clef** : la restriction de porteur de
-   nombreuses améliorations n'existe que dans la prose (« X model only ») — l'appli
-   la lit (`reqKeywords`), BattleScribe non (le menu central « Enhancements » les
-   offre à tout personnage) ; c'est l'essentiel de l'écart « améliorations » du diff
-   (§6, décompte). `ENHANCEMENT_BEARERS_PROMPT.md` demande des portes de visibilité
-   en données : c'est l'invariant à exécuter.
-7. **Library - Titans** : la liste des catalogues primaires « Chaos » qui masque le
-   lien Imperium (et révèle le lien Chaos) des quatre Titans énumère Daemons,
-   Chaos Knights, CSM, Death Guard, Thousand Sons, World Eaters — **pas Emperor's
-   Children** : BattleScribe (et l'appli, fidèle) proposent à une armée EC les
-   Titans **Imperium** (mot-clef Imperium, Faction: Adeptus Titanicus) au lieu des
-   Titanicus Traitoris. Ajouter EC aux deux conditions.
+| # | Point | État | Commit(s) |
+|---|---|---|---|
+| 1 | **Sternguard Veteran Squad** (Space Marines) : liens « Bolt Pistol » sans contrainte | **corrigé** — `min 1 / max 1 scope="parent"` sur les 3 liens (la copie Black Templars vise une entrée partagée qui portait déjà ses bornes) | Space Marines |
+| 2 | **Venerable Dreadnought (Space Wolves)** | **reclassé côté appli** : la donnée est complète (Dreadnought Combat Weapon `min 1` avec sa radio « Ranged Weapon » par défaut Storm bolter ; hache + bouclier optionnels avec leur propre radio par défaut Heavy Flamer). L'appli ne lit pas la radio imbriquée **sous le lien** et applique le `min 1` de la radio de la hache sans que la hache soit choisie → Heavy Flamer au lieu de Storm bolter. Correctif appli (§5-32) | — |
+| 3 | **5 `defaultSelectionEntryId`** visant la cible d'un lien | **corrigés** — pointent le lien (Chainsword, Huge Knife, deux « Wargear Options » Kroot, Fleshborer Hive) | AM Library, T'au, Tyranids |
+| 4 | **Ids morts** | **purgés / re-ciblés** — 2 395 contraintes sur les types de coût 716d…/75bb… (absents du `.gst`), 2 295 modifiers qui les visaient, 698 `set 2` sur b03b… et 223 conteneurs vidés, dans 31 fichiers ; les 19 conditions des reliques Croisade (`lessThan N` sur le coût a623… mort) re-ciblées sur le compte de l'upgrade **« Experience Points »** (2dbf-4d49…), déjà utilisé par les grades Croisade — reliques révélées au bon rang en Croisade, toujours masquées en jeu égal | 31 fichiers |
+| 5 | **Mark of Chaos** sur les véhicules CSM | **vérifié, rien à changer** : groupe `min 0 / max 1` (Marque optionnelle), masqué pour les PSYKER et Dark Commune, `set 1` sur le min seulement sous le détachement qui l'impose (bb9d…) — cohérent | — |
+| 6 | **Restrictions d'améliorations en prose seule** | **encodées** — 239 portes de visibilité `set hidden=true` = OR(échec d'éligibilité, AND(unicité)) synthétisées depuis la clause « … model only » (mots-clefs conjonctifs en conditions directes, alternatives en AND, `(excluding X)` en `instanceOf`, Upgrades sans clause d'unicité), 6 catégories de datasheet créées (Neophyte Hybrids, Patriarch, Purestrain Genestealers, Execrator, Norn Assimilator, Norn Emissary) avec leur `categoryLink`. Vérification : sentinelle `amelioration-porteur-manquant` = 0 anomalie ; écarts « améliorations » du diff : Necrons 17 → 6, Drukhari 6 → 1, Sororitas 4 → 1, CSM 43 → 38, jamais en hausse ; les écarts restants sont des porteurs **alliés** listés par l'appli (le moteur ne simule que les natifs) ou l'idiome Tyranid Warriors (CHARACTER porté par le modèle Prime, pas par l'unité) | 25 fichiers |
+| 7 | **Library - Titans** : Emperor's Children absent des listes Chaos | **corrigé** — `notInstanceOf` EC ajouté au groupe AND des 4 liens Chaos, `instanceOf` EC au groupe OR des 4 liens Imperium | Library - Titans |
+
+Validation à chaque commit : `xmllint`, `catalog.validate` (47 fichiers, 0 erreur),
+cliquet des ids dupliqués (456, 0 dépassement), `defauts-groupes` (0 cassé) ;
+côté appli, batterie et sentinelles sur la base corrigée (§9).
 
 ## 9. Reproduire
 
