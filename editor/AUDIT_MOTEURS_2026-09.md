@@ -41,6 +41,19 @@
    **équivalent par conception** (l'appli exprime la même chose autrement), ou
    **défaut de données**.
 
+### Périmètre (décision utilisateur, 2026-09-30)
+
+**Croisade et Légendes sont hors périmètre de l'appli.** Côté données : aucune
+fiche Légendes dans la base (0 nom « [Legends] », 0 catégorie ni publication
+Legends ; « Library - Astartes Heresy Legends » ne publie **aucune** fiche —
+27 cibles, toutes des profils/armes) ; côté Croisade, deux fiches ne vivent que
+sous une force Crusade (Emperor's Champion (Anointed) de Black Templars ; l'option
+« Master of the Ravenwing » de Sammael) et les reliques/grades Croisade sont
+masqués par un type de coût mort (§2). L'appli **retire** désormais tout ce qui
+n'est visible qu'en Croisade (§5-28, §5-31) ; le reste des conditions Crusade de
+la base (143 modifiers) n'est qu'une **relaxation** « … ou en Croisade » de
+portes de détachement, sans effet en jeu égal.
+
 ## 2. Inventaire — ce qui a bougé depuis l'audit du 2026-09-09
 
 | Mesure | 2026-09-09 | 2026-09-30 |
@@ -85,7 +98,8 @@ factions, ligne d'armée par défaut construite par le code de l'appli :
 | | pts (`unitTotalPts`) ≠ BattleScribe | équipement (`deriveAttackerWeapons`) ≠ BattleScribe |
 |---|---|---|
 | avant | 3 (Warlock 40≠45, Tyrannofex 190≠170, Wolf Scouts — bruit du harnais) | 78 lignes / **31 fiches distinctes** (46 / 27 après alignement du harnais sur `addUnit`) |
-| après corrections (§5) | **0** | 14 lignes / **4 fiches** : Crusader Squad (suivi appli), The Twin Lance (suivi appli), Sternguard et Venerable Dreadnought SW (données) |
+| après la 1ʳᵉ salve (§5-1 à 17) | **0** | 14 lignes / **4 fiches** : Crusader Squad, The Twin Lance (appli), Sternguard et Venerable Dreadnought SW (données) |
+| après la 2ᵉ salve (§5-18 à 31) | **0** | 12 lignes / **2 fiches**, toutes côté **données** (§8) : Sternguard Veteran Squad (×11 chapitres, liens « Bolt Pistol » sans `min`), Venerable Dreadnought SW (aucun `min` sur ses armes) |
 
 Le diff statique (parseur contre moteur, 3 093 fiches) est décrit en §6 avec ses
 chiffres avant/après.
@@ -139,20 +153,45 @@ Chaque ligne cite la fiche qui a révélé l'écart ; la non-régression est dan
 | 16 | `set hidden=true` décidé par le **catalogue primaire** (`instanceOf primary-catalogue`) sur une **fiche** | appliqué aux détachements et améliorations, pas aux fiches → **17** fiches offertes que BattleScribe masque : Black Templars (3 Librarians — le chapitre n'en a pas — et 9 **doublons** de fiches que le chapitre redéfinit localement : Gladiators ×3, Impulsor, Repulsor ×2, Land Raider Crusader, Terminator Squad, Sternguard), Deathwatch (Scout Squad, Terminator Squad, Terminator Assault Squad → Deathwatch Terminator Squad), Space Wolves (Apothecary, Apothecary Biologis → Wolf Priest) | 17 fiches | filtre `hiddenForPrimary` (entrée **et** lien) sur le menu natif et les imports |
 | 17 | deux liens racine vers **une même cible**, chacun masqué pour les catalogues primaires de l'autre camp (Library - Titans : lien « Chaos » puis lien « Imperium ») ; `conditionGroup type="or"` | `listUnits` gardait le **premier** lien : avec le filtre 16, les 4 Titans disparaissaient de 7 factions (Sororitas, Custodes, Mechanicus, Agents, Imperial Knights, Space Marines, Emperor's Children) ; le test primaire aplatissait les groupes `or` en « tout doit correspondre », jamais vrai pour un `or` d'`instanceOf` | 28 fiches × factions (révélé par le diff **après** 16) | lien visible pour le primaire préféré ; sémantique `and`/`or` (imbriquée) respectée, `modifierGroup` conditionné = indécidable |
 
-Bilan sur la liste des fiches : 3 093 fiches listées avant, **3 053** après (−23
-Drukhari « alliés » de Craftworlds, −17 fiches masquées pour la faction primaire) ;
-aucune fiche ajoutée, les 4 Titans alliés retrouvés dans les 7 factions du point 17.
+Seconde salve (« si des modifs ou des données ne remontent pas, fais-les
+remonter ») — les trois points laissés ouverts ci-dessus et ce que le diff final
+(§6) a encore révélé, tous corrigés et couverts par `tests/engine_audit_tests.mjs`
+(blocs 12 et 13, 90 assertions au total) :
 
-Points restants **côté appli** (non corrigés, diagnostiqués) :
+| # | Élément de vocabulaire | Défaut | Portée mesurée | Correction |
+|---|---|---|---|---|
+| 18 | `selectionEntryGroup` de composition **imbriqué** : `min` + `defaultSelectionEntryId` | perdus à l'aplatissement (`subCaps` ne portait que le max) : Crusader Squad = 9 Initiates et **aucun Neophyte** au lieu de 1 Sword Brother + 5 Initiates + 4 Neophytes | 1 fiche (+ la validation de tous les sous-groupes) | `subCaps` slots 6-7 (min, défaut) ; `initModels` / `_defaultModelCounts` / `initModelsEff` remplissent le min du sous-groupe sur son défaut et n'en dépassent pas le max ; `compIssues` signale « sous le min » |
+| 19 | arme d'un upgrade **imbriqué dans un upgrade** obligatoire | non remontée : The Twin Lance sans Twin pulse blaster (MV15 Gun Drone → arme) | 1 fiche | `collectDirectWeapons` descend dans les enfants **obligatoires** (2 niveaux) |
+| 20 | ligne de stats **principale** d'une fiche multi-lignes | première du document : Storm Guardians = la plateforme (W2, OC0), Pink Horrors = ligne « (ref. only) », Wolf Scouts = le loup, Boyz-like Orks = le Nob | 39 fiches | corps le plus nombreux (somme des max des lignes de composition) ; les **personnages** gardent l'ordre du document ; `stats` = `statLines[0]` (invariant REG-034/037 conservé) |
+| 21 | sous-groupe **lié** à la composition (`entryLink type="selectionEntryGroup"`) | jamais lu : les **4 variantes à arme spéciale** des Cadian Shock Troops (flamer, grenade launcher, meltagun, plasma gun — groupe partagé de la bibliothèque AM, plafond « max 2 » porté par le lien) **n'existaient pas** dans l'appli | 2 fiches (AM, GSC) | cible du lien traitée comme un sous-groupe, contraintes/modifiers du lien fusionnés |
+| 22 | upgrade optionnel **isolé** sous un groupe non transparent **sans bornes** | non proposé : Power sabre du Rough Rider Sergeant, Storm bolter du Taurox Prime, 2 Heavy Bolters de la Valkyrie (à côté des radios de « Wargear Options ») | 3 fiches (+ GSC) | branche `looseGroup` ; arme cherchée aussi sur l'enfant obligatoire de l'option |
+| 23 | upgrade inline **compté** `min ≥ 1` / `max > min` | figé au min : le 3ᵉ Dual Supa-shoota du Dakkajet (2-3) inaccessible | 1 fiche | slot compté d'unité (`gMin` 2, `gMax` 3) rempli au min par le runtime, retiré des défauts fixes (pas de doublon : 2 équipés) |
+| 24 | `infoLink` / `profile` portés par le **lien d'exposition** | ignorés : « Disciples of Be'lakor » sur les 21 fiches CSM d'une armée Chaos Daemons, « Voices in the Code » des Sicarian Infiltrators | 22 fiches | profils et infoLinks du lien passés à `getAbilities` |
+| 25 | profil `hidden="true"` **sans** modifier de révélation | affiché : « Reign of Confusion » de la Callidus Assassin (texte 10e laissé dans le fichier) | 8 fiches (Agents + chapitres) | ignoré, sauf révélation runtime (`set hidden=false`) |
+| 26 | règle **gst** ni core ni mot-clef d'arme ; « Leader » par lien seul ; « Damaged » | perdues : « Shock Disembark Move » (Impulsor ×11), « Assault Disembark Move » (6 transports) ; **Leader absent** de 22 fiches (Captain on Bike…) ; « Damaged » **en double** (chip + profil) sur les Dreadnoughts | 39 + 22 + ~60 fiches | résolution `GST_INDEX` (texte complet), `leader` dans les capacités core, dédoublonnage |
+| 27 | `constraint max` portée par le **lien d'exposition** | plafond ignoré : Navigator (max 3 par force sur le lien Agents) sans limite | 19 fiches | `getRosterMax(entry, link)` |
+| 28 | fiche masquée **sauf Croisade** (`lessThan 1 roster` sur la force Crusade) | listée en jeu égal : Emperor's Champion (Anointed) | 1 fiche | filtrée comme les contenus Croisade |
+| 29 | fiche masquée **sauf présence d'une autre fiche** (unités engendrées : `lessThan 1 roster` sur la catégorie du parent) | toujours listées : Ripper Swarms (Parasite of Mortrex), Spore Mines (Biovore), Mucolid Spores (Sporocyst) | 4 fiches | `reqUnitIds` (catégorie → fiches porteuses) ; le catalogue les cache tant que le parent n'est pas dans la liste |
+| 30 | capacité portée par un **enfant obligatoire** d'une option | non attachée au choix : « Cutting Gear » du Breaching Robot | 12 fiches (Unaligned, toutes factions) | `pickOptionAbilityDesc` descend d'un niveau |
+| 31 | **contenu Croisade** hors fiches : option / toggle masqué sauf force Crusade | proposé en jeu égal : « Master of the Ravenwing » de Sammael ; reliques révélées seulement en Croisade | 1 option + toggles | exclus de `getOpts` (liens, inline, révélations) — **périmètre** : Croisade et Légendes hors appli |
 
-- **Crusader Squad** : la composition aplatie perd les minimums des sous-groupes
-  (Initiates 5-11, Neophytes 4-8) → corps par défaut 9 Initiates au lieu de 5 + 4
-  Neophytes. Demande de porter les bornes de sous-groupe dans `comp` (slot 5
-  `subCaps` ne porte que les max) et de les honorer dans `initModels`.
-- **The Twin Lance** : l'arme d'un upgrade **imbriqué dans un upgrade** (MV15 Gun
-  Drone → Twin pulse blaster) n'est pas remontée (deux niveaux sous le modèle).
-- Ligne de stats **principale** d'une fiche multi-lignes : première rencontrée dans
-  le document (Storm Guardians : la plateforme). Cosmétique.
+Bilan sur la liste des fiches : 3 093 fiches listées avant, **3 052** après (−23
+Drukhari « alliés » de Craftworlds, −17 fiches masquées pour la faction primaire,
+−1 fiche réservée à la Croisade) ; aucune fiche ajoutée, les 4 Titans alliés
+retrouvés dans les 7 factions du point 17.
+
+Points restants **côté appli** (diagnostiqués, non corrigés) :
+
+- **Plage de taille statique** (`minM`/`maxM` du catalogue) des fiches à
+  « variante qui décrémente la base » sans radio de taille (Sanctifiers 9-11
+  affiché, 9 réel ; Corsair Voidscarred, Atalan Jackals, Neurogaunts) : le moteur
+  l'obtient par simulation, l'appli additionne les max. Cosmétique (la composition
+  vivante est juste).
+- **Catégories conférées par modifier conditionnel** (`add`/`remove category`
+  selon détachement ou faction primaire : « Khorne Non-Battleline », « Ynnari »,
+  « Non-Kroot », « Knight Character » — toutes des catégories **masquées** de
+  comptage) : l'appli ne les évalue pas ; elles ne servent qu'aux plafonds de
+  roster par catégorie de ces détachements, non validés aujourd'hui.
 
 ## 6. Diff statique — dimensions, classement
 
@@ -160,14 +199,26 @@ Compte d'**unités** (sur 3 093, chapitres compris) présentant au moins un éca
 la dimension, avant et après corrections ; puis le verdict.
 
 <!-- DIFF_STATIQUE_TABLE -->
-Totaux « avant » (parseur d'origine contre le moteur, unités concernées) :
-catégories 1 700 · visibilité 1 402 (1 256 cohérentes, 146 réelles) · par détachement
-1 210 · armes 490 · capacités 461 · pts 311 · paliers 146 · plafond roster 77 ·
-options 73 · taille 30 · messages 11 · modèles 8 · stats 3 + 4 lignes ·
-améliorations 416 · fiches non appariées 23 (anciennes) / 106 (nouvelles).
-La colonne « après » (parseur corrigé, run final en cours au moment de ce commit)
-est ajoutée dans la mise à jour suivante de ce document.
+| Dimension | avant | après 1ʳᵉ salve (17 corr.) | après 2ᵉ salve (30 corr.) | Lecture |
+|---|---|---|---|---|
+| catégories | 1 700 | 1 445 | — <!--A5_categories--> | « Allied Units » / « Assigned Agents » conférées par modifier (statut allié, `assignedAgents`) ; catégories **masquées** de comptage (Knight Character, Ynnari, Non-Kroot…) exclues côté appli, comptées côté moteur ; Titans : appariement du diff sur le lien masqué ✅ |
+| visibilité (fiches masquées côté moteur) | 1 402 (146 réelles) | 1 382 (61 réelles) | — <!--A5_hidden--> | réelles restantes = les 56 fiches Chaos Daemons derrière les toggles « Show <dieu> Daemons » (obligatoires chez BattleScribe : artefact de l'état de base du harnais) ✅ |
+| visibilité par détachement | 1 210 | 1 125 | — <!--A5_perDet--> | mêmes toggles (Daemons, Chevaliers alliés « Show Imperial Knights ») ✅ |
+| armes (table de la fiche) | 490 | 486 | — <!--A5_weapons--> | par conception : la table `u.weapons` exclut les armes derrière un `entryLink` de variante de composition (résolues par `wpnDict`) ; ce que **voit** l'utilisateur (dérivation par modèle, simulateur, exports) est jugé par le contrôle de bout en bout (§3) ✅ |
+| capacités | 461 | 404 | — <!--A5_abilities--> | restantes : « Assigned Agents » (drapeau `assignedAgents`), invulnérables (champ `invuln`), « Hunter » (mot-clef d'arme), capacités de **modèle** (lignes de composition, `MODEL_ABILITIES`) ✅ ; le reste corrigé (§5-24 à 26, 30) |
+| pts | 311 | 309 | — <!--A5_pts--> | modificateurs de coût évalués en contexte par le moteur (allié +N, prix de chapitre, prix par modèle) et appliqués au runtime par l'appli : **0** écart de bout en bout ✅ |
+| paliers | 146 | 145 | — <!--A5_tiers--> | idem (delta de forme) ✅ |
+| plafond roster | 77 | 21 | — <!--A5_rosterMax--> | §5-9 puis §5-27 (Navigator) |
+| options | 73 | 44 | — <!--A5_options--> | restants : branches non sélectionnées (Relic weapons du Captain in Gravis Armour, pistolets de la branche alternative du Captain — l'appli expose toute l'arborescence, gardée au runtime) ✅ ; « dreadnought combat weapon » du Venerable Dreadnought SW (données, §8) ; Sanguinary Priest = menu Enhancements vu comme options par le moteur (bruit) |
+| taille | 30 | 24 | — <!--A5_size--> | Sanctifiers-like (voir restants) ; Spectrus Kill Team : le moteur n'énumère que l'état par défaut (10-10), l'appli lit la borne de groupe 5-10 |
+| messages | 11 | 11 | — <!--A5_messages--> | comptage des `error`/`info` par portée ; équivalents |
+| modèles | 8 | 3 | — <!--A5_models--> | Cadian Shock Troops corrigé (§5-21) ; Death Company Intercessors « w/ alternate pistol » = ligne masquée statiquement côté moteur, exposée côté appli (gardée au runtime) |
+| stats / lignes | 3 / 4 | 3 / 4 | — <!--A5_stats--> | Wulfen, Victrix Honour Guard : le **moteur** ne trouve pas la ligne ; Custodian Guard « (Vexilla) », Talonstrike, Wolf Guard Terminators : ligne présente dans les données, manquée par le moteur |
+| améliorations (porteurs) | 416 | 442 | — <!--A5_enhs--> | données : restriction de porteur en prose seulement (§8-6) — l'appli (mots-clefs) est **plus précise** que le menu central ✅ |
+| fiches non appariées (anciennes / nouvelles) | 23 / 106 | 5 / 123 | — <!--A5_unmatched--> | anciennes : plus aucune fiche fantôme ; nouvelles : « Show/Hide Options » (36 toggles), fiches masquées pour le primaire (17) et Croisade, références de rituels — jamais des unités ✅ |
 <!-- /DIFF_STATIQUE_TABLE -->
+
+(« — » : run final en cours au moment de ce commit ; colonne complétée à la mise à jour suivante.)
 
 Lecture des dimensions restées « bruyantes » :
 
@@ -216,6 +267,17 @@ Verdicts changés par cette passe (le reste de `AUDIT_VOCABULAIRE_APP.md` reste 
 | `set hidden` + `instanceOf primary-catalogue` sur une **fiche** | ➖ | ❌ → ✅ | §5-16 |
 | liens racine multiples vers une cible ; `conditionGroup type="or"` dans le test primaire | ✅ | 🟡 → ✅ | §5-17 |
 | `scope="parent"` d'une entrée racine (= la force) | non couvert | idem appli (`getDetReq` lit la portée `parent` comme la force) ; moteur corrigé | §4 |
+| sous-groupe de composition : `min`, `defaultSelectionEntryId` | ✅ (« subCaps ») | ❌ → ✅ | §5-18 |
+| `entryLink type="selectionEntryGroup"` dans une composition | ➖ | ❌ → ✅ | §5-21 |
+| upgrade inline compté `min ≥ 1` / `max > min` | ✅ | ❌ → ✅ | §5-23 |
+| upgrade optionnel sous un groupe non transparent sans bornes | ✅ | ❌ → ✅ | §5-22 |
+| `profile` / `infoLink` sur le **lien** d'exposition | ✅ (« lien et cible ») | ❌ → ✅ | §5-24 |
+| `profile@hidden="true"` sans révélation | ➖ | ❌ → ✅ | §5-25 |
+| `infoLink type="rule"` vers une règle gst non core | 🟡 | ❌ → ✅ | §5-26 |
+| `constraint max` sur le lien d'exposition | ✅ | ❌ → ✅ | §5-27 |
+| `set hidden` sauf force Croisade / sauf autre fiche (unités engendrées) | ➖ | ❌ → ✅ | §5-28, §5-29 |
+| capacité d'un enfant obligatoire d'une option | ✅ | ❌ → ✅ | §5-30 |
+| ligne de stats principale (multi-lignes) | ✅ (« première ligne ») | 🟡 → ✅ | §5-20 |
 
 ## 8. Points côté données (à traiter dans ce dépôt)
 
@@ -238,6 +300,12 @@ Verdicts changés par cette passe (le reste de `AUDIT_VOCABULAIRE_APP.md` reste 
    offre à tout personnage) ; c'est l'essentiel de l'écart « améliorations » du diff
    (§6, décompte). `ENHANCEMENT_BEARERS_PROMPT.md` demande des portes de visibilité
    en données : c'est l'invariant à exécuter.
+7. **Library - Titans** : la liste des catalogues primaires « Chaos » qui masque le
+   lien Imperium (et révèle le lien Chaos) des quatre Titans énumère Daemons,
+   Chaos Knights, CSM, Death Guard, Thousand Sons, World Eaters — **pas Emperor's
+   Children** : BattleScribe (et l'appli, fidèle) proposent à une armée EC les
+   Titans **Imperium** (mot-clef Imperium, Faction: Adeptus Titanicus) au lieu des
+   Titanicus Traitoris. Ajouter EC aux deux conditions.
 
 ## 9. Reproduire
 
