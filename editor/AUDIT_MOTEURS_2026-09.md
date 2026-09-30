@@ -201,24 +201,23 @@ la dimension, avant et après corrections ; puis le verdict.
 <!-- DIFF_STATIQUE_TABLE -->
 | Dimension | avant | après 1ʳᵉ salve (17 corr.) | après 2ᵉ salve (30 corr.) | Lecture |
 |---|---|---|---|---|
-| catégories | 1 700 | 1 445 | — <!--A5_categories--> | « Allied Units » / « Assigned Agents » conférées par modifier (statut allié, `assignedAgents`) ; catégories **masquées** de comptage (Knight Character, Ynnari, Non-Kroot…) exclues côté appli, comptées côté moteur ; Titans : appariement du diff sur le lien masqué ✅ |
-| visibilité (fiches masquées côté moteur) | 1 402 (146 réelles) | 1 382 (61 réelles) | — <!--A5_hidden--> | réelles restantes = les 56 fiches Chaos Daemons derrière les toggles « Show <dieu> Daemons » (obligatoires chez BattleScribe : artefact de l'état de base du harnais) ✅ |
-| visibilité par détachement | 1 210 | 1 125 | — <!--A5_perDet--> | mêmes toggles (Daemons, Chevaliers alliés « Show Imperial Knights ») ✅ |
-| armes (table de la fiche) | 490 | 486 | — <!--A5_weapons--> | par conception : la table `u.weapons` exclut les armes derrière un `entryLink` de variante de composition (résolues par `wpnDict`) ; ce que **voit** l'utilisateur (dérivation par modèle, simulateur, exports) est jugé par le contrôle de bout en bout (§3) ✅ |
-| capacités | 461 | 404 | — <!--A5_abilities--> | restantes : « Assigned Agents » (drapeau `assignedAgents`), invulnérables (champ `invuln`), « Hunter » (mot-clef d'arme), capacités de **modèle** (lignes de composition, `MODEL_ABILITIES`) ✅ ; le reste corrigé (§5-24 à 26, 30) |
-| pts | 311 | 309 | — <!--A5_pts--> | modificateurs de coût évalués en contexte par le moteur (allié +N, prix de chapitre, prix par modèle) et appliqués au runtime par l'appli : **0** écart de bout en bout ✅ |
-| paliers | 146 | 145 | — <!--A5_tiers--> | idem (delta de forme) ✅ |
-| plafond roster | 77 | 21 | — <!--A5_rosterMax--> | §5-9 puis §5-27 (Navigator) |
-| options | 73 | 44 | — <!--A5_options--> | restants : branches non sélectionnées (Relic weapons du Captain in Gravis Armour, pistolets de la branche alternative du Captain — l'appli expose toute l'arborescence, gardée au runtime) ✅ ; « dreadnought combat weapon » du Venerable Dreadnought SW (données, §8) ; Sanguinary Priest = menu Enhancements vu comme options par le moteur (bruit) |
-| taille | 30 | 24 | — <!--A5_size--> | Sanctifiers-like (voir restants) ; Spectrus Kill Team : le moteur n'énumère que l'état par défaut (10-10), l'appli lit la borne de groupe 5-10 |
-| messages | 11 | 11 | — <!--A5_messages--> | comptage des `error`/`info` par portée ; équivalents |
-| modèles | 8 | 3 | — <!--A5_models--> | Cadian Shock Troops corrigé (§5-21) ; Death Company Intercessors « w/ alternate pistol » = ligne masquée statiquement côté moteur, exposée côté appli (gardée au runtime) |
-| stats / lignes | 3 / 4 | 3 / 4 | — <!--A5_stats--> | Wulfen, Victrix Honour Guard : le **moteur** ne trouve pas la ligne ; Custodian Guard « (Vexilla) », Talonstrike, Wolf Guard Terminators : ligne présente dans les données, manquée par le moteur |
-| améliorations (porteurs) | 416 | 442 | — <!--A5_enhs--> | données : restriction de porteur en prose seulement (§8-6) — l'appli (mots-clefs) est **plus précise** que le menu central ✅ |
-| fiches non appariées (anciennes / nouvelles) | 23 / 106 | 5 / 123 | — <!--A5_unmatched--> | anciennes : plus aucune fiche fantôme ; nouvelles : « Show/Hide Options » (36 toggles), fiches masquées pour le primaire (17) et Croisade, références de rituels — jamais des unités ✅ |
+| catégories | 1 700 | 1 445 | **1 445** | « Allied Units » / « Assigned Agents » conférées par modifier (statut allié, `assignedAgents`) ; catégories **masquées** de comptage (Knight Character, Ynnari, Non-Kroot…) exclues côté appli, comptées côté moteur ; Titans : appariement du diff sur le lien masqué ✅ |
+| visibilité (fiches masquées côté moteur) | 1 402 (146 réelles) | 1 382 (61 réelles) | **1 381 (60 réelles)** | réelles restantes = les 56 fiches Chaos Daemons derrière les toggles « Show <dieu> Daemons » (obligatoires chez BattleScribe : artefact de l'état de base du harnais) + les 4 fiches engendrées désormais gardées par `reqUnitIds` (§5-29, invisible au harnais) ✅ |
+| visibilité par détachement | 1 210 | 1 125 | **1 124** | mêmes toggles (Daemons, Chevaliers alliés « Show Imperial Knights ») ✅ |
+| armes (table de la fiche) | 490 | 486 | **486** | par conception : la table `u.weapons` exclut les armes derrière un `entryLink` de variante de composition (résolues par `wpnDict`) ; ce que **voit** l'utilisateur (dérivation par modèle, simulateur, exports) est jugé par le contrôle de bout en bout (§3) ✅ |
+| capacités | 461 | 404 | **256** | restantes : « Damaged » (149 : la règle gst générique doublonne le profil « Damaged: 1-N » de la fiche, dédoublonnée à dessein), capacités d'**option** portées par le choix depuis §5-30 (Blessed wardings, Cutting gear, Storm shield, Command uplink… : invisibles au harnais), capacités de **modèle** (Collar of Khorne — lignes de composition, `MODEL_ABILITIES`), « Hunter » (mot-clef d'arme), invulnérables (champ `invuln`) ✅ |
+| pts | 311 | 309 | **309** | modificateurs de coût évalués en contexte par le moteur (allié +N, prix de chapitre, prix par modèle) et appliqués au runtime par l'appli : **0** écart de bout en bout ✅ |
+| paliers | 146 | 145 | **145** | idem (delta de forme) ✅ |
+| plafond roster | 77 | 21 | **3** | §5-9 puis §5-27 (Navigator) ; les 3 restants (Kroot Hounds, Krootox Riders, Kroot Farstalkers) = plafond de base 0 + `set 3` hors Boarding Actions, évalué au runtime → 3 ✅ |
+| options | 73 | 44 | **37** | restants : branches non sélectionnées (Relic weapons du Captain in Gravis Armour, pistolets de la branche alternative du Captain — l'appli expose toute l'arborescence, gardée au runtime), toggles de désignation (Warlord, Character, Khorne) ✅ ; Sanguinary Priest = menu Enhancements vu comme options par le moteur (bruit) |
+| taille | 30 | 24 | **24** | Sanctifiers-like (voir restants) ; Spectrus Kill Team : le moteur n'énumère que l'état par défaut (10-10), l'appli lit la borne de groupe 5-10 |
+| messages | 11 | 11 | **11** | comptage des `error`/`info` par portée ; équivalents |
+| modèles | 8 | 3 | **1** | Cadian Shock Troops corrigé (§5-21) ; le dernier : Death Company Intercessors « w/ alternate pistol », ligne révélée au runtime côté appli, masquée à l'état de base côté moteur ✅ |
+| stats / lignes | 3 / 4 | 3 / 4 | **3 / 4** | Wulfen, Victrix Honour Guard : le **moteur** ne trouve pas la ligne ; Custodian Guard « (Vexilla) », Talonstrike, Wolf Guard Terminators : ligne présente dans les données, manquée par le moteur |
+| améliorations (porteurs) | 416 | 442 | **445** | données : restriction de porteur en prose seulement (§8-6) — l'appli (mots-clefs) est **plus précise** que le menu central ✅ |
+| fiches non appariées (anciennes / nouvelles) | 23 / 106 | 5 / 123 | **5 / 124** | anciennes : plus aucune fiche fantôme ; nouvelles : « Show/Hide Options » (36 toggles), fiches masquées pour le primaire (17) et Croisade, références de rituels — jamais des unités ✅ |
 <!-- /DIFF_STATIQUE_TABLE -->
 
-(« — » : run final en cours au moment de ce commit ; colonne complétée à la mise à jour suivante.)
 
 Lecture des dimensions restées « bruyantes » :
 
