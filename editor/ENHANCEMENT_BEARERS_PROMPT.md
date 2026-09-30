@@ -50,9 +50,15 @@ la même logique mais visent des **unités** (règle maison n° 1).
    | `… (excluding Z models)`               | `instanceOf Z` en condition directe du OR                      |
    | `<Faction> model only` (aucun autre mot-clef) | **aucune** condition de catégorie — la restriction aux personnages non-Epic est déjà portée par les liens de menu |
 
-   Les `childId` pointent des **catégories** (scope `parent`) ; réutiliser
-   les ids existants (`grep 'categoryEntry name="…"'`), ne jamais en créer
-   de doublon. *(Panne Surly : conjonction `Infantry Warboss` encodée
+   Les `childId` pointent des **catégories**, en scope **`ancestor`** — jamais
+   `parent` : sur 14 fiches (Grimnyr, Brôkhyr Iron-master, Dark Apostle, Dark
+   Commune, Traitor Enforcer, Rogue Trader Entourage, les 4 Command Squads AM,
+   Ravenwing Command Squad, Hyperadapted Raveners, Tyranid Warriors ×2) le menu
+   Enhancements pend sur un **modèle imbriqué** qui ne porte pas la catégorie de
+   faction (elle est sur l'unité) ; `parent` regardait ce modèle et BattleScribe
+   masquait l'amélioration (constat du 2026-09-30, 331 conditions corrigées).
+   Réutiliser les ids existants (`grep 'categoryEntry name="…"'`), ne jamais en
+   créer de doublon. *(Panne Surly : conjonction `Infantry Warboss` encodée
    `AND(notInstanceOf Warboss, notInstanceOf Infantry)` = caché seulement
    si NI l'un NI l'autre — tout personnage Infantry passait.)*
 
