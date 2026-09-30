@@ -1,67 +1,42 @@
 # MFM v1.5 — ce qui reste à intégrer
 
-Passe cowork du 2026-09-30 (`editor/mfm/COWORK_TASK.md`). Les 23 factions
-hors tronc Space Marines sont intégrées et vérifiées ; ce fichier liste le
-reste, à reprendre au prochain passage **disposant du parser de l'app**.
+Passe cowork du 2026-09-30 (`editor/mfm/COWORK_TASK.md`) pour les 23
+factions hors tronc Space Marines, puis passe interactive du même jour pour
+les **6 slugs du tronc SM** (`space-marines`, `black-templars`,
+`blood-angels`, `dark-angels`, `deathwatch`, `space-wolves`), débloquée par
+la copie vendorisée du parser (`editor/mfm/vendor/bsdata-parser.mjs`).
 
-## 1. Bloquant — matrices du tronc Space Marines à régénérer
+**Toutes les factions sont intégrées** : `apply.mjs` → 0 delta auto restant ;
+`wpn-audit` → 0 écart ; `tier-audit` → seul « ? » SM = Decimus Kill Team
+(palier porté par le choix « 10 models », conforme) ; `dp-audit` → DP,
+Force Dispositions et UNIQUE alignés.
 
-> **Débloqué (commit d96f6f2)** : build-map.mjs retombe désormais sur la copie
-> vendorisée `editor/mfm/vendor/bsdata-parser.mjs` — plus besoin du dépôt de
-> l'app. Vérification du 2026-09-30 : matrices régénérées → apply.mjs trouve
-> 128 deltas points + 127 améliorations auto, **tous sur les 6 slugs SM**,
-> et 284 lignes de résidu. Reste à dérouler apply → phase3 --write sur ces slugs.
+## Ce qui a été fait sur le tronc SM
 
-`build-map.mjs` a besoin du parser `scripts/bsdata-parser.mjs` de
-cogitator-bellicum (clôture d'import). Ce dépôt est **hors périmètre** de
-l'environnement cowork (clone refusé, 403) : les matrices n'ont donc pas pu
-être régénérées.
+- `phase3.mjs --write` : coûts de base, paliers, prix par répétition (forme
+  native) et améliorations des 6 slugs.
+- `build-map.mjs` : `enhStrip` tolère « X Upgrade » sans parenthèses, la
+  coquille MFM « (Upgarde) » et l'article « The » → 22 améliorations de plus
+  appariées (dont Mortality Shroud, Necrons).
+- Alias : ERADICATOR SQUAD WITH MELTA RIFLES → Eradicator Squad ; INVADER
+  ATVS → Invader ATV (6 slugs).
+- À la main : Eradicator Squad with Heavy Bolters (palier 6 modèles = 200,
+  dès 4) ; Crusader Squad BT (160 / 305) ; Wolf Guard Headtakers (3 = 115,
+  3 + loups = 170) ; répétition retirée sur Marshal (BT) et Sanguinary
+  Priest (BA) (« REQUISITION THRESHOLDS REMOVED ») ; option Wolf Guard
+  Terminators à 0 (« WARGEAR COSTS REMOVED ») ; surcoûts 10 pts Black
+  Templars (Multi-melta des Gladiator/Impulsor/Repulsor/Executioner,
+  Orbital Comms Array, Cyclone), Deathwing et Deathwatch Terminators
+  (Cyclone) ; Gladiator Valiant BT : Multi-melta de pintle min 2/max 3 → max 1.
+- Vérifiés conformes sans écriture : Firestrike Servo-Turrets (80/modèle),
+  Invader ATV (65/modèle, multi-melta 5).
 
-Pour les 23 autres factions c'est sans conséquence — leurs `.cat` n'avaient
-pas bougé depuis la dernière construction, le cache `current` a été
-dé-périmé par `refresh-current.mjs` et le diff est exact (apply.mjs : 0
-delta restant).
+## Reste — données absentes de la base (rien à écrire sans source)
 
-Pour les **6 slugs du tronc SM** (`space-marines`, `black-templars`,
-`blood-angels`, `dark-angels`, `deathwatch`, `space-wolves`) c'est
-bloquant : l'intégration du codex 11e (commits `e9e140c`…`55941b8`) a
-réécrit les fiches, supprimé 7 datasheets et posé des « points provisoires
-du leak ». Les matrices commitées pointent encore sur l'état d'avant :
-
-- **448 bsId disparus** (107 datasheets + 341 améliorations) ;
-- ~187 deltas et ~161 lignes de résidu affichés par `apply.mjs` pour ces
-  slugs sont donc **non fiables** — ni appliqués, ni à croire en l'état.
-
-À faire : `COGITATOR_DIR=… node editor/mfm/build-map.mjs editor/mfm/dump/en`
-puis `node editor/mfm/apply.mjs …` et `node editor/mfm/phase3.mjs … --write`
-sur ces 6 slugs.
-
-Les **détachements** SM, eux, ont été traités : `dp-audit.mjs` lit la bdd
-directement (pas de matrice) — DP, Force Disposition et mots-clefs UNIQUE
-sont alignés, 0 écart.
-
-## 2. Résidu réel hors tronc SM (vérifié à la main, rien à écrire sauf ①)
-
-- ① **[Orks] GARGANTUAN SQUIGGOTH** — aucune datasheet en base. Datasheet à
-  créer (ou alias à poser si elle existe sous un autre nom).
-- ② **[Necrons] Mortality Shroud (Aura) (Upgrade)** (THE PHAERON'S ARMOURY) —
-  **prix déjà correct** (10 pts, `fdcf-7096-7ec8-948e`). Simple défaut
-  d'appariement : la base la nomme « Mortality Shroud Upgrade », le MFM
-  « Mortality Shroud (Aura) (Upgrade) ». `enhStrip` de build-map ne tolère le
-  suffixe « Upgrade » qu'entre parenthèses — à étendre pour clore les 10
-  lignes ② (les 9 autres sont du tronc SM, même motif).
-- ④ **Coûts portés par les modèles** — vérifiés un à un dans le XML,
-  **déjà conformes** : IRONSTRIDER BALLISTARII (80/modèle + increment 10 à
-  3 modèles = 250 ✓, répétition +15 ✓), HIPPOGRIFF AFV (70 ×2 = 140 ✓),
-  LOKHUST HEAVY DESTROYERS (50/modèle + increment 15 à 3 = 165 ✓,
-  répétition +10 ✓).
-- ⑤ **Prix à composition** — vérifiés, **déjà conformes** : GRETCHIN
-  (45 de base, `set 80` dès >10 modèles) ; TIDEWALL SHIELDLINE
-  (85 + plateforme 20).
-
-## 3. Détachements MFM non appariés (dp-audit)
-
-Neuf noms sans entrée en base, tous du tronc SM — nouveaux détachements ou
-renommages à examiner avec le codex : DEATHWATCH SUPPORT (5 chapitres),
-FIST OF THE GOD-EMPEROR, VOW-SWORN CRUSADERS (Black Templars),
-CERAMITE SENTINELS, MEDUSA'S WRATH (Space Marines).
+- **Datasheets** : ASTRAEUS, THUNDERHAWK GUNSHIP (tronc SM, 6 slugs) ;
+  GARGANTUAN SQUIGGOTH (Orks).
+- **Détachements entiers** : DEATHWATCH SUPPORT (SM, BT, BA, DA, SW —
+  amélioration Beacon Angelis 25 pts), CERAMITE SENTINELS et MEDUSA'S WRATH
+  (Space Marines), FIST OF THE GOD-EMPEROR et VOW-SWORN CRUSADERS (Black
+  Templars — dont l'amélioration Righteous Fervour).
+- **Amélioration** : Unto Death (Blood Angels, Angelic Inheritors, 15 pts).
