@@ -101,6 +101,7 @@ factions, ligne d'armée par défaut construite par le code de l'appli :
 | après la 1ʳᵉ salve (§5-1 à 17) | **0** | 14 lignes / **4 fiches** : Crusader Squad, The Twin Lance (appli), Sternguard et Venerable Dreadnought SW (données) |
 | après la 2ᵉ salve (§5-18 à 31) | **0** | 12 lignes / **2 fiches** : Sternguard Veteran Squad (×11 chapitres, liens « Bolt Pistol » sans `min` — **données**, §8-1), Venerable Dreadnought SW (radio portée par le lien jamais lue — **appli**, §5-32) |
 | après la base corrigée (§8) et §5-32 | **0** | **0 ligne / 0 fiche** sur les 1 666 fiches (`runtime-report.json` : `ptsDiff 0, loadoutDiff 0`) |
+| après les décisions du 2026-09-30 (§5-33 à 37, §8-8 à 10) | **0** | 2 lignes / **1 fiche** : Warlord Titan (Adeptus Titanicus, Titanicus Traitoris) — groupe « Main weapons » **sur-semé par les données** (3 défauts pour 2 emplacements, §8-10) ; les défauts amovibles ne changent aucun équipement par défaut |
 
 Le diff statique (parseur contre moteur, 3 093 fiches) est décrit en §6 avec ses
 chiffres avant/après.
