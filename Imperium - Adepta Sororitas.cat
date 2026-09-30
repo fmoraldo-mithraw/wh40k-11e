@@ -9232,6 +9232,17 @@ fnp: 5+</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="d8ec-37b8-c536-d7a9" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="2236-d428-61e-fa4f" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Writ of Compunction Upgrade" hidden="false" id="457e-7199-ec2c-19a9">
       <profiles>
@@ -9247,6 +9258,17 @@ fnp: 5+</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="6117-ddbc-37ff-580f" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4038-4f63-856e-fa4c" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Hagiomnifex Upgrade" hidden="false" id="8036-0985-3829-3a94">
       <profiles>
@@ -9264,6 +9286,18 @@ fnp: 5+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedProfiles>
@@ -9746,6 +9780,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ea36-91b8-f9d0-524b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ea36-91b8-f9d0-524b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Triptych of the Macharian Crusade" hidden="false" id="b6bd-5c3a-835b-08a8">
               <profiles>
@@ -9762,6 +9815,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="b6bd-5c3a-835b-08a8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="b6bd-5c3a-835b-08a8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Blade of Saint Ellynor" hidden="false" id="ac74-f4fb-2471-0cd2">
               <comment>sim-mod: source=&quot;Blade of Saint Ellynor&quot; str=+1 ap=+1 when=melee scope=model</comment>
@@ -9788,6 +9860,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ac74-f4fb-2471-0cd2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ac74-f4fb-2471-0cd2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Litanies of Faith" hidden="false" id="6afa-ce02-9563-368b">
               <profiles>
@@ -9851,6 +9942,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="302c-b8d2-7d21-305f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="302c-b8d2-7d21-305f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Through Suffering, Strength" hidden="false" id="7056-256b-9392-bbbc">
               <comment>sim-mod: source=&quot;Through Suffering, Strength&quot; attacks=+1 str=+1 dmg=+1 when=melee scope=model choice=&quot;Through Suffering, Strength&quot;
@@ -9888,6 +9998,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="7056-256b-9392-bbbc" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="7056-256b-9392-bbbc" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Chaplet of Sacrifice" hidden="false" id="ab0f-119b-4628-eb86">
               <profiles>
@@ -9904,6 +10033,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ab0f-119b-4628-eb86" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ab0f-119b-4628-eb86" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Mantle of Ophelia" hidden="false" id="ffbd-988d-1497-2fdc">
               <profiles>
@@ -10007,6 +10155,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="e77d-7180-7b77-4c42" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="e77d-7180-7b77-4c42" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Verse of Holy Piety" hidden="false" id="5393-e3e0-d4d2-efc8">
               <profiles>
@@ -10116,6 +10283,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="b16a-1b5e-85a6-0e1b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="b16a-1b5e-85a6-0e1b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Manual of Saint Griselda" hidden="false" id="9105-7062-e61d-cc8b">
               <profiles>
@@ -10132,6 +10318,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9105-7062-e61d-cc8b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="9105-7062-e61d-cc8b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Fire and Fury" hidden="false" id="32e8-f267-c03d-c48e">
               <comment>sim-mod: source=&quot;Fire and Fury&quot; sustained=1 when=ranged whileLeading</comment>
@@ -10149,6 +10354,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="32e8-f267-c03d-c48e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="32e8-f267-c03d-c48e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -10183,6 +10407,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="4e52-3be7-153f-2ef8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="4e52-3be7-153f-2ef8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Mark of Devotion" hidden="false" id="6a87-e11a-7a83-54ac">
               <comment>sim-mod: source=&quot;Mark of Devotion&quot; attacks=+1 when=melee scope=model choice=&quot;Mark of Devotion&quot;
@@ -10213,6 +10456,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="6a87-e11a-7a83-54ac" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="6a87-e11a-7a83-54ac" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Eyes of the Oracle" hidden="false" id="5344-3b0c-c939-e6a2">
               <constraints>
@@ -10228,6 +10490,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="5344-3b0c-c939-e6a2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="5344-3b0c-c939-e6a2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sanctified Amulet" hidden="false" id="2c1d-5416-8c0d-f790">
               <constraints>
@@ -10243,6 +10524,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="2c1d-5416-8c0d-f790" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="2c1d-5416-8c0d-f790" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
@@ -10295,6 +10595,26 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dda2-bb0a-215e-ad9c" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fef8-7c60-b716-cf27" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="731e-ad18-2834-e6c0" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="731e-ad18-2834-e6c0" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -10322,6 +10642,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="65b3-66fc-284d-542e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="65b3-66fc-284d-542e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
