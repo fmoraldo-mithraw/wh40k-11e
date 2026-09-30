@@ -6,6 +6,12 @@ reste, à reprendre au prochain passage **disposant du parser de l'app**.
 
 ## 1. Bloquant — matrices du tronc Space Marines à régénérer
 
+> **Débloqué (commit d96f6f2)** : build-map.mjs retombe désormais sur la copie
+> vendorisée `editor/mfm/vendor/bsdata-parser.mjs` — plus besoin du dépôt de
+> l'app. Vérification du 2026-09-30 : matrices régénérées → apply.mjs trouve
+> 128 deltas points + 127 améliorations auto, **tous sur les 6 slugs SM**,
+> et 284 lignes de résidu. Reste à dérouler apply → phase3 --write sur ces slugs.
+
 `build-map.mjs` a besoin du parser `scripts/bsdata-parser.mjs` de
 cogitator-bellicum (clôture d'import). Ce dépôt est **hors périmètre** de
 l'environnement cowork (clone refusé, 403) : les matrices n'ont donc pas pu
