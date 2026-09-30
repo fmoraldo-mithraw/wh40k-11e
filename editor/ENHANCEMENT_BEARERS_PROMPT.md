@@ -84,6 +84,19 @@ la même logique mais visent des **unités** (règle maison n° 1).
    structurels. Toute nouvelle anomalie au-delà de la ligne de base fait
    échouer l'audit : si elle apparaît, c'est un lien de menu ou une porte à
    réparer (ce document), pas la ligne de base à re-figer.
+   Sa jumelle `amelioration-personne` (décision du 2026-09-30) liste les
+   améliorations offertes à **personne** : clause « X model only » dont X
+   n'existe pas dans la faction (Narthecis Gauntlet chez les Space Wolves),
+   ou porte décidable qui exclut tout candidat (Beacon Angelis chez les
+   Agents : Watch Master) — l'appli ne les offre plus à tout personnage.
+   Attendu pour les améliorations d'un autre chapitre vues du tronc commun ;
+   une NOUVELLE occurrence ailleurs = prose mal lue ou porte trop large.
+   Une porte `lessThan 1` (scope `ancestor` **ou** `parent`) sur une
+   sélection du porteur — désignation Houndpack, arme (Iron Ambassador :
+   Autoch-pattern combi-bolter), allégeance d'un Daemon Prince — devient
+   côté appli un `needSel` vérifié sur les sélections vivantes de la ligne
+   (options, désignations, armes fixes), **par porteur** : seul celui dont la
+   porte est indécidable statiquement doit l'avoir choisie.
 3. `xmllint` + `catalog.validate` (0 erreur, 0 id dupliqué vs HEAD), comme
    toujours.
 
