@@ -173,6 +173,18 @@
     <categoryEntry id="bb6a-2aeb-c6bc-5d6e" name="Librarian in Phobos Armour" hidden="false"/>
     <categoryEntry id="2f83-862d-3151-9213" name="Librarian in Terminator Armour" hidden="false"/>
     <categoryEntry id="4286-1869-dcd9-73c7" name="Lieutenant in Phobos Armour" hidden="false"/>
+    <categoryEntry id="f6f0-dd7b-25de-9564" name="UNIQUE IRONSTORM" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: IRONSTORM — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="bfd7-5f0c-ab77-4d43"/>
+      </constraints>
+    </categoryEntry>
+    <categoryEntry id="10e2-7b78-e56f-55de" name="UNIQUE TERMINATOR" hidden="false">
+      <comment>Exclusivite mutuelle des detachements UNIQUE: TERMINATOR — contrainte native max=1 scope=roster; voir editor/UNIQUE_DETACHMENT_APP_PROMPT.md</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="43e4-f5e7-b99b-eda1"/>
+      </constraints>
+    </categoryEntry>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="e9ed-6763-ea0d-39fe" targetId="82cb-ba1-1aae-3b1d"/>
@@ -22872,7 +22884,7 @@ RESTRICTIONS: You cannot select any units that have already been targeted with e
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="2659-e6fc-6eee-1b42">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -22968,7 +22980,7 @@ EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 5+
             </modifier>
           </modifiers>
           <costs>
-            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
           <rules>
             <rule name="Vowed Target" id="faf6-7377-c475-6b73" hidden="false">
@@ -23458,11 +23470,12 @@ EFFECT: Your unit has Stealth.</description>
               </characteristics>
             </profile>
           </profiles>
+          <categoryLinks>
+            <categoryLink id="3e7f-46b1-b482-3ec1" name="UNIQUE TERMINATOR" hidden="false" targetId="10e2-7b78-e56f-55de" primary="false"/>
+          </categoryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Angelic Inheritors" hidden="false" id="dcc7-f9de-d4f2-69d0">
-          <categoryLinks>
-            <categoryLink id="b00a-c006-95f7-6bc4" name="UNIQUE GRACE" hidden="false" targetId="58d4-aaf9-4b41-8289" primary="false"/>
-          </categoryLinks>
+          <categoryLinks></categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -23569,7 +23582,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
             </modifier>
           </modifiers>
           <costs>
-            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
           <rules>
             <rule name="Dutiful Tenacity" id="8c2e-cb8c-57b1-729f" hidden="false">
@@ -23630,10 +23643,13 @@ EFFECT: Until the end of the phase, add 2 to the Strength characteristic of rang
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="49b9-07ba-9e5e-bfb0">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
+          <categoryLinks>
+            <categoryLink id="bfd4-3200-0130-5f9d" name="UNIQUE TERMINATOR" hidden="false" targetId="10e2-7b78-e56f-55de" primary="false"/>
+          </categoryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Saga of the Hunter" hidden="false" id="31c2-3bbc-d0b2-ba92">
           <modifiers>
@@ -23829,7 +23845,7 @@ EFFECT: Until the end of the phase, your unit is eligible to declare a charge in
             </modifier>
           </modifiers>
           <costs>
-            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
           <rules>
             <rule name="Legendary Slayers" id="9b1b-c1c9-2f94-c66f" hidden="false">
@@ -24375,6 +24391,9 @@ EFFECT: Remove those units from the battlefield and place them into Strategic Re
               </characteristics>
             </profile>
           </profiles>
+          <categoryLinks>
+            <categoryLink id="2c09-bedd-762d-1543" name="UNIQUE PHOBOS" hidden="false" targetId="9768-31c6-0185-d488" primary="false"/>
+          </categoryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Hammer of Avernii" hidden="false" id="2496-d271-a92f-d1c0">
           <modifiers>
@@ -24531,7 +24550,7 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="2244-3728-6245-8f28">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -24616,7 +24635,7 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;, or a Normal move of 
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="7df4-53d1-ae28-0cc7">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25344,9 +25363,7 @@ EFFECT: Your unit has 5+ InSv.</description>
           </profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Wrath of the Doomed" hidden="false" id="9802-6ea8-afb7-c5a3">
-          <categoryLinks>
-            <categoryLink id="fb5e-ed91-6918-3dcd" name="UNIQUE DOOMED" hidden="false" targetId="ce0e-e79a-7b0d-1ed5" primary="false"/>
-          </categoryLinks>
+          <categoryLinks></categoryLinks>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -25414,7 +25431,7 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="9f61-b8fb-1709-8959">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25486,7 +25503,7 @@ EFFECT: Your unit can make a normal move of up to D6&quot;.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="dbb6-fe7c-587d-25cd">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25536,7 +25553,7 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="f73a-b1d8-ced9-4092">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25586,7 +25603,7 @@ EFFECT: Your unit can make a normal move of:
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="3d39-ce40-3216-071a">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25635,7 +25652,7 @@ EFFECT: Your unit shoots using normal shooting, but while doing so your unit can
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="56d4-0988-ffaa-7f22">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25684,7 +25701,7 @@ EFFECT: When making that consolidation move, your unit can move up to D3+3&quot;
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="93c4-b0ab-abdd-f5c5">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25735,7 +25752,7 @@ EFFECT: Your unit’s ranged attacks (excluding [BLAST] attacks) have:
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="ea4a-588d-6f97-7347">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25836,7 +25853,7 @@ EFFECT: Ranged attacks that target your unit have -1 to hit rolls.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="50e1-cd00-f32f-d25d">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25871,6 +25888,9 @@ TARGET: One friendly unengaged ADEPTUS ASTARTES TERMINATOR unit.
 EFFECT: Place your unit in strategic reserves.</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="65c7-8619-c8b3-644d" name="UNIQUE TERMINATOR" hidden="false" targetId="10e2-7b78-e56f-55de" primary="false"/>
+          </categoryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Stormlance Task Force" hidden="false" id="50ed-e07c-8f6b-b035">
           <comment>codex-11e: contenu integre depuis le codex ; DP deduit de la regle MFM (2 ameliorations = 1 DP, 4 = 2-3) ; Force Disposition PROVISOIRE (MFM non integre)</comment>
@@ -25882,7 +25902,7 @@ EFFECT: Place your unit in strategic reserves.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="79d2-d26c-bcfa-1070">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25927,7 +25947,7 @@ EFFECT: Ranged attacks that target your unit have -1 to hit rolls.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="748f-749c-a4e3-8471">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -25973,7 +25993,7 @@ EFFECT: Your unit has MOBILE.</description>
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="353b-e25a-3985-0029">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -26019,7 +26039,7 @@ EFFECT: Select one objective your unit is controlling. That objective is secured
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="f753-5147-64db-1e1b">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -26057,6 +26077,9 @@ TARGET: That ADEPTUS ASTARTES VEHICLE unit.
 EFFECT: Your unit’s ranged attacks have [LETHAL HITS: MONSTER/VEHICLE].</description>
             </rule>
           </rules>
+          <categoryLinks>
+            <categoryLink id="2b3b-ff35-c5b1-b9f8" name="UNIQUE IRONSTORM" hidden="false" targetId="f6f0-dd7b-25de-9564" primary="false"/>
+          </categoryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Gravis Linebreaker Force" hidden="false" id="cc5c-b8d2-bb26-476f">
           <comment>codex-11e: contenu integre depuis le codex ; DP deduit de la regle MFM (2 ameliorations = 1 DP, 4 = 2-3) ; Force Disposition PROVISOIRE (MFM non integre)</comment>
@@ -26071,7 +26094,7 @@ EFFECT: Your unit’s ranged attacks have [LETHAL HITS: MONSTER/VEHICLE].</descr
           <profiles>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="b379-6c6b-bd76-c680">
               <characteristics>
-                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
               </characteristics>
             </profile>
           </profiles>
