@@ -21,6 +21,17 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="8084-5bdd-7c6-bae4" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Boons of Deimos Upgrade" hidden="false" id="87ed-eb15-6e11-a087">
       <comment>sim-mod: source=&quot;Boons of Deimos&quot; str=+2 when=ranged</comment>
@@ -37,6 +48,17 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="8084-5bdd-7c6-bae4" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Predestined Coordinates Upgrade" hidden="false" id="464e-9d60-023d-a54c">
       <profiles>
@@ -52,6 +74,17 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="b7d3-6b00-c657-ebd7" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Astral Overlap Upgrade" hidden="false" id="1378-e635-dc53-bfe3">
       <profiles>
@@ -67,6 +100,17 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="b7d3-6b00-c657-ebd7" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Psychic Celerity" hidden="false" id="e756-0100-e1c9-f979">
       <profiles>
@@ -85,6 +129,25 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="740a-892c-8958-defa" shared="true"/>
+              </conditions>
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="e756-0100-e1c9-f979" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="e756-0100-e1c9-f979" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Vigilance of Titan" hidden="false" id="4902-7c7e-ffd8-4e0e">
       <profiles>
@@ -103,6 +166,25 @@
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="740a-892c-8958-defa" shared="true"/>
+              </conditions>
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="roster" childId="4902-7c7e-ffd8-4e0e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="parent" childId="4902-7c7e-ffd8-4e0e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Brother-Captain" hidden="false" id="dce9-6eb4-fa33-e869">
       <comment>sim-mod: source=&quot;Hammerhand&quot; lethal when=melee whileLeading
@@ -6751,6 +6833,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f3cc-9cbf-5d1b-66e4" includeChildForces="true" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="729d-a08a-9b1f-5180" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="729d-a08a-9b1f-5180" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Phial of the Abyss" hidden="false" id="7234-e417-5ad1-5805">
               <profiles>
@@ -6797,6 +6898,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7b57-fd59-f6b1-ef3b" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="15d6-0fd2-69cf-6c36" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="15d6-0fd2-69cf-6c36" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Radiant Champion" hidden="false" id="706a-2af3-d7ec-bd6f">
               <profiles>
@@ -6861,6 +6981,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0773-acd7-2b9c-87eb" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="5311-c819-50b2-1464" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="5311-c819-50b2-1464" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sanctic Reaper" hidden="false" id="f290-4bcc-1798-6868">
               <comment>sim-mod: source=&quot;Sanctic Reaper&quot; attacks=+3 when=melee scope=model</comment>
@@ -6918,6 +7057,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0a74-718d-3bd1-3681" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="8084-85d-a3a4-87e6" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="8084-85d-a3a4-87e6" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Nemesis Rounds" hidden="false" id="d0c9-fd98-de1b-6d43">
               <profiles>
@@ -6980,6 +7138,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0c03-1ef0-3061-3aac" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="a8ae-3a93-2fa9-fbce" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="a8ae-3a93-2fa9-fbce" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Driven by Duty" hidden="false" id="3c38-009d-9e25-55f8">
               <profiles>
@@ -7093,6 +7270,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0b4c-c64b-6709-f694" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9264-31fe-7ae2-98a3" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="9264-31fe-7ae2-98a3" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Tome of Forbidden Ways" hidden="false" id="9e5e-7b9a-9ccb-9ec9">
               <profiles>
@@ -7111,6 +7307,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="e677-bed3-f883-56cd" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9e5e-7b9a-9ccb-9ec9" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="9e5e-7b9a-9ccb-9ec9" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Banishing Wave" hidden="false" id="53d5-cb9a-c034-d6c9">
               <profiles>
@@ -7129,6 +7344,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="be81-d929-28a8-2f86" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="53d5-cb9a-c034-d6c9" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="53d5-cb9a-c034-d6c9" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Purity of Purpose" hidden="false" id="981f-93de-3614-8ab7">
               <profiles>
@@ -7147,6 +7381,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="fe6b-2e29-312a-b8b2" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="981f-93de-3614-8ab7" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="981f-93de-3614-8ab7" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
@@ -7184,6 +7437,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="e4a9-498d-582c-0fd3" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="5a01-f1f1-db42-1453" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="5a01-f1f1-db42-1453" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Ephemeral Tome" hidden="false" id="9af9-320a-64f0-c741">
               <profiles>
@@ -7228,6 +7500,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3b0c-f057-2c2f-b607" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="54af-e64e-34b5-d9bd" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="54af-e64e-34b5-d9bd" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sigil of the Hunt" hidden="false" id="14e8-e8fd-ac0f-6924">
               <comment>sim-mod: source=&quot;Sigil of the Hunt&quot; reroll=hit1 when=ranged</comment>
@@ -7247,6 +7538,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8be7-f43a-baa1-683f" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="14e8-e8fd-ac0f-6924" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="14e8-e8fd-ac0f-6924" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
@@ -7286,6 +7596,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4d15-0ffd-9e05-2746" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="c611-bc2c-1f4a-383f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="c611-bc2c-1f4a-383f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Doomseer&apos;s Amulet" hidden="false" id="160b-59d1-c37e-d3d5">
               <profiles>
@@ -7304,6 +7633,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b4e9-2d8a-e0ac-bd3e" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="160b-59d1-c37e-d3d5" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="160b-59d1-c37e-d3d5" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Grimoire of Conjunctions" hidden="false" id="2678-0019-5c33-c623">
               <comment>sim-mod: source=&quot;Grimoire of Conjunctions&quot; str=+4 when=melee oncePer=battle scope=model</comment>
@@ -7323,6 +7671,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="9c0e-9c6f-c5dc-696a" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="2678-0019-5c33-c623" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="2678-0019-5c33-c623" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Shield of Prophecy" hidden="false" id="b12b-6a6b-1572-808d">
               <profiles>
@@ -7341,6 +7708,25 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f550-7474-8053-97fb" includeChildSelections="true"/>
               </constraints>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d564-3284-bf44-b873" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="b12b-6a6b-1572-808d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="b12b-6a6b-1572-808d" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
