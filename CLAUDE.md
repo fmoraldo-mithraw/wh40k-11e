@@ -153,7 +153,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    **unités** par mots-clefs, **cumulable** (pas d'unicité d'armée),
    plafond global de 4, max 1 par unité, **jamais sur un Epic Hero**.
    Toutes les autres → **personnages non-Epic uniquement**, uniques
-   (`max 1 roster`). Cas limites → demander à l'utilisateur.
+   (`max 1 roster`). **Exception** (décision du 2026-09-30) : un Epic Hero
+   que les données **désignent explicitement** comme porteur (portes de
+   l'entrée nommant sa catégorie — Prince Yriel et Kharseth pour le
+   Corsair Coterie, « Pirate Prince » réservée à Yriel ; upgrades des
+   Assassins et des C'tan Shards) le reste ; sans désignation, jamais.
+   Cas limites → demander à l'utilisateur.
 2. Les porteurs se résolvent par **conjonction de mots-clefs** de la
    prose (« KROOT SHAPER » = mots-clefs KROOT **et** SHAPER) — jamais en
    traversant le menu central « Enhancements ».

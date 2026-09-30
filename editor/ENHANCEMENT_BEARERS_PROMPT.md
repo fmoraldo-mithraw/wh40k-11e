@@ -29,7 +29,12 @@ la même logique mais visent des **unités** (règle maison n° 1).
    soient les portes. *(Panne Dakkarig : fiche créée par codexgen sans ces
    liens — probablement parce que personnage VEHICLE, cas atypique.)*
    Les **Epic Heroes ne lient pas le menu** : c'est l'encodage de leur
-   exclusion — ne jamais les lier.
+   exclusion — ne jamais les lier. **Exception** (règle maison n° 1,
+   décision du 2026-09-30) : un Epic Hero que les portes d'une amélioration
+   **désignent explicitement** (Prince Yriel et Kharseth pour le Corsair
+   Coterie, « Pirate Prince » réservée à Yriel ; upgrades des Assassins et
+   des C'tan Shards) lie le menu correspondant et en est porteur — l'appli
+   le retient par sa liste explicite (`enhEligible`), jamais par le repli.
 
 2. **La porte de visibilité doit encoder la clause de prose** : modifier
    `set hidden=true` sur l'entrée de l'amélioration, arbre :
