@@ -134,6 +134,14 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   l'appli consommatrice : ✅ / 🟡 / ❌ / ➖ par élément, écarts classés par
   impact (modifiers d'armes, options révélées, erreurs hors unité, bornes de
   groupes conditionnées).
+- **`editor/AUDIT_MOTEURS_2026-09.md`** — audit 2026-09-30 par **diff de deux
+  moteurs** : évaluateur BattleScribe de référence réécrit de zéro
+  (`scripts/refengine/` + `scripts/engine-diff*.mjs` dans cogitator-bellicum)
+  confronté au parseur de l'appli sur les 36 factions ; écarts classés (bug
+  appli corrigé / bug du nouveau moteur / équivalent par conception / défaut
+  de données), verdicts de `AUDIT_VOCABULAIRE_APP.md` corrigés (§7), points
+  restants côté données (§8 : Sternguard sans `min`, Venerable Dreadnought SW,
+  `defaultSelectionEntryId` visant une cible, ids morts, portes d'améliorations).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les
@@ -145,7 +153,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    **unités** par mots-clefs, **cumulable** (pas d'unicité d'armée),
    plafond global de 4, max 1 par unité, **jamais sur un Epic Hero**.
    Toutes les autres → **personnages non-Epic uniquement**, uniques
-   (`max 1 roster`). Cas limites → demander à l'utilisateur.
+   (`max 1 roster`). **Exception** (décision du 2026-09-30) : un Epic Hero
+   que les données **désignent explicitement** comme porteur (portes de
+   l'entrée nommant sa catégorie — Prince Yriel et Kharseth pour le
+   Corsair Coterie, « Pirate Prince » réservée à Yriel ; upgrades des
+   Assassins et des C'tan Shards) le reste ; sans désignation, jamais.
+   Cas limites → demander à l'utilisateur.
 2. Les porteurs se résolvent par **conjonction de mots-clefs** de la
    prose (« KROOT SHAPER » = mots-clefs KROOT **et** SHAPER) — jamais en
    traversant le menu central « Enhancements ».

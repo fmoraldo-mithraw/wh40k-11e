@@ -29,7 +29,12 @@ la même logique mais visent des **unités** (règle maison n° 1).
    soient les portes. *(Panne Dakkarig : fiche créée par codexgen sans ces
    liens — probablement parce que personnage VEHICLE, cas atypique.)*
    Les **Epic Heroes ne lient pas le menu** : c'est l'encodage de leur
-   exclusion — ne jamais les lier.
+   exclusion — ne jamais les lier. **Exception** (règle maison n° 1,
+   décision du 2026-09-30) : un Epic Hero que les portes d'une amélioration
+   **désignent explicitement** (Prince Yriel et Kharseth pour le Corsair
+   Coterie, « Pirate Prince » réservée à Yriel ; upgrades des Assassins et
+   des C'tan Shards) lie le menu correspondant et en est porteur — l'appli
+   le retient par sa liste explicite (`enhEligible`), jamais par le repli.
 
 2. **La porte de visibilité doit encoder la clause de prose** : modifier
    `set hidden=true` sur l'entrée de l'amélioration, arbre :
@@ -50,9 +55,15 @@ la même logique mais visent des **unités** (règle maison n° 1).
    | `… (excluding Z models)`               | `instanceOf Z` en condition directe du OR                      |
    | `<Faction> model only` (aucun autre mot-clef) | **aucune** condition de catégorie — la restriction aux personnages non-Epic est déjà portée par les liens de menu |
 
-   Les `childId` pointent des **catégories** (scope `parent`) ; réutiliser
-   les ids existants (`grep 'categoryEntry name="…"'`), ne jamais en créer
-   de doublon. *(Panne Surly : conjonction `Infantry Warboss` encodée
+   Les `childId` pointent des **catégories**, en scope **`ancestor`** — jamais
+   `parent` : sur 14 fiches (Grimnyr, Brôkhyr Iron-master, Dark Apostle, Dark
+   Commune, Traitor Enforcer, Rogue Trader Entourage, les 4 Command Squads AM,
+   Ravenwing Command Squad, Hyperadapted Raveners, Tyranid Warriors ×2) le menu
+   Enhancements pend sur un **modèle imbriqué** qui ne porte pas la catégorie de
+   faction (elle est sur l'unité) ; `parent` regardait ce modèle et BattleScribe
+   masquait l'amélioration (constat du 2026-09-30, 331 conditions corrigées).
+   Réutiliser les ids existants (`grep 'categoryEntry name="…"'`), ne jamais en
+   créer de doublon. *(Panne Surly : conjonction `Infantry Warboss` encodée
    `AND(notInstanceOf Warboss, notInstanceOf Infantry)` = caché seulement
    si NI l'un NI l'autre — tout personnage Infantry passait.)*
 
@@ -73,6 +84,19 @@ la même logique mais visent des **unités** (règle maison n° 1).
    structurels. Toute nouvelle anomalie au-delà de la ligne de base fait
    échouer l'audit : si elle apparaît, c'est un lien de menu ou une porte à
    réparer (ce document), pas la ligne de base à re-figer.
+   Sa jumelle `amelioration-personne` (décision du 2026-09-30) liste les
+   améliorations offertes à **personne** : clause « X model only » dont X
+   n'existe pas dans la faction (Narthecis Gauntlet chez les Space Wolves),
+   ou porte décidable qui exclut tout candidat (Beacon Angelis chez les
+   Agents : Watch Master) — l'appli ne les offre plus à tout personnage.
+   Attendu pour les améliorations d'un autre chapitre vues du tronc commun ;
+   une NOUVELLE occurrence ailleurs = prose mal lue ou porte trop large.
+   Une porte `lessThan 1` (scope `ancestor` **ou** `parent`) sur une
+   sélection du porteur — désignation Houndpack, arme (Iron Ambassador :
+   Autoch-pattern combi-bolter), allégeance d'un Daemon Prince — devient
+   côté appli un `needSel` vérifié sur les sélections vivantes de la ligne
+   (options, désignations, armes fixes), **par porteur** : seul celui dont la
+   porte est indécidable statiquement doit l'avoir choisie.
 3. `xmllint` + `catalog.validate` (0 erreur, 0 id dupliqué vs HEAD), comme
    toujours.
 

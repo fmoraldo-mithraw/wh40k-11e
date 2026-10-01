@@ -42,6 +42,8 @@
     <categoryEntry name="Tyranid Warriors" id="e3d4-6430-ea62-8d6d" hidden="false"/>
     <categoryEntry name="Burrower" id="7dcd-38cd-5892-32b5" hidden="false"/>
     <categoryEntry name="Smoke" hidden="false" id="b5a3-2e74-4cb9-54ca"/>
+    <categoryEntry name="Norn Assimilator" hidden="false" id="e1c5-0e3b-5951-aa0e"/>
+    <categoryEntry name="Norn Emissary" hidden="false" id="c83a-f671-b1cd-e789"/>
   </categoryEntries>
   <entryLinks>
     <entryLink id="706e-86ff-ae9f-c65f" name="Winged Hive Tyrant" hidden="false" collective="false" import="true" targetId="fa68-fcb9-38c-cd0f" type="selectionEntry"/>
@@ -110,9 +112,6 @@
     <selectionEntry id="cd6d-87b3-125a-f372" name="Tervigon" hidden="false" collective="false" import="true" type="model">
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="d829-64e7-666a-a5dd" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="a006-50af-89ef-cd3f" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2a24-c258-7755-e448" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9d1f-e720-9516-da2e" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="e21e-8589-b121-374f" name="Tervigon" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -262,16 +261,6 @@
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="2a24-c258-7755-e448">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="9d1f-e720-9516-da2e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -454,16 +443,12 @@
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry id="b86a-b38a-380c-483d" name="Broodlord" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: source=&quot;Vicious Insight&quot; dev whileLeading
 invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="382-80da-29d9-e165" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="65c1-c8c8-aea6-c060" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f475-68cb-9010-167e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="459a-e6bd-33c8-d8fd" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="73bd-e73f-e2d8-d1a3" name="Broodlord" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -524,16 +509,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="f475-68cb-9010-167e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="459a-e6bd-33c8-d8fd">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -732,7 +707,6 @@ fnp: 5+</comment>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry id="a125-b6fb-2945-56a" name="Tyranid Warriors with Ranged Bio-Weapons" hidden="false" collective="false" import="true" type="unit">
       <comment>invuln: 5+</comment>
@@ -762,9 +736,6 @@ fnp: 5+</comment>
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="538d-e103-5499-af4e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ca2a-3ab8-a2ca-3b56" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5f2c-c566-5e94-89a2" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Shadow in the Warp" hidden="false" type="rule" id="6543-53fc-4f58-7f2e" targetId="395b-a159-b293-27aa"/>
@@ -799,21 +770,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="538d-e103-5499-af4e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="ca2a-3ab8-a2ca-3b56">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5f2c-c566-5e94-89a2">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1124,9 +1080,6 @@ invuln: 5+</comment>
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b5c0-7e60-11dd-8522" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1bc8-799c-a366-74ed" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8a47-7ab2-ee2f-9722" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Shadow in the Warp" hidden="false" type="rule" id="7b3e-d941-8ec7-cf66" targetId="395b-a159-b293-27aa"/>
@@ -1161,21 +1114,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="b5c0-7e60-11dd-8522">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1bc8-799c-a366-74ed">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="8a47-7ab2-ee2f-9722">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1356,9 +1294,6 @@ invuln: 5+</comment>
     <selectionEntry id="359c-db2c-681a-8d62" name="Termagants" hidden="false" collective="false" import="true" type="unit">
       <constraints>
         <constraint field="selections" scope="roster" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="b666-1f95-8d37-b195" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f442-a1a3-12c6-b75e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2e69-82ec-e3bb-b279" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6e8f-f659-4924-6eec" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="c28c-89a4-5758-10b7" name="Skulking Horrors" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1686,27 +1621,11 @@ invuln: 5+</comment>
             <constraint type="min" value="10" field="selections" scope="parent" shared="true" id="680f-2508-c390-ba47"/>
             <constraint type="max" value="20" field="selections" scope="parent" shared="true" id="18fa-3a07-f023-e066"/>
           </constraints>
-          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f442-a1a3-12c6-b75e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="2e69-82ec-e3bb-b279">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="6e8f-f659-4924-6eec">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1776,9 +1695,6 @@ invuln: 5+</comment>
     <selectionEntry id="f15b-9f9c-9bf0-8160" name="Hormagaunts" hidden="false" collective="false" import="true" type="unit">
       <constraints>
         <constraint field="selections" scope="roster" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="02aa-eefd-b9e7-cf60" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f28b-df6f-37cf-d9f5" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="dfc2-5c46-d458-df1d" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e4a8-a886-438c-ad25" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="4b14-20d3-145b-5ff8" name="Bounding Leap" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1811,21 +1727,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f28b-df6f-37cf-d9f5">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="dfc2-5c46-d458-df1d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="e4a8-a886-438c-ad25">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1968,9 +1869,6 @@ invuln: 5+</comment>
     <selectionEntry id="30d0-521c-1d45-f57b" name="Toxicrene" hidden="false" collective="false" import="true" type="model">
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="9339-36fa-3263-a43a" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="bf74-b006-cae6-5c58" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="21a5-7b20-6085-68f5" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="256e-2a6b-db6f-ca3a" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="6a1d-69fc-336d-702a" name="Toxicrene" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -2016,21 +1914,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="bf74-b006-cae6-5c58">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="21a5-7b20-6085-68f5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="256e-2a6b-db6f-ca3a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2131,9 +2014,6 @@ invuln: 5+</comment>
     <selectionEntry id="1645-5407-92c8-1441" name="Tyrant Guard" hidden="false" collective="false" import="true" type="unit">
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="ed0d-bfdc-6e59-9be3" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f405-4278-73bf-f492" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="35c4-1467-35b7-b3d8" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a9a4-a42b-872d-b890" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="f47f-6b2a-77db-863e" name="Guardian Organism" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2165,21 +2045,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f405-4278-73bf-f492">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="35c4-1467-35b7-b3d8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a9a4-a42b-872d-b890">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2321,9 +2186,6 @@ sim-mod: source=&quot;Node Lash&quot; wound=+1 whileLeading conditional
 invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="a6db-c649-c89a-f8e2" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8955-373c-ebf5-76d0" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="51f2-8671-9092-31d6" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="4725-347f-bbf6-f5cf" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="1da2-fe24-4dd4-62f1" name="Neurotyrant" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -2386,16 +2248,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="51f2-8671-9092-31d6">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="4725-347f-bbf6-f5cf">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2545,29 +2397,11 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b952-d31e-365e-44ea" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="abbd-cd1d-a0a7-62a8" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="3e59-9343-eb34-f5ad" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="b952-d31e-365e-44ea">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="abbd-cd1d-a0a7-62a8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="3e59-9343-eb34-f5ad">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2674,9 +2508,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="c218-9b4a-f0a2-b276" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="d287-fe52-3aee-8ad1" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7203-5f5a-0d08-4f59" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e96c-fa2e-8ad1-0c92" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Burning Spray" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f6a1-151a-9d0d-37d2">
@@ -2717,21 +2548,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="d287-fe52-3aee-8ad1">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="7203-5f5a-0d08-4f59">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="e96c-fa2e-8ad1-0c92">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2864,9 +2680,6 @@ invuln: 4+</comment>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="fe97-15ec-5168-a3a7" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f3d4-5c6a-25cf-fae9" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="969d-de9b-a6fd-3e53" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="11d7-35a0-1e62-46fc" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Haruspex" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="42d9-1297-10b8-f671">
@@ -2899,21 +2712,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f3d4-5c6a-25cf-fae9">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="969d-de9b-a6fd-3e53">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="11d7-35a0-1e62-46fc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3031,9 +2829,6 @@ invuln: 4+</comment>
     <selectionEntry type="unit" import="true" name="Venomthropes" hidden="false" id="b563-c6d3-d0e5-1b78">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="b75f-90ad-6498-d41e" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="73b6-e4c9-2913-d70b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f8f6-4509-8ce3-3e8e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8112-b002-1301-fc73" includeChildSelections="true"/>
       </constraints>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
@@ -3066,21 +2861,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="73b6-e4c9-2913-d70b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="f8f6-4509-8ce3-3e8e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="8112-b002-1301-fc73">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3208,9 +2988,6 @@ invuln: 4+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="938f-260a-f4fa-cda9" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6505-5271-5ec7-ec7c" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="63a3-9b26-b65a-af00" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Synapse" hidden="false" type="rule" id="8b45-4334-b86c-e857" targetId="86aa-437f-260b-5cad"/>
@@ -3218,21 +2995,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="938f-260a-f4fa-cda9">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="6505-5271-5ec7-ec7c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="63a3-9b26-b65a-af00">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3371,7 +3133,6 @@ invuln: 4+</comment>
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
@@ -3388,9 +3149,6 @@ invuln: 4+</comment>
       <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="f9bb-4f4b-931c-681e" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="01f8-9580-b727-2ae2" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9a26-c467-f623-1561" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f2ba-ee86-b6b2-5d6e" includeChildSelections="true"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="818a-bfb4-37e6-bd75" primary="true" name="Infantry"/>
@@ -3435,21 +3193,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="01f8-9580-b727-2ae2">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="9a26-c467-f623-1561">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f2ba-ee86-b6b2-5d6e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3608,7 +3351,6 @@ invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e8d1-db19-a745-a7d3" includeChildForces="true" includeChildSelections="true"/>
       </constraints>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Spore Mines" hidden="false" id="c590-436d-4fd-ef26">
       <infoLinks>
@@ -3648,7 +3390,6 @@ invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="bc1f-2c8-e59b-780c" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Exocrine" hidden="false" id="bbfd-5b01-5bd3-a28b">
       <profiles>
@@ -3695,29 +3436,11 @@ invuln: 4+</comment>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ab51-dedf-17ca-8fae" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="af62-e8da-9492-c2e1" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d5a6-a03b-9020-496b" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="ab51-dedf-17ca-8fae">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="af62-e8da-9492-c2e1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d5a6-a03b-9020-496b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3827,9 +3550,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="2d33-51f-6394-737" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f44a-61cb-5962-7aa1" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="605e-4617-48c8-ba4d" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6096-c5b2-6d21-c2de" includeChildSelections="true"/>
       </constraints>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Biovore" hidden="false" id="dd57-9c1f-d425-6711" sortIndex="2">
@@ -3917,21 +3637,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f44a-61cb-5962-7aa1">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="605e-4617-48c8-ba4d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="6096-c5b2-6d21-c2de">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4002,9 +3707,6 @@ invuln: 4+</comment>
     <selectionEntry type="unit" import="true" name="Carnifexes" hidden="false" id="9efd-5564-f0f5-21ea">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="fced-3884-5051-1bc7" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="649a-e368-3fcd-5151" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="15f6-7b9a-0c76-b84a" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="bd71-8002-bb2e-2fb5" includeChildSelections="true"/>
       </constraints>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Carnifex" hidden="false" id="92a2-7511-1173-a696" sortIndex="2">
@@ -4257,21 +3959,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="649a-e368-3fcd-5151">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="15f6-7b9a-0c76-b84a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="bd71-8002-bb2e-2fb5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4370,9 +4057,6 @@ invuln: 4+</comment>
     <selectionEntry type="model" import="true" name="Screamer-killer" hidden="false" id="8e53-d4a-a69f-e71d">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="bb78-5408-f7fd-ce27" includeChildForces="true" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="322a-d400-a6fe-2bc3" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="374c-8579-1e9f-00fc" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7e2c-443c-934d-da3a" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Screamer-killer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="f4e3-fe83-64d3-1971">
@@ -4420,21 +4104,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="322a-d400-a6fe-2bc3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="374c-8579-1e9f-00fc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7e2c-443c-934d-da3a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4538,9 +4207,6 @@ invuln: 4+</comment>
     <selectionEntry type="unit" import="true" name="Hive Guard" hidden="false" id="ac7a-2560-c083-45b8">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ad18-ee01-c945-cbc5" includeChildForces="true" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b0f1-4493-6901-7314" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1f6a-5f39-78c3-5651" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a0a4-5c04-2ef0-279c" includeChildSelections="true"/>
       </constraints>
       <modifiers>
         <modifier type="set" value="160" field="51b2-306e-1021-d207">
@@ -4690,21 +4356,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="b0f1-4493-6901-7314">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1f6a-5f39-78c3-5651">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a0a4-5c04-2ef0-279c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4764,9 +4415,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ec89-1c33-366e-76f6" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7849-4c20-0ea8-8b20" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="fbf4-065d-8ce8-a2b3" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5fbc-ea16-a2c4-b9a6" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Tyrannofex" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="4869-ad8f-b75e-8a">
@@ -4828,7 +4476,7 @@ invuln: 4+</comment>
             </entryLink>
           </entryLinks>
           <selectionEntryGroups>
-            <selectionEntryGroup name="Fleshborer Hive" id="5e-6218-175-3b8d" hidden="false" defaultSelectionEntryId="5a91-5299-277-82a9">
+            <selectionEntryGroup name="Fleshborer Hive" id="5e-6218-175-3b8d" hidden="false" defaultSelectionEntryId="01d2-b6bd-7d9c-5564">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c8b1-84bd-713f-7cf1" includeChildSelections="true"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9deb-abdd-d5ee-68bb" includeChildSelections="true"/>
@@ -4868,21 +4516,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="7849-4c20-0ea8-8b20">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="fbf4-065d-8ce8-a2b3">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5fbc-ea16-a2c4-b9a6">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4946,9 +4579,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="1c54-bbd2-39b3-904e" includeChildForces="true" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3e3d-243c-2b13-7202" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a2ae-470e-e084-1414" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5000-c283-8713-7535" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Hive Crone" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="452b-84ef-66bb-c0a1">
@@ -4983,21 +4613,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="3e3d-243c-2b13-7202">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="a2ae-470e-e084-1414">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5000-c283-8713-7535">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5152,9 +4767,6 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="9129-ab99-be36-5f8c" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="efce-b098-d569-2a83" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9d7f-13b8-e630-581e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="efc4-53d1-a09a-d7b8" includeChildSelections="true"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cc05-aeb3-b2d6-3732" id="e24e-ee38-2da8-a8ec" primary="false" name="Harpy"/>
@@ -5272,21 +4884,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="efce-b098-d569-2a83">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="9d7f-13b8-e630-581e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="efc4-53d1-a09a-d7b8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5355,9 +4952,6 @@ invuln: 4+</comment>
     <selectionEntry type="model" import="true" name="Sporocyst" hidden="false" id="2cdd-3bf1-55e0-7641">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="6a7c-9a10-f2cf-1705" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3c6a-b588-342c-e66e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="4bb6-9447-8c66-88e0" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="cc4f-da2a-84ff-d50c" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Sporocyst" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5054-55c7-17ab-87cc">
@@ -5402,21 +4996,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="3c6a-b588-342c-e66e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="4bb6-9447-8c66-88e0">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="cc4f-da2a-84ff-d50c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5519,9 +5098,6 @@ sim-mod: source=&quot;Feeding Frenzy&quot; wound=+1 when=melee conditional scope
 fnp: 5+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="5a6e-2317-553a-369a" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7e9c-aa8f-44ab-bd0c" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7edb-b3b7-7ee9-a790" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5e6f-9b82-a161-09fc" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Psychophage" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="4174-2f06-c093-56fd">
@@ -5574,21 +5150,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="7e9c-aa8f-44ab-bd0c">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="7edb-b3b7-7ee9-a790">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5e6f-9b82-a161-09fc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5687,9 +5248,6 @@ fnp: 5+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="dd7c-6071-e4bd-169f" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e0fb-b4f8-c29b-b2b1" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f22e-548e-093e-9d39" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="03b3-a901-601e-52a7" includeChildSelections="true"/>
       </constraints>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Barbgaunt" hidden="false" id="f7c9-d70f-96b5-b5e9" sortIndex="2">
@@ -5788,21 +5346,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="e0fb-b4f8-c29b-b2b1">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="f22e-548e-093e-9d39">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="03b3-a901-601e-52a7">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5936,29 +5479,11 @@ fnp: 5+</comment>
       </profiles>
       <entryLinks></entryLinks>
       <constraints>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9bad-050a-a4d2-c3cd" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="14d0-49e0-f3f4-05b0" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d665-6ee8-afac-672f" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="9f25-cfa0-63a3-e99e" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="9bad-050a-a4d2-c3cd">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="14d0-49e0-f3f4-05b0">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d665-6ee8-afac-672f">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6126,29 +5651,11 @@ invuln: 5+</comment>
       </profiles>
       <entryLinks></entryLinks>
       <constraints>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="646b-7b85-d6a8-a0b3" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5d5a-9e13-e402-a197" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="90ef-35d7-f25c-4184" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="f99d-e136-1785-22b7" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="646b-7b85-d6a8-a0b3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="5d5a-9e13-e402-a197">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="90ef-35d7-f25c-4184">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6387,9 +5894,6 @@ invuln: 5+</comment>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="a080-e499-e8d4-1b8" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8a48-6c34-c201-6fbe" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="15d6-fafd-b20d-46b5" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="05ab-8fba-82f7-ad00" includeChildSelections="true"/>
       </constraints>
       <modifiers>
         <modifier type="set" value="140" field="51b2-306e-1021-d207">
@@ -6406,21 +5910,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="8a48-6c34-c201-6fbe">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="15d6-fafd-b20d-46b5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="05ab-8fba-82f7-ad00">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6521,9 +6010,6 @@ sim-mod: source=&quot;Singular Purpose&quot; reroll=wound conditional</comment>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="6f2e-72b0-b6b1-a2a7" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c06b-6dd7-2564-b91e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1739-0ba6-10b5-9f88" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5db8-a840-42ff-9437" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="81b8-a3a1-8095-1b09" targetId="b68a-5ded-65ac-98c">
@@ -6560,26 +6046,12 @@ sim-mod: source=&quot;Singular Purpose&quot; reroll=wound conditional</comment>
         <categoryLink targetId="2982-bf74-9aa7-a7a7" id="f638-78d9-72ef-6cf2" primary="false" name="Norn Assimilator"/>
         <categoryLink targetId="d1d8-6ae0-1be7-e9e" id="ad9a-9669-bfba-9a7a" primary="false" name="Faction: Tyranids"/>
         <categoryLink name="Harvester" hidden="false" id="d217-1107-d531-2f66" targetId="8258-a58e-7cf0-a2c3" primary="false"/>
+        <categoryLink targetId="e1c5-0e3b-5951-aa0e" id="3b3a-38a5-6da9-e76a" primary="false" name="Norn Assimilator"/>
       </categoryLinks>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="c06b-6dd7-2564-b91e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1739-0ba6-10b5-9f88">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5db8-a840-42ff-9437">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6760,12 +6232,10 @@ invuln: 4+</comment>
         <categoryLink targetId="d1d8-6ae0-1be7-e9e" id="b1c3-6664-9512-9637" primary="false" name="Faction: Tyranids"/>
         <categoryLink targetId="4129-a453-686a-d38a" id="b8a3-b355-be72-f460" primary="false" name="Synapse"/>
         <categoryLink targetId="50ee-d05c-da9c-eda2" id="9bcc-68f5-2c66-9aec" primary="false" name="Norn Emissary"/>
+        <categoryLink targetId="c83a-f671-b1cd-e789" id="a008-2aaf-3fa2-15b7" primary="false" name="Norn Emissary"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="2448-b69d-8827-6c61" includeChildForces="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="677b-88a5-d32f-0efb" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="21ce-9ff3-b542-9449" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5d77-cce6-7cfe-e1c4" includeChildSelections="true"/>
       </constraints>
       <infoGroups>
         <infoGroup name="Unnatural Resistance" id="a247-2f82-9165-3250" hidden="false">
@@ -6785,21 +6255,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="677b-88a5-d32f-0efb">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="21ce-9ff3-b542-9449">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5d77-cce6-7cfe-e1c4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7227,9 +6682,6 @@ invuln: 4+</comment>
       <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e6ea-68d7-9d41-3f3b" percentValue="false" includeChildSelections="true" includeChildForces="true"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dc5c-b323-9c11-ee2b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f8f2-84d2-a611-159f" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5a9c-455f-7afb-9ece" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Invulnerable Save (4+)" id="f729-3654-edaa-c166" hidden="false" targetId="5b77-29f8-7b77-75e3" type="profile"/>
@@ -7390,16 +6842,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="f8f2-84d2-a611-159f">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5a9c-455f-7afb-9ece">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7454,9 +6896,6 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Alpha Warrior&quot; sustained=1 scope=model</comment>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="9d91-a22c-4a61-9daa" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="d7d3-8a24-4f63-6ded" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="22d5-cee0-3a36-2205" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a684-3517-2892-40db" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="b416-a798-6999-26f4" name="Tyranid Prime with Lash Whip" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -7514,16 +6953,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="22d5-cee0-3a36-2205">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a684-3517-2892-40db">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">

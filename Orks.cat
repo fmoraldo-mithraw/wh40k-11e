@@ -33,9 +33,6 @@
 sim-mod: source=&quot;Tide of Muscle&quot; lethal when=melee onCharge</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="a648-a8b2-7dbe-5710"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d69e-4a59-6b45-6fdf" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5eb6-0d30-9597-362a" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e07d-b9c2-77b8-05e4" includeChildSelections="false"/>
       </constraints>
       <profiles>
         <profile name="Ammo Runts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ab60-c8c9-453a-2345">
@@ -275,14 +272,12 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                   </characteristics>
                 </profile>
               </profiles>
-              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="min" value="9" field="selections" scope="parent" shared="true" id="f6e1-5c7-8f81-8953"/>
             <constraint type="max" value="18" field="selections" scope="parent" shared="true" id="b4d7-19fe-4355-cb1d"/>
           </constraints>
-          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Nob" id="0fe0-6121-efa6-8057" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -537,21 +532,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="d69e-4a59-6b45-6fdf">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5eb6-0d30-9597-362a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="e07d-b9c2-77b8-05e4">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -961,16 +941,12 @@ Place one Makari token next to the unit, removing it after this ability is used.
         <cost name="pts" typeId="51b2-306e-1021-d207" value="290"/>
       </costs>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Killa Kans" hidden="false" id="8c36-c946-2e0f-f648">
       <comment>sim-mod: source=&quot;Spiteful Power Trip&quot; hit=+1 conditional
 invuln: 6+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="b55e-1d2f-48b7-e000"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9a02-7d1b-807a-34e8" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="98f4-87de-0c1b-a7e4" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7da5-5fa5-4679-a584" includeChildSelections="false"/>
       </constraints>
       <profiles>
         <profile name="Spiteful Power Trip" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d69-8e7f-9d12-c775">
@@ -1127,21 +1103,6 @@ invuln: 6+</comment>
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="9a02-7d1b-807a-34e8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="98f4-87de-0c1b-a7e4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="7da5-5fa5-4679-a584">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1196,9 +1157,6 @@ invuln: 6+</comment>
 sim-mod: source=&quot;Paired Krumpas&quot; reroll=hit reroll=wound weapon=&quot;Kustom Krumpa&quot; when=melee</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3968-386b-498c-d909"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5264-5776-0bbf-992e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d0a5-d3ec-41b5-b30e" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ec4a-e4db-414d-4e32" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="1e30-f4aa-c5a9-a266" primary="true" name="Infantry"/>
@@ -1508,7 +1466,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
             <constraint type="min" value="5" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6053"/>
             <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6054"/>
           </constraints>
-          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
 <selectionEntryGroup name="Bully Boyz Enhancement" id="0d1a-e115-0070" hidden="false">
     <comment>Upgrade Wimp-Kickaz Upgrade (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
@@ -1562,21 +1519,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="5264-5776-0bbf-992e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d0a5-d3ec-41b5-b30e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="ec4a-e4db-414d-4e32">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1630,9 +1572,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="2a1f-1d9a-143a-7f4e"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="23fc-fb43-4eed-2407" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7575-3e1e-142f-e9fd" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6d1b-5e63-37c6-ea44" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="faea-7cf4-aa77-9d17" primary="true" name="Vehicle"/>
@@ -1847,21 +1786,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="23fc-fb43-4eed-2407">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7575-3e1e-142f-e9fd">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="6d1b-5e63-37c6-ea44">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1914,9 +1838,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
     <selectionEntry type="unit" import="true" name="Tankbustas" hidden="false" id="dadc-d370-ef10-853c">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4eb-a5f-a0bd-ff31"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b0f5-00c4-26aa-9e2c" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a218-e4c9-9c41-598c" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5fc1-ccfc-60c7-8ea3" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="3e0c-a5c5-b3c7-4c92" primary="true" name="Infantry"/>
@@ -2235,21 +2156,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="b0f5-00c4-26aa-9e2c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a218-e4c9-9c41-598c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="5fc1-ccfc-60c7-8ea3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2303,9 +2209,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
       <comment>invuln: 6+</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="d47b-7adb-35f4-a830"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c3f0-73a7-daa7-85e5" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="227c-0ebf-9f0b-9b22" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c59f-9db2-cb41-890e" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="18a7-5a4e-397e-983" primary="true" name="Dedicated Transport"/>
@@ -2519,21 +2422,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="c3f0-73a7-daa7-85e5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="227c-0ebf-9f0b-9b22">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="c59f-9db2-cb41-890e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -13798,13 +13686,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
           <infoLinks>
             <infoLink name="Melta" id="0dac-df1d-95cd-0bdb" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Rezmekka&apos;s Redder Paint" hidden="false" id="2813-0384-3ee0-5ad3">
           <profiles>
@@ -13818,11 +13699,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -13857,13 +13733,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
             <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
           </costs>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Frazzle Field Generator" hidden="false" id="9200-0e4d-b243-3e70">
           <profiles>
@@ -13881,13 +13750,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
           <infoLinks>
             <infoLink name="Devastating Wounds" id="2e96-7857-92ae-7b15" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Da Krushin&apos; Armour" hidden="false" id="7851-53b3-a375-32e0">
           <profiles>
@@ -13913,13 +13775,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
               <comment>Bestest Bossloot: Da Krushin&apos; Armour</comment>
             </modifierGroup>
           </modifierGroups>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
       </selectionEntries>
       <constraints>
@@ -13956,11 +13811,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Bad Reputation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf71-ab64-3470-c3d3">
@@ -13983,11 +13833,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14019,11 +13864,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Boss Mek" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="95b5-a682-8164-753d">
@@ -14046,11 +13886,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14077,11 +13912,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Ded Choppy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7099-98be-d281-fe64">
@@ -14104,11 +13934,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14135,11 +13960,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Gnarly Scars" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="562d-6a91-9acf-e5cf">
@@ -14162,11 +13982,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14198,11 +14013,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Mekanikal Mekaniak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b94f-5371-af5b-c2c6">
@@ -14225,11 +14035,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14261,11 +14066,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Recykler" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eedd-20f0-dde6-b629">
@@ -14290,11 +14090,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Ride &apos;Em Down" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6ae2-f1f1-55e2-f9cc">
@@ -14317,11 +14112,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14359,11 +14149,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -14414,11 +14199,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Fortress on Wheels" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32aa-c6cb-524c-8d03">
@@ -14455,11 +14235,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Shootier Gunz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e814-43ab-287b-0c93">
@@ -14489,11 +14264,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -14528,11 +14298,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
