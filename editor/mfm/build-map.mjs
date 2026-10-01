@@ -30,15 +30,32 @@ const ALIASES = path.join(HERE, "aliases.json");
 // afin de matcher les noms MFM — sans lui, le match par fichier ne couvre que
 // ~52 % (voir poc/). Les ÉCRITURES en base (Phase 3) n'en dépendent pas : elles
 // passent par editor/lib/catalog.js, dans CE dépôt. Résolution configurable :
-//   BSDATA_PARSER=<chemin .mjs>  ou  COGITATOR_DIR=<repo>  ou, à défaut, le
-//   dépôt frère ../cogitator-bellicum. Erreur claire si introuvable.
+//   BSDATA_PARSER=<chemin .mjs>  ou  COGITATOR_DIR=<repo>  ou le dépôt frère
+//   ../cogitator-bellicum, et EN REPLI la copie autonome commitée
+//   vendor/bsdata-parser.mjs (bundle, aucune dépendance) — la routine cowork,
+//   qui n'a pas accès au dépôt de l'app, ne se bloque donc plus. Resynchroniser
+//   la copie : vendor/sync-parser.sh (vérif : --check).
 function resolveParser() {
   const cands = [
     process.env.BSDATA_PARSER,
     process.env.COGITATOR_DIR && path.join(process.env.COGITATOR_DIR, "scripts", "bsdata-parser.mjs"),
     path.resolve(REPO, "..", "cogitator-bellicum", "scripts", "bsdata-parser.mjs"),
   ].filter(Boolean);
-  for (const c of cands) if (fs.existsSync(c)) return c;
+  // Le parser d'une source ne se charge que si ses dépendances npm sont
+  // installées (clone nu sans node_modules → import en échec) : sinon repli.
+  for (const c of cands) {
+    if (!fs.existsSync(c)) continue;
+    const appNm = path.resolve(path.dirname(c), "..", "node_modules", "fast-xml-parser");
+    if (c === process.env.BSDATA_PARSER || fs.existsSync(appNm)) return c;
+    console.error(`[build-map] ${c} présent mais dépendances non installées — repli sur la copie vendorisée.`);
+  }
+  const vendored = path.join(HERE, "vendor", "bsdata-parser.mjs");
+  if (fs.existsSync(vendored)) {
+    const head = fs.readFileSync(vendored, "utf8").slice(0, 600);
+    const commit = (head.match(/source-commit: (\S+)/) || [])[1] || "?";
+    console.error(`[build-map] parser de l'app absent — copie vendorisée (commit app ${commit}).`);
+    return vendored;
+  }
   console.error(
     "[build-map] parser bsdata introuvable (nécessaire pour la clôture d'import).\n" +
     "  Fournis-le : BSDATA_PARSER=/chemin/bsdata-parser.mjs  ou  COGITATOR_DIR=/chemin/cogitator-bellicum\n" +
@@ -269,7 +286,13 @@ for (const slug of slugs) {
   // des deux côtés (MFM « Infamy » ↔ bdd « Infamy (Aura) »). Repli nom-seul
   // UNIQUEMENT si non ambigu (une seule candidate bdd sous ce nom, tous
   // détachements confondus). Sinon `enhUnmapped` (review), jamais deviné.
-  const enhStrip = (x) => norm(String(x || "").replace(/\s*\((?:Aura|Upgrade|Psychic)\)\s*/gi, " "));
+  // Variantes vues en base/MFM : « X (Upgrade) », « X Upgrade » (sans
+  // parenthèses, tronc SM 11e), coquille MFM « (Upgarde) », article initial
+  // (MFM « The Thief of Secrets » ↔ bdd « Thief of Secrets »).
+  const enhStrip = (x) => norm(String(x || "")
+    .replace(/\s*\((?:Aura|Upgrade|Upgarde|Psychic)\)\s*/gi, " ")
+    .replace(/\s+Upgrade\s*$/i, "")
+    .replace(/^\s*The\s+/i, ""));
   const enhByDetName = new Map();          // "DET / NOM" (suffixes tolérés) → entrée
   const enhByName = new Map();             // NOM → [entrées] (repli, ambigu ⇒ rejet)
   for (const facName of pool) for (const e of (all[facName] || {}).enhs || []) {

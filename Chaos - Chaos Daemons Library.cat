@@ -482,15 +482,15 @@ EFFECT: Until the end of the phase, each time a model in your unit makes a move,
 WHEN: Your Command phase.
 TARGET: One Legiones Daemonica Slaanesh Monster unit from your army that is on the battlefield.
 EFFECT: Each unit on the battlefield that is within your army’s Shadow of Chaos must take a Battle-shock test, subtracting 1 from that test if they are Below Half-strength.
-Designer’s Note: This Stratagem forces all friendly and enemy units alike within your army’s Shadow of Chaos to take a Battle-shock test. This can allow a Chaos Daemons player to heal units from their army through the Daemonic Terror army rule, at the risk of causing some of their own units to become Battle-shocked.</description>
+Designer’s Note: This Stratagem forces all friendly and enemy units alike within your army’s Shadow of Chaos to take a Battle-shock test. This can allow a Chaos Daemons player to heal units from their army through the Daemonic Manifestation army rule, at the risk of causing some of their own units to become Battle-shocked.</description>
                 </rule>
-                <rule name="THIEVES OF PAIN (Stratagem, 1CP)" id="df70-b753-b067-7c0d" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                <rule name="RAPTUROUS AGONY (Stratagem, 1CP)" id="df70-b753-b067-7c0d" hidden="false">
+                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
                   <description>Legion of Excess – STRATAGEM (1CP)
 
-WHEN: Any phase, when an enemy unit targets a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTER/VEHICLE units), or when a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTER/VEHICLE units) suffers a mortal wound.
+WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTER/VEHICLE units).
 TARGET: That LEGIONES DAEMONICA SLAANESH unit.
-EFFECT: Select one other friendly LEGIONES DAEMONICA SLAANESH unit that is within 9&quot; of and visible to your unit. Until the end of the phase, while the selected unit is on the battlefield, each time a model in your unit would lose a wound, inflict 1 mortal wound on the selected unit instead.</description>
+EFFECT: Attacks that target your unit with a S greater than your unit’s T have -1 to wound rolls.</description>
                 </rule>
               </rules>
               <costs>
@@ -789,9 +789,9 @@ EFFECT: Until the end of the phase, melee weapons equipped by models in your uni
                 <rule name="Unholy Avalanche" id="5f42-5bfd-29a3-b7fd" hidden="false">
                   <description>If a friendly **^^Legiones Daemonica^^** **^^Mounted^^** unit made a fall-back move this turn, that move does not prevent that unit from being eligible to shoot or eligible to declare a charge.</description>
                 </rule>
-                <rule name="From Beyond the Veil (Stratagem, 1CP)" id="7858-98e4-8b43-abc3" hidden="false">
+                <rule name="From Beyond the Veil (Stratagem, 2CP)" id="7858-98e4-8b43-abc3" hidden="false">
                   <comment>strat-timing: turn=either phase=movement</comment>
-                  <description>Cavalcade of Chaos – STRATAGEM (1CP)
+                  <description>Cavalcade of Chaos – STRATAGEM (2CP)
 
 WHEN: End of the Movement phase, from the start of the battle.
 TARGET: One friendly LEGIONES DAEMONICA MOUNTED unit in strategic reserves.
@@ -1082,7 +1082,7 @@ invuln: 4+</comment>
         <entryLink id="1582-1109-7190-937" name="Warlord" hidden="false" collective="false" import="true" targetId="13f1-2794-34e7-4bd6" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="315"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="330"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -2557,7 +2557,7 @@ invuln: 4+</comment>
     <selectionEntry id="2f31-9132-b703-5fd8" name="Bloodcrushers" hidden="false" collective="false" import="true" type="unit">
       <comment>invuln: 5+</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="200">
+        <modifier type="set" field="51b2-306e-1021-d207" value="210">
           <conditions>
             <condition field="selections" scope="2f31-9132-b703-5fd8" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -2886,7 +2886,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
       <entryLinks></entryLinks>
       <modifierGroups>
@@ -11949,7 +11949,7 @@ invuln: 5+</comment>
     <selectionEntry id="d1ee-8d05-4fae-1727" name="Fiends" hidden="false" collective="false" import="true" type="unit">
       <comment>invuln: 5+</comment>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="25">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="d1ee-8d05-4fae-1727" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
