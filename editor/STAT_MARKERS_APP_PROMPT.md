@@ -48,6 +48,11 @@ leader-kw: KW [& KW] [| KW & KW]
   d'un choix d'option déclare (« The bearer has a 4+ invulnerable save »,
   « This unit has 5+ InSv » — `InSv` = abréviation 11e) et l'applique
   pareillement ; porteur unique dans une escouade → étoile + « bearer only ».
+  Idem pour un bouclier **d'office sur une variante de modèle** (« Veteran
+  w/ Astartes shield », « Thunderwolf w/ storm shield » : aptitude du modèle) et
+  pour une aptitude logée dans un **enfant** de l'option (« Master-crafted
+  Power Weapon and Storm Shield » → « Storm shield ») : invu d'unité si toutes
+  les figurines la portent (variantes cumulées), sinon étoile + « bearer only ».
 - `fnp:` — UNIQUEMENT la stat de fiche, c'est-à-dire l'aptitude **nommée**
   « Feel No Pain N+ ». Les dons conditionnels (aura de Painboy, chef qui
   confère un FNP à l'escouade) ne sont PAS des stats : ils restent des
