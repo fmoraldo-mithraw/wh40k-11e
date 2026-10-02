@@ -28,7 +28,14 @@ Dispositions et UNIQUE alignés ; `wpn-audit` → 0 écart (131 conformes) ;
   Firestrike Servo-Turrets, Invader ATV, Crusader Squad BT, Gretchin,
   Tidewall Shieldline (barèmes inchangés dans le dump).
 
-## À ARBITRER — overrides `chapter-cost` périmés (bloquant, non corrigé)
+## ✅ TRANCHÉ (2026-10-02) — overrides `chapter-cost` retirés
+
+Validé par l'utilisateur : les 16 modifiers ont été retirés. Au passage,
+3 coûts posés sur des **entryLinks** masquaient la fiche (Warlock 45 au
+lieu de 40 — Craftworlds, Ynnari ; Kravek Morne 120 au lieu de 130) :
+alignés sur le MFM. `apply.mjs` → 0 delta.
+
+### Historique (constat initial)
 
 `Imperium - Space Marines.cat` porte **16 modifiers `set` de coût pts
 conditionnés `primary-catalogue`** (marqueur `chapter-cost:`) sur 8 entrées
