@@ -3053,6 +3053,22 @@ invuln: 5+</comment>
       </categoryLinks>
       <comment>BS 3+</comment>
     </selectionEntry>
+    <selectionEntry id="e539-3925-f8cb-494a" name="Bolt pistol" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="4ebd-9841-6a3b-145c" type="max"/>
+      </constraints>
+      <infoLinks>
+        <infoLink id="a7ca-fbfd-3289-99a6" name="Bolt pistol" hidden="false" targetId="6f3e-a8c8-76a5-eb07" type="profile"/>
+        <infoLink id="4605-4926-3bb2-4479" name="Pistol" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="948d-f8b0-a27e-d636" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+      <comment>BS 3+</comment>
+    </selectionEntry>
     <selectionEntry id="e496-5a54-4cb2-4fc1" name="Chaos Lord" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
@@ -5988,6 +6004,22 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       </costs>
       <comment>BS 3+</comment>
     </selectionEntry>
+    <selectionEntry id="b327-b7e8-b71e-2032" name="Plasma pistol" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="d371-9f02-7560-40c5" type="max"/>
+        <constraint type="max" value="4" field="selections" scope="3832-4208-11e9-ca22" shared="true" id="909b-dadc-3f26-d057" includeChildSelections="true"/>
+      </constraints>
+      <infoLinks>
+        <infoLink name="Hazardous" id="821b-dc6b-8086-15b3" hidden="false" targetId="8367-374c-f87-c627" type="rule"/>
+        <infoLink name="Pistol" id="b7dc-219d-9ce6-a96a" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+        <infoLink name="➤ Plasma pistol - standard" id="f0d8-286e-179f-f30b" hidden="false" type="profile" targetId="95b3-1651-e027-3c26"/>
+        <infoLink name="➤ Plasma pistol - supercharge" id="9729-0f91-df35-c9d8" hidden="false" type="profile" targetId="6ae5-4751-c6c3-eea8"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <comment>BS 3+</comment>
+    </selectionEntry>
     <selectionEntry id="5541-daf-9f4a-ce3d" name="Bolt pistol" hidden="false" collective="true" import="true" type="upgrade">
       <comment>BS 3+</comment>
       <constraints>
@@ -8635,6 +8667,28 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
       </constraints>
       <profiles>
         <profile id="13a4-b149-ce5a-6d97" name="Close combat weapon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="6bb5-3c7b-9b8d-b2ba" name="Close combat weapon" hidden="false" collective="true" import="true" type="upgrade">
+      <comment>S4</comment>
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="3507-11ac-ebe9-17d7" type="max"/>
+      </constraints>
+      <profiles>
+        <profile id="786b-141e-be83-9b00" name="Close combat weapon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
@@ -11338,7 +11392,7 @@ invuln: 5+ model=&quot;Traitor Enforcer&quot;</comment>
           <selectionEntryGroups>
             <selectionEntryGroup name="Wargear" id="54e3-c09f-3be8-335e" hidden="false" sortIndex="3">
               <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" id="41c8-4a99-1ce4-faa8" collective="false" targetId="a5db-1775-e633-b3b2" type="selectionEntry">
+                <entryLink import="true" name="Bolt pistol" hidden="false" id="41c8-4a99-1ce4-faa8" collective="false" targetId="e539-3925-f8cb-494a" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4989-6171-1628-a6b5" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -14053,7 +14107,7 @@ fnp: 5+</comment>
     </selectionEntry>
     <selectionEntry id="3832-4208-11e9-ca22" name="Khorne Berzerkers" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="360">
+        <modifier type="set" field="51b2-306e-1021-d207" value="330">
           <conditions>
             <condition field="selections" scope="3832-4208-11e9-ca22" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -14108,7 +14162,7 @@ fnp: 5+</comment>
             <profile id="ae77-d655-4d8b-136c" name="Khorne Berzerker Champion" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
               <characteristics>
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                 <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14137,8 +14191,8 @@ fnp: 5+</comment>
                   <selectionEntries>
                     <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="02e6-0af0-f900-64f2">
                       <infoLinks>
-                        <infoLink name="➤ Plasma pistol - standard" id="ab71-4d44-8005-8346" hidden="false" type="profile" targetId="46a1-162a-774b-d91b"/>
-                        <infoLink name="➤ Plasma pistol - supercharge" id="fe30-3e93-75f0-0ff6" hidden="false" type="profile" targetId="499c-b49b-0c00-f9c8"/>
+                        <infoLink name="➤ Plasma pistol - standard" id="ab71-4d44-8005-8346" hidden="false" type="profile" targetId="95b3-1651-e027-3c26"/>
+                        <infoLink name="➤ Plasma pistol - supercharge" id="fe30-3e93-75f0-0ff6" hidden="false" type="profile" targetId="6ae5-4751-c6c3-eea8"/>
                         <infoLink name="Hazardous" id="61dd-370d-bf39-07e9" hidden="false" targetId="8367-374c-f87-c627" type="rule"/>
                         <infoLink name="Pistol" id="3ac6-46f2-02e6-73a9" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
                       </infoLinks>
@@ -14191,7 +14245,7 @@ fnp: 5+</comment>
                 <profile name="Khorne Berzerker" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="ea0d-8e17-7ba0-092c">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14206,7 +14260,7 @@ fnp: 5+</comment>
               <selectionEntries>
                 <selectionEntry type="model" import="true" name="Berzerker w/ chainblade and plasma pistol" hidden="false" id="a211-0cb7-7d18-6edd">
                   <entryLinks>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" id="fd35-4024-e82a-5ba1" collective="false" targetId="14a5-4b2-415a-c1d" type="selectionEntry">
+                    <entryLink import="true" name="Plasma pistol" hidden="false" id="fd35-4024-e82a-5ba1" collective="false" targetId="b327-b7e8-b71e-2032" type="selectionEntry">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4a2b-1c8d-2c59-bf3b-min" includeChildSelections="false"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4a2b-1c8d-2c59-bf3b-max" includeChildSelections="false"/>
@@ -14221,7 +14275,7 @@ fnp: 5+</comment>
                     <profile name="Khorne Berzerker" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="ef8a-6767-ae9f-c41e">
                       <characteristics>
                         <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                         <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                         <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                         <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14232,7 +14286,7 @@ fnp: 5+</comment>
                 </selectionEntry>
                 <selectionEntry type="model" import="true" name="Berzerker w/ eviscerator and plasma pistol" hidden="false" id="da93-5739-dcb8-af05">
                   <entryLinks>
-                    <entryLink import="true" name="Plasma pistol" hidden="false" id="ca7f-5887-1031-8f05" collective="false" targetId="14a5-4b2-415a-c1d" type="selectionEntry" sortIndex="2">
+                    <entryLink import="true" name="Plasma pistol" hidden="false" id="ca7f-5887-1031-8f05" collective="false" targetId="b327-b7e8-b71e-2032" type="selectionEntry" sortIndex="2">
                       <constraints>
                         <constraint type="max" value="4" field="selections" scope="3832-4208-11e9-ca22" shared="false" id="d0ec-e81c-12f5-23b3" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fc90-d279-2c58-0d5a-min" includeChildSelections="false"/>
@@ -14248,7 +14302,7 @@ fnp: 5+</comment>
                     <profile name="Khorne Berzerker" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="77c5-4370-77f2-77d7">
                       <characteristics>
                         <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                         <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                         <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                         <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14274,7 +14328,7 @@ fnp: 5+</comment>
                     <profile name="Khorne Berzerker" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="c913-c868-b0df-2e27">
                       <characteristics>
                         <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                         <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                         <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
                         <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14296,7 +14350,7 @@ fnp: 5+</comment>
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
       </costs>
       <modifierGroups>
         <modifierGroup type="and">
@@ -14362,7 +14416,7 @@ fnp: 5+</comment>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -14393,7 +14447,7 @@ fnp: 5+</comment>
 sim-mod: source=&quot;Bringers of Change (objectif)&quot; reroll=wound when=ranged conditional choice=&quot;Bringers of Change&quot;
 invuln: 5+</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="190">
+        <modifier type="set" field="51b2-306e-1021-d207" value="210">
           <conditions>
             <condition field="selections" scope="f2e7-80c9-853d-2c6c" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -14418,6 +14472,11 @@ invuln: 5+</comment>
             </conditionGroup>
           </conditionGroups>
         </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+          <conditions>
+            <condition type="atLeast" value="4" field="selections" scope="roster" childId="f2e7-80c9-853d-2c6c" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
@@ -14436,7 +14495,7 @@ invuln: 5+</comment>
         <profile name="Rubric Marine" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6ba-95f1-5214-dafa">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
@@ -14549,8 +14608,8 @@ invuln: 5+</comment>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
                           </characteristics>
@@ -14607,7 +14666,7 @@ invuln: 5+</comment>
             <profile name="Aspiring Sorcerer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="097c-b87c-9780-f476">
               <characteristics>
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                 <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -14664,7 +14723,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
@@ -14693,7 +14752,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -14754,7 +14813,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -14786,7 +14845,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -14838,7 +14897,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <entryLinks></entryLinks>
@@ -14897,12 +14956,12 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry id="9030-f62d-417-fc92" name="Plague Marines" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="130">
+        <modifier type="set" field="51b2-306e-1021-d207" value="125">
           <conditions>
             <condition field="selections" scope="9030-f62d-417-fc92" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="190">
+        <modifier type="set" field="51b2-306e-1021-d207" value="175">
           <conditions>
             <condition field="selections" scope="9030-f62d-417-fc92" value="8" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -15017,8 +15076,8 @@ invuln: 5+</comment>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits</characteristic>
                           </characteristics>
@@ -15385,7 +15444,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="c589-8131-d8b-9dc3" includeChildSelections="true"/>
@@ -15479,8 +15538,8 @@ invuln: 5+</comment>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
-            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lethal Hits</characteristic>
           </characteristics>
@@ -15504,8 +15563,8 @@ invuln: 5+</comment>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits</characteristic>
           </characteristics>
@@ -16220,7 +16279,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="bee8-1875-4e71-5443" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="034f-766f-1d52-af8d" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="034f-766f-1d52-af8d" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="849b-b47a-83c9-9a5a" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16245,7 +16304,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0354-12c6-4916-3da0" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="755a-5346-5ed5-0be4" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="755a-5346-5ed5-0be4" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a751-ecbe-75b7-89ed" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16346,7 +16405,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d9a7-33dd-634b-7c19" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="6b45-a6c4-dd12-b80b" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="6b45-a6c4-dd12-b80b" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7f44-adb2-5485-55b7" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16415,7 +16474,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5f55-aed5-c796-148a" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="fb6e-2828-691e-8065" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="fb6e-2828-691e-8065" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3548-ea11-2f54-40c8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16440,7 +16499,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1743-3a4c-3b28-94e0" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="b612-e546-626d-67dc" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="b612-e546-626d-67dc" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="58c3-5120-bd87-da86" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16457,7 +16516,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1361-cb21-b348-e558" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="47a8-151c-35e7-e086" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="47a8-151c-35e7-e086" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1bed-928c-3899-d1e1" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16504,7 +16563,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="192f-abe9-1007-952e" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="0fe3-2203-153a-b1db" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="0fe3-2203-153a-b1db" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b02c-3319-5a9d-7238" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16526,7 +16585,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e4c6-b0de-9f9c-9e38" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Close combat weapon" hidden="false" id="8085-90c2-29bd-8f84" collective="false" targetId="2a4d-bbd9-3b26-d4d6" type="selectionEntry">
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="8085-90c2-29bd-8f84" collective="false" targetId="6bb5-3c7b-9b8d-b2ba" type="selectionEntry">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6cbc-f8d7-aa92-77f0" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                   </constraints>
@@ -16752,7 +16811,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
                 <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
+                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
                 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
               </characteristics>
@@ -16796,7 +16855,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
                     <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
+                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
                     <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
                   </characteristics>
@@ -16861,7 +16920,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
                     <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
+                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
                     <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
                   </characteristics>
@@ -16872,7 +16931,7 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
       </costs>
       <entryLinks></entryLinks>
       <modifierGroups>
@@ -16947,6 +17006,11 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
               </conditions>
             </conditionGroup>
           </conditionGroups>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="371f-09ee-951e-88b3" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
         </modifier>
       </modifiers>
     </selectionEntry>
@@ -23471,6 +23535,24 @@ sim-mod: source=&quot;Mark of the Soul Forges&quot; crit-hit=5 scope=model</comm
       <characteristics>
         <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+        <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+      </characteristics>
+      <modifiers>
+        <modifier type="set" value="4+" field="94d-8a98-cf90-183e">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3832-4208-11e9-ca22" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </profile>
+    <profile id="6f3e-a8c8-76a5-eb07" name="Bolt pistol" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+      <characteristics>
+        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
         <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
@@ -23580,11 +23662,47 @@ sim-mod: source=&quot;Mark of the Soul Forges&quot; crit-hit=5 scope=model</comm
         </modifier>
       </modifiers>
     </profile>
+    <profile name="➤ Plasma pistol - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="95b3-1651-e027-3c26">
+      <characteristics>
+        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+        <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+      </characteristics>
+      <modifiers>
+        <modifier type="set" value="4+" field="94d-8a98-cf90-183e">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3832-4208-11e9-ca22" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </profile>
     <profile name="➤ Plasma pistol - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="499c-b49b-0c00-f9c8">
       <characteristics>
         <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol</characteristic>
+      </characteristics>
+      <modifiers>
+        <modifier type="set" value="4+" field="94d-8a98-cf90-183e">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3832-4208-11e9-ca22" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </profile>
+    <profile name="➤ Plasma pistol - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6ae5-4751-c6c3-eea8">
+      <characteristics>
+        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+        <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
         <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
         <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
