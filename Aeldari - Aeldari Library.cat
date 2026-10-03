@@ -1270,7 +1270,8 @@ While this model is leading a Striking Scorpions unit, it has the Infiltrators, 
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="554c-8b4f-1059-28a7" name="Avatar of Khaine" page="15" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Molten Form&quot; halfdmg</comment>
       <profiles>
         <profile id="d900-d532-41a1-3908" name="Avatar of Khaine" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -11999,7 +12000,8 @@ You can attach this model to a unit, even  if one ^^Autarch^^ or ^^Farseer^^ m
     <selectionEntry id="d61-c058-6bd1-112f" name="Warlock Conclave" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Psychic Communion (1 psyker)&quot; attacks=+1 str=+1 weapon=&quot;Destructor&quot; conditional choice=&quot;Psychic Communion&quot;
 sim-mod: source=&quot;Psychic Communion (2+ psykers)&quot; attacks=+2 str=+2 weapon=&quot;Destructor&quot; conditional choice=&quot;Psychic Communion&quot;
-invuln: 4+</comment>
+invuln: 4+
+def-mod: source=&quot;Protect (Psychic)&quot; wound=-1 conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="110">
           <conditions>
@@ -28830,6 +28832,7 @@ invuln: 4+</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Elixir of the Corpse Courts Upgrade" hidden="false" id="d996-d2e2-c27f-461f">
+      <comment>def-mod: source=&quot;Elixir of the Corpse Courts Upgrade&quot; inv=5</comment>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
@@ -29149,6 +29152,7 @@ invuln: 4+</comment>
       </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Voidstone" hidden="false" id="9b12-2696-ec8c-7730">
+      <comment>def-mod: source=&quot;Voidstone&quot; inv=5</comment>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
                 <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -30381,7 +30385,8 @@ TARGET: One Drukhari unit from your army (excluding Haemonculus Covens units) th
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.</description>
             </rule>
             <rule name="INSENSIBLE TO PAIN (Stratagem, 2CP)" id="5621-46dd-4c7f-7d59" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;INSENSIBLE TO PAIN&quot; dmg=-1 conditional</comment>
               <description>Realspace Raiders – STRATAGEM (2CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -30472,7 +30477,8 @@ TARGET: That TRANSPORT.
 EFFECT: After your TRANSPORT has fought, select one enemy unit that was the target of one or more of those attacks and roll one D6 for each model embarked within your TRANSPORT, adding 1 to the result if that embarked model is a Wracks model: for each 5+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</description>
             </rule>
             <rule name="NIGHT SHIELD (Stratagem, 1CP)" id="b964-dfbd-4b7d-a794" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;NIGHT SHIELD&quot; inv=4 conditional</comment>
               <description>Skysplinter Assault – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -30594,7 +30600,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;. If your unit is curr
               <description>Friendly **^^Aeldari Vehicle^^** units&apos; ranged attacks have the **[ASSAULT]** ability.</description>
             </rule>
             <rule name="Layered Wards (Stratagem, 1CP)" id="2e2f-5bd4-9680-1186" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Layered Wards&quot; fnp=5 conditional</comment>
               <description>Armoured Warhost – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly AELDARI VEHICLE unit suffers a mortal wound.
@@ -30661,7 +30668,8 @@ TARGET: One Asuryani Mounted or VYPER unit from your army that was set upon the 
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can re-roll the Wound roll.</description>
             </rule>
             <rule name="SPIRALLING EVASION (Stratagem, 1CP)" id="f633-69d2-b929-a580" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;SPIRALLING EVASION&quot; inv=4 conditional</comment>
               <description>Windrider Host – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -30741,7 +30749,8 @@ TARGET: That WRAITHBLADES, WRAITHLORD or WRAITHKNIGHT unit.
 EFFECT: Select one enemy unit within Engagement Range of your unit and roll one D6 for each WRAITHBLADES model in your unit, or roll four D6 if your unit has the WRAITHLORD keyword, or roll six D6 if your unit has the WRAITHKNIGHT keyword: for each 3+, that enemy unit suffers 1 mortal wound.</description>
             </rule>
             <rule name="WRAITHBONE ARMOUR (Stratagem, 1CP)" id="ddf2-5723-74f5-3e75" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;WRAITHBONE ARMOUR&quot; dmg=-1 conditional</comment>
               <description>Spirit Conclave – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -30808,7 +30817,8 @@ TARGET: One Dire Avengers or Guardians unit from your army that has not been sel
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of one or more objective markers, you can re-roll the Wound roll.</description>
             </rule>
             <rule name="SHIELD NODES (Stratagem, 1CP)" id="5262-9aab-bd77-d569" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;SHIELD NODES&quot; wound=-1 conditional</comment>
               <description>Guardian Battlehost – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -31006,7 +31016,8 @@ TARGET: One Ynnari unit from your army that has not been selected to shoot this 
 EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [LETHAL HITS] and [IGNORES COVER] abilities.</description>
             </rule>
             <rule name="MACABRE RESILIENCE (Stratagem, 1CP)" id="3bc1-d34c-5f1e-6c75" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;MACABRE RESILIENCE&quot; wound=-1 conditional</comment>
               <description>Devoted of Ynnead – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -31118,7 +31129,8 @@ EFFECT: ■ Place your unit in strategic reserves.
 RESTRICTIONS: Until the end of the phase, your unit is not eligible to be selected to move.</description>
             </rule>
             <rule name="FOREWARNED (Stratagem, 1CP)" id="dacd-05ef-b52d-dc6e" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+def-mod: source=&quot;FOREWARNED&quot; wound=-1 conditional</comment>
               <description>Seer Council – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -31238,7 +31250,8 @@ EFFECT: Each time you use this Stratagem, you can remove one Aspect Shrine token
               <description>Each time an attack targets a **^^Haemonculus Covens^^** unit from your army, if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit, subtract 1 from the Wound roll.</description>
             </rule>
             <rule name="CONNOISSEURS OF PAIN (Stratagem, 1CP)" id="bf79-125a-87bb-a103" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;CONNOISSEURS OF PAIN&quot; ap=-1 conditional</comment>
               <description>Covenite Coterie – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -31456,7 +31469,8 @@ TARGET: One DRUKHARI unit from your army that made a Charge move this turn and h
 EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LETHAL HITS] ability. If your unit is a Wyches unit, until the end of the phase, improve the Armour Penetration characteristic of melee weapons equipped by models in your unit by 1 as well.</description>
             </rule>
             <rule name="ACROBATIC DISPLAY (Stratagem, 1CP)" id="d2bf-465d-ae67-dcd6" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;ACROBATIC DISPLAY&quot; inv=5 conditional</comment>
               <description>Spectacle of Spite – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -31622,7 +31636,8 @@ TARGET: One Corsair Voidscarred unit from your army that has not been selected t
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, add 1 to the Damage characteristic of that attack.</description>
             </rule>
             <rule name="Yriel&apos;s Example (Stratagem, 1CP)" id="2534-5e84-77b8-5d5b" hidden="false">
-<comment>strat-timing: turn=either phase=fight</comment>
+<comment>strat-timing: turn=either phase=fight
+def-mod: source=&quot;Yriel&apos;s Example&quot; fnp=5 conditional</comment>
               <description>Eldritch Raiders – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -31942,7 +31957,8 @@ TARGET: That WYCH CULT unit.
 EFFECT: That move does not prevent your unit from being eligible to start an action.</description>
             </rule>
             <rule name="Acrobatic Display (Stratagem, 1CP)" id="e4d8-d596-951f-a3a9" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Acrobatic Display&quot; inv=5 conditional</comment>
               <description>Exhibition of Slaughter – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly WYCH CULT unit.
