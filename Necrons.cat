@@ -3137,7 +3137,8 @@ TARGET: One LYCHGUARD or TRIARCH unit from your army that has not been selected 
 EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability.</description>
                 </rule>
                 <rule name="NANOASSEMBLY PROTOCOLS (Stratagem, 1CP)" id="09d6-4241-d1b2-bca7" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;NANOASSEMBLY PROTOCOLS&quot; dmg=-1 conditional</comment>
                   <description>Obeisance Phalanx – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3229,7 +3230,8 @@ TARGET: One NECRONS unit from your army that was set up on the battlefield this 
 EFFECT: Your unit is eligible to charge this phase.</description>
                 </rule>
                 <rule name="QUANTUM DEFLECTION (Stratagem, 1CP)" id="5e04-9e6d-eab6-f455" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;QUANTUM DEFLECTION&quot; inv=4 conditional</comment>
                   <description>Hypercrypt Legion – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3340,7 +3342,9 @@ TARGET: One Necrons unit from your army that has not been selected to shoot or f
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to that attack&apos;s Ballistic Skill or Weapon Skill characteristic and the Hit roll. If your unit has the Cryptek keyword, you can also ignore any or all modifiers to the Wound roll.</description>
                 </rule>
                 <rule name="Microscarab Swarm (Stratagem, 1CP)" id="615e-10c6-0179-5cd2" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Microscarab Swarm&quot; inv=5 conditional
+def-mod: source=&quot;Microscarab Swarm&quot; inv=4 conditional</comment>
                   <description>Cryptek Conclave – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3614,7 +3618,8 @@ TARGET: That NECRONS MOUNTED unit.
 EFFECT: Your unit can make a Normal move of up to D3+3&quot;.</description>
                 </rule>
                 <rule name="Evasive Protocols (Stratagem, 1CP)" id="256c-3bb1-c249-275a" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Evasive Protocols&quot; wound=-1 when=ranged vsStronger conditional</comment>
                   <description>Skyshroud Spearhead – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly NECRONS MOUNTED unit.
@@ -3911,7 +3916,8 @@ EFFECT: Your unit’s Tesla Sphere weapons have +1 AP.</description>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Illuminor Szeras" hidden="false" id="d977-6a26-bc03-4722">
       <comment>invuln: 4+
-fnp: 4+</comment>
+fnp: 4+
+def-mod: source=&quot;Mechanical Augmentation (Aura)&quot; ap=-1 conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
       </costs>
@@ -6704,6 +6710,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Lychguard" hidden="false" id="c4e3-f6b0-f3aa-9d90">
+      <comment>def-mod: source=&quot;Guardian Protocols&quot; wound=-1 vsStronger conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
@@ -11774,6 +11781,7 @@ must-warlord</comment>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Convergence of Dominion" hidden="false" id="919f-7076-c827-b844">
+      <comment>def-mod: source=&quot;Ancient Cover&quot; cover when=ranged conditional</comment>
       <categoryLinks>
         <categoryLink targetId="ee0-cf31-4fb5-6b26" id="f5e2-42b2-b2ab-9e1a" primary="false" name="Faction: Necrons"/>
         <categoryLink targetId="19d7-9c74-2140-5851" id="357d-31a3-41c5-a657" primary="true" name="Fortification"/>
