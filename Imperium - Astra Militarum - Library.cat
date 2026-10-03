@@ -2,6 +2,7 @@
 <catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="5a44-f048-114b-e3ff" name="Imperium - Astra Militarum - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="201" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Aegis Defence Line" hidden="false" id="cb99-456-f100-40ed">
+      <comment>def-mod: source=&quot;Reinforced Cover&quot; cover when=ranged conditional</comment>
       <categoryLinks>
         <categoryLink targetId="a56a-23f-9ea1-d8ee" id="37c4-9079-1d0-3773" primary="false" name="Aegis Defence Line"/>
         <categoryLink targetId="fa45-57e-930e-602b" id="15f2-9368-3d84-1a84" primary="false" name="Faction: Astra Militarum"/>
@@ -564,6 +565,7 @@
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Baneblade" hidden="false" id="a6a1-1612-f982-31">
+      <comment>def-mod: source=&quot;Rolling Fortress&quot; cover when=ranged conditional</comment>
       <categoryLinks>
         <categoryLink targetId="b3af-24d9-8ca6-369" id="6092-3b23-1647-f399" primary="false" name="Baneblade"/>
         <categoryLink targetId="fa45-57e-930e-602b" id="4e70-6cb9-c06d-c5ab" primary="false" name="Faction: Astra Militarum"/>
@@ -1329,7 +1331,8 @@
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Bullgryn Squad" hidden="false" id="37ad-63e5-1786-87cf">
-      <comment>fnp: 6+</comment>
+      <comment>fnp: 6+
+def-mod: source=&quot;Wall of Muscle&quot; dmg=-1</comment>
       <categoryLinks>
         <categoryLink targetId="c34d-50b5-f24d-f2f7" id="352d-4637-65ad-5334" primary="false" name="Bullgryn Squad"/>
         <categoryLink targetId="5e1a-9392-f640-e4b" id="f332-b138-baa1-6ed9" primary="false" name="Ogryn"/>
@@ -4219,7 +4222,8 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Gaunt’s Ghosts" hidden="false" id="653d-80-d715-7d55">
-      <comment>invuln: 5+ model=&quot;Ibram Gaunt&quot;</comment>
+      <comment>invuln: 5+ model=&quot;Ibram Gaunt&quot;
+def-mod: source=&quot;Tanith Camo-cloaks&quot; cover</comment>
       <categoryLinks>
         <categoryLink targetId="61e6-b057-7e6-f3b8" id="7d3d-144a-8e2d-baed" primary="false" name="Gaunt’s Ghosts"/>
         <categoryLink targetId="fa45-57e-930e-602b" id="ed1e-9000-1b55-a6eb" primary="false" name="Faction: Astra Militarum"/>
@@ -20581,7 +20585,8 @@ TARGET: One Regiment unit and one Squadron unit from your army that have not bee
 EFFECT: Select one enemy unit. Until the end of the phase, each time your selected REGIMENT and SQUADRON units make an attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1.</description>
             </rule>
             <rule name="STALWART PROTECTOR (Stratagem, 1CP)" id="305b-5f7a-653b-4ce7" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;STALWART PROTECTOR&quot; cover when=ranged conditional</comment>
               <description>Combined Arms – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -20945,7 +20950,8 @@ TARGET: One Platoon unit from your army that has not been selected to shoot this
 EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [PRECISION] ability.</description>
             </rule>
             <rule name="COURAGEOUS DIVERSION (Stratagem, 1CP)" id="b215-fed2-f800-034e" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;COURAGEOUS DIVERSION&quot; fnp=6 conditional</comment>
               <description>Recon Element – STRATAGEM (1CP)
 
 WHEN: Start of your opponent’s Shooting phase.
@@ -21050,7 +21056,8 @@ TARGET: One Astra Militarum Infantry unit from your army affected by the First R
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, improve the Strength characteristic of that attack by 1.</description>
             </rule>
             <rule name="Additional Armour (Stratagem, 1CP)" id="0195-aea8-417b-a97b" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Additional Armour&quot; ap=-1 conditional</comment>
               <description>Grizzled Company – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
