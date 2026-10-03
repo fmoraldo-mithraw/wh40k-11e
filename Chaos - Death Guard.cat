@@ -116,7 +116,8 @@ EFFECT: Your unit&apos;s ranged attacks have [CLOSE-QUARTERS].</description>
                   <description>At the end of your Command phase, if a friendly ^^**Death Guard**^^ unit is controlling an objective marker, that objective marker is secured. Until you lose control of that objective marker, while an enemy unit is within range of that objective marker, that enemy unit is Afflicted.</description>
                 </rule>
                 <rule name="DISGUSTINGLY RESILIENT (Stratagem, 2CP)" id="17ec-6481-d72b-9a86" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;DISGUSTINGLY RESILIENT&quot; dmg=-1 conditional</comment>
                   <description>Virulent Vectorium – STRATAGEM (2CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -639,7 +640,8 @@ EFFECT: That action does not prevent your unit from being eligible to shoot.</de
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Daemon Prince of Nurgle" hidden="false" id="4cb3-e6b6-4e82-23bf">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Miasma of Pestilence (Aura)&quot; cover when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="185"/>
       </costs>
@@ -6738,6 +6740,7 @@ must-warlord</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Miasmic Malignifier" hidden="false" id="55c7-e5b8-9737-f58e" publicationId="6bb4-8611-986f-58fa" page="69-70">
+      <comment>def-mod: source=&quot;Diseased Cover&quot; cover when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
       </costs>
@@ -8955,6 +8958,7 @@ fnp: 6+</comment>
   </sharedSelectionEntries>
   <sharedRules>
     <rule name="Nurgle&apos;s Gift (Aura)" hidden="false" id="ea42-7d15-fd81-73d6" publicationId="6bb4-8611-986f-58fa" page="1">
+      <comment>def-mod: source=&quot;Nurgle&apos;s Gift (Aura)&quot; cover when=ranged conditional</comment>
       <description>If your Army Faction is DEATH GUARD, while an enemy unit is within Contagion Range of one or more ^^**Death Guard^^** units from your army, it is Afflicted.
 
 CONTAGION RANGE
