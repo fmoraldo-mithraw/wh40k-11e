@@ -2972,6 +2972,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Stormraven Gunship" hidden="false" id="2efe-459b-9562-e7a9">
+      <comment>def-mod: source=&quot;Armoured Resilience&quot; dmg=-1</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
@@ -7848,7 +7849,8 @@ TARGET: One Grey Knights Infantry unit from your army that has not been selected
 EFFECT: Until the end of the phase, storm bolter weapons equipped by models in your unit have the [PISTOL] and [TWIN-LINKED] abilities.</description>
             </rule>
             <rule name="SHINING RESOLVE (Stratagem, 1CP)" id="e1d1-228e-555f-1b94" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;SHINING RESOLVE&quot; wound=-1 vsStronger conditional</comment>
               <description>Hallowed Conclave – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -8128,7 +8130,8 @@ TARGET: One Grey Knights unit from your army that has not been selected to shoot
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets a MONSTER or VEHICLE unit, add 1 to the Wound roll.</description>
             </rule>
             <rule name="TRUESILVER WILL (Stratagem, 1CP)" id="fd3a-8b32-8fff-f022" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;TRUESILVER WILL&quot; fnp=4 conditional</comment>
               <description>Sanctic Spearhead – STRATAGEM (1CP)
 
 WHEN: Any phase, just after a Grey Knights Psyker Vehicle unit from your army suffers a mortal wound.
@@ -8212,7 +8215,8 @@ TARGET: One Grey Knights Psyker unit from your army that is on the battlefield a
 EFFECT: Select one enemy unit which inflicted one or more mortal wounds on your unit this phase, then roll a number of dice equal to the number of mortal wounds your unit suffered this phase: for each 2+, that enemy unit suffers one mortal wound (to a maximum of 6 mortal wounds). These mortal wounds are Psychic Attacks.</description>
             </rule>
             <rule name="WARDING CHANT (Stratagem, 1CP)" id="6ea2-ff83-177b-5d07" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;WARDING CHANT&quot; fnp=5 conditional</comment>
               <description>Banishers – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -8279,7 +8283,8 @@ EFFECT: Until the end of the turn, your unit is eligible to declare a charge in 
 When a friendly PALADIN SQUAD unit is selected to fight, if the S of those attacks is lower than the T of the target, those attacks have +1 to wound rolls.</description>
             </rule>
             <rule name="Truesilver Aegis (Stratagem, 1CP)" id="9a5b-41a8-0fdd-34d2" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Truesilver Aegis&quot; fnp=4 conditional</comment>
               <description>Argent Assault – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly PALADIN SQUAD unit suffers a mortal wound.
