@@ -93,7 +93,8 @@ sim-mod: source=&quot;Methodical Annihilation&quot; ap=+1 conditional</comment>
 - If your unit is a ^^**Kâhl, Einhyr Hearthguard^^** or ^^**Ûthar the Destined^^** unit, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="40b7-ba6b-77bf-f92b" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting</comment>
+                  <comment>strat-timing: turn=either phase=shooting
+def-mod: source=&quot;Brëkkeknots&quot; inv=4 conditional</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -193,7 +194,8 @@ TARGET: One Hernkyn unit from your army that has not been selected to move this 
 EFFECT: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="DISPERSED FORMATION (Stratagem, 1CP)" id="5f7f-0380-5674-4aeb" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;DISPERSED FORMATION&quot; cover when=ranged conditional</comment>
                   <description>Persecution Prospect – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -280,7 +282,8 @@ TARGET: One LEAGUES OF VOTANN unit from your army that was selected as the targe
 EFFECT: Your unit can shoot as if it were your Shooting phase, can only target that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
                 </rule>
                 <rule name="VOID HARDENED (Stratagem, 1CP)" id="9dee-5984-1c70-969c" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;VOID HARDENED&quot; ap=-1 conditional</comment>
                   <description>Needgaârd Oathband – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets, if units from your army have Fortify Takeover.
@@ -399,7 +402,8 @@ TARGET: That Cthonian Earthshakers unit.
 EFFECT: Each time you use this Stratagem, you can spend 2YP. Select one enemy unit hit by one or more of your unit’s attacks this phase. Until the start of your next Shooting phase, subtract 2 from that unit’s Move characteristic and, if you spent YP during this use of this Stratagem, subtract 2 from Charge rolls made for that unit.</description>
                 </rule>
                 <rule name="WEAVEWËRKE BUTTRESS (Stratagem, 1CP)" id="e3b8-d7f0-3703-d9df" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;WEAVEWËRKE BUTTRESS&quot; wound=-1 conditional</comment>
                   <description>Dêlve Assault Shift – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets, if units from your army have Hostile Acquisition.
@@ -595,7 +599,8 @@ TARGET: Up to two friendly SAGITAUR units in Strategic Reserves.
 EFFECT: Your units each make an ingress move.</description>
                 </rule>
                 <rule name="Built to Last (Stratagem, 1CP)" id="613e-f224-e3a4-6af0" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;Built to Last&quot; wound=-1 when=ranged vsStronger conditional</comment>
                   <description>Armoured Trailblazers – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly SAGITAUR unit.
@@ -669,7 +674,8 @@ Friendly KÂHL/EINHYR CHAMPION/EINHYR HEARTHGUARD/ÛTHAR THE DESTINED units’ r
 This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="2d7b-1ee4-db47-6db2" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Brëkkeknots&quot; inv=4 conditional</comment>
                   <description>Hearthguard Covenant – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly EINHYR HEARTHGUARD unit.
@@ -11708,6 +11714,7 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
   </sharedSelectionEntryGroups>
   <sharedRules>
     <rule id="351a-a702-9080-7f08" name="Prioritised Efficiency" hidden="false">
+      <comment>def-mod: source=&quot;Prioritised Efficiency&quot; wound=-1 vsStronger conditional</comment>
       <description>If your Army Faction is ^^**Leagues of Votann^^**, ^^**Leagues of Votann^^** units from your army have one of two abilities: Hostile Acquisition or Fortify Takeover (see below). During the battle, which ability those ^^**Leagues of Votann^^** units have will change depending on how many Yield points (YP) you currently have:
 - At the start of the battle, your units have Hostile Acquisition until the start of your next Command phase.
 
