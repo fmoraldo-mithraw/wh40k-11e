@@ -2975,6 +2975,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Synaptoprescience Upgrade" hidden="false" id="ce51-f55a-5d10-e51f">
+      <comment>def-mod: source=&quot;Synaptoprescience Upgrade&quot; inv=4</comment>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
@@ -5065,7 +5066,9 @@ Each time a **^^Tyranids^^** model with this Hyper-adaptation makes an attack th
 Each time a **^^Tyranids^^** model with this Hyper-adaptation makes an attack that targets an enemy **^^Character^^** unit, if a Critical Hit is scored, that attack has the **[PRECISION]** ability.</description>
             </rule>
             <rule name="RAPID REGENERATION (Stratagem, 1CP)" id="20bc-1379-c2f6-cde1" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;RAPID REGENERATION&quot; fnp=6 conditional
+def-mod: source=&quot;RAPID REGENERATION&quot; fnp=5 conditional</comment>
               <description>Invasion Fleet – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -5160,7 +5163,9 @@ TARGET: One Harvester unit from your army that was just destroyed. You can use t
 EFFECT: Until the end of the battle, each time a friendly TYRANIDS model makes an attack that targets the enemy unit that just destroyed your HARVESTER unit, add 1 to the Wound roll.</description>
             </rule>
             <rule name="ABLATIVE CARAPACE (Stratagem, 2CP)" id="3e0a-3485-2240-251d" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;ABLATIVE CARAPACE&quot; fnp=5 conditional
+def-mod: source=&quot;ABLATIVE CARAPACE&quot; fnp=4 conditional</comment>
               <description>Assimilation Swarm – STRATAGEM (2CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -5220,7 +5225,8 @@ sim-mod: source=&quot;Enraged Behemoths&quot; wound=+1 conditional</comment>
               <description>Each time a **^^Tyranids Monster^^** model from your army makes an attack, add 1 to the Hit roll if that model&apos;s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model&apos;s unit is below Half-strength. In addition, while a **^^Tyranids Monster^^** unit from your army (excluding Battle-shocked units) is at its Starting Strength, add 2 to the Objective Control characteristic of models in that unit.</description>
             </rule>
             <rule name="SAVAGE ROAR (Stratagem, 1CP)" id="7839-959d-550d-6866" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+def-mod: source=&quot;SAVAGE ROAR&quot; wound=-1 conditional</comment>
               <description>Crusher Stampede – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -5293,7 +5299,8 @@ EFFECT: Do not roll one D6 to determine whether mortal wounds are inflicted by y
         <selectionEntry type="upgrade" import="true" name="Synaptic Nexus" hidden="false" id="16ff-a068-4c31-285a">
           <rules>
             <rule name="Synaptic Imperitives" id="443e-6ef5-6bdd-e418" hidden="false">
-              <comment>sim-mod: source=&quot;Synaptic Imperitives (Goaded to Slaughter)&quot; hit=+1 when=melee conditional</comment>
+              <comment>sim-mod: source=&quot;Synaptic Imperitives (Goaded to Slaughter)&quot; hit=+1 when=melee conditional
+def-mod: source=&quot;Synaptic Imperitives&quot; inv=5 conditional</comment>
               <description>At the start of the battle round, you can select one of the Synaptic Imperatives shown below. Until the end of the battle round, that Synaptic Imperative is active for your army and while a **^^Tyranids^^** unit from your army is within Synapse Range of your army, it will benefit from it. Each Synaptic Imperative can only be selected once per battle.
 
 - **Synaptic Augmentation:** While this unit is within Synapse Range of your army, models in this unit have a 5+ invulnerable save.
@@ -5310,7 +5317,8 @@ TARGET: One Synapse unit from your army that has not been selected to shoot or f
 EFFECT: Until the end of the phase, each time a friendly TYRANIDS model makes an attack that targets that enemy unit, if the attacking model’s unit is within 6&quot; of your SYNAPSE unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.</description>
             </rule>
             <rule name="REINFORCED HIVE NODE (Stratagem, 1CP)" id="877e-a501-4d45-223c" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;REINFORCED HIVE NODE&quot; ap=-1 conditional</comment>
               <description>Synaptic Nexus – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -5727,7 +5735,8 @@ EFFECT: Place your unit in Strategic Reserves.</description>
   *Protean Purpose (Once per battle, per unit):* In your Command phase, you can use this ability. If you do, this unit can make a selection for its Singular Purpose ability (this replaces the previous selection).</description>
             </rule>
             <rule name="Catalytic Biofortification (Stratagem, 1CP)" id="4a93-b698-01ff-4600" hidden="false">
-              <comment>strat-timing: turn=either phase=any</comment>
+              <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Catalytic Biofortification&quot; fnp=4 conditional</comment>
               <description>Talons of the Norn Queen – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly NORN ASSIMILATOR unit suffers a mortal wound.
@@ -6502,7 +6511,8 @@ EFFECT: You can set up that Cult Ambush marker anywhere on the battlefield that 
               <description>While a **^^Genestealer Cults Mounted^^**/**^^Vehicle^^** model from your army is not Battle-shocked, add 1 to its Objective Control characteristic. In addition, at the end of your Command phase, if one or more **^^Atalan Jackals^^** units from your army are within range of an objective you control, that objective remains under your control until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</description>
             </rule>
             <rule name="DEVOTED CREW (Stratagem, 1CP)" id="a535-954e-b07d-fd65" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;DEVOTED CREW&quot; dmg=-1 conditional</comment>
               <description>Outlander Claw – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -6510,7 +6520,8 @@ TARGET: One Goliath Rockgrinder or Goliath Truck unit from your army that was se
 EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Damage characteristic of that attack.</description>
             </rule>
             <rule name="DEFT MANOEUVRING (Stratagem, 1CP)" id="73c4-7ffd-5b13-ff0f" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;DEFT MANOEUVRING&quot; inv=4 conditional</comment>
               <description>Outlander Claw – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, just after an enemy unit has selected its targets.
