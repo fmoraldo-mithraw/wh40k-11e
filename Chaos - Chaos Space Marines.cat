@@ -422,7 +422,8 @@ EFFECT: Until the end of the turn, your unit is eligible to declare a charge in 
                   <description>At the start of your Command phase, select one unit from your opponent&apos;s army to be your focus of hatred. Until the start of your next Command phase, each time a ^^**Heretic Astartes**^^ model from your army (excluding ^^**Damned**^^ models) makes an attack that targets your focus of hatred, you can re-roll the Hit roll.</description>
                 </rule>
                 <rule name="CONTEMPTUOUS DISREGARD (Stratagem, 1CP)" id="fd79-2f72-2143-ec6b" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;CONTEMPTUOUS DISREGARD&quot; ap=-1 conditional</comment>
                   <description>Veterans of the Long War – STRATAGEM (1CP)
 
 WHEN: Your opponents Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -582,7 +583,8 @@ TARGET: One HERETIC ASTARTES unit from your army that disembarked from a TRANSPO
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, if the target of that attack is within range of an objective marker, you can re-roll the Hit roll and you can re-roll the Wound roll.</description>
                 </rule>
                 <rule name="UNFAILINGLY OBDURATE (Stratagem, 1CP)" id="dcbc-fc56-29e7-5e58" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;UNFAILINGLY OBDURATE&quot; ap=-1 conditional</comment>
                   <description>Renegade Raiders – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -743,7 +745,8 @@ TARGET: One HERETIC ASTARTES unit from your army.
 EFFECT: Until the end of the phase, each time an enemy unit selects your unit as a target of a charge, subtract 2 from the Charge roll (this is not cumulative with any other negative modifiers to that Charge roll).</description>
                 </rule>
                 <rule name="STEADFAST DETERMINATION (Stratagem, 1CP)" id="a215-8f75-138e-f5e4" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;STEADFAST DETERMINATION&quot; fnp=5 conditional</comment>
                   <description>Fellhammer Siege-host – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -1290,7 +1293,8 @@ Onslaught - Up to 3 units
 Once you have made your selections, remove those units from the battlefield and place them into Strategic Reserves.</description>
                 </rule>
                 <rule name="Empyric Dislocation (Stratagem, 1CP)" id="8e58-2aa4-f7a4-69bb" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Empyric Dislocation&quot; ap=-1 conditional</comment>
                   <description>Warpstrike Champions – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -1299,7 +1303,8 @@ EFFECT: Until the attacking unit has finished making its attacks, each time an a
 RESTRICTIONS: You cannot target the same unit with the Empyric Dislocation and Armour of Corruption Stratagems in the same phase.</description>
                 </rule>
                 <rule name="Armour of Corruption (Stratagem, 2CP)" id="c905-a8fc-b674-bd1c" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=fight</comment>
+                  <comment>strat-timing: turn=opponent phase=fight
+def-mod: source=&quot;Armour of Corruption&quot; dmg=-1 conditional</comment>
                   <description>Warpstrike Champions – STRATAGEM (2CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -1453,7 +1458,8 @@ TARGET: That HAVOCS unit.
 EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
                 </rule>
                 <rule name="Undying Hatred (Stratagem, 1CP)" id="ef8e-42ad-6a10-dc53" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Undying Hatred&quot; wound=-1 vsStronger conditional</comment>
                   <description>Devotees of Destruction – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly HAVOCS/OBLITERATORS unit.
@@ -2004,7 +2010,8 @@ fnp: 5+</comment>
 sim-mod: source=&quot;Ascended Daemon&quot; reroll=wound scope=model
 sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-invuln: 4+</comment>
+invuln: 4+
+def-mod: source=&quot;Dark Blessing (Aura)&quot; cover when=ranged conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="dcf-cb5-3e4-db74" type="max"/>
       </constraints>
@@ -3311,7 +3318,8 @@ Penetration and Damage characteristics of melee weapons equipped by this model b
     <selectionEntry id="b206-250d-84aa-fc42" name="Chaos Lord in Terminator Armour" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-invuln: 4+</comment>
+invuln: 4+
+def-mod: source=&quot;Formidably Resilient&quot; halfdmg</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
       </constraints>
@@ -10159,7 +10167,8 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry id="a3ab-ed12-fa70-2042" name="Noctilith Crown" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+def-mod: source=&quot;Malign Cover&quot; cover when=ranged conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="3309-84ac-d5d5-a18b" type="max"/>
       </constraints>
