@@ -85,7 +85,7 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   doit collecter les capacités dans **tout le sous-arbre** (unité **+** modèles),
   exclure les lignes de stats (`typeName="Unit"`) et les armes, et **dédupliquer**
   (une fois, pas une par figurine). Correctif de lecture/affichage, aucune donnée.
-- **`editor/SIM_MOD_APP_PROMPT.md`** — prompt autonome (simulateur de dégâts) :
+- **`editor/SIM_MOD_APP_PROMPT.md`** — prompt autonome (simulateur de dégâts ; aussi les effets DÉFENSIFS `def-mod:` de l'onglet Résistance, générés par `editor/gen-def-mods.mjs`) :
   les bonus **offensifs** accordés par une capacité de datasheet ou une
   amélioration (ex. compétence de Castellan Crowe) sont matérialisés par un
   marqueur `<comment>sim-mod: source="…" attacks=+1 weapon="…" whileLeading
