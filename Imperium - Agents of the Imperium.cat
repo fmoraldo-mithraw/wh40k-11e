@@ -3809,7 +3809,8 @@ While this Mission Tactic is active, weapons equipped by ^^Deathwatch^^ units fr
 While this Mission Tactic is active, each time a ^^Deathwatch^^ model from your army makes an attack, on a Critical Wound, that attack has the [PRECISION] ability.</description>
                 </rule>
                 <rule name="ARMOUR OF CONTEMPT (Stratagem, 1CP)" id="5f9b-b286-0132-2bb3" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;ARMOUR OF CONTEMPT&quot; ap=-1 conditional</comment>
                   <description>Alien Hunters (Ordo Xenos) – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3911,7 +3912,8 @@ TARGET: One ADEpTUS ARbITES, INQUISITORIAl AGENTS or ORDO HERETICUS unit from yo
 EFFECT: After the attacking unit has shot, your unit can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).</description>
                 </rule>
                 <rule name="INVIOLATE JURISDICTION (Stratagem, 1CP)" id="f788-936b-3d03-4e56" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;INVIOLATE JURISDICTION&quot; fnp=5 conditional</comment>
                   <description>Purgation Force (Ordo Hereticus) – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3979,7 +3981,8 @@ TARGET: One INQUISITOR, INQUISITORIAl AGENTS or ORDO MAllEUS unit from your army
 EFFECT: That objective marker is said to be Warded and remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn. While an objective marker is Warded and under your control, enemy DAEMON units cannot be set up on the battlefield within 6&quot; of it.</description>
                 </rule>
                 <rule name="TRUESILVER ARMOUR (Stratagem, 1CP)" id="d253-c909-d3a9-1985" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;TRUESILVER ARMOUR&quot; ap=-1 conditional</comment>
                   <description>Daemon Hunters (Ordo Malleus) – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase orthe Fight phase, just after an enemy unit has selected its targets.
@@ -4018,7 +4021,8 @@ EFFECT: Until the end of the phase, ranged weapons equipped by models in your un
             <selectionEntry type="upgrade" import="true" name="Imperialis Fleet" hidden="false" id="5347-93e5-b3f2-366d">
               <rules>
                 <rule name="At All Costs" id="dd5f-5aac-a976-1d59" hidden="false">
-                  <comment>sim-mod: source=&quot;At All Costs&quot; hit=+1 conditional</comment>
+                  <comment>sim-mod: source=&quot;At All Costs&quot; hit=+1 conditional
+def-mod: source=&quot;At All Costs&quot; inv=5 conditional</comment>
                   <description>At the start of your Command phase, you can select one of the following to apply:
 
 
@@ -4073,7 +4077,8 @@ TARGET: One AGENTS OF THE IMpERIUM unit from your army.
 EFFECT: Until the end of the phase, your unit is eligible to shoot in a turn in which it Advanced or Fell Back.</description>
                 </rule>
                 <rule name="DISPLACER FIELD (Stratagem, 1CP)" id="5fef-c7a2-4ba6-1e1a" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;DISPLACER FIELD&quot; inv=4 conditional</comment>
                   <description>Imperialis Fleet – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, just after an enemy unit has selected its targets.
@@ -4577,6 +4582,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Inquisitorial Agents" hidden="false" id="4469-7239-717e-9abd">
+      <comment>def-mod: source=&quot;Loyal Henchmen&quot; wound=-1 conditional</comment>
       <categoryLinks>
         <categoryLink name="Infantry" hidden="false" id="229c-99d3-5328-3bcf" targetId="cf47-a0d7-7207-29dc" primary="true"/>
         <categoryLink name="Grenades" hidden="false" id="9a8d-5b68-152f-5cfd" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
