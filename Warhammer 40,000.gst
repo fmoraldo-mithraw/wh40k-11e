@@ -1209,6 +1209,7 @@ This ability always takes the form Deadly Demise X. Each time a model in this un
 Example: An Impulsor with a unit of Intercessors embarked within it is destroyed by ranged attacks. First, any unresolved attacks made by the attacking unit are resolved. Then the Intercessors make an emergency disembark move. Then the roll is made for the Deadly Demise ability, and on a 6, that ability is resolved. Finally, the Impulsor is removed from the battlefield.</description>
     </rule>
     <rule id="bec5-4288-34a6-ccfa" name="Stealth" publicationId="48fc-15aa-b307-9443" page="20" hidden="false">
+      <comment>def-mod: source=&quot;Stealth&quot; cover when=ranged conditional</comment>
       <description>The stealthiest warriors can evade the attentions, and the bullets, of their foes.
 If every model in a unit has this ability, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack (13.08).</description>
     </rule>
@@ -1333,7 +1334,8 @@ See Attached Units (19).</description>
 **EFFECT:** Your unit shoots using snap shooting (15.09): you can only target one visible enemy unit within 24"; each attack only hits on an unmodified Hit roll of 6 (irrespective of BS or modifiers); you cannot re-roll Hit rolls.</description>
     </rule>
     <rule id="0212-a34f-5622-ac26" name="Stratagem: Smokescreen (1CP)" publicationId="48fc-15aa-b307-9443" page="56" hidden="false">
-      <comment>strat-timing: turn=opponent phase=shooting</comment>
+      <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Stratagem: Smokescreen (1CP)&quot; cover conditional</comment>
       <description>**CORE STRATAGEM — 1CP** (15.10)
 
 **WHEN:** Start of your opponent’s Shooting phase.
