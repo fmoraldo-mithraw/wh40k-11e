@@ -5988,7 +5988,8 @@ invuln: 5+</comment>
                   <description>Friendly ^^**World Eaters^^** units’ melee attacks have +1 A.</description>
                 </rule>
                 <rule name="FRENZIED RESILIENCE (Stratagem, 2CP)" id="d44a-1537-9736-dfec" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+def-mod: source=&quot;FRENZIED RESILIENCE&quot; dmg=-1 conditional</comment>
                   <description>Berzerker Warband – STRATAGEM (2CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -6070,7 +6071,8 @@ sim-mod: source=&quot;Wrath of Khorne (+1 PA)&quot; ap=+1 when=melee kw=&quot;Ch
 - Or: +1 AP.</description>
                 </rule>
                 <rule name="Scorn the Witch (Stratagem, 1CP)" id="820a-a32f-e652-43ed" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Scorn the Witch&quot; fnp=4 conditional</comment>
                   <description>Vessels of Wrath – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly WORLD EATERS CHARACTER unit (excluding EPIC HERO units) suffers a mortal wound.
@@ -6101,7 +6103,8 @@ EFFECT: When an enemy unit engaged with your unit is selected to make a fall-bac
             <selectionEntry type="upgrade" import="true" name="Cult of Blood" hidden="false" id="9c45-483a-44b9-536c">
               <rules>
                 <rule name="Idols of Khorne" id="a16e-406b-5111-da3f" hidden="false">
-                  <comment>sim-mod: source=&quot;Idols of Khorne (Idol of Infinite Rage)&quot; hit=+1 wound=+1 kw=&quot;Jakhals,Goremongers&quot; conditional</comment>
+                  <comment>sim-mod: source=&quot;Idols of Khorne (Idol of Infinite Rage)&quot; hit=+1 wound=+1 kw=&quot;Jakhals,Goremongers&quot; conditional
+def-mod: source=&quot;Idols of Khorne&quot; inv=4 conditional</comment>
                   <description>At the start of your Command phase, you can select one of the Idols of Khorne abilities listed below. Until the start of your next Command phase, that ability is active, and its effects apply to all ^^**World Eaters Titanic^^** and ^^**World Eaters Monster^^** units from your army. You can only select each Idols of Khorne ability once per battle.
 
 
@@ -6146,7 +6149,9 @@ TARGET: One World Eaters Monster or World Eaters Titanic unit from your army tha
 EFFECT: Until the end of the battle, each time a model in a Jakhals or Goremongers unit from your army makes an attack that targets the enemy unit that just destroyed your unit, you can re-roll the Hit roll.</description>
                 </rule>
                 <rule name="IN THE SHADOW OF BRASS IDOLS (Stratagem, 1CP)" id="25e0-c779-c84d-f3f9" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;IN THE SHADOW OF BRASS IDOLS&quot; fnp=6 conditional
+def-mod: source=&quot;IN THE SHADOW OF BRASS IDOLS&quot; fnp=5 conditional</comment>
                   <description>Cult of Blood – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -6279,7 +6284,8 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
 **Brazen Fury**: In your opponent&apos;s Shooting phase, when an enemy unit has shot, if a model in this unit was destroyed as a result of those attacks, this unit can make a surge move of up to D6&quot;. That surge move is a Brazen Fury move.</description>
                 </rule>
                 <rule name="DAEMONIC RESISTANCE (Stratagem, 2CP)" id="48d5-fc68-837d-486e" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;DAEMONIC RESISTANCE&quot; wound=-1 conditional</comment>
                   <description>Possessed Slaughterband – STRATAGEM (2CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
