@@ -485,7 +485,8 @@ EFFECT: Each unit on the battlefield that is within your army’s Shadow of Chao
 Designer’s Note: This Stratagem forces all friendly and enemy units alike within your army’s Shadow of Chaos to take a Battle-shock test. This can allow a Chaos Daemons player to heal units from their army through the Daemonic Manifestation army rule, at the risk of causing some of their own units to become Battle-shocked.</description>
                 </rule>
                 <rule name="RAPTUROUS AGONY (Stratagem, 1CP)" id="df70-b753-b067-7c0d" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;RAPTUROUS AGONY&quot; wound=-1 vsStronger conditional</comment>
                   <description>Legion of Excess – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTER/VEHICLE units).
@@ -903,7 +904,8 @@ TARGET: One friendly LEGIONES DAEMONICA BATTLELINE unit.
 EFFECT: Select one visible enemy unit within 12&quot; of your unit. That enemy unit has +6&quot; detection range.</description>
                 </rule>
                 <rule name="Incorporeal Entities (Stratagem, 1CP)" id="a151-3cca-acd5-a141" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Incorporeal Entities&quot; wound=-1 when=ranged vsStronger conditional</comment>
                   <description>Warptide – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly LEGIONES DAEMONICA BATTLELINE unit.
@@ -3208,6 +3210,7 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="464a-b548-355f-2058" name="Skull Altar" hidden="false" collective="false" import="true" type="model">
+      <comment>def-mod: source=&quot;Cover&quot; cover when=ranged conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="2678-9993-7e61-dc81" type="max"/>
       </constraints>
@@ -9844,6 +9847,7 @@ invuln: 5+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="13f0-d2b5-6201-ba84" name="Feculent Gnarlmaw" hidden="false" collective="false" import="true" type="model">
+      <comment>def-mod: source=&quot;Diseased Cover&quot; cover when=ranged conditional</comment>
       <profiles>
         <profile id="a6bf-5d1d-e5cd-b79d" name="Feculent Gnarlmaw" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -10683,7 +10687,8 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry id="1567-b99b-bd8f-d485" name="The Masque of Slaanesh" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;The Eternal Dance&quot; wound=-1 when=melee conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="c44d-523c-40e-78c9" type="max"/>
       </constraints>
