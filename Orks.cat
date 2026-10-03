@@ -9137,7 +9137,8 @@ invuln: 4+</comment>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Painboss" hidden="false" id="a74a-107a-e2ac-7e4c">
 <comment>pts: 70 (ancien MFM, provisoire). invuln: 6+
-invuln: 6+</comment>
+invuln: 6+
+def-mod: source=&quot;Hardy Bioniks&quot; wound=-1 vsStronger</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0483" includeChildSelections="true"/>
 </constraints>
@@ -11502,6 +11503,7 @@ sim-mod: source=&quot;Targetin&apos; Gizmos Upgrade&quot; sustained=1 when=range
   </sharedSelectionEntries>
   <rules>
     <rule name="Waaagh!" hidden="false" id="37c-6ef9-277-9091">
+      <comment>def-mod: source=&quot;Waaagh!&quot; inv=5 conditional</comment>
       <description>*The infamous war cry of the Orks is known and feared throughout the galaxy. When it echoes across the battlefield, bellowed from countless toothy maws, it galvanises the Orks and riles them into a raucous state of excited aggression.*
 
 Friendly **^^Orks^^** units with this ability can:
@@ -13064,7 +13066,8 @@ EFFECT: Place your unit in strategic reserves.</description>
   <comment>DP=2 deduit (analogie Dread Mob DP2, detachement mek) - a confirmer via MFM. Force Disposition=Priority Assets par convention.</comment>
   <rules>
 <rule name="Unpredictable Genius" id="0d1a-e113-0011" hidden="false">
-<comment>sim-mod: source=&quot;Unpredictable Genius&quot; hit=+1 when=ranged kw=&quot;Big Mek,Mek Gunz,Morkanaut,Wazbom Blastajet&quot; conditional</comment>
+<comment>sim-mod: source=&quot;Unpredictable Genius&quot; hit=+1 when=ranged kw=&quot;Big Mek,Mek Gunz,Morkanaut,Wazbom Blastajet&quot; conditional
+def-mod: source=&quot;Unpredictable Genius&quot; inv=4 when=ranged conditional</comment>
 <description>*Meks haul all manner of weird bullets, unstable power cells and customised extras to battle.*
 
 In your Shooting phase, when all of a friendly **^^Big Mek^^**/**^^Mek Gunz^^**/**^^Morkanaut^^**/**^^Wazbom Blastajet^^** unit&apos;s ranged attacks target a single enemy unit, roll one D6:
@@ -13355,7 +13358,9 @@ EFFECT: Your unit&apos;s attacks can:
 - If your unit is riled up, re-roll hit rolls.</description>
 </rule>
 <rule name="Hulking Brutes (Stratagem, 1CP)" id="0d1a-e115-0014" hidden="false">
-<comment>strat-timing: turn=opponent phase=shooting</comment>
+<comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Hulking Brutes&quot; wound=-1 when=ranged vsStronger conditional
+def-mod: source=&quot;Hulking Brutes&quot; wound=-1 when=ranged conditional</comment>
 <description>Bully Boyz – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly MEGANOBZ/NOBZ unit.
