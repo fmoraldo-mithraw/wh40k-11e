@@ -686,7 +686,7 @@
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
@@ -699,7 +699,7 @@
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lance</characteristic>
                   </characteristics>
                   <modifiers>
@@ -803,6 +803,7 @@ fnp: 6+</comment>
         </infoLink>
         <infoLink name="Mission Tactics" id="82c4-2698-7ffb-c000" hidden="false" type="rule" targetId="2a5c-3c55-d113-3a53"/>
         <infoLink name="Combat Doctrines" id="81b8-fc91-acd5-f622" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="747d-20ad-0cd9-250e" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <profiles>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9ddf-5d21-3000-5854" publicationId="4115-3627-e608-39f6" page="7">
@@ -2267,7 +2268,7 @@ fnp: 6+</comment>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="abf7-7d55-92dc-4fcb" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="8766-1ee4-06db-55bf" type="selectionEntry" targetId="b2a2-a623-3052-da72">
+                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="8766-1ee4-06db-55bf" type="selectionEntry" targetId="d9f0-dd99-0509-96d4">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="a077-e1c9-f8f0-d38" shared="true" id="7179-f79e-2087-1575" includeChildSelections="true"/>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3ba6-5771-4e34-6e15-min" includeChildSelections="false"/>
@@ -5755,6 +5756,39 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Damage Dx Weapon" hidden="false" id="68e6-db17-a55f-e8d7" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Grenade Launcher" hidden="false" id="d9f0-dd99-0509-96d4">
+      <profiles>
+        <profile name="➤ Grenade Launcher - Frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3b2d-548a-3edf-71f7">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Grenade Launcher - Krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9b47-dc29-c01e-8acd">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" hidden="false" type="rule" id="591f-5c38-c365-2823" targetId="6c1f-1cf7-ff25-c99e"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="d93c-9f4f-ffe2-34a0" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="c851-7430-7da5-0490" targetId="eeda-8544-a2f3-3fab" primary="false"/>
       </categoryLinks>
     </selectionEntry>
   </sharedSelectionEntries>
