@@ -463,6 +463,9 @@ def _parse_detachments(block: Any) -> list[dict]:
         name = None
         dp = None
         disposition = None
+        # PLUSIEURS dispositions possibles (choix du joueur : Hallowed Martyrs
+        # = Take and Hold OU Priority Assets, War Horde…) : toutes gardées.
+        dispositions = []
         unique = None
         enhancements = []
 
@@ -481,6 +484,8 @@ def _parse_detachments(block: Any) -> list[dict]:
             if el_type(el) == "div" and isinstance(props.get("style"), dict) \
                     and "backgroundColor" in props["style"]:
                 t = collect_text(el)
+                if t and t not in dispositions:
+                    dispositions.append(t)
                 if t and disposition is None:
                     disposition = t
             # tag unique : "UNIQUE: ..."
@@ -518,6 +523,7 @@ def _parse_detachments(block: Any) -> list[dict]:
                 "name": name,
                 "dp": dp,
                 "force_disposition": disposition,
+                "force_dispositions": dispositions,
                 "force_disposition_changed": any("DISPOSITION" in t for t in tags),
                 "unique": unique,
                 "enhancements": enhancements,
