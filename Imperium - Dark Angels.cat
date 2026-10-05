@@ -1657,6 +1657,7 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
         <categoryLink targetId="aab1-4f05-fabe-5ba5" id="436b-267e-51b2-ffb8" primary="false" name="Faction: Dark Angels"/>
         <categoryLink targetId="e9c7-1590-1bda-bf7f" id="66ae-8c6e-91df-fd0b" primary="false" name="Ravenwing"/>
         <categoryLink targetId="e1ec-0e9e-96b4-6494" id="7a0b-08c2-8af2-7092" primary="false" name="Frame"/>
+        <categoryLink targetId="d017-f2eb-14c6-4fd9" id="1dd5-6d0e-9764-7e05" primary="false" name="Speeder"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="5450-deb5-f3ee-7c73" targetId="b68a-5ded-65ac-98c">
@@ -1665,14 +1666,15 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
           </modifiers>
         </infoLink>
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="32ea-6eb0-54ba-66bf" targetId="3b76-4053-ece9-6e7d"/>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="1dc8-dead-3a6b-6178" targetId="7cb5-dd6b-dd87-ad3b"/>
       </infoLinks>
       <profiles>
         <profile name="Land Speeder Vengeance" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3d7a-dd85-b382-c4cb" page="35">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">14&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">8</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">9</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">11</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
           </characteristics>
@@ -1682,27 +1684,27 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">5+</characteristic>
           </characteristics>
         </profile>
-        <profile name="Storm of Vengeance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="63a-27da-15f5-31d0" page="35">
+        <profile name="Storm of Vengeance (Once per turn, per unit)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="63a-27da-15f5-31d0" page="35">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your opponent’s Shooting phase, when another friendly Adeptus Astartes unit within 6&quot; of this model is destroyed, one model with this ability can use it. If it does, after the attacking unit has finished making its attacks, that model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when an enemy unit has shot, if those attacks destroyed a friendly **^^Dark Angels^^** unit within 6&quot; of this unit, you can use this ability. If you do, this unit shoots using normal shooting but while doing so this unit can only target that enemy unit.</characteristic>
           </characteristics>
         </profile>
       </profiles>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="dcbf-7b5c-9de0-5ea2" hidden="false" sortIndex="2">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Close Combat Weapon" hidden="false" id="b095-d588-7f75-2f48" page="35">
+            <selectionEntry type="upgrade" import="true" name="Armoured Hull" hidden="false" id="b095-d588-7f75-2f48" page="35">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="91fb-002e-b5c7-83a3"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2217-2c20-6390-dfee"/>
               </constraints>
               <profiles>
-                <profile name="Close Combat Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="abe1-b957-d3a5-bbee" page="35">
+                <profile name="Armoured Hull" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="abe1-b957-d3a5-bbee" page="35">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -1716,23 +1718,23 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
                 <profile name="➤ Plasma storm battery - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7850-13a-cdea-60ed" page="35">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3+3</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Twin-Linked</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Twin-Linked</characteristic>
                   </characteristics>
                 </profile>
                 <profile name="➤ Plasma storm battery - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d5f0-93ae-7ea9-ebd3" page="35">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3+3</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Hazardous, Twin-Linked</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous, Twin-Linked</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1762,14 +1764,14 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Devastating Wounds" id="b1e2-bc52-f7ae-9447" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+                    <infoLink name="Sustained Hits" hidden="false" type="rule" id="874d-f723-4ca5-9c22" targetId="1897-c22c-9597-12b1"/>
                   </infoLinks>
                   <entryLinks></entryLinks>
                 </selectionEntry>
@@ -1786,12 +1788,13 @@ def-mod: source=&quot;Lightning-fast Manoeuvres&quot; wound=-1 when=ranged</comm
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2, Sustained Hits 1</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
                     <infoLink name="Sustained Hits" id="b66b-51e1-5bf2-d63a" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="e0dc-5e23-f64d-5118" targetId="c5c8-8b58-b8b6-7786"/>
                   </infoLinks>
                   <entryLinks></entryLinks>
                 </selectionEntry>
@@ -3045,7 +3048,8 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
       <profiles>
         <profile name="Inner Circle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eae2-b4fb-2b33-c0e2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to a model in this unit, subtract 1 from the Damage characteristic of that attack.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ Attacks that target this unit have -1D.
+■ This unit cannot be targeted with the Tactical Dreadnought Fortitude stratagem.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d132-7f85-a199-1620">
@@ -3053,14 +3057,11 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">4+</characteristic>
           </characteristics>
         </profile>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2227-baf0-132f-549f">
+        <profile name="Teleport Homer (Once per battle, per unit)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8834-8084-f9d3-227d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Teleport Homer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8834-8084-f9d3-227d">
-          <characteristics>
-            <characteristic name="Description" hidden="false" id="a05f-e8b7-f803-99c0" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3&quot; horizontally of that token and not within 8&quot; horizontally of any enemy models. That token is then removed.</characteristic>
+            <characteristic name="Description" hidden="false" id="a05f-e8b7-f803-99c0" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do:
+■ When you target this unit with the Rapid Ingress stratagem, you can use that Teleport Homer token. If you do, that use is -1 CP, but when resolving that stratagem, this unit must be set up within 3&quot; of that Teleport Homer token and not within 8&quot; of an enemy unit. That Teleport Homer token is then removed from the battlefield.
+■ If an enemy unit ends a move within 1&quot; of that Teleport Homer token, that Teleport Homer token is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3090,7 +3091,7 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
                 <profile name="Deathwing Knight" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5e70-a1d4-9f2f-2414">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3151,7 +3152,7 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
                 <profile name="Knight Master" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="b16f-9ecf-1c28-7fe8">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3288,8 +3289,7 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Deathwing Terminator Squad" hidden="false" id="6135-d842-8e61-889d">
-      <comment>sim-mod: source=&quot;Deathwing&quot; hit=+1 conditional
-invuln: 4+</comment>
+      <comment>invuln: 4+</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="4a65-4274-6835-53e3" primary="true" name="Infantry"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="f40e-b523-db49-d4fa" primary="false" name="Imperium"/>
@@ -3307,18 +3307,9 @@ invuln: 4+</comment>
         </profile>
         <profile name="Deathwing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f2cb-8211-7899-158a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack, you can ignore any or all modifiers to that attack’s Ballistic Skill or Weapon Skill characteristics and/or to the Hit roll.
-In addition, each time a model in this unit makes an attack that targets your Oath of Moment target (see Codex: Space Marines), add 1 to the Hit roll.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="96ec-4242-df64-6aee">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Character unit from your army with the Leader ability can be attached to a Terminator Squad, it can be attached to this unit instead.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Teleport Homer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f474-41aa-a575-50e8">
-          <characteristics>
-            <characteristic name="Description" hidden="false" id="3be5-bec1-f3b0-3ee7" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3&quot; horizontally of that token and not within 8&quot; horizontally of any enemy models. That token is then removed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks can ignore modifiers to:
+■ BS and WS.
+■ Hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3364,7 +3355,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                 <profile name="Deathwing Sergeant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="960d-3443-a603-e0">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3384,14 +3375,17 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <entryLinks></entryLinks>
+                  <infoLinks>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="deeb-10e2-3efd-168b" targetId="c5c8-8b58-b8b6-7786"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="b588-73d0-7498-de2">
                   <constraints>
@@ -3402,7 +3396,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                     <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ff3c-a4ca-4cf9-933f">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
@@ -3423,7 +3417,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                 <profile name="Deathwing Terminator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2081-666b-15c3-57cc">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3446,13 +3440,16 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
+                  <infoLinks>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="5497-ce60-949c-c0f9" targetId="c5c8-8b58-b8b6-7786"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Power Fist" hidden="false" id="c716-bdaf-a92a-4093" collective="true">
                   <profiles>
@@ -3480,7 +3477,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                 <profile name="Deathwing Terminator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5d98-7235-bfd8-1a65">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3503,30 +3500,44 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
+                  <infoLinks>
+                    <infoLink name="Rapid Fire" hidden="false" type="rule" id="9e3a-867c-2df1-9b8d" targetId="c5c8-8b58-b8b6-7786"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Chainfist" hidden="false" id="d0b6-8300-650a-694a" collective="true">
                   <profiles>
-                    <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="d654-621d-e919-c0cb">
+                    <profile name="➤ Chainfist - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="d654-621d-e919-c0cb">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="➤ Chainfist - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="90c9-b023-9028-a8e0">
+                      <characteristics>
+                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                        <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Hunter (MONSTER/VEHICLE)</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Anti-" hidden="false" type="rule" id="f943-9a6-65d0-af45" targetId="4111-82e3-9444-e942"/>
+                    <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="bf7a-8998-e875-4282" targetId="0d1a-9f3b-7c40-1c06"/>
                   </infoLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1091-3e44-c223-625e"/>
@@ -3540,7 +3551,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                 <profile name="Deathwing Terminator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="ee59-cb76-afaa-8ef9">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3575,7 +3586,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                             <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
                           </costs>
                         </entryLink>
-                        <entryLink import="true" name="Storm Bolter" hidden="false" id="42a4-139e-83cc-92ed" type="selectionEntry" targetId="eb61-5cd0-5242-74cc">
+                        <entryLink import="true" name="Storm Bolter" hidden="false" id="42a4-139e-83cc-92ed" type="selectionEntry" targetId="bfed-5ff7-8edd-d8f9">
                           <constraints>
                             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5d2f-496a-8bbe-9bf4" includeChildSelections="false"/>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5eac-5f43-1219-1abf" includeChildSelections="false"/>
@@ -3589,12 +3600,12 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9f2a-33f5-6d8a-3569"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Plasma cannon" hidden="false" id="c8bf-b585-9ca0-26da" type="selectionEntry" targetId="fdd7-3066-57cc-ce52">
+                    <entryLink import="true" name="Plasma cannon" hidden="false" id="c8bf-b585-9ca0-26da" type="selectionEntry" targetId="d670-b657-e1e6-696c">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e424-ca3d-9df8-2b76"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Assault cannon" hidden="false" id="b229-fd7e-206e-e9ad" type="selectionEntry" targetId="be34-7406-10cd-c6e2">
+                    <entryLink import="true" name="Assault cannon" hidden="false" id="b229-fd7e-206e-e9ad" type="selectionEntry" targetId="2de6-ff2-dc37-b20d">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6d75-1a81-7cbe-da4c"/>
                       </constraints>
@@ -3604,7 +3615,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3584-b445-bc0a-68d4"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Storm Bolter" hidden="false" id="8a70-bda3-1248-800c" type="selectionEntry" targetId="eb61-5cd0-5242-74cc">
+                    <entryLink import="true" name="Storm Bolter" hidden="false" id="8a70-bda3-1248-800c" type="selectionEntry" targetId="bfed-5ff7-8edd-d8f9">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="85f8-c488-3836-b85d" includeChildSelections="false"/>
                       </constraints>
@@ -3633,20 +3644,31 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                     </selectionEntry>
                     <selectionEntry type="upgrade" import="true" name="Chainfist" hidden="false" id="5f78-8439-35f4-89e" collective="false">
                       <profiles>
-                        <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8576-bb1c-1e3e-b6">
+                        <profile name="➤ Chainfist - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8576-bb1c-1e3e-b6">
                           <characteristics>
                             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
                             <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                             <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="➤ Chainfist - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c863-653f-21ce-bcaf">
+                          <characteristics>
+                            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                            <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Hunter (MONSTER/VEHICLE)</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Anti-" hidden="false" type="rule" id="fa12-68fa-179-6f41" targetId="4111-82e3-9444-e942"/>
+                        <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="fdec-f6cf-602d-3062" targetId="0d1a-9f3b-7c40-1c06"/>
                       </infoLinks>
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cd10-7a07-9a28-e4af"/>
@@ -3755,20 +3777,15 @@ In addition, each time a model in this unit makes an attack that targets your Oa
         <categoryLink targetId="e21f-8e64-c5d-7df0" id="29b7-f54f-5538-43af" primary="false" name="Deathwing"/>
       </categoryLinks>
       <profiles>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8d97-2572-c781-4135">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Character unit from your army with the Leader ability can be attached to a Sternguard Veteran Squad, it can be attached to this unit instead.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Braziers of Judgement" hidden="false" id="7a96-3999-3c95-cfa8" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- This unit has Stealth.
-- Melee attacks that target this unit have -1 to hit rolls.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit has Stealth.
+■ Melee attacks that target this unit have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Emnity for the Unworthy" hidden="false" id="884d-4284-89ea-32d5" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack that targets a Character unit, add 1 to the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks that target a **^^Character^^** unit have +1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3806,10 +3823,10 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                         <characteristic name="Range" hidden="false" id="bd15-4d94-6a1e-c922" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                         <characteristic name="A" hidden="false" id="ff55-212d-a105-437" typeId="3bb-c35f-f54-fb08">1</characteristic>
                         <characteristic name="BS" hidden="false" id="77bd-78fc-27fa-930d" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" hidden="false" id="5bdb-7556-ac14-f3f2" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" hidden="false" id="5bdb-7556-ac14-f3f2" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" hidden="false" id="25cf-e96-35b2-afea" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" hidden="false" id="55d1-6aa8-f46-cf96" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" hidden="false" id="ff53-67c-321-53e6" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                        <characteristic name="Keywords" hidden="false" id="ff53-67c-321-53e6" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -3818,6 +3835,9 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c635-8fb3-5af0-c0f0" includeChildSelections="false"/>
                   </constraints>
                   <entryLinks></entryLinks>
+                  <infoLinks>
+                    <infoLink name="Close-Quarters" hidden="false" type="rule" id="b698-17f2-95f7-4280" targetId="59e0-775e-fce5-43ca"/>
+                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Calibanite Greatsword" hidden="false" id="56d6-6d22-6418-9cf8" collective="true">
                   <profiles>
@@ -3849,6 +3869,10 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b99a-67d8-4954-1634" includeChildSelections="false"/>
                   </constraints>
                   <entryLinks></entryLinks>
+                  <infoLinks>
+                    <infoLink name="Lethal Hits" hidden="false" type="rule" id="2ac6-ab55-ea6e-8429" targetId="d1d1-611e-5191-1095"/>
+                    <infoLink name="Sustained Hits" hidden="false" type="rule" id="40ed-a249-99fa-6147" targetId="1897-c22c-9597-12b1"/>
+                  </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
@@ -3858,7 +3882,7 @@ In addition, each time a model in this unit makes an attack that targets your Oa
                 <profile name="Inner Circle Companion" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7b20-3d1f-c252-30c5">
                   <characteristics>
                     <characteristic name="M" hidden="false" id="c407-627a-ae74-c4f4" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" hidden="false" id="9d4d-1b81-ee1c-8800" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                    <characteristic name="T" hidden="false" id="9d4d-1b81-ee1c-8800" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                     <characteristic name="SV" hidden="false" id="79b6-3b77-a490-dc39" typeId="450-a17e-9d5e-29da">3+</characteristic>
                     <characteristic name="W" hidden="false" id="bc75-35c-c996-bdbd" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" hidden="false" id="80a8-3e88-2a02-5ce6" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3944,6 +3968,38 @@ In addition, each time a model in this unit makes an attack that targets your Oa
           <comment>Crusade modifiers</comment>
         </modifierGroup>
       </modifierGroups>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Plasma cannon (Deathwing)" hidden="false" id="d670-b657-e1e6-696c" collective="false">
+      <infoLinks>
+        <infoLink name="Hazardous" id="69bf-1322-d0bc-2c62" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+        <infoLink name="Blast" id="b10a-a29d-7c38-5989" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <profiles>
+        <profile name="➤ Plasma cannon - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9410-8137-3261-ebb9">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="f229-9a3f-d406-0b96" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="3dbd-24c0-fc50-2a90" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="a288-3916-4f3e-e925" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="ddf7-7952-92e8-4079" typeId="2229-f494-25db-c5d3">7</characteristic>
+            <characteristic name="AP" hidden="false" id="8826-916d-e8b7-6ce1" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" hidden="false" id="a5bb-81da-6b8e-ca34" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" hidden="false" id="96cc-83b6-3784-10b4" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma cannon - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b6f5-5820-e88b-953e">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="d87b-03da-1059-cbac" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="f022-c3ab-7c5f-759d" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="f9ae-b95a-fb27-6634" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="fb64-31c8-da3d-669b" typeId="2229-f494-25db-c5d3">8</characteristic>
+            <characteristic name="AP" hidden="false" id="533d-ae9a-4a82-6b66" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" hidden="false" id="aee5-b63e-4992-a95d" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" hidden="false" id="4897-01d1-7d16-33ad" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks></categoryLinks>
+      <comment>BS3+</comment>
     </selectionEntry>
   </sharedSelectionEntries>
   <entryLinks>
