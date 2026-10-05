@@ -2397,7 +2397,7 @@ invuln: 5+</comment>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="8f34-65b8-6d76-37c3" type="selectionEntry" targetId="e87a-2a5c-3734-a742">
+                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="8f34-65b8-6d76-37c3" type="selectionEntry" targetId="7cda-6cb0-a817-1a81">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b0ad-7270-a5ab-f18a"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="43aa-947e-e04a-247"/>
@@ -2659,7 +2659,7 @@ invuln: 5+</comment>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b2a-1a1d-cc9a-f081" includeChildSelections="false"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="c363-3ae4-67b6-abf6" type="selectionEntry" targetId="e87a-2a5c-3734-a742">
+                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="c363-3ae4-67b6-abf6" type="selectionEntry" targetId="7cda-6cb0-a817-1a81">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="unit" shared="true" id="1c6e-3afe-c609-aa2b" includeChildSelections="true"/>
                   </constraints>
@@ -2773,7 +2773,7 @@ invuln: 5+</comment>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b2fb-5bf0-3a31-80a6" includeChildSelections="false"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="c14f-bbb4-8a0a-e88f" type="selectionEntry" targetId="e87a-2a5c-3734-a742">
+                <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="c14f-bbb4-8a0a-e88f" type="selectionEntry" targetId="f6f8-73cc-9afb-197a">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="unit" shared="true" id="3447-744b-952c-d528" includeChildSelections="true"/>
                   </constraints>
@@ -4010,8 +4010,8 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" join="">
@@ -4045,6 +4045,85 @@ def-mod: source=&quot;Inner Circle&quot; dmg=-1</comment>
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Ranged Weapon" hidden="false" id="dcb2-e4ca-44c2-e00b" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Grenade Launcher" hidden="false" id="7cda-6cb0-a817-1a81">
+      <profiles>
+        <profile name="➤ Grenade Launcher - Frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7997-4524-5a32-3c06">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Grenade Launcher - Krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="00b3-cb24-8e21-bbd8">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" hidden="false" type="rule" id="dd36-09cc-74c8-2086" targetId="6c1f-1cf7-ff25-c99e"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="7193-b321-ff41-2f8d" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="93dc-559b-ab66-d8f4" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Astartes grenade launcher" hidden="false" id="f6f8-73cc-9afb-197a">
+      <profiles>
+        <profile name="➤ Astartes grenade launcher - krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="cfc3-f6f3-5405-7f96">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" join="">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="self" childId="584b-5fa7-a3c3-942e" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+        <profile name="➤ Astartes grenade launcher - frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e4ff-50d5-75aa-e818">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="self" childId="2801-9f1c-645d-cb3d" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" id="3025-c29a-1ac7-2024" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="e97b-714a-39bb-1bca" targetId="eeda-8544-a2f3-3fab" primary="false"/>
       </categoryLinks>
     </selectionEntry>
   </sharedSelectionEntries>
