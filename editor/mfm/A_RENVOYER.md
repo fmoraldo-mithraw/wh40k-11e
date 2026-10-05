@@ -52,7 +52,7 @@
 
 ⑤ PRIX À COMPOSITION (tailles spéciales : Runtherds…) — le barème MFM est donné ci-dessous, confirme l'encodage voulu.  [4]
    • [Black Templars] CRUSADER SQUAD — composition (taille non « N model ») — barème MFM: 1 Sword Brother, 4 Neophytes, 5 Initiates=160, 1 Sword Brother, 8 Neophytes, 11 Initiates=305
-   • [Orks] GRETCHIN — composition (taille non « N model ») — barème MFM: 10 Gretchin=45, 11 Gretchin=80
+   • [Orks] GRETCHIN — composition (taille non « N model ») — barème MFM: 10 Gretchin=45, 20 Gretchin=80
    • [Space Wolves] WOLF GUARD HEADTAKERS — composition (taille non « N model ») — barème MFM: 3 Wolf Guard Headtakers=85, 3 Wolf Guard Headtakers, 3 Hunting Wolves=115, 6 Wolf Guard Headtakers=170, 6 Wolf Guard Headtakers, 6 Hunting Wolves=230, 3 Wolf Guard Headtakers=95, 3 Wolf Guard Headtakers, 3 Hunting Wolves=125, 6 Wolf Guard Headtakers=180, 6 Wolf Guard Headtakers, 6 Hunting Wolves=240
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
