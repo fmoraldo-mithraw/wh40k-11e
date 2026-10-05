@@ -100,3 +100,84 @@ Inchangé par rapport à `RESTE-v1.5.md` :
   *Medusa's Wrath* (Iron Hands ? 2 PD, Purge the Foe, UNIQUE: IRONSTORM ;
   Adept of the Omnissiah 25, Master of the Machine War 25, Target Augury
   Web 30, The Flesh is Weak 15) — règles, stratagèmes et textes à fournir.
+
+## Tir cowork du 2026-10-05 13:27 UTC — clôture du dump `93e7cd2b`
+
+Le tir précédent avait intégré ce dump (18 commits « Force Disposition au
+choix » + retrait d'Emperor's Shield) **sans poser le marqueur**. Ce tir a
+tout revérifié, n'a trouvé aucune écriture à faire, et **pose le marqueur**.
+
+**Écart réel entre le dump marqué (`7ddcd8b`) et celui-ci (`93e7cd2b`)** —
+même MFM v1.5, seul le parse change :
+
+1. ajout du tableau `force_dispositions` sur tous les détachements
+   (enrichissement du parser) → **déjà intégré** par le tir précédent ;
+2. Orks GRETCHIN : `size` « 11 Gretchin » → « 20 Gretchin » (correction de
+   lecture). La base est **conforme** : base 45, `set` 80 conditionné
+   `greaterThan 10` modèles (= dès 11), composition min 10 / max 20 — donc
+   10 = 45 et 20 = 80, et le palier s'applique bien dès la taille listée
+   précédente + 1.
+
+**Vérifications de ce tir** : `build-map` → matrices inchangées ;
+`apply.mjs` → 0 delta points, 0 delta améliorations ; `wpn-audit` → 0 écart
+(131 conformes) ; `tier-audit` → 0 ✗ ; `dp-audit` → DP, Force Dispositions
+et UNIQUE alignés ; `valider.mjs` → 0 erreur, 0 id dupliqué nouveau,
+0 `defaultSelectionEntryId` cassé.
+
+Les 6 « ? » de `tier-audit` (Windriders, Decimus Kill Team, Atalan Jackals,
+Aquila Kill Team ×2, Inquisitorial Agents) sont des encodages non standard
+**conformes** : sélecteur de taille pour les premiers ; Inquisitorial Agents
+vérifié en détail (base 50, `set` 100 dès 7 modèles, `increment` +10 et +10
+conditionnés `notInstanceOf primary-catalogue` ⟹ 50/100 en armée et 60/120
+en allié, exactement le double barème du MFM — cf.
+`AGENTS_DUAL_COST_PROMPT.md`). Le « palier 12=120 → 0 modifier » signalé par
+l'outil est donc normal : 120 s'obtient par `increment`, pas par un `set`.
+
+### Pourquoi le marqueur est posé malgré le résidu
+
+Le résidu restant est **identique à celui du dump `7ddcd8b`, pour lequel le
+marqueur AVAIT été posé** : ce sont des données **absentes de la base** (rien
+à écrire sans source) ou des entrées de base que GW ne liste plus — pas du
+travail d'intégration qu'un tir ultérieur pourrait finir. Laisser le marqueur
+vide ferait tourner la routine à vide toutes les heures et brouillerait la
+détection d'un *vrai* nouveau MFM.
+
+### Détachements en base absents de TOUT le MFM v1.5 (19) — arbitrage
+
+Balayage symétrique (`dp-audit` ne contrôle que le sens MFM → base).
+**Tous étaient déjà absents du dump `7ddcd8b`** : condition préexistante,
+pas une régression du nouveau dump. Tous dans `Imperium - Space Marines.cat` —
+le v1.5 a refondu les détachements de chapitre (tronc commun Assault
+Brethren / Tacticus / Gravis… + quelques détachements propres par chapitre) :
+
+Unforgiven Task Force · Liberator Assault Group · Company of Hunters ·
+The Lost Brethren · The Angelic Host · Lion's Blade Task Force ·
+Wrathful Procession · Saga of the Hunter · Saga of the Bold ·
+Companions of Vehemence · Vindication Task Force · Godhammer Assault Force ·
+Rage-Cursed Onslaught · Dark Age Arsenal · Interrogation Conclave ·
+Legends of Saga and Song · Veterans of the Fang · The Living Miracle ·
+Legacy of Grace
+
+Déjà tranchés et retirés : *Emperor's Shield* (tir précédent) puis
+*Hammer of Avernii* et *Reclamation Force* (commit `750da74`, arrivé sur
+`main` pendant ce tir) — les trois sur confirmation de l'utilisateur.
+
+Les 19 ci-dessus **restent en base** : aucun retrait n'a été fait sans
+arbitrage — c'est une suppression de données, elle ne se décide pas
+automatiquement. Ils ne diffèrent en rien des trois déjà tranchés : la
+question est unique et porte sur l'ensemble (GW a-t-il retiré ces
+détachements, ou le MFM ne les reprend-il simplement plus ?). C'est le
+**seul point ouvert** de l'intégration v1.5.
+
+Note outillage : `dp-audit` ne contrôle que le sens **MFM → base** ; ce
+sens-là (base → MFM) n'a pas d'outil et a été balayé à la main. Un
+contrôle symétrique dans `dp-audit` éviterait de le refaire à chaque dump.
+
+### Correctif d'infrastructure
+
+La branche miroir `claude/app-database-inconsistencies-nj0kqk` pointait sur
+`47499f5` (22 commits de retard) : le tir précédent avait poussé `main` sans
+mettre le miroir à jour. Remise à `main`. Au passage, le `main` **local** du
+conteneur était resté sur `ceba5c5`, un commit abandonné par une réécriture
+d'historique — d'où l'importance de pousser le miroir depuis `origin/main` et
+non depuis le `main` local (`git branch -f <miroir> origin/main`).
