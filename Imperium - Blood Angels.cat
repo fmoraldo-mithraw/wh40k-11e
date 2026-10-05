@@ -8,7 +8,8 @@
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Astorath" hidden="false" id="f943-72c8-581c-e6f2">
       <comment>sim-mod: source=&quot;Mass of Doom&quot; dev when=melee onCharge
-invuln: 4+</comment>
+invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Mass of Doom | Redeemer of the Lost</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="373e-99de-ce49-806b"/>
       </constraints>
@@ -38,12 +39,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Redeemer of the Lost" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c5e1-99a6-a51e-251e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 4+, do not remove it from play; that destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, each time a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6, adding 1 to the result if that model was engaged with an enemy unit whose Toughness characteristic is equal to or greater than this unit&apos;s. On a 4+, do not remove that model from the battlefield; once this unit has fought, or at the end of the phase (whichever comes first), remove that model from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Mass of Doom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2cc0-3a51-cd4f-429e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model’s unit makes a Charge move, until the end of the turn, melee weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a Charge move this turn, its melee attacks have **[DEVASTATING WOUNDS: non-MONSTER/VEHICLE]**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7ee0-8183-ece2-25c9">
@@ -387,7 +388,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chief Librarian Mephiston" hidden="false" id="ab35-2c36-9389-d1d5">
       <comment>invuln: 5+
-fnp: 4+</comment>
+fnp: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Chief Librarian (psyker level 3) | The Quickening (psychic level 1) | Transfixing Gaze (psychic level 2)</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -428,19 +430,28 @@ fnp: 4+</comment>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="The Quickening [Psychic]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f775-5667-be0b-35bc">
+        <profile name="The Quickening (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f775-5667-be0b-35bc">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model is eligible to declare a charge in a turn which it Advanced.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+■ On a 1, this unit is battle-shocked.
+■ The assault doctrine is active for this unit, in addition to any other combat doctrine, until the start of your next Command phase.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Transfixing Gaze [Aura, Psychic]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b48f-aef0-7aa9-3500">
+        <profile name="Transfixing Gaze (psychic level 2)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b48f-aef0-7aa9-3500">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within 6&quot; of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent&apos;s Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+■ On a 1, this unit is battle-shocked.
+■ Until the end of the phase, each time an enemy unit within 6&quot; of this unit makes a Fall Back move, it must take a Leadership test. If that test is failed, that enemy unit must Remain Stationary instead.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save 5+" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b2e5-6730-a3c2-8011">
           <characteristics>
             <characteristic name="Description" hidden="false" id="cd6e-3f8f-50e8-6d4f" typeId="9b8f-694b-e5e-b573">This model has a 5+ invulnerable save</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Chief Librarian (psyker level 3)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b2d7-ca4c-eb0e-46af">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the psychic abilities listed in the Psychic Abilities section.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -524,7 +535,8 @@ fnp: 4+</comment>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Commander Dante" hidden="false" id="7323-ebf-9afe-7e7a">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Lord Regent of the Imperium Nihilus</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="573f-bbc-4c57-25ce"/>
       </constraints>
@@ -560,7 +572,7 @@ fnp: 4+</comment>
         </profile>
         <profile name="Lord Regent of the Imperium Nihilus" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="56e5-d5ec-38c6-e113">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, add 1 to Advance and Charge rolls made for that unit and each time a model in that unit makes an attack, add 1 to the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The assault doctrine and the tactical doctrine are active for this unit, in addition to any other combat doctrine.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b139-df4f-7162-cce8">
@@ -1025,8 +1037,9 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Marines with Jump Packs" hidden="false" id="65f6-18df-f6df-7e39">
-      <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
-fnp: 6+</comment>
+      <comment>fnp: 6+
+sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Berserk Fury | Black Rage</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -1054,14 +1067,9 @@ fnp: 6+</comment>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Savage Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6353-b576-82ad-a3fb">
+        <profile name="Berserk Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6353-b576-82ad-a3fb">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can re-roll Charge rolls made for this unit.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fa3d-61ea-538d-3a98">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Chaplain model from your army with the Leader ability can be attached to Assault Intercessors with Jump Packs, it can be attached to this unit instead</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to Charge rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1492,7 +1500,8 @@ fnp: 6+</comment>
       <comment>sim-mod: source=&quot;Fury Unbound&quot; lethal when=melee whileLeading
 invuln: 4+
 fnp: 6+
-def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1 conditional</comment>
+def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Fury Unbound | Guardian of the Lost</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -1544,12 +1553,12 @@ def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1 conditional</comment>
         </profile>
         <profile name="Guardian of the Lost" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e07d-ca56-c77-2dce">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time an attack is allocated to a model in that unit, subtract 1 from the Damage characteristic of that attack.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this unit, subtract 1 from the Damage characteristic of that attack.</characteristic>
           </characteristics>
         </profile>
         <profile name="Fury Unbound" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3863-f078-be63-9230">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, melee weapons equipped by models in that unit have the [LETHAL HITS] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have **[LETHAL HITS]**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b59a-25b8-9dc3-3f25">
@@ -1624,7 +1633,8 @@ def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1 conditional</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sanguinary Guard" hidden="false" id="25e4-ead-faac-2531">
       <comment>invuln: 4+
-def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 when=melee conditional</comment>
+def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Heirs of Azkaellon</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -1652,12 +1662,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 when=melee conditional</
         </profile>
         <profile name="Heirs of Azkaellon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="48cf-9858-89c4-f598">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a Character model is leading this unit, each time a melee attack targets this unit, subtract 1 from the Wound roll.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="62ff-e5e0-9783-7024">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Captain model from your army with the Leader ability can be attached to Assault Intercessors with Jump Packs, it can be attached to this unit instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit&apos;s Toughness characteristic, subtract 1 from the Wound roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1889,7 +1894,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 when=melee conditional</
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sanguinary Priest" hidden="false" id="f80-be5-d17c-db23">
-      <comment>sim-mod: source=&quot;Blood Chalice&quot; ap=+1 when=melee whileLeading</comment>
+      <comment>texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Blood Chalice | Narthecium</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -1915,14 +1920,9 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 when=melee conditional</
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Sanguinary Priest" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bb06-73be-d05e-4541">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Blood Chalice" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2271-e1ab-2fb9-93c5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 Toughness.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5d3b-5258-5aad-75ca">
@@ -1940,6 +1940,11 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 when=melee conditional</
 
 
 You can attach this model to one of the above units, even if one **^^Captain, Chapter Master^^** or **^^Lieutenant**^^ model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Narthecium" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e868-5599-7b8d-467e">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, this unit regains up to D3+1 lost wounds.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2092,7 +2097,8 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="The Sanguinor" hidden="false" id="29f1-bb28-6424-6d14">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Aura of Fervour (Aura) | Miraculous Saviour</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f8a8-20a9-9ba4-1851"/>
       </constraints>
@@ -2116,12 +2122,12 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
         </profile>
         <profile name="Aura of Fervour (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a3b2-4a68-fe8f-f5fa">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adeptus Astartes unit is within 6&quot; of this model, you can re-roll Battle-shock and Leadership tests taken for that unit</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **^^Adeptus Astartes^^** unit is within 12&quot; of this model, you can re-roll Battle-shock and Leadership tests taken for that unit.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Miraculous Savior" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9c8e-d8c0-5604-60f0">
+        <profile name="Miraculous Saviour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9c8e-d8c0-5604-60f0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per army) At the end of your opponent's Charge phase (excluding the first battle round), you can select one enemy unit that made a charge move this phase. This unit can make an ingress move and must be set up engaged with that enemy unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per army) At the end of your opponent&apos;s Charge phase (excluding the first battle round), you can select one enemy unit that made a Charge move this phase. This unit can make an ingress move and must be set up engaged with that enemy unit. Making this move does not prevent this unit from being eligible to move afterwards.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2181,11 +2187,10 @@ You can attach this model to one of the above units, even if one **^^Captain, Ch
     <selectionEntry type="model" import="true" name="Blood Angels Captain" hidden="false" id="829b-da42-2d62-6daf">
       <comment>sim-mod: source=&quot;Finest Hour&quot; attacks=+3 when=melee oncePer=battle scope=model
 sim-mod: source=&quot;Finest Hour&quot; dev when=melee oncePer=battle scope=model
-invuln: 4+</comment>
+invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Finest Hour</comment>
       <infoLinks>
         <infoLink name="Invulnerable Save" id="b7c0-e928-c33b-8d2a" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
-        <infoLink name="Rites of Battle" id="3bd4-65eb-4488-6318" hidden="false" type="profile" targetId="90c7-c55c-21e2-2232"/>
-        <infoLink name="Finest Hour" id="d2dd-00bd-2593-14d1" hidden="false" type="profile" targetId="fdf1-64a5-906c-3474"/>
         <infoLink name="Combat Doctrines" id="5347-1f36-4ca8-529a" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Leader" id="92c7-5369-1aab-afcf" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="f47f-a97c-c4b2-6135" targetId="dc23-ec41-a57a-944b"/>
@@ -2210,6 +2215,16 @@ invuln: 4+</comment>
 ■ Intercessor Squad
 ■ Sternguard Veteran Squad
 ■ Company Heroes</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Finest Hour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fd68-4d1c-5bc6-3239">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, this model&apos;s melee attacks have +3 A and **[DEVASTATING WOUNDS]**.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Strategic Acumen" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2080-db48-0d11-61c8">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2408,9 +2423,10 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Death Company Captain" hidden="false" id="4743-6dc9-fda7-0a8c">
-      <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
-invuln: 4+
-fnp: 6+</comment>
+      <comment>invuln: 4+
+fnp: 6+
+sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Forlorn Hero | Death Vision of Sanguinius | Black Rage</comment>
       <infoLinks>
         <infoLink name="Invulnerable Save" id="e4b7-a76f-3668-bbac" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Black Rage" id="3565-0ac7-f0dd-ad20" hidden="false" type="profile" targetId="3e0a-31f-8be-e293"/>
@@ -2440,12 +2456,15 @@ fnp: 6+</comment>
         </profile>
         <profile name="Forlorn Hero" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="064b-d740-a982-6678">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, unless that unit starts the battle embarked within a Transport, models in that unit have the Scouts 6&quot; ability</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has Scouts 6&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile name="Death Vision of Sanguinius" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b276-0bcd-8baf-3c14">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains the enemy Warlord. On a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+ that enemy unit suffers D3+3 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, after an enemy unit has fought, if this model was destroyed by those attacks, you can roll one D6, adding 2 to the result if this model was engaged with the enemy **^^Warlord^^**&apos;s unit:
+■ On a 2-3, that enemy unit suffers D3 mortal wounds.
+■ On a 4-5, that enemy unit suffers 3 mortal wounds.
+■ On a 6+, that enemy unit suffers D3+3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2641,9 +2660,10 @@ fnp: 6+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Death Company Captain with Jump Pack" hidden="false" id="2574-a949-ae3f-58c2">
       <comment>sim-mod: source=&quot;Lost to Fury&quot; sustained=1 when=melee whileLeading
-sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
 invuln: 4+
-fnp: 6+</comment>
+fnp: 6+
+sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Lost to Fury | Death Vision of Sanguinius | Black Rage</comment>
       <infoLinks>
         <infoLink name="Invulnerable Save" id="2885-4ff2-a92d-00c5" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Black Rage" id="a7b7-85cc-dcb8-a4d7" hidden="false" type="profile" targetId="3e0a-31f-8be-e293"/>
@@ -2657,7 +2677,10 @@ fnp: 6+</comment>
       <profiles>
         <profile name="Death Vision of Sanguinius" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="165c-259e-fbfe-4298">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is destroyed by a melee attack, after the attacking unit has finished making its attacks, you can roll one D6, adding 2 to the result if the attacking unit contains the enemy Warlord. On a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+ that enemy unit suffers D3+3 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, after an enemy unit has fought, if this model was destroyed by those attacks, you can roll one D6, adding 2 to the result if this model was engaged with the enemy **^^Warlord^^**&apos;s unit:
+■ On a 2-3, that enemy unit suffers D3 mortal wounds.
+■ On a 4-5, that enemy unit suffers 3 mortal wounds.
+■ On a 6+, that enemy unit suffers D3+3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile name="Death Company Captain with Jump Pack" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7c67-3ef1-6e01-f830">
@@ -2672,7 +2695,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Lost to Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2569-0de4-1748-b6da">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have **[SUSTAINED HITS 1]**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="38fc-ca21-107e-ed79">
@@ -2879,8 +2902,9 @@ fnp: 6+</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Death Company Marines" hidden="false" id="3825-ac3a-75ec-fa0d">
       <comment>sim-mod: source=&quot;An Honourable Death in Combat&quot; sustained=1 conditional
-sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
-fnp: 6+</comment>
+fnp: 6+
+sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Black Rage</comment>
       <selectionEntryGroups>
         <selectionEntryGroup name="Death Company Marines" id="edee-48a2-1e8a-2539" hidden="false" defaultSelectionEntryId="1fcf-41cb-e457-99e3" sortIndex="2">
           <selectionEntries>
@@ -3049,11 +3073,6 @@ fnp: 6+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack, that attack has the [SUSTAINED HITS 1] ability if this unit is below its Starting Strength, or the [SUSTAINED HITS 2] ability if this unit is Below Half-strength.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2c20-3899-13f8-e9c5">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a Chaplain model from your army with the Leader ability can be attached to Assault Intercessor Squad, it can be attached to this unit instead.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Feel No Pain" id="a985-6bdf-beec-75a7" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb">
@@ -3158,8 +3177,9 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Death Company Dreadnought" hidden="false" id="3b6e-cc3e-c2a4-0cbd">
-      <comment>sim-mod: source=&quot;Black Rage&quot; reroll=hit when=melee
-fnp: 6+</comment>
+      <comment>fnp: 6+
+sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Driven by Fury | Black Rage</comment>
       <profiles>
         <profile name="Death Company Dreadnought" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="938d-28a6-8b07-8cc6">
           <characteristics>
@@ -3173,7 +3193,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Driven by Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="973b-a866-fedb-54d7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent's Shooting phase, when an enemy unit has shot, if this model lost a wound as a result of those attacks, this unit can make a surge move of up to D6+2&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3222,8 +3242,8 @@ fnp: 6+</comment>
                             <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                             <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
-                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                            <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                            <characteristic name="D" typeId="3254-9fe6-d824-513e">D3+3</characteristic>
                             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Twin-linked</characteristic>
                           </characteristics>
                         </profile>
@@ -3236,7 +3256,7 @@ fnp: 6+</comment>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
@@ -3630,7 +3650,7 @@ fnp: 6+</comment>
   <sharedProfiles>
     <profile name="Black Rage" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3e0a-31f-8be-e293">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a melee attack, you can re-roll the Hit roll. While this unit is not within 6&quot; of one or more friendly BLOOD ANGELS CHARACTER models, or not within 12&quot; of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a melee attack, you can re-roll a Hit roll of 1. While this unit is not within 12&quot; of one or more friendly **^^Chaplain^^** models or within 6&quot; of one or more friendly **^^Blood Angels Character^^** models, its Objective Control characteristic is 0 and it cannot make Fall Back moves.</characteristic>
       </characteristics>
     </profile>
     <profile name="Visions of Heresy" hidden="false" id="6b69-8f10-6d74-706c" typeName="Abilities" typeId="9cc3-6d83-4dd3-9b64">
