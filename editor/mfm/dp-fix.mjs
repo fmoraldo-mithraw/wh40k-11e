@@ -32,19 +32,23 @@ for (const [file, doc] of c.docs) {
     const dp = costs && (costs.children || []).find((k) => k.tag === "cost" && xml.getAttr(k, "name") === "DP");
     if (!dp) return;
     const nm = xml.getAttrDecoded(n, "name") || "";
-    let fdChar = null;
+    // Toutes les Force Dispositions (un détachement peut en offrir plusieurs,
+    // au choix : un profil par disposition).
+    const fdProfs = [];
     const profs = (n.children || []).find((k) => k.tag === "profiles");
     if (profs) for (const p of profs.children || []) {
-      if (p.tag === "profile" && xml.getAttrDecoded(p, "name") === "Force Disposition")
-        xml.walk(p, (k) => { if (k.tag === "characteristic" && !fdChar) fdChar = k; });
+      if (p.tag !== "profile" || xml.getAttrDecoded(p, "name") !== "Force Disposition") continue;
+      let ch = null; xml.walk(p, (k) => { if (k.tag === "characteristic" && !ch) ch = k; });
+      if (ch) fdProfs.push({ prof: p, ch });
     }
+    const fdChar = fdProfs.length ? fdProfs[0].ch : null;
     const over = {};
     const mods = (n.children || []).find((k) => k.tag === "modifiers");
     if (mods) for (const m of mods.children || []) {
       if (m.tag !== "modifier" || xml.getAttr(m, "type") !== "set" || xml.getAttr(m, "field") !== DP_TYPE_ID) continue;
       xml.walk(m, (k) => { if (k.tag === "condition" && xml.getAttr(k, "scope") === "primary-catalogue") over[xml.getAttr(k, "childId")] = parseInt(xml.getAttr(m, "value"), 10); });
     }
-    const rec = { file, node: n, nm, dpNode: dp, fdChar, over };
+    const rec = { file, node: n, nm, dpNode: dp, fdChar, fdProfs, profs, over };
     for (const [map, key] of [[byName, norm(nm)], [byBag, bag(nm)]]) {
       if (!map.has(key)) map.set(key, []);
       map.get(key).push(rec);
@@ -100,19 +104,42 @@ for (const f of fs.readdirSync(DUMP).sort()) {
           }
         }
       }
-      // Force Disposition
-      const fdm = (det.force_disposition || "").trim();
-      if (fdm) {
-        const want = fdCanon(fdm);
-        if (!want) skipped.push(`[${d.slug}] ${b.nm} — FD MFM « ${fdm} » hors vocabulaire connu`);
-        else if (!b.fdChar) skipped.push(`[${d.slug}] ${b.nm} — profil Force Disposition absent, MFM « ${want} »`);
-        else {
-          const cur = xml.getText(b.fdChar).trim();
-          const k = b.file + "|" + b.nm + "|fd";
-          if (norm(cur) !== norm(want) && !seen.has(k)) {
-            if (WRITE) { xml.setText(b.fdChar, want); c.markDirty(b.file); }
-            log.push(`[${b.file}] ${b.nm} : FD « ${cur} » → « ${want} »`); seen.add(k);
+      // Force Disposition(s) — `force_dispositions` (liste) quand le dump la
+      // porte, sinon l'unique `force_disposition`.
+      const fdList = (Array.isArray(det.force_dispositions) && det.force_dispositions.length ? det.force_dispositions : [det.force_disposition]).map((x) => String(x || "").trim()).filter(Boolean);
+      if (fdList.length) {
+        const wants = fdList.map(fdCanon);
+        const k = b.file + "|" + b.nm + "|fd";
+        if (wants.some((w) => !w)) skipped.push(`[${d.slug}] ${b.nm} — FD MFM « ${fdList.join(" / ")} » hors vocabulaire connu`);
+        else if (!b.fdChar) skipped.push(`[${d.slug}] ${b.nm} — profil Force Disposition absent, MFM « ${wants.join(" / ")} »`);
+        else if (!seen.has(k)) {
+          const cur = b.fdProfs.map((x) => xml.getText(x.ch).trim());
+          const same = cur.length === wants.length && wants.every((w) => cur.some((c0) => norm(c0) === norm(w)));
+          if (!same) {
+            if (WRITE) {
+              if (wants.length === 1 && cur.length === 1) xml.setText(b.fdChar, wants[0]);
+              else {
+                // garde les profils déjà justes, recycle les autres, clone le 1er au besoin
+                const keep = b.fdProfs.filter((x) => wants.some((w) => norm(w) === norm(xml.getText(x.ch))));
+                const spare = b.fdProfs.filter((x) => !keep.includes(x));
+                const missing = wants.filter((w) => !keep.some((x) => norm(xml.getText(x.ch)) === norm(w)));
+                for (const w of missing) {
+                  const r = spare.shift();
+                  if (r) { xml.setText(r.ch, w); continue; }
+                  const tpl = b.fdProfs[0].prof;
+                  const clone = JSON.parse(JSON.stringify(tpl));
+                  xml.setAttr(clone, "id", c.newId());
+                  let ch = null; xml.walk(clone, (q) => { if (q.tag === "characteristic" && !ch) ch = q; });
+                  xml.setText(ch, w);
+                  const list = b.profs.children; list.splice(list.indexOf(tpl) + b.fdProfs.length, 0, clone);
+                }
+                for (const r of spare) b.profs.children = b.profs.children.filter((q) => q !== r.prof);
+              }
+              c.markDirty(b.file);
+            }
+            log.push(`[${b.file}] ${b.nm} : FD « ${cur.join(" / ")} » → « ${wants.join(" / ")} »`);
           }
+          seen.add(k);
         }
       }
       // UNIQUE
