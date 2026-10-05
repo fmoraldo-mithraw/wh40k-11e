@@ -56,92 +56,6 @@
    • [Space Wolves] WOLF GUARD HEADTAKERS — composition (taille non « N model ») — barème MFM: 3 Wolf Guard Headtakers=85, 3 Wolf Guard Headtakers, 3 Hunting Wolves=115, 6 Wolf Guard Headtakers=170, 6 Wolf Guard Headtakers, 6 Hunting Wolves=230, 3 Wolf Guard Headtakers=95, 3 Wolf Guard Headtakers, 3 Hunting Wolves=125, 6 Wolf Guard Headtakers=180, 6 Wolf Guard Headtakers, 6 Hunting Wolves=240
    • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
 
-⑥ PALIER DE TAILLE ABSENT/DIFFÉRENT en base — confirme si on ajoute le palier (taille→pts).  [76]
-   • [Black Templars] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Black Templars] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Black Templars] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Black Templars] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Black Templars] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Black Templars] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Black Templars] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Black Templars] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Black Templars] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Black Templars] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Black Templars] TERMINATOR ASSAULT SQUAD — prix de taille MFM [340] non atteignable(s) par la bdd (paliers actuels [175,350])
-   • [Black Templars] TERMINATOR SQUAD — prix de taille MFM [380] non atteignable(s) par la bdd (paliers actuels [195,390])
-   • [Black Templars] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-   • [Blood Angels] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Blood Angels] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Blood Angels] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Blood Angels] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Blood Angels] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Blood Angels] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Blood Angels] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Blood Angels] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Blood Angels] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Blood Angels] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Blood Angels] TERMINATOR ASSAULT SQUAD — prix de taille MFM [340] non atteignable(s) par la bdd (paliers actuels [175,350])
-   • [Blood Angels] TERMINATOR SQUAD — prix de taille MFM [380] non atteignable(s) par la bdd (paliers actuels [195,390])
-   • [Blood Angels] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-   • [Dark Angels] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Dark Angels] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Dark Angels] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Dark Angels] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Dark Angels] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Dark Angels] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Dark Angels] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Dark Angels] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Dark Angels] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Dark Angels] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Dark Angels] TERMINATOR ASSAULT SQUAD — prix de taille MFM [340] non atteignable(s) par la bdd (paliers actuels [175,350])
-   • [Dark Angels] TERMINATOR SQUAD — prix de taille MFM [380] non atteignable(s) par la bdd (paliers actuels [195,390])
-   • [Dark Angels] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-   • [Deathwatch] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Deathwatch] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Deathwatch] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Deathwatch] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Deathwatch] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Deathwatch] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Deathwatch] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Deathwatch] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Deathwatch] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Deathwatch] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Deathwatch] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-   • [Space Marines] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Space Marines] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Space Marines] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Space Marines] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Space Marines] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Space Marines] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Space Marines] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Space Marines] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Space Marines] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Space Marines] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Space Marines] TERMINATOR ASSAULT SQUAD — prix de taille MFM [340] non atteignable(s) par la bdd (paliers actuels [175,350])
-   • [Space Marines] TERMINATOR SQUAD — prix de taille MFM [380] non atteignable(s) par la bdd (paliers actuels [195,390])
-   • [Space Marines] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-   • [Space Wolves] ASSAULT INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [90,175])
-   • [Space Wolves] BLADEGUARD VETERAN SQUAD — prix de taille MFM [180] non atteignable(s) par la bdd (paliers actuels [85,170])
-   • [Space Wolves] ERADICATOR SQUAD WITH HEAVY BOLTERS — prix de taille MFM [215] non atteignable(s) par la bdd (paliers actuels [95,200])
-   • [Space Wolves] ERADICATOR SQUAD WITH MELTA RIFLES — prix de taille MFM [200] non atteignable(s) par la bdd (paliers actuels [90,190])
-   • [Space Wolves] HEAVY INTERCESSOR SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Space Wolves] HELLBLASTER SQUAD — prix de taille MFM [230] non atteignable(s) par la bdd (paliers actuels [110,220])
-   • [Space Wolves] INCEPTOR SQUAD — prix de taille MFM [260] non atteignable(s) par la bdd (paliers actuels [125,250])
-   • [Space Wolves] INCURSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,160])
-   • [Space Wolves] INFERNUS SQUAD — prix de taille MFM [190] non atteignable(s) par la bdd (paliers actuels [100,200])
-   • [Space Wolves] INTERCESSOR SQUAD — prix de taille MFM [170] non atteignable(s) par la bdd (paliers actuels [95,175])
-   • [Space Wolves] TERMINATOR ASSAULT SQUAD — prix de taille MFM [340] non atteignable(s) par la bdd (paliers actuels [175,350])
-   • [Space Wolves] TERMINATOR SQUAD — prix de taille MFM [380] non atteignable(s) par la bdd (paliers actuels [195,390])
-   • [Space Wolves] VANGUARD VETERAN SQUAD WITH JUMP PACKS — prix de taille MFM [220] non atteignable(s) par la bdd (paliers actuels [120,240])
-
-⑦ PRIX PAR RÉPÉTITION absent en base — confirme le seuil et le delta à encoder.  [6]
-   • [Black Templars] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Blood Angels] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Dark Angels] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Deathwatch] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Space Marines] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-   • [Space Wolves] INVICTOR TACTICAL WARSUIT — MFM a un prix par répétition (Δ=15) que la bdd n'encode pas
-
 ? etiquette-mfm: [Black Templars] MARSHAL — étiquette « REQUISITION THRESHOLDS REMOVED » non exploitée — vérifier la carte
 
 ? etiquette-mfm: [Black Templars] AGGRESSOR SQUAD — étiquette « REQUISITION THRESHOLDS REMOVED » non exploitée — vérifier la carte
@@ -204,19 +118,44 @@
   ? space-marines :: DEATHWATCH SUPPORT
   ? space-marines :: MEDUSA'S WRATH
   ? space-wolves :: DEATHWATCH SUPPORT
-✗ ÉCARTS DP/FD/UNIQUE (12) — à corriger via editor/lib/catalog.js :
-  ✗ [aeldari] Fateful Performance (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE ACROBATIC»→«UNIQUE TAG REMOVED»
-  ✗ [aeldari] Ghosts of the Webway (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE ACROBATIC»→«UNIQUE TAG REMOVED»
-  ✗ [aeldari] Serpent's Brood (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE ACROBATIC»→«UNIQUE TAG REMOVED»
-  ✗ [aeldari] Twilight Flickers (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE ACROBATIC»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Covenite Coterie (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE COVENS»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Exhibition of Slaughter (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE WYCH CULT»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Kabalite Agonysts (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE KABAL»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Kabalite Cartel (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE KABAL»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Spectacle of Spite (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE WYCH CULT»→«UNIQUE TAG REMOVED»
-  ✗ [drukhari] Tools of Torment (Aeldari - Aeldari Library.cat) : UNIQUE «UNIQUE COVENS»→«UNIQUE TAG REMOVED»
-  ✗ [genestealer-cults] Biosanctic Broodsurge (Library - Tyranids.cat) : UNIQUE «UNIQUE PURESTRAIN»→«UNIQUE TAG REMOVED»
-  ✗ [genestealer-cults] Purestrain Broodswarm (Library - Tyranids.cat) : UNIQUE «UNIQUE PURESTRAIN»→«UNIQUE TAG REMOVED»
+✗ ÉCARTS DP/FD/UNIQUE (37) — à corriger via editor/lib/catalog.js :
+  ✗ [adeptus-custodes] Lions of the Emperor (Imperium - Adeptus Custodes.cat) : FD «Take and Hold»→«TAKE AND HOLD / DISRUPTION»
+  ✗ [adeptus-custodes] Talons of the Emperor (Imperium - Adeptus Custodes.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [adeptus-mechanicus] Haloscreed Battle Clade (Imperium - Adeptus Mechanicus.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [aeldari] Aspect Host (Aeldari - Aeldari Library.cat) : FD «Priority Assets»→«PRIORITY ASSETS / RECONNAISSANCE»
+  ✗ [astra-militarum] Grizzled Company (Imperium - Astra Militarum - Library.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [blood-angels] Angelic Inheritors (Imperium - Space Marines.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [blood-angels] Gladius Task Force (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [chaos-daemons] Daemonic Incursion (Chaos - Chaos Daemons Library.cat) : FD «Take and Hold»→«TAKE AND HOLD / DISRUPTION»
+  ✗ [chaos-knights] Infernal Lance (Chaos - Chaos Knights Library.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [chaos-space-marines] Creations of Bile (Chaos - Chaos Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PURGE THE FOE»
+  ✗ [chaos-space-marines] Huron's Marauders (Chaos - Chaos Space Marines.cat) : FD «Disruption»→«DISRUPTION / PURGE THE FOE»
+  ✗ [chaos-space-marines] Pactbound Zealots (Chaos - Chaos Space Marines.cat) : FD «Disruption»→«DISRUPTION / PRIORITY ASSETS»
+  ✗ [chaos-space-marines] Renegade Raiders (Chaos - Chaos Space Marines.cat) : FD «Priority Assets»→«PRIORITY ASSETS / RECONNAISSANCE»
+  ✗ [dark-angels] Gladius Task Force (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [death-guard] Virulent Vectorium (Chaos - Death Guard.cat) : FD «Take and Hold»→«TAKE AND HOLD / PURGE THE FOE»
+  ✗ [deathwatch] Black Spear Task Force (Imperium - Space Marines.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [deathwatch] Gladius Task Force (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [drukhari] Reaper's Wager (Aeldari - Aeldari Library.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [emperors-children] Carnival of Excess (Chaos - Emperor's Children.cat) : FD «Disruption»→«DISRUPTION / PRIORITY ASSETS»
+  ✗ [emperors-children] Coterie of the Conceited (Chaos - Emperor's Children.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [genestealer-cults] Host of Ascension (Library - Tyranids.cat) : FD «Take and Hold»→«TAKE AND HOLD / RECONNAISSANCE»
+  ✗ [grey-knights] Warpbane Task Force (Imperium - Grey Knights.cat) : FD «Take and Hold»→«TAKE AND HOLD / PURGE THE FOE»
+  ✗ [imperial-knights] Freeblade Company (Imperium - Imperial Knights - Library.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [imperial-knights] Questoris Companions (Imperium - Imperial Knights - Library.cat) : FD «Take and Hold»→«TAKE AND HOLD / RECONNAISSANCE»
+  ✗ [leagues-of-votann] Hearthband (Leagues of Votann.cat) : FD «Priority Assets»→«PRIORITY ASSETS / RECONNAISSANCE»
+  ✗ [necrons] Awakened Dynasty (Necrons.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [necrons] Starshatter Arsenal (Necrons.cat) : FD «Priority Assets»→«PRIORITY ASSETS / PURGE THE FOE»
+  ✗ [space-marines] Blade of Ultramar (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [space-marines] Gladius Task Force (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [space-wolves] Gladius Task Force (Imperium - Space Marines.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [tau-empire] Mont'ka (T'au Empire.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [tau-empire] Retaliation Cadre (T'au Empire.cat) : FD «Purge the Foe»→«PURGE THE FOE / RECONNAISSANCE»
+  ✗ [thousand-sons] Grand Coven (Chaos - Thousand Sons.cat) : FD «Disruption»→«DISRUPTION / PRIORITY ASSETS»
+  ✗ [thousand-sons] Hexwarp Thrallband (Chaos - Thousand Sons.cat) : FD «Take and Hold»→«TAKE AND HOLD / RECONNAISSANCE»
+  ✗ [thousand-sons] Rubricae Phalanx (Chaos - Thousand Sons.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [tyranids] Invasion Fleet (Library - Tyranids.cat) : FD «Take and Hold»→«TAKE AND HOLD / PRIORITY ASSETS»
+  ✗ [tyranids] Subterranean Assault (Library - Tyranids.cat) : FD «Disruption»→«DISRUPTION / RECONNAISSANCE»
 
 ## Audit surcoûts d'armes
 
@@ -244,76 +183,12 @@
 
 ## Audit seuils de paliers
 
-unités examinées : 353 · paliers déjà conformes : 238
+unités examinées : 353 · paliers déjà conformes : 302
 ── SEUILS À CORRIGER (0) — palier appliqué dès la taille listée au lieu de la précédente + 1 ──
-── À VÉRIFIER À LA MAIN (70) — encodage non standard (sélecteur de taille, doublon de prix, coût de chapitre…) ──
+── À VÉRIFIER À LA MAIN (6) — encodage non standard (sélecteur de taille, doublon de prix, coût de chapitre…) ──
   ? [aeldari] WINDRIDERS (Windriders) : palier 6=170 appliqué dès 1 modèles (ni 6 ni 4)
-  ? [black-templars] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [black-templars] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [black-templars] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [black-templars] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [black-templars] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [black-templars] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [black-templars] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [black-templars] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [black-templars] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [black-templars] TERMINATOR ASSAULT SQUAD (Terminator Assault Squad) : palier 10=340 → 0 modifier(s) à ce prix
-  ? [black-templars] TERMINATOR SQUAD (Terminator Squad) : palier 10=380 → 0 modifier(s) à ce prix
-  ? [blood-angels] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [blood-angels] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [blood-angels] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [blood-angels] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [blood-angels] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [blood-angels] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [blood-angels] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [blood-angels] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [blood-angels] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [blood-angels] TERMINATOR ASSAULT SQUAD (Terminator Assault Squad) : palier 10=340 → 0 modifier(s) à ce prix
-  ? [blood-angels] TERMINATOR SQUAD (Terminator Squad) : palier 10=380 → 0 modifier(s) à ce prix
-  ? [dark-angels] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [dark-angels] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [dark-angels] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [dark-angels] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [dark-angels] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [dark-angels] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [dark-angels] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [dark-angels] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [dark-angels] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [dark-angels] TERMINATOR ASSAULT SQUAD (Terminator Assault Squad) : palier 10=340 → 0 modifier(s) à ce prix
-  ? [dark-angels] TERMINATOR SQUAD (Terminator Squad) : palier 10=380 → 0 modifier(s) à ce prix
   ? [deathwatch] DECIMUS KILL TEAM (Decimus Kill Team) : palier 10=210 appliqué dès 1 modèles (ni 10 ni 6)
-  ? [deathwatch] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [deathwatch] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [deathwatch] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [deathwatch] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [deathwatch] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [deathwatch] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [deathwatch] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [deathwatch] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [deathwatch] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
   ? [genestealer-cults] ATALAN JACKALS (Atalan Jackals) : palier 9=160 appliqué dès 1 modèles (ni 9 ni 6)
   ? [imperial-agents] AQUILA KILL TEAM (Aquila Kill Team) : palier 10=210 appliqué dès 1 modèles (ni 10 ni 6)
   ? [imperial-agents] AQUILA KILL TEAM (Aquila Kill Team) : palier 10=210 appliqué dès 1 modèles (ni 10 ni 6)
   ? [imperial-agents] INQUISITORIAL AGENTS (Inquisitorial Agents) : palier 12=120 → 0 modifier(s) à ce prix
-  ? [space-marines] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-marines] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [space-marines] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [space-marines] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [space-marines] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [space-marines] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [space-marines] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-marines] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [space-marines] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-marines] TERMINATOR ASSAULT SQUAD (Terminator Assault Squad) : palier 10=340 → 0 modifier(s) à ce prix
-  ? [space-marines] TERMINATOR SQUAD (Terminator Squad) : palier 10=380 → 0 modifier(s) à ce prix
-  ? [space-wolves] ASSAULT INTERCESSOR SQUAD (Assault Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-wolves] ERADICATOR SQUAD WITH HEAVY BOLTERS (Eradicator Squad with Heavy Bolters) : palier 6=215 → 0 modifier(s) à ce prix
-  ? [space-wolves] ERADICATOR SQUAD WITH MELTA RIFLES (Eradicator Squad) : palier 6=200 → 0 modifier(s) à ce prix
-  ? [space-wolves] HEAVY INTERCESSOR SQUAD (Heavy Intercessor Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [space-wolves] HELLBLASTER SQUAD (Hellblaster Squad) : palier 10=230 → 0 modifier(s) à ce prix
-  ? [space-wolves] INCEPTOR SQUAD (Inceptor Squad) : palier 6=260 → 0 modifier(s) à ce prix
-  ? [space-wolves] INCURSOR SQUAD (Incursor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-wolves] INFERNUS SQUAD (Infernus Squad) : palier 10=190 → 0 modifier(s) à ce prix
-  ? [space-wolves] INTERCESSOR SQUAD (Intercessor Squad) : palier 10=170 → 0 modifier(s) à ce prix
-  ? [space-wolves] TERMINATOR ASSAULT SQUAD (Terminator Assault Squad) : palier 10=340 → 0 modifier(s) à ce prix
-  ? [space-wolves] TERMINATOR SQUAD (Terminator Squad) : palier 10=380 → 0 modifier(s) à ce prix
