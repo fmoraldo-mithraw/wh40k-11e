@@ -25189,6 +25189,203 @@ EFFECT: Select one enemy unit hit by those attacks. That enemy unit makes a batt
             </rule>
           </rules>
         </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Ceramite Sentinels" hidden="false" id="2966-a72c-eeee-cfda">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="5d6e-fd3-330a-11dd" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+          </costs>
+          <rules>
+            <rule name="Adaptive Defence" id="44c9-9209-d108-6f63" hidden="false">
+              <comment>sim-mod: source=&quot;Adaptive Defence&quot; reroll=wound1 conditional</comment>
+              <description>■ While a friendly **^^Adeptus Astartes^^** unit is within a terrain area, that unit’s attacks can re-roll wound rolls of 1.
+■ Friendly **^^Adeptus Astartes^^** units are entrenched while all of the following apply:
+■ That unit is within a terrain area.
+■ That unit was not set up this turn.
+■ No model in that unit moved more than 3&quot; this turn.
+
+■ Friendly **^^Darnath Lysander^^**/**^^Tor Garadon^^** units have the following ability:
+**Defensive Mastery**: At the start of each phase, this unit is entrenched.
+
+Darnath Lysander&apos;s/Tor Garadon&apos;s unit is always entrenched, regardless of the conditions listed above.
+
+**Restrictions:** Your army can include **^^Imperial Fists^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
+            </rule>
+            <rule name="Unyielding Might (Stratagem, 1CP)" id="d4e6-8cfe-3e49-09aa" hidden="false">
+              <comment>strat-timing: turn=either phase=command</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Command phase.
+TARGET: One friendly ADEPTUS ASTARTES unit that is within range of an objective.
+EFFECT: Your unit has +1 OC until the end of the turn.</description>
+            </rule>
+            <rule name="Stand to the End (Stratagem, 1CP)" id="a00b-b2a7-b12d-cdb7" hidden="false">
+              <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;Stand to the End&quot; wound=-1 vsStronger conditional choice=&quot;Stand to the End&quot;
+def-mod: source=&quot;Stand to the End (entrenched)&quot; wound=-1 conditional choice=&quot;Stand to the End&quot;</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly ADEPTUS ASTARTES unit (excluding MONSTER/VEHICLE units).
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: 
+■ Attacks that target your unit with a S greater than your unit’s T have -1 to wound rolls.
+■ Or: If your unit is entrenched, attacks that target your unit have -1 to wound rolls.</description>
+            </rule>
+            <rule name="Augmented Targeting (Stratagem, 1CP)" id="284e-eb35-570c-7ae8" hidden="false">
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Augmented Targeting&quot; lethal conditional choice=&quot;Augmented Targeting&quot;
+sim-mod: source=&quot;Augmented Targeting&quot; sustained=1 conditional choice=&quot;Augmented Targeting&quot;
+sim-mod: source=&quot;Augmented Targeting (entrenched)&quot; lethal sustained=1 conditional choice=&quot;Augmented Targeting&quot;</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to attack.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s attacks have:
+■ [LETHAL HITS].
+■ Or: [SUSTAINED HITS 1].
+■ Or: If your unit is entrenched, [LETHAL HITS] and [SUSTAINED HITS 1].</description>
+            </rule>
+            <rule name="Establish Supremacy (Stratagem, 1CP)" id="7445-d79c-68b3-5dd9" hidden="false">
+              <comment>strat-timing: turn=either phase=fight</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Fight phase, when a friendly entrenched ADEPTUS ASTARTES INFANTRY unit is selected to make a consolidation move.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: You can select the objective consolidation mode for that consolidation move, regardless of that consolidation move’s Before Moving restrictions.
+
+Designer’s Note: This means your unit can move out of engagement range with enemy units, provided it meets the conditions of the objective consolidation mode.</description>
+            </rule>
+            <rule name="Priority Strike (Stratagem, 1CP)" id="2246-8a64-89aa-19b1" hidden="false">
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Priority Strike&quot; wound=+1 vs=Monster,Vehicle kw=&quot;Infantry,Mounted&quot;</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES INFANTRY/MOUNTED unit is selected to attack.
+TARGET: That ADEPTUS ASTARTES INFANTRY/MOUNTED unit.
+EFFECT: Your unit’s attacks that target a MONSTER/VEHICLE unit, have +1 to wound rolls.</description>
+            </rule>
+            <rule name="Evasive Repositioning (Stratagem, 1CP)" id="9945-8f6f-4cf1-797e" hidden="false">
+              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <description>Ceramite Sentinels – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, when an enemy unit has shot.
+TARGET: One friendly unengaged ADEPTUS ASTARTES INFANTRY/MOUNTED unit that lost a wound as a result of those attacks.
+EFFECT: 
+■ Your unit can make a normal move of up to D6&quot;.
+■ Or: If your unit is entrenched, your unit can make a normal move of up to D3+3&quot;.
+Your unit is not able to embark within a TRANSPORT until the end of the turn.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="35ab-90c0-770c-c8bd">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Medusa&apos;s Wrath" hidden="false" id="092e-c1cd-1a24-8def">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="f27e-18c0-b73e-748e" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+          </costs>
+          <rules>
+            <rule name="Armoured Wrath" id="7d86-e2c2-9f8a-94b2" hidden="false">
+              <description>Each time a friendly **^^Adeptus Astartes^^** unit is selected to shoot or selected to fight apply one of the following when resolving those attacks:
+■ If that unit is within 6&quot; of a friendly **^^Caanok Var^^**/**^^Iron Father Feirros^^** unit you can:
+  ■ Re-roll one hit roll.
+  ■ Re-roll one wound roll.
+  ■ Re-roll one damage roll.
+■ Otherwise you can:
+■ Re-roll one hit roll.
+■ Or: Re-roll one wound roll.
+■ Or: Re-roll one damage roll.</description>
+            </rule>
+            <rule name="Unbowed Conviction (Stratagem, 1CP)" id="b0bd-b80b-37a0-54a9" hidden="false">
+              <comment>strat-timing: turn=your phase=command</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly ADEPTUS ASTARTES unit that is below starting strength.
+EFFECT: Until the start of your next Command phase, your unit can ignore modifiers to your unit’s:
+■ BS and WS.
+■ Hit rolls and Wound rolls.</description>
+            </rule>
+            <rule name="Spirits of Iron (Stratagem, 1CP)" id="5cf9-a347-a034-89a2" hidden="false">
+              <comment>strat-timing: turn=either phase=any</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Any phase, when a friendly ADEPTUS ASTARTES unit suffers a mortal wound.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit has Feel no pain 5+ against mortal wounds.</description>
+            </rule>
+            <rule name="Vengeful Animus (Stratagem, 1CP)" id="c0cc-8520-575f-f2ec" hidden="false">
+              <comment>strat-timing: turn=either phase=any</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Any phase, when a friendly ADEPTUS ASTARTES VEHICLE unit is destroyed, before rolling for deadly demise.
+TARGET: That friendly ADEPTUS ASTARTES VEHICLE unit.
+EFFECT: Change any deadly demise rolls made for this unit to an unmodified 6.</description>
+            </rule>
+            <rule name="Methodical Brutality (Stratagem, 1CP)" id="5286-feaa-573e-a7db" hidden="false">
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Methodical Brutality&quot; sustained=1 conditional
+sim-mod: source=&quot;Methodical Brutality (Vehicle)&quot; wound=+1 conditional kw=&quot;Vehicle&quot;</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase when a friendly ADEPTUS ASTARTES unit is selected to attack.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s attacks have [SUSTAINED HITS 1].
++ If your unit is a VEHICLE unit, have +1 to wound rolls.</description>
+            </rule>
+            <rule name="Ancient Fury (Stratagem, 1CP)" id="61e7-14c0-3c18-ce6c" hidden="false">
+              <comment>strat-timing: turn=your phase=command
+sim-mod: source=&quot;Ancient Fury&quot; hit=+1 conditional kw=&quot;Dreadnought&quot;</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly ADEPTUS ASTARTES DREADNOUGHT unit.
+EFFECT: Until the start of your next Command phase, your unit has:
+■ +1&quot; M.
+■ +1 T.
+■ +1 Ld.
+■ +1 OC.
+■ +1 to hit rolls.</description>
+            </rule>
+            <rule name="Power of the Machine Spirit (Stratagem, 1CP)" id="e3b2-7442-6a9c-b657" hidden="false">
+              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase, when an enemy unit that targeted a friendly unengaged ADEPTUS ASTARTES VEHICLE unit has shot.
+TARGET: That ADEPTUS ASTARTES VEHICLE unit.
+EFFECT: Your unit shoots using:
+■ Snap shooting.
+■ Or: If your unit is at half-strength/below half-strength, normal shooting.
+While doing so your unit can only target that enemy unit.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="2910-0afa-ff2c-1628">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <categoryLinks>
+            <categoryLink id="51a1-c085-aa3e-506e" name="UNIQUE IRONSTORM" hidden="false" targetId="f6f0-dd7b-25de-9564" primary="false"/>
+          </categoryLinks>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntryGroup>
     <selectionEntryGroup name="Enhancements" hidden="false" id="9e5d-de4c-c5d1-1d3e" collapsible="true">
@@ -30285,6 +30482,316 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
           </modifiers>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c3a6-7481-d427-063b"/>
+          </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Ceramite Sentinels Enhancements" id="ae79-5265-ebc4-6d8b" hidden="false">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Castellum Omnivox" hidden="false" id="318a-41d8-1730-eba1">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="350a-f8a0-5ad0-7860" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Castellum Omnivox" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="93b2-d6ca-12c3-682b">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** unit only. When this unit makes an advance/fall-back move, that move does not prevent this unit from being eligible to start an action.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="1aca-412d-58e8-d422" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="eb59-2677-5a53-308b" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Defensive Mastery" hidden="false" id="9995-4585-578f-fdeb">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="cc8f-f608-aed7-720e" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Defensive Mastery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7ccc-9292-6981-54fe">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. When both players have deployed their armies, you can redeploy up to three friendly **^^Adeptus Astartes Infantry^^** units. When doing so, you can set those units up in strategic reserves, regardless of how many units are already in strategic reserves.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="a22b-4fbc-fd49-b10a" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="b092-f309-4c48-b8de" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Honour Indefatigable" hidden="false" id="7848-6752-356b-6797">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="117e-3b04-a520-8c38" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Honour Indefatigable" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5025-a208-2d87-1343">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Gravis^^** model only. (Once per battle, per army) At the end of a phase in which this model is destroyed, roll one D6:
+■ On a 2+, set this model back up on the battlefield as close as possible to where it was destroyed, unengaged, with 3 wounds remaining.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="81f0-f40e-c36c-5a30" shared="true" id="0495-778b-c2e0-65d8" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="6410-9dca-8245-d3d7" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Spy-skull Data Link" hidden="false" id="e2bd-21a6-3709-9469">
+              <comment>sim-mod: source=&quot;Spy-skull Data Link&quot; ignores-cover when=ranged</comment>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="25f1-957e-1645-0760" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Spy-skull Data Link" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6dcc-9d0c-e42d-1d6c">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** unit only. This unit’s ranged weapons have **[IGNORES COVER]**.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="c77c-737f-19ab-08f0" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="179b-5be9-fb54-c912" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="2966-a72c-eeee-cfda" shared="true" id="7ba0-ebf1-07dd-d38b" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="d39c-9989-db7f-d815" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="9249-acae-2882-d95" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="a0d9-c115-2a-8330" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="62ac-ef42-27b4-ae7" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="5c0e-2250-dd3a-1df9" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="1a2d-2f00-c054-4dcb" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="65e4-13-4fa8-b36c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="aab1-4f05-fabe-5ba5" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="b88e-1b0c-b79f-5cdf" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="84b7-7194-3b84-1b0c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="8ff0-ffd2-4e40-ee75" shared="true" childName="Faction: Raptors"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="04e6-516d-e0ad-1b57" shared="true" childName="Faction: Tome Keepers"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c50d-3722-f2c5-fcfb"/>
+          </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Medusa&apos;s Wrath Enhancements" id="6a44-ad52-a62b-090c" hidden="false">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="092e-c1cd-1a24-8def" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="d39c-9989-db7f-d815" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="9249-acae-2882-d95" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="a0d9-c115-2a-8330" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="62ac-ef42-27b4-ae7" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="65e4-13-4fa8-b36c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="1a2d-2f00-c054-4dcb" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="97aa-d0e4-71c7-96c3" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="aab1-4f05-fabe-5ba5" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="5c0e-2250-dd3a-1df9" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="84b7-7194-3b84-1b0c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="8ff0-ffd2-4e40-ee75" shared="true" childName="Faction: Raptors"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="04e6-516d-e0ad-1b57" shared="true" childName="Faction: Tome Keepers"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Adept of the Omnissiah" hidden="false" id="bcac-e061-f2a6-3f29">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7dc9-da27-8a25-3173" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Adept of the Omnissiah" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d360-3ed6-56f9-58b2">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Techmarine^^** model only.
+(Once per battle round, per army) When an enemy unit targets a friendly **^^Adeptus Astartes Vehicle^^** unit within 6&quot; of this unit, you can use this ability. If you do, that **^^Vehicle^^** unit has Feel No Pain 5+ until that enemy unit has attacked.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="b957-d9cd-ee81-560" shared="true" id="c961-2143-9e0f-2bcc" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="a7e6-178c-c5a6-9a6f" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Master of the Machine War" hidden="false" id="592d-8bb1-6b00-fc3b">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2d4e-e874-0d67-01e5" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Master of the Machine War" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a192-addf-1c29-dabd">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only.
+In your Movement phase, you can select one visible friendly **^^Adeptus Astartes Vehicle^^** unit within 6&quot; of this model and then select the devastator doctrine or tactical doctrine. That doctrine is active for that **^^Vehicle^^** unit until the start of your next Command phase.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="8e4c-f818-038d-3f65" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="3b35-113b-7f62-fec7" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Target Augury Web" hidden="false" id="2806-0923-137f-1d10">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="6f68-86f1-2cd4-baf2" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Target Augury Web" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d0f6-46b6-ede6-3b47">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Techmarine^^** model only.
+In your movement phase, at the start or end of this unit’s move, you can select one friendly **^^Adeptus Astartes Vehicle^^** model within 3&quot; of this unit. That **^^Vehicle^^** model’s attacks have **[LETHAL HITS]** until the start of your next Command phase</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="b957-d9cd-ee81-560" shared="true" id="64d8-196a-3b80-45bc" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="6bac-bd4e-8caa-eaee" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="The Flesh is Weak" hidden="false" id="8722-52ee-e689-36f1">
+              <comment>def-mod: source=&quot;The Flesh is Weak&quot; fnp=5</comment>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="d3f9-d787-91f1-bfd2" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="The Flesh is Weak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0c75-cc75-f100-6606">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This model:
+■ Has +1 T.
+■ Has Feel No Pain 5+.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="5e42-4f47-6ca6-325d" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="8d01-3518-e4df-f76f" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
+                <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9113-c947-d75a-5e40" includeChildSelections="false"/>
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
