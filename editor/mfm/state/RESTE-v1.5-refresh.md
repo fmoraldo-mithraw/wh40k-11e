@@ -81,3 +81,22 @@ Inchangé par rapport à `RESTE-v1.5.md` :
 - **Composition** : Gretchin (« 10 Gretchin » / « 11 Gretchin ») et Tidewall
   Shieldline (« + 1 Tidewall Defence Platform ») restent hors périmètre
   d'apply, barèmes vérifiés conformes.
+
+## Dump du 2026-10-05 — Force Dispositions multiples et détachements retirés
+
+- Le parser conserve désormais **toutes** les Force Dispositions
+  (`force_dispositions`) : 33 détachements (37 lignes slug × détachement)
+  en offrent deux au choix → profils ajoutés par `dp-fix.mjs` (étendu).
+  `dp-audit` → 0 écart.
+- **Emperor's Shield** (Imperial Fists, règle Wrath of Dorn) : présent en
+  MFM v1.3/v1.4, absent du v1.5 — retiré (confirmé par l'utilisateur :
+  la règle n'existe plus depuis le codex).
+- **À trancher** : *Hammer of Avernii* (Iron Hands) et *Reclamation Force*
+  (Ultramarines) sont dans la même situation (présents en v1.3/v1.4,
+  absents du v1.5).
+- **Données absentes** (rien à écrire sans source) : *Ceramite Sentinels*
+  (Imperial Fists ? 2 PD, Take and Hold ; Castellum Omnivox, Defensive
+  Mastery, Honour Indefatigable, Spy-skull Data Link — 10 pts chacune) et
+  *Medusa's Wrath* (Iron Hands ? 2 PD, Purge the Foe, UNIQUE: IRONSTORM ;
+  Adept of the Omnissiah 25, Master of the Machine War 25, Target Augury
+  Web 30, The Flesh is Weak 15) — règles, stratagèmes et textes à fournir.
