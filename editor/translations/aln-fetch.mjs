@@ -41,9 +41,12 @@
 //
 // SORTIE :
 //   aln-pairs.json  couples EN→FR directement attestés   ← à renvoyer
-//   aln-units.json  fiches groupées, avec leurs libellés ← à renvoyer
+//   aln-units.json  fiches groupées : libellés, caractéristiques, armes,
+//                   points et TEXTE des capacités ; détachements complets ← à renvoyer
+// (pour retraiter une récolte existante sans la refaire : aln-extract.mjs)
 // (ni les réponses brutes, ni ./aln-profile qui contient ta session)
 
+import { parseUnite, parseDetachement } from "./aln-parse.mjs";
 import { writeFile, readFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
@@ -188,6 +191,9 @@ await pool(aFaire, async (id) => {
   for (const m of html.matchAll(/class="soustype">([^<]+)</g)) {
     const fr = dec(m[1]); if (fr) f.labels.push({ fr, type: "groupe" });
   }
+  // Contenu complet (aln-parse.mjs) : caractéristiques, profils d'armes avec
+  // leurs valeurs, points et TEXTE des capacités (data_desc_<option>, en FR).
+  { const d = parseUnite(j); f.points = d.points; f.modeles = d.modeles; f.armes = d.armes; f.capacites = d.capacites; }
   // dédoublonnage interne à la fiche
   const vus = new Set();
   f.labels = f.labels.filter((l) => { const k = l.type + "|" + l.fr; if (vus.has(k)) return false; vus.add(k); return true; });
@@ -205,9 +211,9 @@ await pool(dets, async (id) => {
   if (j.libelleVO && j.libelle) addPair(j.libelleVO, j.libelle, 2);
   // Stratagèmes : français seul, mais rattachés à LEUR détachement — ce qui
   // permettra de les apparier aux stratagèmes anglais du même détachement.
-  const strats = [...String(j.stratagemes || "").matchAll(/<b>(.*?)<\/b>\s*\(?([^<)]*)\)?/g)]
-    .map((m) => ({ fr: dec(m[1]), cp: (m[2] || "").trim() }));
-  S.detFR[id] = { fr: dec(j.libelle || ""), vo: dec(j.libelleVO || ""), strats };
+  // Texte complet (aln-parse.mjs) : règle, PD, dispositions, stratagèmes et
+  // améliorations avec leur texte (en français).
+  S.detFR[id] = parseDetachement(j);
   S.detachements[id] = 1; ok++;
 }, "3/4 détach.");
 
@@ -229,8 +235,8 @@ async function sortie() {
 
   await writeFile("aln-units.json", JSON.stringify({
     codex: S.codex, sections: S.sections,
-    fiches: S.fiches,        // id → { fr, codex, section, labels: [{fr,type}] }
-    detachements: S.detFR,   // id → { fr, vo, strats: [{fr,cp}] }
+    fiches: S.fiches,        // id → { fr, codex, section, labels, points, modeles, armes, capacites[{fr,vo,texte}] }
+    detachements: S.detFR,   // id → { fr, vo, pd, dispositions, regle, strats[{fr,cp,texte}], ameliorations[{fr,texte}] }
   }, null, 1) + "\n", "utf8");
 
   const orphelins = Object.values(S.fiches).reduce((n, f) => n + f.labels.length, 0);
