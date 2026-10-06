@@ -142,6 +142,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   de données), verdicts de `AUDIT_VOCABULAIRE_APP.md` corrigés (§7), points
   restants côté données (§8 : Sternguard sans `min`, Venerable Dreadnought SW,
   `defaultSelectionEntryId` visant une cible, ids morts, portes d'améliorations).
+- **`editor/SM_FICHES_OFFICIELLES_11E.md`** — fiches 11ᵉ des chapitres divergents
+  confrontées aux **données de l'appli officielle** publiées par le dépôt public
+  `game-datacards/datasources` (`11th/gdc` : caractéristiques, armes, texte officiel
+  des capacités, composition, options d'équipement en EN/FR). Source de référence
+  pour remplacer les textes provisoires ALN et encoder les compositions ;
+  régénérer avec `editor/translations/gdc-compare.cjs` (mode d'emploi en tête).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les
