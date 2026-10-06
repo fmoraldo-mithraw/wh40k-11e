@@ -21844,6 +21844,21 @@ invuln: 4+</comment>
         <categoryLink name="Melee Weapon" hidden="false" id="1a6e-b31d-f44f-13ec" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
     </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Righteous Fervour Upgrade" hidden="false" id="9310-a974-20ec-fb3e">
+      <profiles>
+        <profile name="Righteous Fervour Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="02ad-0da2-f764-e1b9">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Crusader Squad^^** unit only. This unit can re-roll Advance rolls.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink targetId="6226-9b9b-107a-9ada" id="b7ae-a73f-e739-fb11" primary="false" name="Enhancement"/>
+      </categoryLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+      </costs>
+    </selectionEntry>
   </sharedSelectionEntries>
   <sharedProfiles>
     <profile id="90c7-c55c-21e2-2232" name="Rites of Battle" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -24175,11 +24190,10 @@ EFFECT: Select one visible enemy unit within 24&quot; of your unit. That enemy u
           </costs>
           <rules>
             <rule name="Faith-fuelled Resolve" id="bdda-e7bc-7e11-a653" hidden="false">
-              <description>Uncompromising in their faith, a crusade's Sword Brethren are blazing beacons of intolerant resolve capable of holding back hordes of blasphemous foes from sites sacred to the Black Templars.
+              <comment>sim-mod: source=&quot;Faith-fuelled Resolve&quot; attacks=+1 when=melee kw=&quot;Sword Brethren Squad&quot; conditional</comment>
+              <description>In the Fight phase, if a friendly **^^Sword Brethren Squad^^** unit is within range of an objective, that unit’s melee attacks have +1 A.
 
-Friendly SWORD BRETHREN SQUAD units have +1 OC.
-
-Restrictions: Your army can include BLACK TEMPLARS units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.</description>
+**Restrictions:** Your army can include **^^Black Templars^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
             </rule>
             <rule name="Slayers of Abominations (Stratagem, 1CP)" id="7242-bece-24a9-3526" hidden="false">
               <comment>strat-timing: turn=either phase=fight
@@ -24212,6 +24226,155 @@ EFFECT: When an enemy unit engaged with your unit is selected to make a fall-bac
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="cf37-aa64-7f4d-2ace">
               <characteristics>
                 <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Fist of the God-Emperor" hidden="false" id="2c76-3c2f-6abc-471b">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="36d3-36bc-68dd-40ac" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+          </costs>
+          <rules>
+            <rule name="Purge and Sanctify" id="b63f-9548-4d44-f1e2" hidden="false">
+              <description>Each time a friendly **^^Crusader Squad^^** unit makes a surge move, instead of selecting a surge target, you can select the closest objective to that unit. When that unit makes that surge move, each model in that unit must end that surge move as close as possible to that objective instead.
+
+**Restrictions:** Your army can include **^^Black Templars^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
+            </rule>
+            <rule name="Doctrinal Flexibility (Stratagem, 1CP)" id="f736-6a03-f533-d398" hidden="false">
+              <comment>strat-timing: turn=your phase=command</comment>
+              <description>Fist of the God-Emperor – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly CRUSADER SQUAD unit.
+EFFECT: Select one combat doctrine. That combat doctrine is active for your unit until the start of your next Command phase.</description>
+            </rule>
+            <rule name="Angels Defiant (Stratagem, 1CP)" id="662c-06b4-db69-c608" hidden="false">
+              <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;Angels Defiant&quot; wound=-1 vsStronger conditional</comment>
+              <description>Fist of the God-Emperor – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly CRUSADER SQUAD unit.
+TARGET: That CRUSADER SQUAD unit.
+EFFECT: Attacks that target your unit with a S greater than your unit’s T have -1 to wound rolls.</description>
+            </rule>
+            <rule name="Avowed Destruction (Stratagem, 1CP)" id="60e9-7991-7dd0-38b7" hidden="false">
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Avowed Destruction&quot; lethal when=melee conditional choice=&quot;Avowed Destruction&quot;
+sim-mod: source=&quot;Avowed Destruction&quot; sustained=1 when=melee conditional choice=&quot;Avowed Destruction&quot;</comment>
+              <description>Fist of the God-Emperor – STRATAGEM (1CP)
+
+WHEN: The Fight phase, when a friendly CRUSADER SQUAD unit is selected to fight.
+TARGET: That CRUSADER SQUAD unit.
+EFFECT: Your unit’s melee attacks:
+■ Have [LETHAL HITS].
+■ Or: Have [SUSTAINED HITS 1].</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="8d77-4a20-69d2-e366">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Vow-sworn Crusaders" hidden="false" id="970b-67c8-54db-f4e1">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="36d3-36bc-68dd-40ac" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+          <costs>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
+          </costs>
+          <rules>
+            <rule name="Templar Vows" id="9212-3991-8940-b27e" hidden="false">
+              <comment>sim-mod: source=&quot;Templar Vows (Abhor the Witch)&quot; wound=+1 when=melee onCharge vs=Psyker choice=&quot;Templar Vows&quot;
+sim-mod: source=&quot;Templar Vows (Accept Any Challenge)&quot; wound=+1 when=melee vsTougher conditional choice=&quot;Templar Vows&quot;</comment>
+              <description>At the start of the first battle round, you can select one Vow listed below. That Vow is active for friendly **^^Adeptus Astartes^^** units until the end of the battle.
+
+**Abhor the Witch, Destroy the Witch**
+This unit’s melee attacks that target a **^^Psyker^^** unit:
+■ Have **[PRECISION]**.
+■ Have **[LANCE]**.
+
+**Accept Any Challenge, No Matter the Odds**
+Friendly melee attacks that target a unit with a T greater than this unit’s S have +1 to wound rolls.
+
+**Uphold the Honour of the Emperor**
+Friendly **^^Infantry^^** units have:
+■ At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.
+■ When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to start an action.
+
+**Restrictions:** Your army can include **^^Black Templars^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
+            </rule>
+            <rule name="Dread Crusaders (Stratagem, 1CP)" id="97ee-7e65-a719-fd38" hidden="false">
+              <comment>strat-timing: turn=opponent phase=charge</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Charge phase, when an enemy unit selects charge targets.
+TARGET: One ADEPTUS ASTARTES INFANTRY unit that was selected as a charge target by that enemy unit this phase.
+EFFECT: That enemy unit must make a battle-shock roll, with -1 to that battle-shock roll.</description>
+            </rule>
+            <rule name="For the Emperor&apos;s Honour! (Stratagem, 1CP)" id="04b2-2110-183f-735d" hidden="false">
+              <comment>strat-timing: turn=either phase=fight</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: The Fight phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to fight.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Your unit’s melee attacks have [PRECISION].</description>
+            </rule>
+            <rule name="Heresy Begets Retribution (Stratagem, 1CP)" id="31db-b3a9-964e-3859" hidden="false">
+              <comment>strat-timing: turn=opponent phase=movement</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: Your opponent’s Movement phase, when an enemy unit ends a move within 8&quot; of a friendly ADEPTUS ASTARTES INFANTRY unit.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
+            </rule>
+            <rule name="Spoor of the Unholy (Stratagem, 1CP)" id="d4d9-ae2f-8323-2478" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting|fight</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to attack.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit can ignore modifiers to your unit’s:
+■ BS and WS.
+■ Hit rolls.</description>
+            </rule>
+            <rule name="Pious Enmity (Stratagem, 1CP)" id="56d7-9f4f-5deb-c0ca" hidden="false">
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Pious Enmity&quot; reroll=hit1 when=melee conditional choice=&quot;Pious Enmity&quot;
+sim-mod: source=&quot;Pious Enmity (Monster/Vehicle)&quot; reroll=hit1 reroll=wound1 when=melee vs=Monster,Vehicle conditional choice=&quot;Pious Enmity&quot;</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: Fight phase, when a friendly CHAPLAIN/JUDICIAR unit is selected to fight.
+TARGET: That CHAPLAIN/JUDICIAR unit.
+EFFECT: ■ Your unit’s melee attacks can re-roll hit rolls of 1.
+■ Or: Your unit’s melee attacks that target a MONSTER/VEHICLE unit can re-roll hit rolls of 1 and wound rolls of 1.</description>
+            </rule>
+            <rule name="Devout Push (Stratagem, 1CP)" id="8543-baf8-5ca8-7935" hidden="false">
+              <comment>strat-timing: turn=either phase=fight</comment>
+              <description>Vow-sworn Crusaders – STRATAGEM (1CP)
+
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to make a pile-in/consolidation move.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: When making that pile-in/consolidation move, your unit can move up to D3+3&quot;.</description>
+            </rule>
+          </rules>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="eb6d-ab05-befc-9e48">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Purge the Foe</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -26859,6 +27022,233 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c1a3-dcf2-c1e8-244b"/>
           </constraints>
           <selectionEntries></selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Fist of the God-Emperor Enhancements" id="e2cf-e50a-d073-b6e8" hidden="false">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="2c76-3c2f-6abc-471b" shared="true" id="f850-5df4-6834-4c8f" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="d39c-9989-db7f-d815" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="62ac-ef42-27b4-ae7" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="a0d9-c115-2a-8330" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="1a2d-2f00-c054-4dcb" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="65e4-13-4fa8-b36c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="b88e-1b0c-b79f-5cdf" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="97aa-d0e4-71c7-96c3" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="aab1-4f05-fabe-5ba5" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="5c0e-2250-dd3a-1df9" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="84b7-7194-3b84-1b0c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="8ff0-ffd2-4e40-ee75" shared="true" childName="Faction: Raptors"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="04e6-516d-e0ad-1b57" shared="true" childName="Faction: Tome Keepers"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="07ac-4fd9-cc54-60e2"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Oathbound Exemplar" hidden="false" id="ae60-c0cd-4517-e3ad">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="87b6-be61-10b7-15ff" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Oathbound Exemplar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="66fb-1e1a-fbad-3045">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Infantry^^** unit only. When this unit is selected to make an advance/fall-back move, that advance/fall-back move does not prevent this unit from being eligible to start an action.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditionGroups>
+                        <conditionGroup type="or">
+                          <conditions>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="ab53-f7d8-ddd3-eba5" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Vow-sworn Crusaders Enhancements" id="e44f-fc4e-bad2-758f" hidden="false">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="970b-67c8-54db-f4e1" shared="true" id="f67e-d334-42ba-26f3" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="d39c-9989-db7f-d815" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="62ac-ef42-27b4-ae7" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="a0d9-c115-2a-8330" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="1a2d-2f00-c054-4dcb" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="65e4-13-4fa8-b36c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="b88e-1b0c-b79f-5cdf" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="97aa-d0e4-71c7-96c3" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="aab1-4f05-fabe-5ba5" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="5c0e-2250-dd3a-1df9" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="84b7-7194-3b84-1b0c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="8ff0-ffd2-4e40-ee75" shared="true" childName="Faction: Raptors"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="parent" childId="04e6-516d-e0ad-1b57" shared="true" childName="Faction: Tome Keepers"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5b83-ebef-6a97-9441"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Augury Servo-host" hidden="false" id="ed95-3bf0-6c3e-5c9e">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="eb52-bcab-84b2-b178" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Augury Servo-host" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aa09-928d-2247-6e09">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. In your Shooting phase, you can select one visible enemy unit within 18&quot; of this unit. That enemy unit cannot have the benefit of cover.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="f1b5-0aee-17f2-0978" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Consecrating Aura" hidden="false" id="65bd-b1de-d2d8-e322">
+              <comment>def-mod: source=&quot;Consecrating Aura&quot; inv=5</comment>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1e41-7ae7-8529-6db6" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Consecrating Aura" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fd37-0c79-83e0-0568">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit has 5+ InSv.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="62d0-63aa-aece-5236" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Incendiary Animus" hidden="false" id="30e3-9269-2e6c-10ee">
+              <comment>sim-mod: source=&quot;Incendiary Animus&quot; str=+1 when=melee</comment>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b54b-c4f8-64d9-4c1c" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Incendiary Animus" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f513-8151-a17b-d768">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Chaplain^^**/**^^Judiciar^^** model only. This unit’s melee attacks have +1 S.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditionGroups>
+                        <conditionGroup type="or">
+                          <conditions>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="1fb1-3603-a4bd-485" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                          </conditions>
+                        </conditionGroup>
+                        <conditionGroup type="or">
+                          <conditions>
+                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="258c-ef74-d5f1-3a61" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="b491-bd61-304f-e508" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Zealous Vanguard" hidden="false" id="dddf-e7a4-0a0d-891e">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="9882-4e07-717e-091d" includeChildSelections="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Zealous Vanguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0dec-81b6-5951-9379">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit has Scouts 6&quot;.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="f5fe-1f7d-8ed0-e070" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
         </selectionEntryGroup>
         <selectionEntryGroup name="Champions of Fenris Enhancements" id="6ac8-5019-a078-1744" hidden="false">
           <selectionEntries></selectionEntries>
