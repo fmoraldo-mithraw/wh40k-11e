@@ -154,7 +154,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High K
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Cleave 1</characteristic>
           </characteristics>
         </profile>
         <profile name="➤ Axe Morkai - Strike" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="874c-cc10-33f5-b18">
@@ -162,7 +162,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High K
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -1913,7 +1913,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
@@ -4020,7 +4020,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -4372,27 +4372,39 @@ invuln: 4+</comment>
                 </profile>
               </profiles>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Thunder Hammer" hidden="false" id="3bdc-fa9f-2fc7-6d9c">
+                <selectionEntry type="upgrade" import="true" name="Wulfen Hammer" hidden="false" id="3bdc-fa9f-2fc7-6d9c">
                   <entryLinks></entryLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6230-85e1-0d06-5612-min" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6230-85e1-0d06-5612-max" includeChildSelections="false"/>
                   </constraints>
                   <profiles>
-                    <profile name="Thunder Hammer" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9b2a-88e4-c261-9290">
+                    <profile name="➤ Wulfen Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9b2a-88e4-c261-9290">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster 3+, Anti-Vehicle 3+</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="➤ Wulfen Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="a65c-9d47-68ec-f8e3">
+                      <characteristics>
+                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                        <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds, Hunter (MONSTER/VEHICLE)</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
                     <infoLink name="Anti-" id="e743-c9d5-8aab-2d04" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
+                    <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="c7c6-288d-f1f5-03c1" targetId="0d1a-9f3b-7c40-1c06"/>
                   </infoLinks>
                 </selectionEntry>
               </selectionEntries>
@@ -4409,27 +4421,39 @@ invuln: 4+</comment>
                 </entryLink>
               </entryLinks>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Thunder Hammer" hidden="false" id="5e34-f29a-ccbe-0bcf">
+                <selectionEntry type="upgrade" import="true" name="Wulfen Hammer" hidden="false" id="5e34-f29a-ccbe-0bcf">
                   <entryLinks></entryLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4dbd-dfae-d067-9852-min" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4dbd-dfae-d067-9852-max" includeChildSelections="false"/>
                   </constraints>
                   <profiles>
-                    <profile name="Thunder Hammer" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="399d-8b2b-88e7-0792">
+                    <profile name="➤ Wulfen Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="399d-8b2b-88e7-0792">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster 3+, Anti-Vehicle 3+</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
+                      </characteristics>
+                    </profile>
+                    <profile name="➤ Wulfen Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="837f-ba32-fa4f-0524">
+                      <characteristics>
+                        <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                        <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+                        <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                        <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds, Hunter (MONSTER/VEHICLE)</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
                   <infoLinks>
                     <infoLink name="Anti-" id="e573-89be-4c8b-d8ca" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
+                    <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="fa71-a063-3ee4-ac09" targetId="0d1a-9f3b-7c40-1c06"/>
                   </infoLinks>
                 </selectionEntry>
               </selectionEntries>
@@ -4933,7 +4957,7 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wolf Scout w/ haywire mine" hidden="false" id="dd91-ea35-42d8-fcd8">
       <entryLinks>
-        <entryLink import="true" name="Plasma pistol" hidden="false" id="0d9a-5bee-8037-6348" type="selectionEntry" targetId="25c2-104f-fa0c-809e" sortIndex="1">
+        <entryLink import="true" name="Plasma pistol" hidden="false" id="0d9a-5bee-8037-6348" type="selectionEntry" targetId="c27c-b505-4fd6-a143" sortIndex="1">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="bddd-d56d-e6a5-3bb7" includeChildSelections="false"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0937-76f3-4650-83c4" includeChildSelections="false"/>
@@ -5007,7 +5031,7 @@ invuln: 4+</comment>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
               </characteristics>
             </profile>
@@ -5025,12 +5049,12 @@ invuln: 4+</comment>
             <profile name="Thunderclap" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7fe8-1181-fd8c-2d82">
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
+                <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Psychic</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Psychic</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -5047,7 +5071,7 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wolf Scout" hidden="false" id="c374-ad8b-3d27-eb75" sortIndex="2">
       <entryLinks>
-        <entryLink import="true" name="Plasma pistol" hidden="false" id="d1a1-4a3d-f2db-84db" type="selectionEntry" targetId="25c2-104f-fa0c-809e" sortIndex="1">
+        <entryLink import="true" name="Plasma pistol" hidden="false" id="d1a1-4a3d-f2db-84db" type="selectionEntry" targetId="c27c-b505-4fd6-a143" sortIndex="1">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="96dc-afb5-f901-87e2-min" includeChildSelections="false"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="96dc-afb5-f901-87e2-max" includeChildSelections="false"/>
@@ -5067,7 +5091,7 @@ invuln: 4+</comment>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a423-1abf-9c07-e20c" includeChildSelections="false"/>
       </constraints>
       <entryLinks>
-        <entryLink import="true" name="Plasma pistol" hidden="false" id="d75a-9591-c11a-c99f" type="selectionEntry" targetId="25c2-104f-fa0c-809e" sortIndex="1">
+        <entryLink import="true" name="Plasma pistol" hidden="false" id="d75a-9591-c11a-c99f" type="selectionEntry" targetId="c27c-b505-4fd6-a143" sortIndex="1">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8b08-3c3a-2b97-3a08" includeChildSelections="false"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="af95-a9ea-40a9-cd7a" includeChildSelections="false"/>
@@ -5075,7 +5099,7 @@ invuln: 4+</comment>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1106-f2da-307b-0fa7-max" includeChildSelections="false"/>
           </constraints>
         </entryLink>
-        <entryLink import="true" name="Power weapon" hidden="false" id="28b4-8f6a-73c7-0406" type="selectionEntry" targetId="c4b5-68e-2266-f459" sortIndex="2">
+        <entryLink import="true" name="Power weapon" hidden="false" id="28b4-8f6a-73c7-0406" type="selectionEntry" targetId="50dd-3e76-d993-4d1a" sortIndex="2">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f895-7a68-4614-fb89-min" includeChildSelections="false"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f895-7a68-4614-fb89-max" includeChildSelections="false"/>
