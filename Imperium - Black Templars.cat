@@ -29,10 +29,11 @@
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry type="unit" import="true" name="Chaplain Grimaldus" hidden="false" id="8165-e372-4fd6-3274">
-      <comment>sim-mod: source=&quot;Litanies of the Devout&quot; reroll=hit when=melee whileLeading conditional
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
 invuln: 4+
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Litanies of the Devout&quot; reroll=hit when=melee whileLeading
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Litanies of the Devout | Cenobyte Faithful</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="8954-cb95-7729-897c" primary="false" name="Infantry"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="a8dd-4afa-2797-a6fa" primary="false" name="Imperium"/>
@@ -63,7 +64,7 @@ fnp: 5+</comment>
         </profile>
         <profile name="Litanies of the Devout" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a5bc-5224-a2e5-6173">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is leading a unit and contains a Chaplain Grimaldus model, each time a model in that unit makes a melee attack, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks can re-roll Hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Temple Relics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e00-2ac9-9892-856">
@@ -89,6 +90,11 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
 ■ Intercessor Squad
 ■ Crusader Squad
 ■ Sword Brethren</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Cenobyte Faithful" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ed84-58a7-58f5-eb76">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit&apos;s Chaplain Grimaldus model is destroyed, all Cenobyte Servitor models in this unit are destroyed. Cenobyte Servitor models take up no transport capacity.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -240,7 +246,9 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
     </selectionEntry>
     <selectionEntry type="model" import="true" name="High Marshal Helbrecht" hidden="false" id="da8a-de9f-1fe7-2513">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Crusade of Wrath&quot; attacks=+1 str=+1 when=melee whileLeading
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusade of Wrath</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -284,6 +292,11 @@ invuln: 4+</comment>
 ■ Intercessor Squad
 ■ Crusader Squad
 ■ Sword Brethren</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Crusade of Wrath" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d72-b99d-9520-b70f">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 A and +1 S.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -370,7 +383,8 @@ invuln: 4+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Crusader Squad" hidden="false" id="8bbe-e7fc-44b7-ed94">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righteous Zeal</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
       </costs>
@@ -744,7 +758,7 @@ invuln: 4+</comment>
       <profiles>
         <profile name="Righteous Zeal" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eb4a-e30-3fd1-5dec">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent's Shooting phase, each time an enemy unit has shot, if any models in this unit were destroyed as a result of those attacks, this unit can make a surge move of up to D6+2&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, each time an enemy unit has shot, if one or more models in this unit were destroyed as a result of those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -846,7 +860,8 @@ invuln: 4+</comment>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sword Brethren Squad" hidden="false" id="206c-6b4d-4aaa-7e79">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploit Their Cowardice</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="f9d2-a24f-a67f-35ea" primary="true" name="Infantry"/>
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="e072-bbdd-1eae-c45d" primary="false" name="Grenades"/>
@@ -863,7 +878,7 @@ invuln: 4+</comment>
       <profiles>
         <profile name="Exploit Their Cowardice" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="de7b-731d-90db-dfd9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit within Engagement Range of this unit is selected to Fall Back, after it ends that Fall Back move, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, when an enemy unit that was within Engagement Range of this unit ends a Fall Back move, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1205,9 +1220,10 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Emperor&apos;s Champion" hidden="false" id="ca2f-f408-c1bd-b87f">
-      <comment>sim-mod: source=&quot;Sigismund&apos;s Heir&quot; dev when=melee oncePer=battle conditional
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+invuln: 4+
+def-mod: source=&quot;Armour of Faith&quot; dmg=-1
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour of Faith | Sigismund&apos;s Heir</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4203-5e64-70bd-9412"/>
       </constraints>
@@ -1224,15 +1240,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Armour of Faith" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fd9-3afc-fe70-7413">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per phase, when an attack is allocated to this model and the saving throw is failed, you can change the Damage characteristic of that attack to 0.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.</characteristic>
           </characteristics>
         </profile>
         <profile name="Sigismund&apos;s Heir" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fe37-8476-e585-39ac">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- When this unit declares a charge, if an enemy CHARACTER unit is within 12&quot; of this unit, you can use this part of this ability. If you do:
-  - This unit can re-roll that charge roll.
-  - This unit must end that charge move engaged with one or more of those enemy CHARACTER units.
-- (Once per battle, per army) In the Fight phase, when this unit is selected to fight, if this unit is engaged with a CHARACTER unit, you can use this part of this ability. If you do, this unit's melee attacks have [DEVASTATING WOUNDS].</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to Charge rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bf68-f429-d743-b6eb">
@@ -1461,10 +1474,10 @@ invuln: 4+</comment>
       <modifiers></modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Lancer" hidden="false" id="7dec-dc3d-c40a-8ce">
-      <comment>sim-mod: source=&quot;Aquilon Optics&quot; reroll=hit when=ranged conditional scope=model
-sim-mod: source=&quot;Aquilon Optics&quot; reroll=wound when=ranged conditional scope=model
-sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged conditional scope=model
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+sim-mod: source=&quot;Aquilon Optics&quot; reroll=hit when=ranged vs=Monster,Vehicle conditional scope=model
+sim-mod: source=&quot;Aquilon Optics&quot; reroll=wound when=ranged vs=Monster,Vehicle conditional scope=model
+sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Vehicle conditional scope=model</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="76d0-35e-b6cb-f41" primary="true" name="Vehicle"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="e7c5-23a0-2303-6d30" primary="false" name="Imperium"/>
@@ -1486,7 +1499,10 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
         </profile>
         <profile name="Aquilon Optics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6e41-bf9f-317c-e83f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model is selected to shoot, you can re-roll one Hit roll, you can re-roll one Wound roll and you can re-roll one Damage roll when resolving its attacks</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s ranged attacks that target a **^^Monster^^**/**^^Vehicle^^** unit can:
+■ Re-roll one hit roll.
+■ Re-roll one wound roll.
+■ Re-roll one damage roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1686,8 +1702,8 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Reaper" hidden="false" id="bfb6-4320-74cf-bbda">
-      <comment>sim-mod: source=&quot;Rotating Death&quot; sustained=2 weapon=&quot;twin heavy onslaught gatling cannon&quot; when=ranged conditional scope=model
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="65e4-b4e7-3940-bcfe"/>
       </constraints>
@@ -1726,9 +1742,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
           </characteristics>
         </profile>
-        <profile name="Rotating Death" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fba-bcd5-68e4-d3d8">
+        <profile name="Reaping Tally" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fba-bcd5-68e4-d3d8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model’s twin heavy onslaught gatling cannon has the [SUSTAINED HITS 2] ability when targeting Infantry units.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s ranged attacks that target a unit (excluding **^^Monster^^**/**^^Vehicle^^** units) have +1 AP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1903,8 +1919,8 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Valiant" hidden="false" id="5704-ffe4-4a53-8789">
-      <comment>sim-mod: source=&quot;Ferocious Assault&quot; hit=+1 weapon=&quot;twin las-talon&quot; conditional scope=model
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -1930,9 +1946,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
           </characteristics>
         </profile>
-        <profile name="Ferocious Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a51-6971-8406-6bd7">
+        <profile name="Priority Target Acquisition" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a51-6971-8406-6bd7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack with its twin las-talon that targets the closest eligible Monster or Vehicle unit, add 1 to the Hit roll</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s ranged attacks that target a unit within 12&quot; of this unit have +1 S.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2138,12 +2154,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
         </profile>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="81d0-6092-93e0-d602">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 TACTICUS or PHOBOS INFANTRY models. It cannot transport JUMP PACK models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Terminator^^**/**^^Jump Pack^^** models. Each **^^Gravis^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Assault Vehicle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5acc-d822-413-23b4">
+        <profile name="Rapid Disembarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5acc-d822-413-23b4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Units can disembark from this Transport after it has Advanced. Units that do so count as having made a Normal move, and cannot declare a charge that turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit ends an advance move, units embarked within this unit can make a shock disembark move.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2376,12 +2392,12 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
         </profile>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="30b7-f838-af91-b9ee">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 14 ADEPTUS ASTARTES INFANTRY models. Each JUMP PACK, GRAVIS or TERMINATOR model takes up the space of 2 models and each CENTURION model takes up the space of 3 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 14 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Jump Pack^^** models. Each **^^Gravis^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Stabilised Disembarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="302a-8708-2da5-e44">
+        <profile name="Combat Embarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="302a-8708-2da5-e44">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, each time and enemy unit is selected to shoot, after that unit has shot, if any of those attacks targeted this TRANSPORT, it can use this ability. If it does, any units embarked within it can disembark. When doing so, models in those units can be set up wholly within 6&quot; of this TRANSPORT and not within Engagement Range of one or more enemy units.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent’s Charge phase, when an enemy unit has selected charge targets, you can select one friendly unengaged **^^Adeptus Astartes^^** unit that was one of those charge targets and is eligible to embark within this **^^Transport^^**. If every model in that unit is within 3&quot; of this **^^Transport^^**, that unit can embark within this **^^Transport^^**. That enemy unit can then select new charge targets for that charge move.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2570,8 +2586,8 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Repulsor Executioner" hidden="false" id="a344-192f-aae2-16e5">
-      <comment>sim-mod: source=&quot;Interception Strike&quot; reroll=hit when=ranged conditional scope=model
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="265"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -2596,7 +2612,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       <profiles>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb6-c336-8334-c5ae">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Jump Pack^^** models. Each **^^Gravis^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Black Templars Repulsor Executioner" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3d12-9e55-7623-3bbb">
@@ -2609,9 +2625,9 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">5</characteristic>
           </characteristics>
         </profile>
-        <profile name="Interception Strike" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d94-8e40-fde1-8179">
+        <profile name="Executioner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d94-8e40-fde1-8179">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a unit that is within 12&quot; of one or more ADEPTUS ASTARTES units from your army, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit’s ranged attacks that target a unit not below half-strength have +1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2825,8 +2841,10 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Castellan" hidden="false" id="f151-e676-d3b8-200c">
-      <comment>sim-mod: source=&quot;Vehement Aggression&quot; reroll=hit whileLeading conditional
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+sim-mod: source=&quot;Vehement Aggression&quot; reroll=hit1 when=melee whileLeading
+sim-mod: source=&quot;Vehement Aggression&quot; reroll=wound1 when=melee whileLeading conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vehement Aggression</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -3006,7 +3024,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
         </profile>
         <profile name="Vehement Aggression" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9359-87bf-5148-e6d2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time that unit is selected to fight, take a Leadership test for that unit: if passed, until the end of the phase, each time a model in that unit makes an attack, you can re-roll the Hit roll; if failed, until the end of the phase, each time a model in that unit makes an attack, re-roll a Hit roll of 1</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, take a Leadership test for this unit. This unit&apos;s melee attacks can re-roll Hit rolls of 1; if that test is passed, this unit&apos;s melee attacks can instead re-roll Hit rolls of 1 and Wound rolls of 1.</characteristic>
           </characteristics>
         </profile>
         <profile name="Prioritised Eradication" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a65-fdc4-d7f2-6673">
@@ -3069,10 +3087,11 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Marshal" hidden="false" id="68dd-5f49-4f17-cd84">
-      <comment>sim-mod: source=&quot;Inspirational Exemplar&quot; crit-hit=5 when=melee whileLeading
-sim-mod: source=&quot;Pious Fervour&quot; attacks=+1 weapon=&quot;Master-Crafted Power Weapon&quot; when=melee conditional scope=model
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+invuln: 4+
+sim-mod: source=&quot;Inspirational Exemplar&quot; hit=+1 when=melee whileLeading
+sim-mod: source=&quot;Pious Fervour&quot; attacks=+1 when=melee conditional scope=model
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspirational Exemplar | Pious Fervour</comment>
       <entryLinks>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="8b05-b7bd-57e2-7841" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink id="4d37-8d48-6237-d61" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2">
@@ -3112,12 +3131,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Inspirational Exemplar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="33d5-9c8e-db2f-63b5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 to Hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Pious Fervour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae8f-82c1-8730-21fa">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model&apos;s unit is selected to fight, until the end of the phase, add 1 to the Attacks characteristic of this model&apos;s Master-Crafted Power Weapon for each enemy unit within 6&quot; of this model (to a maximum of +3)</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to fight, this model&apos;s melee attacks have +1 A for each enemy unit within 6&quot; of this model (to a maximum of +3 A).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3378,7 +3397,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Execrator" hidden="false" id="ea3d-f2b8-cce7-0762">
       <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+</comment>
+invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remorseless Persecution | Condemnatory Annihilation</comment>
       <profiles>
         <profile name="Execrator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3b94-7626-8244-76a7">
           <characteristics>
@@ -3400,12 +3420,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Remorseless Persecution" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0021-dd8f-9cd5-4221">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, that unit is eligible to declare a charge in a turn in which it Advanced</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit Advances, that Advance move does not prevent it from being eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Condemnatory Annihilation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ac40-1010-2b03-450d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model&apos;s unit has fought, if one or more enemy units were destroyed as a result of those attacks, each enemy unit within 6&quot; of this model must take a Battle-shock test</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After this unit has fought, if it destroyed one or more enemy models this phase, each enemy unit within Engagement Range of this model must take a Battle-shock test, subtracting 1 from that test.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3638,7 +3658,8 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Land Raider Crusader" hidden="false" id="8525-2de1-14fd-c1f5">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Legacy of Jerulas</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="230"/>
       </costs>
@@ -3657,7 +3678,7 @@ invuln: 4+</comment>
       <profiles>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7397-533d-3a83-bf7e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 16 Adeptus Astartes Infantry models. Each Jump Pack, Wulfen, Gravis or Terminator model takes up the space of 2 models and each Centurion model takes up the space of 3 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 16 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Jump Pack^^** models. Each **^^Gravis^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Land Raider Crusader" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="94e4-1047-6130-22f2">
@@ -3672,12 +3693,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Assault Ramp" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7df0-4662-8b36-0680">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit ends a normal move, units embarked within this unit can make an assault disembark move.</characteristic>
           </characteristics>
         </profile>
         <profile name="Legacy of Jerulas" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e70a-4ad3-4d62-ec51">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly model that disembarked from this TRANSPORT this turn makes an attack that targets that enemy unit, re-roll a Hit roll of 1 and a re-roll a Wound roll of 1</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly model that disembarked from this **^^Transport^^** this turn makes an attack that targets that enemy unit, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4483,7 +4504,8 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Crusade Ancient" hidden="false" id="dca2-b12f-d1a9-5822">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vengeful Exhortation | Martial Honour</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="03c9-e93f-4dde-10a4"/>
       </constraints>
@@ -4556,12 +4578,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Vengeful Exhortation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7e85-5ea3-c373-8407">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 4+, do not remove it from play, the destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, you can use this ability. If you do, each time a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6: on a 4+, do not remove that model from the battlefield; once this unit has fought, or at the end of the phase (whichever comes first), remove that model from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Martial Honour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="227f-7aee-2402-e4f5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time a model in this model&apos;s unit makes a melee attack that destroys one or more enemy units, until the end of the battle, while this model&apos;s unit is not Battle-shocked, add 5 to this model&apos;s Objective Control characteristic.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per army) If this unit&apos;s melee attacks destroyed an enemy unit this phase, you can use this ability. If you do, until the end of the battle, this model has +5 OC.</characteristic>
           </characteristics>
         </profile>
       </profiles>
