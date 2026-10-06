@@ -44,12 +44,42 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="24fb-6e93-80fe-7b0e"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Plasma cannon" hidden="false" type="selectionEntry" id="c8e8-e62f-1e5c-5832" targetId="fdd7-3066-57cc-ce52">
+    <selectionEntry type="upgrade" import="true" name="Plasma cannon" hidden="false" id="6a6c-8ffd-5bc0-b127" collective="false">
+      <infoLinks>
+        <infoLink name="Hazardous" id="07c0-0865-c2ae-1441" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+        <infoLink name="Blast" id="2b40-f094-a072-a6f1" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <profiles>
+        <profile name="➤ Plasma cannon - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ad81-9f4d-1d93-085b">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="bdf4-7f2c-5f7c-7a3f" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="9a95-880d-1168-b71d" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="d17d-04e0-b692-c1d9" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="7032-33c6-18f4-9d12" typeId="2229-f494-25db-c5d3">9</characteristic>
+            <characteristic name="AP" hidden="false" id="3487-d39b-83b0-8a4b" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" hidden="false" id="13de-386f-e50a-f311" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" hidden="false" id="a6c6-9c9b-96df-371b" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma cannon - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4268-c4fe-8001-99bb">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="9b2e-ea37-1e08-00d7" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="2ee0-5d51-b18f-2606" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="e414-d696-358b-cebc" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="47c5-1ef9-908f-d805" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" hidden="false" id="dd3e-7c6a-3f83-af1c" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" hidden="false" id="3300-3902-bf0b-6638" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" hidden="false" id="a619-4f4d-3193-9429" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks></categoryLinks>
+      <comment>BS3+</comment>
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e8b2-8dd7-c5a4-c30c"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="38a0-b614-f655-a690"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a964-a3c3-bb81-3b53"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="eb34-a008-bfe8-5134"/>
               </constraints>
-            </entryLink>
+    </selectionEntry>
             <entryLink import="true" name="Power Fist" hidden="false" id="2317-08cc-fb2b-ddf4" type="selectionEntry" targetId="f8d8-7e77-4b71-faac">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="27ad-293f-b823-8907"/>
@@ -93,24 +123,18 @@
           <infoLinks>
             <infoLink name="Anti-" hidden="false" type="rule" id="ec57-e2eb-9429-f273" targetId="4111-82e3-9444-e942"/>
           </infoLinks>
-          <profiles>
-            <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="a69d-646f-8acf-14c">
-              <characteristics>
-                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8+</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
+          <profiles></profiles>
           <entryLinks>
             <entryLink import="true" name="Assault Cannon" hidden="false" type="selectionEntry" id="36b7-be0e-c622-b224" targetId="b1c7-f5b7-e77d-94eb">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2b17-a5e-966e-35f7"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="133b-cd6c-eb4e-5131"/>
+              </constraints>
+            </entryLink>
+            <entryLink import="true" name="Chainfist" hidden="false" type="selectionEntry" id="5a76-8f1f-5ee1-48a4" targetId="cb6c-970e-444a-3ec3">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="37aa-44a9-4cb8-9aae"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="74ca-8f64-b354-ba6c"/>
               </constraints>
             </entryLink>
           </entryLinks>
@@ -123,7 +147,7 @@
             <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="57d8-18ad-c7cc-f9dd">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
@@ -155,20 +179,14 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="425a-14d6-d51-7cd8"/>
               </constraints>
             </entryLink>
+            <entryLink import="true" name="Chainfist" hidden="false" type="selectionEntry" id="b8cb-db30-d9c9-e4a7" targetId="cb6c-970e-444a-3ec3">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b7d4-4063-75f2-3676"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5669-5d2f-53ea-d05c"/>
+              </constraints>
+            </entryLink>
           </entryLinks>
-          <profiles>
-            <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="81fe-a78d-ebae-e118">
-              <characteristics>
-                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8+</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
+          <profiles></profiles>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Heavy Flamer &amp; Power Weapon" hidden="false" id="56a9-4150-f61a-cfb0">
           <constraints>
@@ -186,7 +204,7 @@
             <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f392-8810-dbef-eac7">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
@@ -201,18 +219,66 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="24fb-6e93-80fe-7b0e"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Plasma cannon" hidden="false" type="selectionEntry" id="bb9b-51f8-92-c77" targetId="fdd7-3066-57cc-ce52">
+    <selectionEntry type="upgrade" import="true" name="Plasma cannon" hidden="false" id="b251-7fb0-e250-9e2c" collective="false">
+      <infoLinks>
+        <infoLink name="Hazardous" id="fccf-cfad-8637-5b87" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+        <infoLink name="Blast" id="f96b-7247-43ac-7391" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <profiles>
+        <profile name="➤ Plasma cannon - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="f362-583f-f0ea-5914">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="adf4-79c6-49d4-a772" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="8992-3cb9-bb63-3131" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="20d0-881a-0345-aa28" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="852b-870b-d9d2-89a7" typeId="2229-f494-25db-c5d3">9</characteristic>
+            <characteristic name="AP" hidden="false" id="72b7-5682-f4a2-b3d2" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" hidden="false" id="463c-735a-94b2-11d9" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" hidden="false" id="164c-7ca2-52af-c229" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma cannon - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="84c4-e9f9-1487-f45d">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="2e7b-67ba-9600-1499" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="ca17-1931-68d3-12cb" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="5b1e-2d79-7c29-1332" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="0778-aa87-a149-b801" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" hidden="false" id="578f-9bcc-6a0d-924f" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" hidden="false" id="2615-9cb9-cc20-8135" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" hidden="false" id="34f3-61d9-9abc-36d5" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks></categoryLinks>
+      <comment>BS3+</comment>
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e8b2-8dd7-c5a4-c30c"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="38a0-b614-f655-a690"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="dcc9-00a2-8c14-eb8f"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="03d3-2ddb-33a4-7269"/>
               </constraints>
-            </entryLink>
-            <entryLink import="true" name="Power Weapon" hidden="false" id="d8fd-17f3-4011-7e36" type="selectionEntry" targetId="50dd-3e76-d993-4d1a">
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="35ee-f9b5-bc79-c6e9" collective="true">
+      <profiles>
+        <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="25d5-1183-bf19-c1a4">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A4 WS 3+ Collective</comment>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="1753-cf66-be92-5106" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+        <categoryLink name="Power Weapon" hidden="false" id="c282-f298-0ba6-443f" targetId="72a2-ff76-451c-9d12" primary="false"/>
+      </categoryLinks>
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ccbe-c1b4-7c1d-93c9"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6abe-1d70-55c8-4aec"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8c8e-2baa-49b6-d7c8"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4b90-faac-3bed-1466"/>
               </constraints>
-            </entryLink>
+    </selectionEntry>
           </entryLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Plasma Cannon &amp; Chainfist" hidden="false" id="7a5-e256-10d4-14f0">
@@ -220,12 +286,42 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="24fb-6e93-80fe-7b0e"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Plasma cannon" hidden="false" type="selectionEntry" id="c99b-d36a-2eb8-30bf" targetId="fdd7-3066-57cc-ce52">
+    <selectionEntry type="upgrade" import="true" name="Plasma cannon" hidden="false" id="fc49-02c0-3f6c-885e" collective="false">
+      <infoLinks>
+        <infoLink name="Hazardous" id="4a84-6c68-ddc3-7786" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+        <infoLink name="Blast" id="a2c9-57d2-e86c-1b35" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <profiles>
+        <profile name="➤ Plasma cannon - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="453e-cdd5-be61-7faa">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="e706-950b-fc0e-f95e" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="8f84-315d-2b9b-394c" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="14c3-5110-a0ac-6888" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="661d-ee82-2792-0d1c" typeId="2229-f494-25db-c5d3">9</characteristic>
+            <characteristic name="AP" hidden="false" id="4261-8fcd-ff26-9813" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" hidden="false" id="2fc4-dec6-7cbe-c2dd" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" hidden="false" id="fd18-6a09-7bb2-22db" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma cannon - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9332-b2d5-0927-8edf">
+          <characteristics>
+            <characteristic name="Range" hidden="false" id="5611-d037-7509-b004" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" hidden="false" id="d1c0-5680-ba0e-5f3a" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" hidden="false" id="5779-121d-b387-d4de" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" hidden="false" id="af9d-7cdc-3a7e-6e2c" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" hidden="false" id="07fd-0d22-2e6b-a159" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" hidden="false" id="98fb-b780-58ae-cd57" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" hidden="false" id="618d-2d67-47d5-3c34" typeId="7f1b-8591-2fcf-d01c">Blast 1, Hazardous</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks></categoryLinks>
+      <comment>BS3+</comment>
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e8b2-8dd7-c5a4-c30c"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="38a0-b614-f655-a690"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f8b4-1579-d811-6957"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="06ba-1d49-e71f-112b"/>
               </constraints>
-            </entryLink>
+    </selectionEntry>
             <entryLink import="true" name="Chainfist" hidden="false" type="selectionEntry" id="e860-c9f4-45cd-684c" targetId="cb6c-970e-444a-3ec3">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2ab5-152b-303b-512b"/>
@@ -279,12 +375,30 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c4cc-6f5f-0762-48ba" includeChildSelections="false"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Power Weapon" hidden="false" id="94ee-0b80-4a0d-3e5e" type="selectionEntry" targetId="50dd-3e76-d993-4d1a">
+    <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="e2b6-579b-d0ef-b394" collective="true">
+      <profiles>
+        <profile name="Power Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="2b78-9e99-537a-9c2a">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A4 WS 3+ Collective</comment>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="208b-1de7-1f14-9c7d" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+        <categoryLink name="Power Weapon" hidden="false" id="f35f-2c79-8782-7df2" targetId="72a2-ff76-451c-9d12" primary="false"/>
+      </categoryLinks>
               <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c63e-3b3f-b74a-7d82" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="469d-3254-8772-dd10" includeChildSelections="false"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="504c-96ce-cb65-5de8" includeChildSelections="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c3f5-0e49-0cc4-ea40" includeChildSelections="false"/>
               </constraints>
-            </entryLink>
+    </selectionEntry>
           </entryLinks>
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
@@ -925,9 +1039,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -942,12 +1056,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
         <profile name="Heavy flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d291-71e5-1610-a4ce" publicationId="4115-3627-e608-39f6" page="29">
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -963,11 +1077,11 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Sustained Hits 1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="set" value="Sustained Hits 1" field="7f1b-8591-2fcf-d01c">
@@ -980,12 +1094,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
         <profile name="➤ Infernus heavy bolter - heavy flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dde2-d05e-7d2e-f4c6" publicationId="4115-3627-e608-39f6" page="29">
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
@@ -1022,7 +1136,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
             <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
           </characteristics>
         </profile>
         <profile name="➤ Plasma pistol - Supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4aed-ac70-60c-ae7b" publicationId="4115-3627-e608-39f6" page="29">
@@ -1033,7 +1147,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
             <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Hazardous</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1386,7 +1500,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactic
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -1600,28 +1714,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c208-5357-d380-ac83"/>
                       </constraints>
                       <selectionEntries>
-                        <selectionEntry type="upgrade" import="true" name="Chainfist" hidden="false" id="a8c8-531b-a4b-fcb5">
-                          <profiles>
-                            <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9ba4-fd5d-776e-a9d8">
-                              <characteristics>
-                                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                                <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8+</characteristic>
-                                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
-                              </characteristics>
-                            </profile>
-                          </profiles>
-                          <constraints>
-                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7f31-22a0-780-2958"/>
-                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7b0c-6b87-b6e8-109b"/>
-                          </constraints>
-                          <infoLinks>
-                            <infoLink name="Anti-" id="c049-62fb-2b4d-5279" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-                          </infoLinks>
-                        </selectionEntry>
                         <selectionEntry type="upgrade" import="true" name="Storm Bolter" hidden="false" id="58a9-fab4-eba8-8c6">
                           <constraints>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="92bb-baef-fae5-420"/>
@@ -1633,6 +1725,14 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                           </infoLinks>
                         </selectionEntry>
                       </selectionEntries>
+                      <entryLinks>
+                        <entryLink import="true" name="Chainfist" hidden="false" type="selectionEntry" id="8a88-ac8a-ce67-2a83" targetId="cb6c-970e-444a-3ec3">
+                          <constraints>
+                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d4dc-cc37-9daa-f93c"/>
+                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9121-459e-32bc-6a29"/>
+                          </constraints>
+                        </entryLink>
+                      </entryLinks>
                     </selectionEntry>
                   </selectionEntries>
                   <constraints>
@@ -1820,29 +1920,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="911e-1aa0-4bf8-5638"/>
                       </constraints>
                       <selectionEntries>
-                        <selectionEntry type="upgrade" import="true" name="Chainfist" hidden="false" id="fdae-d3a9-c43d-0d92">
-                          <profiles>
-                            <profile name="Chainfist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8573-3307-c57c-7003">
-                              <characteristics>
-                                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                                <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8+</characteristic>
-                                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 3+</characteristic>
-                              </characteristics>
-                            </profile>
-                          </profiles>
-                          <constraints>
-                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f1b6-3095-569f-fd14"/>
-                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ec7e-f527-6b71-3c27"/>
-                          </constraints>
-                          <infoLinks>
-                            <infoLink name="Anti-" id="2503-7255-38ca-8331" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-                          </infoLinks>
-                          <entryLinks></entryLinks>
-                        </selectionEntry>
                         <selectionEntry type="upgrade" import="true" name="Storm Bolter" hidden="false" id="eda3-4972-c510-afc1">
                           <constraints>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7de0-38e1-9c26-674a"/>
@@ -1855,6 +1932,14 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                           <entryLinks></entryLinks>
                         </selectionEntry>
                       </selectionEntries>
+                      <entryLinks>
+                        <entryLink import="true" name="Chainfist" hidden="false" type="selectionEntry" id="4c9d-f925-6a9a-b35a" targetId="cb6c-970e-444a-3ec3">
+                          <constraints>
+                            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="13df-4727-884a-7293"/>
+                            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c456-d614-09a6-a8e5"/>
+                          </constraints>
+                        </entryLink>
+                      </entryLinks>
                     </selectionEntry>
                   </selectionEntries>
                   <constraints>
@@ -1862,7 +1947,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c92d-1d94-0caf-4da9"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Twin Lightning Claws" hidden="false" id="babe-d0fa-9769-a205" type="selectionEntry" targetId="130e-9b77-584-a15b">
+                    <entryLink import="true" name="Twin Lightning Claws" hidden="false" id="babe-d0fa-9769-a205" type="selectionEntry" targetId="6c8d-3bcf-4b4e-1d5f">
                       <constraints>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2269-9c34-0f35-ed78"/>
                       </constraints>
@@ -1968,12 +2053,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
         <profile name="Boltgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a52-b080-e77f-d369">
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2129,7 +2214,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="72d0-79e0-9a9a-3b2d" includeChildSelections="false"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Castellan Launcher" hidden="false" id="4bbe-a651-0949-34cd" type="selectionEntry" targetId="566c-9e8f-3121-93b0">
+                    <entryLink import="true" name="Castellan Launcher" hidden="false" id="4bbe-a651-0949-34cd" type="selectionEntry" targetId="15f2-956f-db43-0e43">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6fb2-c11c-7717-d8d2-min" includeChildSelections="false"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6fb2-c11c-7717-d8d2-max" includeChildSelections="false"/>
@@ -2146,12 +2231,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                         <profile name="Superfrag missile launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4aaf-3138-04dc-608f">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Heavy</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Heavy</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -2182,7 +2267,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fb15-c4ae-9582-3d6a" includeChildSelections="false"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Castellan Launcher" hidden="false" id="0915-80ce-d6c4-31c1" type="selectionEntry" targetId="566c-9e8f-3121-93b0">
+                    <entryLink import="true" name="Castellan Launcher" hidden="false" id="0915-80ce-d6c4-31c1" type="selectionEntry" targetId="15f2-956f-db43-0e43">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="73ed-0f6e-7c89-6841" includeChildSelections="false"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a3c6-7a3e-8c78-ca02" includeChildSelections="false"/>
@@ -2200,10 +2285,10 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+3</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
                           </characteristics>
                         </profile>
@@ -2358,12 +2443,31 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3b9c-0eab-5b7b-b186"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Pyreblaster" hidden="false" id="6b9e-b8c6-f7ad-228d" type="selectionEntry" targetId="2737-cb80-0c3a-3dfa">
+    <selectionEntry type="upgrade" import="true" name="Pyreblaster" hidden="false" id="fa34-da3e-e4d6-49ac" collective="true">
+      <profiles>
+        <profile name="Pyreblaster" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0828-ebdf-4284-333c">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Torrent" id="2c5b-ddc5-e5a2-5bea" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
+        <infoLink name="Blast" hidden="false" type="rule" id="4ea9-ba3e-19ef-9dd9" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <categoryLinks></categoryLinks>
+      <comment>AP0</comment>
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6526-4db5-bfc3-ecf5-min" includeChildSelections="false"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6526-4db5-bfc3-ecf5-max" includeChildSelections="false"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7e0a-1429-ecd7-14c6" includeChildSelections="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ba1b-9b16-0e87-0a20" includeChildSelections="false"/>
                   </constraints>
-                </entryLink>
+    </selectionEntry>
               </entryLinks>
               <infoLinks>
                 <infoLink name="Kill Team Intercessor" id="a356-2611-17d6-3af9" hidden="false" type="profile" targetId="c06b-bca8-50c3-b63e"/>
@@ -2439,7 +2543,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
                 <entryLink import="true" name="Close combat weapon" hidden="false" id="bc0c-9310-bfcf-de55" type="selectionEntry" targetId="6c7d-af5b-482-6fbe">
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Power Weapon" hidden="false" id="d15a-fe2c-0919-d1e7" type="selectionEntry" targetId="c4b5-68e-2266-f459">
+                <entryLink import="true" name="Power Weapon" hidden="false" id="d15a-fe2c-0919-d1e7" type="selectionEntry" targetId="50dd-3e76-d993-4d1a">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Power Fist" hidden="false" id="2a09-1ff8-5023-6bed" type="selectionEntry" targetId="f8d8-7e77-4b71-faac">
@@ -2459,7 +2563,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Telepo
             </selectionEntryGroup>
           </selectionEntryGroups>
           <entryLinks>
-            <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="ab02-913c-6cba-5d5c" type="selectionEntry" targetId="7ada-b56b-bb4b-13be">
+            <entryLink import="true" name="Astartes grenade launcher" hidden="false" id="ab02-913c-6cba-5d5c" type="selectionEntry" targetId="d9f0-dd99-0509-96d4">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="a077-e1c9-f8f0-d38" shared="true" id="8293-0f24-5332-443f" includeChildSelections="true"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5a06-a34a-5324-b64d" includeChildSelections="false"/>
@@ -2778,15 +2882,26 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Indomi
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5db0-86c7-af77-7445"/>
                       </constraints>
                       <profiles>
-                        <profile name="Flamestorm gauntlets" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="567f-9ebe-d264-bbc5" publicationId="4115-3627-e608-39f6" page="25">
+                        <profile name="➤ Flamestorm gauntlets - Close-Quarters" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="567f-9ebe-d264-bbc5" publicationId="4115-3627-e608-39f6" page="25">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent, Twin-linked</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Torrent, Twin-linked</characteristic>
+                          </characteristics>
+                        </profile>
+                        <profile name="➤ Flamestorm gauntlets - Ranged" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4096-719d-0081-46b3" publicationId="4115-3627-e608-39f6" page="25">
+                          <characteristics>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2, Torrent, Twin-linked</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -3792,7 +3907,7 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -4307,7 +4422,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                       </constraints>
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Combi-weapon" hidden="false" id="f53f-9253-6994-820d" type="selectionEntry" targetId="716b-e411-72e7-1eb7">
+                    <entryLink import="true" name="Combi-weapon" hidden="false" id="f53f-9253-6994-820d" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3364-b9ae-362e-04d8" includeChildSelections="false"/>
                       </constraints>
@@ -4337,7 +4452,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                       </constraints>
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Combi-weapon" hidden="false" id="010d-7f32-d6d5-9833" type="selectionEntry" targetId="716b-e411-72e7-1eb7">
+                    <entryLink import="true" name="Combi-weapon" hidden="false" id="010d-7f32-d6d5-9833" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="28c3-9483-54ad-f530" includeChildSelections="false"/>
                       </constraints>
@@ -4361,7 +4476,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                 </selectionEntry>
                 <selectionEntry type="model" import="true" name="Sgt w/ Astartes shield and combi-weapon" hidden="false" id="9496-f6ed-9ea0-d750" publicationId="4115-3627-e608-39f6" page="13">
                   <entryLinks>
-                    <entryLink import="true" name="Combi-weapon" hidden="false" id="a592-ddbf-c8eb-9a9b" type="selectionEntry" targetId="716b-e411-72e7-1eb7">
+                    <entryLink import="true" name="Combi-weapon" hidden="false" id="a592-ddbf-c8eb-9a9b" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fe9e-b9e0-50d6-d8bb" includeChildSelections="false"/>
                       </constraints>
@@ -4533,30 +4648,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
       <infoLinks>
         <infoLink name="Devastating Wounds" id="d75c-7b3c-3eea-4ebd" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
       </infoLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Combi-weapon" hidden="false" id="716b-e411-72e7-1eb7">
-      <comment>4+</comment>
-      <profiles>
-        <profile name="Combi-weapon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0477-9238-8186-803c" publicationId="4115-3627-e608-39f6" page="29">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Infantry 4+, Devastating Wounds, Rapid Fire 1</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Devastating Wounds" id="807f-4b02-059e-ae91" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-        <infoLink name="Anti-" id="79c3-a86e-40c8-c752" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-        <infoLink name="Rapid Fire" id="cae0-29f5-07b7-84a0" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
-      </infoLinks>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d16d-9725-d91a-081f" includeChildSelections="false"/>
-      </constraints>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Talonstrike Kill Team" hidden="false" id="c679-f252-32b1-ebcc">
       <comment>sim-mod: source=&quot;Talonstrike Doctrines&quot; ap=+1 conditional</comment>
@@ -5358,8 +5449,8 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5415,10 +5506,10 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5502,12 +5593,12 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                 <profile name="Frag cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="67b7-65e7-6a7a-d4d8">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Heavy, Lethal Hits, Rapid Fire D3</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Heavy, Lethal Hits, Rapid Fire 1</characteristic>
                   </characteristics>
                   <modifiers>
                     <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
@@ -5560,12 +5651,12 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                     <profile name="➤ Astartes grenade launcher - frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="10a4-502b-1982-6f28">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
                       </characteristics>
                     </profile>
                     <profile name="➤ Astartes grenade launcher - krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9425-908b-ebed-31b6">
@@ -5573,10 +5664,10 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -5594,20 +5685,20 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
                   </characteristics>
                 </profile>
                 <profile name="➤ Infernus heavy bolter - heavy flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8c61-1566-94e0-0e97">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
                   </characteristics>
                   <modifiers>
                     <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
@@ -5663,10 +5754,10 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol, Lethal Hits</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5761,7 +5852,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Melta rifle" hidden="false" id="cde5-3f32-28da-0ac5" collective="true">
       <profiles>
-        <profile name="Melta rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="db7d-8e85-4ecd-f760">
+        <profile name="➤ Melta rifle - Standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="db7d-8e85-4ecd-f760">
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -5772,10 +5863,22 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 2</characteristic>
           </characteristics>
         </profile>
+        <profile name="➤ Melta rifle - Hunter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ee90-58b8-73df-29f7">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hunter (MONSTER/VEHICLE), Melta 2</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Heavy" id="31a7-1291-a734-574d" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
         <infoLink name="Melta" id="bd8a-2971-26c0-617f" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
+        <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="bf50-c764-0806-79c0" targetId="0d1a-9f3b-7c40-1c06"/>
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Damage Dx Weapon" hidden="false" id="68e6-db17-a55f-e8d7" targetId="4986-bf86-beb4-13ac" primary="false"/>
@@ -5844,8 +5947,8 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
       </characteristics>
