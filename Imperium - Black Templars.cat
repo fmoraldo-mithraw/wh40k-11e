@@ -143,7 +143,7 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Hazardous</characteristic>
                   </characteristics>
                 </profile>
                 <profile id="5a7f-a6fe-4efc-5a7d" name="➤ Plasma Pistol - Standard" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -154,7 +154,7 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -438,7 +438,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                     <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" type="selectionEntry" id="97be-d160-ab37-1b1e" targetId="3b8f-1cb7-3c6e-4455">
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Pyre Pistol" hidden="false" type="selectionEntry" id="3c66-c41-31c4-a826" targetId="bb21-4114-6b0c-634d">
+                    <entryLink import="true" name="Light Flamer" hidden="false" type="selectionEntry" id="3c66-c41-31c4-a826" targetId="bb21-4114-6b0c-634d">
                       <entryLinks></entryLinks>
                     </entryLink>
                   </entryLinks>
@@ -604,12 +604,31 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4af5-97b7-110b-27c0" includeChildSelections="false"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Pyreblaster" hidden="false" id="897e-1046-d866-1e9b" type="selectionEntry" targetId="2737-cb80-0c3a-3dfa">
+    <selectionEntry type="upgrade" import="true" name="Pyreblaster" hidden="false" id="f6cb-54d4-aaf9-88b3" collective="true">
+      <profiles>
+        <profile name="Pyreblaster" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7fba-ee39-272b-18a3">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Torrent" id="bcba-9cd1-298b-dbc6" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
+        <infoLink name="Blast" hidden="false" type="rule" id="714b-c1ba-aea8-1725" targetId="6c1f-1cf7-ff25-c99e"/>
+      </infoLinks>
+      <categoryLinks></categoryLinks>
+      <comment>AP0</comment>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b891-9203-2406-72c1"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d7e8-d6d9-be97-9d2e"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="266f-5321-0521-c2c8"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4b59-1e67-3fd8-a251"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                   </entryLinks>
                   <modifiers>
                     <modifier type="set" value="4" field="4e33-906e-881e-be2b">
@@ -649,29 +668,46 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                     <constraint type="max" value="8" field="selections" scope="parent" shared="true" id="9fcb-2d15-e4db-5a17"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="d710-d1f-21c5-a0b1" targetId="6c7d-af5b-482-6fbe">
+    <selectionEntry type="upgrade" import="true" name="Combat knife" hidden="false" id="50f2-74a5-ae1a-f533" collective="true">
+      <profiles>
+        <profile name="Combat knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f4f9-f8f3-65c1-4542">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A3 WS 3+ Collective</comment>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="b2dc-a7dd-e2ef-d348" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="af76-815b-397a-d2e4"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d702-34fe-b425-e6a3"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b3f3-4fd0-e613-f0d6"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="bfaf-5ef4-db60-3096"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                   </entryLinks>
                   <selectionEntries>
-                    <selectionEntry type="upgrade" import="true" name="Neophyte Firearm" hidden="false" id="cbdf-607e-32f5-964e" collective="true">
+                    <selectionEntry type="upgrade" import="true" name="Shotgun" hidden="false" id="cbdf-607e-32f5-964e" collective="true">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4e67-d110-a5c1-4327"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ab1e-b02a-6085-8bf1"/>
                       </constraints>
                       <profiles>
-                        <profile name="Neophyte Firearm" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6b66-6f8e-2809-dfea">
+                        <profile name="Shotgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6b66-6f8e-2809-dfea">
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
+                            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Blast 1</characteristic>
                           </characteristics>
                         </profile>
                       </profiles>
@@ -704,12 +740,29 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="94aa-228d-fa08-13cf"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Astartes Chainsword" hidden="false" id="8b37-7207-8262-3b69" type="selectionEntry" targetId="731a-79db-4259-2dd4">
+    <selectionEntry type="upgrade" import="true" name="Neophyte Chainsword" hidden="false" id="7cc7-720c-6545-094d">
+      <profiles>
+        <profile name="Neophyte Chainsword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="945a-a57a-4ebb-2a7a">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Sustained Hits" id="4b81-bd1b-0a0f-7abf" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+      </infoLinks>
+      <comment>A4 WS3+ SusHits1</comment>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="54d1-6ac9-48f7-88de-min" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="54d1-6ac9-48f7-88de-max" includeChildSelections="false"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f955-d9ab-b02e-43e0" includeChildSelections="false"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b2a8-5dd5-c219-eee3" includeChildSelections="false"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                   </entryLinks>
                   <profiles>
                     <profile name="Neophyte" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="1f75-3cc0-3706-0807">
@@ -833,17 +886,17 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Pyre Pistol" hidden="false" id="bb21-4114-6b0c-634d">
+    <selectionEntry type="upgrade" import="true" name="Light Flamer" hidden="false" id="bb21-4114-6b0c-634d">
       <profiles>
-        <profile name="Pyre Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="62bd-9f6-bc09-5fd">
+        <profile name="Light Flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="62bd-9f6-bc09-5fd">
           <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">9&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Pistol, Torrent</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Torrent</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -918,7 +971,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
                       </modifiers>
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Pyre Pistol" hidden="false" type="selectionEntry" id="c2da-2af9-347f-8698" targetId="bb21-4114-6b0c-634d">
+                    <entryLink import="true" name="Light Flamer" hidden="false" type="selectionEntry" id="c2da-2af9-347f-8698" targetId="bb21-4114-6b0c-634d">
                       <constraints>
                         <constraint type="max" value="2" field="selections" scope="206c-6b4d-4aaa-7e79" shared="true" id="5377-c73c-cf9-8f5d" includeChildSelections="true"/>
                       </constraints>
@@ -1534,11 +1587,11 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
               </modifiers>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Icarus Rocket Pod" hidden="false" id="9d0-2034-31b5-dd36" type="selectionEntry" targetId="5afc-2af9-3bb7-d28f">
+            <entryLink import="true" name="Defensive Array" hidden="false" type="selectionEntry" id="c0a6-faef-2e5e-af9d" targetId="a890-e3c5-7165-b07a">
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e115-7094-79cc-d2a5"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="571a-6774-e7ad-0074"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fc0a-2bda-a88e-9895"/>
               </constraints>
-              <entryLinks></entryLinks>
             </entryLink>
           </entryLinks>
           <selectionEntries>
@@ -1569,9 +1622,6 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
           <selectionEntryGroups>
             <selectionEntryGroup name="Pintle Mount Option" id="855a-ed4d-f6ec-e6a1" hidden="false">
               <entryLinks>
-                <entryLink import="true" name="Ironhail Heavy Stubber" hidden="false" id="2a35-76f4-1e7b-2c26" type="selectionEntry" targetId="1c66-4903-10ca-2a27">
-                  <entryLinks></entryLinks>
-                </entryLink>
                 <entryLink import="true" name="Multi-melta" hidden="false" id="8d43-c098-fbb7-40a2" type="selectionEntry" targetId="395-4b75-b9b2-7a5c">
                   <entryLinks></entryLinks>
                   <costs>
@@ -1582,36 +1632,6 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9fba-9c16-bce9-fef6"/>
               </constraints>
-            </selectionEntryGroup>
-            <selectionEntryGroup name="Sponson Weapons" id="a6c6-38b-f9d2-a778" hidden="false" defaultSelectionEntryId="abd2-2ce6-1691-3f9d">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="75cc-d5b8-3f94-ae45"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ab14-8f06-7ad0-4da5"/>
-              </constraints>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="2 Fragstorm Grenade Launchers" hidden="false" id="1c04-55c9-791c-033d">
-                  <entryLinks>
-                    <entryLink import="true" name="Fragstorm grenade launcher" hidden="false" id="a2ad-13b2-17e5-c1a5" type="selectionEntry" targetId="2557-ebbd-6ea5-3785">
-                      <constraints>
-                        <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="33f0-372c-1885-3f13-min" includeChildSelections="false"/>
-                        <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="33f0-372c-1885-3f13-max" includeChildSelections="false"/>
-                      </constraints>
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                  </entryLinks>
-                </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="2 Storm Bolters" hidden="false" id="abd2-2ce6-1691-3f9d">
-                  <entryLinks>
-                    <entryLink import="true" name="Storm bolter" hidden="false" id="49ce-fc0e-79e3-18f0" type="selectionEntry" targetId="eb61-5cd0-5242-74cc">
-                      <constraints>
-                        <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="85de-2e2e-68be-a830-min" includeChildSelections="false"/>
-                        <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="85de-2e2e-68be-a830-max" includeChildSelections="false"/>
-                      </constraints>
-                      <entryLinks></entryLinks>
-                    </entryLink>
-                  </entryLinks>
-                </selectionEntry>
-              </selectionEntries>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntryGroup>
@@ -1761,29 +1781,23 @@ sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment
               </modifiers>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Icarus Rocket Pod" hidden="false" id="642d-c216-39b4-53ce" type="selectionEntry" targetId="5afc-2af9-3bb7-d28f">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8720-64b0-6152-f9b8"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
           </entryLinks>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Tempest Bolter" hidden="false" id="93e-fbbe-7176-a34e">
+            <selectionEntry type="upgrade" import="true" name="Defensive Array" hidden="false" id="93e-fbbe-7176-a34e">
               <constraints>
-                <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="17d0-5ef2-77f8-7cf5"/>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="e15-2c07-1cb3-7e1d"/>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="17d0-5ef2-77f8-7cf5"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e15-2c07-1cb3-7e1d"/>
               </constraints>
               <profiles>
-                <profile name="Tempest Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4dd0-ab3d-784d-3be1">
+                <profile name="Defensive Array" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4dd0-ab3d-784d-3be1">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">12</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 4</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 12</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1820,9 +1834,6 @@ sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment
           <selectionEntryGroups>
             <selectionEntryGroup name="Pintle Mount Option" id="8b6e-1810-8082-e758" hidden="false">
               <entryLinks>
-                <entryLink import="true" name="Ironhail Heavy Stubber" hidden="false" id="ec5d-19c-10fb-eb05" type="selectionEntry" targetId="1c66-4903-10ca-2a27">
-                  <entryLinks></entryLinks>
-                </entryLink>
                 <entryLink import="true" name="Multi-melta" hidden="false" id="5e93-9c5b-d950-d88d" type="selectionEntry" targetId="395-4b75-b9b2-7a5c">
                   <entryLinks></entryLinks>
                   <costs>
@@ -1980,17 +1991,17 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
               </modifiers>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Icarus Rocket Pod" hidden="false" id="4b41-f70d-b30-4a35" type="selectionEntry" targetId="5afc-2af9-3bb7-d28f">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f7f1-d4f-fcfe-a3aa"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
             <entryLink import="true" name="Multi-melta" hidden="false" id="833f-e7f6-8b91-2d28" type="selectionEntry" targetId="395-4b75-b9b2-7a5c">
               <entryLinks/>
               <constraints>
                 <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="b8dd-b93f-97cf-908e"/>
                 <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="5365-590e-75b8-2cb4"/>
+              </constraints>
+            </entryLink>
+            <entryLink import="true" name="Defensive Array" hidden="false" type="selectionEntry" id="00d3-750b-57ab-6c38" targetId="a890-e3c5-7165-b07a">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="501e-14a4-4b65-7346"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3345-4847-d137-5862"/>
               </constraints>
             </entryLink>
           </entryLinks>
@@ -2022,12 +2033,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
           <selectionEntryGroups>
             <selectionEntryGroup name="Pintle Mount Option" id="9b10-aced-7aeb-ba29" hidden="false">
               <entryLinks>
-                <entryLink import="true" name="Ironhail Heavy Stubber" hidden="false" id="f29e-b741-f0ba-8a25" type="selectionEntry" targetId="1c66-4903-10ca-2a27">
-                  <entryLinks></entryLinks>
-                  <constraints>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="252b-91b5-80ca-ab97" includeChildSelections="false"/>
-                  </constraints>
-                </entryLink>
                 <entryLink import="true" name="Multi-melta" hidden="false" id="3144-17de-9e9c-18fe" type="selectionEntry" targetId="395-4b75-b9b2-7a5c">
                   <entryLinks></entryLinks>
                   <constraints>
@@ -2222,12 +2227,12 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
                     <profile name="Ironhail Skytalon Array" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3601-616b-f5af-7d29">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">8</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Fly 4+, Sustained Hits 1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 6</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2445,7 +2450,7 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2f28-4547-b29d-94ad"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Repulsor Defensive Array" hidden="false" id="9ad7-97b1-0a12-6832" type="selectionEntry" targetId="1eaa-6dc9-f8bb-9c4a">
+            <entryLink import="true" name="Defensive Array" hidden="false" id="9ad7-97b1-0a12-6832" type="selectionEntry" targetId="26ed-c9f7-6bd4-497a">
               <entryLinks></entryLinks>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ca78-8ec7-fc95-e155"/>
@@ -2732,7 +2737,7 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">16</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+4</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Heavy</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2941,7 +2946,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Veheme
                 <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" id="ce2f-75d1-de96-3c26" type="selectionEntry" targetId="eca4-d5d2-18a1-01a8">
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Combi-weapon" hidden="false" id="3651-3813-60cb-703b" type="selectionEntry" targetId="242a-5001-f4ff-cd49">
+                <entryLink import="true" name="Combi-weapon" hidden="false" id="3651-3813-60cb-703b" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae">
                   <entryLinks></entryLinks>
                 </entryLink>
               </entryLinks>
@@ -3170,7 +3175,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspir
           <selectionEntryGroups>
             <selectionEntryGroup name="Ranged Weapon" id="c9cf-49ba-2389-88d2" hidden="false" defaultSelectionEntryId="9ffe-ab57-8e84-55aa">
               <entryLinks>
-                <entryLink import="true" name="Combi-weapon" hidden="false" id="6261-7afb-e272-28ce" type="selectionEntry" targetId="242a-5001-f4ff-cd49">
+                <entryLink import="true" name="Combi-weapon" hidden="false" id="6261-7afb-e272-28ce" type="selectionEntry" targetId="2c13-8cdd-f66b-bcae">
                   <entryLinks></entryLinks>
                 </entryLink>
               </entryLinks>
@@ -3351,29 +3356,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspir
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Combi-weapon" hidden="false" id="242a-5001-f4ff-cd49">
-      <infoLinks>
-        <infoLink name="Anti-" id="c18d-a5cf-4b34-9963" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-        <infoLink name="Rapid Fire" id="023d-6f9e-5d17-ac19" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
-        <infoLink name="Devastating Wounds" id="958e-440e-6daa-67a3" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-      </infoLinks>
-      <profiles>
-        <profile name="Combi-weapon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a668-202f-eb7b-4a41">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Infantry 4+, Devastating Wounds, Rapid Fire 1</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <categoryLinks>
-        <categoryLink name="Ranged Weapon" hidden="false" id="9ac6-8414-83d2-df31" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Heavy Bolt Pistol" hidden="false" id="6945-7bd0-7fa0-8674">
       <profiles>
         <profile name="Heavy Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3800-f335-e510-aaa6">
@@ -3508,7 +3490,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remors
           <selectionEntryGroups>
             <selectionEntryGroup name="Pistol" id="9b3f-80d8-ad90-5990" hidden="false" defaultSelectionEntryId="9a2e-2565-fdc4-4e81">
               <entryLinks>
-                <entryLink import="true" name="Pyre Pistol" hidden="false" id="cfe3-a0ee-85c3-cff5" type="selectionEntry" targetId="bb21-4114-6b0c-634d">
+                <entryLink import="true" name="Light Flamer" hidden="false" id="cfe3-a0ee-85c3-cff5" type="selectionEntry" targetId="bb21-4114-6b0c-634d">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Absolvor bolt pistol" hidden="false" id="9a2e-2565-fdc4-4e81" type="selectionEntry" targetId="a490-361-c9c4-afeb">
