@@ -557,7 +557,11 @@
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Watch Master" hidden="false" id="f7c3-45d2-a7ac-d8bc">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Watch Master&quot; reroll=hit1 vs=Character whileLeading
+sim-mod: source=&quot;Watch Master&quot; reroll=wound1 vs=Character whileLeading
+sim-mod: source=&quot;Purgatus Target&quot; reroll=wound1 whileLeading conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Strategic Knowledge | Watch Master | Purgatus Target</comment>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="468d-e565-4261-1362" primary="true" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="2329-ff0e-f491-e7ac" primary="false" name="Infantry"/>
@@ -586,12 +590,12 @@
         </profile>
         <profile name="Strategic Knowledge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e78f-da76-e79d-304a" publicationId="4115-3627-e608-39f6" page="7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s ranged attacks have **[ASSAULT]**. When this unit is selected to Advance, that Advance move does not prevent it from being eligible to declare a charge. When this unit is selected to Fall Back, that Fall Back move does not prevent it from being eligible to shoot and eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Watch Master" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d4de-4cfa-ee54-d422" publicationId="4115-3627-e608-39f6" page="7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks that target a **^^Character^^** unit can re-roll Hit rolls of 1 and Wound rolls of 1.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6240-ce76-8480-ccfe" publicationId="4115-3627-e608-39f6" page="8">
@@ -599,6 +603,13 @@
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
 - DEATHWATCH VETERANS
 - FORTIS KILL TEAM</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Purgatus Target" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb69-4370-77f4-bec7">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, you can select one enemy unit to be hunted by this unit:
+■ This unit&apos;s attacks that target its hunted unit can re-roll Wound rolls of 1.
+■ Each time this unit&apos;s hunted unit is destroyed, select one enemy unit to be hunted by this unit.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -777,9 +788,10 @@
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Watch Captain Artemis" hidden="false" id="3d7c-2de-31ea-b028">
-      <comment>sim-mod: source=&quot;Tactical Instinct&quot; lethal whileLeading
-invuln: 4+
-fnp: 6+</comment>
+      <comment>invuln: 4+
+fnp: 6+
+sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tactical Instinct | Unstoppable Champion</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -813,7 +825,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Tactical Instinct" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c481-d4ab-58f1-858d" publicationId="4115-3627-e608-39f6" page="9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, weapons equipped by models in that unit have the [LETHAL HITS] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks have **[SUSTAINED HITS 1]**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Watch Captain Artemis" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="9704-dfd4-a221-49c1" publicationId="4115-3627-e608-39f6" page="9">
@@ -828,7 +840,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Unstoppable Champion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="14e1-8336-a9b2-40c3" publicationId="4115-3627-e608-39f6" page="9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this model is destroyed, roll one D6 at the end of the phase. On a 2+, set this model back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 1 wound remaining.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per army) At the end of a phase in which this model was destroyed, roll one D6: on a 2+, set this model back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8863-f9da-9fe5-8262" publicationId="4115-3627-e608-39f6" page="10">
@@ -1052,6 +1064,7 @@ fnp: 6+</comment>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Corvus Blackstar" hidden="false" id="d861-972b-54f9-bdfa">
+      <comment>texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Blackstar Cluster Launcher | Transport</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
       </costs>
@@ -1089,7 +1102,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Blackstar Cluster Launcher" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2424-fdd-d5c0-1d78" publicationId="4115-3627-e608-39f6" page="19">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 5+, that unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit ends a Normal move, you can select one enemy unit it moved over during that move and roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
         <profile name="Damaged: 1-5 Wounds Remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4edc-8524-49f5-884a" publicationId="4115-3627-e608-39f6" page="19">
@@ -1099,7 +1112,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4d9c-b69c-4685-27b7" publicationId="4115-3627-e608-39f6" page="20">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 12 ADEPTUS ASTARTES INFANTRY or KILL TEAM models. Each JUMP PACK, GRAVIS or TERMINATOR model takes up the space of 2 models and each CENTURION model takes up the space of 3 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 12 **^^Deathwatch Infantry^^** models. Each **^^Gravis^^**/**^^Jump Pack^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1399,7 +1412,8 @@ fnp: 6+</comment>
       <comment>3/3/5/-2/1</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Deathwatch Terminator Squad" hidden="false" id="390e-706b-a059-378b">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Teleport Homer</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -1412,7 +1426,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Teleport Homer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="72d-cf90-8721-2810" publicationId="4115-3627-e608-39f6" page="16">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, you can set up one Teleport Homer token for this unit anywhere on the battlefield that is not in your opponent’s deployment zone. If you do, once per battle, you can target this unit with the Rapid Ingress Stratagem for 0CP, but when resolving that Stratagem, you must set this unit up within 3&quot; of that token and not within 8&quot; of any enemy models. That token is then removed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do, when you target this unit with the Rapid Ingress Stratagem, you can use that token: that use costs 1CP less, but when resolving that Stratagem, this unit must be set up within 3&quot; of that token and more than 8&quot; horizontally away from all enemy units; then remove that token. If an enemy unit ends a move within 1&quot; of that token, remove it from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f1f4-4cb5-6192-b88b" publicationId="4115-3627-e608-39f6" page="7">
@@ -2545,7 +2559,8 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Indomitor Kill Team" hidden="false" id="6cb-912c-c43-210b">
-      <comment>sim-mod: source=&quot;Indomitor Doctrines&quot; str=+2 conditional</comment>
+      <comment>sim-mod: source=&quot;Indomitor Doctrines&quot; str=+1 conditional
+texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Indomitor Doctrines</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
@@ -2562,7 +2577,7 @@ fnp: 6+</comment>
       <profiles>
         <profile name="Indomitor Doctrines" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f8b6-3181-7e49-fb57" publicationId="4115-3627-e608-39f6" page="25">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, improve the Strength characteristic of that attack by 2.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack that targets the closest eligible target, or makes a melee attack in a turn in which it made a Charge move, add 1 to the Strength characteristic of that attack.</characteristic>
           </characteristics>
         </profile>
         <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b8a4-e32-bbbb-4e78" publicationId="4115-3627-e608-39f6" page="24">
@@ -3063,6 +3078,7 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Spectrus Kill Team" hidden="false" id="2544-5189-7806-30f3">
+      <comment>texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Spectrus Doctrines | Specialist Optics and Munitions</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -3096,7 +3112,14 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
         </profile>
         <profile name="Spectrus Doctrines" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="afc0-1ac-ce23-3a4f" publicationId="4115-3627-e608-39f6" page="27">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent’s turn, if this unit is more than 6&quot; away from all enemy units, you can remove this unit from the battlefield and place it into Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Fight phase, if this unit is not within Engagement Range of one or more enemy units, you can place it into Strategic Reserves.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Specialist Optics and Munitions" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c427-edce-999d-355a">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when this unit is selected to shoot, you can select one of the following:
+■ This unit&apos;s ranged attacks have **[IGNORES COVER]**.
+■ Select one enemy unit within 24&quot; of this unit. That enemy unit has +6&quot; detection range until this unit has shot.</characteristic>
           </characteristics>
         </profile>
       </profiles>
