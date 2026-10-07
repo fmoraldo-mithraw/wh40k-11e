@@ -33,8 +33,7 @@
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Logan Grimnar" hidden="false" id="c65-46c6-3a62-80c">
-      <comment>invuln: 4+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High King of Fenris | Guile of the Wolf</comment>
+      <comment>invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -52,12 +51,31 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High K
       </categoryLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="f3ad-f021-1317-6179" targetId="caa-f869-3cbd-b48e"/>
-        <entryLink import="true" name="Storm bolter" hidden="false" type="selectionEntry" id="d785-d7df-e70b-a7fe" targetId="bfed-5ff7-8edd-d8f9">
+    <selectionEntry type="upgrade" import="true" name="Storm bolter" hidden="false" id="3f3a-137c-b968-a68d">
+      <profiles>
+        <profile name="Storm Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="41c7-e0cb-43c8-e5cd">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="cb7a-2f99-0ee6-037c" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="3891-e071-2665-02ea" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
           <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fa9e-2c70-d6e1-7f78"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a064-d8af-f18e-6a25"/>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4475-ef5c-f9a1-ac85"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2367-a976-5481-53bf"/>
           </constraints>
-        </entryLink>
+    </selectionEntry>
         <entryLink import="true" name="Axe Morkai" hidden="false" type="selectionEntry" id="7082-5743-3632-3b3e" targetId="df54-1796-1f2-851e"/>
       </entryLinks>
       <profiles>
@@ -80,12 +98,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High K
         </profile>
         <profile name="High King of Fenris" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d440-cfb4-0569-b40f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle round, per army) In your Movement phase, you can select one friendly **^^Space Wolves^^** unit that is in Strategic Reserves. That unit can make an ingress move as if it were one battle round earlier.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle round, per unit) In your Movement phase, select up to one friendly **^^Space Wolves^^** unit in strategic reserves. If you do, when that unit makes an ingress move, treat the current battle round number as being one higher than it actually is.</characteristic>
           </characteristics>
         </profile>
         <profile name="Guile of the Wolf" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="da55-1594-5d76-2ada">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of each phase, the assault doctrine, the devastator doctrine and the tactical doctrine are active for this unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of each phase, the assault doctrine, devastator doctrine and tactical doctrine are active for this unit.</characteristic>
           </characteristics>
         </profile>
         <profile name="Embarking within Transports" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f707-93b3-60bb-5d7a">
@@ -171,8 +189,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — High K
       </profiles>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Njal Stormcaller" hidden="false" id="bd47-a00a-e70-abd6">
-      <comment>invuln: 4+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Windwalker (Psychic) | High Rune Priest (psyker level 3) | Murderous Hurricane (psychic level 1) | Stormherald (psychic level 1) | Tempest&apos;s Wrath (psychic level 1)</comment>
+      <comment>invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
@@ -207,31 +224,35 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Windwa
 ■ Wolf Guard Headtakers</characteristic>
           </characteristics>
         </profile>
-        <profile name="Windwalker (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7c09-4906-3ef8-5839">
+        <profile name="Wind Walker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7c09-4906-3ef8-5839">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s ranged attacks have **[ASSAULT]**. When this unit is selected to Advance, you can use a result of 6 instead of making an Advance roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit&apos;s ranged attacks have **[ASSAULT]**.
+■ When this unit is selected to make an advance move, this unit can change advance rolls to a 6.</characteristic>
           </characteristics>
         </profile>
         <profile name="Tempest&apos;s Wrath (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4f53-4232-cc6a-b8e3">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+
 ■ On a 1, this unit is battle-shocked.
-■ Select one visible enemy unit within 18&quot; of this unit. That enemy unit has -1 to Hit rolls until the start of your next turn.</characteristic>
+■ Select one visible enemy unit within 18&quot;. That enemy unit is suppressed until the start of your next turn:
+■ While a unit is suppressed, that unit’s attacks have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="High Rune Priest (psyker level 3)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5281-d778-d1bc-232f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the psychic abilities listed in the Psychic Abilities section.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the psychic abilities listed in the Runic Abilities section.</characteristic>
           </characteristics>
         </profile>
         <profile name="Murderous Hurricane (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bd0a-531b-37eb-1d30">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
+
 ■ On a 1, this unit is battle-shocked.
-■ Select one visible enemy unit within 12&quot; of this unit. That enemy unit cannot make snap shooting attacks.</characteristic>
+■ Select one visible enemy unit within 12&quot;. That enemy unit cannot make Snap shooting attacks.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Stormherald (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0cbf-548e-187e-5049">
+        <profile name="Storm Caller (psychic level 1)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0cbf-548e-187e-5049">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When an enemy unit targets this unit, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do:
 ■ On a 1, this unit is battle-shocked.
@@ -330,8 +351,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Windwa
     <selectionEntry type="model" import="true" name="Bjorn the Fell-Handed" hidden="false" id="c35a-6d78-2169-3d23">
       <comment>invuln: 5+
 fnp: 5+
-def-mod: source=&quot;Legendary Tenacity&quot; wound=-1 vsStronger conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Ancient Tactician</comment>
+def-mod: source=&quot;Legendary Tenacity&quot; wound=-1 vsStronger conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -376,12 +396,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Ancien
         </profile>
         <profile name="Legendary Tenacity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1ecf-416a-6465-156c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to this model, if the Strength characteristic of that attack is greater than this model&apos;s Toughness characteristic, subtract 1 from the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Attacks that target this unit with a S greater than this unit&apos;s T have -1 to wound rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Ancient Tactician" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="64d9-5889-14e6-77a1">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per turn, per army) When you target this unit with a Stratagem, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per turn, per army) When you target this unit with a stratagem, that use is -1CP</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="954b-8a3c-4631-01fb">
@@ -502,8 +522,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Ancien
     <selectionEntry type="model" import="true" name="Arjac Rockfist" hidden="false" id="a9c8-1a6-a0e1-7698">
       <comment>invuln: 4+
 sim-mod: source=&quot;Champion of the Kingsguard&quot; reroll=hit1 when=melee vs=Character scope=model
-sim-mod: source=&quot;Champion of the Kingsguard&quot; reroll=wound1 when=melee vs=Character scope=model
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Champion of the Kingsguard | Anvil of Endurance</comment>
+sim-mod: source=&quot;Champion of the Kingsguard&quot; reroll=wound1 when=melee vs=Character scope=model</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -546,12 +565,15 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Champi
         </profile>
         <profile name="Anvil of Endurance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6d1-52cc-8cb0-740c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, each time a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6: on a 4+, do not remove that model from the battlefield; once its unit has fought, or at the end of the phase (whichever comes first), remove that model from the battlefield.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6:
+■ On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is then removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Champion of the Kingsguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d65d-22ee-7d91-448a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a **^^Character^^** unit, you can re-roll a Hit roll of 1 and you can re-roll a Wound roll of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model’s attacks that target a **^^Character^^** unit:
+■ Can re-roll hit rolls of 1.
+■ Can re-roll wound rolls of 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -567,7 +589,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Champi
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster 3+, Anti-Vehicle 3+, Precision</characteristic>
@@ -575,10 +597,10 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Champi
             </profile>
             <profile name="Foehammer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2f1b-d727-df9d-7049">
               <characteristics>
-                <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
+                <characteristic name="Range" typeId="9896-9419-16a1-92fc">9&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+                <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
                 <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Monster 3+, Anti-Vehicle 3+, Assault</characteristic>
@@ -610,8 +632,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Champi
     <selectionEntry type="model" import="true" name="Ulrik the Slayer" hidden="false" id="fc7c-83a5-7106-41ab">
       <comment>sim-mod: source=&quot;Oathbound&quot; hit=+1 when=melee whileLeading
 invuln: 4+
-fnp: 6+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Oathbound</comment>
+fnp: 6+</comment>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="1116-112f-8637-63ec" targetId="b4dd-3e1f-41cb-218f"/>
         <infoLink name="Feel No Pain" hidden="false" type="rule" id="24e4-34e2-980b-3886" targetId="9bf4-280f-bbe2-6fbb">
@@ -638,7 +659,10 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Oathbo
         </profile>
         <profile name="Slayer’s Oath" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d3d3-265a-32cd-99af">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select one of the following keywords to be this model&apos;s Slayer&apos;s Oath: CHARACTER, VEHICLE or MONSTER. The first time this model&apos;s unit destroys a unit with this model&apos;s Slayer&apos;s Oath keyword, if your Detachment has a Saga, until the end of the battle, this model&apos;s unit receives the benefits of that Detachment rule as if that Saga had been completed.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, you select up to one enemy **^^Character/Monster/Vehicle^^** unit to be this unit&apos;s slayer&apos;s oath:
+■ This unit&apos;s attacks that target this unit&apos;s slayer&apos;s oath can ignore modifiers to your unit&apos;s:
+■ BS and WS.
+■ Hit rolls.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="34a6-5bd7-33e-6271">
@@ -652,7 +676,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Oathbo
         </profile>
         <profile name="Oathbound" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1ccb-ca03-9256-bd5e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 to Hit rolls. Melee attacks made by this unit that target a unit with this model&apos;s Slayer&apos;s Oath keyword have +1 to Hit rolls and +1 to Wound rolls instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit&apos;s melee attacks have +1 to hit rolls.
+■ Or: This unit&apos;s melee attacks that target this unit&apos;s slayer&apos;s oath have +1 to hit rolls and wound rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -691,13 +716,13 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Oathbo
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="36fd-aaba-db68-8a66"/>
           </constraints>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Artificer crozius" hidden="false" id="a77c-3d61-165e-eb59">
+        <selectionEntry type="upgrade" import="true" name="Artificer Crozius Arcanum" hidden="false" id="a77c-3d61-165e-eb59">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b882-e0d2-665b-fd3"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c724-c713-26ff-25fc"/>
           </constraints>
           <profiles>
-            <profile name="Artificer crozius" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="141f-82fa-be4a-2b1f">
+            <profile name="Artificer Crozius Arcanum" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="141f-82fa-be4a-2b1f">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
@@ -745,8 +770,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Oathbo
     <selectionEntry type="model" import="true" name="Ragnar Blackmane" hidden="false" id="23d2-ea9a-cc45-476">
       <comment>invuln: 4+
 sim-mod: source=&quot;Battle-lust&quot; attacks=+2 when=melee onCharge scope=model
-sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading kw=&quot;Blood Claws&quot;
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Battle-lust | War Howl</comment>
+sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading kw=&quot;Blood Claws&quot;</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -825,7 +849,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Battle
         </profile>
         <profile name="War Howl" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="489d-fafc-e8fa-ffd1">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a **^^Blood Claws^^** unit, that unit&apos;s melee attacks have +1 S and **[SUSTAINED HITS 1]**. While this model is leading a **^^Wolf Guard Headtakers^^** unit, each time that unit is selected to Advance, that Advance move does not prevent it from being eligible to declare a charge.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ While this model is attached to a **^^Blood Claws^^** unit, this unit&apos;s melee attacks have +1 S and **[SUSTAINED HITS 1]**.
+■ While this model is attached to a **^^Wolf Guard Headtakers^^** unit, when this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Battle-lust" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="acf6-28b1-da63-60be">
@@ -847,13 +872,13 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Battle
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Crushing teeth and claws" hidden="false" id="4700-100e-6b9e-336a" collective="true">
+    <selectionEntry type="upgrade" import="true" name="Teeth and Claws" hidden="false" id="4700-100e-6b9e-336a" collective="true">
       <constraints>
         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e2ad-2b83-32d3-d499"/>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7074-44a5-34f-f334"/>
       </constraints>
       <profiles>
-        <profile name="Crushing teeth and claws" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="4378-fbfe-b908-e450">
+        <profile name="Teeth and Claws" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="4378-fbfe-b908-e450">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
@@ -1047,7 +1072,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Battle
       <profiles>
         <profile name="Berserk Charge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="55f7-b6c3-54a2-5266">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit is eligible to declare a charge in a turn in which it Advanced</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Blood Claws" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2fc8-3e28-c9b2-a9bb">
@@ -1232,8 +1257,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Battle
       </constraints>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Grey Hunters" hidden="false" id="60ce-47ea-50fa-53f2">
-      <comment>sim-mod: source=&quot;Cunning Hunters&quot; str=+1 ap=+1 when=melee conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Cunning Hunters | Grey Manes</comment>
+      <comment>sim-mod: source=&quot;Cunning Hunters&quot; str=+1 ap=+1 when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -1243,7 +1267,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Cunnin
       <profiles>
         <profile name="Cunning Hunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="879f-7a62-1926-b2c5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, while this unit is within range of an objective marker, its melee attacks have +1 S and +1 AP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, if this unit is within range of an objective, this unit’s melee attacks:
+■ Have +1 S.
+■ Have +1 AP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Grey Hunters" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7dba-04ec-1bff-2c7a">
@@ -1256,9 +1282,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Cunnin
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
           </characteristics>
         </profile>
-        <profile name="Grey Manes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7654-1391-76e6-eb95">
+        <profile name="Old Greymanes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7654-1391-76e6-eb95">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Declare Battle Formations step, you can split this unit into two units, each containing as equal a number of models as possible (when splitting a unit this way, make a note of which models form each new unit).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Declare Battle Formations step, you can split this unit into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1628,7 +1654,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <profiles>
         <profile name="Rugged Resilience" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b2ea-319f-b86-ab13">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of this unit, subtract 1 from the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Attacks that target this unit with a S greater than this unit&apos;s T have -1 to wound rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1707,7 +1733,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
                 <profile name="Wolf Guard Terminator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="d9b7-fcdf-c0cb-4851">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -1775,7 +1801,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
                 <profile name="Wolf Guard Terminator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6365-f1ca-1c52-8159">
                   <characteristics>
                     <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                     <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                     <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                     <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -1906,9 +1932,9 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
                   </infoLinks>
                   <entryLinks></entryLinks>
                 </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Relic Great Axe" hidden="false" id="320d-0d3a-dd22-2906">
+                <selectionEntry type="upgrade" import="true" name="Relic Greataxe" hidden="false" id="320d-0d3a-dd22-2906">
                   <profiles>
-                    <profile name="Relic Great Axe" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f0cb-e4ef-d525-7bd6">
+                    <profile name="Relic Greataxe" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f0cb-e4ef-d525-7bd6">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
@@ -2170,7 +2196,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <profiles>
         <profile name="Storm Shield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f0d0-168b-fd48-53b6">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has a Wounds characteristic of 4.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has +1 W.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2254,7 +2280,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
               <profiles>
                 <profile name="Death Totem" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a661-be27-a2d2-caa7">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time the bearer makes a melee attack, re-roll a hit roll of 1.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks can re-roll hit rolls of 1.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -2317,7 +2343,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <profiles>
         <profile name="Savage Frenzy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="487d-4818-82ae-5a13">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit, (excluding MONSTERS and VEHICLES) within Engagement Range of this unit Falls Back, all that models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from those tests.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When an enemy unit engaged with your unit (excluding **^^Monster/Vehicle^^** units) makes a fall-back move that enemy unit must use the desperate escape mode. If that enemy unit is battle-shocked, -1 from those hazard rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2410,8 +2436,7 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wulfen Dreadnought" hidden="false" id="91fa-49ac-5b0a-c155">
       <comment>sim-mod: source=&quot;Violent Fury&quot; twin-linked when=melee conditional scope=model
-fnp: 6+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestial Rage</comment>
+fnp: 6+</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -2447,12 +2472,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestia
         </profile>
         <profile name="Bestial Rage" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="efc2-686b-6a7a-4f29">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when an enemy unit has shot, if this model lost one or more wounds as a result of those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when an enemy unit has shot, if this unit lost a wound as a result of those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile name="Violent Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0caf-212e-b669-1738">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with two melee weapons, those weapon profiles have the TWIN-LINKED ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with two melee weapons, melee attacks made by this unit have **[TWIN-LINKED]**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2622,8 +2647,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestia
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Murderfang" hidden="false" id="6ef5-6700-d888-df3b">
       <comment>fnp: 6+
-cannot-warlord
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestial Fury | Murder-maker (Aura)</comment>
+cannot-warlord</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -2655,7 +2679,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestia
         </profile>
         <profile name="Murder-maker (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d7a4-e72d-26fd-4361">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, each time a friendly **^^Wulfen^^** model within 6&quot; of this unit is destroyed, if that model&apos;s unit has not been selected to fight this phase, roll one D6: on a 4+, do not remove that model from the battlefield; once its unit has fought, or at the end of the phase (whichever comes first), remove that model from the battlefield.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when a friendly **^^Wulfen^^** model within 6&quot; of this unit is destroyed, if that model&apos;s unit has not been selected to fight this phase, roll one D6:
+■ On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Force of Untamed Destruction" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9d2a-82a5-7426-f6b1">
@@ -2665,7 +2690,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestia
         </profile>
         <profile name="Bestial Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d32e-f3c3-5ae5-2ea0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can re-roll Advance rolls and Charge rolls made for this unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit:
+■ Can re-roll advance rolls.
+■ Can re-roll charge rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2725,8 +2752,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Bestia
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Thunderwolf Cavalry" hidden="false" id="7a50-3722-8195-5877">
-      <comment>sim-mod: source=&quot;Thunderous Charge&quot; str=+1 dmg=+1 when=melee onCharge
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunderous Charge</comment>
+      <comment>sim-mod: source=&quot;Thunderous Charge&quot; str=+1 dmg=+1 when=melee onCharge</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -2769,7 +2795,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="393b-7da7-e3d8-6895-max" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Crushing teeth and claws" hidden="false" type="selectionEntry" id="7023-227f-aaea-12c9" targetId="4700-100e-6b9e-336a">
+                <entryLink import="true" name="Teeth and Claws" hidden="false" type="selectionEntry" id="7023-227f-aaea-12c9" targetId="4700-100e-6b9e-336a">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Plasma pistol" hidden="false" type="selectionEntry" id="2648-a839-60b9-e627" targetId="c27c-b505-4fd6-a143">
@@ -2794,7 +2820,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e99a-86d0-3051-58fd-max" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Crushing teeth and claws" hidden="false" type="selectionEntry" id="b5b-23e3-c1df-a7e6" targetId="4700-100e-6b9e-336a">
+                <entryLink import="true" name="Teeth and Claws" hidden="false" type="selectionEntry" id="b5b-23e3-c1df-a7e6" targetId="4700-100e-6b9e-336a">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Boltgun" hidden="false" type="selectionEntry" id="3341-a855-c37f-301d" targetId="a03f-c6f8-4b00-b9fe">
@@ -2819,7 +2845,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c83c-6a7c-e8a0-d1d2-max" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Crushing teeth and claws" hidden="false" type="selectionEntry" id="8c0-4e6a-816d-cf1" targetId="4700-100e-6b9e-336a">
+                <entryLink import="true" name="Teeth and Claws" hidden="false" type="selectionEntry" id="8c0-4e6a-816d-cf1" targetId="4700-100e-6b9e-336a">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Storm shield" hidden="false" type="selectionEntry" id="de28-9f74-b8ae-3a76" targetId="14d9-290f-100f-881c"/>
@@ -2841,7 +2867,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5bb-f937-ca6a-59f2-max" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Crushing teeth and claws" hidden="false" type="selectionEntry" id="a994-993-728a-1a54" targetId="4700-100e-6b9e-336a">
+                <entryLink import="true" name="Teeth and Claws" hidden="false" type="selectionEntry" id="a994-993-728a-1a54" targetId="4700-100e-6b9e-336a">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="9792-61d-e3b2-7d8d" targetId="18b0-8c2-173f-5">
@@ -2878,7 +2904,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
       <profiles>
         <profile name="Thunderous Charge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7ff6-fefc-51c-4818">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a Charge move this turn, its melee attacks have +1 S and +1 D.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit made a charge move this turn, this unit&apos;s melee attacks have:
+■ +1 S.
+■ +1 D.</characteristic>
           </characteristics>
         </profile>
         <profile name="Thunderwolf Cavalry" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5e10-c2a-3001-85b">
@@ -2960,7 +2988,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
       <profiles>
         <profile name="Storm Shield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4805-60ae-e4dd-7752">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has a 4+ invulnerable save.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ InSv.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3005,7 +3033,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
       </profiles>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Fenrisian Wolves" hidden="false" id="dc75-5a79-4121-1d72">
-      <comment>texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Predatory Instinct</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -3064,12 +3091,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
         </profile>
         <profile name="Predatory Instinct" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4dd7-8d35-4e76-11d8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per turn) When an enemy unit ends a Normal, Advance or Fall Back move within 8&quot; of this unit, this unit can make a Normal move of up to D6&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle round, per unit) In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this unit, if this unit is unengaged, this unit can make a normal move of up to D6&quot;.</characteristic>
           </characteristics>
         </profile>
         <profile name="Hunting Hounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2b92-25f9-4952-213b">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of one or more SPACE WOLVES CHARACTER models (excluding WULFEN models), if this unit is not Battle-shocked, models in it have an Objective Control characteristic of 1</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of a friendly **^^Space Wolves Character^^** model (excluding **^^Wulfen^^**), if this unit is not battle-shocked, this unit has +1 OC.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3143,8 +3170,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Thunde
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Iron Priest" hidden="false" id="3212-bec7-a50e-3363">
-      <comment>sim-mod: source=&quot;Judgement of the Omnissiah&quot; reroll=wound conditional scope=model
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift of the Iron Wolf | Judgement of the Omnissiah</comment>
+      <comment>sim-mod: source=&quot;Judgement of the Omnissiah&quot; reroll=wound conditional scope=model</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -3173,12 +3199,14 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
         </profile>
         <profile name="Iron Priest" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c945-4824-a8ed-3a20">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of one or more friendly ADEPTUS ASTARTES VEHICLE units, this model has the Lone Operative ability</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of a friendly **^^Space Wolves Vehicle^^** unit, this model has Lone Operative.</characteristic>
           </characteristics>
         </profile>
         <profile name="Gift of the Iron Wolf" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="41bc-61e5-b4dc-1194">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, at the start or end of this unit&apos;s move, you can select one friendly **^^Space Wolves Vehicle^^** model within 3&quot; of this model. That model regains up to D3 lost wounds and, until the start of your next Movement phase, its attacks ignore modifiers to Hit rolls and Wound rolls. You cannot select the same **^^Vehicle^^** model for this ability more than once.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, at the start or end of this unit&apos;s move, select up to one friendly **^^Space Wolves Vehicle^^** model within 3&quot; of this model:
+■ That **^^Vehicle^^** model heals D3 wounds.
+■ That **^^VEHICLE^^** model’s attacks can ignore modifiers to hit rolls and wound rolls until the start of your next Movement phase.You cannot select the same **^^VEHICLE^^** model for this ability more than once per phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32b3-ea87-484-39ec">
@@ -3192,7 +3220,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
         </profile>
         <profile name="Judgement of the Omnissiah" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0ab3-6430-d18f-c4c6">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets an enemy unit within Engagement Range of one or more friendly **^^Space Wolves Vehicle^^** units, you can re-roll the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model&apos;s attacks that target an enemy unit engaged with a friendly **^^Space Wolves Vehicle^^** can re-roll wound rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3343,7 +3371,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
           <entryLinks>
             <entryLink type="selectionEntry" import="true" name="A Giant Amongst Giants" hidden="false" id="a5c3-82d3-e450-7c72" targetId="c072-45ad-bd4a-708f"/>
             <entryLink type="selectionEntry" import="true" name="Preyslayer" hidden="false" id="5aa3-dc57-57b0-ec43" targetId="7a3c-53f7-eaff-926e"/>
-            <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="2d03-4c41-93fd-e3ca" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="983b-0d19-61d8-dabd">
@@ -3412,7 +3439,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
         </profile>
         <profile name="Fervour of the Ancients (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="979-e7d1-937c-d5f0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly SPACE WOLVES unit is within 6&quot; of this model, add 1 to Advance and Charge rolls made for that unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Friendly **^^Space Wolves^^** units within 6&quot; of this unit:
+■ Have +1 to advance rolls.
+■ Have +1 to charge rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3506,7 +3535,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">5</characteristic>
@@ -3638,7 +3667,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
       <profiles>
         <profile name="Blizzard shield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="40ee-97e4-6842-5262">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has a 4+ invulnerable save.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has 4+ InSv</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3677,8 +3706,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Gift o
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wolf Priest" hidden="false" id="b3b1-d1df-d9be-d48e">
       <comment>invuln: 4+
-sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCharge
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Healing Balms | Litany of Hate</comment>
+sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCharge</comment>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="4f91-274b-621a-ed85" type="selectionEntry" targetId="caa-f869-3cbd-b48e" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="29fd-6750-55eb-31bf" type="selectionEntryGroup" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
@@ -3699,13 +3727,13 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Healin
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">5+</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
         <profile name="Healing Balms" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0ae4-0afb-6938-59aa">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, this unit regains up to D3+1 lost wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, this unit heals D3+1 wounds.</characteristic>
           </characteristics>
         </profile>
         <profile name="Litany of Hate" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="39f6-b2f5-30dd-6a0f">
@@ -3816,7 +3844,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Healin
           <entryLinks>
             <entryLink type="selectionEntry" import="true" name="A Giant Amongst Giants" hidden="false" id="e4e7-23ae-5daa-47af" targetId="c072-45ad-bd4a-708f"/>
             <entryLink type="selectionEntry" import="true" name="Preyslayer" hidden="false" id="0ecf-fe46-8e8d-b43a" targetId="7a3c-53f7-eaff-926e"/>
-            <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="5894-3f4b-7c08-fd18" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Veterans of the Fang Enhancement" hidden="false" id="aaaa-b882-a53e-9f76">
@@ -3869,8 +3896,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Healin
     <selectionEntry type="model" import="true" name="Wolf Guard Battle Leader" hidden="false" id="bbdb-49fd-da4d-3d7a">
       <comment>sim-mod: source=&quot;Tempered Ferocity&quot; sustained=1 whileLeading
 sim-mod: source=&quot;Tempered Ferocity&quot; reroll=hit1 whileLeading conditional
-invuln: 4+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Tempered Ferocity | Heroic Last Stand</comment>
+invuln: 4+</comment>
       <profiles>
         <profile name="Wolf Guard Battle Leader" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="523e-becd-b02c-e3a1">
           <characteristics>
@@ -3891,7 +3917,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
         </profile>
         <profile name="Tempered Ferocity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a1b-79a9-bfe2-8a7c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks have **[SUSTAINED HITS 1]**. Each time a model in this unit makes an attack that targets an enemy unit within 6&quot; of this unit, you can re-roll a Hit roll of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit&apos;s attacks have **[SUSTAINED HITS 1]**.
+■ This unit&apos;s attacks that target an enemy unit within 6&quot; of this unit can re-roll hit rolls of 1.</characteristic>
           </characteristics>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
@@ -3903,7 +3930,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
         </profile>
         <profile name="Heroic Last Stand" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ea31-1e1d-d30f-3431">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this model is destroyed, if this unit has not been selected to fight this phase, roll one D6: on a 2+, do not remove this model from the battlefield; once this unit has fought, or at the end of the phase (whichever comes first), remove this model from the battlefield.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this model is destroyed, if this unit has not been selected to fight this phase, roll one D6:
+■ On a 2+, do not remove this model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), this model is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef01-1060-871e-d168">
@@ -3986,7 +4014,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
                   <profiles>
                     <profile name="Storm Shield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9b50-59f8-a1dd-ca83">
                       <characteristics>
-                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has a Wounds characteristic of 6</characteristic>
+                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has +1 W.</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -4054,7 +4082,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
           <entryLinks>
             <entryLink type="selectionEntry" import="true" name="A Giant Amongst Giants" hidden="false" id="9394-556b-31d8-b5dc" targetId="c072-45ad-bd4a-708f"/>
             <entryLink type="selectionEntry" import="true" name="Preyslayer" hidden="false" id="595b-8eef-969a-cd19" targetId="7a3c-53f7-eaff-926e"/>
-            <entryLink type="selectionEntry" import="true" name="Wolves&apos; Wisdom" hidden="false" id="c16f-d352-f913-f52b" targetId="909c-29be-a453-6480"/>
           </entryLinks>
         </selectionEntryGroup>
         <selectionEntryGroup name="Veterans of the Fang Enhancement" hidden="false" id="9533-1ecc-7643-d650">
@@ -4194,17 +4221,19 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Temper
         </profile>
         <profile name="Let Loose the Wolves" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a1a0-2e38-f93f-1381">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Declare Battle Formations step, split this unit into two units, one containing all of it&apos;s HEADTAKERS models and one containing all of its HUNTING WOLVES models, with new Starting Strengths accordingly.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Declare Battle Formations step, you can split this unit into two units, one containing all Wolf Guard Headtaker models and all leader/support models, the other containing all Hunting Wolves models, with new starting strengths accordingly.</characteristic>
           </characteristics>
         </profile>
         <profile name="Headhunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cb76-25b3-da1e-ebe7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select one unit from your opponent's army to be this unit's quarry. Weapons equipped by HEADTAKERS models in this unit have the [DEVASTATING WOUNDS] and [PRECISION] abilities while targeting its quarry. Each time this unit's quarry is destroyed, select one new enemy unit to be this unit's quarry. This ability can be used even if this unit is embarked within a TRANSPORT.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, select up to one enemy unit to be this unit&apos;s quarry:
+■ This unit&apos;s attacks that target this unit&apos;s quarry have **[DEVASTATING WOUNDS]** and **[PRECISION]**.
+■ Each time this unit&apos;s quarry is destroyed, select one enemy unit to be this unit&apos;s quarry.</characteristic>
           </characteristics>
         </profile>
         <profile name="Hunting Hounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="90e0-d8ee-abf5-5cab">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of one or more friendly SPACE WOLVES CHARACTER models (excluding WULFEN models), if this unit is not Battle-shocked, HUNTING WOLVES models in it have an Objective Control characteristic of 1</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of a friendly **^^Space Wolves Character^^** model (excluding **^^Wulfen^^**), if this unit is not battle-shocked, Hunting Wolf models have +1 OC.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4367,19 +4396,19 @@ invuln: 4+</comment>
               <profiles>
                 <profile name="Death Totem" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="970c-3a08-c8df-0557">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time the bearer makes a melee attack, re-roll a hit roll of 1.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks can re-roll hit rolls of 1.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Wulfen Hammer" hidden="false" id="3bdc-fa9f-2fc7-6d9c">
+                <selectionEntry type="upgrade" import="true" name="Thunder Hammer" hidden="false" id="3bdc-fa9f-2fc7-6d9c">
                   <entryLinks></entryLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6230-85e1-0d06-5612-min" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6230-85e1-0d06-5612-max" includeChildSelections="false"/>
                   </constraints>
                   <profiles>
-                    <profile name="➤ Wulfen Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9b2a-88e4-c261-9290">
+                    <profile name="➤ Thunder Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9b2a-88e4-c261-9290">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
@@ -4390,7 +4419,7 @@ invuln: 4+</comment>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
                       </characteristics>
                     </profile>
-                    <profile name="➤ Wulfen Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="a65c-9d47-68ec-f8e3">
+                    <profile name="➤ Thunder Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="a65c-9d47-68ec-f8e3">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
@@ -4421,14 +4450,14 @@ invuln: 4+</comment>
                 </entryLink>
               </entryLinks>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Wulfen Hammer" hidden="false" id="5e34-f29a-ccbe-0bcf">
+                <selectionEntry type="upgrade" import="true" name="Thunder Hammer" hidden="false" id="5e34-f29a-ccbe-0bcf">
                   <entryLinks></entryLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4dbd-dfae-d067-9852-min" includeChildSelections="false"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4dbd-dfae-d067-9852-max" includeChildSelections="false"/>
                   </constraints>
                   <profiles>
-                    <profile name="➤ Wulfen Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="399d-8b2b-88e7-0792">
+                    <profile name="➤ Thunder Hammer - Standard" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="399d-8b2b-88e7-0792">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
@@ -4439,7 +4468,7 @@ invuln: 4+</comment>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
                       </characteristics>
                     </profile>
-                    <profile name="➤ Wulfen Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="837f-ba32-fa4f-0524">
+                    <profile name="➤ Thunder Hammer - Hunter" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="837f-ba32-fa4f-0524">
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
@@ -4489,7 +4518,8 @@ invuln: 4+</comment>
         </profile>
         <profile name="Hammer Blow" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a630-3650-0461-51a2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, after this unit has fought, select one enemy MONSTER or VEHICLE unit hit by one or more of those attacks. Until the end of the next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this unit has fought, select up to one enemy **^^Monster/Vehicle^^** unit hit by those attacks. If you do, that enemy unit is suppressed until the start of your next turn:
+■ While a unit is suppressed, that unit&apos;s attacks have -1 to hit rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4699,12 +4729,25 @@ invuln: 4+</comment>
                 </selectionEntry>
                 <selectionEntry type="model" import="true" name="Wolf Scout w/ instigator bolt carbine" hidden="false" id="a7f4-14af-04d4-eced" sortIndex="6">
                   <entryLinks>
-                    <entryLink import="true" name="Combat Blade" hidden="false" id="336b-cff0-c609-905e" type="selectionEntry" targetId="ec23-682e-c760-407e" sortIndex="2">
+    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="3824-92c2-58c2-55aa">
+      <profiles>
+        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0f83-bf8e-625a-191e">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+          </characteristics>
+        </profile>
+      </profiles>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b41a-1830-28ad-b579" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7863-f908-7b92-1621" includeChildSelections="false"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6b7f-1037-36c4-ad5f" includeChildSelections="false"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9e24-fbca-1cd7-9688" includeChildSelections="false"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                   </entryLinks>
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a54e-4aca-74f7-f5cb" includeChildSelections="false"/>
@@ -4716,7 +4759,7 @@ invuln: 4+</comment>
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
@@ -4868,12 +4911,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Hunting Hounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="64cb-9458-5e74-8b44">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of one or more friendly ^^**Space Wolves Character**^^ models (excluding ^^**Wulfen**^^ models), if this unit is not Battle-shocked, Hunting Wolves models in this unit have an Objective Control characteristic of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is within 6&quot; of a friendly **^^Space Wolves Character^^** model (excluding **^^Wulfen^^**), if this unit is not battle-shocked, Hunting Wolf models have +1 OC.</characteristic>
           </characteristics>
         </profile>
         <profile name="Deadly Stalkers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6352-6f0c-617d-2c1c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack that targets an enemy unit, if there are no other units from your opponent’s army within 6&quot; of that target, add 1 to the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks that target an enemy unit more than 6&quot; from any other enemy units have +1 to wound rolls.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4942,7 +4985,7 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Combat Blade" hidden="false" id="ec23-682e-c760-407e">
       <profiles>
-        <profile name="Combat Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c7ee-4c14-5250-24b3">
+        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c7ee-4c14-5250-24b3">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
             <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
@@ -4983,7 +5026,9 @@ invuln: 4+</comment>
           <profiles>
             <profile name="Haywire Mine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4a1f-d0be-62cd-278f">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one enemy unit within 3&quot; of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds, or 2D3 mortal wounds instead if it is a ^^**Vehicle**^^ unit.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) In your Shooting phase, select up to one visible enemy unit within 6&quot; of this unit and roll one D6. On a 2+:
+■ That enemy unit suffers D3 mortal wounds.
+■ Or: If that enemy unit is a **^^Vehicle^^** unit, that enemy unit suffers 2D3 mortal wounds.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -5052,7 +5097,7 @@ invuln: 4+</comment>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
                 <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Psychic</characteristic>
               </characteristics>
