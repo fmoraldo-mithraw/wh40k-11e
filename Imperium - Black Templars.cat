@@ -29,11 +29,10 @@
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry type="unit" import="true" name="Chaplain Grimaldus" hidden="false" id="8165-e372-4fd6-3274">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+
+      <comment>invuln: 4+
 fnp: 5+
 sim-mod: source=&quot;Litanies of the Devout&quot; reroll=hit when=melee whileLeading
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Litanies of the Devout | Cenobyte Faithful</comment>
+sim-mod: source=&quot;Water from the Stoup of Elucidation&quot; ap=+1 when=melee conditional choice=&quot;Temple Relics&quot;</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="8954-cb95-7729-897c" primary="false" name="Infantry"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="a8dd-4afa-2797-a6fa" primary="false" name="Imperium"/>
@@ -69,16 +68,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Litani
         </profile>
         <profile name="Temple Relics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e00-2ac9-9892-856">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, if this unit contains one or more Cenobyte Servitor models, select one Temple Relics ability (see left). Until the start of your next Command phase, this unit’s Chaplain Grimaldus model has that ability.
-
-
-Banner of the Emperor Victorious: Add 1 to Advance and Charge rolls for this unit
-
-
-Column of the Major Alter: Add 1 to the Toughness characteristic of models in this unit
-
-
-Water from the Stoup of Elucidation: Improve the Armour Penetration characteristic of melee weapons equipped by models in this unit by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, if this unit contains one or more **^^Cenobyte Servitor^^** models, select up to one of the abilities in the Temple Relics section. Until the start of your next Command phase, this model has that ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="77d4-dfb9-b00-6384">
@@ -92,9 +82,25 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
 ■ Sword Brethren</characteristic>
           </characteristics>
         </profile>
-        <profile name="Cenobyte Faithful" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ed84-58a7-58f5-eb76">
+        <profile name="Faithful Cenobytes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ed84-58a7-58f5-eb76">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this unit&apos;s Chaplain Grimaldus model is destroyed, all Cenobyte Servitor models in this unit are destroyed. Cenobyte Servitor models take up no transport capacity.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ If this unit’s Chaplain Grimaldus model is destroyed, this unit’s remaining Cenobyte Servitor models are also destroyed.
+■ Each Cenobyte Servitor model in this unit takes up 0 transport capacity.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Banner of the Emperor Victorious" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="46ee-037b-87f8-ad52">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to advance rolls and charge rolls.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Column from the Major Altar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="692f-417f-09fb-0893">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 T.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Water from the Stoup of Elucidation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="099b-ef85-3cd8-e846">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 AP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -175,13 +181,13 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
             <constraint type="min" value="3" field="selections" scope="parent" shared="true" id="c594-9e40-2839-795d"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Close Combat Weapon" hidden="false" id="7948-e67e-914a-8d24" collective="true">
+            <selectionEntry type="upgrade" import="true" name="Servitor Combat Weapon" hidden="false" id="7948-e67e-914a-8d24" collective="true">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="dc37-4b06-9f68-df14"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3810-7c9a-1c4c-45aa"/>
               </constraints>
               <profiles>
-                <profile name="Close Combat Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1d38-e7de-aae0-1f0e">
+                <profile name="Servitor Combat Weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1d38-e7de-aae0-1f0e">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
@@ -207,7 +213,6 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
             <modifier type="append" value="5+" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="e9b8-af5a-bd54-c141" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
@@ -245,10 +250,8 @@ Water from the Stoup of Elucidation: Improve the Armour Penetration characterist
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="High Marshal Helbrecht" hidden="false" id="da8a-de9f-1fe7-2513">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+
-sim-mod: source=&quot;Crusade of Wrath&quot; attacks=+1 str=+1 when=melee whileLeading
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusade of Wrath</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Crusade of Wrath&quot; attacks=+1 str=+1 when=melee whileLeading</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -281,7 +284,10 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusad
         </profile>
         <profile name="High Marshal" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6e7f-e156-fc38-c2a4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, select one enemy unit within Engagement Range of this model’s unit and roll one D6, adding 1 to the result for every five models in this model&apos;s unit: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, select up to one enemy unit engaged with this unit and roll one D6:
+■ On a 2-3, that enemy unit suffers D3 mortal wounds.
+■ On a 4-5, that enemy unit suffers 3 mortal wounds.
+■ On a 6+, that enemy unit suffers D3+3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="298-2fa3-345c-5083">
@@ -296,7 +302,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusad
         </profile>
         <profile name="Crusade of Wrath" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d72-b99d-9520-b70f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 A and +1 S.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have:
+■ +1 A.
+■ +1 S.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -323,7 +331,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusad
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
                 <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -357,7 +365,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusad
       </selectionEntries>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="79d4-857a-4c5-6e95" targetId="db19-dee7-9530-ef0e"/>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="9b7-7f23-d635-d7f2" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="84ff-425a-e5cb-e4c7" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <entryLinks>
@@ -383,8 +390,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Crusad
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Crusader Squad" hidden="false" id="8bbe-e7fc-44b7-ed94">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righteous Zeal</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
       </costs>
@@ -407,7 +412,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
@@ -438,7 +443,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                     <entryLink import="true" name="Heavy Bolt Pistol" hidden="false" type="selectionEntry" id="97be-d160-ab37-1b1e" targetId="3b8f-1cb7-3c6e-4455">
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Light Flamer" hidden="false" type="selectionEntry" id="3c66-c41-31c4-a826" targetId="bb21-4114-6b0c-634d">
+                    <entryLink import="true" name="Hand flamer" hidden="false" type="selectionEntry" id="3c66-c41-31c4-a826" targetId="9dc6-6ad8-818e-db2e">
                       <entryLinks></entryLinks>
                     </entryLink>
                   </entryLinks>
@@ -469,12 +474,29 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                     <constraint type="max" value="11" field="selections" scope="parent" shared="true" id="6661-fcdc-f653-97fa"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="7296-c7ab-7009-a29a" targetId="6c7d-af5b-482-6fbe">
+    <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="6507-4d8b-c43f-703e" collective="true">
+      <profiles>
+        <profile name="Close combat weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c844-f6f6-31a2-fc2a">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A3 WS 3+ Collective</comment>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="d0bb-607d-25d6-8c76" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="af76-815b-397a-d2e4"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ff09-baeb-6fae-2e71"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="aba5-64a9-113e-01d4"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="63e8-a97c-84de-b5e9"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                     <entryLink import="true" name="Bolt Rifle" hidden="false" type="selectionEntry" id="e275-9c58-da34-7dde" targetId="6155-c404-a228-cb72">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="357d-6032-c1c2-b1f5"/>
@@ -518,12 +540,29 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="728a-8ead-6a16-de0b" includeChildSelections="false"/>
                       </constraints>
                     </entryLink>
-                    <entryLink import="true" name="Astartes Chainsword" hidden="false" id="4dcb-b632-ee96-4a5d" type="selectionEntry" targetId="731a-79db-4259-2dd4">
+    <selectionEntry type="upgrade" import="true" name="Initiate Chainsword" hidden="false" id="4d66-3db2-9138-0f36">
+      <profiles>
+        <profile name="Initiate Chainsword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="acfe-daf1-4668-ea61">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Sustained Hits" id="eb6b-709f-c6a6-1b24" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+      </infoLinks>
+      <comment>A4 WS3+ SusHits1</comment>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b673-cef0-54d6-a8b0" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="61af-0dcb-a1a2-4d76" includeChildSelections="false"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b9fa-b8f8-538c-a3c2" includeChildSelections="false"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7e56-113c-9643-ebf0" includeChildSelections="false"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                   </entryLinks>
                   <profiles>
                     <profile name="Initiate" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3f96-6a6f-2b9b-21e6">
@@ -592,12 +631,29 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
                     <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="4e33-906e-881e-be2b"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="5aca-4274-fe47-302d" targetId="6c7d-af5b-482-6fbe">
+    <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="7f24-50f5-f7e0-4c00" collective="true">
+      <profiles>
+        <profile name="Close combat weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="286c-bd44-30a0-f3ab">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A3 WS 3+ Collective</comment>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="3628-4ec3-27f9-6305" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
                       <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="af76-815b-397a-d2e4"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ff09-baeb-6fae-2e71"/>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f961-d647-7cd0-dc89"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="bd4b-3489-60b8-cd9f"/>
                       </constraints>
-                    </entryLink>
+    </selectionEntry>
                     <entryLink import="true" name="Bolt pistol" hidden="false" id="5239-a6df-4870-f11c" type="selectionEntry" targetId="18b0-8c2-173f-5">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="800f-97d7-ea24-eff5" includeChildSelections="false"/>
@@ -826,7 +882,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
       <profiles>
         <profile name="Righteous Zeal" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eb4a-e30-3fd1-5dec">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, each time an enemy unit has shot, if one or more models in this unit were destroyed as a result of those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Shooting phase, when an enemy unit has shot, if a model in this unit was destroyed by those attacks, this unit can make a surge move of up to D6+1&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -841,7 +897,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
         <categoryLink name="Crusader Squad" hidden="false" id="a36e-cb1c-38b4-92bc" targetId="9e2c-48af-8c2b-ea68" primary="false"/>
       </categoryLinks>
       <infoLinks>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="4384-59f0-9cec-b2b1" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink name="Attached Unit" id="3ab6-2a3a-1418-8fa2" hidden="false" type="profile" targetId="63d9-2355-9727-3346"/>
       </infoLinks>
       <constraints>
@@ -901,35 +956,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Righte
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Light Flamer" hidden="false" id="bb21-4114-6b0c-634d">
-      <profiles>
-        <profile name="Light Flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="62bd-9f6-bc09-5fd">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">9&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Torrent</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Ignores Cover" hidden="false" type="rule" id="94ff-18a4-c291-3ab0" targetId="4640-43e7-30b-215a"/>
-        <infoLink name="Torrent" hidden="false" type="rule" id="5f22-5421-d392-a0c2" targetId="5edf-d619-23e0-9b56"/>
-        <infoLink name="Pistol" hidden="false" type="rule" id="d3f0-b757-9abe-2a8b" targetId="8bf7-8812-923d-29e4"/>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink name="Ranged Weapon" hidden="false" id="39fa-d867-304c-6aaa" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-        <categoryLink name="Torrent Weapon" hidden="false" id="034a-2a5d-1ba7-ee69" targetId="064a-0470-60eb-e3ef" primary="false"/>
-        <categoryLink name="Pistol Weapon" hidden="false" id="c5c2-8da4-8a4d-4be0" targetId="1db0-c6b5-19db-8d0c" primary="false"/>
-        <categoryLink name="Attacks Dx Weapon" hidden="false" id="df9e-13f8-8e99-7c27" targetId="e993-e086-6de1-12af" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sword Brethren Squad" hidden="false" id="206c-6b4d-4aaa-7e79">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploit Their Cowardice</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="f9d2-a24f-a67f-35ea" primary="true" name="Infantry"/>
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="e072-bbdd-1eae-c45d" primary="false" name="Grenades"/>
@@ -946,7 +973,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
       <profiles>
         <profile name="Exploit Their Cowardice" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="de7b-731d-90db-dfd9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, when an enemy unit that was within Engagement Range of this unit ends a Fall Back move, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to 6&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, when an enemy unit that was engaged with this unit ends a fall-back move, if this unit is unengaged it can make a normal move of up to 6&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -975,30 +1002,30 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
                       <modifiers>
                         <modifier type="set" value="2" field="823b-c755-a52d-86bd">
                           <conditions>
-                            <condition type="atLeast" value="10" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="232f-fa4a-56db-d00e"/>
+                            <condition type="atLeast" value="8" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="232f-fa4a-56db-d00e"/>
                           </conditions>
                         </modifier>
                         <modifier type="set" value="0" field="823b-c755-a52d-86bd">
                           <conditions>
-                            <condition type="lessThan" value="5" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="cd92-d2b2-ba7a-1e6c"/>
+                            <condition type="lessThan" value="4" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="cd92-d2b2-ba7a-1e6c"/>
                           </conditions>
                         </modifier>
                       </modifiers>
                       <entryLinks></entryLinks>
                     </entryLink>
-                    <entryLink import="true" name="Light Flamer" hidden="false" type="selectionEntry" id="c2da-2af9-347f-8698" targetId="bb21-4114-6b0c-634d">
+                    <entryLink import="true" name="Hand flamer" hidden="false" type="selectionEntry" id="c2da-2af9-347f-8698" targetId="9dc6-6ad8-818e-db2e">
                       <constraints>
                         <constraint type="max" value="2" field="selections" scope="206c-6b4d-4aaa-7e79" shared="true" id="5377-c73c-cf9-8f5d" includeChildSelections="true"/>
                       </constraints>
                       <modifiers>
                         <modifier type="set" value="4" field="5377-c73c-cf9-8f5d">
                           <conditions>
-                            <condition type="atLeast" value="10" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="613e-3107-de5-e07d"/>
+                            <condition type="atLeast" value="8" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="613e-3107-de5-e07d"/>
                           </conditions>
                         </modifier>
                         <modifier type="set" value="0" field="5377-c73c-cf9-8f5d">
                           <conditions>
-                            <condition type="lessThan" value="5" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="be0e-05e1-2471-1726"/>
+                            <condition type="lessThan" value="4" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="be0e-05e1-2471-1726"/>
                           </conditions>
                         </modifier>
                       </modifiers>
@@ -1032,12 +1059,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
                       <modifiers>
                         <modifier type="increment" value="1" field="5a0e-cc48-dcf2-596e">
                           <conditions>
-                            <condition type="atLeast" value="10" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="da62-2a62-7b9-86a9" includeChildSelections="true"/>
+                            <condition type="atLeast" value="8" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="da62-2a62-7b9-86a9" includeChildSelections="true"/>
                           </conditions>
                         </modifier>
                         <modifier type="increment" value="1" field="5a0e-cc48-dcf2-596e">
                           <conditions>
-                            <condition type="atLeast" value="5" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="2504-4842-8136-1944" includeChildSelections="true"/>
+                            <condition type="atLeast" value="4" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="2504-4842-8136-1944" includeChildSelections="true"/>
                           </conditions>
                         </modifier>
                       </modifiers>
@@ -1114,12 +1141,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
               <modifiers>
                 <modifier type="increment" value="1" field="c21-80f5-4fe2-dba6">
                   <conditions>
-                    <condition type="atLeast" value="5" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="1f02-cec7-a671-f844" includeChildSelections="true"/>
+                    <condition type="atLeast" value="4" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="1f02-cec7-a671-f844" includeChildSelections="true"/>
                   </conditions>
                 </modifier>
                 <modifier type="increment" value="1" field="c21-80f5-4fe2-dba6">
                   <conditions>
-                    <condition type="atLeast" value="10" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="a725-5379-0eda-7276" includeChildSelections="true"/>
+                    <condition type="atLeast" value="8" field="selections" scope="206c-6b4d-4aaa-7e79" childId="93d5-a2f6-533-694f" shared="true" id="a725-5379-0eda-7276" includeChildSelections="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -1230,7 +1257,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="b381-39f1-153a-b902"/>
       </constraints>
       <infoLinks>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="1371-cfd0-4de9-fa94" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink name="Attached Unit" id="76ad-ccdf-2507-14f5" hidden="false" type="profile" targetId="63d9-2355-9727-3346"/>
       </infoLinks>
       <entryLinks></entryLinks>
@@ -1288,10 +1314,8 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Exploi
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Emperor&apos;s Champion" hidden="false" id="ca2f-f408-c1bd-b87f">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+
-def-mod: source=&quot;Armour of Faith&quot; dmg=-1
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour of Faith | Sigismund&apos;s Heir</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Armour of Faith&quot; dmg=-1</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4203-5e64-70bd-9412"/>
       </constraints>
@@ -1308,7 +1332,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour
         </profile>
         <profile name="Armour of Faith" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5fd9-3afc-fe70-7413">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Attacks allocated to this model have ‑1 D.</characteristic>
           </characteristics>
         </profile>
         <profile name="Sigismund&apos;s Heir" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fe37-8476-e585-39ac">
@@ -1329,7 +1353,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour
         </profile>
         <profile name="Chosen of the Emperor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4c58-d25d-01ac-87e2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You cannot include more than one **^^Emperor&apos;s Champion^^** model in your army.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You cannot include more than one **^^Emperor&apos;s Champion^^** unit in your army.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1351,7 +1375,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour
       </categoryLinks>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="fb6b-d42d-78cb-533f" targetId="db19-dee7-9530-ef0e"/>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="adcf-a7f-a2f5-9867" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink name="Lone Operative" id="d5c5-a4ac-d5d4-42f0" hidden="false" type="rule" targetId="a8a0-8fe7-898-e0f3"/>
       </infoLinks>
       <entryLinks>
@@ -1542,8 +1565,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Armour
       <modifiers></modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Lancer" hidden="false" id="7dec-dc3d-c40a-8ce">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-sim-mod: source=&quot;Aquilon Optics&quot; reroll=hit when=ranged vs=Monster,Vehicle conditional scope=model
+      <comment>sim-mod: source=&quot;Aquilon Optics&quot; reroll=hit when=ranged vs=Monster,Vehicle conditional scope=model
 sim-mod: source=&quot;Aquilon Optics&quot; reroll=wound when=ranged vs=Monster,Vehicle conditional scope=model
 sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Vehicle conditional scope=model</comment>
       <categoryLinks>
@@ -1584,7 +1606,6 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
             <modifier type="append" value="D3" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="f500-8414-5756-1f8c" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4144-d2c1-e753-353"/>
@@ -1610,13 +1631,13 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
             </entryLink>
           </entryLinks>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Lancer Laser Destroyer" hidden="false" id="d3b4-b33-8c3d-a82f">
+            <selectionEntry type="upgrade" import="true" name="Laser Destroyer" hidden="false" id="d3b4-b33-8c3d-a82f">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e6be-b1e3-ed67-d562"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ca99-f945-91f6-6413"/>
               </constraints>
               <profiles>
-                <profile name="Lancer Laser Destroyer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="fc93-530e-f627-6cdf">
+                <profile name="Laser Destroyer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="fc93-530e-f627-6cdf">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">72&quot;</characteristic>
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
@@ -1737,8 +1758,7 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Reaper" hidden="false" id="bfb6-4320-74cf-bbda">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment>
+      <comment>sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="65e4-b4e7-3940-bcfe"/>
       </constraints>
@@ -1752,7 +1772,6 @@ sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment
             <modifier type="append" value="D3" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="4c11-22a8-7285-e82d" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <categoryLinks>
         <categoryLink targetId="6df-937-16bc-8c1a" id="ac84-29e5-8b78-b254" primary="false" name="Smoke"/>
@@ -1945,8 +1964,7 @@ sim-mod: source=&quot;Reaping Tally&quot; ap=+1 when=ranged conditional</comment
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Valiant" hidden="false" id="5704-ffe4-4a53-8789">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged conditional</comment>
+      <comment>sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -1988,7 +2006,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
             <modifier type="append" value="D3" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="5364-52d6-fe33-346d" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="65e4-b4e7-3940-bcfe"/>
@@ -2147,7 +2164,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Impulsor" hidden="false" id="fa27-4bc1-72c9-894f">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -2174,7 +2190,7 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
         </profile>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="81d0-6092-93e0-d602">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Terminator^^**/**^^Jump Pack^^** models. Each **^^Gravis^^** model takes up the space of 2 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 Adeptus Astartes Infantry models. It cannot transport Terminator or Jump Pack models. Each Gravis model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Rapid Disembarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5acc-d822-413-23b4">
@@ -2194,7 +2210,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
             <modifier type="append" value="6" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="a697-105c-a0c4-4bd1" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <entryLinks>
         <entryLink import="true" name="Tank Ace Character" hidden="false" id="e47e-a90f-e02d-a7c8" type="selectionEntry" targetId="8810-ebe3-94f2-8eab"/>
@@ -2218,9 +2233,9 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Orbital Comms Array" hidden="false" id="188a-9bc2-59f5-727d">
                   <profiles>
-                    <profile name="Orbital Comms Array [Aura]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bff6-bd1-230f-5cb0">
+                    <profile name="Orbital Comms Array" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bff6-bd1-230f-5cb0">
                       <characteristics>
-                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adeptus Astartes unit is within 6&quot; of the bearer, each time you target that unit with a Stratagem, roll one D6: on a 5+, you gain 1CP</characteristic>
+                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has Scouts 6&quot;.</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2232,30 +2247,10 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
                   <profiles>
                     <profile name="Shield Dome" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32cb-25c5-f0e7-9a98">
                       <characteristics>
-                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer has a 5+ invulnerable save.</characteristic>
+                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has 5+ InSv.</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
-                </selectionEntry>
-                <selectionEntry type="upgrade" import="true" name="Ironhail Skytalon Array" hidden="false" id="18f4-1a36-c674-ad37">
-                  <profiles>
-                    <profile name="Ironhail Skytalon Array" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3601-616b-f5af-7d29">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 6</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Sustained Hits" id="cbda-4f73-63ef-a351" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
-                    <infoLink name="Anti-" id="14e4-5a98-3bf4-caba" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-                  </infoLinks>
-                  <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
               <constraints>
@@ -2385,7 +2380,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Repulsor" hidden="false" id="c3e8-3cde-8b39-4b19">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
         <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
@@ -2412,7 +2406,7 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
         </profile>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="30b7-f838-af91-b9ee">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 14 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Jump Pack^^** models. Each **^^Gravis^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 14 Adeptus Astartes Infantry models. Each Terminator, Gravis, Jump Pack, Wulfen model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Combat Embarkation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="302a-8708-2da5-e44">
@@ -2431,7 +2425,6 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
             <modifier type="append" value="D6" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="a1e2-5351-78de-83a1" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <entryLinks>
         <entryLink import="true" name="Tank Ace Character" hidden="false" id="be5c-ad45-eefd-4d1e" type="selectionEntry" targetId="8810-ebe3-94f2-8eab"/>
@@ -2606,8 +2599,7 @@ sim-mod: source=&quot;Priority Target Acquisition&quot; str=+1 when=ranged condi
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Repulsor Executioner" hidden="false" id="a344-192f-aae2-16e5">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
+      <comment>sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="265"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -2627,12 +2619,11 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
             <modifier type="append" value="D6" field="name"/>
           </modifiers>
         </infoLink>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="b4b5-4c8f-611c-559a" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <profiles>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fb6-c336-8334-c5ae">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 **^^Adeptus Astartes Infantry^^** models. It cannot transport **^^Jump Pack^^** models. Each **^^Gravis^^**/**^^Terminator^^** model takes up the space of 2 models.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 7 Adeptus Astartes Infantry models. Each Terminator, Gravis, Jump Pack, Wulfen model takes up the space of 2 models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Black Templars Repulsor Executioner" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3d12-9e55-7623-3bbb">
@@ -2671,12 +2662,6 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
               </constraints>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Icarus Rocket Pod" hidden="false" id="7c61-e824-6694-44f5" type="selectionEntry" targetId="5afc-2af9-3bb7-d28f">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b44c-a450-8786-d78"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
             <entryLink import="true" name="Twin heavy bolter" hidden="false" id="3c61-278f-852d-a296" type="selectionEntry" targetId="d107-1e89-9d3f-c9c7">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4c70-99e0-65f7-35f5"/>
@@ -2684,28 +2669,21 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
               </constraints>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Twin Icarus ironhail heavy stubber" hidden="false" id="a902-ff64-9273-642" type="selectionEntry" targetId="ac74-7c77-48dc-2405">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5db2-4174-9100-ec7f"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="adc8-2c1f-45eb-5fde"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
           </entryLinks>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Repulsor Executioner Defensive Array" hidden="false" id="9528-b267-9534-8c58">
+            <selectionEntry type="upgrade" import="true" name="Defensive Array" hidden="false" id="9528-b267-9534-8c58">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d390-e1bb-dd53-78d2"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1d60-9035-8776-e92b"/>
               </constraints>
               <profiles>
-                <profile name="Repulsor Executioner Defensive Array" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9c9e-a2b8-bdbe-faf6">
+                <profile name="Defensive Array" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9c9e-a2b8-bdbe-faf6">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">10</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">18</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                   </characteristics>
@@ -2717,9 +2695,6 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
           <selectionEntryGroups>
             <selectionEntryGroup name="Pintle Mount Option" id="a9cf-b56e-f539-7419" hidden="false">
               <entryLinks>
-                <entryLink import="true" name="Ironhail Heavy Stubber" hidden="false" id="362d-bd44-cdf4-b99c" type="selectionEntry" targetId="1c66-4903-10ca-2a27">
-                  <entryLinks></entryLinks>
-                </entryLink>
                 <entryLink import="true" name="Multi-melta" hidden="false" id="e1ee-27d5-2c7b-e88c" type="selectionEntry" targetId="395-4b75-b9b2-7a5c">
                   <entryLinks></entryLinks>
                   <costs>
@@ -2731,7 +2706,7 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cb35-ce09-70f5-5b2d"/>
               </constraints>
             </selectionEntryGroup>
-            <selectionEntryGroup name="Turret Weapon" id="5d17-7232-7f46-d7d1" hidden="false" defaultSelectionEntryId="9458-a89-aae3-d05">
+            <selectionEntryGroup name="Turret Weapon" id="5d17-7232-7f46-d7d1" hidden="false" defaultSelectionEntryId="5212-e8d7-efe3-491b">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="af88-9926-c2d6-6f7c"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8671-e55c-1e14-d6d5"/>
@@ -2861,10 +2836,8 @@ sim-mod: source=&quot;Executioner&quot; hit=+1 when=ranged conditional</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Castellan" hidden="false" id="f151-e676-d3b8-200c">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-sim-mod: source=&quot;Vehement Aggression&quot; reroll=hit1 when=melee whileLeading
-sim-mod: source=&quot;Vehement Aggression&quot; reroll=wound1 when=melee whileLeading conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vehement Aggression</comment>
+      <comment>sim-mod: source=&quot;Vehement Aggression&quot; reroll=hit1 when=melee whileLeading
+sim-mod: source=&quot;Vehement Aggression&quot; reroll=wound1 when=melee whileLeading conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
@@ -2895,7 +2868,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Veheme
       </entryLinks>
       <infoLinks>
         <infoLink name="Support" type="rule" id="7c0b-c5cc-73e7-bfba" targetId="21f5-c07c-6d97-4405"/>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="2a8e-354b-864-5f3e" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="f822-34c5-5c15-b5d8" hidden="false" sortIndex="4">
@@ -3044,12 +3016,11 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Veheme
         </profile>
         <profile name="Vehement Aggression" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9359-87bf-5148-e6d2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, take a Leadership test for this unit. This unit&apos;s melee attacks can re-roll Hit rolls of 1; if that test is passed, this unit&apos;s melee attacks can instead re-roll Hit rolls of 1 and Wound rolls of 1.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Prioritised Eradication" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a65-fdc4-d7f2-6673">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this model&apos;s unit makes a melee attack that destroys one or more enemy units, roll one D6: on a 4+, you gain 1 CP</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, make a leadership roll for this unit:
+■ This unit&apos;s melee attacks can re-roll hit rolls of 1.
+■ Or: If that roll succeeds:This unit&apos;s melee attacks:
+■ Can re-roll hit rolls of 1.
+■ Can re-roll wound rolls of 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3107,11 +3078,9 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Veheme
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Marshal" hidden="false" id="68dd-5f49-4f17-cd84">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+
+      <comment>invuln: 4+
 sim-mod: source=&quot;Inspirational Exemplar&quot; hit=+1 when=melee whileLeading
-sim-mod: source=&quot;Pious Fervour&quot; attacks=+1 when=melee conditional scope=model
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspirational Exemplar | Pious Fervour</comment>
+sim-mod: source=&quot;Pious Fervour&quot; attacks=+1 when=melee conditional scope=model</comment>
       <entryLinks>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="8b05-b7bd-57e2-7841" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink id="4d37-8d48-6237-d61" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2">
@@ -3123,7 +3092,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspir
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="9521-e5e8-2213-8537" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Leader" type="rule" id="c95-c57-b044-a469" targetId="b4dd-3e1f-41cb-218f"/>
-        <infoLink name="Templar Vows" hidden="false" type="rule" id="70ca-5249-c602-cbaf" targetId="f26c-4b28-aaea-40cf"/>
         <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="f8b8-96e4-0bd6-82cd" targetId="dc23-ec41-a57a-944b"/>
       </infoLinks>
       <profiles>
@@ -3156,7 +3124,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspir
         </profile>
         <profile name="Pious Fervour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae8f-82c1-8730-21fa">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to fight, this model&apos;s melee attacks have +1 A for each enemy unit within 6&quot; of this model (to a maximum of +3 A).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When this unit is selected to fight, you can use this ability. If you do, this model&apos;s melee attacks have +1 A for each enemy unit within 6&quot; of this model (to a maximum of +3 A).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3393,9 +3361,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Inspir
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Execrator" hidden="false" id="ea3d-f2b8-cce7-0762">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remorseless Persecution | Condemnatory Annihilation</comment>
+      <comment>invuln: 4+</comment>
       <profiles>
         <profile name="Execrator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3b94-7626-8244-76a7">
           <characteristics>
@@ -3417,12 +3383,12 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remors
         </profile>
         <profile name="Remorseless Persecution" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0021-dd8f-9cd5-4221">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit Advances, that Advance move does not prevent it from being eligible to declare a charge.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Movement phase, when this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Condemnatory Annihilation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ac40-1010-2b03-450d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After this unit has fought, if it destroyed one or more enemy models this phase, each enemy unit within Engagement Range of this model must take a Battle-shock test, subtracting 1 from that test.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After this unit has fought, if this unit destroyed an enemy model this phase, each enemy unit engaged with this unit makes a battle-shock roll, with -1 to that battle-shock roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3505,7 +3471,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remors
           <selectionEntryGroups>
             <selectionEntryGroup name="Pistol" id="9b3f-80d8-ad90-5990" hidden="false" defaultSelectionEntryId="9a2e-2565-fdc4-4e81">
               <entryLinks>
-                <entryLink import="true" name="Light Flamer" hidden="false" id="cfe3-a0ee-85c3-cff5" type="selectionEntry" targetId="bb21-4114-6b0c-634d">
+                <entryLink import="true" name="Hand flamer" hidden="false" id="cfe3-a0ee-85c3-cff5" type="selectionEntry" targetId="9dc6-6ad8-818e-db2e">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Absolvor bolt pistol" hidden="false" id="9a2e-2565-fdc4-4e81" type="selectionEntry" targetId="a490-361-c9c4-afeb">
@@ -3599,7 +3565,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remors
       <infoLinks>
         <infoLink name="Invulnerable Save" id="a55d-946d-bc14-f85a" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Leader" id="3476-c024-79c7-f6d7" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
-        <infoLink name="Templar Vows" id="298e-c075-5dc1-3482" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <modifierGroups>
         <modifierGroup type="and">
@@ -3655,8 +3620,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Remors
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Land Raider Crusader" hidden="false" id="8525-2de1-14fd-c1f5">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Legacy of Jerulas</comment>
+      <comment>texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Legacy of Jerulas</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="230"/>
       </costs>
@@ -3670,7 +3634,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Legacy
           </modifiers>
         </infoLink>
         <infoLink name="Damaged: 1-5 Wounds Remaining" id="ff1a-1739-c1f5-aa9b" hidden="false" type="profile" targetId="1aac-b083-4318-f750"/>
-        <infoLink name="Templar Vows" id="a66a-6032-8468-29d3" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <profiles>
         <profile name="Transport" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7397-533d-3a83-bf7e">
@@ -3840,8 +3803,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Legacy
       </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sternguard Veteran Squad" hidden="false" id="a499-86fa-4d0c-b06d">
-      <comment>sim-mod: source=&quot;Vitruous Onslaught&quot; reroll=wound1 conditional
-sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Vitruous Onslaught&quot; reroll=wound1 conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="dc86-ef61-5255-5fb6"/>
       </constraints>
@@ -4125,9 +4087,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
           </characteristics>
         </profile>
       </profiles>
-      <infoLinks>
-        <infoLink name="Templar Vows" id="e5a7-9f5e-2d06-b8cd" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
-      </infoLinks>
+      <infoLinks></infoLinks>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
@@ -4183,8 +4143,7 @@ sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional</commen
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Terminator Squad" hidden="false" id="80ad-6e62-65e3-e667">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-invuln: 4+</comment>
+      <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="5110-6d2d-8210-7842"/>
       </constraints>
@@ -4199,7 +4158,6 @@ invuln: 4+</comment>
       <infoLinks>
         <infoLink name="Deep Strike" id="9b9e-3fec-59f7-6f65" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Invulnerable Save" id="b787-4759-26bf-609b" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
-        <infoLink name="Templar Vows" id="0174-d60b-561f-7380" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <profiles>
         <profile name="Teleport Homer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="468e-20f0-e3bb-3190">
@@ -4501,8 +4459,6 @@ invuln: 4+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Crusade Ancient" hidden="false" id="dca2-b12f-d1a9-5822">
-      <comment>sim-mod: source=&quot;Templar Vows&quot; wound=+1 when=melee conditional
-texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vengeful Exhortation | Martial Honour</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="03c9-e93f-4dde-10a4"/>
       </constraints>
@@ -4560,7 +4516,6 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vengef
       </modifierGroups>
       <infoLinks>
         <infoLink name="Support" id="1202-7bfa-858c-7e4a" hidden="false" type="rule" targetId="21f5-c07c-6d97-4405"/>
-        <infoLink name="Templar Vows" id="2ac9-d910-9f92-f601" hidden="false" type="rule" targetId="f26c-4b28-aaea-40cf"/>
       </infoLinks>
       <profiles>
         <profile name="Crusade Ancient" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6bc5-3283-add8-837e">
@@ -4575,12 +4530,13 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vengef
         </profile>
         <profile name="Vengeful Exhortation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7e85-5ea3-c373-8407">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, you can use this ability. If you do, each time a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6: on a 4+, do not remove that model from the battlefield; once this unit has fought, or at the end of the phase (whichever comes first), remove that model from the battlefield.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, you can use this ability. If you do, when a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6:
+■ On a 4+, do not remove this model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), this model is removed from the battlefield.</characteristic>
           </characteristics>
         </profile>
         <profile name="Martial Honour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="227f-7aee-2402-e4f5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per army) If this unit&apos;s melee attacks destroyed an enemy unit this phase, you can use this ability. If you do, until the end of the battle, this model has +5 OC.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">(Once per battle, per unit) If this unit&apos;s melee attacks destroyed an enemy unit this phase, you can use this ability. If you do, until the end of the battle, this model has +5 OC.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4721,7 +4677,7 @@ texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — Vengef
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
           </characteristics>
