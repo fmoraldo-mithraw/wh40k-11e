@@ -534,7 +534,7 @@ fnp: 5+</comment>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Close-Quarters, Hazardous</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Close-Quarters</characteristic>
           </characteristics>
         </profile>
         <profile id="cfeb-57bb-07ac-ddc2" name="➤ Plasma pistol - standard" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -1829,23 +1829,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Sanguinary Banner" hidden="false" id="8352-c4fb-89d7-30d6" sortIndex="2">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ace6-aa7e-6c4b-25ed"/>
-          </constraints>
-          <profiles>
-            <profile name="Sanguinary Banner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a344-31d1-3cec-1aa4">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 1 to the Objective Control characteristic of models in the bearer’s unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <associations>
-            <association min="1" max="1" scope="25e4-ead-faac-2531" childId="model" name="Sanguinary Banner" id="9621-656a-ffa9-4744"/>
-          </associations>
-        </selectionEntry>
-      </selectionEntries>
+      <selectionEntries></selectionEntries>
       <infoLinks>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="446-c76b-af18-5955" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="d9bb-e847-88d0-2cc3" targetId="3b76-4053-ece9-6e7d"/>
@@ -2733,7 +2717,28 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                 <entryLink import="true" name="Power fist" hidden="false" id="5fe7-0510-42bd-50d1" type="selectionEntry" targetId="99de-5985-8cb8-f571"/>
                 <entryLink import="true" name="Relic Weapon" hidden="false" id="2748-096a-c30a-638b" type="selectionEntry" targetId="5baf-8a8a-b5ba-1223"/>
                 <entryLink import="true" name="Astartes Chainsword" hidden="false" id="5609-e509-a00f-2daf" type="selectionEntry" targetId="e10a-a603-e8c9-f1ee"/>
-                <entryLink import="true" name="Thunder Hammer" hidden="false" type="selectionEntry" id="9b55-f762-f212-7b29" targetId="62ad-da0b-24f7-fe33"/>
+    <selectionEntry type="upgrade" import="true" name="Thunder Hammer" id="c705-d07e-f9e7-ec5e">
+      <profiles>
+        <profile name="Thunder Hammer" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="4b21-0d7a-6eca-5346">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>A5 WS 3+</comment>
+      <infoLinks>
+        <infoLink name="Devastating Wounds" id="365b-3497-804f-7195" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="f03f-7b76-e42e-8e60" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
               </entryLinks>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5171-b9b0-da21-5f1b" includeChildSelections="false"/>
@@ -2747,7 +2752,69 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
               </constraints>
               <entryLinks>
                 <entryLink import="true" name="Hand flamer" hidden="false" id="b9d1-111a-c8fa-00a9" type="selectionEntry" targetId="9dc6-6ad8-818e-db2e"/>
-                <entryLink import="true" name="Plasma pistol" hidden="false" id="90e0-ddc7-d99a-dc9c" type="selectionEntry" targetId="25c2-104f-fa0c-809e"/>
+    <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="d690-8151-9701-6f84">
+      <profiles>
+        <profile id="9cde-9576-47ae-583c" name="➤ Plasma Pistol - Standard" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="2+" field="94d-8a98-cf90-183e">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="9c1a-42ff-a418-11d1" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="b95-bdb8-c3e1-456b" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="b957-d9cd-ee81-560" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </profile>
+        <profile id="faca-f645-81ed-e29a" name="➤ Plasma Pistol - Supercharge" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="2+" field="94d-8a98-cf90-183e">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="9c1a-42ff-a418-11d1" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="b95-bdb8-c3e1-456b" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="b957-d9cd-ee81-560" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Hazardous" hidden="false" type="rule" id="082f-96db-ea32-53ad" targetId="8367-374c-f87-c627"/>
+        <infoLink name="Close-Quarters" hidden="false" type="rule" id="6819-e6b4-a5ca-1363" targetId="59e0-775e-fce5-43ca"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="4599-9542-bc65-cdb2" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Pistol Weapon" hidden="false" id="7239-76df-3030-fced" targetId="1db0-c6b5-19db-8d0c" primary="false"/>
+      </categoryLinks>
+      <comment>BS3+</comment>
+    </selectionEntry>
               </entryLinks>
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Heavy Bolt Pistol" hidden="false" id="7f25-57df-7ed0-df5c">
@@ -2974,19 +3041,43 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3919-198d-0dda-897a" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
-                <entryLink import="true" name="Grenade Launcher" hidden="false" type="selectionEntry" id="5845-edca-d45e-556e" targetId="7ada-b56b-bb4b-13be">
+    <selectionEntry type="upgrade" import="true" name="Grenade Launcher" hidden="false" id="4d4d-ec4b-fa14-ca82">
+      <profiles>
+        <profile name="➤ Grenade Launcher - Frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b883-1310-dbe5-55ef">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Grenade Launcher - Krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="74c9-1c63-03f1-c454">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Blast" hidden="false" type="rule" id="8048-c6e1-83d0-16e3" targetId="6c1f-1cf7-ff25-c99e"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="3bb3-adb4-6efd-739c" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="e6bc-f105-631b-5b35" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
                   <constraints>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8fc8-a766-803e-101c"/>
-                    <constraint type="max" value="0" field="selections" scope="3825-ac3a-75ec-fa0d" shared="true" id="b22e-6bb6-1251-9379" includeChildSelections="true"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2e6b-4011-6ea8-d5cd"/>
+                    <constraint type="max" value="0" field="selections" scope="3825-ac3a-75ec-fa0d" shared="true" id="f90a-98ba-a242-8818" includeChildSelections="true"/>
                   </constraints>
-                  <modifiers>
-                    <modifier type="increment" value="1" field="b22e-6bb6-1251-9379">
-                      <repeats>
-                        <repeat value="5" repeats="1" field="selections" scope="unit" childId="model" shared="true" roundUp="false" includeChildSelections="true"/>
-                      </repeats>
-                    </modifier>
-                  </modifiers>
-                </entryLink>
+    </selectionEntry>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="d315-6db3-f4da-217c" includeChildSelections="false"/>
@@ -3362,9 +3453,28 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0633-0df8-1500-d4c4"/>
               </constraints>
             </selectionEntryGroup>
-            <selectionEntryGroup name="Ranged Weapon Option" id="0594-cce0-43e8-a8cb" hidden="false" defaultSelectionEntryId="283d-01d2-30bd-8d3b">
+            <selectionEntryGroup name="Ranged Weapon Option" id="0594-cce0-43e8-a8cb" hidden="false" defaultSelectionEntryId="b53f-0e27-f965-52e4">
               <entryLinks>
-                <entryLink import="true" name="Twin heavy bolter" hidden="false" id="283d-01d2-30bd-8d3b" type="selectionEntry" targetId="d107-1e89-9d3f-c9c7"/>
+    <selectionEntry type="upgrade" import="true" name="Twin heavy bolter" hidden="false" id="b53f-0e27-f965-52e4">
+      <infoLinks>
+        <infoLink name="Sustained Hits" hidden="false" type="rule" id="1e3b-de16-9dc0-16d7" targetId="1897-c22c-9597-12b1"/>
+        <infoLink name="Twin-linked" hidden="false" type="rule" id="6d95-7aa1-f8b4-60ab" targetId="cf93-ad4d-2f08-a79d"/>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0dd2-9258-bf65-f078" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <profiles>
+        <profile name="Twin Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8854-9647-df9b-ed6d">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1, Twin-linked</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
                 <entryLink import="true" name="Twin multi-melta" hidden="false" id="d865-d29d-90d2-1db4" type="selectionEntry" targetId="6fad-2d0d-8ff9-5f8f"/>
               </entryLinks>
               <constraints>
