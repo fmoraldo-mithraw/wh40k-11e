@@ -56,8 +56,7 @@ Every Deathwing Knights is equipped with: 1 Mace of Absolution.
 - 📦 composition officielle : • 1 Ravenwing Huntmaster model ; • 2-5 Ravenwing Black Knight models
   - équipement : Every model is equipped with: 1 Bolt Pistol; 1 Corvus Hammers; 1 Plasma Talon.
   - option : For every 3 models in this unit, 1 model can have their Plasma Talon replaced with 1 Grenade Launcher.
-### Ravenwing Command Squad — 2 écart(s)
-- ➖ armes chez nous absentes de la fiche officielle : astartes grenade launcher
+### Ravenwing Command Squad — 1 écart(s)
 - ≠ texte différent : **Support** — officiel « This model can be attached to the following units: ⏎ ■ **OUTRIDER SQUAD** ⏎ ■ **RAVENWING BLACK KNIGHTS** »
 - 📦 composition officielle : • 1 Ravenwing Ancient model ; • 1 Ravenwing Apothecary model ; • 1 Ravenwing Champion model
   - équipement : The Ravenwing Ancient is equipped with: 1 Bolt Pistol; 1 Corvus Hammers; 1 Plasma Talon.
@@ -359,8 +358,7 @@ Every Initiate is equipped with: 1 Bolt Pistol; 1 Bolt Rifle; 1 Knives and Fists
   - option : This model can be equipped with 1 Hurricane Bolter
   - option : This model's 2 Blackstar Rocket Launchers can be replaced with 2 Stormstrike Missile Launchers.
   - option : This model's Twin Assault Cannon can be replaced with 1 Twin Lascannon.
-### Deathwatch Terminator Squad — 2 écart(s)
-- ✏️ **Storm Bolter** : nous 24 | 2 | 2+ | 5 | -1 | 1 | rapid fire 2 → officiel 24 | 2 | 3+ | 5 | -1 | 1 | rapid fire 2
+### Deathwatch Terminator Squad — 1 écart(s)
 - ≠ texte différent : **Storm Shield** — officiel « This model has +1 W. »
 - 📦 composition officielle : • 1 Deathwatch Terminator Sergeant model ; • 4-9 Deathwatch Terminator models
   - équipement : Every model is equipped with: 1 Power Fist; 1 Storm Bolter.
