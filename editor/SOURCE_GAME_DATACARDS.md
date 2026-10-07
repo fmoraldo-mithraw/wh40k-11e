@@ -9,11 +9,14 @@
 - **Journal amont** : `11th/changelogs/<version>_summary.md` (et `_changelog.txt` détaillé),
   `11th/versions.json` (historique version de données → commit). Chaque JSON porte
   `compatibleDataVersion` et `updated`.
-- **Fiabilité** : export des données de l'appli officielle ; fiche Lion El'Jonson et
-  27 captures Black Templars **identiques** aux captures de l'appli (oct. 2026). Bruits
-  connus listés dans le manifeste (`knownNoise`) : CT 7+ des armes Torrent, mots-clefs
-  d'arme parfois omis ou mal attribués → **ne jamais retirer un mot-clef sur la seule
-  foi de la source**.
+- **Fiabilité — la fiche officielle fait foi à 100 %** (décision du 2026-10-07) : export
+  des données de l'appli officielle ; fiche Lion El'Jonson, 27 captures Black Templars,
+  Wulfen Dreadnought, Mephiston, Death Company Dreadnought/Captain, Wolf Priest **identiques**
+  aux captures de l'appli. On applique **tout**, retraits compris (mots-clefs, aptitudes,
+  armes, options que la fiche ne porte pas). Seule lecture particulière : la CT **« 7+ »**
+  d'une arme **Torrent** est la façon dont l'appli affiche « - » → on garde `N/A`.
+  Nos encodages propres (mot-clef `Hunter (…)` doublant le profil `➤ … - Hunter`, préfixe
+  « (Once per …) » dans le texte) ne sont pas des écarts.
 
 ## Le fichier de sauvegarde : `editor/sources/game-datacards.json`
 
@@ -39,7 +42,7 @@ git -C /tmp/gdc-old init -q && git -C /tmp/gdc-old fetch --depth 1 \
 |---|---|
 | `gdc-watch.cjs` | **veille** : diff amont (version suivie → tête) confronté à notre base, verdict par changement, rapport MD/JSON. Ne modifie rien. |
 | `gdc-compare.cjs` | rapport complet base ↔ source pour les chapitres (`editor/SM_FICHES_OFFICIELLES_11E.md`). |
-| `gdc-apply-weapons.cjs` | aligne caractéristiques + profils d'armes d'un catalogue (copie locale avant toute entrée partagée, n'enlève aucun mot-clef, ignore CT 7+ Torrent). `--skip`, `--nokw "Fiche:Arme"`. |
+| `gdc-apply-weapons.cjs` | aligne caractéristiques + profils d'armes d'un catalogue (copie locale avant toute entrée partagée, CT 7+ Torrent lue N/A). `--trust` : retire aussi les mots-clefs absents de la fiche (sauf notre `Hunter (…)`) ; `--only "Fiche"`, `--skip`, `--nokw "Fiche:Arme"`. |
 | `gdc-apply-abilities.cjs` | textes d'aptitudes officiels (`--rename`, `--drop`). |
 | `gdc-sync-detachments.cjs` | règles, stratagèmes, améliorations des détachements (chapitres). |
 
@@ -58,11 +61,11 @@ node editor/translations/gdc-watch.cjs --old /tmp/gdc-old/11th/gdc --new /tmp/gd
 | Verdict | Décision |
 |---|---|
 | ✅ déjà conforme | rien. |
-| 🛠 à appliquer (caractéristiques, valeurs d'arme, ajout de mot-clef, texte d'aptitude, stratagème/amélioration d'un chapitre) | **appliquer** avec l'outil indiqué, en ne gardant du dry-run que les lignes des fiches signalées (sinon édition ciblée via `editor/lib/catalog.js`) ; FR officiel dans `translations/fr.json` ; validation CLAUDE.md règle 4. |
-| 💰 points | **ne pas appliquer** sans MFM : la source suit l'appli, le MFM fait foi (`MFM_PROMPT.md`, paliers/répétition). Signaler. |
-| ✋ manuel (composition, options, mots-clefs de fiche, fiche nouvelle, stratagèmes hors chapitres) | préparer la proposition dans le rapport, ne pas encoder automatiquement (règles maison : porteurs, Upgrade, UNIQUE…). |
-| ❓ doute (retrait de mot-clef, d'aptitude, d'arme, de fiche) | ne rien retirer ; demander confirmation à l'utilisateur. |
-| 🔇 bruit connu | ignorer. |
+| 🛠 à appliquer (caractéristiques, valeurs d'arme, mots-clefs **ajoutés ou retirés**, aptitude/arme/option ajoutée **ou retirée**, texte d'aptitude, stratagème/amélioration) | **appliquer** : `gdc-apply-weapons.cjs --trust` (dry-run d'abord, `--only "Fiche"` pour cibler), `gdc-apply-abilities.cjs`, `gdc-sync-detachments.cjs`, sinon édition ciblée via `editor/lib/catalog.js` ; FR officiel dans `translations/fr.json` ; validation CLAUDE.md règle 4. |
+| 💰 points | appliquer le prix de l'appli officielle selon `MFM_PROMPT.md` (paliers, répétition) ; signaler si le dernier MFM diffère. |
+| ✋ manuel (composition, options, mots-clefs de fiche, fiche nouvelle, stratagèmes hors chapitres) | encoder selon les guides (règles maison : porteurs, Upgrade, UNIQUE…). |
+| ❓ doute | **seul cas** : fiche entière retirée de l'appli (Legends ?) → demander avant de supprimer. |
+| 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. |
 
 Les changements appliqués sont poussés sur une **branche `veille-gdc/v<B>`** (jamais
 directement sur `main`), avec le rapport et le manifeste mis à jour (`tracked`) ; la fusion

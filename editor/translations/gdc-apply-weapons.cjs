@@ -2,10 +2,14 @@
 // Prudences : n'enlève jamais de mot-clef (la source en omet), ignore la CT « 7+ » des armes Torrent
 // (artefact), scinde (copie locale) une entrée partagée avant de la modifier, renomme vers le nom
 // officiel quand l'arme n'est appariable que par élimination (même nature, même nombre de profils).
-//   node editor/translations/gdc-apply-weapons.cjs <fichier.cat> <gdc.json> [--write] [--skip "Fiche:Arme"]
+//   node editor/translations/gdc-apply-weapons.cjs <fichier.cat> <gdc.json> [--write] [--trust] [--only "Fiche"] [--skip "Fiche:Arme"]
+//   --trust (décision du 2026-10-07 : la fiche officielle fait foi à 100 %) : retire aussi les mots-clefs absents de la
+//   fiche officielle ; seule la CT « 7+ » des armes Torrent reste lue comme « - » (N/A).
 const fs = require("fs"); const path = require("path"); const R = path.resolve(__dirname, "../..");
 const { Catalog } = require(R + "/editor/lib/catalog"); const xml = require(R + "/editor/lib/xml");
 const args = process.argv.slice(2); const [FILE, GJ] = args; const WRITE = args.includes("--write");
+const TRUST = args.includes("--trust"); // fiche officielle = vérité : on retire aussi les mots-clefs qu'elle ne porte pas
+const ONLY = new Set(args.filter((a, i) => args[i - 1] === "--only")); // limiter à certaines fiches
 const NOKW = new Set(args.filter((a, i) => args[i - 1] === "--nokw"));
 const SKIP = new Set(args.filter((a, i) => args[i - 1] === "--skip"));
 const c = new Catalog(R).load(); const g = JSON.parse(fs.readFileSync(GJ, "utf8"));
@@ -52,17 +56,20 @@ function plan(p, op, rename) { const out = []; const ch = chars(p); const put = 
   if (!(isTorrent && /^\d\+$/.test(op.skill) && +op.skill[0] >= 6)) put("BS", op.skill === "-" ? "N/A" : op.skill);
   put("S", op.strength); put("AP", op.ap); put("D", op.damage);
   const kc = ch.Keywords; if (kc) { const curS = xml.getText(kc) || ""; const cur = curS.split(/,\s*/).map((x) => x.trim()).filter((x) => x && x !== "-");
-    const offK = (op.keywords || []).map(en).filter(Boolean).flatMap(splitKw).filter((k) => !/^pistol$/i.test(k));
+    const offK = (op.keywords || []).map(en).filter(Boolean).flatMap(splitKw).filter((k) => TRUST || !/^pistol$/i.test(k));
     const stem = (x) => kwNorm(x).replace(/ \d\+$/, "");
     const pstem = (x) => kwNorm(x).replace(/ (d?\d+(\+\d+)?\+?|d\d)$/, "");
     let next = cur.filter((x) => !offK.some((k) => pstem(k) === pstem(x) && pstem(k) !== kwNorm(k) && kwNorm(k) !== kwNorm(x)));
     const have = new Set(next.map(kwNorm)); for (const k of offK) if (!have.has(kwNorm(k))) next.push(TC(k));
-    if (next.some((x) => /^pistol$/i.test(x))) next = next.filter((x) => !/^pistol$/i.test(x)).concat(next.some((x) => /^close-quarters$/i.test(x)) ? [] : ["Close-Quarters"]);
+    // --trust : ne garder que les mots-clefs officiels (sauf notre encodage Hunter, qui double le profil ➤ - Hunter)
+    if (TRUST) { const offN = new Set(offK.map(kwNorm)); next = next.filter((x) => offN.has(kwNorm(x)) || /^hunter\b/i.test(x)); }
+    if (!TRUST && next.some((x) => /^pistol$/i.test(x))) next = next.filter((x) => !/^pistol$/i.test(x)).concat(next.some((x) => /^close-quarters$/i.test(x)) ? [] : ["Close-Quarters"]);
     next = [...new Set(next)].sort((a, b) => a.localeCompare(b)); const nv = next.join(", ") || "-";
     if (new Set(next.map(kwNorm)).size !== new Set(cur.map(kwNorm)).size || next.some((x) => !cur.map(kwNorm).includes(kwNorm(x)))) out.push(["Keywords", nv]); }
   return out; }
 function setChar(p, key, v, ctx) { const ch = chars(p); const k = ch[key] ? key : ({ BS: "WS", WS: "BS" })[key]; if (!ch[k]) return; const cur = xml.getText(ch[k]) || ""; if (cur !== v) { xml.setText(ch[k], v); log.push(`${ctx} ${k}: ${cur} → ${v}`); } }
 for (const ds of g.datasheets) {
+  if (ONLY.size && !ONLY.has(en(ds.name))) continue;
   const u = unit(en(ds.name)); if (!u) continue; const un = nm(u);
   // caractéristiques
   const stats = []; xml.walk(u, (p) => { if (p.tag === "profile" && xml.getAttrDecoded(p, "typeName") === "Unit") stats.push(p); });

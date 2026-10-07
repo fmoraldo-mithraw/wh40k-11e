@@ -3,7 +3,8 @@
 // nouveau = tête du dépôt amont), puis confronte CHAQUE changement amont à notre base et rend un verdict :
 //   ✅ déjà conforme · 🛠 à appliquer (outil + commande) · 💰 points (à confirmer par le MFM)
 //   ✋ manuel (composition, options, mots-clefs, fiche nouvelle) · ❓ doute · 🔇 bruit connu de la source
-// Rien n'est modifié : le script produit un rapport Markdown (+ JSON) ; l'application se fait avec les
+// Décision du 2026-10-07 : la fiche officielle fait foi à 100 % (retraits compris) ; seule la CT « 7+ » d'une arme
+// Torrent est lue comme « - ». Rien n'est modifié : le script produit un rapport Markdown (+ JSON) ; l'application se fait avec les
 // outils gdc-* existants, puis la validation habituelle (CLAUDE.md, règle 4).
 //   node editor/translations/gdc-watch.cjs --old <ancien 11th/gdc> --new <nouveau 11th/gdc>
 //        [--changelogs <11th/changelogs>] [--out rapport.md] [--json rapport.json]
@@ -62,13 +63,12 @@ function diffWeapons(file, ds0, ds1, u) {
     const conform = cand.length && cand.every((q) => { const ch = chars(q); const v = [ch.Range, ch.A, ch.BS || ch.WS, ch.S, ch.AP, ch.D].map(N).join("|"); const want = sig({ ...p, range: /melee/i.test(p.range) ? "Melee" : p.range, skill: p.skill === "-" ? "N/A" : p.skill });
       const ourKw = N(ch.Keywords).split(/,\s*/); return v === want && added.every((x) => ourKw.includes(x) || (x === "pistol" && ourKw.includes("close-quarters"))); });
     if (conform && !removed.length) { add(file, en(ds1.name), "arme", `« ${name} » ${det.join(" ; ")}`, V.ok); continue; }
-    if (removed.length && sig(o.p) === sig(p) && !added.length) { add(file, en(ds1.name), "arme", `« ${name} » ${det.join(" ; ")}`, V.doubt, "la source omet parfois des mots-clefs : ne retirer qu'après confirmation (fiche / MFM)"); continue; }
     if (!cand.length) { add(file, en(ds1.name), "arme", `« ${name} » ${det.join(" ; ")}`, V.manual, "arme introuvable sous ce nom chez nous (renommage ?)"); continue; }
     const oursTxt = [...new Set(cand.map((q) => { const ch = chars(q); return [ch.Range, ch.A, ch.BS || ch.WS, ch.S, ch.AP, ch.D].join("|") + (ch.Keywords && ch.Keywords !== "-" ? " " + ch.Keywords : ""); }))].join(" / ");
-    add(file, en(ds1.name), "arme", `« ${name} » ${det.join(" ; ")} — nous : ${oursTxt}${removed.length ? " (retrait de mot-clef : à confirmer)" : ""}`, V.apply, tool(file, "gdc-apply-weapons.cjs") + " --write");
+    add(file, en(ds1.name), "arme", `« ${name} » ${det.join(" ; ")} — nous : ${oursTxt}`, V.apply, tool(file, "gdc-apply-weapons.cjs") + " --trust --write");
   }
   for (const [k, { p }] of a) if (!b.has(k)) { const name = en(p.name); const still = [...b.values()].some((x) => wbase(en(x.p.name)) === wbase(name));
-    if (!still) add(file, en(ds1.name), "arme", `arme/profil retiré en amont « ${name} »`, mine.some((q) => wbase(nm(q)) === wbase(name)) ? V.doubt : V.ok, "retrait d'option : vérifier sur la fiche avant de supprimer"); }
+    if (!still) add(file, en(ds1.name), "arme", `arme/profil retiré en amont « ${name} »`, mine.some((q) => wbase(nm(q)) === wbase(name)) ? V.apply : V.ok, "retirer l'arme/l'option (la fiche officielle fait foi)"); }
 }
 function diffStats(file, ds0, ds1, u) {
   const key = (s) => N(en(s.name)); const a = new Map((ds0.stats || []).map((s) => [key(s), s]));
@@ -77,7 +77,7 @@ function diffStats(file, ds0, ds1, u) {
     if (!u) { add(file, en(ds1.name), "caractéristiques", det, V.manual, "fiche introuvable chez nous"); continue; }
     const ours = ourStats(u.node); const m = ours.filter((x) => N(x.name).replace(/s$/, "") === key(s).replace(/s$/, "")); const use = m.length ? m : (ours.length === 1 ? ours : []);
     const conform = use.length && use.every((x) => ["M", "T", "SV", "W", "LD", "OC"].map((k) => N(x.ch[k])).join("/") === vals(s));
-    add(file, en(ds1.name), "caractéristiques", det + (conform || !use.length ? "" : ` — nous : ${use.map((x) => ["M", "T", "SV", "W", "LD", "OC"].map((k) => x.ch[k]).join("/")).join(" ; ")}`), conform ? V.ok : (use.length ? V.apply : V.manual), conform ? "" : (use.length ? tool(file, "gdc-apply-weapons.cjs") + " --write" : "profil de caractéristiques introuvable chez nous"));
+    add(file, en(ds1.name), "caractéristiques", det + (conform || !use.length ? "" : ` — nous : ${use.map((x) => ["M", "T", "SV", "W", "LD", "OC"].map((k) => x.ch[k]).join("/")).join(" ; ")}`), conform ? V.ok : (use.length ? V.apply : V.manual), conform ? "" : (use.length ? tool(file, "gdc-apply-weapons.cjs") + " --trust --write" : "profil de caractéristiques introuvable chez nous"));
   }
 }
 function diffAbilities(file, ds0, ds1, u) {
@@ -89,7 +89,7 @@ function diffAbilities(file, ds0, ds1, u) {
     if (x.grp === "core" || x.grp === "faction") { add(file, en(ds1.name), "aptitude", det + " (règle de base/faction)", ours.has(k) ? V.ok : V.manual, ours.has(k) ? "" : "infoLink de règle à ajouter"); continue; }
     const mineTxt = ours.get(k.replace(/\s*\(.*$/, "")); const conform = mineTxt != null && txt(mineTxt).includes(txt(x.text).slice(0, 120));
     add(file, en(ds1.name), "aptitude", det, conform ? V.ok : V.apply, conform ? "" : tool(file, "gdc-apply-abilities.cjs") + " --write  (puis fr.json : texte FR officiel)"); }
-  for (const [k, o] of a) if (!b.has(k)) add(file, en(ds1.name), "aptitude", `aptitude retirée en amont « ${o.name} »`, ours.has(k) ? V.doubt : V.ok, "retrait : confirmer sur la fiche (source parfois lacunaire)");
+  for (const [k, o] of a) if (!b.has(k)) add(file, en(ds1.name), "aptitude", `aptitude retirée en amont « ${o.name} »`, ours.has(k) ? V.apply : V.ok, "retirer l'aptitude (la fiche officielle fait foi)");
 }
 function diffMisc(file, ds0, ds1, u) {
   const j = (x) => JSON.stringify(Array.isArray(x) ? x.map(en) : (x && typeof x === "object" && !("en" in x) ? x : en(x))); const name = en(ds1.name);
@@ -100,7 +100,7 @@ function diffMisc(file, ds0, ds1, u) {
   if (j(ds0.wargear) !== j(ds1.wargear) || j(ds0.loadout) !== j(ds1.loadout)) add(file, name, "options", "options d'équipement / équipement de base modifiés", V.manual, "groupes d'armes (WEAPON_SLOTS_APP_PROMPT) ; voir l'option dans la fiche");
   const pt = (ds) => (ds.points || []).map((p) => `${p.models}:${p.cost}${p.keyword ? "@" + p.keyword : ""}`).join(" ");
   if (pt(ds0) !== pt(ds1)) { const tiers = (ds1.points || []).filter((p) => !p.keyword && !p.detachment).sort((x, y) => (+x.models || 0) - (+y.models || 0)); const first = tiers[0]; const ours = u ? ourPts(u) : null; const ok = first && ours === String(first.cost);
-    add(file, name, "points", `${pt(ds0)} → ${pt(ds1)} (nous : ${ours ?? "?"} pts de base)`, ok ? V.ok : V.pts, ok ? "" : "confirmer par le MFM puis appliquer (MFM_PROMPT ; paliers/répétition)"); }
+    add(file, name, "points", `${pt(ds0)} → ${pt(ds1)} (nous : ${ours ?? "?"} pts de base)`, ok ? V.ok : V.pts, ok ? "" : "appliquer le prix de l'appli officielle selon MFM_PROMPT (paliers, répétition) ; prévenir si le dernier MFM diffère"); }
 }
 function diffFaction(file, F0, F1) {
   const dsKey = (d) => d.id || N(en(d.name)); const a = new Map((F0.datasheets || []).map((d) => [dsKey(d), d]));
@@ -109,7 +109,7 @@ function diffFaction(file, F0, F1) {
     for (const k of Object.keys(d)) if (!(k in o)) newFields.add(`datasheets.${k}`);
     if (JSON.stringify(o) === JSON.stringify(d)) continue;
     diffStats(file, o, d, u); diffWeapons(file, o, d, u); diffAbilities(file, o, d, u); diffMisc(file, o, d, u); }
-  const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) add(file, en(o.name), "fiche", "fiche retirée en amont (Legends ?)", ourUnit(en(o.name), file) ? V.doubt : V.ok, "ne rien supprimer sans annonce officielle");
+  const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) add(file, en(o.name), "fiche", "fiche retirée de l'appli officielle (Legends ?)", ourUnit(en(o.name), file) ? V.doubt : V.ok, "seul cas à confirmer : retirer la fiche entière (ou la passer en Legends)");
   // détachements, stratagèmes, améliorations, règles d'armée / de détachement
   const sync = (MANIFEST.files[file] || {}).detachmentTool;
   const SECS = { detachments: (F) => F.detachments || [], stratagems: (F) => F.stratagems || [], enhancements: (F) => F.enhancements || [],

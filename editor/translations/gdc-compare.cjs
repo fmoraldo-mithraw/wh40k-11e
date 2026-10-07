@@ -12,10 +12,10 @@ const nm = (n) => xml.getAttrDecoded(n, "name") || "";
 const en = (x) => (x && typeof x === "object" && "en" in x) ? x.en : x;
 const fr = (x) => (x && typeof x === "object" && "fr" in x) ? x.fr : null;
 const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[–—]/g, "-").replace(/^➤\s*/, "").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
-const plain = (s) => N(String(s || "").replace(/<[^>]+>/g, " ").replace(/\*\*|\^\^/g, "").replace(/[■▫•]/g, " ")).replace(/[^a-z0-9+]+/g, "");
+const plain = (s) => N(String(s || "").replace(/^\s*\(once per [^)]*\)\s*/i, "").replace(/<[^>]+>/g, " ").replace(/\*\*|\^\^/g, "").replace(/[■▫•]/g, " ")).replace(/[^a-z0-9+]+/g, "");
 const toOurs = (s) => String(s || "").replace(/<k>(.*?)<\/k>/g, "**^^$1^^**").replace(/<\/?(b|u|i)>/g, "").replace(/<ul>/g, "").replace(/<\/ul>/g, "").replace(/<li>/g, "\n■ ").replace(/<\/li>/g, "").replace(/▫/g, "■").replace(/\n+/g, "\n").trim();
 const kwN = (k) => (Array.isArray(k) ? k : String(k || "").split(/,\s*/)).map((x) => N(x)).flatMap((x) => { const m = x.match(/^anti-([a-z]+)\/([a-z]+) (\d\+)$/); return m ? [`anti-${m[1]} ${m[3]}`, `anti-${m[2]} ${m[3]}`] : [x]; }).filter((x) => x && x !== "-" && !/^hunter/.test(x)).sort().join(", ");
-const vsig = (p) => [String(p.range).replace(/"/g, "").replace(/^melee$/i, "melee"), p.attacks, String(p.skill).replace(/^(-|n\/a)$/i, "N/A"), p.strength, p.ap, p.damage, kwN(p.keywords)].map((v) => N(v)).join(" | ");
+const vsig = (p) => [String(p.range).replace(/"/g, "").replace(/^melee$/i, "melee"), p.attacks, String(p.skill).replace(/^(-|n\/a)$/i, "N/A").replace(/^[7-9]\+$/, (m) => (kwN(p.keywords).includes("torrent") ? "N/A" : m)), p.strength, p.ap, p.damage, kwN(p.keywords)].map((v) => N(v)).join(" | ");
 function oursUnit(file, name) { const d = c.docs.get(file); for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (bx) for (const e of bx.children) if (e.tag === "selectionEntry" && N(nm(e)) === N(name) && xml.getAttr(e, "hidden") !== "true") return e; } return null; }
 function collect(u) {
   const W = new Map(), S = [], A = new Map(), L = new Set(); let prov = ""; const seen = new Set();
@@ -43,7 +43,7 @@ for (const [chap, file, gf] of CH) {
     // caractéristiques
     const gs = (ds.stats || []).map((s) => [en(s.name), [s.m, s.t, s.sv, s.w, s.ld, s.oc].map((v) => String(v).replace(/"/g, "")).join("/")]);
     for (const [n, v] of gs) { const mine = o.S.find(([a]) => N(a) === N(n)) || o.S.find(([, x]) => x === v) || (o.S.length === 1 && gs.length === 1 ? o.S[0] : null); if (!mine) rows.push(`- 📊 profil **${n}** ${v} absent chez nous (nous : ${o.S.map((x) => x.join(" ")).join(" ; ") || "—"})`); else if (mine[1] !== v) rows.push(`- 📊 **${n}** : nous ${mine[1]} → officiel ${v}`); }
-    if (ds.abilities?.invul?.value && !o.A.has("invulnerable save") && !JSON.stringify([...o.L]).includes("invulnerable")) rows.push(`- 🛡️ invulnérable officielle ${ds.abilities.invul.value} : pas de profil/lien chez nous`);
+    if (ds.abilities?.invul?.value && ![...o.A.keys()].some((k) => k.startsWith("invulnerable save")) && !JSON.stringify([...o.L]).includes("invulnerable")) rows.push(`- 🛡️ invulnérable officielle ${ds.abilities.invul.value} : pas de profil/lien chez nous`);
     // armes : par nom de base, ensemble des profils (valeurs)
     const base = (k) => N(k).split(" - ")[0].trim().replace(/^astartes chainsword$/, "chainsword");
     const offB = new Map(); for (const grp of [...(ds.rangedWeapons || []), ...(ds.meleeWeapons || [])]) for (const p of grp.profiles || []) { const b = base(en(p.name)); if (!offB.has(b)) offB.set(b, { name: en(p.name).split(/\s+[–-]\s+/)[0], sigs: new Set() }); offB.get(b).sigs.add(vsig(p)); }
@@ -64,7 +64,7 @@ for (const [chap, file, gf] of CH) {
       else if (plain(mine) !== plain(t)) (process.env.GDC_DEBUG && console.log('GDC_DEBUG', n, '\n  N:', plain(mine), '\n  O:', plain(t)), rows.push(`- ${provSet.has(k) ? "⚑ texte provisoire à remplacer" : "≠ texte différent"} : **${n}** — officiel « ${toOurs(t).replace(/\n/g, " ⏎ ")} »`)); }
     const coreN = new Set([...(ab.core || []), ...(ab.faction || [])].map((a) => N(en(a.name))));
     const offN = new Set(offA.map(([n]) => N(String(n).replace(/\s*\((aura|psychic)\)$/i, ""))));
-    const extraA = [...o.A.keys()].filter((k) => !offN.has(k) && ![...offN].some((x) => x.startsWith(k) || k.startsWith(x)) && !coreN.has(k) && !/^(leader|invulnerable save|attached unit|transport|damaged|supreme commander)/.test(k) && !/^\d|^[a-z]+ ?\d/.test(k));
+    const extraA = [...o.A.keys()].filter((k) => !offN.has(k) && ![...offN].some((x) => x.includes(k) || k.includes(x)) && !coreN.has(k) && !/^(leader|invulnerable save|attached unit|transport|damaged|supreme commander)/.test(k) && !/^\d|^[a-z]+ ?\d/.test(k));
     if (extraA.length) rows.push(`- ➖ capacités chez nous absentes de la fiche officielle : ${extraA.join(", ")}`);
     // composition (texte officiel, pour encodage)
     const comp = (ds.composition || []).map(en).join(" ; "), load = en(ds.loadout);
