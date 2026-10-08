@@ -87,14 +87,14 @@ sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=mel
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <modifiers>
+        <modifier type="set" field="51b2-306e-1021-d207" value="270">
+          <conditions>
+            <condition field="selections" scope="c8a6-a4c5-703e-b717" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="c8a6-a4c5-703e-b717" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set" field="51b2-306e-1021-d207" value="165">
-          <conditions>
-            <condition field="selections" scope="c8a6-a4c5-703e-b717" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -272,7 +272,7 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="8650-2081-37d9-87b1" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -477,7 +477,7 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
       </costs>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="7d15-64d7-ef58-b489" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -663,14 +663,14 @@ invuln: 4+</comment>
         <entryLink id="13c5-668b-33bd-328f" name="Enhancements" hidden="false" collective="false" import="true" targetId="a43b-fe98-3d93-435d" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="48b7-e713-d5b1-f11c" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="48b7-e713-d5b1-f11c" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="ce39-21d0-bed5-edd4" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -775,9 +775,9 @@ sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=mel
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
-            <condition type="atLeast" value="4" field="selections" scope="roster" childId="91b3-2e1c-e642-d213" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="91b3-2e1c-e642-d213" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -931,7 +931,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="240"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <constraints>
@@ -1013,8 +1013,14 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Stand Vigil&quot; lethal conditional
 sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
-pts: 170 (prix de la Custodian Guard Sodality) - fiche 11e, a confirmer via MFM.
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="1801-e7f1-0c8b-6f54" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="e96e-5236-50be-5ebe" name="Stand Vigil" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -1163,16 +1169,20 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="240"/>
       </costs>
     </selectionEntry>
     <selectionEntry id="9610-b148-8433-93b8" name="Custodian Wardens" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
-pts: 200 (ancienne unite 4-5 figurines) - fiche 11e 2-3 figurines, a confirmer via MFM.
 invuln: 4+</comment>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+        <modifier type="set" field="51b2-306e-1021-d207" value="295">
+          <conditions>
+            <condition field="selections" scope="9610-b148-8433-93b8" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="9610-b148-8433-93b8" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1732,6 +1742,21 @@ invuln: 4+</comment>
             <condition type="atLeast" value="1" field="selections" scope="force" childId="688a-447d-fb93-b63d" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="50">
+          <conditions>
+            <condition field="selections" scope="3ec3-a4df-fdbf-5507" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="80">
+          <conditions>
+            <condition field="selections" scope="3ec3-a4df-fdbf-5507" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="90">
+          <conditions>
+            <condition field="selections" scope="3ec3-a4df-fdbf-5507" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
       </modifiers>
       <selectionEntries>
         <selectionEntry id="da9b-4886-bdae-6689" name="Prosecutor" hidden="false" collective="false" import="true" type="model">
@@ -1926,6 +1951,13 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="b61c-b815-65c0-b1cc" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="de62-c023-6540-2206" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -2035,7 +2067,7 @@ invuln: 4+</comment>
                 </selectionEntry>
               </selectionEntries>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Eternity-pattern Paragon Blade and Praesidium Shield" hidden="false" id="b69f-900f-e04d-370f" collective="false">
@@ -2083,7 +2115,7 @@ invuln: 4+</comment>
                 </selectionEntry>
               </selectionEntries>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Castellan Axe" hidden="false" id="79d7-1a24-4810-6514" collective="false">
@@ -2187,7 +2219,7 @@ invuln: 4+</comment>
         <entryLink id="f556-ba5a-094c-641c" name="Enhancements" hidden="false" collective="false" import="true" targetId="a43b-fe98-3d93-435d" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <constraints>
@@ -2263,6 +2295,13 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="6319-eeba-b717-bd86" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="4e62-8c6f-2631-373c" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -2428,7 +2467,7 @@ invuln: 4+</comment>
         <entryLink id="56cd-ab3e-43b5-9f8d" name="Enhancements" hidden="false" collective="false" import="true" targetId="a43b-fe98-3d93-435d" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="185"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="555e-9d76-06e9-88bd" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -2503,6 +2542,13 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="58fa-4a25-a5af-1144" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="caf9-528a-d440-f800" name="Shield-Captain on Dawneagle Jetbike" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -2640,7 +2686,7 @@ invuln: 4+</comment>
         <entryLink id="6031-030a-fb16-fa09" name="Enhancements" hidden="false" collective="false" import="true" targetId="a43b-fe98-3d93-435d" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="205"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="e373-5e89-7687-c009" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -2792,7 +2838,7 @@ must-warlord</comment>
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="265"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Watcher&apos;s Axe" hidden="false" id="5622-c756-d3e8-85ae">
@@ -2860,9 +2906,14 @@ must-warlord</comment>
     </selectionEntry>
     <selectionEntry id="918b-c9ed-7af7-74df" name="Vertus Praetors" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="25">
+        <modifier type="set" field="51b2-306e-1021-d207" value="330">
           <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="918b-c9ed-7af7-74df" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition field="selections" scope="918b-c9ed-7af7-74df" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="918b-c9ed-7af7-74df" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -3084,7 +3135,7 @@ invuln: 4+</comment>
         <categoryLink name="Vertus Praetors" hidden="false" id="22db-ed2a-c437-a159" targetId="a3cb-da28-b5f9-d295" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="220"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="5b4f-7787-5db9-f334" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -3095,6 +3146,23 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry id="dd2d-568a-9c56-1b6e" name="Vigilator Squad" hidden="false" collective="false" import="true" type="unit">
+      <modifiers>
+        <modifier type="set" field="51b2-306e-1021-d207" value="55">
+          <conditions>
+            <condition field="selections" scope="dd2d-568a-9c56-1b6e" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="90">
+          <conditions>
+            <condition field="selections" scope="dd2d-568a-9c56-1b6e" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="100">
+          <conditions>
+            <condition field="selections" scope="dd2d-568a-9c56-1b6e" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <selectionEntries>
         <selectionEntry id="1389-f78b-61c0-89a2" name="Vigilator" hidden="false" collective="false" import="true" type="model">
           <constraints>
@@ -3261,6 +3329,23 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry id="503b-f7be-eeeb-9e31" name="Witchseeker Squad" hidden="false" collective="false" import="true" type="unit">
+      <modifiers>
+        <modifier type="set" field="51b2-306e-1021-d207" value="60">
+          <conditions>
+            <condition field="selections" scope="503b-f7be-eeeb-9e31" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="100">
+          <conditions>
+            <condition field="selections" scope="503b-f7be-eeeb-9e31" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+        <modifier type="set" field="51b2-306e-1021-d207" value="110">
+          <conditions>
+            <condition field="selections" scope="503b-f7be-eeeb-9e31" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" childId="model" type="atLeast"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <selectionEntries>
         <selectionEntry id="1ef1-72bd-3ac0-30a4" name="Witchseeker" hidden="false" collective="false" import="true" type="model">
           <constraints>
@@ -3445,7 +3530,7 @@ invuln: 4+</comment>
         <categoryLink id="535c-c124-ff60-a777" name="Imperium" hidden="false" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="50"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="36a1-d7c2-d808-84d0" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -3460,6 +3545,13 @@ invuln: 4+</comment>
 sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="03bc-0141-b967-40e0" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="d368-9654-6c2b-a7a6" name="Dread Foe" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -3550,7 +3642,7 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="195"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="285"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="d0cd-dd40-4fa8-41ba" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -3632,8 +3724,14 @@ invuln: 4+</comment>
 sim-mod: source=&quot;Reap a Terrible Tally&quot; reroll=wound1 vs=Infantry
 sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
-pts: 195 (prix de l&apos;ancienne unite Aquilon Custodians a 3 figurines) - fiche 11e, a confirmer via MFM.
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="45da-9e65-8bc4-a016" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="9889-1127-67a2-d7d2" name="Reap a Terrible Tally" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -3760,7 +3858,7 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="195"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="275"/>
       </costs>
     </selectionEntry>
     <selectionEntry id="00ab-41c4-cf52-4ad2" name="Gyrfalcon Jetbike Sodality" hidden="false" collective="false" import="true" type="unit">
@@ -3768,6 +3866,13 @@ invuln: 4+</comment>
 sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+          <conditions>
+            <condition type="atLeast" value="2" field="selections" scope="roster" childId="00ab-41c4-cf52-4ad2" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="1f03-4e4e-e48a-98cd" name="Death Blow" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -3948,7 +4053,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="225"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="260"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="faf9-e052-1c3e-6aab" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -4031,7 +4136,7 @@ sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=mel
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
 invuln: 4+</comment>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="25">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="201e-e502-a8d1-3974" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4166,7 +4271,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="255"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="40ce-17f3-f81f-844a" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -4246,8 +4351,14 @@ invuln: 4+</comment>
     <selectionEntry id="5c8b-d28d-e220-62f2" name="Venatari with Verutum Lances" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Martial Ka&apos;tah (Dacatarai)&quot; reroll=hit1 when=melee conditional choice=&quot;Martial Ka&apos;tah&quot;
 sim-mod: source=&quot;Martial Ka&apos;tah (Rendax)&quot; lethal when=melee vs=Monster,Vehicle choice=&quot;Martial Ka&apos;tah&quot;
-pts: 150 (prix des anciens Venatari Custodians a 3 figurines) - fiche 11e, a confirmer via MFM.
 invuln: 4+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="5c8b-d28d-e220-62f2" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="4610-4e9c-dcc2-8194" name="Take Wing" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -4365,7 +4476,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="270"/>
       </costs>
     </selectionEntry>
     <selectionEntry id="4988-d93e-5034-2b3c" name="Contemptor-Galatus Dreadnought" hidden="false" collective="false" import="true" type="model">
@@ -4414,7 +4525,7 @@ invuln: 4+</comment>
         <categoryLink id="96f8-cb13-6bb3-27ad" name="Dreadnought" hidden="false" targetId="c97c-376-e2e0-1dd2" primary="false"/>
       </categoryLinks>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="4988-d93e-5034-2b3c" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4481,7 +4592,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="220"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="8976-4e10-8d46-41f4" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -4608,7 +4719,7 @@ invuln: 5+</comment>
         <categoryLink id="38ae-b482-377a-13df" name="Dreadnought" hidden="false" targetId="c97c-376-e2e0-1dd2" primary="false"/>
       </categoryLinks>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="db3b-02cd-87a2-3b52" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4774,7 +4885,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="155"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="230"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="8a80-fceb-63a1-8b89" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -4988,7 +5099,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="f86d-d41a-77df-a090" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -5111,7 +5222,7 @@ invuln: 5+</comment>
         <categoryLink id="d203-df2d-3f2b-45c5" name="Grav-Assault" hidden="false" targetId="fd03-5b8d-9dc8-f4b8" primary="false"/>
       </categoryLinks>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="3ee2-62a9-af84-1a90" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5238,7 +5349,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="230"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="4eec-c033-76c4-0a1b" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -5317,6 +5428,13 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry id="340e-2ee7-6e7a-23ab" name="Caladius Annihilator Grav-tank" hidden="false" collective="false" import="true" type="unit">
       <comment>invuln: 5+</comment>
+      <modifiers>
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+          <conditions>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="340e-2ee7-6e7a-23ab" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
       <profiles>
         <profile id="255e-8236-949f-2ed7" name="Caladius Annihilator Grav-tank" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -5481,7 +5599,7 @@ invuln: 5+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="250"/>
       </costs>
     </selectionEntry>
     <selectionEntry id="e7d8-1c73-7d03-8b62" name="Telemon Heavy Dreadnought" hidden="false" collective="false" import="true" type="model">
@@ -5885,14 +6003,14 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="e7d8-1c73-7d03-8b62" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="225"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="280"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="f73b-80b7-dd19-d7c3" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -6155,7 +6273,7 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="225"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="b7c8-dbaf-50c6-ab84" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
@@ -7083,7 +7201,7 @@ EFFECT: Your unit has MOBILE.</description>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="6479-909b-d128-6d60" primary="false" name="Enhancement"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Celeritous Sentries" hidden="false" id="eea3-bed8-5176-c426">
@@ -7100,7 +7218,7 @@ EFFECT: Your unit has MOBILE.</description>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="1061-bb1d-a880-fa72" primary="false" name="Enhancement"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Combat Deployment" hidden="false" id="a540-2cc2-d38e-e845">
@@ -7117,7 +7235,7 @@ EFFECT: Your unit has MOBILE.</description>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="c64d-a40c-fb40-b44f" primary="false" name="Enhancement"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Anti-Gravitic Mobility" hidden="false" id="ea6a-45e8-e186-754b">
@@ -7132,7 +7250,7 @@ EFFECT: Your unit has MOBILE.</description>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="1b18-542a-5201-e22f" primary="false" name="Enhancement"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Memento Moritoi (One per army)" hidden="false" id="bbbc-27e5-7daf-8ad6">
@@ -7151,7 +7269,7 @@ EFFECT: Your unit has MOBILE.</description>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1eca-3897-15bf-3cbf" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Augury Uplink (One per army)" hidden="false" id="1e1c-5250-782f-66bd">
@@ -7172,7 +7290,7 @@ EFFECT: Your unit has MOBILE.</description>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1f61-b6c3-5f07-88ae" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
       </costs>
     </selectionEntry>
   </sharedSelectionEntries>
@@ -7232,7 +7350,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Not a Shell Wasted" hidden="false" id="8441-8a47-c8cc-3ad4">
@@ -7260,7 +7378,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7303,7 +7421,7 @@ EFFECT: Your unit has MOBILE.</description>
                 <infoLink name="Cleave" hidden="false" type="rule" id="0a9c-cef5-42c1-115d" targetId="ea1f-c7b7-cafa-43f8"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Flawless Bladework" hidden="false" id="e9a8-8728-e5f8-ca47">
@@ -7329,7 +7447,7 @@ EFFECT: Your unit has MOBILE.</description>
                 <infoLink name="Sustained Hits" hidden="false" type="rule" id="4b25-89c6-c425-4ed6" targetId="1897-c22c-9597-12b1"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7369,7 +7487,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Emperor&apos;s Light" hidden="false" id="32b3-45f6-a2a0-500f">
@@ -7405,7 +7523,7 @@ EFFECT: Your unit has MOBILE.</description>
                 <infoLink name="Extra Attacks" hidden="false" type="rule" id="35c3-f4a5-2d1d-5492" targetId="115b-79dc-f723-d761"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Castellan&apos;s Mark" hidden="false" id="9280-6e03-b37c-b96d">
@@ -7427,7 +7545,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Eagle&apos;s Eye" hidden="false" id="b8c8-1265-6fb7-259c">
@@ -7451,7 +7569,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7495,7 +7613,7 @@ EFFECT: Your unit has MOBILE.</description>
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="From the Hall of Armouries" hidden="false" id="ec10-cc95-77e7-0eec">
@@ -7521,7 +7639,7 @@ EFFECT: Your unit has MOBILE.</description>
                 <infoLink name="Devastating Wounds" hidden="false" type="rule" id="e7d1-ddf7-be53-5b2b" targetId="be1e-ac8e-1e2c-3528"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7577,7 +7695,7 @@ EFFECT: Your unit has MOBILE.</description>
                 <infoLink name="Devastating Wounds" hidden="false" type="rule" id="28c9-2358-7213-44ce" targetId="be1e-ac8e-1e2c-3528"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Edge of the Blade" hidden="false" id="f061-3f28-3d59-6381">
@@ -7603,7 +7721,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7645,7 +7763,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 <infoLink name="Feel No Pain" hidden="false" type="rule" id="cb19-1f36-4bcf-9406" targetId="9bf4-280f-bbe2-6fbb"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Unstoppable Destroyer" hidden="false" id="28db-8c07-cedb-4dd7">
@@ -7674,7 +7792,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7718,7 +7836,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7763,7 +7881,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 <infoLink name="Lone Operative" hidden="false" type="rule" id="1f99-94a2-ab8a-c566" targetId="a8a0-8fe7-898-e0f3"/>
               </infoLinks>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Inspirational Exemplar" hidden="false" id="3fc4-606a-ef29-0d67">
@@ -7790,7 +7908,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Superior Creation" hidden="false" id="a4e9-4874-2d9c-4a40">
@@ -7818,7 +7936,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7862,7 +7980,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7906,7 +8024,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Leonine Ferocity" hidden="false" id="a3f1-e73a-02f2-90ba">
@@ -7935,7 +8053,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
@@ -7978,7 +8096,7 @@ sim-mod: source=&quot;Oblivion Knight (Psyker)&quot; hit=+1 wound=+1 vs=Psyker c
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Huntress&apos; Eye" hidden="false" id="e89c-99bd-aa39-fe95">
@@ -8000,7 +8118,7 @@ sim-mod: source=&quot;Oblivion Knight (Psyker)&quot; hit=+1 wound=+1 vs=Psyker c
                 </profile>
               </profiles>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
             </selectionEntry>
           </selectionEntries>
