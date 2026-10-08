@@ -76,8 +76,10 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   `hidden`+`max=0` nommé `Can Lead (MFM)` (entryLinks vers les unités menées).
   **Source = la prose de la capacité *Leader*** (« can be attached to the following
   units: … »), redondée en données ; un seul sens (côté chef), cibles résolues
-  dans la clôture d'import. Restent dans la prose seule : rattachements **par
-  mot-clef**, **accordés par amélioration**, ou inter-fichiers hors import.
+  dans la clôture d'import ; cible hors clôture (tronc SM → unité de chapitre) = lien **inverse**
+  `Led By / Supported By (MFM)` sur l'unité menée. Synchro : `gdc-attach.cjs` ; invariant
+  `editor/audit/rattachements.mjs` (dans `valider.mjs`). Restent dans la prose seule : rattachements
+  **par mot-clef** et **accordés par amélioration**.
 - **`editor/MODEL_ABILITIES_APP_PROMPT.md`** — prompt autonome (application
   consommatrice) : la plupart des capacités de datasheet sont des profils
   `Abilities` sur l'**unité**, mais quelques-unes sont portées par un
@@ -85,7 +87,7 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   doit collecter les capacités dans **tout le sous-arbre** (unité **+** modèles),
   exclure les lignes de stats (`typeName="Unit"`) et les armes, et **dédupliquer**
   (une fois, pas une par figurine). Correctif de lecture/affichage, aucune donnée.
-- **`editor/SIM_MOD_APP_PROMPT.md`** — prompt autonome (simulateur de dégâts) :
+- **`editor/SIM_MOD_APP_PROMPT.md`** — prompt autonome (simulateur de dégâts ; aussi les effets DÉFENSIFS `def-mod:` de l'onglet Résistance, générés par `editor/gen-def-mods.mjs`) :
   les bonus **offensifs** accordés par une capacité de datasheet ou une
   amélioration (ex. compétence de Castellan Crowe) sont matérialisés par un
   marqueur `<comment>sim-mod: source="…" attacks=+1 weapon="…" whileLeading
@@ -122,6 +124,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   gst ; double canal mot-clef littéral + `infoLink`, sémantique évaluée
   avec les mots-clefs du défenseur, Hunter = restriction de ciblage par
   profil (`➤`).
+- **`editor/DETACHMENT_ALLIES_APP_PROMPT.md`** — prompt autonome (application
+  consommatrice) : alliés accordés par un **détachement** (Deathwatch Support : unités
+  DEATHWATCH dans une armée Space Marines, 500 pts max, pas de Warlord, KILL TEAM =
+  améliorations du détachement) ; marqueur `<comment>det-allies: keyword=… maxPts=…
+  cannot-warlord kill-team-enh-only</comment>` sur la `selectionEntry` du détachement. Variante
+  `native` : démons des légions (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
+  Khorne Daemonkin) **1000 pts max**, plafond aussi encodé sur la catégorie `Faction: <légion>`.
 - **`editor/BATTLELINE_GRANT_APP_PROMPT.md`** — grants Battleline (catégorie
   conditionnelle `add`/`set-primary` + plafond 0-3→0-6), conditionnés détachement
   (`scope="force"`) ou Warlord (drapeau de catégorie sur la sélection Warlord).
@@ -134,6 +143,25 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   l'appli consommatrice : ✅ / 🟡 / ❌ / ➖ par élément, écarts classés par
   impact (modifiers d'armes, options révélées, erreurs hors unité, bornes de
   groupes conditionnées).
+- **`editor/AUDIT_MOTEURS_2026-09.md`** — audit 2026-09-30 par **diff de deux
+  moteurs** : évaluateur BattleScribe de référence réécrit de zéro
+  (`scripts/refengine/` + `scripts/engine-diff*.mjs` dans cogitator-bellicum)
+  confronté au parseur de l'appli sur les 36 factions ; écarts classés (bug
+  appli corrigé / bug du nouveau moteur / équivalent par conception / défaut
+  de données), verdicts de `AUDIT_VOCABULAIRE_APP.md` corrigés (§7), points
+  restants côté données (§8 : Sternguard sans `min`, Venerable Dreadnought SW,
+  `defaultSelectionEntryId` visant une cible, ids morts, portes d'améliorations).
+- **`editor/SM_FICHES_OFFICIELLES_11E.md`** — fiches 11ᵉ des chapitres divergents
+  confrontées aux **données de l'appli officielle** publiées par le dépôt public
+  `game-datacards/datasources` (`11th/gdc` : caractéristiques, armes, texte officiel
+  des capacités, composition, options d'équipement en EN/FR). Source de référence
+  pour remplacer les textes provisoires ALN et encoder les compositions ;
+  régénérer avec `editor/translations/gdc-compare.cjs` (mode d'emploi en tête).
+- **`editor/SOURCE_GAME_DATACARDS.md`** — la source game-datacards sauvegardée
+  (`editor/sources/game-datacards.json` : version suivie, correspondance fichier ↔
+  catalogue, bruits connus), ses outils `gdc-*` et la **veille quotidienne**
+  (`gdc-watch.cjs` : diff amont confronté à la base, verdict par changement, règle de
+  décision ; rapports dans `editor/sources/veille/`, branche `veille-gdc/v<N>`).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les
@@ -145,7 +173,12 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    **unités** par mots-clefs, **cumulable** (pas d'unicité d'armée),
    plafond global de 4, max 1 par unité, **jamais sur un Epic Hero**.
    Toutes les autres → **personnages non-Epic uniquement**, uniques
-   (`max 1 roster`). Cas limites → demander à l'utilisateur.
+   (`max 1 roster`). **Exception** (décision du 2026-09-30) : un Epic Hero
+   que les données **désignent explicitement** comme porteur (portes de
+   l'entrée nommant sa catégorie — Prince Yriel et Kharseth pour le
+   Corsair Coterie, « Pirate Prince » réservée à Yriel ; upgrades des
+   Assassins et des C'tan Shards) le reste ; sans désignation, jamais.
+   Cas limites → demander à l'utilisateur.
 2. Les porteurs se résolvent par **conjonction de mots-clefs** de la
    prose (« KROOT SHAPER » = mots-clefs KROOT **et** SHAPER) — jamais en
    traversant le menu central « Enhancements ».
@@ -170,6 +203,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    l'entrée** : `splitRepeatTier` abandonné, `removeRepeatTier` ne sert
    qu'à déposer d'anciennes jumelles `(additional)`. Détails :
    `editor/MFM_PROMPT.md`.
+
+6. **La base suit le MFM — et toute entrée MFM absente se signale** (décision du
+   2026-10-08) : un détachement, une fiche ou une amélioration présents dans le
+   MFM mais absents de la base ne sont **jamais** passés sous silence ni
+   inventés : **demander le texte à l'utilisateur** (règle de détachement,
+   stratagèmes, améliorations / fiche) avant d'intégrer. `apply.mjs` les liste
+   en tête de « À ME RENVOYER » (⓪ détachement absent, ① fiche, ② amélioration).
 
 ## Git
 

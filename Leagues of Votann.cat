@@ -93,7 +93,8 @@ sim-mod: source=&quot;Methodical Annihilation&quot; ap=+1 conditional</comment>
 - If your unit is a ^^**Kâhl, Einhyr Hearthguard^^** or ^^**Ûthar the Destined^^** unit, improve the Armour Penetration characteristic of that attack by 1.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="40b7-ba6b-77bf-f92b" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting</comment>
+                  <comment>strat-timing: turn=either phase=shooting
+def-mod: source=&quot;Brëkkeknots&quot; inv=4 conditional</comment>
                   <description>Hearthband – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -157,6 +158,11 @@ EFFECT: Until the end of the phase, improve the Strength characteristic of range
                     <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
                   </characteristics>
                 </profile>
+                <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="3d53-41d3-15f3-0176">
+                  <characteristics>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+                  </characteristics>
+                </profile>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Persecution Prospect" hidden="false" id="e73f-ac86-44b1-c3f2">
@@ -193,7 +199,8 @@ TARGET: One Hernkyn unit from your army that has not been selected to move this 
 EFFECT: Until the end of the phase, if your unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="DISPERSED FORMATION (Stratagem, 1CP)" id="5f7f-0380-5674-4aeb" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;DISPERSED FORMATION&quot; cover when=ranged conditional</comment>
                   <description>Persecution Prospect – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -280,7 +287,8 @@ TARGET: One LEAGUES OF VOTANN unit from your army that was selected as the targe
 EFFECT: Your unit can shoot as if it were your Shooting phase, can only target that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
                 </rule>
                 <rule name="VOID HARDENED (Stratagem, 1CP)" id="9dee-5984-1c70-969c" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;VOID HARDENED&quot; ap=-1 conditional</comment>
                   <description>Needgaârd Oathband – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets, if units from your army have Fortify Takeover.
@@ -399,7 +407,8 @@ TARGET: That Cthonian Earthshakers unit.
 EFFECT: Each time you use this Stratagem, you can spend 2YP. Select one enemy unit hit by one or more of your unit’s attacks this phase. Until the start of your next Shooting phase, subtract 2 from that unit’s Move characteristic and, if you spent YP during this use of this Stratagem, subtract 2 from Charge rolls made for that unit.</description>
                 </rule>
                 <rule name="WEAVEWËRKE BUTTRESS (Stratagem, 1CP)" id="e3b8-d7f0-3703-d9df" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;WEAVEWËRKE BUTTRESS&quot; wound=-1 conditional</comment>
                   <description>Dêlve Assault Shift – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets, if units from your army have Hostile Acquisition.
@@ -595,7 +604,8 @@ TARGET: Up to two friendly SAGITAUR units in Strategic Reserves.
 EFFECT: Your units each make an ingress move.</description>
                 </rule>
                 <rule name="Built to Last (Stratagem, 1CP)" id="613e-f224-e3a4-6af0" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;Built to Last&quot; wound=-1 when=ranged vsStronger conditional</comment>
                   <description>Armoured Trailblazers – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly SAGITAUR unit.
@@ -669,7 +679,8 @@ Friendly KÂHL/EINHYR CHAMPION/EINHYR HEARTHGUARD/ÛTHAR THE DESTINED units’ r
 This detachment has the HEARTHGUARD tag and cannot be taken with another HEARTHGUARD detachment.</description>
                 </rule>
                 <rule name="Brëkkeknots (Stratagem, 1CP)" id="2d7b-1ee4-db47-6db2" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Brëkkeknots&quot; inv=4 conditional</comment>
                   <description>Hearthguard Covenant – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly EINHYR HEARTHGUARD unit.
@@ -817,7 +828,7 @@ invuln: 4+</comment>
         <entryLink id="c997-d780-6a4e-fac4" name="Warlord" hidden="false" collective="false" import="true" targetId="92b3-11ff-2a27-cd0c" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="6f16-44af-033b-4156">
@@ -838,9 +849,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
 fnp: 6+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="bb5d-3510-9d18-c809" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3150-6393-a06c-2185" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c40a-1dde-5fef-5510" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d145-679b-8646-2824" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="183b-a8a1-b9eb-2dd5" name="Luck Has, Need Keeps, Toil Earns" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1683,21 +1691,6 @@ fnp: 6+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="3150-6393-a06c-2185">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="c40a-1dde-5fef-5510">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d145-679b-8646-2824">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1769,9 +1762,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
 invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="54aa-a4a8-5f6c-c86a" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9106-a374-c591-7847" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ee80-d454-e918-cc78" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="bcab-5acd-72df-6fe0" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="2e4d-3b38-ed87-7de2" name="Kâhl" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1937,16 +1927,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="ee80-d454-e918-cc78">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="bcab-5acd-72df-6fe0">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2069,9 +2049,6 @@ invuln: 4+</comment>
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="9c7b-a06f-79ab-c6d5" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="76d8-9657-ff9b-ba2f" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ecac-2f50-815e-c3c0" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="edac-ce83-11ec-14b1" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="a732-854e-79cd-0b70" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2226,16 +2203,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="ecac-2f50-815e-c3c0">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="edac-ce83-11ec-14b1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2306,9 +2273,6 @@ invuln: 4+</comment>
 invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="7d6f-8a91-3a8c-7d76" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="a87f-cd11-7b38-eee4" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ea8b-ad12-532d-9218" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="64ed-4b73-af91-d245" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="63d6-d6ef-a1e8-b3ac" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2551,16 +2515,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="ea8b-ad12-532d-9218">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="64ed-4b73-af91-d245">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2649,9 +2603,6 @@ invuln: 4+</comment>
 sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="aa75-c505-8fff-0e59" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f59e-cb7b-2e15-4e64" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5846-2411-f988-df2b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f52d-9678-487e-6744" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="0b60-64ba-dab2-aba2" name="Multi-spectral visor" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2919,16 +2870,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="5846-2411-f988-df2b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f52d-9678-487e-6744">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3137,9 +3078,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="e590-68f0-b33c-9664" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="0a8d-adfd-d1da-d142" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1dfb-935d-2fb3-0ffd" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="0632-4896-9b27-37d2" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="91da-72d3-657b-ee7c" name="Decisive Destruction" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -3607,21 +3545,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="0a8d-adfd-d1da-d142">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1dfb-935d-2fb3-0ffd">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="0632-4896-9b27-37d2">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3676,7 +3599,7 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
 fnp: 4+</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="190">
+        <modifier type="set" field="51b2-306e-1021-d207" value="180">
           <conditions>
             <condition field="selections" scope="415a-e6f6-d17f-d700" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -3714,9 +3637,6 @@ fnp: 4+</comment>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="roster" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="733b-21a8-cda0-eede" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="d778-cf06-30be-40fc" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5c6d-59f0-0075-d2c2" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="39fb-de0b-7f13-203b" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="f94c-9885-7faa-91b6" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
       <profiles>
@@ -4031,27 +3951,12 @@ fnp: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="d778-cf06-30be-40fc">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="5c6d-59f0-0075-d2c2">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="39fb-de0b-7f13-203b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4105,7 +4010,7 @@ fnp: 4+</comment>
     <selectionEntry id="9086-5272-398b-bbce" name="Hernkyn Pioneers" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="160">
+        <modifier type="set" field="51b2-306e-1021-d207" value="170">
           <conditions>
             <condition field="selections" scope="9086-5272-398b-bbce" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -4118,9 +4023,6 @@ fnp: 4+</comment>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="0b84-4dc4-1d45-df72" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ed24-b27f-3e3f-8b64" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="283b-6e5e-3bd8-a209" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="4713-307e-ac31-d126" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="0a56-b381-c3ac-12bd" name="Outflanking Mag-Riders" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -4444,27 +4346,12 @@ fnp: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="ed24-b27f-3e3f-8b64">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="283b-6e5e-3bd8-a209">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="4713-307e-ac31-d126">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4627,9 +4514,6 @@ fnp: 4+</comment>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="c1d3-a11f-5c19-f4dc" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="28e5-0974-27ae-aba1" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f1c0-4cc6-ec3d-0f2b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c146-eb35-8c3d-ae77" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="fde8-be9f-0fa6-4591" name="Sagitaur" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -4810,21 +4694,6 @@ fnp: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="28e5-0974-27ae-aba1">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="f1c0-4cc6-ec3d-0f2b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c146-eb35-8c3d-ae77">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4891,9 +4760,6 @@ fnp: 4+</comment>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="e567-c551-a298-34b8" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c67f-9e2d-c765-432b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b71d-f24e-c4f2-cb3b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c337-098a-1cc1-204b" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="2c5b-6e8a-304c-6c85" name="Brôkhyr Thunderkyn" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -5109,21 +4975,6 @@ fnp: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="c67f-9e2d-c765-432b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="b71d-f24e-c4f2-cb3b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c337-098a-1cc1-204b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5417,7 +5268,7 @@ fnp: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="a110-e538-4e85-159b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5429,28 +5280,10 @@ fnp: 4+</comment>
       <entryLinks></entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="1f5d-cdd3-b35e-edef" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="f047-c99f-a924-81a4" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="291f-fcd4-8907-d671" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f53a-4a0e-8556-494c" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="f047-c99f-a924-81a4">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="291f-fcd4-8907-d671">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f53a-4a0e-8556-494c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5549,9 +5382,6 @@ fnp: 4+</comment>
       <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="7894-ec29-034e-d4b8" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="4ecd-3173-970d-6366" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c605-a27e-60b3-f341" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f127-f1e5-6b7a-cefa" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Pragmatic Hunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9b20-7d92-1649-148f">
@@ -5588,21 +5418,6 @@ fnp: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="4ecd-3173-970d-6366">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="c605-a27e-60b3-f341">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f127-f1e5-6b7a-cefa">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6193,24 +6008,11 @@ invuln: 4+</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <constraints>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9e0e-65bb-d579-7721" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ff10-3fd4-616e-864e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c76f-2c60-db71-0065" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="b798-ad55-af81-4975" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="ff10-3fd4-616e-864e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c76f-2c60-db71-0065">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6392,24 +6194,11 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <constraints>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="4052-3693-fe4f-ac58" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a2d9-7161-7c43-b6b4" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2d3a-6f29-0193-ec5a" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="42b5-e43f-f034-ec11" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="a2d9-7161-7c43-b6b4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="2d3a-6f29-0193-ec5a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6466,7 +6255,7 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Kapricus Defenders" hidden="false" id="f788-ecf2-9b2e-bc23">
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="f788-ecf2-9b2e-bc23" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -6603,35 +6392,17 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
             </selectionEntryGroup>
           </selectionEntryGroups>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
           </costs>
         </selectionEntry>
       </selectionEntries>
       <entryLinks></entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="975f-6b7a-f23c-fbaa" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="4ec1-83b3-2147-3618" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="dddd-fc64-1c88-ae51" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="57d1-12bd-5e5b-2eb9" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="4ec1-83b3-2147-3618">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="57d1-12bd-5e5b-2eb9">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="dddd-fc64-1c88-ae51">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6729,9 +6500,6 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
         </modifier>
       </modifiers>
       <constraints>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e2c6-8bef-75a7-0335" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1635-db70-071e-eb9e" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c5f6-5a77-b630-f367" includeChildSelections="false"/>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="435c-80b4-b900-5ca0" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
       <profiles>
@@ -6830,16 +6598,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
               </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="e2c6-8bef-75a7-0335">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="1635-db70-071e-eb9e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
             </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
@@ -7016,24 +6774,11 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
         </profile>
       </profiles>
       <constraints>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9294-4c2c-9386-220c" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="809a-6ce3-b155-2111" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="29db-4c48-12b7-b771" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="16a8-f9be-f687-4469" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="809a-6ce3-b155-2111">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="29db-4c48-12b7-b771">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7077,11 +6822,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="6" field="9294-4c2c-9386-220c">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -7261,23 +7001,10 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="7b09-457e-0199-1340" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="77ab-e944-7a73-fb50" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a56b-4955-5713-aa1b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c068-d40a-ac89-4ec3" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="a56b-4955-5713-aa1b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c068-d40a-ac89-4ec3">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7321,11 +7048,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="6" field="77ab-e944-7a73-fb50">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -7533,24 +7255,11 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
       </selectionEntries>
       <entryLinks></entryLinks>
       <constraints>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ed34-12a6-df8a-1759" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="af0c-02b5-c508-58ef" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6c91-896a-db9c-e700" includeChildSelections="true"/>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="44ff-6dad-719a-c0f4" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="6c91-896a-db9c-e700">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="af0c-02b5-c508-58ef">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7594,11 +7303,6 @@ At the start of the Declare Battle Formations step, you can select one ^^**Hernk
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="6" field="ed34-12a6-df8a-1759">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -7804,6 +7508,15 @@ fnp: 4+</comment>
                 </conditionGroup>
               </conditionGroups>
             </modifier>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="f588-a5fe-c979-292a" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
           </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Optimised Attack Lines Upgrade" hidden="false" id="9cef-96fb-57ce-6d36">
@@ -7831,6 +7544,15 @@ fnp: 4+</comment>
                 </conditionGroup>
               </conditionGroups>
             </modifier>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="f588-a5fe-c979-292a" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
           </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Pan-Spectral Lockons Upgrade" hidden="false" id="f90c-bd88-7713-907c">
@@ -8258,6 +7980,15 @@ sim-mod: source=&quot;Eye For Weakness&quot; wound=+1 conditional</comment>
                   <conditions>
                     <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
                     <condition type="equalTo" value="0" field="selections" scope="force" childId="01b8-fa17-620e-8e79" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="8474-765-16a9-f00d" shared="true"/>
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
@@ -8864,11 +8595,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -8893,11 +8619,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
@@ -8931,11 +8652,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
@@ -8967,11 +8683,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
@@ -9000,11 +8711,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true"/>
@@ -9037,11 +8743,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true"/>
@@ -9066,11 +8767,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true"/>
@@ -9103,11 +8799,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -9132,11 +8823,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -9161,11 +8847,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -9201,11 +8882,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -9230,11 +8906,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
@@ -10484,11 +10155,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="8b60-36d5-35a8-8a69" shared="true"/>
@@ -10514,11 +10180,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="5070-c08d-0fa7-0f9d" shared="true"/>
@@ -10547,11 +10208,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10582,11 +10238,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10617,11 +10268,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="94a4-b417-beae-fac5" shared="true" includeChildSelections="true"/>
@@ -10647,11 +10293,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="8b60-36d5-35a8-8a69" shared="true"/>
@@ -10688,11 +10329,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="5070-c08d-0fa7-0f9d" shared="true"/>
@@ -10718,11 +10354,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="94a4-b417-beae-fac5" shared="true" includeChildSelections="true"/>
@@ -10748,11 +10379,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10786,11 +10412,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10822,11 +10443,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10857,11 +10473,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="5070-c08d-0fa7-0f9d" shared="true"/>
@@ -10890,11 +10501,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="8b60-36d5-35a8-8a69" shared="true"/>
@@ -10920,11 +10526,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10955,11 +10556,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -10990,11 +10586,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -11025,11 +10616,6 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
             </profile>
           </profiles>
           <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
                 <conditionGroup type="or">
@@ -12133,6 +11719,7 @@ sim-mod: source=&quot;Etacarn SB9 Targeting Implant&quot; sustained=1 conditiona
   </sharedSelectionEntryGroups>
   <sharedRules>
     <rule id="351a-a702-9080-7f08" name="Prioritised Efficiency" hidden="false">
+      <comment>def-mod: source=&quot;Prioritised Efficiency&quot; wound=-1 vsStronger conditional</comment>
       <description>If your Army Faction is ^^**Leagues of Votann^^**, ^^**Leagues of Votann^^** units from your army have one of two abilities: Hostile Acquisition or Fortify Takeover (see below). During the battle, which ability those ^^**Leagues of Votann^^** units have will change depending on how many Yield points (YP) you currently have:
 - At the start of the battle, your units have Hostile Acquisition until the start of your next Command phase.
 

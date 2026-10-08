@@ -24,6 +24,21 @@ import { fileURLToPath } from "node:url";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "..", "..");
 const MAP_DIR = path.join(HERE, "map");
+// Détachements présents en base (toute entrée portant un coût DP) — pour signaler
+// un détachement MFM ABSENT (« Deathwatch Support » manquant, 2026-10-08 : seule
+// son amélioration orpheline était signalée, jamais le détachement lui-même).
+import { createRequire } from "node:module";
+const requireCjs = createRequire(import.meta.url);
+const DET_TOKENS = (() => {
+  const { Catalog } = requireCjs(path.join(REPO, "editor", "lib", "catalog.js")); const xmlLib = requireCjs(path.join(REPO, "editor", "lib", "xml.js"));
+  const cat0 = new Catalog(REPO); cat0.load(); const out = [];
+  for (const [, d] of cat0.docs) xmlLib.walk(d.root, (k) => { if (k.tag !== "selectionEntry") return; const cs = xmlLib.child(k, "costs");
+    if (cs && cs.children.some((x) => xmlLib.getAttr(x, "typeId") === "0d99-4ee2-7b3c-1f5a")) out.push(detTokens(xmlLib.getAttrDecoded(k, "name"))); });
+  return out;
+})();
+// jeu de mots du nom (ordre et ponctuation libres : « Ordo Hereticus, Purgation Force » = « Purgation Force (Ordo Hereticus) »)
+function detTokens(s) { return [...new Set(String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[’']/g, "").split(/[^a-z0-9]+/).filter(Boolean))].sort().join(" "); }
+const detInBase = (name) => DET_TOKENS.includes(detTokens(name));
 
 const args = process.argv.slice(2);
 const flags = new Set(args.filter((a) => a.startsWith("--")));
@@ -48,6 +63,8 @@ const sizeModels = (s) => { const m = String(s || "").match(/^(\d+)\s+model/i); 
 
 // Extrait de l'unité MFM une structure de coûts NORMALISÉE, ou signale pourquoi
 // elle n'est pas automatisable (composition, dual-cost, valeur douteuse).
+// nom d'arme normalisé, singulier naïf (« 2 Multi-meltas » ↔ « Multi-melta »)
+const wNorm = (s) => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").replace(/s\b/g, "").replace(/^\d+ /, "").trim();
 function mfmUnitCosts(u) {
   const profs = Array.isArray(u.profiles) ? u.profiles : [];
   // Toute taille non « N model(s) » (Gretchin « 1 Runtherd, 20 Gretchin », etc.)
@@ -162,9 +179,16 @@ for (const slug of slugs) {
       const tagU = String(tag0).toUpperCase();
       if (tagU === "UPDATED") continue;                      // porté par les deltas eux-mêmes
       if (tagU === "WARGEAR COSTS REMOVED") {
+        // L'étiquette dit qu'AU MOINS UN surcoût a disparu, pas tous : la carte
+        // garde ceux qui restent (Victrix Honour Guard v1.5 : « per Blades of
+        // Honour » retiré, « per Banner of Macragge = 15 » maintenu). Seule une
+        // option payante que la carte ne liste PLUS passe à 0 ; celles encore
+        // listées relèvent de wpn-audit.mjs (valeur du surcoût).
+        const kept = (mu.profiles || []).filter((p) => /^per\b/i.test(p.size || "")).map((p) => wNorm(String(p.size).replace(/^per\s+/i, "")));
+        const stillPriced = (o) => { const n = wNorm(o.name); return kept.some((k) => k && (n === k || n.includes(k) || k.includes(n))); };
         for (const tgt of entry.targets) {
-          const paid = (tgt.weaponOptions || []).filter((o) => Number(o.pts) > 0);
-          if (!paid.length) { facLines.push(`  ✓ ${mu.name} : WARGEAR COSTS REMOVED — aucune option payante en bdd, déjà aligné`); continue; }
+          const paid = (tgt.weaponOptions || []).filter((o) => Number(o.pts) > 0 && !stillPriced(o));
+          if (!paid.length) { facLines.push(`  ✓ ${mu.name} : WARGEAR COSTS REMOVED — aucune option payante retirée en bdd${kept.length ? ` (surcoûts maintenus : ${kept.join(", ")})` : ""}`); continue; }
           for (const o of paid) { facLines.push(`  Δ ${mu.name} OPTION « ${o.name} » (${o.id}): ${o.pts} → 0  [WARGEAR COSTS REMOVED]`); tot.deltas++; }
         }
       } else review("etiquette-mfm", mu.name, `étiquette « ${tag0} » non exploitée — vérifier la carte`);
@@ -215,6 +239,11 @@ for (const slug of slugs) {
       }
     }
   }
+  // ── détachements absents de la base → demande de TEXTE (jamais silencieux) ──
+  for (const det of (Array.isArray(mfm.detachments) ? mfm.detachments : [])) {
+    if (!detInBase(det.name)) actions.push({ cat: "det-absent", faction: map.faction, name: det.name,
+      detail: `${det.dp ?? "?"} DP, Force Disposition ${det.force_disposition || "?"} ; améliorations MFM : ${(det.enhancements || []).map((e) => `${e.name} ${e.points} pts`).join(", ") || "—"} — envoie le texte (règle, stratagèmes, améliorations) ou confirme la source officielle à reprendre` });
+  }
   // ── améliorations ───────────────────────────────────────────────────────────
   for (const det of (Array.isArray(mfm.detachments) ? mfm.detachments : [])) {
     for (const me of (det.enhancements || [])) {
@@ -251,6 +280,7 @@ console.log(lines.length ? lines.join("\n") : "  (aucun — la bdd est alignée 
 // Un bloc par catégorie d'action, avec l'instruction concrète de ce qu'il faut
 // fournir. C'est LA liste à me renvoyer.
 const CAT = {
+  "det-absent":      { icon: "⓪", titre: "DÉTACHEMENT MFM ABSENT DE LA BASE — envoie-moi son TEXTE (règle de détachement, stratagèmes, améliorations) : je l'intègre (FACTION_PACK_PROMPT)." },
   "nom-non-mappe":   { icon: "①", titre: "NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias." },
   "enh-non-mappee":  { icon: "②", titre: "AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données." },
   "cout-chapitre":   { icon: "③", titre: "COÛT DE CHAPITRE (datasheet partagée, prix divergent) — confirme les prix par chapitre : j'encode un modifier primary-catalogue." },

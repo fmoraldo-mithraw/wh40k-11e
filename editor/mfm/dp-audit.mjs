@@ -50,12 +50,16 @@ for (const [file, doc] of c.docs) {
     const dp = costs && (costs.children || []).find((k) => k.tag === "cost" && xml.getAttr(k, "name") === "DP");
     if (!dp) return;
     const nm = xml.getAttrDecoded(n, "name") || "";
-    let fd = null;
+    // Toutes les dispositions (plusieurs profils = choix 1-parmi-X du joueur).
+    const fds = [];
     const profs = (n.children || []).find((k) => k.tag === "profiles");
     if (profs) for (const p of profs.children || []) {
-      if (p.tag === "profile" && xml.getAttrDecoded(p, "name") === "Force Disposition")
-        xml.walk(p, (k) => { if (k.tag === "characteristic" && !fd) fd = xml.getText(k).trim(); });
+      if (p.tag === "profile" && xml.getAttrDecoded(p, "name") === "Force Disposition") {
+        let v = null; xml.walk(p, (k) => { if (k.tag === "characteristic" && !v) v = xml.getText(k).trim(); });
+        if (v) fds.push(v);
+      }
     }
+    const fd = fds.join(" / ") || null;
     const uniques = [];
     const cls = (n.children || []).find((k) => k.tag === "categoryLinks");
     if (cls) for (const l of cls.children || []) {
@@ -89,8 +93,14 @@ for (const f of fs.readdirSync(DUMP).sort()) {
       const eff = (SLUG2CAT[d.slug] && b.over[SLUG2CAT[d.slug]] != null) ? b.over[SLUG2CAT[d.slug]] : b.dp;
       const bad = [];
       if (det.dp != null && eff !== det.dp) bad.push(`DP ${eff}→${det.dp}`);
-      const fdm = (det.force_disposition || "").trim();
-      if (fdm && b.fd && norm(b.fd) !== norm(fdm)) bad.push(`FD «${b.fd}»→«${fdm}»`);
+      // Dump récent : force_dispositions (liste) ; ancien : la seule première.
+      const want = Array.isArray(det.force_dispositions) && det.force_dispositions.length ? det.force_dispositions : [det.force_disposition].filter(Boolean);
+      const fdm = want.join(" / ").trim();
+      const setOf = (x) => String(x || "").split(" / ").map(norm).filter(Boolean).sort().join("|");
+      // Ancien dump (1 seule valeur lue) : la base peut en porter davantage ;
+      // on exige seulement que la valeur lue en fasse partie.
+      const legacy = !Array.isArray(det.force_dispositions);
+      if (fdm && b.fd && (legacy ? !setOf(b.fd).split("|").includes(norm(fdm)) : setOf(b.fd) !== setOf(fdm))) bad.push(`FD «${b.fd}»→«${fdm}»`);
       if (fdm && !b.fd) bad.push(`FD ABSENT→«${fdm}»`);
       let uWant = String(det.unique || "").toUpperCase().replace(/\s+/g, " ").trim();
       if (/REMOVED/.test(uWant)) uWant = "";

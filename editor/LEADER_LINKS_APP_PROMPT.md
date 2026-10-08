@@ -75,6 +75,37 @@ l'identique** sous un groupe nommé **`Can Support (MFM)`** :
   (ex. **Ministorum Priest**, **Master of Executions**) — fie-toi au groupe présent
   (`Can Lead` vs `Can Support`) et à la présence du mot-clef SUPPORT, pas au nom.
 
+## Variante INVERSE — groupes `Led By (MFM)` / `Supported By (MFM)` (2026-10-08)
+
+Un meneur du **tronc** (ex. *Captain*, `Imperium - Space Marines.cat`) ne peut pas viser une unité
+d'un **chapitre** (*Sword Brethren Squad*, *Deathwatch Veterans*, *Inner Circle Companions*…) : elle est
+hors de sa clôture d'import (un lien vers elle serait cassé quand le tronc est chargé seul). Le lien est
+alors posé **dans l'autre sens**, sur l'unité menée, qui elle importe le tronc :
+
+```xml
+<selectionEntryGroup name="Led By (MFM)" hidden="true" id="…">          <!-- ou "Supported By (MFM)" -->
+  <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité …</comment>
+  <constraints><constraint type="max" value="0" field="selections" scope="parent" shared="true" id="…"/></constraints>
+  <entryLinks><entryLink type="selectionEntry" hidden="true" targetId="&lt;fiche du meneur&gt;"/> …</entryLinks>
+</selectionEntryGroup>
+```
+
+L'appli **fusionne** ces liens dans la liste du meneur : `leads(L) = Can Lead(L) ∪ { U : L ∈ Led By(U) }`
+(même chose pour Support). Mêmes invariants (hidden, `max=0`, jamais sélectionnable). Source et
+synchronisation : `editor/translations/gdc-attach.cjs` (champ `attachesTo` de la fiche officielle) ;
+invariant « toute fiche Leader/Support a une liste » : `editor/audit/rattachements.mjs`.
+
+## Rattachement accordé par une AMÉLIORATION (encodé)
+
+Le MFM imprime sous certaines améliorations « LEADER: X, Y » (FR : « MENEUR :
+… ») — ex. **Kaptin's Hat → Flash Gitz**, Kill Kommanda → Kommandos. C'est
+encodé avec le **même groupe** `Can Lead (MFM)` (hidden, `max=0`), mais posé
+**sur la `selectionEntry` de l'amélioration** (pas sur la fiche du chef) :
+ses `entryLink` ciblent les datasheets que le **porteur** peut mener **tant
+qu'il a l'amélioration**, en plus de ses cibles normales. Pas d'exigence de
+règle *Leader* sur l'amélioration (c'est justement elle qui l'accorde).
+Généré depuis le MFM par `editor/mfm/enh-leaders.mjs` (idempotent).
+
 ## Ce qui n'est PAS encodé en liens (rester sur la prose)
 
 Quelques rattachements ne se réduisent pas à une liste de datasheets et
@@ -84,8 +115,8 @@ continuer à les lire dans le texte :
 - **Par mot-clef** (« *any* ^^**DESTROYER CULT**^^ *unit* », « *an* INQUISITORIAL
   AGENTS *unit* », « IMPERIUM BATTLELINE INFANTRY »…) : cible une **catégorie**, pas
   une datasheet précise.
-- **Rattachement accordé par une amélioration** (ex. enhancement Necron qui
-  permet d'attacher le porteur à telle unité) : conditionné à l'amélioration.
+- **Rattachement accordé par une amélioration** *dont seule la prose parle*
+  (« the bearer can be attached to … ») : à lire dans la description.
 - **Inter-fichiers hors clôture d'import** (rare) : ex. un Inquisiteur (Agents)
   listant des kill teams Deathwatch non importées dans son catalogue.
 

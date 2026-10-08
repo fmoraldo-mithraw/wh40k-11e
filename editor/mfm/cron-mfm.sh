@@ -35,7 +35,8 @@ CONFIG="$STATE_DIR/config"
 REPO_DIR="${REPO_DIR:-$(cd "$SCRIPT_DIR/../.." && pwd)}"
 MFM_LANG="${MFM_LANG:-en}"
 MFM_BRANCH="${MFM_BRANCH:-main}"
-# COGITATOR_DIR : requis par build-map.mjs (clôture d'import) ; défaut = dépôt frère.
+# COGITATOR_DIR : parser de l'app pour build-map.mjs (clôture d'import) ; défaut =
+# dépôt frère. Absent → repli automatique sur editor/mfm/vendor/bsdata-parser.mjs.
 export COGITATOR_DIR="${COGITATOR_DIR:-$(dirname "$REPO_DIR")/cogitator-bellicum}"
 # cron a un PATH minimal : couvre les emplacements usuels de node/python3.
 export PATH="$PATH:/usr/local/bin:/usr/bin:/opt/homebrew/bin:$HOME/.local/bin"
@@ -121,6 +122,16 @@ if WPA_OUT="$(node editor/mfm/wpn-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
 else
   { echo; echo "## Audit surcoûts d'armes (ÉCARTS)"; echo; printf '%s\n' "${WPA_OUT:-<échec du script>}"; } >> "$REPORT"
   log "⚠ audit surcoûts d'armes : écarts détectés (ou échec) — voir A_RENVOYER.md."
+fi
+
+# Octrois de LEADER par amélioration (« LEADER: X » sous une amélioration,
+# hors périmètre d'apply) — best-effort, annexé.
+if ENHL_OUT="$(node editor/mfm/enh-leaders.mjs "$DUMP_DIR" --check 2>>"$LOG")"; then
+  { echo; echo "## Octrois de LEADER par amélioration"; echo; printf '%s\n' "$ENHL_OUT"; } >> "$REPORT"
+  log "octrois LEADER par amélioration : OK."
+else
+  { echo; echo "## Octrois de LEADER par amélioration (ÉCARTS)"; echo; printf '%s\n' "${ENHL_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ octrois LEADER : liens à ajouter (enh-leaders.mjs --apply) — voir A_RENVOYER.md."
 fi
 
 # Audit des seuils de paliers (règle du palier supérieur) — best-effort, annexé.

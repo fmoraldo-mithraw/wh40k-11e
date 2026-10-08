@@ -580,10 +580,6 @@
   </forceEntries>
   <entryLinks>
     <entryLink id="7380-3e40-6ed6-b7cc" name="Battle Size" hidden="false" collective="false" import="true" targetId="564e-fbc6-5266-3ea4" type="selectionEntry"/>
-    <entryLink import="true" name="Greater Daemon (Unbound Adversaries)" hidden="false" id="3de2-29bc-15da-d52d" targetId="b216-722b-2361-a19f" type="selectionEntry"/>
-    <entryLink import="true" name="Lesser Daemons (Unbound Adversaries)" hidden="false" id="8560-d945-b3e4-904a" targetId="b257-5fca-9e35-6c64" type="selectionEntry"/>
-    <entryLink import="true" name="Abomination (Unbound Adversaries)" hidden="false" id="4ed6-4bbd-0a99-4ba3" targetId="4ad0-7f62-b1e4-c6bb" type="selectionEntry"/>
-    <entryLink import="true" name="Daemonic Beasts (Unbound Adversaries)" hidden="false" id="48c5-2a0a-1c81-ebac" targetId="8d9a-d925-56f3-1890" type="selectionEntry"/>
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry id="564e-fbc6-5266-3ea4" name="Battle Size" hidden="false" collective="false" import="true" type="upgrade">
@@ -790,281 +786,6 @@
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="977c-2d1e-aa65-6364" includeChildSelections="false"/>
       </constraints>
     </selectionEntry>
-    <selectionEntry type="model" import="true" name="Greater Daemon (Unbound Adversaries)" hidden="false" id="b216-722b-2361-a19f">
-      <categoryLinks>
-        <categoryLink name="Reference" hidden="false" id="0666-6a9b-6202-1120" targetId="eef1-be80-500a-edfc" primary="true"/>
-        <categoryLink name="Monster" hidden="false" id="5434-8667-9ef9-d240" targetId="9693-cf84-fe69-37a9" primary="false"/>
-        <categoryLink name="Character" hidden="false" id="2107-8e8b-71d3-9287" targetId="9cfd-1c32-585f-7d5c" primary="false"/>
-        <categoryLink name="Chaos" hidden="false" id="a695-eb39-ed90-8b3a" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink name="Daemon" hidden="false" id="11a3-cbae-245d-b7b7" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink name="Greater Daemon" hidden="false" id="eec6-b9ae-212a-c5a8" targetId="d445-8a18-5300-c3cc" primary="false"/>
-      </categoryLinks>
-      <comment>Armageddon Crusade content</comment>
-      <profiles>
-        <profile name="Greater Daemon" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="28eb-0e07-bb68-1abb">
-          <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">10</characteristic>
-            <characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">18</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">5</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Invulnerable Save (4+)" id="4235-ca5c-8ddb-a140" hidden="false" type="profile" targetId="5b77-29f8-7b77-75e3"/>
-        <infoLink name="Deadly Demise" id="9d9c-85a9-fcef-63a2" hidden="false" type="rule" targetId="b68a-5ded-65ac-98c">
-          <modifiers>
-            <modifier type="append" value="D6" field="name"/>
-          </modifiers>
-        </infoLink>
-      </infoLinks>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Fell weapon" hidden="false" id="67d8-8ee4-6f6f-727a">
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fd44-8916-88d5-5ed8" includeChildSelections="false"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8b6e-9629-761c-8ace" includeChildSelections="false"/>
-          </constraints>
-          <profiles>
-            <profile name="➤ Fell weapon - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ff85-20f1-0ad9-e303">
-              <characteristics>
-                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">12</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="➤ Fell weapon - strike" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="37ba-cd7f-a05f-be0c">
-              <characteristics>
-                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">D6+1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Infernal scream" hidden="false" id="2123-d523-b4e3-459b">
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f189-5332-f802-b60a" includeChildSelections="false"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5e03-4b4b-a640-49c5" includeChildSelections="false"/>
-          </constraints>
-          <profiles>
-            <profile name="Infernal scream" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0b50-d04d-5a42-85c3">
-              <characteristics>
-                <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
-                <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-                <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <infoLinks>
-            <infoLink name="Torrent" id="013b-effd-5168-1b03" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
-            <infoLink name="Ignores Cover" id="a3fb-93b0-560e-b9ed" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
-          </infoLinks>
-        </selectionEntry>
-      </selectionEntries>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="fd80-17e3-3c1a-6570" shared="true" childName="Armageddon" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </selectionEntry>
-    <selectionEntry type="unit" import="true" name="Lesser Daemons (Unbound Adversaries)" hidden="false" id="b257-5fca-9e35-6c64">
-      <selectionEntries>
-        <selectionEntry type="model" import="true" name="Lesser Daemons" hidden="false" id="23b7-c2ad-8d26-c40f">
-          <profiles>
-            <profile name="Lesser Daemons" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2bad-97be-4440-f399">
-              <characteristics>
-                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
-                <characteristic name="SV" typeId="450-a17e-9d5e-29da">7+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
-                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <infoLinks>
-            <infoLink name="Invulnerable Save (5+)" id="e718-f923-4c07-ba85" hidden="false" type="profile" targetId="3b8a-73e4-1389-b399"/>
-          </infoLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Daemonic weapon" hidden="false" id="c8d1-48e3-3264-8927">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e64d-6c5f-9fb6-07a3" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5a9-50b3-a704-accb" includeChildSelections="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Daemonic weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="457c-9f0b-d49c-5a01">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-          </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="fd80-17e3-3c1a-6570" shared="true" childName="Armageddon" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="min" value="10" field="selections" scope="parent" shared="true" id="02be-5f7d-9894-c5d1" includeChildSelections="false"/>
-            <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="f7e5-f34a-0949-1bbe" includeChildSelections="false"/>
-          </constraints>
-        </selectionEntry>
-      </selectionEntries>
-      <comment>Armageddon Crusade content</comment>
-      <categoryLinks>
-        <categoryLink name="Reference" hidden="false" id="536b-5510-699e-3c70" targetId="eef1-be80-500a-edfc" primary="true"/>
-        <categoryLink name="Unbound Adversaries" hidden="false" id="bacf-1147-5f81-5c87" targetId="9440-07f1-b09d-ce8b" primary="false"/>
-        <categoryLink name="Infantry" hidden="false" id="f7fe-66bc-36dd-81a7" targetId="cf47-a0d7-7207-29dc" primary="false"/>
-        <categoryLink name="Chaos" hidden="false" id="91ea-5507-f876-9594" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink name="Daemon" hidden="false" id="5eb0-2ced-c599-c2e4" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink name="Lesser Daemon" hidden="false" id="3d6a-170f-73ef-a855" targetId="f927-898a-ebe2-1aca" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="unit" import="true" name="Abomination (Unbound Adversaries)" hidden="false" id="4ad0-7f62-b1e4-c6bb">
-      <selectionEntries>
-        <selectionEntry type="model" import="true" name="Abomination" hidden="false" id="1def-7fc2-64ba-706b">
-          <profiles>
-            <profile name="Abomination" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="ad6f-6c38-6998-5648">
-              <characteristics>
-                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
-                <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
-                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Hideous mutations" hidden="false" id="db8e-4a59-5a9c-b987">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b2eb-3fab-c10b-ae39" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8f6f-6571-44ff-d03d" includeChildSelections="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Hideous mutations" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="a8f3-eb0b-068b-8681">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">D6+2</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-          </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="fd80-17e3-3c1a-6570" shared="true" childName="Armageddon" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="98b0-0e92-a693-3392" includeChildSelections="false"/>
-            <constraint type="max" value="4" field="selections" scope="parent" shared="true" id="a3ec-bd40-d17f-1ebd" includeChildSelections="false"/>
-          </constraints>
-        </selectionEntry>
-      </selectionEntries>
-      <comment>Armageddon Crusade content</comment>
-      <categoryLinks>
-        <categoryLink name="Reference" hidden="false" id="ed60-52ac-15af-8016" targetId="eef1-be80-500a-edfc" primary="true"/>
-        <categoryLink name="Unbound Adversaries" hidden="false" id="518f-6762-3633-07b7" targetId="9440-07f1-b09d-ce8b" primary="false"/>
-        <categoryLink name="Beast" hidden="false" id="6061-32e4-5826-5e5f" targetId="4c3e-9310-a516-3590" primary="false"/>
-        <categoryLink name="Chaos" hidden="false" id="9e84-3111-919f-43b0" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink name="Abomination" hidden="false" id="e0e8-4123-33f7-0bb7" targetId="e17d-56fd-1957-071f" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="unit" import="true" name="Daemonic Beasts (Unbound Adversaries)" hidden="false" id="8d9a-d925-56f3-1890">
-      <selectionEntries>
-        <selectionEntry type="model" import="true" name="Daemonic Beasts" hidden="false" id="317e-1c59-edbb-f183">
-          <profiles>
-            <profile name="Daemonic Beasts" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="df83-de4d-16bb-c352">
-              <characteristics>
-                <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
-                <characteristic name="SV" typeId="450-a17e-9d5e-29da">7+</characteristic>
-                <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
-                <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-                <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <infoLinks>
-            <infoLink name="Invulnerable Save (5+)" id="3b95-679f-fe9d-b275" hidden="false" type="profile" targetId="3b8a-73e4-1389-b399"/>
-          </infoLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Horns and talons" hidden="false" id="91d6-dd7e-e0cd-b04f">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e166-d534-3d8a-0c2a" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9c27-303c-c458-2ba1" includeChildSelections="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Horns and talons" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="87c5-899f-6200-49c2">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-            </selectionEntry>
-          </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="fd80-17e3-3c1a-6570" shared="true" childName="Armageddon" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="min" value="3" field="selections" scope="parent" shared="true" id="aa6e-e362-4565-70cb" includeChildSelections="false"/>
-            <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="6ff9-0c26-020f-2b32" includeChildSelections="false"/>
-          </constraints>
-        </selectionEntry>
-      </selectionEntries>
-      <comment>Armageddon Crusade content</comment>
-      <categoryLinks>
-        <categoryLink name="Reference" hidden="false" id="3c66-9631-712e-8f43" targetId="eef1-be80-500a-edfc" primary="true"/>
-        <categoryLink name="Unbound Adversaries" hidden="false" id="0535-0745-9463-5abf" targetId="9440-07f1-b09d-ce8b" primary="false"/>
-        <categoryLink name="Chaos" hidden="false" id="7fd2-fea7-e335-9daa" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink name="Daemon" hidden="false" id="07ae-2cbd-ccc6-d9b9" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink name="Beast" hidden="false" id="1dfe-b7fb-a69e-30ee" targetId="4c3e-9310-a516-3590" primary="false"/>
-        <categoryLink name="Daemonic Beasts" hidden="false" id="ac04-ac2c-81eb-94c6" targetId="a783-fe90-2280-47ec" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
   </sharedSelectionEntries>
   <sharedRules>
     <rule id="8bf7-8812-923d-29e4" name="Pistol" publicationId="48fc-15aa-b307-9443" page="25" hidden="false">
@@ -1209,6 +930,7 @@ This ability always takes the form Deadly Demise X. Each time a model in this un
 Example: An Impulsor with a unit of Intercessors embarked within it is destroyed by ranged attacks. First, any unresolved attacks made by the attacking unit are resolved. Then the Intercessors make an emergency disembark move. Then the roll is made for the Deadly Demise ability, and on a 6, that ability is resolved. Finally, the Impulsor is removed from the battlefield.</description>
     </rule>
     <rule id="bec5-4288-34a6-ccfa" name="Stealth" publicationId="48fc-15aa-b307-9443" page="20" hidden="false">
+      <comment>def-mod: source=&quot;Stealth&quot; cover when=ranged conditional</comment>
       <description>The stealthiest warriors can evade the attentions, and the bullets, of their foes.
 If every model in a unit has this ability, each time a ranged attack targets that unit, that unit has the benefit of cover against that attack (13.08).</description>
     </rule>
@@ -1333,7 +1055,8 @@ See Attached Units (19).</description>
 **EFFECT:** Your unit shoots using snap shooting (15.09): you can only target one visible enemy unit within 24"; each attack only hits on an unmodified Hit roll of 6 (irrespective of BS or modifiers); you cannot re-roll Hit rolls.</description>
     </rule>
     <rule id="0212-a34f-5622-ac26" name="Stratagem: Smokescreen (1CP)" publicationId="48fc-15aa-b307-9443" page="56" hidden="false">
-      <comment>strat-timing: turn=opponent phase=shooting</comment>
+      <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Stratagem: Smokescreen (1CP)&quot; cover conditional</comment>
       <description>**CORE STRATAGEM — 1CP** (15.10)
 
 **WHEN:** Start of your opponent’s Shooting phase.
@@ -1437,6 +1160,36 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
     <rule name="Lethal Hits (non-Monster/Vehicle)" hidden="false" id="0d1a-9f3b-7c40-1c01">
       <description>Weapons with **[LETHAL HITS: non-^^Monster^^/^^Vehicle^^]** in their profile are known as Lethal Hits weapons. Each time an attack is made with such a weapon against a unit that is not a **^^Monster^^** or **^^Vehicle^^** unit, a Critical Hit automatically wounds the target. This ability has no effect against **^^Monster^^** or **^^Vehicle^^** units.</description>
     </rule>
+    <rule name="Assault Disembark Move" hidden="false" id="0d1a-9f3b-7c40-1c05">
+      <description>A special **move type**.
+
+**Set-up distance:** 3&quot;
+
+**Eligible if:** As stated in the rule allowing this **move type**, if all of the following apply to your unit:
+- Embarked within a **^^Transport^^** model that is on the battlefield.
+- Did not embark within that **^^Transport^^** this phase.
+- That **^^Transport^^** has not made an **Advance/Fall Back move** this phase.
+
+**Effect:** Your unit is set up as described in Set Up (Core Rules, 03.02).
+
+**While moving:**
+- Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.</description>
+    </rule>
+    <rule id="2be5-85fb-e165-e3da" name="Shock Disembark Move" hidden="false">
+      <description>A special **move type**.
+
+**Set-up distance:** 3&quot;
+
+**Eligible if:** As stated in the rule allowing this **move type**, if all of the following apply to your unit:
+- Embarked within a **^^Transport^^** model that is on the battlefield.
+- Did not embark within that **^^Transport^^** this phase.
+
+**Effect:** Your unit is set up as described in Set Up (Core Rules, 03.02).
+
+**While moving:** Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.
+
+**After moving:** Your unit is not **eligible to declare a charge** until the end of the turn.</description>
+    </rule>
   </sharedRules>
   <sharedProfiles>
     <profile id="fa4e-5ac8-11a6-78d2" name="Fortification" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1527,11 +1280,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Deadly Combatant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fe00-d1ed-cc9f-af99">
@@ -1573,11 +1321,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Born Hunter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="173a-2c06-c7ff-d8fe">
@@ -1614,11 +1357,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -1657,11 +1395,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Natural Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8364-46f2-38a8-846b">
@@ -1684,11 +1417,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -1720,11 +1448,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -1759,11 +1482,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Death Incarnate (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="77ec-f5d9-6c29-c875">
@@ -1792,11 +1510,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -1827,11 +1540,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Focused Gunners" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0a7c-c752-f53e-ed90">
@@ -1860,11 +1568,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -1895,11 +1598,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Elite Crew" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5b99-ce98-dc07-6089">
@@ -1928,11 +1626,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -1971,11 +1664,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Auto-repair Nodes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6633-39c0-087c-7bac">
@@ -1998,11 +1686,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2036,11 +1719,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Vanguard Espionage" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bf52-1646-5b05-6b57">
@@ -2070,11 +1748,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2109,11 +1782,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Resolute Veterans" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7540-1649-6e02-4718">
@@ -2136,11 +1804,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2167,11 +1830,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Headhunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="99fc-06f4-f204-3524">
@@ -2194,11 +1852,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2233,11 +1886,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="High-speed Gunnery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="47e7-f968-b74f-deb3">
@@ -2265,11 +1913,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Predatory Urge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d64-b6b2-fba2-aeab">
@@ -2292,11 +1935,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2323,11 +1961,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Encircling Raptors" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c7f3-d332-f6ae-f067">
@@ -2350,11 +1983,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="lessThan" value="1" field="selections" scope="model-or-unit" childId="0dce-ed3d-83af-2f27" shared="true" includeChildSelections="true" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -2421,11 +2049,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Blur of Speed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="583e-2616-8cf8-969d">
@@ -2458,11 +2081,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2497,11 +2115,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Horror-hardened" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1f33-9d00-a7b7-1318">
@@ -2531,11 +2144,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2575,11 +2183,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Claim Stalker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="dac1-5e52-30c4-14d1">
@@ -2612,11 +2215,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2656,11 +2254,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Duellist" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="291e-fc3a-573c-a199">
@@ -2689,11 +2282,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2730,11 +2318,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2773,11 +2356,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Tank Hunter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="37f3-8de0-b335-5482">
@@ -2806,11 +2384,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2841,11 +2414,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Heavily Armoured" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ea8a-0172-ebe8-2258">
@@ -2875,11 +2443,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Reaper" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ddbd-00dd-9f35-a5c1">
@@ -2908,11 +2471,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -2950,11 +2508,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Wraith of Ruin" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a261-085b-c6ac-de92">
@@ -2987,11 +2540,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="United By Adversity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ce60-226f-407f-96d5">
@@ -3021,11 +2569,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Raiders" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7f83-56b6-5344-3399">
@@ -3054,11 +2597,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -3092,11 +2630,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Terror Assault" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2064-7161-aa80-4859">
@@ -3125,11 +2658,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -3168,11 +2696,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Thundering Onslaught" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5ff3-f50a-9614-31f9">
@@ -3202,11 +2725,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Saddleborne Assassins" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c680-6f61-e271-755f">
@@ -3235,11 +2753,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -3273,11 +2786,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Crushing Charge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fc63-573b-1df5-5a97">
@@ -3307,13 +2815,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Precision Insertion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8541-0803-dadb-b6dd">
                   <characteristics>
@@ -3344,11 +2845,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Reinforced Armour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="92bf-dcb5-53a9-21e3">
@@ -3377,11 +2873,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -3420,11 +2911,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Behemoth" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3c0e-8419-d6a2-62e4">
@@ -3462,11 +2948,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Unrelenting" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="14a7-8766-06d2-972d">
@@ -3495,11 +2976,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -3530,11 +3006,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Talismanic" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4919-0d6e-d17c-4723">
@@ -3557,11 +3028,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3591,11 +3057,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Drop Zone Defenders" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="93f3-8562-9e5b-9d46">
@@ -3618,11 +3079,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3649,11 +3105,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Tempered In Battle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca46-189e-006e-e82d">
@@ -3676,11 +3127,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3707,11 +3153,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Territorial" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="495e-a4f1-9476-85e4">
@@ -3734,11 +3175,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3772,11 +3208,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Evasive" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ee2f-447d-9c9d-ad63">
@@ -3799,11 +3230,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3830,11 +3256,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dda2-bb0a-215e-ad9c" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Sleek Interceptors" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7025-2061-0804-18b9">
@@ -3857,11 +3278,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dda2-bb0a-215e-ad9c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3888,11 +3304,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dda2-bb0a-215e-ad9c" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Take to the Skies" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4c7c-c2fc-7bcc-c73e">
@@ -3917,11 +3328,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Hunting Beasts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="359d-5a14-35d4-3fdb">
@@ -3944,11 +3350,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -3978,11 +3379,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Enhanced Endurance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a7b2-a36f-c6a5-3d5c">
@@ -4009,13 +3405,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Drop Zone Veterans" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8d34-d242-a338-8e60">
                   <characteristics>
@@ -4035,13 +3424,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Stealthy Arrival" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="85d8-e908-b885-b5b1">
                   <characteristics>
@@ -4142,13 +3524,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Giantslayers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2948-fe70-8807-d6c3">
                   <characteristics>
@@ -4166,13 +3541,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Painful Lessons" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0443-b9f5-0690-1c6a">
                   <characteristics>
@@ -4190,13 +3558,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Indomitable Defiance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="987c-763c-e359-e995">
                   <characteristics>
@@ -4214,13 +3575,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Hamstringing Attacks" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c2be-b94d-d4cb-f914">
                   <characteristics>
@@ -4238,13 +3592,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Titan&apos;s Bane" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="717f-8db9-3efd-b18a">
                   <characteristics>
@@ -4275,13 +3622,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Nimble Defence" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="38ac-2ed6-0bd7-e628">
                   <characteristics>
@@ -4332,13 +3672,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Thunderous Blows" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7229-19e6-8032-8105">
                   <characteristics>
@@ -4356,13 +3689,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Indomitable Stature" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3e8f-093a-1795-a68a">
                   <characteristics>
@@ -4380,13 +3706,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Monstrous Presence (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="778a-e580-8c04-636f">
                   <characteristics>
@@ -4406,13 +3725,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Prey Taker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="99ff-4ba1-2488-7c2f">
                   <characteristics>
@@ -4430,13 +3742,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Predatory Senses" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3928-4923-0ccb-858c">
                   <characteristics>
@@ -4454,13 +3759,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Sweeping Blow" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="38e1-9c82-18ed-4bf0">
                   <characteristics>
@@ -4478,13 +3776,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Shocking Celerity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1b98-4934-a009-a454">
                   <characteristics>
@@ -4505,13 +3796,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Gargantuan Rage" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6251-f857-24af-2a45">
                   <characteristics>
@@ -4540,13 +3824,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Unstoppable Advance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="acc3-e888-1539-0b15">
                   <characteristics>
@@ -4564,13 +3841,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Massive Stomp" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="459d-1377-d4a2-a93c">
                   <characteristics>
@@ -4627,13 +3897,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Acquisitive Opportunist" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9151-3662-778c-5014">
                   <characteristics>
@@ -4665,13 +3928,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Nodal Map" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fe53-d8dd-a036-1190">
                   <characteristics>
@@ -4690,13 +3946,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
                 <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
               <profiles>
                 <profile name="Single-minded Seeker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8bbd-a6fe-cfe6-67e1">
                   <characteristics>
@@ -4731,11 +3980,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
@@ -4766,11 +4010,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
@@ -4800,11 +4039,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
                 <modifier type="add" value="Must upgrade a weapon to a Crusade Relic" field="error">
                   <conditions>
@@ -5190,11 +4424,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Warp Terrors (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a1ea-aab1-9189-c5e1">
@@ -5217,11 +4446,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5248,11 +4472,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Warp-hardened Veterans" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef2d-1e34-4e2a-256a">
@@ -5275,11 +4494,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5309,11 +4523,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Stalwarts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="039a-9fa3-d83f-1118">
@@ -5336,11 +4545,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5375,11 +4579,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="cf47-a0d7-7207-29dc" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Warp Hunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="dc03-6a23-e16b-3cf4">
@@ -5408,11 +4607,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -5445,11 +4639,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -5491,11 +4680,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Extra Armour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5cb4-877b-8f87-e680">
@@ -5533,11 +4717,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Juggernaut" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ea86-e64e-2600-8253">
@@ -5566,11 +4745,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -5601,11 +4775,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Daemon Hunter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6f4e-0c0e-71b1-d237">
@@ -5628,11 +4797,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5666,11 +4830,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Skilled Riders" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="438d-b00c-e81a-5497">
@@ -5693,11 +4852,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5724,11 +4878,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="War Beasts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="16c5-021a-5190-1d42">
@@ -5753,11 +4902,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Leaping Frenzy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0c9e-169b-11e5-c3a2">
@@ -5780,11 +4924,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="4c3e-9310-a516-3590" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -5815,11 +4954,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -5852,11 +4986,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -5897,11 +5026,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Scrier&apos;s Gaze (Aura, Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="86ef-191f-7164-45fb">
@@ -5931,11 +5055,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Warp Alacrity (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef24-3c97-c267-bdaf">
@@ -5964,11 +5083,6 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>

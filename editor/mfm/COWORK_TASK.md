@@ -13,11 +13,14 @@ environnement non provisionné — répertoire home vide), clone d'abord :
 
 ```sh
 git clone --filter=blob:none https://github.com/fmoraldo-mithraw/wh40k-11e.git /home/user/wh40k-11e
-git clone --depth 1 https://github.com/fmoraldo-mithraw/cogitator-bellicum.git /home/user/cogitator-bellicum
+# facultatif (403 en routine = normal) :
+git clone --depth 1 https://github.com/fmoraldo-mithraw/cogitator-bellicum.git /home/user/cogitator-bellicum || true
 ```
 
-(Le second est requis seulement pour `build-map` ; en cas d'échec du
-clone, continuer — les matrices commitées font l'affaire.) Si le clone de
+(Le second est **facultatif** : `build-map` retombe sur la copie
+vendorisée du parser, `editor/mfm/vendor/bsdata-parser.mjs`, quand le
+dépôt de l'app est absent ou refusé (403) — ne jamais s'arrêter sur cet
+échec.) Si le clone de
 wh40k-11e échoue aussi (pas de credentials git dans l'environnement),
 terminer en signalant l'échec de provisionnement — ne rien inventer.
 
@@ -45,8 +48,8 @@ origin/main`), puis :
    MFM), `editor/MARINE_CHAPTER_COST_APP_PROMPT.md` (coûts de chapitre —
    jamais d'écriture brute sur un bsId partagé à prix divergent).
 2. **Chaîne de diff** : si besoin régénérer les matrices
-   (`node editor/mfm/build-map.mjs editor/mfm/dump/en` — nécessite le
-   parseur de l'app, `COGITATOR_DIR=…/cogitator-bellicum`), puis
+   (`node editor/mfm/build-map.mjs editor/mfm/dump/en` — parser de l'app si
+   présent, sinon copie vendorisée automatiquement ; plus de blocage), puis
    `node editor/mfm/apply.mjs editor/mfm/dump/en` (dry-run) pour obtenir
    les **DELTAS AUTO-APPLICABLES** et le bloc **« À ME RENVOYER »**.
 2bis. **Audit détachements** : `node editor/mfm/dp-audit.mjs
@@ -134,7 +137,8 @@ il ne dépend pas d'un fichier pour démarrer :
 Versant cowork de l'automatisation MFM du dépôt wh40k-11e.
 1. Si /home/user/wh40k-11e n'existe pas, clone-le (lecture anonyme OK) :
    git clone --filter=blob:none https://github.com/fmoraldo-mithraw/wh40k-11e.git /home/user/wh40k-11e
-   puis, best-effort : git clone --depth 1 https://github.com/fmoraldo-mithraw/cogitator-bellicum.git /home/user/cogitator-bellicum
+   (cogitator-bellicum n'est PAS nécessaire : build-map utilise la copie
+   vendorisée editor/mfm/vendor/bsdata-parser.mjs.)
    Si le clone échoue, termine en signalant l'échec de provisionnement.
 2. cd /home/user/wh40k-11e && git fetch origin main, puis compare
    `git rev-parse origin/main:editor/mfm/dump/en` à

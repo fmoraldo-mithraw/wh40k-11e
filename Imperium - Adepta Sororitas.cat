@@ -248,6 +248,11 @@ invuln: 4+</comment>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="43d5-ee72-29a7-f9c8">
                   <characteristics>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="463a-cb74-2557-1d1d">
+                  <characteristics>
                     <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
                   </characteristics>
                 </profile>
@@ -356,7 +361,8 @@ TARGET: That PENITENT unit.
 EFFECT: Until the end of the turn, your unit is eligible to declare a charge in a turn in which it Advanced. If your unit has the PENITENT ENGINES keyword, do not make an Advance roll for it; instead, until the end of the phase, add 6&quot; to the Move characteristic of models in your unit.</description>
                 </rule>
                 <rule name="PURITY OF SUFFERING (Stratagem, 1CP)" id="b59a-604d-0657-df1b" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;PURITY OF SUFFERING&quot; fnp=4 conditional</comment>
                   <description>Penitent Host – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -409,7 +415,8 @@ EFFECT: Your unit can make a surge move of up to D6&quot;.</description>
                   <description>Ranged weapons equipped by ADEPTA SORORITAS models from your army have the [ASSAULT] ability, and each time an attack made with such a weapon targets a unit within 6&quot;, add 1 to the Strength characteristic of that attack.</description>
                 </rule>
                 <rule name="SHIELD OF AVERSION (Stratagem, 1CP)" id="bcec-d499-df28-d795" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;SHIELD OF AVERSION&quot; ap=-1 conditional</comment>
                   <description>Bringers of Flame – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -489,7 +496,8 @@ TARGET: That ADEPTA SORORITAS unit from your army that has not been selected to 
 EFFECT: Until the end of the phase, each time a model in your unit makes an attack, improve the Armour Penetration characteristic of that attack by 1. If one or more enemy models are destroyed as the result of any of those attacks, you gain 1 Miracle dice.</description>
                 </rule>
                 <rule name="SHIELD OF FAITH (Stratagem, 1CP)" id="1145-293a-ae64-ed44" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;SHIELD OF FAITH&quot; fnp=5 conditional</comment>
                   <description>Army of Faith – STRATAGEM (1CP)
 
 WHEN: Any phase, just after an ADEPTA SORORITAS unit from your army suffers a mortal wound.
@@ -544,7 +552,9 @@ EFFECT: Until the end of the phase, each time an attack targets your unit, subtr
 While a ^^**Celestian Sacresants^^** unit from your army is not Battle-shocked, add 1 to the Objective Control characteristic of ^^**Celestian Sacresants^^** models in that unit.</description>
                 </rule>
                 <rule name="Shield of Denial (Stratagem, 1CP)" id="1a98-ba42-7184-0319" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Shield of Denial&quot; fnp=6 conditional
+def-mod: source=&quot;Shield of Denial&quot; fnp=5 conditional</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Any phase, just after a mortal wound is allocated to an Adepta Sororitas unit from your army.
@@ -677,7 +687,8 @@ TARGET: That CELESTIAN SACRESANTS unit.
 EFFECT: Your unit&apos;s melee attacks have +1 A and S.</description>
                 </rule>
                 <rule name="Faithful Fortitude (Stratagem, 1CP)" id="88b8-a0ac-dbab-f965" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Faithful Fortitude&quot; fnp=5 conditional</comment>
                   <description>Sacred Champions – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly CELESTIAN SACRESANTS unit suffers a mortal wound.
@@ -827,29 +838,11 @@ fnp: 5+</comment>
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="4404-b91a-9b5b-4f79" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="fedd-1482-9b77-4751" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8dc2-d4d8-4176-f728" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9751-9d81-b80d-81dc" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="fedd-1482-9b77-4751">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="8dc2-d4d8-4176-f728">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="9751-9d81-b80d-81dc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1113,29 +1106,11 @@ fnp: 5+</comment>
       </infoLinks>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="2cf1-71b1-51d8-ea28" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="db54-1cf7-b47c-6ce9" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a2a8-649b-1d25-ebbf" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d26f-266a-0755-4c7d" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="db54-1cf7-b47c-6ce9">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="a2a8-649b-1d25-ebbf">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d26f-266a-0755-4c7d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1799,23 +1774,10 @@ fnp: 5+</comment>
       </entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="d3cd-668a-00a7-d1fe" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="0437-77bf-8759-e40e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="34b1-365a-5e9a-ee56" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="03ed-59b7-578b-9984" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="34b1-365a-5e9a-ee56">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="03ed-59b7-578b-9984">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1859,11 +1821,6 @@ fnp: 5+</comment>
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="0437-77bf-8759-e40e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -1925,7 +1882,7 @@ fnp: 5+</comment>
         <categoryLink id="5f2c-faa5-2a47-3b71" name="Frame" hidden="false" targetId="8262-8bf6-9fcd-34c9" primary="false"/>
       </categoryLinks>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="820-1e76-78cc-931a" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -2076,28 +2033,10 @@ fnp: 5+</comment>
       <entryLinks></entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="fa00-6eb8-56d0-173c" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="49da-bf77-2235-cb72" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1179-e036-5e32-365a" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="38b7-776d-a7c8-8367" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="49da-bf77-2235-cb72">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1179-e036-5e32-365a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="38b7-776d-a7c8-8367">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2204,7 +2143,8 @@ fnp: 5+</comment>
       </infoLinks>
     </selectionEntry>
     <selectionEntry id="f1af-4984-1a52-c5" name="Celestian Sacresants" hidden="false" collective="false" import="true" type="unit" publicationId="7d85-6d0f-57e0-5dea">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Sworn Protectors&quot; wound=-1 conditional</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="150">
           <conditions>
@@ -2320,29 +2260,11 @@ fnp: 5+</comment>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="b9af-92b4-a125-1446" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8b61-b537-74ff-023b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1037-ec99-f2c0-08bc" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a369-5378-f7aa-6bae" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="8b61-b537-74ff-023b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1037-ec99-f2c0-08bc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a369-5378-f7aa-6bae">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2616,9 +2538,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="a2e3-1f46-8232-9851" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="a06d-19bf-a710-d834" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="240c-af05-4a3b-4c78" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="3946-49a2-456e-9023" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="65fe-c865-be6e-ef12" hidden="false" sortIndex="4">
@@ -2690,16 +2609,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="240c-af05-4a3b-4c78">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="3946-49a2-456e-9023">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2743,11 +2652,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="a06d-19bf-a710-d834">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -2824,9 +2728,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="084c-6996-fd6b-2e7f" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e16e-7484-d30f-27ed" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="83ff-e4b1-f268-d298" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ff8f-2fbb-344b-179f" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="3c41-5a5b-ae22-ad41" hidden="false" sortIndex="4">
@@ -2897,16 +2798,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="83ff-e4b1-f268-d298">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="ff8f-2fbb-344b-179f">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2950,11 +2841,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="e16e-7484-d30f-27ed">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -3219,29 +3105,11 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="5895-56eb-e0e2-4508" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="66d4-9e9a-0aff-789e" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="288e-8b67-5ce0-cf8d" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ca44-25dc-b67c-811a" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="66d4-9e9a-0aff-789e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="288e-8b67-5ce0-cf8d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="ca44-25dc-b67c-811a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3297,7 +3165,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="40">
           <conditions>
-            <condition type="atLeast" value="2" field="selections" scope="roster" childId="684e-4dd3-340a-23ee" shared="true" includeChildSelections="true" includeChildForces="true"/>
+            <condition type="atLeast" value="3" field="selections" scope="roster" childId="684e-4dd3-340a-23ee" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -3468,28 +3336,10 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </selectionEntryGroups>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="7bfe-7f75-3e84-2da4" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="1f89-39fd-d8d4-4ad6" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="66f4-9ac8-8154-e9a3" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1e95-797a-2f54-aa37" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="1f89-39fd-d8d4-4ad6">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="66f4-9ac8-8154-e9a3">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="1e95-797a-2f54-aa37">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3623,9 +3473,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="ce19-fa3c-3497-ae6b" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b6e5-67b3-8dca-79a4" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="0918-895f-7486-23c5" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="be29-d818-48d8-1cf1" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="fc8d-ed34-2e40-4701" hidden="false" sortIndex="4">
@@ -3697,16 +3544,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="0918-895f-7486-23c5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="be29-d818-48d8-1cf1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3750,11 +3587,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="b6e5-67b3-8dca-79a4">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -3831,9 +3663,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="5f66-e5f5-25f3-023e" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="bd5c-4b26-7c11-7c51" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="746e-b60b-a9f4-5683" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9ef3-e979-c9b1-a882" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="c489-9371-47ab-0d01" hidden="false" sortIndex="4">
@@ -3911,16 +3740,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="746e-b60b-a9f4-5683">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="9ef3-e979-c9b1-a882">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3964,11 +3783,6 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="bd5c-4b26-7c11-7c51">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -4164,28 +3978,10 @@ At the start of the Declare Battle Formations step, you can select one BATTLE SI
       </selectionEntryGroups>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="7c34-ad83-f2b6-0204" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7ba4-8f87-9a5c-db55" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ba99-266e-47ea-bfcc" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2052-ee68-0e66-cb87" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="7ba4-8f87-9a5c-db55">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="ba99-266e-47ea-bfcc">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="2052-ee68-0e66-cb87">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4703,29 +4499,11 @@ fnp: 5+</comment>
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="22e8-cb69-cc3f-6613" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dba8-1fc2-5474-5ee8" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1018-5f53-d9e4-3310" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e733-8bee-b08b-864d" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="dba8-1fc2-5474-5ee8">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1018-5f53-d9e4-3310">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="e733-8bee-b08b-864d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4782,7 +4560,7 @@ sim-mod: source=&quot;Righteous Repugnance&quot; attacks=+3 conditional scope=mo
 invuln: 4+
 must-warlord</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="215"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <categoryLinks>
@@ -5147,23 +4925,10 @@ invuln: 4+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="7cdd-e0c6-5390-1b61" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="bd86-f072-607c-65a3" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="3e7a-3c32-1609-1eaf" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7f1a-1c50-a745-3d16" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="3e7a-3c32-1609-1eaf">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7f1a-1c50-a745-3d16">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5209,11 +4974,6 @@ invuln: 4+</comment>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
-            <modifier type="increment" value="1" field="bd86-f072-607c-65a3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <comment>Crusade modifiers</comment>
         </modifierGroup>
@@ -5230,7 +4990,7 @@ invuln: 4+</comment>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="8c78-61a5-b633-7b72" primary="true" name="Vehicle"/>
@@ -5649,29 +5409,11 @@ invuln: 4+</comment>
       </selectionEntries>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="47d5-ae1b-8151-1c4e" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="adb2-3986-b95e-0b15" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9b3d-bd6d-f009-cf22" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="446c-907e-1eee-beff" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="adb2-3986-b95e-0b15">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="9b3d-bd6d-f009-cf22">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="446c-907e-1eee-beff">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5941,29 +5683,11 @@ fnp: 5+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="117d-f4c5-43cb-2ff2" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="a7c3-0762-c3e2-18cc" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d40f-ee7f-3777-9a2e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7d75-6244-074e-5129" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="a7c3-0762-c3e2-18cc">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="d40f-ee7f-3777-9a2e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7d75-6244-074e-5129">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6173,6 +5897,7 @@ invuln: 4+</comment>
             <entryLink import="true" name="" hidden="true" id="ee8c-0245-5545-a62a" type="selectionEntry" targetId="4269-a229-1461-67d0"/>
             <entryLink import="true" name="" hidden="true" id="a23e-f617-5559-86b0" type="selectionEntry" targetId="e286-849d-8f74-75e6"/>
             <entryLink import="true" name="" hidden="true" id="180d-dd57-0a95-0a4c" type="selectionEntry" targetId="eade-6ec7-7236-bfdb"/>
+            <entryLink import="true" name="Sanctifiers" hidden="true" type="selectionEntry" id="d065-644c-584b-cd4c" targetId="4e74-3710-7a66-9d6c"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -6212,24 +5937,9 @@ invuln: 4+</comment>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="6a8f-e970-a25d-d52f" targetId="66c6-be4b-a1dc-10d0" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="462f-040a-0f98-8c5a" type="selectionEntryGroup" targetId="09e3-bb9d-b978-8202" sortIndex="3"/>
       </entryLinks>
-      <constraints>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="0201-edbb-28d5-5899" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8619-9e3b-9448-2a18" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a87c-e575-cf27-ca88" includeChildSelections="true"/>
-      </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="8619-9e3b-9448-2a18">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a87c-e575-cf27-ca88">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6402,29 +6112,11 @@ fnp: 5+</comment>
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="6ad5-3e58-7cf6-9c42" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="db4c-0e7c-4b38-1e15" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="51b6-9c10-769d-397b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="44c1-fb28-9181-0f51" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="db4c-0e7c-4b38-1e15">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="51b6-9c10-769d-397b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="44c1-fb28-9181-0f51">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6636,29 +6328,11 @@ invuln: 6+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="e4ff-c05b-1766-5026" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5735-8777-71c0-9b22" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b4f6-a705-6b5e-e72d" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c17f-2e36-00b5-1e4e" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="5735-8777-71c0-9b22">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="b4f6-a705-6b5e-e72d">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c17f-2e36-00b5-1e4e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6712,7 +6386,7 @@ invuln: 6+</comment>
     <selectionEntry type="unit" import="true" name="Saint Celestine" hidden="false" id="21f1-8ed6-52c6-54c7" publicationId="7d85-6d0f-57e0-5dea">
       <comment>invuln: 4+</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <categoryLinks>
@@ -7260,29 +6934,11 @@ invuln: 6+</comment>
       </selectionEntryGroups>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="ec4f-3b3c-efdb-d174" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="fb8f-050c-0dff-9a55" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f177-5dfa-6290-ce11" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="efdf-7221-9980-f323" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="fb8f-050c-0dff-9a55">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="f177-5dfa-6290-ce11">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="efdf-7221-9980-f323">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7545,29 +7201,11 @@ invuln: 6+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="c659-074d-c3e0-f49e" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="bd53-4643-d993-0d75" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="608d-efb5-bbcc-aca4" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2bb4-8774-a034-2ce8" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="bd53-4643-d993-0d75">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="608d-efb5-bbcc-aca4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="2bb4-8774-a034-2ce8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7683,9 +7321,6 @@ invuln: 6+</comment>
       </profiles>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="force" shared="true" id="bfdf-9cfd-729a-cb83" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9108-344f-d15a-0ba4" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="726a-d6a6-eee1-c635" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a033-21ac-8d77-89c1" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="eb85-a9b1-27c2-f7f4" hidden="false" sortIndex="2">
@@ -7713,21 +7348,6 @@ invuln: 6+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="9108-344f-d15a-0ba4">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="726a-d6a6-eee1-c635">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a033-21ac-8d77-89c1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -8092,29 +7712,11 @@ If this unit made a Charge move this turn, until the end of the phase, select bo
       </modifiers>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="24d8-71d2-c590-7876" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="156c-e6d8-7aa4-1a27" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7fed-301b-2188-a1b9" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="611f-7f16-c539-56b2" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="156c-e6d8-7aa4-1a27">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="7fed-301b-2188-a1b9">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="611f-7f16-c539-56b2">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -8531,23 +8133,10 @@ invuln: 4+</comment>
       </entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="3d65-3f51-8db1-62af" includeChildSelections="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b7cb-9853-17c0-54ae" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6980-e3c8-59a7-22ab" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="740e-23bf-a2fa-bbed" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="6980-e3c8-59a7-22ab">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="740e-23bf-a2fa-bbed">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -8591,11 +8180,6 @@ invuln: 4+</comment>
             <modifier type="append" value="(Legendary)" field="name">
               <conditions>
                 <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="1" field="b7cb-9853-17c0-54ae">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="eebe-2ebf-2664-e637" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -8658,11 +8242,6 @@ invuln: 5+</comment>
         <categoryLink name="Sanctifiers" hidden="false" id="833a-221f-f777-6ecc" targetId="9d4f-4beb-107d-3175" primary="false"/>
         <categoryLink name="Faction: Adepta Sororitas" hidden="false" id="9d2c-ae61-1e7e-a5c1" targetId="fd71-afa6-b13b-7fda" primary="false"/>
       </categoryLinks>
-      <constraints>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="dbae-4a12-272a-0cf7" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d460-f046-e9e9-4ed1" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="bb98-b812-79cc-a30c" includeChildSelections="true"/>
-      </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Sanctifiers" id="de94-3606-7e65-2a89" hidden="false" sortIndex="2">
           <selectionEntries>
@@ -9054,26 +8633,30 @@ invuln: 5+</comment>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="5c48-be68-10a1-620e">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="374a-dbbb-3f2f-1945"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Inquisitor" hidden="true" type="selectionEntry" id="de4b-c93f-79f5-c0b9" targetId="3e57-b15c-5580-1de1"/>
+            <entryLink import="true" name="Inquisitor Greyfax" hidden="true" type="selectionEntry" id="4502-6242-4f8f-dcb0" targetId="6e0e-b9a2-f53d-ad0e"/>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Supported By (MFM)" hidden="true" id="8b98-4bbb-7eea-3ff7">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="667a-a509-8f48-3b21"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Ministorum Priest" hidden="true" type="selectionEntry" id="b521-274b-a1d3-99de" targetId="7554-37de-cd68-68a7"/>
+          </entryLinks>
+        </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="dbae-4a12-272a-0cf7">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="d460-f046-e9e9-4ed1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="bb98-b812-79cc-a30c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -9136,7 +8719,7 @@ invuln: 5+</comment>
     <selectionEntry type="unit" import="true" name="Celestian Insidiants" hidden="false" id="e286-849d-8f74-75e6">
       <comment>invuln: 5+</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <categoryLinks>
@@ -9150,9 +8733,6 @@ invuln: 5+</comment>
       <entryLinks></entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="4e70-e4e0-3aa2-b4e4" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="970c-a1e2-48eb-1a23" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="fb16-ad3d-c40d-8b98" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="4815-1612-c64b-832e" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0052-2c5c-6221-266a">
@@ -9192,21 +8772,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="970c-a1e2-48eb-1a23">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="fb16-ad3d-c40d-8b98">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="4815-1612-c64b-832e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -9699,6 +9264,17 @@ fnp: 5+</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="d8ec-37b8-c536-d7a9" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="2236-d428-61e-fa4f" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Writ of Compunction Upgrade" hidden="false" id="457e-7199-ec2c-19a9">
       <profiles>
@@ -9714,6 +9290,17 @@ fnp: 5+</comment>
       <categoryLinks>
         <categoryLink targetId="6226-9b9b-107a-9ada" id="6117-ddbc-37ff-580f" primary="false" name="Enhancement"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="4038-4f63-856e-fa4c" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Hagiomnifex Upgrade" hidden="false" id="8036-0985-3829-3a94">
       <profiles>
@@ -9731,6 +9318,18 @@ fnp: 5+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedProfiles>
@@ -10213,6 +9812,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ea36-91b8-f9d0-524b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ea36-91b8-f9d0-524b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Triptych of the Macharian Crusade" hidden="false" id="b6bd-5c3a-835b-08a8">
               <profiles>
@@ -10229,6 +9847,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="b6bd-5c3a-835b-08a8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="b6bd-5c3a-835b-08a8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Blade of Saint Ellynor" hidden="false" id="ac74-f4fb-2471-0cd2">
               <comment>sim-mod: source=&quot;Blade of Saint Ellynor&quot; str=+1 ap=+1 when=melee scope=model</comment>
@@ -10255,6 +9892,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ac74-f4fb-2471-0cd2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ac74-f4fb-2471-0cd2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Litanies of Faith" hidden="false" id="6afa-ce02-9563-368b">
               <profiles>
@@ -10318,6 +9974,25 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="302c-b8d2-7d21-305f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="302c-b8d2-7d21-305f" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Through Suffering, Strength" hidden="false" id="7056-256b-9392-bbbc">
               <comment>sim-mod: source=&quot;Through Suffering, Strength&quot; attacks=+1 str=+1 dmg=+1 when=melee scope=model choice=&quot;Through Suffering, Strength&quot;
@@ -10355,6 +10030,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="7056-256b-9392-bbbc" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="7056-256b-9392-bbbc" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Chaplet of Sacrifice" hidden="false" id="ab0f-119b-4628-eb86">
               <profiles>
@@ -10371,6 +10065,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="ab0f-119b-4628-eb86" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="ab0f-119b-4628-eb86" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Mantle of Ophelia" hidden="false" id="ffbd-988d-1497-2fdc">
               <profiles>
@@ -10448,6 +10161,16 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                 </modifier>
                 <modifier type="add" value="e2c8-1479-a7c4-228e" field="category"/>
               </modifiers>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="b319-ccf0-7cb3-6f46">
+                  <constraints>
+                    <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="c5a4-3088-88b8-dad5"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="" hidden="true" id="515d-bbc8-f11d-8a64" type="selectionEntry" targetId="7d63-7b55-a632-6a10"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Psalm of Righteous Judgement" hidden="false" id="e77d-7180-7b77-4c42">
               <profiles>
@@ -10464,6 +10187,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="e77d-7180-7b77-4c42" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="e77d-7180-7b77-4c42" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Verse of Holy Piety" hidden="false" id="5393-e3e0-d4d2-efc8">
               <profiles>
@@ -10573,6 +10315,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="b16a-1b5e-85a6-0e1b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="b16a-1b5e-85a6-0e1b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Manual of Saint Griselda" hidden="false" id="9105-7062-e61d-cc8b">
               <profiles>
@@ -10589,6 +10350,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9105-7062-e61d-cc8b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="9105-7062-e61d-cc8b" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Fire and Fury" hidden="false" id="32e8-f267-c03d-c48e">
               <comment>sim-mod: source=&quot;Fire and Fury&quot; sustained=1 when=ranged whileLeading</comment>
@@ -10606,6 +10386,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="32e8-f267-c03d-c48e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="32e8-f267-c03d-c48e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -10640,6 +10439,25 @@ sim-mod: source=&quot;Through Suffering, Strength (blessé)&quot; attacks=+2 str
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="4e52-3be7-153f-2ef8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="4e52-3be7-153f-2ef8" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Mark of Devotion" hidden="false" id="6a87-e11a-7a83-54ac">
               <comment>sim-mod: source=&quot;Mark of Devotion&quot; attacks=+1 when=melee scope=model choice=&quot;Mark of Devotion&quot;
@@ -10670,6 +10488,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="6a87-e11a-7a83-54ac" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="6a87-e11a-7a83-54ac" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Eyes of the Oracle" hidden="false" id="5344-3b0c-c939-e6a2">
               <constraints>
@@ -10685,6 +10522,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="5344-3b0c-c939-e6a2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="5344-3b0c-c939-e6a2" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Sanctified Amulet" hidden="false" id="2c1d-5416-8c0d-f790">
               <constraints>
@@ -10700,6 +10556,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </characteristics>
                 </profile>
               </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="2c1d-5416-8c0d-f790" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="2c1d-5416-8c0d-f790" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <modifiers>
@@ -10752,6 +10627,26 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dda2-bb0a-215e-ad9c" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fef8-7c60-b716-cf27" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="731e-ad18-2834-e6c0" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="731e-ad18-2834-e6c0" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -10779,6 +10674,25 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fd71-afa6-b13b-7fda" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="65b3-66fc-284d-542e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="65b3-66fc-284d-542e" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -10810,11 +10724,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Exemplars of the Order" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6ff7-65cf-31b8-7bee">
@@ -10843,11 +10752,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -10878,11 +10782,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Valour of Saints" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4b0-9e61-a7bb-0201">
@@ -10911,11 +10810,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -10946,11 +10840,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Veterans of the Convent" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4f1a-dcea-e4b6-dbd0">
@@ -10979,11 +10868,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -11021,11 +10905,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Zealous Devotion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2425-636f-288f-cbda">
@@ -11050,11 +10929,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="e2c8-1479-a7c4-228e" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Unquenchable Fanaticism" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c5ea-3e66-44ee-610f">
@@ -11077,11 +10951,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="e2c8-1479-a7c4-228e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11115,11 +10984,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="e2c8-1479-a7c4-228e" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Blood Begets Absolution" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fcb8-ac84-e68f-c348">
@@ -11144,11 +11008,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Deeds, Not Words" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="868e-a481-1f04-4657">
@@ -11171,11 +11030,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11209,11 +11063,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Beacon of Faith" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7203-d47d-f367-7294">
@@ -11243,11 +11092,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Mobile Shrine (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3ca2-4879-0668-4e1d">
@@ -11276,11 +11120,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
             </modifier>
           </modifiers>
           <profiles>
@@ -11445,13 +11284,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Trial of Valour" hidden="false" id="265a-0e34-3df0-7c6e">
               <constraints>
@@ -11467,13 +11299,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Trial of Suffering" hidden="false" id="21a4-1e43-ba14-6588">
               <constraints>
@@ -11489,13 +11314,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Trial of Faith" hidden="false" id="2de4-f333-4218-d6d7">
               <constraints>
@@ -11511,13 +11329,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Trial of Righteousness" hidden="false" id="9f40-43b3-7689-c5e3">
               <constraints>
@@ -11537,13 +11348,6 @@ sim-mod: source=&quot;Mark of Devotion (Righteous)&quot; attacks=+2 dmg=+1 when=
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
-              <modifiers>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -11646,11 +11450,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="c22d-ed31-bda4-79d6" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Word of the Emperor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="048b-7166-acee-21da">
@@ -11674,11 +11473,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11705,11 +11499,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Inspiring Orator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="159a-6683-6836-05e9">
@@ -11732,11 +11521,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11763,11 +11547,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Solemn in Prayer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3734-4085-c0e6-bba4">
@@ -11790,11 +11569,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11821,11 +11595,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Faithful Devotee (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6bd3-aebd-01be-5606">
@@ -11848,11 +11617,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="27a5-f3c8-a520-edd9" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11880,11 +11644,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="3fd9-a95e-b442-9a77" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Final Rites" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d114-0224-b3b4-3a54">
@@ -11908,11 +11667,6 @@ When you intone Hymns of Battle, you can either select one Hymn to apply to unit
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="6b73-a2e7-f47-5af9" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>

@@ -1,6 +1,6 @@
 // Générateur des MARQUEURS DE STATS — matérialise en données les trois piliers
 // qui reposaient sur la prose GW côté application :
-//   invuln / FNP  → `invuln: 4+ [model="X"] [conditional]`, `fnp: 5+`
+//   invuln / FNP  → `invuln: 4+ [model="X"] [conditional] [note="…"] [option="Équipement"]`, `fnp: 5+`
 //   Supreme Commander → `must-warlord` / `cannot-warlord`
 //   graphe de chefs (cibles PAR MOTS-CLEFS, la seule part restée prose —
 //   les cibles datasheet sont déjà déclaratives via « Can Lead (MFM) »)
@@ -89,7 +89,9 @@ for (const [fk, f] of Object.entries(all)) {
           + (iv.conditional ? " conditional" : ""));
       }
     } else {
-      const pi = pickInvuln(u);
+      // Sans les équipements optionnels : une invu d'équipement n'est pas une
+      // stat de fiche (elle s'écrit à la main avec option="…").
+      const pi = pickInvuln(u, { options: false });
       if (pi && pi.value) lines.push("invuln: " + pi.value + "+" + (pi.star ? " conditional" : ""));
     }
     const fnp = fnpFromAbilities(u.abilities);
@@ -117,7 +119,15 @@ for (const [fk, f] of Object.entries(all)) {
     // remplacer uniquement les nôtres. Diff-check : zéro churn si identique.
     let com = (node.children || []).find((ch) => ch.tag === "comment");
     const existing = com ? (xml.getText(com) || "") : "";
-    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && !MARKER_RE.test(l));
+    // Les lignes invuln: à option="…" (invulnérable d'ÉQUIPEMENT, posée à la
+    // main) ne se recalculent pas : conservées telles quelles.
+    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && (!MARKER_RE.test(l) || /^invuln:.*\boption="/i.test(l)));
+    // Une ligne invuln: déjà en base pour la même valeur (et le même modèle)
+    // est CONSERVÉE telle quelle : elle peut porter une retouche manuelle que
+    // la prose ne dit pas (« conditional », note="against melee attacks only").
+    const invKey = (l) => { const m = l.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?/i); return m ? m[1] + "|" + (m[2] || "") : null; };
+    const prevInv = new Map(existing.split("\n").map((l) => l.trim()).filter((l) => invKey(l)).map((l) => [invKey(l), l]));
+    for (let i = 0; i < lines.length; i++) { const k = invKey(lines[i]); if (k && prevInv.has(k)) lines[i] = prevInv.get(k); }
     const next = [...kept, ...lines].join("\n");
     if (next === existing.split("\n").map((l) => l.trim()).filter(Boolean).join("\n")) continue;
 

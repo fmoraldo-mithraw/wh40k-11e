@@ -47,14 +47,40 @@ machine au réseau ouvert, session ouverte à la main.
 npm i playwright && npx playwright install chromium
 
 node editor/translations/aln-dump.mjs      # 1. connexion manuelle + capture
-node editor/translations/aln-fetch.mjs     # 2. récolte complète
+node editor/translations/aln-fetch.mjs --raw brut/   # 2. récolte complète
 node editor/translations/aln-probe.mjs --page "<url d'une liste en édition>"
                                            #    diagnostic si un endpoint casse
 ```
 
 `aln-fetch.mjs` produit `aln-pairs.json` (couples EN→FR attestés) et
-`aln-units.json` (fiches groupées avec leurs libellés). Ne jamais faire circuler
+`aln-units.json` (fiches groupées : libellés, caractéristiques, profils d'armes
+avec leurs valeurs, points et **texte complet des capacités** ; détachements avec
+PD, dispositions, règle, stratagèmes et améliorations). Ne jamais faire circuler
 `aln-profile/` : il contient la session de connexion.
+
+Pour retraiter une récolte déjà faite, sans retourner sur le site :
+
+```sh
+node editor/translations/aln-extract.mjs brut/                 # → aln-fiches.json
+node editor/translations/aln-extract.mjs brut/ --codex 90      # un seul codex
+```
+
+La lecture des réponses vit dans `aln-parse.mjs`, partagé par les deux scripts.
+Le texte d'une capacité est le champ caché `data_desc_<option>` de la fiche ;
+celui des stratagèmes et améliorations, les blocs `stratagemes`/`optimisations`
+du détachement.
+
+**Attention à la reprise** : `aln-fetch.mjs` reprend depuis `aln-state.json` et
+saute les fiches déjà récoltées. Après une mise à jour du site (nouvelle
+édition), déplacer `aln-state.json` et le dossier `brut/` avant de relancer, sinon
+les anciennes réponses sont conservées (vécu : 1 980 fiches d'août restées en 10ᵉ).
+
+**Les textes sont en français et ce sont ceux d'ALN** : souvent abrégés ou
+reformulés (« phase de Cdt », « Gagne la règle Agent Solitaire »), donc pas le
+libellé officiel GW. Ils servent au contrôle et à amorcer les traductions, pas
+de texte de référence. ALN ne donne en VO que les noms. Valeurs contrôlées sur
+des fiches vérifiées par capture de l'appli officielle : identiques, à une
+exception près (portée de l'Arma Luminis : 12″ sur ALN, 18″ sur l'appli).
 
 Endpoints (tous en GET, avec `X-Requested-With: XMLHttpRequest` et un `Referer`
 `/form/unite.php`) :

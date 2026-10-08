@@ -21,7 +21,12 @@ une faction « importateur mince » possède réellement) et ainsi matcher les n
 MFM. Sans lui, un match par fichier ne couvre que ~52 % (cf. `poc/`). Ce parser
 ne fait que LIRE ; il ne touche jamais aux données. Chemin configurable :
 `BSDATA_PARSER=/chemin/bsdata-parser.mjs` ou `COGITATOR_DIR=/chemin/cogitator-bellicum`
-(défaut : le dépôt frère `../cogitator-bellicum`).
+(défaut : le dépôt frère `../cogitator-bellicum`). **Repli sans le dépôt de
+l'app** : copie autonome commitée `vendor/bsdata-parser.mjs` (bundle esbuild,
+aucune dépendance npm) — la routine cowork, qui n'a pas accès à
+cogitator-bellicum, régénère donc les matrices sans blocage. Après une
+modification du parser dans l'app : `editor/mfm/vendor/sync-parser.sh` puis
+commit (`--check` : code 1 si la copie est périmée).
 
 Résumé du flux : **extraction** (python, ce dépôt) → **matrice** (build-map, ce
 dépôt, lit la clôture d'import via le parser de l'app) → **diff** (apply, ce
@@ -50,8 +55,23 @@ dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
   **effectif** (parser, résout les coûts imbriqués), les paliers sont comparés à
   l'**union des prix atteignables** (paliers du nœud ∪ paliers du parser ∪ base),
   donc un palier n'est signalé que si **aucun** encodage bdd ne le produit.
-- **Phase 3** *(à venir)* : écriture réelle via `editor/lib/catalog.js`
-  (`editUnit` costs/tiers, repeat-cost, enhancements) + gauntlet + PR.
+- **Phase 3 — `phase3.mjs`** *(livré)* : écriture réelle via
+  `editor/lib/catalog.js`. Reprend les décisions et les garde-fous d'`apply.mjs`
+  et pose : coût de base (`editUnit` costs), paliers de taille (`editUnit`
+  tiers), prix par répétition en **forme native** (modifier `increment` + condition
+  `atLeast` `scope="roster"`, création comprise), points d'améliorations.
+  Dry-run par défaut, `--write` pour écrire, `--slugs a,b` pour restreindre.
+  Vérification : régénérer les matrices puis relancer `apply.mjs` — le bloc AUTO
+  doit tomber à zéro.
+
+## Octrois de LEADER par amélioration — `enh-leaders.mjs`
+
+Une ligne « LEADER: X » (FR « MENEUR : X ») sous une amélioration du MFM est
+extraite par `mfm_parser.py` (champ `leader`) puis écrite en base par
+`node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]` : groupe
+`Can Lead (MFM)` sur l'amélioration (voir `editor/LEADER_LINKS_APP_PROMPT.md`).
+Dry-run par défaut ; résout les noms via `map/` ; n'ajoute que les liens
+manquants, signale les liens en trop et le résidu non résolu.
 
 ## Usage
 
@@ -103,6 +123,15 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   hors périmètre d'apply : accepte les 5 formes réelles d'encodage (option
   nommée, paire de sponsons 2×N, option combinée, modèle-variante, coût sur
   l'entryLink) ; état courant : 103 conformes, 0 écart.
+- `phase3.mjs` — écriture des deltas (Phase 3, ci-dessus).
+- `dp-fix.mjs` — applique les écarts relevés par `dp-audit.mjs` (DP, Force
+  Disposition, mots-clefs UNIQUE : ajout/retrait du `categoryLink` et création
+  de la `categoryEntry` à contrainte `max=1 scope="roster"` si besoin). Dry-run
+  par défaut, `--write` pour écrire. Un détachement à override de DP par
+  chapitre est signalé, jamais écrasé.
+- `refresh-current.mjs` — REPLI sans le parser de l'app : rafraîchit le cache
+  `current` des matrices depuis la bdd. **Ne recalcule pas l'appariement** — une
+  matrice à cibles disparues (« GONE ») doit passer par `build-map`.
 - `dp-audit.mjs` — audit DP + Force Disposition des détachements vs le dump
   (trou v1.3 : apply ne couvre que les points ; Lions of the Emperor 3 DP
   était passé inaperçu). Overrides par chapitre évalués, alias par sac de

@@ -54,19 +54,9 @@
         <constraint type="max" value="0" field="51b2-306e-1021-d207" scope="force" shared="true" id="6811-721a-2a95-ffb7" includeChildSelections="true"/>
       </constraints>
       <modifiers>
-        <modifier type="set" value="500" field="6811-721a-2a95-ffb7">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
         <modifier type="set" value="1000" field="6811-721a-2a95-ffb7">
           <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set" value="1500" field="6811-721a-2a95-ffb7">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
+            <condition type="atLeast" value="1" field="selections" scope="force" childId="6acc-9928-2b67-73c3" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
         <modifier type="set" value="-1" field="6811-721a-2a95-ffb7">
@@ -177,7 +167,6 @@
     <entryLink import="true" name="Pink Horrors" hidden="false" id="bc65-1734-335d-a810" type="selectionEntry" targetId="4c73-cbd1-f052-80c3"/>
     <entryLink import="true" name="Kairos Fateweaver" hidden="false" id="bd22-9def-df57-baad" type="selectionEntry" targetId="8f70-9bec-9b83-216b"/>
     <entryLink import="true" name="Blue Horrors" hidden="false" id="f91f-6730-445a-22b0" type="selectionEntry" targetId="aec5-4419-39e7-3e63"/>
-    <entryLink import="true" name="Chaos Spawn (Flesh Change)" hidden="false" id="40b5-1872-0f11-5f6b" type="selectionEntry" targetId="dd17-8cb8-ed8c-f6c8"/>
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry id="3b0d-dccf-8661-be1c" name="Detachment" hidden="false" collective="false" import="true" type="upgrade">
@@ -270,6 +259,11 @@ EFFECT: Until the end of the phase:
                     <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
                   </characteristics>
                 </profile>
+                <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="6c02-edd9-4f1e-b093">
+                  <characteristics>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Reconnaissance</characteristic>
+                  </characteristics>
+                </profile>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Grand Coven" hidden="false" id="9aba-cb08-cd38-9e01">
@@ -301,7 +295,8 @@ TARGET: One Thousand Sons Psyker unit from your army that has not been selected 
 EFFECT: Until the end of the phase, add 9&quot; to the Range characteristic of Psychic weapons equipped by models in your unit, and each time a model in your unit makes an attack with a Psychic weapon, you can re-roll the Hit roll and you can re-roll the Wound roll.</description>
                 </rule>
                 <rule name="PSYCHIC DOMINION (Stratagem, 1CP)" id="84c0-d9d7-f942-9a5d" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;PSYCHIC DOMINION&quot; fnp=4 conditional</comment>
                   <description>Grand Coven – STRATAGEM (1CP)
 
 WHEN: Any phase, just after an enemy unit has selected its targets.
@@ -347,14 +342,21 @@ EFFECT: Select the Imbued Manifestation, Psychic Maelstrom or Wrath of the Immat
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="4a64-dce5-2ec5-328d">
                   <characteristics>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="0a5f-2858-1fa5-77e9">
+                  <characteristics>
                     <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Changehost of Deceit" hidden="false" id="6acc-9928-2b67-73c3">
+              <comment>det-allies: keyword=&quot;Scintillating Legions&quot; maxPts=1000 native</comment>
               <rules>
                 <rule name="Infernal Pacts" id="9cef-5b49-7f6c-e17c" hidden="false">
+                  <comment>def-mod: source=&quot;Infernal Pacts&quot; inv=4 when=ranged conditional</comment>
                   <description>^^**Scintillating Legions^^** units from your army have the following ability:
 
 
@@ -429,7 +431,8 @@ EFFECT: Your unit can make a Normal move of up to D6&quot;, or a Normal move of 
             <selectionEntry type="upgrade" import="true" name="Warpmeld Pact" hidden="false" id="5be7-3aa8-5d64-cbaf">
               <rules>
                 <rule name="Warpmeld Sacrifice" id="051d-bef5-f9ed-7178" hidden="false">
-                  <comment>sim-mod: source=&quot;Warpmeld Sacrifice&quot; wound=+1 kw=&quot;Tzeentch&amp;Mutant&quot; conditional</comment>
+                  <comment>sim-mod: source=&quot;Warpmeld Sacrifice&quot; wound=+1 kw=&quot;Tzeentch&amp;Mutant&quot; conditional
+def-mod: source=&quot;Warpmeld Sacrifice&quot; wound=-1 conditional</comment>
                   <description>Each time an enemy unit is selected to shoot or fight and one or more ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^** units from your army are selected as a target of one or more of those attacks, each of those ^^**Tzeentch Mutant^^** units can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time an attack targets that unit, subtract 1 from the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.
 
 Each time a ^^**Tzeentch Mutant Infantry^^** or ^^**Tzeentch Mutant Mounted^^** unit from your army is selected to shoot or fight, before selecting its targets, that unit can make a Warpmeld Sacrifice. If it does, until the end of the phase, each time a model in that unit makes an attack, add 1 to the Wound roll. At the end of the phase, that ^^**Tzeentch Mutant^^** unit suffers D3 mortal wounds.</description>
@@ -476,7 +479,8 @@ TARGET: One Tzeentch Mutant unit from your army that is arriving from Strategic 
 EFFECT: Your unit can be set up anywhere on the battlefield that is more than 6&quot; horizontally away from all enemy units, or anywhere on the battlefield that is more than 8&quot; horizontally away from all enemy units if it is a Monster unit. In either case, until the end of the turn, it is not eligible to declare a charge.</description>
                 </rule>
                 <rule name="WARPED VICISSITUDE (Stratagem, 1CP)" id="ed88-9200-5aca-4b65" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;WARPED VICISSITUDE&quot; inv=4 conditional</comment>
                   <description>Warpmeld Pact – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -504,12 +508,13 @@ EFFECT: Until the end of the phase, models in your unit have a 4+ invulnerable s
                   <description>Each time an attack with an unmodified Damage characteristic of 1 is allocated to a ^^**Rubricae^^** model from your army, add 1 to any armour saving throw made against that attack.</description>
                 </rule>
                 <rule name="UNWAVERING PHALANX (Stratagem, 1CP)" id="4bda-5bcd-ab61-54ae" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=charge</comment>
+                  <comment>strat-timing: turn=opponent phase=charge
+def-mod: source=&quot;UNWAVERING PHALANX&quot; wound=-1 vsStronger conditional</comment>
                   <description>Rubricae Phalanx – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Charge phase, just after an enemy unit ends a Charge move.
 TARGET: One Rubric Marines unit from your army within Engagement Range of that enemy unit.
-EFFECT: Until the end of the turn, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
+EFFECT: Until the end of the turn, attacks that target your unit with a S greater than your unit’s T have -1 to wound rolls.</description>
                 </rule>
                 <rule name="INEXORABLE ADVANCE (Stratagem, 1CP)" id="7288-a2fa-588e-d214" hidden="false">
                   <comment>strat-timing: turn=your phase=movement</comment>
@@ -520,7 +525,8 @@ TARGET: One Rubricae unit from your army.
 EFFECT: Until the end of the turn, your unit can ignore any or all modifiers to its Move characteristic and to Advance rolls made for it, and ranged weapons equipped by models in your unit have the [ASSAULT] ability.</description>
                 </rule>
                 <rule name="IMPLACABLE GUARDIANS (Stratagem, 2CP)" id="1df2-cd39-5b7d-06c6" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;IMPLACABLE GUARDIANS&quot; dmg=-1 conditional</comment>
                   <description>Rubricae Phalanx – STRATAGEM (2CP)
 
 WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
@@ -543,14 +549,13 @@ WHEN: Your Movement phase, just after a Rubricae unit from your army Falls Back.
 TARGET: That RUBRICAE unit.
 EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back.</description>
                 </rule>
-                <rule name="INFERNAL FUSILLADE (Stratagem, 2CP)" id="e45d-762d-7ce4-8c95" hidden="false">
-                  <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;INFERNAL FUSILLADE&quot; str=+1 weapon=&quot;inferno&quot; when=ranged kw=&quot;Psyker&quot;</comment>
-                  <description>Rubricae Phalanx – STRATAGEM (2CP)
+                <rule name="INFERNAL FUSILLADE (Stratagem, 1CP)" id="e45d-762d-7ce4-8c95" hidden="false">
+                  <comment>strat-timing: turn=your phase=shooting</comment>
+                  <description>Rubricae Phalanx – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
 TARGET: One Thousand Sons Psyker unit from your army that has not been selected to shoot this phase.
-EFFECT: Until the end of the phase, all inferno bolt pistols, inferno boltguns, inferno combi-bolters and inferno combi-weapons equipped by models in your unit have the [PSYCHIC] ability and a Strength characteristic of 5.</description>
+EFFECT: Until the end of the phase, all inferno bolt pistols, inferno boltguns, inferno combi-bolters and inferno combi-weapons equipped by models in your unit have the [PSYCHIC] ability.</description>
                 </rule>
               </rules>
               <costs>
@@ -560,6 +565,11 @@ EFFECT: Until the end of the phase, all inferno bolt pistols, inferno boltguns, 
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="45da-402e-1417-be99">
                   <characteristics>
                     <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Take and Hold</characteristic>
+                  </characteristics>
+                </profile>
+                <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="8121-733a-c30f-aeaf">
+                  <characteristics>
+                    <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Priority Assets</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -578,7 +588,8 @@ sim-mod: source=&quot;Warpfire Infusion&quot; reroll=dmg conditional</comment>
 Each time a ^^**Thousand Sons Vehicle^^** model from your army with the Deadly Demise ability is destroyed while it is within 6&quot; of one or more friendly ^^**Thousand Sons Psyker^^** models, that model&apos;s Deadly Demise ability inflicts mortal wounds on a D6 roll of 5+ instead of only a 6.</description>
                 </rule>
                 <rule name="HEX-MARKED ARMOUR (Stratagem, 1CP)" id="a084-c6a9-1bc8-7e01" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;HEX-MARKED ARMOUR&quot; ap=-1 conditional</comment>
                   <description>Warpforged Cabal – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -644,7 +655,8 @@ EFFECT: Roll six D6: for each 5+, that enemy unit suffers 1 mortal wound. That e
                   <description>(Once per turn, per unit) When a friendly **^^Thousand Sons^^** **^^Psyker^^** unit (excluding **^^Monster^^** units) successfully manifests a Ritual, that unit heals D3 wounds.</description>
                 </rule>
                 <rule name="Relentless Rebirth (Stratagem, 1CP)" id="ec37-6849-24ce-d38e" hidden="false">
-                  <comment>strat-timing: turn=either phase=any</comment>
+                  <comment>strat-timing: turn=either phase=any
+def-mod: source=&quot;Relentless Rebirth&quot; fnp=5 conditional</comment>
                   <description>Ritual of Regeneration – STRATAGEM (1CP)
 
 WHEN: Any phase, when a friendly INFANTRY/MOUNTED THOUSAND SONS PSYKER unit suffers a mortal wound.
@@ -708,7 +720,8 @@ TARGET: That SEKHETAR ROBOTS unit.
 EFFECT: That action does not prevent your unit from being eligible to shoot.</description>
                 </rule>
                 <rule name="Warp Fields (Stratagem, 1CP)" id="fbf5-8c8a-1777-f052" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Warp Fields&quot; wound=-1 when=ranged vsStronger conditional</comment>
                   <description>Sekhetar Cohort – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly SEKHETAR ROBOTS unit within 12&quot; of a friendly THOUSAND SONS PSYKER unit.
@@ -812,7 +825,7 @@ EFFECT: Your unit has MOBILE.</description>
         <profile id="7d58-695c-0937-b4a0" name="Ahriman" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -920,7 +933,7 @@ EFFECT: Your unit has MOBILE.</description>
         </entryLink>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="d730-aacc-241e-0703">
@@ -939,9 +952,6 @@ EFFECT: Your unit has MOBILE.</description>
     <selectionEntry id="dfde-eaff-e63e-3aae" name="Chaos Land Raider" hidden="false" collective="false" import="true" type="model">
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="cc02-f9a1-9f6b-d30c" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="02b4-13aa-dfbc-f262" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9f43-7cf0-d6dd-d9dd" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="0131-4ad7-2624-49c8" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="220f-e24f-611f-c04b" name="Chaos Land Raider" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1078,21 +1088,6 @@ EFFECT: Your unit has MOBILE.</description>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="02b4-13aa-dfbc-f262">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="9f43-7cf0-d6dd-d9dd">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="0131-4ad7-2624-49c8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1177,7 +1172,7 @@ EFFECT: Your unit has MOBILE.</description>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
@@ -1201,7 +1196,7 @@ EFFECT: Your unit has MOBILE.</description>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Infantry 4+, Devastating Wounds, Rapid Fire 1</characteristic>
@@ -1246,9 +1241,6 @@ EFFECT: Your unit has MOBILE.</description>
       <comment>sim-mod: source=&quot;Ensorcelled Annihilation&quot; reroll=hit reroll=dmg when=ranged vs=Monster,Vehicle conditional scope=model</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="a25f-a767-f578-5a3e" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="08df-7eaa-66ee-c44b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="43b5-e65d-415f-a16a" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2aee-0d0c-d4b3-ee21" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="c61b-3bc9-f793-3804" name="Chaos Predator Annihilator" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1389,21 +1381,6 @@ EFFECT: Your unit has MOBILE.</description>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="08df-7eaa-66ee-c44b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="43b5-e65d-415f-a16a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="2aee-0d0c-d4b3-ee21">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1519,9 +1496,6 @@ EFFECT: Your unit has MOBILE.</description>
       <comment>sim-mod: source=&quot;Ensorcelled Destruction&quot; str=+1 ap=+1 when=ranged conditional scope=model</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="55bb-4bd5-29b8-235d" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6e32-5997-6aec-3302" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1d51-6b44-3edb-2ae6" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="bfde-8c6f-ff6e-225b" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="88d7-7d0e-f9ad-43a9" name="Chaos Predator Destructor" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1663,21 +1637,6 @@ EFFECT: Your unit has MOBILE.</description>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="6e32-5997-6aec-3302">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="1d51-6b44-3edb-2ae6">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="bfde-8c6f-ff6e-225b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1738,9 +1697,6 @@ EFFECT: Your unit has MOBILE.</description>
       </modifiers>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="bfd2-930d-d229-597e" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="79d3-1608-9b81-42ff" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5f1e-91bd-dc63-a5a3" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="35c3-d9de-197f-4dd0" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="26fb-2ff1-9da1-f641" name="Chaos Rhino" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1836,21 +1792,6 @@ EFFECT: Your unit has MOBILE.</description>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="79d3-1608-9b81-42ff">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="5f1e-91bd-dc63-a5a3">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="35c3-d9de-197f-4dd0">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1906,9 +1847,6 @@ EFFECT: Your unit has MOBILE.</description>
 fnp: 5+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="9f3a-bee0-a8c9-7e27" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ff8f-fbc3-bbe2-9c77" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ff01-fd39-c6dc-1f21" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9d02-6e5d-5f1e-a2a4" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="a5f9-99af-66fe-6d3e" name="Regenerating Monstrosities" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1993,21 +1931,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="ff8f-fbc3-bbe2-9c77">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="ff01-fd39-c6dc-1f21">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="9d02-6e5d-5f1e-a2a4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2182,28 +2105,10 @@ fnp: 5+</comment>
       </costs>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6723-8df7-53c5-3ef7" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ea0e-6f37-031d-8fe8" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2550-7bd9-fbd5-5301" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="6723-8df7-53c5-3ef7">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="ea0e-6f37-031d-8fe8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="2550-7bd9-fbd5-5301">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2281,7 +2186,7 @@ fnp: 5+</comment>
         <profile id="7edd-4180-1aa1-cc46" name="Exalted Sorcerer" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -2329,13 +2234,10 @@ fnp: 5+</comment>
         <entryLink id="c184-aa8c-0332-da76" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="b0a7-f8a5-0f16-7bbd" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="abfb-2782-9098-0364" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8616-a73b-c6ca-3365" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="67e3-8813-7978-2be8" hidden="false" sortIndex="4">
@@ -2426,16 +2328,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="abfb-2782-9098-0364">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="8616-a73b-c6ca-3365">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2493,8 +2385,8 @@ fnp: 5+</comment>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
           </characteristics>
@@ -2556,7 +2448,7 @@ fnp: 5+</comment>
         <profile id="dc89-e419-8faa-25c6" name="Exalted Sorcerer on Disc of Tzeentch" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -2606,13 +2498,10 @@ fnp: 5+</comment>
         <entryLink id="58c8-75d4-a684-c507" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
       </costs>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3581-d8c4-a39c-e93c" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c613-21b4-1f99-4b76" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="88aa-c2b4-f90c-c88a" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="8c40-dad8-a526-8dce" hidden="false" sortIndex="4">
@@ -2705,16 +2594,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="c613-21b4-1f99-4b76">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="88aa-c2b4-f90c-c88a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2769,9 +2648,6 @@ fnp: 5+</comment>
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="37c0-03f2-0f76-5422" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c7ec-7fed-485e-9a22" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c74e-62cb-2431-252e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="00bc-7c42-07d6-0e32" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="ab26-1ab1-7e61-f604" name="Forgefiend" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -2936,21 +2812,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="c7ec-7fed-485e-9a22">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="c74e-62cb-2431-252e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="00bc-7c42-07d6-0e32">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3073,9 +2934,6 @@ fnp: 5+</comment>
 invuln: 5+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="b51e-1833-60a6-1bbf" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7231-a944-e39b-4819" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f8cb-0037-69e5-2564" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a002-b388-2f19-ccee" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="cc82-b684-5758-4356" name="Helbrute" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -3467,21 +3325,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="7231-a944-e39b-4819">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="f8cb-0037-69e5-2564">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a002-b388-2f19-ccee">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3536,9 +3379,6 @@ invuln: 5+</comment>
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="21aa-9756-2f87-2ab4" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="4df3-94a8-ec33-333f" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="103a-3628-0f47-ec55" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="399c-d46e-0018-9ae7" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="9220-7fa3-aa90-ce25" name="Flame-wreathed" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -3657,21 +3497,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="4df3-94a8-ec33-333f">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="103a-3628-0f47-ec55">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="399c-d46e-0018-9ae7">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3729,7 +3554,7 @@ invuln: 5+</comment>
         <profile id="318e-b78f-2100-6cba" name="Infernal Master" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -3777,14 +3602,11 @@ invuln: 5+</comment>
         <entryLink id="d4f9-d775-ee24-ba0d" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="c926-eb02-734f-5eb2" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="15ba-a4f8-fee5-8333" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ab34-17eb-fc6a-0536" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f0fa-3fc7-9e09-d255" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="701c-0b68-ef45-6b0f" hidden="false" sortIndex="4">
@@ -3860,16 +3682,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="ab34-17eb-fc6a-0536">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f0fa-3fc7-9e09-d255">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4148,9 +3960,6 @@ must-warlord</comment>
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="5abe-7215-45ef-fa6c" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="d136-6f8a-0bc8-8adc" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="401b-a218-4f4a-b643" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1be5-4dd4-00e2-9779" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="698c-17be-cffb-409e" name="Maulerfiend" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -4306,21 +4115,6 @@ must-warlord</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="d136-6f8a-0bc8-8adc">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="401b-a218-4f4a-b643">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="1be5-4dd4-00e2-9779">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4436,9 +4230,6 @@ fnp: 5+</comment>
       </costs>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="89d7-a538-cf0f-0409" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="86c7-41cc-b44f-dd1b" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="dc21-01f4-5261-e480" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="9291-334c-c5ec-312a" hidden="false" sortIndex="2">
@@ -4545,21 +4336,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="89d7-a538-cf0f-0409">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="86c7-41cc-b44f-dd1b">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="dc21-01f4-5261-e480">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -4615,11 +4391,11 @@ fnp: 5+</comment>
 sim-mod: source=&quot;Bringers of Change (objectif)&quot; reroll=wound when=ranged conditional choice=&quot;Bringers of Change&quot;
 invuln: 5+</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="190" field="51b2-306e-1021-d207">
+        <modifier type="set" value="210" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="5d3d-e13b-8b76-dad3" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
@@ -4644,7 +4420,7 @@ invuln: 5+</comment>
         <profile name="Rubric Marine" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="bb3-83ba-60b6-1dd5">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
@@ -4672,8 +4448,8 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
                       </characteristics>
@@ -4846,7 +4622,7 @@ invuln: 5+</comment>
             <profile name="Aspiring Sorcerer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="643e-bc93-3d4d-ad3d">
               <characteristics>
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
                 <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -4923,7 +4699,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
@@ -4961,7 +4737,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -5017,7 +4793,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -5040,7 +4816,7 @@ invuln: 5+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
@@ -5100,9 +4876,6 @@ invuln: 5+</comment>
       </selectionEntryGroups>
       <constraints>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c241-3617-3267-d805" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a83d-47eb-8d84-45fa" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="ca42-79fb-179d-c0ae" includeChildSelections="true"/>
       </constraints>
       <infoLinks>
         <infoLink name="Mortal Sorcery (Aura)" id="7e25-ba98-736e-81df" hidden="false" type="profile" targetId="a4ad-ef25-1ec4-4b1f"/>
@@ -5111,21 +4884,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="c241-3617-3267-d805">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="a83d-47eb-8d84-45fa">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="ca42-79fb-179d-c0ae">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5177,17 +4935,18 @@ invuln: 5+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Scarab Occult Terminators" hidden="false" id="b1cf-c5-5121-92a4" publicationId="015a-6212-d737-9044" page="45-46">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Rites of Coalescence&quot; wound=-1 conditional</comment>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="385" field="51b2-306e-1021-d207">
+        <modifier type="set" value="425" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="b1cf-c5-5121-92a4" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="b1cf-c5-5121-92a4" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5197,7 +4956,7 @@ invuln: 5+</comment>
         <profile name="Scarab Occult Terminators" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8632-64da-6963-3506">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
@@ -5382,7 +5141,7 @@ Wound roll.</characteristic>
             <profile name="Scarab Occult Sorcerer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="b0ea-8377-7489-8c4d">
               <characteristics>
                 <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+                <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
                 <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
                 <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
                 <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -5462,7 +5221,7 @@ Wound roll.</characteristic>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
@@ -5626,29 +5385,11 @@ Wound roll.</characteristic>
       </categoryLinks>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="37e2-ec95-3315-983d" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e02a-8e06-5a7e-8e02" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a37f-6ae4-30d9-33a1" includeChildSelections="true"/>
       </constraints>
       <entryLinks></entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="37e2-ec95-3315-983d">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="e02a-8e06-5a7e-8e02">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a37f-6ae4-30d9-33a1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5739,7 +5480,7 @@ invuln: 5+</comment>
         <profile name="Sorcerer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="11a0-4128-c564-2a81">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -5758,14 +5499,11 @@ invuln: 5+</comment>
         <entryLink id="d7b9-e7da-6d73-2fcd" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
         <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
       </costs>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5f0e-bc8c-4957-42db" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2ab1-b7c5-db0d-839c" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6f4f-8d6f-0b1b-e76f" includeChildSelections="true"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="f7f4-144a-57c6-eb8e" hidden="false" sortIndex="4">
@@ -5847,16 +5585,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="2ab1-b7c5-db0d-839c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="6f4f-8d6f-0b1b-e76f">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -5919,7 +5647,7 @@ invuln: 4+</comment>
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="7002-1fbb-7571-e8e7" id="c7d3-a084-f157-5dc4" primary="false" name="Faction: Thousand Sons"/>
@@ -5961,7 +5689,7 @@ invuln: 4+</comment>
         <profile name="Sorcerer in Terminator Armour" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="123c-e2d5-50ff-e0d4">
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">6</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
@@ -6036,23 +5764,10 @@ invuln: 4+</comment>
       </selectionEntryGroups>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4c74-f13c-d125-ee54" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="8b2f-c53a-297f-14e1" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b5fd-fcbc-73ff-b0fe" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a149-dad7-5405-6cbb" includeChildSelections="true"/>
       </constraints>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="b5fd-fcbc-73ff-b0fe">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a149-dad7-5405-6cbb">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6126,9 +5841,6 @@ invuln: 4+</comment>
       <comment>invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9332-3a7b-f583-cb22" includeChildSelections="true"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="9dc5-86c3-9804-9a81" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="de6e-0ff3-3849-70e1" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="0d7e-570e-919d-c886" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="f868-2380-5093-1683" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6288,16 +6000,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="de6e-0ff3-3849-70e1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="0d7e-570e-919d-c886">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6355,9 +6057,6 @@ sim-mod: source=&quot;Hunter of Souls (Psyker)&quot; reroll=hit reroll=wound vs=
 invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="528a-fb5a-e60d-ca62" type="max"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5333-8b9b-a254-6972" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="0b67-1f1a-a424-5352" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c0f5-e0e4-9048-e319" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="3676-7704-4d31-a302" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6524,16 +6223,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="0b67-1f1a-a424-5352">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="c0f5-e0e4-9048-e319">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6597,9 +6286,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9332-3a7b-f583-cb22" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="2852-0b30-bb0f-3a0b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="8563-e592-ce43-4cfe" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="1cd7-61a7-3565-a742" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile id="99d6-a18f-4410-862" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6709,21 +6395,6 @@ invuln: 4+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="2852-0b30-bb0f-3a0b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="8563-e592-ce43-4cfe">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="1cd7-61a7-3565-a742">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -6783,9 +6454,6 @@ invuln: 5+</comment>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="b4b3-ed87-a368-dd2b" includeChildSelections="true"/>
-        <constraint type="max" value="6" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7a15-1de5-bd3d-8855" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="23e5-698c-0e81-284c" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="6db4-eaae-20f5-d1a1" includeChildSelections="true"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="7002-1fbb-7571-e8e7" id="6ec3-c1fa-d399-91f9" primary="false" name="Faction: Thousand Sons"/>
@@ -6918,16 +6586,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="increment" value="2" field="23e5-698c-0e81-284c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="6db4-eaae-20f5-d1a1">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7000,9 +6658,6 @@ invuln: 5+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="2b10-13dc-60b-4933" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="185d-a488-9e30-c998" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b26d-b406-0a69-03ce" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a348-dccb-e9ff-c0aa" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Tzaangors" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5d2f-669e-20ab-9841">
@@ -7194,21 +6849,6 @@ invuln: 5+</comment>
         </modifierGroup>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="185d-a488-9e30-c998">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="b26d-b406-0a69-03ce">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a348-dccb-e9ff-c0aa">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7264,9 +6904,6 @@ invuln: 5+</comment>
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9423-c95e-70df-0527" includeChildSelections="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="3e6c-2666-d12e-e174" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7ff1-4504-e5bb-e7f2" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7f32-b422-9078-eade" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Prophetic Sentinels" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d35-679f-6f0c-409c">
@@ -7470,21 +7107,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="3e6c-2666-d12e-e174">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="7ff1-4504-e5bb-e7f2">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7f32-b422-9078-eade">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -7679,9 +7301,6 @@ invuln: 5+</comment>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="abe5-33cd-0167-9022" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5e27-0db6-7d0f-711b" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="db03-47a9-363d-9f71" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="f2f1-9386-8bd4-f6cb" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a505-7f6c-5fc5-da41">
@@ -7756,21 +7375,6 @@ invuln: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="5e27-0db6-7d0f-711b">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="db03-47a9-363d-9f71">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="f2f1-9386-8bd4-f6cb">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -8356,6 +7960,17 @@ invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="50ad-7ead-6500-77c2">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="3dd3-068c-1a5c-256c"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Exalted Flamer" hidden="true" type="selectionEntry" id="5f3b-219f-d4ad-1b27" targetId="de54-5b38-8ca1-c39c"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Screamers" hidden="false" id="7cbe-2406-8e67-aff5">
       <comment>invuln: 4+</comment>
@@ -8450,6 +8065,17 @@ invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="fc5d-bc55-f399-8636">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="fc13-153e-4819-8d57"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Fateskimmer" hidden="true" type="selectionEntry" id="a9c7-3fd4-be67-4c43" targetId="c199-b27c-7cc2-7935"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Pink Horrors" hidden="false" id="4c73-cbd1-f052-80c3">
       <comment>invuln: 4+</comment>
@@ -8661,6 +8287,18 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="2cec-de04-a07c-2910">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="3c8b-ad87-969e-9077"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Changecaster" hidden="true" type="selectionEntry" id="8644-04f4-e4f8-beb7" targetId="8b7c-d709-90d4-298e"/>
+            <entryLink import="true" name="Fluxmaster" hidden="true" type="selectionEntry" id="a95d-33e1-00a8-9441" targetId="eba5-8a7a-fc5b-d7ec"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Blue Horrors" hidden="false" id="aec5-4419-39e7-3e63" collective="false">
       <comment>invuln: 4+</comment>
@@ -8821,177 +8459,23 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
           </conditionGroups>
         </modifier>
       </modifiers>
-    </selectionEntry>
-    <selectionEntry type="unit" import="true" name="Chaos Spawn (Flesh Change)" hidden="false" id="dd17-8cb8-ed8c-f6c8" collective="false">
-      <comment>invuln: 5+
-fnp: 5+</comment>
-      <constraints>
-        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="b42a-7fde-53f6-f96c" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e3b0-28ee-4caf-7211" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="2a2e-b720-b10d-7e38" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="4ec8-16c0-220e-5110" includeChildSelections="true"/>
-      </constraints>
-      <profiles>
-        <profile name="Chaos Spawn" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8fd5-b79a-83cd-b25b">
-          <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">8&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
-            <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Regenerating Monstrosities" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6635-d4ae-a868-bb0a">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of each player’s Command phase, one model in this unit regains up to 3 lost wounds.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5f65-4fe0-4aaf-66c3">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Models in this unit have a 5+ invulnerable save.</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Feel No Pain" id="673e-bd2c-4714-06c9" hidden="false" targetId="9bf4-280f-bbe2-6fbb" type="rule">
-          <modifiers>
-            <modifier type="append" value="5+" field="name"/>
-          </modifiers>
-        </infoLink>
-        <infoLink name="Mortal Sorcery (Aura)" id="1929-df45-2bf2-4864" hidden="false" type="profile" targetId="a4ad-ef25-1ec4-4b1f"/>
-        <infoLink name="Lone Operative" id="7e28-1025-c12f-c0c0" hidden="false" type="rule" targetId="a8a0-8fe7-898-e0f3"/>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink name="Faction: Thousand Sons" hidden="false" id="a207-d847-8345-e62b" targetId="7002-1fbb-7571-e8e7" primary="false"/>
-        <categoryLink name="Beast" hidden="false" id="e85b-a9a7-5289-2d67" targetId="4c3e-9310-a516-3590" primary="true"/>
-        <categoryLink name="Chaos" hidden="false" id="6033-aeb6-6ba8-1d62" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink name="Tzeentch" hidden="false" id="fab4-0dcc-8127-6914" targetId="b188-114f-6ba5-79a1" primary="false"/>
-        <categoryLink name="Spawn" hidden="false" id="11f4-8e6c-3626-ec54" targetId="6342-2cd6-f518-f565" primary="false"/>
-        <categoryLink name="Mutant" hidden="false" id="56b0-5d09-b89e-ce6a" targetId="24dd-cf44-f6ab-e0e2" primary="false"/>
-      </categoryLinks>
-      <selectionEntries>
-        <selectionEntry type="model" import="true" name="Chaos Spawn" hidden="false" id="00a2-96cc-4c9f-7f4e" collective="false" sortIndex="2">
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="778e-0fc1-6f31-54bf">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
           <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0146-bda3-24c8-59bb" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="58a9-afb3-a05b-9f5f" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="386f-8276-a168-1030"/>
           </constraints>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Hideous Mutations" hidden="false" id="eda2-1c85-c94b-f9a4" collective="false">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1b70-d81d-70e7-38a8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c69b-b167-b580-6a11" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Hideous Mutations" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1039-0d0b-1f6d-63d1">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">D6+2</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <entryLinks></entryLinks>
-            </selectionEntry>
-          </selectionEntries>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-          </costs>
-        </selectionEntry>
-      </selectionEntries>
-      <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
-      </costs>
-      <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="set" value="6" field="e3b0-28ee-4caf-7211">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="2a2e-b720-b10d-7e38">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="4ec8-16c0-220e-5110">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="bb9d-299a-ed60-2d8a" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
+          <entryLinks>
+            <entryLink import="true" name="Changecaster" hidden="true" type="selectionEntry" id="ee97-0d13-c2d2-4ab2" targetId="8b7c-d709-90d4-298e"/>
+            <entryLink import="true" name="Fluxmaster" hidden="true" type="selectionEntry" id="f1f7-8818-0a89-d189" targetId="eba5-8a7a-fc5b-d7ec"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Defiler" hidden="false" id="f158-2979-c38b-65b5" collective="false">
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="dfd0-c2cb-7aa8-0d1f" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="fa9b-3372-1e1f-5516" includeChildSelections="false"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a984-771e-e7b0-8072" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="e783-e884-c25d-d03e" includeChildSelections="true"/>
       </constraints>
       <profiles>
         <profile name="Defiler" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6873-f9d7-4c1d-9034">
@@ -9312,21 +8796,6 @@ fnp: 5+</comment>
       <modifierGroups>
         <modifierGroup type="and">
           <modifiers>
-            <modifier type="set" value="6" field="fa9b-3372-1e1f-5516">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="increment" value="2" field="a984-771e-e7b0-8072">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="e783-e884-c25d-d03e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -9460,6 +8929,17 @@ fnp: 5+</comment>
       <categoryLinks>
         <categoryLink id="f02c-b9b8-7c29-4512" name="Enhancement" hidden="false" targetId="6226-9b9b-107a-9ada" primary="false"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6342-2cd6-f518-f565" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>
@@ -10017,6 +9497,16 @@ sim-mod: source=&quot;Empyric Onslaught&quot; attacks=+3 when=ranged conditional
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
           </costs>
+          <selectionEntryGroups>
+            <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="cca6-76ec-71dd-f2a2">
+              <constraints>
+                <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="0d0f-1de7-f25c-d426"/>
+              </constraints>
+              <entryLinks>
+                <entryLink import="true" name="" hidden="true" id="a143-7478-42b5-0262" type="selectionEntry" targetId="f5b9-50c8-5c60-d8ea"/>
+              </entryLinks>
+            </selectionEntryGroup>
+          </selectionEntryGroups>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Flowing Flesh" hidden="false" id="c84c-683a-79be-1620" sortIndex="19">
           <comment>Warpmeld Pact</comment>
@@ -10501,6 +9991,15 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 </conditionGroup>
               </conditionGroups>
             </modifier>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="527e-a024-3c7f-e5df" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
           </modifiers>
           <constraints>
             <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="be49-d2eb-e2b4-164d" type="max"/>
@@ -10538,11 +10037,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10590,11 +10084,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="24dd-cf44-f6ab-e0e2" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Enthralling Soul-mark" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bd8f-9ac9-06a3-dfea">
@@ -10623,11 +10112,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="24dd-cf44-f6ab-e0e2" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Inhuman Savagery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ba09-05d6-3d24-7122">
@@ -10650,11 +10134,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="24dd-cf44-f6ab-e0e2" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10681,11 +10160,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Dark Runes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c510-761d-3e49-c0b4">
@@ -10708,11 +10182,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10739,11 +10208,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Spirit of Change" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d27e-a6b4-0401-385b">
@@ -10766,11 +10230,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10800,11 +10259,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Wrath of the Wronged" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ebbc-de17-4221-db8d">
@@ -10827,11 +10281,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10877,11 +10326,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Occult Apparitions" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e004-43ce-19ae-404c">
@@ -10906,11 +10350,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Loyalty of Ambition" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6f3a-c0f9-7c23-d607">
@@ -10933,11 +10372,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="07e6-410b-10e4-a6a2" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -10967,11 +10401,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Malefic Surge (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a85-7c7e-c4a3-4a38">
@@ -10994,11 +10423,6 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -11811,7 +11235,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
                 <conditionGroup type="and">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dd17-8cb8-ed8c-f6c8" shared="true"/>
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
@@ -11836,13 +11259,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </characteristics>
             </profile>
           </profiles>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Warp Strider" hidden="false" id="c63a-90da-2a8e-8f0c">
           <constraints>
@@ -11876,13 +11292,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </modifiers>
             </modifierGroup>
           </modifierGroups>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Forewarned by Fate" hidden="false" id="0917-3a8b-4143-c714">
           <constraints>
@@ -11900,13 +11309,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </characteristics>
             </profile>
           </profiles>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Flesh Sigils" hidden="false" id="08e8-da2e-ba9f-b48d">
           <constraints>
@@ -11940,13 +11342,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </modifiers>
             </infoLink>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Flame-wreathed" hidden="false" id="29d7-9c96-6ce7-e857">
           <constraints>
@@ -11964,13 +11359,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </characteristics>
             </profile>
           </profiles>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Raptorial Talons" hidden="false" id="fda7-d58d-b8ff-bc3c">
           <constraints>
@@ -12009,13 +11397,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </modifiers>
             </modifierGroup>
           </modifierGroups>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Immaterial Edge" hidden="false" id="10ae-1a0e-eb76-c80b">
           <constraints>
@@ -12049,13 +11430,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </modifiers>
             </modifierGroup>
           </modifierGroups>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Temporal Distortion" hidden="false" id="8d05-1597-82fc-1d44">
           <constraints>
@@ -12073,13 +11447,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
               </characteristics>
             </profile>
           </profiles>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Aura of Illusion" hidden="false" id="a571-a386-d1a2-2cec">
           <constraints>
@@ -12100,13 +11467,6 @@ of Battle and remove one Battle Scar from that unit.</characteristic>
           <infoLinks>
             <infoLink name="Stealth" id="4e6e-79a1-a23e-4626" hidden="false" type="rule" targetId="bec5-4288-34a6-ccfa"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
       </selectionEntries>
     </selectionEntryGroup>

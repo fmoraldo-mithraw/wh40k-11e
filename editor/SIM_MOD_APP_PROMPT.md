@@ -181,3 +181,25 @@ sim-mod: source="Foesight" reroll=hit vs=Character</comment>
 Autres exemples du pilote : Grand Master — `sim-mod: source="Might of Titan"
 attacks=+3 str=+3 when=melee oncePer=battle` ; Brother-Captain —
 `sim-mod: source="Hammerhand" lethal when=melee whileLeading`.
+
+## Effets DÉFENSIFS — `def-mod:` (onglet Résistance, ajout 2026-10)
+
+Même grammaire et même `<comment>` que `sim-mod:`, mais l'effet est **subi**
+par l'unité ciblée ; l'appli ne le mélange jamais aux bonus offensifs
+(`def: true` à la lecture) et le propose en bascule dans l'onglet
+« Résistance » du simulateur (indice de tankyness : attaques qui touchent
+pour abattre l'unité, profils F5 PA-1 D1 / F6 PA-2 D2 / F10 PA-2 D3, /100 pts).
+
+```
+def-mod: source="Nom" <effets> [when=ranged|melee] [vsStronger] [conditional] [choice="…"]
+effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 (PA de l'attaque aggravée de 1)
+         · cover · inv=4 · fnp=5
+```
+
+- `vsStronger` : seulement si la Force de l'attaque > Endurance de l'unité.
+- Posé sur la fiche (aptitude de datasheet), l'amélioration, la `<rule>` de
+  règle de détachement ou de stratagème. Les invu/FNP de **fiche** restent
+  des marqueurs `invuln:` / `fnp:` (cf. `STAT_MARKERS_APP_PROMPT.md`).
+- Générateur : `node editor/gen-def-mods.mjs [--list] [--apply]` —
+  extraction prudente (contexte défensif explicite exigé), idempotent ; une
+  ligne portant `manual` est conservée telle quelle.

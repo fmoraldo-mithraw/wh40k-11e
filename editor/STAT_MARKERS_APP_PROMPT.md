@@ -21,7 +21,7 @@ commentaire.
 ## Grammaire
 
 ```
-invuln: 4+ [model="Nom du modèle"] [conditional]
+invuln: 4+ [model="Nom du modèle"] [conditional] [note="condition"] [option="Équipement"]
 fnp: 5+
 must-warlord
 cannot-warlord
@@ -31,7 +31,28 @@ leader-kw: KW [& KW] [| KW & KW]
 - `invuln:` — une ligne par sauvegarde. `model="X"` la restreint à un modèle
   (Ghazghkull 4+, Makari 2+ conditional) ; sans `model`, toute l'unité.
   `conditional` = situationnelle (affichage étoilé « 2+* », jamais un état de
-  base).
+  base). `note="…"` (optionnel, en dernier) = la CONDITION en clair
+  (« against melee attacks only ») : l'appli l'affiche sous le profil
+  (« * Invulnérable 4+ : … », traduite via le pack). Sans note, l'appli se
+  rabat sur le texte du profil « Invulnerable Save » correspondant. Le
+  générateur conserve telle quelle une ligne `invuln:` existante de même
+  valeur/modèle (retouche manuelle : `conditional`, `note`).
+  `option="Équipement"` (ajout 2026-10) = l'invulnérable vient d'un
+  **équipement optionnel** (nom du choix d'option : « Kustom Force Field »,
+  « Blastajet Force Field ») : l'appli ne la compte **que si ce choix est
+  sélectionné** (ligne d'armée : sélection d'équipement ; fiche de
+  catalogue : choix par défaut). Attributs dans n'importe quel ordre. Le
+  générateur ne recalcule jamais une ligne à `option=` (posée à la main) et
+  n'écrit plus d'invu d'équipement comme stat de fiche.
+  Sans marqueur, l'appli détecte d'elle-même l'invulnérable que l'aptitude
+  d'un choix d'option déclare (« The bearer has a 4+ invulnerable save »,
+  « This unit has 5+ InSv » — `InSv` = abréviation 11e) et l'applique
+  pareillement ; porteur unique dans une escouade → étoile + « bearer only ».
+  Idem pour un bouclier **d'office sur une variante de modèle** (« Veteran
+  w/ Astartes shield », « Thunderwolf w/ storm shield » : aptitude du modèle) et
+  pour une aptitude logée dans un **enfant** de l'option (« Master-crafted
+  Power Weapon and Storm Shield » → « Storm shield ») : invu d'unité si toutes
+  les figurines la portent (variantes cumulées), sinon étoile + « bearer only ».
 - `fnp:` — UNIQUEMENT la stat de fiche, c'est-à-dire l'aptitude **nommée**
   « Feel No Pain N+ ». Les dons conditionnels (aura de Painboy, chef qui
   confère un FNP à l'escouade) ne sont PAS des stats : ils restent des

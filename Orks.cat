@@ -33,9 +33,6 @@
 sim-mod: source=&quot;Tide of Muscle&quot; lethal when=melee onCharge</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="a648-a8b2-7dbe-5710"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d69e-4a59-6b45-6fdf" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5eb6-0d30-9597-362a" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="e07d-b9c2-77b8-05e4" includeChildSelections="false"/>
       </constraints>
       <profiles>
         <profile name="Ammo Runts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ab60-c8c9-453a-2345">
@@ -275,14 +272,12 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
                   </characteristics>
                 </profile>
               </profiles>
-              <modifierGroups></modifierGroups>
             </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="min" value="9" field="selections" scope="parent" shared="true" id="f6e1-5c7-8f81-8953"/>
             <constraint type="max" value="18" field="selections" scope="parent" shared="true" id="b4d7-19fe-4355-cb1d"/>
           </constraints>
-          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
         <selectionEntryGroup name="Nob" id="0fe0-6121-efa6-8057" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -503,10 +498,10 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
 </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="180" field="51b2-306e-1021-d207">
+        <modifier type="set" value="170" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="10" field="selections" scope="e3b1-1240-2476-cd86" childId="model" shared="true"/>
           </conditions>
@@ -537,21 +532,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="d69e-4a59-6b45-6fdf">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="5eb6-0d30-9597-362a">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="e07d-b9c2-77b8-05e4">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -634,6 +614,12 @@ sim-mod: source=&quot;Nazdreg&apos;s Know-wotz&quot; ignores-cover when=ranged</
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Once per phase, per army.** In your opponent&apos;s Movement phase, when an enemy unit ends a move within 8&quot; of this unit, if this unit is unengaged, this unit can:
 - Make a **normal move** of up to D6&quot;.
 - Or, if this unit is **riled up**, make a **normal move** of up to 5&quot;.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f2a4-4e52-a132-d7e8">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Meganobz</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -770,7 +756,7 @@ sim-mod: source=&quot;Nazdreg&apos;s Know-wotz&quot; ignores-cover when=ranged</
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="175"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
       </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0002">
@@ -835,6 +821,7 @@ Place one Makari token next to the unit, removing it after this ability is used.
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="d3cd-4f88-5794-e8e2" primary="false" name="Character"/>
         <categoryLink targetId="56cc-5f43-2403-8da0" id="3868-d75e-826a-cd70" primary="false" name="Faction: Orks"/>
         <categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-9f3b-7c40-5011" primary="false" name="Explosives"/>
+        <categoryLink targetId="ae9d-f74f-769c-5fc" id="2cfb-d5d0-c2c2-1d8c" primary="false" name="Ghazghkull Thraka"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Da Boss" hidden="false" type="rule" id="0d1a-9f3b-7c40-5012" targetId="0d1a-9f3b-7c40-1c02"/>
@@ -957,19 +944,15 @@ Place one Makari token next to the unit, removing it after this ability is used.
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="300"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="290"/>
       </costs>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifierGroups></modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Killa Kans" hidden="false" id="8c36-c946-2e0f-f648">
       <comment>sim-mod: source=&quot;Spiteful Power Trip&quot; hit=+1 conditional
 invuln: 6+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="b55e-1d2f-48b7-e000"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9a02-7d1b-807a-34e8" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="98f4-87de-0c1b-a7e4" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="7da5-5fa5-4679-a584" includeChildSelections="false"/>
       </constraints>
       <profiles>
         <profile name="Spiteful Power Trip" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2d69-8e7f-9d12-c775">
@@ -1110,12 +1093,12 @@ invuln: 6+</comment>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="260" field="51b2-306e-1021-d207">
+        <modifier type="set" value="275" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="3" field="selections" scope="8c36-c946-2e0f-f648" childId="model" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="8c36-c946-2e0f-f648" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -1126,21 +1109,6 @@ invuln: 6+</comment>
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="9a02-7d1b-807a-34e8">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="98f4-87de-0c1b-a7e4">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="7da5-5fa5-4679-a584">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1195,9 +1163,6 @@ invuln: 6+</comment>
 sim-mod: source=&quot;Paired Krumpas&quot; reroll=hit reroll=wound weapon=&quot;Kustom Krumpa&quot; when=melee</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3968-386b-498c-d909"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="5264-5776-0bbf-992e" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="d0a5-d3ec-41b5-b30e" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="ec4a-e4db-414d-4e32" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="1e30-f4aa-c5a9-a266" primary="true" name="Infantry"/>
@@ -1507,7 +1472,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
             <constraint type="min" value="5" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6053"/>
             <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="0d1a-9f3b-7c40-6054"/>
           </constraints>
-          <modifierGroups></modifierGroups>
         </selectionEntryGroup>
 <selectionEntryGroup name="Bully Boyz Enhancement" id="0d1a-e115-0070" hidden="false">
     <comment>Upgrade Wimp-Kickaz Upgrade (regle des ameliorations : cumulable, max 1 par unite, cap 4 armee via categorie Enhancement)</comment>
@@ -1527,10 +1491,10 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
 </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="250" field="51b2-306e-1021-d207">
+        <modifier type="set" value="230" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="greaterThan" value="5" field="selections" scope="b16a-7132-3f8a-abe5" childId="model" shared="true"/>
           </conditions>
@@ -1561,21 +1525,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="5264-5776-0bbf-992e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="d0a5-d3ec-41b5-b30e">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="ec4a-e4db-414d-4e32">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1629,9 +1578,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
       <comment>invuln: 5+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="2a1f-1d9a-143a-7f4e"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="23fc-fb43-4eed-2407" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="7575-3e1e-142f-e9fd" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="6d1b-5e63-37c6-ea44" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="faea-7cf4-aa77-9d17" primary="true" name="Vehicle"/>
@@ -1846,21 +1792,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="23fc-fb43-4eed-2407">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="7575-3e1e-142f-e9fd">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="6d1b-5e63-37c6-ea44">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -1913,9 +1844,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
     <selectionEntry type="unit" import="true" name="Tankbustas" hidden="false" id="dadc-d370-ef10-853c">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4eb-a5f-a0bd-ff31"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="b0f5-00c4-26aa-9e2c" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="a218-e4c9-9c41-598c" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="5fc1-ccfc-60c7-8ea3" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="3e0c-a5c5-b3c7-4c92" primary="true" name="Infantry"/>
@@ -1949,7 +1877,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         </modifier>
       </modifiers>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="145"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
       </costs>
       <entryLinks></entryLinks>
       <selectionEntryGroups>
@@ -2234,21 +2162,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="b0f5-00c4-26aa-9e2c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="a218-e4c9-9c41-598c">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="5fc1-ccfc-60c7-8ea3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -2302,9 +2215,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
       <comment>invuln: 6+</comment>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="d47b-7adb-35f4-a830"/>
-        <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="c3f0-73a7-daa7-85e5" includeChildSelections="true"/>
-        <constraint type="min" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="227c-0ebf-9f0b-9b22" includeChildSelections="true"/>
-        <constraint type="max" value="3" field="75bb-ded1-c86d-bdf0" scope="self" shared="true" id="c59f-9db2-cb41-890e" includeChildSelections="false"/>
       </constraints>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="18a7-5a4e-397e-983" primary="true" name="Dedicated Transport"/>
@@ -2518,21 +2428,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
         <modifierGroup type="and">
           <comment>Crusade modifiers</comment>
           <modifiers>
-            <modifier type="increment" value="2" field="c3f0-73a7-daa7-85e5">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="increment" value="2" field="227c-0ebf-9f0b-9b22">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="6" field="c59f-9db2-cb41-890e">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="append" value="(Battle-ready)" field="name">
               <conditionGroups>
                 <conditionGroup type="and">
@@ -3721,6 +3616,7 @@ invuln: 6+</comment>
 <categoryLink targetId="fe8b-9078-9a3d-fed" id="0d1a-e103-0023" primary="false" name="Speed Freeks"/>
 <categoryLink targetId="71aa-75c0-329-d1fe" id="0d1a-e103-0024" primary="false" name="Rukkatrukk Squigbuggy"/>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e103-0025" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="52ba-705f-b8b4-765d" id="99d5-392e-f7c2-7ad4" primary="false" name="Rukkatrukk Squigbuggies"/>
 </categoryLinks>
 <infoLinks>
 <infoLink name="Deadly Demise" hidden="false" type="rule" id="0d1a-e103-0026" targetId="b68a-5ded-65ac-98c">
@@ -3870,6 +3766,7 @@ sim-mod: source=&quot;Bust &apos;Em&quot; lethal conditional</comment>
 <categoryLink targetId="fe8b-9078-9a3d-fed" id="0d1a-e104-0021" primary="false" name="Speed Freeks"/>
 <categoryLink targetId="0d1a-e104-9990-0001" id="0d1a-e104-0022" primary="false" name="Wartrakk"/>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e104-0023" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="1951-3507-c828-c6b6" id="e65c-56c9-7144-ddfb" primary="false" name="Wartrakks"/>
 </categoryLinks>
 <infoLinks>
 <infoLink name="Waaagh!" hidden="false" type="rule" id="0d1a-e104-0024" targetId="37c-6ef9-277-9091"/>
@@ -4033,10 +3930,10 @@ sim-mod: source=&quot;Blitz Dem Gitz!&quot; attacks=+6 weapon=&quot;Blitzkannon&
 <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e105-0031" targetId="27f4-7449-a636-ae8c"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
 </costs>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="0d1a-e105-0000-0000" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4205,7 +4102,7 @@ invuln: 6+</comment>
 <infoLink name="Invulnerable Save (6+)" hidden="false" type="profile" id="0d1a-e106-0039" targetId="42f1-ea3d-3ff9-e56a"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Blitz Brigade Enhancement" id="0d1a-e11d-0009" hidden="false">
@@ -4227,7 +4124,7 @@ invuln: 6+</comment>
 </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="306a-b2ac-aaf1-9a7c" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4925,7 +4822,7 @@ invuln: 6+</comment>
 <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="0d1a-e109-0049"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="170" field="51b2-306e-1021-d207">
+<modifier type="set" value="160" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="10" field="selections" scope="b7c3-d00e-daf2-76fb" childId="model" shared="true"/>
 </conditions>
@@ -5161,7 +5058,7 @@ invuln: 6+</comment>
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Squighog Boyz" hidden="false" id="6a83-8e1f-63ef-50c3">
@@ -5172,12 +5069,12 @@ sim-mod: source=&quot;Brutal Impact&quot; dmg=+1 onCharge</comment>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10a-0057"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="280" field="51b2-306e-1021-d207">
+<modifier type="set" value="260" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="4" field="selections" scope="6a83-8e1f-63ef-50c3" childId="model" shared="true"/>
 </conditions>
 </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="6a83-8e1f-63ef-50c3" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5433,19 +5330,19 @@ Place one Bomb Squig token next to the unit, removing it after this ability is u
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Flash Gitz" hidden="false" id="1de9-b138-28a1-9c4b">
 <comment>pts: 80 estime d&apos;apres la fiche 11e (ancien MFM 75) - a confirmer via MFM.
 sim-mod: source=&quot;Finderz Keeperz&quot; ap=+1 when=ranged conditional</comment>
 <modifiers>
-<modifier type="set" value="210" field="51b2-306e-1021-d207">
+<modifier type="set" value="220" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="5" field="selections" scope="1de9-b138-28a1-9c4b" childId="model" shared="true"/>
 </conditions>
 </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="30">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="40">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="1de9-b138-28a1-9c4b" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5691,7 +5588,7 @@ sim-mod: source=&quot;Finderz Keeperz&quot; ap=+1 when=ranged conditional</comme
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Meganobz" hidden="false" id="7067-34f4-5272-e05f">
@@ -5701,17 +5598,17 @@ sim-mod: source=&quot;Krumpin&apos; Time&quot; hit=+1 when=melee conditional</co
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e10c-0037"/>
 </constraints>
       <modifiers>
-<modifier type="set" value="110" field="51b2-306e-1021-d207">
+<modifier type="set" value="105" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="2" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
 </conditions>
 </modifier>
-<modifier type="set" value="185" field="51b2-306e-1021-d207">
+<modifier type="set" value="175" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="3" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
 </conditions>
 </modifier>
-<modifier type="set" value="225" field="51b2-306e-1021-d207">
+<modifier type="set" value="210" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="5" field="selections" scope="7067-34f4-5272-e05f" childId="model" shared="true"/>
 </conditions>
@@ -5947,7 +5844,7 @@ sim-mod: source=&quot;Krumpin&apos; Time&quot; hit=+1 when=melee conditional</co
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="unit" import="true" name="Breaka Boyz" hidden="false" id="a596-3d99-257e-0ea1">
@@ -6239,7 +6136,7 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
 </selectionEntryGroup>
 </selectionEntryGroups>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="135"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
 </costs>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
@@ -6465,6 +6362,12 @@ invuln: 5+</comment>
 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="92d4-f0c6-b196-9bb8">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Meganobz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Big Shoota" hidden="false" id="0d1a-e10f-0001" collective="false">
@@ -6557,7 +6460,7 @@ invuln: 5+</comment>
 <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="0d1a-e10f-0027" targetId="27f4-7449-a636-ae8c"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="0d1a-e118-0010">
@@ -6596,6 +6499,17 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d7d6-cb9a-0f38-416b">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Breaka Boyz
+■ Flash Gitz
+■ Mek Gunz
+■ Nobz
+■ Tankbustas</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries></selectionEntries>
 <selectionEntryGroups>
@@ -6747,10 +6661,10 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-e110-0031" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
 </costs>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="0d1a-e110-0000-0000" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -6759,7 +6673,7 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Big Mek in Mega Armour" hidden="false" id="95e9-6da3-5e75-2566">
 <comment>pts: 100 estime d&apos;apres la fiche 11e (ancien MFM 80) - a confirmer via MFM.
-invuln: 4+ conditional
+invuln: 4+ conditional option=&quot;Kustom Force Field&quot; note=&quot;against ranged attacks only&quot;
 sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged
 sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comment>
 <constraints>
@@ -6776,6 +6690,13 @@ sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional</comm
 <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a6b0-af9f-799b-1f7f">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Meganobz
+■ Mek Gunz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Power Klaw" hidden="false" id="0d1a-e111-0001" collective="false">
@@ -7162,7 +7083,7 @@ sim-mod: source=&quot;Supa-Snazz Dakka Upgrade&quot; attacks=+1 weapon=&quot;Sna
 <categoryLink name="Enhancement" hidden="false" id="0d1a-e115-0062" targetId="6226-9b9b-107a-9ada" primary="false"/>
   </categoryLinks>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Flyboss Upgrade" hidden="false" id="0d1a-e115-0000-0024">
@@ -7243,6 +7164,14 @@ sim-mod: source=&quot;Boss&apos; Ammo Runt&quot; hit=+1 when=ranged oncePer=batt
 - Is **riled up** until the start of your next turn.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e52d-79a3-0796-5408">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Breaka Boyz
+■ Nobz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntryGroups>
 <selectionEntryGroup name="Warboss Ranged Weapon" id="0d1a-e116-0019" hidden="false" defaultSelectionEntryId="0d1a-e116-9991-0001">
@@ -7465,6 +7394,13 @@ sim-mod: source=&quot;Warpath (psychic level 1)&quot; reroll=wound1 when=melee c
 - This unit&apos;s melee attacks have **[PSYCHIC]**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0337-dd4e-fc92-b8e1">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Beast Snagga Boyz
+■ Boyz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Power Vomit" hidden="false" id="0d1a-e116-0048" collective="false">
@@ -7547,7 +7483,7 @@ sim-mod: source=&quot;Warpath (psychic level 1)&quot; reroll=wound1 when=melee c
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0079" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0027">
@@ -7557,7 +7493,6 @@ sim-mod: source=&quot;Warpath (psychic level 1)&quot; reroll=wound1 when=melee c
   </constraints>
   <entryLinks>
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0025" type="selectionEntry" targetId="e3b1-1240-2476-cd86"/>
-<entryLink import="true" name="" hidden="true" id="0d1a-e118-0026" type="selectionEntry" targetId="a596-3d99-257e-0ea1"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0004" type="selectionEntry" targetId="b7c3-d00e-daf2-76fb"/>
   </entryLinks>
 </selectionEntryGroup>
@@ -7590,6 +7525,12 @@ invuln: 5+</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Movement phase, if this unit is in **strategic reserves**, this unit can make an **ingress move**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f26f-90a8-d678-00b1">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Kommandos</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0080" collective="false">
@@ -7706,6 +7647,13 @@ invuln: 5+</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to **Charge rolls**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0dbe-fcc8-c334-af60">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Nobz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="0d1a-e116-0114" collective="false">
@@ -7776,7 +7724,7 @@ invuln: 5+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0137" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0037">
@@ -7813,6 +7761,14 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s melee attacks have +1 to **Hit rolls**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b53b-7db9-6b18-1156">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Breaka Boyz
+■ Nobz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0138" collective="false">
@@ -7907,7 +7863,7 @@ sim-mod: source=&quot;Sumfin&apos; to Prove&quot; hit=+1 when=melee</comment>
 sim-mod: source=&quot;More Dakka&quot; sustained=1 when=ranged conditional
 sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged</comment>
 <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="dde2-ca42-e3bc-2ef6" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -7939,6 +7895,15 @@ sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of a friendly **^^Orks^^ ^^Infantry^^** unit (excluding **^^Big Mek with Shokk Attack Gun^^** units), this model has **Lone Operative**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cb63-0bcb-c216-910c">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Mek Gunz
+■ Nobz
+■ Tankbustas</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Shokk Attack Gun" hidden="false" id="0d1a-e116-0163" collective="false">
@@ -8011,7 +7976,7 @@ sim-mod: source=&quot;More Dakka&quot; ignores-cover when=ranged</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0189" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Madcap Meks Enhancement" id="0d1a-e117-0449" hidden="false">
@@ -8074,6 +8039,16 @@ sim-mod: source=&quot;Kustom Dakka&quot; ignores-cover when=ranged</comment>
 - That **^^Vehicle^^** model&apos;s attacks have +1 to **Hit rolls** until the start of your next Movement phase.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1850-54c8-99dc-7ba5">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Flash Gitz
+■ Mek Gunz
+■ Nobz
+■ Tankbustas</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Kustom Mega-slugga" hidden="false" id="0d1a-e116-0190" collective="false">
@@ -8145,7 +8120,7 @@ sim-mod: source=&quot;Kustom Dakka&quot; ignores-cover when=ranged</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0215" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
 </costs>
       <selectionEntryGroups>
 <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="0d1a-e118-0053">
@@ -8192,6 +8167,12 @@ invuln: 5+</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has +1 to **Advance rolls**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="54c9-4454-35f3-3ad3">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Warbikers</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Boomstikks" hidden="false" id="0d1a-e116-0216" collective="false">
@@ -8385,6 +8366,12 @@ fnp: 5+</comment>
 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit&apos;s attacks have +1 to **Hit rolls**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="850b-c83a-861f-d6aa">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Beast Snagga Boyz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Shoota" hidden="false" id="0d1a-e116-0258" collective="false">
@@ -8820,6 +8807,7 @@ sim-mod: source=&quot;Da Bigger Dey Iz...&quot; reroll=wound when=melee vs=Monst
 <categoryLink targetId="9cfd-1c32-585f-7d5c" id="0d1a-e116-0370" primary="false" name="Character"/>
 <categoryLink targetId="4f3a-f0f7-6647-348d" id="0d1a-e116-0371" primary="true" name="Epic Hero"/>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e116-0372" primary="false" name="Faction: Orks"/>
+        <categoryLink targetId="928c-62e7-aad1-b2ac" id="4805-5bd4-ded2-c947" primary="false" name="Mozrog Skragbad"/>
 </categoryLinks>
 <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
@@ -8849,6 +8837,12 @@ sim-mod: source=&quot;Super Runts&quot; attacks=+1 hit=+1 str=+1 weapon=&quot;Sc
 - This unit&apos;s Scavenged Shivs weapons have +1 **A**, **WS** and **S**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3610-31b2-15bd-352e">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Gretchin</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Squigstoppa" hidden="false" id="0d1a-e116-0373" collective="false">
@@ -9155,6 +9149,16 @@ invuln: 4+</comment>
 *Place a Grot Orderly token next to the unit, removing it when this ability is used.*</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4917-be30-3a38-4c41">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Boyz
+■ Breaka Boyz
+■ Flash Gitz
+■ Nobz
+■ Tankbustas</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="&apos;Urty Syringe" hidden="false" id="0d1a-e116-0451" collective="false">
@@ -9239,13 +9243,15 @@ invuln: 4+</comment>
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0071" type="selectionEntry" targetId="a596-3d99-257e-0ea1"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e118-0073" type="selectionEntry" targetId="dadc-d370-ef10-853c"/>
 <entryLink import="true" name="" hidden="true" id="0d1a-e119-0005" type="selectionEntry" targetId="1de9-b138-28a1-9c4b"/>
+            <entryLink import="true" name="Nobz" hidden="true" type="selectionEntry" id="71ba-2464-a987-dd13" targetId="b16a-7132-3f8a-abe5"/>
   </entryLinks>
 </selectionEntryGroup>
       </selectionEntryGroups>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Painboss" hidden="false" id="a74a-107a-e2ac-7e4c">
 <comment>pts: 70 (ancien MFM, provisoire). invuln: 6+
-invuln: 6+</comment>
+invuln: 6+
+def-mod: source=&quot;Hardy Bioniks&quot; wound=-1 vsStronger</comment>
 <constraints>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e116-0483" includeChildSelections="true"/>
 </constraints>
@@ -9280,6 +9286,13 @@ invuln: 6+</comment>
 - Has +4&quot; **M**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cadf-cb49-70fc-4b5b">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Beast Snagga Boyz
+■ Squighog Boyz</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Beast Snagga Klaw" hidden="false" id="0d1a-e116-0477" collective="false">
@@ -9374,6 +9387,12 @@ invuln: 6+</comment>
 - This unit is no longer **battle-shocked**.</characteristic>
 </characteristics>
 </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b372-5c1e-23e7-1239">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Gretchin</characteristic>
+          </characteristics>
+        </profile>
 </profiles>
 <selectionEntries>
 <selectionEntry type="upgrade" import="true" name="Slugga" hidden="false" id="0d1a-e116-0499" collective="false">
@@ -10058,7 +10077,7 @@ invuln: 6+</comment>
 <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0d1a-e117-0120" includeChildSelections="true"/>
 </constraints>
 <modifiers>
-<modifier type="set" value="160" field="51b2-306e-1021-d207">
+<modifier type="set" value="170" field="51b2-306e-1021-d207">
 <conditions>
 <condition type="greaterThan" value="3" field="selections" scope="2d6e-aa3b-c28c-5ef0" childId="model" shared="true"/>
 </conditions>
@@ -10284,7 +10303,7 @@ invuln: 6+</comment>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e117-0171" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Hunta Rig" hidden="false" id="70de-d621-8465-f7b8">
@@ -10507,7 +10526,7 @@ sim-mod: source=&quot;Fully Loaded Butchery&quot; attacks=+22 weapon=&quot;Butch
 </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="70de-d621-8465-f7b8" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -10768,7 +10787,7 @@ sim-mod: source=&quot;Warpath (psychic level 1)&quot; lethal when=melee conditio
 </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="10">
+        <modifier type="increment" field="51b2-306e-1021-d207" value="20">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="eb21-c97f-2d9a-b363" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -11216,8 +11235,8 @@ invuln: 6+</comment>
 </costs>
 </selectionEntry>
 <selectionEntry type="model" import="true" name="Wazbom Blastajet" hidden="false" id="3832-ad97-2b3b-8775">
-<comment>pts: 165 (ancien MFM, provisoire). invuln: 6+
-invuln: 6+
+<comment>pts: 165 (ancien MFM, provisoire).
+invuln: 5+ option=&quot;Blastajet Force Field&quot;
 sim-mod: source=&quot;Go fer da Weak Spot&quot; wound=+1 when=ranged vs=Monster,Vehicle</comment>
 <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="20">
@@ -11586,7 +11605,7 @@ sim-mod: source=&quot;Targetin&apos; Gizmos Upgrade&quot; sustained=1 when=range
 <categoryLink name="Enhancement" hidden="false" id="0d1a-e11d-0006" targetId="6226-9b9b-107a-9ada" primary="false"/>
   </categoryLinks>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
   </costs>
 </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Boss Boomer Upgrade" hidden="false" id="0d1a-e11d-9990-0001">
@@ -11610,6 +11629,7 @@ sim-mod: source=&quot;Targetin&apos; Gizmos Upgrade&quot; sustained=1 when=range
   </sharedSelectionEntries>
   <rules>
     <rule name="Waaagh!" hidden="false" id="37c-6ef9-277-9091">
+      <comment>def-mod: source=&quot;Waaagh!&quot; inv=5 conditional</comment>
       <description>*The infamous war cry of the Orks is known and feared throughout the galaxy. When it echoes across the battlefield, bellowed from countless toothy maws, it galvanises the Orks and riles them into a raucous state of excited aggression.*
 
 Friendly **^^Orks^^** units with this ability can:
@@ -11657,21 +11677,6 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
 - Your unit must be **unengaged**.
 - Until the end of the turn, your unit is **not eligible to declare a charge** or **start an action**.
 - Until the start of your next turn, attacks that target your unit have -1 **to hit** rolls.</description>
-    </rule>
-    <rule name="Assault Disembark Move" hidden="false" id="0d1a-9f3b-7c40-1c05">
-      <description>A special **move type**.
-
-**Set-up distance:** 3&quot;
-
-**Eligible if:** As stated in the rule allowing this **move type**, if all of the following apply to your unit:
-- Embarked within a **^^Transport^^** model that is on the battlefield.
-- Did not embark within that **^^Transport^^** this phase.
-- That **^^Transport^^** has not made an **Advance/Fall Back move** this phase.
-
-**Effect:** Your unit is set up as described in Set Up (Core Rules, 03.02).
-
-**While moving:**
-- Set up each model in your unit wholly within the **set-up distance** of that **^^Transport^^**.</description>
     </rule>
   </rules>
   <sharedSelectionEntryGroups>
@@ -12771,6 +12776,16 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
   <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
   </costs>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="b21a-9a5d-3235-49fd">
+                  <constraints>
+                    <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="fc5e-5275-38c8-12ab"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="" hidden="true" id="f805-3f1e-a74d-f5fc" type="selectionEntry" targetId="303-267f-e45c-6aa9"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
 </selectionEntry>
   </selectionEntries>
 </selectionEntryGroup>
@@ -12835,6 +12850,16 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
   <costs>
 <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
   </costs>
+              <selectionEntryGroups>
+                <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="553c-9907-de86-302a">
+                  <constraints>
+                    <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="1fc8-10a3-5bef-1a05"/>
+                  </constraints>
+                  <entryLinks>
+                    <entryLink import="true" name="" hidden="true" id="56e1-9800-5e5b-6e68" type="selectionEntry" targetId="1de9-b138-28a1-9c4b"/>
+                  </entryLinks>
+                </selectionEntryGroup>
+              </selectionEntryGroups>
 </selectionEntry>
   </selectionEntries>
 </selectionEntryGroup>
@@ -12934,7 +12959,7 @@ pts: 10 estime par analogie MFM 10e - a confirmer.</comment>
 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0d1a-e11c-0009" includeChildSelections="true" includeChildForces="false"/>
   </constraints>
   <costs>
-<cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+<cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
   </costs>
 </selectionEntry>
   </selectionEntries>
@@ -13167,7 +13192,8 @@ EFFECT: Place your unit in strategic reserves.</description>
   <comment>DP=2 deduit (analogie Dread Mob DP2, detachement mek) - a confirmer via MFM. Force Disposition=Priority Assets par convention.</comment>
   <rules>
 <rule name="Unpredictable Genius" id="0d1a-e113-0011" hidden="false">
-<comment>sim-mod: source=&quot;Unpredictable Genius&quot; hit=+1 when=ranged kw=&quot;Big Mek,Mek Gunz,Morkanaut,Wazbom Blastajet&quot; conditional</comment>
+<comment>sim-mod: source=&quot;Unpredictable Genius&quot; hit=+1 when=ranged kw=&quot;Big Mek,Mek Gunz,Morkanaut,Wazbom Blastajet&quot; conditional
+def-mod: source=&quot;Unpredictable Genius&quot; inv=4 when=ranged conditional</comment>
 <description>*Meks haul all manner of weird bullets, unstable power cells and customised extras to battle.*
 
 In your Shooting phase, when all of a friendly **^^Big Mek^^**/**^^Mek Gunz^^**/**^^Morkanaut^^**/**^^Wazbom Blastajet^^** unit&apos;s ranged attacks target a single enemy unit, roll one D6:
@@ -13458,7 +13484,9 @@ EFFECT: Your unit&apos;s attacks can:
 - If your unit is riled up, re-roll hit rolls.</description>
 </rule>
 <rule name="Hulking Brutes (Stratagem, 1CP)" id="0d1a-e115-0014" hidden="false">
-<comment>strat-timing: turn=opponent phase=shooting</comment>
+<comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Hulking Brutes&quot; wound=-1 when=ranged vsStronger conditional
+def-mod: source=&quot;Hulking Brutes&quot; wound=-1 when=ranged conditional</comment>
 <description>Bully Boyz – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly MEGANOBZ/NOBZ unit.
@@ -13789,13 +13817,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
           <infoLinks>
             <infoLink name="Melta" id="0dac-df1d-95cd-0bdb" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Rezmekka&apos;s Redder Paint" hidden="false" id="2813-0384-3ee0-5ad3">
           <profiles>
@@ -13809,11 +13830,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -13848,13 +13864,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
             <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
           </costs>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Frazzle Field Generator" hidden="false" id="9200-0e4d-b243-3e70">
           <profiles>
@@ -13872,13 +13881,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
           <infoLinks>
             <infoLink name="Devastating Wounds" id="2e96-7857-92ae-7b15" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Da Krushin&apos; Armour" hidden="false" id="7851-53b3-a375-32e0">
           <profiles>
@@ -13904,13 +13906,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
               <comment>Bestest Bossloot: Da Krushin&apos; Armour</comment>
             </modifierGroup>
           </modifierGroups>
-          <modifiers>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
       </selectionEntries>
       <constraints>
@@ -13947,11 +13942,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Bad Reputation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf71-ab64-3470-c3d3">
@@ -13974,11 +13964,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14010,11 +13995,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Boss Mek" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="95b5-a682-8164-753d">
@@ -14037,11 +14017,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14068,11 +14043,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Ded Choppy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7099-98be-d281-fe64">
@@ -14095,11 +14065,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14126,11 +14091,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Gnarly Scars" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="562d-6a91-9acf-e5cf">
@@ -14153,11 +14113,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14189,11 +14144,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Mekanikal Mekaniak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b94f-5371-af5b-c2c6">
@@ -14216,11 +14166,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14252,11 +14197,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Recykler" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eedd-20f0-dde6-b629">
@@ -14281,11 +14221,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
               </conditions>
             </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
           <profiles>
             <profile name="Ride &apos;Em Down" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6ae2-f1f1-55e2-f9cc">
@@ -14308,11 +14243,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
             <modifier type="set" value="true" field="hidden">
               <conditions>
                 <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -14350,11 +14280,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -14405,11 +14330,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Fortress on Wheels" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32aa-c6cb-524c-8d03">
@@ -14446,11 +14366,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                     <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
-                </modifier>
               </modifiers>
               <profiles>
                 <profile name="Shootier Gunz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e814-43ab-287b-0c93">
@@ -14480,11 +14395,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -14519,11 +14429,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
-                </modifier>
-                <modifier type="set" value="2" field="b03b-c239-15a5-da55">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="5929-ad51-d006-e008" shared="true"/>
-                  </conditions>
                 </modifier>
               </modifiers>
               <profiles>
@@ -14608,6 +14513,9 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
     <categoryEntry name="Bannernob" hidden="false" id="0d1a-e116-9990-0003"/>
     <categoryEntry name="Mobile" hidden="false" id="0d1a-e116-9990-0004"/>
     <categoryEntry name="Big&apos;ed Bossbunka" hidden="false" id="4719-6d1d-9fae-72d8"/>
+    <categoryEntry id="928c-62e7-aad1-b2ac" name="Mozrog Skragbad" hidden="false"/>
+    <categoryEntry id="52ba-705f-b8b4-765d" name="Rukkatrukk Squigbuggies" hidden="false"/>
+    <categoryEntry id="1951-3507-c828-c6b6" name="Wartrakks" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Boyz" hidden="false" type="selectionEntry" id="187-93d6-1ac7-dbde" targetId="e3b1-1240-2476-cd86"/>
