@@ -75,6 +75,26 @@ l'identique** sous un groupe nommé **`Can Support (MFM)`** :
   (ex. **Ministorum Priest**, **Master of Executions**) — fie-toi au groupe présent
   (`Can Lead` vs `Can Support`) et à la présence du mot-clef SUPPORT, pas au nom.
 
+## Variante INVERSE — groupes `Led By (MFM)` / `Supported By (MFM)` (2026-10-08)
+
+Un meneur du **tronc** (ex. *Captain*, `Imperium - Space Marines.cat`) ne peut pas viser une unité
+d'un **chapitre** (*Sword Brethren Squad*, *Deathwatch Veterans*, *Inner Circle Companions*…) : elle est
+hors de sa clôture d'import (un lien vers elle serait cassé quand le tronc est chargé seul). Le lien est
+alors posé **dans l'autre sens**, sur l'unité menée, qui elle importe le tronc :
+
+```xml
+<selectionEntryGroup name="Led By (MFM)" hidden="true" id="…">          <!-- ou "Supported By (MFM)" -->
+  <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité …</comment>
+  <constraints><constraint type="max" value="0" field="selections" scope="parent" shared="true" id="…"/></constraints>
+  <entryLinks><entryLink type="selectionEntry" hidden="true" targetId="&lt;fiche du meneur&gt;"/> …</entryLinks>
+</selectionEntryGroup>
+```
+
+L'appli **fusionne** ces liens dans la liste du meneur : `leads(L) = Can Lead(L) ∪ { U : L ∈ Led By(U) }`
+(même chose pour Support). Mêmes invariants (hidden, `max=0`, jamais sélectionnable). Source et
+synchronisation : `editor/translations/gdc-attach.cjs` (champ `attachesTo` de la fiche officielle) ;
+invariant « toute fiche Leader/Support a une liste » : `editor/audit/rattachements.mjs`.
+
 ## Rattachement accordé par une AMÉLIORATION (encodé)
 
 Le MFM imprime sous certaines améliorations « LEADER: X, Y » (FR : « MENEUR :

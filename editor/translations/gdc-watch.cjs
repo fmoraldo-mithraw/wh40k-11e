@@ -96,6 +96,8 @@ function diffMisc(file, ds0, ds1, u) {
   const kA = (ds0.keywords || []).map(en).map(N), kB = (ds1.keywords || []).map(en).map(N);
   const kAdd = kB.filter((x) => !kA.includes(x)), kRem = kA.filter((x) => !kB.includes(x));
   if (kAdd.length || kRem.length) add(file, name, "mots-clefs", `${kAdd.length ? "+[" + kAdd.join(", ") + "] " : ""}${kRem.length ? "−[" + kRem.join(", ") + "]" : ""}`, V.manual, "categoryLinks de la fiche (et ENHANCEMENT_BEARERS_PROMPT si mot-clef porteur)");
+  const att = (ds) => (ds.attachesTo || []).map((a) => `${a.type}:${a.target}`).sort().join(" | ");
+  if (att(ds0) !== att(ds1)) add(file, name, "rattachements", `${att(ds0) || "—"} → ${att(ds1) || "—"}`, V.apply, `node editor/translations/gdc-attach.cjs <gdc> --only "${name}" --write  (groupes Can Lead/Support + liens inverses ; valider.mjs vérifie l'invariant)`);
   if (j(ds0.composition) !== j(ds1.composition)) add(file, name, "composition", `${j(ds0.composition)} → ${j(ds1.composition)}`, V.manual, "bornes de modèles (UNIT_COMPOSITION_APP_PROMPT)");
   if (j(ds0.wargear) !== j(ds1.wargear) || j(ds0.loadout) !== j(ds1.loadout)) add(file, name, "options", "options d'équipement / équipement de base modifiés", V.manual, "groupes d'armes (WEAPON_SLOTS_APP_PROMPT) ; voir l'option dans la fiche");
   const pt = (ds) => (ds.points || []).map((p) => `${p.models}:${p.cost}${p.keyword ? "@" + p.keyword : ""}`).join(" ");

@@ -9,7 +9,10 @@
 //   2. le cliquet des ids dupliqués (dup-ids.mjs), qui borne le stock hérité ;
 //   3. les defaultSelectionEntryId cassés (defauts-groupes.mjs) — un groupe
 //      dont le défaut ne vise plus aucun enfant ne présélectionne rien (77
-//      cas corrigés en série le 2026-09-03, plus aucun toléré).
+//      cas corrigés en série le 2026-09-03, plus aucun toléré) ;
+//   4. les rattachements Leader/Support (rattachements.mjs) — toute fiche
+//      Leader/Support a sa liste (groupe Can Lead/Support, lien inverse Led
+//      By/Supported By, ou prose par mot-clef) ; né de Kaius Konorius (2026-10-08).
 // Code de sortie ≠ 0 au premier échec — c'est le contrat de la CI.
 
 import { spawnSync } from "node:child_process";
@@ -42,4 +45,8 @@ if (r.status) process.exit(r.status);
 
 console.log("\n── defaultSelectionEntryId des groupes ──");
 const r3 = spawnSync(process.execPath, [join(HERE, "defauts-groupes.mjs")], { stdio: "inherit" });
-process.exit(r3.status || 0);
+if (r3.status) process.exit(r3.status);
+
+console.log("\n── rattachements Leader / Support ──");
+const r4 = spawnSync(process.execPath, [join(HERE, "rattachements.mjs")], { stdio: "inherit" });
+process.exit(r4.status || 0);

@@ -76,8 +76,10 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   `hidden`+`max=0` nommé `Can Lead (MFM)` (entryLinks vers les unités menées).
   **Source = la prose de la capacité *Leader*** (« can be attached to the following
   units: … »), redondée en données ; un seul sens (côté chef), cibles résolues
-  dans la clôture d'import. Restent dans la prose seule : rattachements **par
-  mot-clef**, **accordés par amélioration**, ou inter-fichiers hors import.
+  dans la clôture d'import ; cible hors clôture (tronc SM → unité de chapitre) = lien **inverse**
+  `Led By / Supported By (MFM)` sur l'unité menée. Synchro : `gdc-attach.cjs` ; invariant
+  `editor/audit/rattachements.mjs` (dans `valider.mjs`). Restent dans la prose seule : rattachements
+  **par mot-clef** et **accordés par amélioration**.
 - **`editor/MODEL_ABILITIES_APP_PROMPT.md`** — prompt autonome (application
   consommatrice) : la plupart des capacités de datasheet sont des profils
   `Abilities` sur l'**unité**, mais quelques-unes sont portées par un
@@ -194,6 +196,13 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
    l'entrée** : `splitRepeatTier` abandonné, `removeRepeatTier` ne sert
    qu'à déposer d'anciennes jumelles `(additional)`. Détails :
    `editor/MFM_PROMPT.md`.
+
+6. **La base suit le MFM — et toute entrée MFM absente se signale** (décision du
+   2026-10-08) : un détachement, une fiche ou une amélioration présents dans le
+   MFM mais absents de la base ne sont **jamais** passés sous silence ni
+   inventés : **demander le texte à l'utilisateur** (règle de détachement,
+   stratagèmes, améliorations / fiche) avant d'intégrer. `apply.mjs` les liste
+   en tête de « À ME RENVOYER » (⓪ détachement absent, ① fiche, ② amélioration).
 
 ## Git
 

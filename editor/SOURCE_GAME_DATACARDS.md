@@ -45,6 +45,7 @@ git -C /tmp/gdc-old init -q && git -C /tmp/gdc-old fetch --depth 1 \
 | `gdc-apply-weapons.cjs` | aligne caractéristiques + profils d'armes d'un catalogue (copie locale avant toute entrée partagée, CT 7+ Torrent lue N/A). `--trust` : retire aussi les mots-clefs absents de la fiche (sauf notre `Hunter (…)`) ; `--only "Fiche"`, `--skip`, `--nokw "Fiche:Arme"`. |
 | `gdc-apply-abilities.cjs` | textes d'aptitudes officiels (`--rename`, `--drop`). |
 | `gdc-sync-detachments.cjs` | règles, stratagèmes, améliorations des détachements (chapitres). |
+| `gdc-attach.cjs` | **rattachements Leader / Support** (`attachesTo`) toutes factions : groupe `Can Lead/Support (MFM)` sur le meneur si la cible est dans sa clôture d'import, sinon lien inverse `Led By / Supported By (MFM)` sur l'unité menée ; règle + aptitude Leader/Support ajoutées si absentes ; liens absents de la fiche retirés. Invariant vérifié par `editor/audit/rattachements.mjs` (enchaîné par `valider.mjs`). |
 
 Tous s'exécutent **à blanc** par défaut ; `--write` applique. Toujours relire le dry-run :
 il couvre toutes les divergences du catalogue, pas seulement le changement du jour.

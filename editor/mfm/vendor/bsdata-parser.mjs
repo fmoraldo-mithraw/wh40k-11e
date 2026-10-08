@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 0e5cc57
-// source-sha256: df64696a1fcab60a
+// source-commit: be7b699
+// source-sha256: a30219d2afd5aba3
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -2403,7 +2403,7 @@ function buildIdIndex(catalogue) {
   rec(catalogue);
   return idx;
 }
-function listUnits(catalogue, idIndex) {
+function listUnits(catalogue, idIndex, primaryCatalogueId) {
   if (!idIndex) return [];
   const out = /* @__PURE__ */ new Map();
   const rec = (node, insideSE) => {
@@ -2413,7 +2413,10 @@ function listUnits(catalogue, idIndex) {
         for (const el of arr(v)) {
           if (insideSE || !el["@targetId"]) continue;
           const tgt = idIndex.get(el["@targetId"]);
-          if (tgt && tgt["@id"] && !out.has(tgt["@id"])) out.set(tgt["@id"], { entry: tgt, link: el });
+          if (!tgt || !tgt["@id"]) continue;
+          const prev = out.get(tgt["@id"]);
+          if (!prev) out.set(tgt["@id"], { entry: tgt, link: el });
+          else if (primaryCatalogueId && isHiddenForCatalogue(prev.link, primaryCatalogueId) && !isHiddenForCatalogue(el, primaryCatalogueId)) out.set(tgt["@id"], { entry: tgt, link: el });
         }
       } else if (k === "selectionEntry" || k === "selectionEntryGroup") {
         for (const it of arr(v)) rec(it, true);
@@ -2465,7 +2468,15 @@ function isDatasheetUnit(u, entry) {
   if (t !== "unit" && t !== "model") return false;
   return !(t === "model" && (u.pts || 0) > 0);
 }
-function getPtsInfo(entry) {
+function getPtsInfo(entry, link) {
+  if (link) {
+    for (const c of arr(child(link, "costs.cost"))) {
+      if (c["@name"] === "pts") {
+        const n = Number(c["@value"]);
+        if (Number.isFinite(n) && Math.trunc(n) > 0) return { pts: Math.trunc(n), perModelPts: 0, modelMin: 1, modelMax: 1 };
+      }
+    }
+  }
   for (const c of arr(child(entry, "costs.cost"))) {
     if (c["@name"] === "pts") {
       const n = Number(c["@value"]);
@@ -2571,10 +2582,16 @@ function getKeywordData(entry, idIndex) {
     }
     return [...m.values()];
   };
+  const canonCat = (cl) => {
+    const id = cl["@targetId"];
+    const ce = id && (idIndex && idIndex.get(id) || GST_INDEX.get(id)) || null;
+    if (ce && ce["@hidden"] === "true") return "";
+    return (ce && ce["@name"] || cl["@name"] || "").trim();
+  };
   const split = (node) => {
     const fac = [], kw = [];
     for (const cl of arr(child(node, "categoryLinks.categoryLink"))) {
-      const n = (cl["@name"] || "").trim();
+      const n = canonCat(cl);
       if (!n) continue;
       if (/^Faction:/i.test(n)) fac.push(n.replace(/^Faction:\s*/i, "").trim());
       else kw.push(n);
@@ -2830,7 +2847,7 @@ function groupOwnBound(grp, type, linkMods, dflt) {
   }
   return v;
 }
-function effEntryConstraint(node, type, unitCategoryIds) {
+function effEntryConstraint(node, type, unitCategoryIds, extraHosts) {
   if (!node) return null;
   let v = null, cid = "";
   for (const c of arr(child(node, "constraints.constraint"))) {
@@ -2842,7 +2859,8 @@ function effEntryConstraint(node, type, unitCategoryIds) {
   }
   if (v == null || !cid) return v;
   let n = intC(v, 0);
-  for (const m of arr(child(node, "modifiers.modifier"))) {
+  const hosts = [node, ...extraHosts || []];
+  for (const m of hosts.flatMap((h) => arr(child(h, "modifiers.modifier")))) {
     if (m["@field"] !== cid) continue;
     if (arr(child(m, "conditions.condition")).length || arr(child(m, "conditionGroups.conditionGroup")).length) {
       if (unitCategoryIds == null || categoryCondsHold(m, unitCategoryIds) !== true) continue;
@@ -3173,11 +3191,28 @@ function intC(v, dflt) {
 function weaponAsArray(w) {
   return [w.n, w.t, w.rng, w.a, w.sk, w.s, w.ap, w.d, w.kw, ...w.count > 1 ? [w.count] : []];
 }
-function collectDirectWeapons(entry, idIndex) {
+function removableMin(nodeA, nodeB) {
+  const nodes = [nodeA, nodeB].filter(Boolean);
+  const mins = [];
+  for (const n of nodes) for (const c of arr(child(n, "constraints.constraint"))) {
+    if (c["@type"] === "min" && c["@field"] === "selections" && intC(c["@value"], 0) >= 1 && c["@id"]) mins.push(c["@id"]);
+  }
+  if (!mins.length) return false;
+  for (const n of nodes) for (const m of arr(child(n, "modifiers.modifier"))) {
+    if (m["@type"] !== "set" || String(m["@value"]) !== "0" || !mins.includes(m["@field"])) continue;
+    if (arr(child(m, "conditions.condition")).length || arr(child(m, "conditionGroups.conditionGroup")).length) continue;
+    return true;
+  }
+  return false;
+}
+function collectDirectWeapons(entry, idIndex, idsOut) {
   const out = [];
   const seen = /* @__PURE__ */ new Set();
-  const add = (p, count) => {
+  const add = (p, count, ids) => {
     if (!isWeaponProfile(p)) return;
+    if (idsOut && ids) {
+      for (const x of ids) if (x) idsOut.add(x);
+    }
     const id = p["@id"] || "";
     if (id && seen.has(id)) return;
     if (id) seen.add(id);
@@ -3196,33 +3231,68 @@ function collectDirectWeapons(entry, idIndex) {
     return r;
   };
   const allProfilesOf = (node) => arr(child(node, "profiles.profile")).filter(isWeaponProfile).concat(infoLinkProfiles(node));
+  const nestedForced = (node, depth) => {
+    const out2 = [];
+    if (!node || depth > 2) return out2;
+    for (const el of arr(child(node, "entryLinks.entryLink"))) {
+      const tgt = idIndex.get(el["@targetId"]);
+      if (!tgt || tgt["@type"] !== "upgrade") continue;
+      const minRaw = getConstraint(el, "min", "selections") ?? getConstraint(tgt, "min", "selections");
+      const mn = intC(minRaw, 0);
+      if (mn < 1 && !(getDefaultAmount(el) || getDefaultAmount(tgt))) continue;
+      const k = mn > 0 ? mn : 1;
+      for (const p of allProfilesOf(tgt)) out2.push([p, k]);
+      for (const [p, kk] of nestedForced(tgt, depth + 1)) out2.push([p, k * kk]);
+    }
+    for (const se of arr(child(node, "selectionEntries.selectionEntry"))) {
+      if (se["@type"] !== "upgrade") continue;
+      const minRaw = getConstraint(se, "min", "selections");
+      const mn = intC(minRaw, 0);
+      if (mn < 1 && !getDefaultAmount(se)) continue;
+      const k = mn > 0 ? mn : 1;
+      for (const p of allProfilesOf(se)) out2.push([p, k]);
+      for (const [p, kk] of nestedForced(se, depth + 1)) out2.push([p, k * kk]);
+    }
+    return out2;
+  };
+  if (entry["@type"] === "model") for (const p of allProfilesOf(entry)) add(p, 1, [entry["@id"]]);
   for (const el of arr(child(entry, "entryLinks.entryLink"))) {
     const tgt = idIndex.get(el["@targetId"]);
     if (!tgt) continue;
     const tgtProfiles = allProfilesOf(tgt);
-    const elMin = intC(getConstraint(el, "min", "selections"), 0);
+    const elMinRaw = getConstraint(el, "min", "selections") ?? getConstraint(tgt, "min", "selections");
+    const elMin = intC(elMinRaw, 0);
+    if (elMin < 1 && !(getDefaultAmount(el) || getDefaultAmount(tgt)) && (getConstraint(el, "max", "selections") != null || getConstraint(tgt, "max", "selections") != null)) continue;
+    if (removableMin(el, tgt)) continue;
     const cnt = elMin > 0 ? elMin : 1;
-    for (const p of tgtProfiles) add(p, cnt);
+    for (const p of tgtProfiles) add(p, cnt, [el["@id"], tgt["@id"]]);
+    for (const [p, k] of nestedForced(tgt, 1)) add(p, cnt * k, [el["@id"], tgt["@id"]]);
   }
   for (const se of arr(child(entry, "selectionEntries.selectionEntry"))) {
     if (se["@type"] !== "upgrade") continue;
     const subProfiles = allProfilesOf(se);
     const seMinRaw = getConstraint(se, "min", "selections");
     if (seMinRaw != null && intC(seMinRaw, 0) < 1 && !getDefaultAmount(se)) continue;
+    if (seMinRaw == null && !getDefaultAmount(se) && getConstraint(se, "max", "selections") != null) continue;
+    if (seMinRaw != null && intC(seMinRaw, 0) >= 1 && intC(getConstraint(se, "max", "selections"), 0) > intC(seMinRaw, 0) && (entry["@type"] === "model" || entry["@type"] === "unit")) continue;
+    if (removableMin(se)) continue;
     const seMin = intC(seMinRaw, 0);
     const cnt = seMin > 0 ? seMin : 1;
-    for (const p of subProfiles) add(p, cnt);
+    for (const p of subProfiles) add(p, cnt, [se["@id"]]);
+    for (const [p, k] of nestedForced(se, 1)) add(p, cnt * k, [se["@id"]]);
   }
   function collectForced(grp) {
     for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
       if (se["@type"] !== "upgrade") continue;
       const seMin = intC(getConstraint(se, "min", "selections"), 0);
       if (seMin < 1) continue;
+      if (removableMin(se)) continue;
       const subProfiles = allProfilesOf(se);
-      for (const p of subProfiles) add(p, seMin);
+      for (const p of subProfiles) add(p, seMin, [se["@id"]]);
     }
     if (isTransparentGroup(grp)) {
       for (const el of arr(child(grp, "entryLinks.entryLink"))) {
+        if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
         if (el["@hidden"] === "true") continue;
         const tgt = idIndex.get(el["@targetId"]);
         const elMinRaw = getConstraint(el, "min", "selections");
@@ -3231,9 +3301,10 @@ function collectDirectWeapons(entry, idIndex) {
         const elDflt = getDefaultAmount(el) || (tgt ? getDefaultAmount(tgt) : 0);
         if (elMin < 1 && elDflt < 1) continue;
         if (!tgt) continue;
+        if (removableMin(el, tgt)) continue;
         const tgtProfiles = allProfilesOf(tgt);
         const cnt = Math.max(elMin, elDflt, 1);
-        for (const p of tgtProfiles) add(p, cnt);
+        for (const p of tgtProfiles) add(p, cnt, [el["@id"], tgt["@id"]]);
       }
     }
     if (!isTransparentGroup(grp)) {
@@ -3247,7 +3318,7 @@ function collectDirectWeapons(entry, idIndex) {
           const tgtProfiles = allProfilesOf(tgt);
           if (tgtProfiles.some(isWeaponProfile)) {
             const cnt = Math.max(grpMin, intC(getConstraint(el, "min", "selections"), 0), 1);
-            for (const p of tgtProfiles) add(p, cnt);
+            for (const p of tgtProfiles) add(p, cnt, [el["@id"], tgt["@id"]]);
           }
         }
       }
@@ -3570,12 +3641,23 @@ function getComp(entry, idIndex) {
       if (m["@id"] && m["@name"]) nameById.set(m["@id"], m["@name"]);
     }
     const subCaps = [];
-    for (const sg of arr(child(grp, "selectionEntryGroups.selectionEntryGroup"))) {
+    const linkedSubGroups = arr(child(grp, "entryLinks.entryLink")).filter((el) => el["@type"] === "selectionEntryGroup" && el["@hidden"] !== "true").map((el) => {
+      const t = idIndex && idIndex.get(el["@targetId"]);
+      return t ? {
+        ...t,
+        "@name": el["@name"] || t["@name"],
+        constraints: { constraint: [...arr(child(el, "constraints.constraint")), ...arr(child(t, "constraints.constraint"))] },
+        modifiers: { modifier: [...arr(child(el, "modifiers.modifier")), ...arr(child(t, "modifiers.modifier"))] }
+      } : null;
+    }).filter(Boolean);
+    for (const sg of [...arr(child(grp, "selectionEntryGroups.selectionEntryGroup")), ...linkedSubGroups]) {
       if (sg["@hidden"] === "true") continue;
       const sgName = sg["@name"] || "";
       const sgMaxCstr = arr(child(sg, "constraints.constraint")).find((c) => c["@type"] === "max" && c["@field"] === "selections");
       const sgMax = intC(sgMaxCstr && sgMaxCstr["@value"], 99);
       const sgMaxId = sgMaxCstr && sgMaxCstr["@id"] || "";
+      const sgMinCstr = arr(child(sg, "constraints.constraint")).find((c) => c["@type"] === "min" && c["@field"] === "selections");
+      const sgMin = intC(sgMinCstr && sgMinCstr["@value"], 0);
       const sgModelNames = [];
       const sgDirects = [
         ...resolveLinkedModels(sg, idIndex),
@@ -3588,16 +3670,41 @@ function getComp(entry, idIndex) {
         if (m["@id"] && nm) nameById.set(m["@id"], nm);
         addModel(m, sgMax, sg["@id"]);
       }
-      if (sgModelNames.length > 0 && sgMax < 99) {
+      let sgDefault = "";
+      let sgMinEff = sgMin;
+      const sgDefId = sg["@defaultSelectionEntryId"] || "";
+      if (sgDefId) {
+        sgDefault = nameById.get(sgDefId) || "";
+        if (!sgDefault) for (const el of arr(child(sg, "entryLinks.entryLink"))) {
+          if (el["@id"] !== sgDefId) continue;
+          const t = idIndex.get(el["@targetId"]);
+          if (t && t["@name"]) sgDefault = t["@name"];
+        }
+        if (sgDefault && !sgModelNames.includes(sgDefault)) {
+          sgDefault = "";
+          sgMinEff = 0;
+        }
+      }
+      if (sgModelNames.length > 0 && (sgMax < 99 || sgMin > 0)) {
         const sgMods = extractModifiers(sg);
-        if (sgMax > 0 || sgMods.length > 0) {
-          subCaps.push([sgName, sgMax, sgModelNames, sg["@id"] || "", sgMods, sgMaxId]);
+        if (sgMax > 0 || sgMods.length > 0 || sgMin > 0) {
+          subCaps.push([sgName, sgMax < 99 ? sgMax : grpMaxForChildren, sgModelNames, sg["@id"] || "", sgMods, sgMaxId, sgMinEff, sgDefault]);
         }
       }
     }
     if (grpMinRaw == null && childMinSum > min) min = childMinSum;
     if (grpMaxRaw == null && childMaxSum > max) max = childMaxSum;
-    const defaultName = nameById.get(grp["@defaultSelectionEntryId"] || "") || "";
+    const resolveDefault = (id, depth) => {
+      if (!id || depth > 4) return "";
+      if (nameById.has(id)) return nameById.get(id);
+      const sg = walk(grp, "selectionEntryGroup").find((g) => g["@id"] === id);
+      if (!sg) return "";
+      const viaDefault = resolveDefault(sg["@defaultSelectionEntryId"] || "", depth + 1);
+      if (viaDefault) return viaDefault;
+      const first = [...resolveLinkedModels(sg, idIndex), ...arr(child(sg, "selectionEntries.selectionEntry")).filter((m) => m["@type"] === "model")].sort((a, b) => intC(a["@sortIndex"], 1e6) - intC(b["@sortIndex"], 1e6))[0];
+      return first ? nameById.get(first["@id"]) || first["@name"] || "" : "";
+    };
+    const defaultName = resolveDefault(grp["@defaultSelectionEntryId"] || "", 0);
     if (models.length > 0) comp.push([grpName, min, max, models, [], subCaps, grp["@id"] || "", defaultName, buildDynBounds(grp, compMods)]);
   }
   for (const nested of arr(child(entry, "selectionEntries.selectionEntry"))) {
@@ -3663,18 +3770,25 @@ function pickOptionWeaponProfile(targetEntry, idIndex) {
   };
   for (const p of profs) pushW(fmtWeapon(p));
   for (const t of linked) pushW(fmtWeapon(t));
-  const addFrom = (e) => {
+  const addFrom = (e, count = 1) => {
     if (!e) return;
-    for (const p of arr(child(e, "profiles.profile"))) if (isWeaponProfile(p)) pushW(fmtWeapon(p));
+    const stamp = (w) => {
+      if (count > 1) w.count = count;
+      return w;
+    };
+    for (const p of arr(child(e, "profiles.profile"))) if (isWeaponProfile(p)) pushW(stamp(fmtWeapon(p)));
     for (const il of arr(child(e, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
       const t = idIndex.get(il["@targetId"]);
-      if (t && isWeaponProfile(t)) pushW(fmtWeapon(t));
+      if (t && isWeaponProfile(t)) pushW(stamp(fmtWeapon(t)));
     }
   };
-  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) addFrom(sub);
+  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) addFrom(sub, Math.max(1, intC(getConstraint(sub, "min", "selections"), 1)));
   for (const el of arr(child(targetEntry, "entryLinks.entryLink"))) {
-    if (el["@type"] === "selectionEntry") addFrom(idIndex.get(el["@targetId"]));
+    if (el["@type"] === "selectionEntry") {
+      const t = idIndex.get(el["@targetId"]);
+      addFrom(t, Math.max(1, intC(getConstraint(el, "min", "selections") ?? (t ? getConstraint(t, "min", "selections") : null), 1)));
+    }
   }
   if (merged.length === 1) return merged[0];
   if (merged.length > 1) return merged;
@@ -3723,6 +3837,21 @@ function pickOptionAbilityDesc(targetEntry, unitCategoryIds, idIndex) {
   }
   if (idIndex) {
     for (const il of arr(child(targetEntry, "infoLinks.infoLink"))) {
+      if (il["@type"] !== "profile") continue;
+      const r = fromProfile(idIndex.get(il["@targetId"]) || {});
+      if (r) return r;
+    }
+  }
+  const forcedKids = [
+    ...arr(child(targetEntry, "selectionEntries.selectionEntry")).filter((k) => k["@type"] === "upgrade" && !(getConstraint(k, "min", "selections") == null && getConstraint(k, "max", "selections") != null) && intC(getConstraint(k, "min", "selections"), 1) >= 1),
+    ...idIndex ? arr(child(targetEntry, "entryLinks.entryLink")).filter((el) => el["@type"] === "selectionEntry" && intC(getConstraint(el, "min", "selections"), 0) >= 1).map((el) => idIndex.get(el["@targetId"])).filter(Boolean) : []
+  ];
+  for (const k of forcedKids) {
+    for (const p of arr(child(k, "profiles.profile"))) {
+      const r = fromProfile(p);
+      if (r) return r;
+    }
+    if (idIndex) for (const il of arr(child(k, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
       const r = fromProfile(idIndex.get(il["@targetId"]) || {});
       if (r) return r;
@@ -3977,17 +4106,18 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
   const defaultId = grp["@defaultSelectionEntryId"] || "";
   let defaultName = "";
   for (const el of arr(child(grp, "entryLinks.entryLink"))) {
+    if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
     if (el["@hidden"] === "true") continue;
     if (el["@type"] === "selectionEntryGroup") continue;
     if (entryHiddenFor(el, unitCategoryIds)) continue;
     const elMinRaw = effEntryConstraint(el, "min");
     const tgt = idIndex.get(el["@targetId"]);
     if (tgt && entryHiddenFor(tgt, unitCategoryIds)) continue;
-    const tgtMin = tgt ? intC(effEntryConstraint(tgt, "min"), 0) : 0;
+    const tgtMin = tgt ? intC(effEntryConstraint(tgt, "min", void 0, [el]), 0) : 0;
     const min = elMinRaw != null ? intC(elMinRaw, 0) : tgtMin;
     const name = el["@name"] || tgt && tgt["@name"] || "";
     const elMaxRaw = effEntryConstraint(el, "max", unitCategoryIds);
-    const tgtOwnMax = tgt && arr(child(tgt, "constraints.constraint")).some((c) => c["@type"] === "max" && c["@field"] === "selections" && isOwnScope(c["@scope"])) ? effEntryConstraint({ ...tgt, constraints: { constraint: arr(child(tgt, "constraints.constraint")).filter((c) => isOwnScope(c["@scope"])) } }, "max", unitCategoryIds) : null;
+    const tgtOwnMax = tgt && arr(child(tgt, "constraints.constraint")).some((c) => c["@type"] === "max" && c["@field"] === "selections" && isOwnScope(c["@scope"])) ? effEntryConstraint({ ...tgt, constraints: { constraint: arr(child(tgt, "constraints.constraint")).filter((c) => isOwnScope(c["@scope"])) } }, "max", unitCategoryIds, [el]) : null;
     const max = Math.min(intC(elMaxRaw, dfltMax), tgtOwnMax != null ? intC(tgtOwnMax, dfltMax) : Infinity);
     if (min >= 1 && max <= min) continue;
     const creationMin = intC(getConstraint(el, "min", "selections") ?? (tgt ? getConstraint(tgt, "min", "selections") : null), 0);
@@ -4005,8 +4135,8 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
     }
     if (!name) continue;
     const associations = mapAssociations(el, idIndex);
-    if (defaultId && el["@id"] === defaultId) defaultName = name;
-    rawEntries.push({ name, pts, max, defaultAmount: hasExplicitDefaultAmount(el) ? getDefaultAmount(el) : hasExplicitDefaultAmount(tgt) ? getDefaultAmount(tgt) : creationMin, sortIndex: intC(el["@sortIndex"], 1e6), profile: pickOptionWeaponProfile(tgt, idIndex) || pickComboWeaponProfiles(tgt, idIndex), ability: pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), comp: collectChoiceComposition(tgt, idIndex), associations, ids: [el["@id"], el["@targetId"], ...entryCategoryIds(el, tgt)].filter(Boolean), statMods: [...extractStatMods(el), ...extractStatMods(tgt)], unitMax: choiceUnitMax(el, tgt), simMods: [...collectSimMods(el), ...collectSimMods(tgt)], weaponMods: [...extractWeaponMods(el, idIndex), ...extractWeaponMods(tgt, idIndex)] });
+    if (defaultId && (el["@id"] === defaultId || el["@targetId"] === defaultId)) defaultName = name;
+    rawEntries.push({ name, pts, max, defaultAmount: hasExplicitDefaultAmount(el) ? getDefaultAmount(el) : hasExplicitDefaultAmount(tgt) ? getDefaultAmount(tgt) : creationMin, sortIndex: intC(el["@sortIndex"], 1e6), profile: pickOptionWeaponProfile(tgt, idIndex) || pickComboWeaponProfiles(tgt, idIndex), ability: pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), comp: collectChoiceComposition(tgt, idIndex), associations, ids: [el["@id"], el["@targetId"], ...entryCategoryIds(el, tgt)].filter(Boolean), statMods: [...extractStatMods(el), ...extractStatMods(tgt)], unitMax: choiceUnitMax(el, tgt), simMods: [...collectSimMods(el), ...collectSimMods(tgt)], weaponMods: [...extractWeaponMods(el, idIndex), ...extractWeaponMods(tgt, idIndex)], inv: optionInvulnDeep(tgt, idIndex) });
   }
   for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
     if (se["@hidden"] === "true") continue;
@@ -4023,7 +4153,7 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
     if (!name) continue;
     const seAssociations = mapAssociations(se, idIndex);
     if (defaultId && se["@id"] === defaultId) defaultName = name;
-    rawEntries.push({ name, pts, max, defaultAmount: hasExplicitDefaultAmount(se) ? getDefaultAmount(se) : creationMin, sortIndex: intC(se["@sortIndex"], 1e6), profile: pickOptionWeaponProfile(se, idIndex) || pickComboWeaponProfiles(se, idIndex), ability: pickOptionAbilityDesc(se, unitCategoryIds, idIndex), comp: collectChoiceComposition(se, idIndex), associations: seAssociations, ids: [se["@id"], ...entryCategoryIds(se)].filter(Boolean), statMods: extractStatMods(se), unitMax: choiceUnitMax(se), simMods: collectSimMods(se), weaponMods: extractWeaponMods(se, idIndex) });
+    rawEntries.push({ name, pts, max, defaultAmount: hasExplicitDefaultAmount(se) ? getDefaultAmount(se) : creationMin, sortIndex: intC(se["@sortIndex"], 1e6), profile: pickOptionWeaponProfile(se, idIndex) || pickComboWeaponProfiles(se, idIndex), ability: pickOptionAbilityDesc(se, unitCategoryIds, idIndex), comp: collectChoiceComposition(se, idIndex), associations: seAssociations, ids: [se["@id"], ...entryCategoryIds(se)].filter(Boolean), statMods: extractStatMods(se), unitMax: choiceUnitMax(se), simMods: collectSimMods(se), weaponMods: extractWeaponMods(se, idIndex), inv: optionInvulnDeep(se, idIndex) });
   }
   rawEntries.sort((a, b) => a.sortIndex - b.sortIndex);
   const choices = rawEntries.map((e) => [
@@ -4046,7 +4176,12 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
     // slot 12: weapon-characteristic modifiers the OPTION applies to the
     // bearer's weapons (extractWeaponMods) — applied by loadout.js while the
     // option is selected. null when none.
-    e.weaponMods && e.weaponMods.length ? e.weaponMods : null
+    e.weaponMods && e.weaponMods.length ? e.weaponMods : null,
+    // slot 13: invulnerable save GRANTED by the option's own ability (« The
+    // bearer has a 4+ invulnerable save », « This unit has 5+ InSv against
+    // ranged attacks ») — {value, unit, conditional, note} — counted by
+    // pickInvuln only while the option is selected. null when none.
+    optionInvuln(e.ability) || e.inv || null
   ]);
   return { choices, defaultName };
 }
@@ -4127,6 +4262,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           if (m["@type"] === "model") rec(m, m["@name"] || "");
         }
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
+          if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
           if (el["@hidden"] === "true") continue;
           const t = el["@targetId"] && idIndex.get(el["@targetId"]);
           if (t && t["@type"] === "model" && t["@hidden"] !== "true") rec(t, el["@name"] || t["@name"] || "");
@@ -4175,6 +4311,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           parentGroupName = uniqueName;
         }
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
+          if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
           if (el["@type"] !== "selectionEntryGroup") continue;
           if (el["@hidden"] === "true") continue;
           const tgt = idIndex.get(el["@targetId"]);
@@ -4202,11 +4339,8 @@ function getOpts(entry, idIndex, unitCategoryIds) {
             rec(tgt, linkedFullName);
           }
         }
-        for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
-          if (se["@hidden"] === "true") continue;
-          if (intC(getConstraint(se, "min", "selections"), 0) >= 1) continue;
-          const seName = se["@name"] || "";
-          for (const ng of arr(child(se, "selectionEntryGroups.selectionEntryGroup"))) {
+        const surfaceNestedOf = (holder, seName) => {
+          for (const ng of arr(child(holder, "selectionEntryGroups.selectionEntryGroup"))) {
             if (ng["@hidden"] === "true" || isEnhancementsMenu(ng["@name"])) continue;
             if (!isLeafOptionGroup(ng)) continue;
             const { choices: ngChoices, defaultName: ngDefault } = getOptChoices(ng, idIndex, unitCategoryIds);
@@ -4223,6 +4357,18 @@ function getOpts(entry, idIndex, unitCategoryIds) {
             const gate = parentGroupName != null ? { g: parentGroupName, c: seName } : null;
             out.push([uniq, ngChoices, ngMax, ngDefault, gate, ngMin]);
           }
+        };
+        for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
+          if (se["@hidden"] === "true") continue;
+          if (intC(getConstraint(se, "min", "selections"), 0) >= 1) continue;
+          surfaceNestedOf(se, se["@name"] || "");
+        }
+        for (const el of arr(child(grp, "entryLinks.entryLink"))) {
+          if (el["@type"] !== "selectionEntry" || el["@hidden"] === "true") continue;
+          const tgt = idIndex.get(el["@targetId"]);
+          if (!tgt || tgt["@hidden"] === "true" || isCrusadeOnlyEntry(tgt, el)) continue;
+          if (intC(getConstraint(el, "min", "selections") ?? getConstraint(tgt, "min", "selections"), 0) >= 1) continue;
+          surfaceNestedOf(el, el["@name"] || tgt["@name"] || "");
         }
       } else {
         const from = out.length;
@@ -4248,10 +4394,36 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       }
       const subName = sub["@name"] || "";
       const subAssoc = sub["@type"] === "upgrade" ? mapAssociations(sub, idIndex) : [];
+      let toggleKey = null;
       const unitOptGear = e === entry && e["@type"] === "unit";
-      const modelOptWeapon = (e["@type"] === "model" || unitOptGear) && sub["@type"] === "upgrade" && getConstraint(sub, "min", "selections") != null && !getDefaultAmount(sub) && (entryHasWeaponProfile(sub, idIndex) || arr(child(sub, "profiles.profile")).some(isAbilityProfile));
-      if ((parentIsTransparent || subAssoc.length || modelOptWeapon) && sub["@type"] === "upgrade" && subName) {
+      const looseGroup = e !== entry && !e["@type"] && getConstraint(e, "min", "selections") == null && getConstraint(e, "max", "selections") == null;
+      const nestedWeapon = (n) => entryHasWeaponProfile(n, idIndex) || arr(child(n, "entryLinks.entryLink")).some((el) => {
+        const t = idIndex && idIndex.get(el["@targetId"]);
+        return t && entryHasWeaponProfile(t, idIndex);
+      }) || arr(child(n, "selectionEntries.selectionEntry")).some((k) => k["@type"] === "upgrade" && entryHasWeaponProfile(k, idIndex));
+      const modelOptWeapon = (e["@type"] === "model" || unitOptGear || looseGroup) && sub["@type"] === "upgrade" && (getConstraint(sub, "min", "selections") != null || getConstraint(sub, "max", "selections") != null) && !getDefaultAmount(sub) && (nestedWeapon(sub) || arr(child(sub, "profiles.profile")).some(isAbilityProfile));
+      if ((parentIsTransparent || subAssoc.length || modelOptWeapon) && sub["@type"] === "upgrade" && subName && !isCrusadeOnlyEntry(sub, null)) {
         const subMin = intC(getConstraint(sub, "min", "selections"), 0);
+        const subMaxRaw = intC(effEntryConstraint(sub, "max", unitCategoryIds), subMin);
+        if (subMin >= 1 && subMaxRaw > subMin && (e["@type"] === "model" || unitOptGear) && entryHasWeaponProfile(sub, idIndex) && !removableMin(sub)) {
+          let pts = 0;
+          for (const c of arr(child(sub, "costs.cost"))) if (c["@name"] === "pts") pts = intC(c["@value"], 0);
+          const fullName = prefix ? prefix + "::" + subName : subName;
+          out.push([fullName, [[subName, pts, subMaxRaw, pickOptionWeaponProfile(sub, idIndex), pickOptionAbilityDesc(sub, unitCategoryIds, idIndex), collectChoiceComposition(sub, idIndex), mapAssociations(sub, idIndex), [sub["@id"]].filter(Boolean), subMin, choiceUnitMax(sub)]], subMaxRaw, subName, null, subMin]);
+        }
+        if (subMin >= 1 && removableMin(sub) && (entryHasWeaponProfile(sub, idIndex) || arr(child(sub, "profiles.profile")).some(isAbilityProfile))) {
+          let pts = 0;
+          for (const c of arr(child(sub, "costs.cost"))) if (c["@name"] === "pts") pts = intC(c["@value"], 0);
+          let fullName = prefix ? prefix + "::" + subName : subName;
+          if (out.some((o) => o[0] === fullName)) {
+            let sfx = 2;
+            while (out.some((o) => o[0] === fullName + " #" + sfx)) sfx++;
+            fullName = fullName + " #" + sfx;
+          }
+          const subMaxR = Math.max(1, intC(effEntryConstraint(sub, "max", unitCategoryIds), 1));
+          out.push([fullName, [[subName, pts, subMaxR, pickOptionWeaponProfile(sub, idIndex), pickOptionAbilityDesc(sub, unitCategoryIds, idIndex), collectChoiceComposition(sub, idIndex), subAssoc, [sub["@id"], ...entryCategoryIds(sub)].filter(Boolean), 1]], 1, subName, null, 0]);
+          toggleKey = fullName;
+        }
         if (subMin < 1) {
           const subMax = Math.max(1, intC(effEntryConstraint(sub, "max", unitCategoryIds), 1));
           const subUnitMax = choiceUnitMax(sub);
@@ -4261,12 +4433,22 @@ function getOpts(entry, idIndex, unitCategoryIds) {
             if (c["@name"] === "pts") pts = intC(c["@value"], 0);
           }
           const fullName = prefix ? prefix + "::" + subName : subName;
-          out.push([fullName, [[subName, pts, subMax, pickOptionWeaponProfile(sub, idIndex), pickOptionAbilityDesc(sub, unitCategoryIds, idIndex), collectChoiceComposition(sub, idIndex), subAssoc, subIds, 0, subUnitMax]], unitOptGear && !modelOptWeaponOnModel(e) ? subMax : 1, "", null, 0]);
+          const subAb = pickOptionAbilityDesc(sub, unitCategoryIds, idIndex);
+          const subInv = optionInvuln(subAb) || optionInvulnDeep(sub, idIndex);
+          const subTuple = [subName, pts, subMax, pickOptionWeaponProfile(sub, idIndex), subAb, collectChoiceComposition(sub, idIndex), subAssoc, subIds, 0, subUnitMax];
+          if (subInv) subTuple.push(null, null, null, subInv);
+          out.push([fullName, [subTuple], unitOptGear && !modelOptWeaponOnModel(e) ? subMax : 1, "", null, 0]);
+          toggleKey = fullName;
         }
       }
       const isModelVariant = sub["@type"] === "model";
       const subPrefix = prefix ? prefix + "::" + subName : e === entry && !isModelVariant ? "" : subName;
+      const nestedFrom = out.length;
       rec(sub, subPrefix);
+      if (toggleKey) for (let i = nestedFrom; i < out.length; i++) {
+        const o = out[i];
+        if (o && o[4] == null) o[4] = { g: toggleKey, c: subName };
+      }
     }
     for (const el of arr(child(e, "entryLinks.entryLink"))) {
       if (el["@type"] !== "selectionEntry") continue;
@@ -4274,6 +4456,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       if (isEnhancementsMenu(el["@name"])) continue;
       const tgt = idIndex.get(el["@targetId"]);
       if (!tgt || tgt["@hidden"] === "true") continue;
+      if (isCrusadeOnlyEntry(tgt, el)) continue;
       if (tgt["@type"] === "model") {
         rec(tgt, el["@name"] || tgt["@name"] || "");
         continue;
@@ -4303,24 +4486,77 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       const subName = el["@name"] || tgt["@name"] || "";
       if (!subName) continue;
       if (isEnhancementsMenu(subName) || isEnhancementsMenu(tgt["@name"])) continue;
+      const nestedFrom = out.length;
+      if (arr(child(el, "selectionEntryGroups.selectionEntryGroup")).some((g) => g["@hidden"] !== "true")) rec(el, prefix ? prefix + "::" + subName : subName);
+      const nestedTo = out.length;
+      const gateNested = (key) => {
+        for (let i = nestedFrom; i < nestedTo; i++) {
+          const o = out[i];
+          if (o && o[4] == null) o[4] = { g: key, c: subName };
+        }
+      };
+      const settleNested = () => {
+        if (nestedTo === nestedFrom) return;
+        if (effMin < 1 && !(getDefaultAmount(el) || getDefaultAmount(tgt))) {
+          out.splice(nestedFrom, nestedTo - nestedFrom);
+          return;
+        }
+        const ids = groupVoidIds(el, voidMap);
+        if (!ids.length) return;
+        for (let i = nestedFrom; i < nestedTo; i++) {
+          const o = out[i];
+          if (!o || o[4] != null) continue;
+          while (o.length < 10) o.push(o.length === 4 ? null : o.length === 5 ? 0 : null);
+          o[9] = [.../* @__PURE__ */ new Set([...Array.isArray(o[9]) ? o[9] : [], ...ids])];
+        }
+      };
       let pts = 0;
       for (const c of arr(child(el, "costs.cost"))) {
         if (c["@name"] === "pts") pts = intC(c["@value"], 0);
       }
       const associations = mapAssociations(el, idIndex);
+      if (effMin >= 1 && removableMin(el, tgt) && (hasWeapon || hasAbility)) {
+        let fullName = prefix ? prefix + "::" + subName : subName;
+        if (out.some((o) => o[0] === fullName)) {
+          let sfx = 2;
+          while (out.some((o) => o[0] === fullName + " #" + sfx)) sfx++;
+          fullName = fullName + " #" + sfx;
+        }
+        const tuple = [fullName, [[subName, pts, Math.max(1, effMax), pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations, [el["@id"], tgt["@id"]].filter(Boolean), 1]], 1, subName, null, 0];
+        const vIds = groupVoidIds(el, voidMap);
+        if (vIds.length) {
+          while (tuple.length < 10) tuple.push(tuple.length === 4 ? null : tuple.length === 5 ? 0 : null);
+          tuple[9] = vIds;
+        }
+        out.push(tuple);
+        gateNested(fullName);
+        if (vIds.length) for (let i = nestedFrom; i < nestedTo; i++) {
+          const o = out[i];
+          if (!o) continue;
+          while (o.length < 10) o.push(o.length === 4 ? null : o.length === 5 ? 0 : null);
+          o[9] = [.../* @__PURE__ */ new Set([...Array.isArray(o[9]) ? o[9] : [], ...vIds])];
+        }
+        continue;
+      }
       const addsCategory = [el, tgt].some((n) => arr(child(n, "modifiers.modifier")).some((m) => m["@type"] === "add" && m["@field"] === "category"));
       const hasHiddenMod = [el, tgt].some((n) => arr(child(n, "modifiers.modifier")).some((m) => m["@field"] === "hidden"));
       if (effMin < 1 && !hasWeapon && (hasAbility || !addsCategory && !hasHiddenMod && subName !== "Warlord")) {
         const fullName = prefix ? prefix + "::" + subName : subName;
         out.push([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0]);
+        gateNested(fullName);
         continue;
       }
       if (effMin < 1 && hasWeapon && !hasHiddenMod) {
-        if (getDefaultAmount(el) || getDefaultAmount(tgt)) continue;
+        if (getDefaultAmount(el) || getDefaultAmount(tgt)) {
+          settleNested();
+          continue;
+        }
         const fullName = prefix ? prefix + "::" + subName : subName;
         out.push([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0]);
+        gateNested(fullName);
         continue;
       }
+      settleNested();
       if (effMin >= 1 && effMax > effMin && (hasWeapon || hasAbility)) {
         const extra = effMax - effMin;
         const optName = "Additional " + subName;
@@ -4352,8 +4588,13 @@ function isAbilityProfile(p) {
   return false;
 }
 var SUPPORT_RULE_ID = "21f5-c07c-6d97-4405";
+var WEAPON_RULE_NAME_RE = /^(sustained hits|lethal hits|devastating wounds|ignores cover|blast|assault|rapid fire|twin-linked|hazardous|heavy|pistol|torrent|indirect fire|melta|anti-|lance|precision|extra attacks|one shot|psychic|hunter)/i;
 var CORE_ABILITY_NAMES = /* @__PURE__ */ new Set([
   "support",
+  // "Leader" is a datasheet ability on its own on ~200 sheets, but 22 (Captain
+  // on Bike, …) carry only the core-rule link — without the name here they
+  // showed no Leader ability at all.
+  "leader",
   "deep strike",
   "scouts",
   "infiltrators",
@@ -4558,8 +4799,9 @@ function addForcedWargearAbilities(ab, entry, idIndex, unitCatIds, comp) {
     }
   }
 }
-function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
+function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks) {
   const allProfiles = [...entryProfiles(entry), ...extraProfiles || []];
+  const modelCoreLinks = [];
   const pushInfoLinkTarget = (il, sink) => {
     const tgt = idIndex.get(il["@targetId"]);
     if (!tgt) return;
@@ -4594,6 +4836,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
   const seen = /* @__PURE__ */ new Set();
   function add(p, gate, appends, wargear) {
     if (unitCatIds && entryHiddenFor(p, unitCatIds)) return;
+    if (String(p["@hidden"]) === "true" && !(gate && gate.m && gate.m.some((m) => m.v === false))) return;
     const id = p["@id"] || "";
     if (id && seen.has(id)) return;
     if (id) seen.add(id);
@@ -4626,7 +4869,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
     }
     out.push(tup);
   }
-  for (const p of entryProfiles(entry)) {
+  for (const p of [...entryProfiles(entry), ...(extraProfiles || []).filter((x) => isAbilityTn(x["@typeName"]))]) {
     if (isAbilityTn(p["@typeName"])) add(p, runtimeHiddenGate(p));
   }
   for (const m of modelEntriesOf(entry, idIndex)) {
@@ -4634,6 +4877,8 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
     for (const il of entryInfoLinks(m)) {
       const tgt = idIndex.get(il["@targetId"]);
       if (tgt && isAbilityProfile(tgt)) add(tgt, mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(tgt)), linkDescAppends(il));
+      else if (tgt && (il["@type"] === "rule" || tgt.description != null && !tgt.characteristics)) addRule(tgt, mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(tgt)));
+      else if (!tgt) modelCoreLinks.push(il);
     }
   }
   {
@@ -4666,9 +4911,16 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
   }
   const coreLinks = [];
   let invulFromName = "";
-  for (const il of entryInfoLinks(entry)) {
+  for (const il of [...entryInfoLinks(entry), ...extraInfoLinks || [], ...modelCoreLinks]) {
     const tgt = idIndex.get(il["@targetId"]);
     if (!tgt) {
+      if (il["@type"] === "profile") {
+        const g = GST_INDEX.get(il["@targetId"]);
+        if (g && isAbilityTn(g["@typeName"]) && !INVULN_NAME_RE.test(g["@name"] || "")) {
+          add(g, mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(g)), linkDescAppends(il));
+          continue;
+        }
+      }
       const base = il["@name"] || "";
       const inv = base.match(/invulnerable\s*save\b[^0-9]*?(\d)\s*\+/i);
       if (inv) {
@@ -4676,6 +4928,13 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
         continue;
       }
       const bySupportId = il["@type"] === "rule" && il["@targetId"] === SUPPORT_RULE_ID;
+      if (il["@type"] === "rule" && !CORE_ABILITY_NAMES.has(base.toLowerCase()) && !bySupportId && !WEAPON_RULE_NAME_RE.test(base)) {
+        const g = GST_INDEX.get(il["@targetId"]);
+        if (g && g.description != null) {
+          addRule(g, mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(g)));
+          continue;
+        }
+      }
       if (il["@type"] !== "rule" || !(CORE_ABILITY_NAMES.has(base.toLowerCase()) || bySupportId)) continue;
       const dispBase = bySupportId ? "Support" : base;
       let val = "";
@@ -4715,6 +4974,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
     const present = new Set(out.map(([n]) => String(n || "").toLowerCase()));
     for (const [name, baseLower] of coreLinks) {
       if (present.has(baseLower)) continue;
+      if (baseLower === "damaged" && [...present].some((n) => n.startsWith("damaged"))) continue;
       present.add(baseLower);
       out.push([name, ""]);
     }
@@ -4740,11 +5000,12 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles) {
 }
 function parseSimMod(text) {
   const out = [];
-  const re = /sim-mod:\s*([^\n\r]+)/gi;
+  const re = /(sim-mod|def-mod):\s*([^\n\r]+)/gi;
   let mm;
   while ((mm = re.exec(text || "")) !== null) {
-    const parts = mm[1].trim().match(/[a-z]+="[^"]*"|\S+/gi) || [];
-    const sm = { source: "", effects: [], weapon: null, when: null, vs: [], oncePer: null, whileLeading: false, onCharge: false, conditional: false, choice: null, scope: "unit", kw: [], vsTougher: false, faction: null, raw: mm[1].trim() };
+    const body = mm[2].trim();
+    const parts = body.match(/[a-z]+="[^"]*"|\S+/gi) || [];
+    const sm = { source: "", effects: [], weapon: null, when: null, vs: [], oncePer: null, whileLeading: false, onCharge: false, conditional: false, choice: null, scope: "unit", kw: [], vsTougher: false, faction: null, raw: body, .../^def/i.test(mm[1]) ? { def: true } : {} };
     for (const tk of parts) {
       let m2;
       if (m2 = /^source="([^"]*)"$/i.exec(tk)) sm.source = m2[1];
@@ -4766,6 +5027,7 @@ function parseSimMod(text) {
         sm.onCharge = true;
         sm.conditional = true;
       } else if (/^conditional$/i.test(tk)) sm.conditional = true;
+      else if (/^vsStronger$/i.test(tk)) sm.vsStronger = true;
       else if (/^vsTougher$/i.test(tk)) sm.vsTougher = true;
       else {
         const em = /^([a-z][a-z-]*)(?:=(.+))?$/i.exec(tk);
@@ -4781,6 +5043,44 @@ var _commentText = (n) => {
   const c = n && n.comment;
   return typeof c === "string" ? c : Array.isArray(c) ? c.filter((x) => typeof x === "string").join("\n") : "";
 };
+function optionInvuln(ability) {
+  const d = String(ability && ability.desc || "").replace(/\*\*|\^\^/g, "");
+  const m = d.match(/(\d)\s*\+\s*(?:invul\w*\s*sav\w*|InSv)([^.;\n]*)/i) || d.match(/(?:invul\w*\s*sav\w*|InSv)[^0-9.;\n]{0,16}?(\d)\s*\+([^.;\n]*)/i);
+  if (!m) return null;
+  const tail = String(m[2] || "").trim();
+  const head = d.slice(0, m.index);
+  const conditional = /\b(against|while|until|if|when|each time|once per)\b/i.test(tail) || /\b(while|if|when|until|once per)\b/i.test(head);
+  const unit = /\b(this unit|models in (?:this|the bearer's|that) unit|the bearer's unit|in that unit)\b/i.test(d);
+  const note = conditional ? d.replace(/\s+/g, " ").trim().slice(0, 160) : "";
+  return { value: parseInt(m[1], 10), unit, conditional, ...note ? { note } : {} };
+}
+function optionInvulnDeep(node, idIndex, depth = 0) {
+  if (!node || depth > 3) return null;
+  for (const p of arr(child(node, "profiles.profile"))) {
+    if (!isAbilityProfile(p)) continue;
+    const c = characteristics(p);
+    const iv = optionInvuln({ desc: c.Description || c.Effect || "" });
+    if (iv) return iv;
+  }
+  if (idIndex) for (const il of arr(child(node, "infoLinks.infoLink"))) {
+    if (il["@type"] !== "profile") continue;
+    const p = idIndex.get(il["@targetId"]);
+    if (p && isAbilityProfile(p)) {
+      const c = characteristics(p);
+      const iv = optionInvuln({ desc: c.Description || c.Effect || "" });
+      if (iv) return iv;
+    }
+  }
+  for (const k of arr(child(node, "selectionEntries.selectionEntry"))) {
+    const iv = optionInvulnDeep(k, idIndex, depth + 1);
+    if (iv) return iv;
+  }
+  if (idIndex) for (const l of arr(child(node, "entryLinks.entryLink"))) {
+    const iv = optionInvulnDeep(idIndex.get(l["@targetId"]), idIndex, depth + 1);
+    if (iv) return iv;
+  }
+  return null;
+}
 function collectSimMods(entry) {
   return parseSimMod(_commentText(entry));
 }
@@ -4789,8 +5089,14 @@ function parseStatMarkers(text) {
   for (const raw of String(text || "").split("\n")) {
     const line = raw.trim();
     let m;
-    if (m = line.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?(\s+conditional)?(?:\s+note="([^"]*)")?\s*$/i)) {
-      (out.invulnM = out.invulnM || []).push({ value: m[1], model: m[2] || "", conditional: !!m[3], ...m[4] ? { note: m[4] } : {} });
+    if (m = line.match(/^invuln:\s*(\d\+)(.*)$/i)) {
+      const rest = m[2] || "";
+      const attr = (k) => {
+        const a = rest.match(new RegExp(k + '="([^"]*)"', "i"));
+        return a ? a[1] : "";
+      };
+      const note = attr("note"), option = attr("option");
+      (out.invulnM = out.invulnM || []).push({ value: m[1], model: attr("model"), conditional: /\bconditional\b/i.test(rest), ...note ? { note } : {}, ...option ? { option } : {} });
     } else if (m = line.match(/^fnp:\s*(\d)\+\s*$/i)) {
       out.fnpM = parseInt(m[1], 10);
     } else if (/^must-warlord$/i.test(line)) out.mustWL = true;
@@ -5062,13 +5368,11 @@ function getRosterMsgs(entry, link, idIndex) {
 }
 function getRosterMaxMods(entry, link) {
   const ids = /* @__PURE__ */ new Map();
-  let hasRoster = false;
   for (const node of [entry, link]) {
     for (const c of arr(child(node, "constraints.constraint"))) {
       if (c["@type"] !== "max" || c["@field"] !== "selections" || !c["@id"]) continue;
       if (c["@scope"] !== "roster" && c["@scope"] !== "force") continue;
-      ids.set(c["@id"], c["@scope"]);
-      if (c["@scope"] === "roster") hasRoster = true;
+      ids.set(c["@id"], { scope: c["@scope"], base: intC(c["@value"], 0) });
     }
   }
   if (!ids.size) return [];
@@ -5077,16 +5381,46 @@ function getRosterMaxMods(entry, link) {
     for (const m of extractModifiers(node)) {
       if (!ids.has(m.field) || m.type !== "set" && m.type !== "increment" && m.type !== "decrement") continue;
       if (!cgHasCond(m.cg)) continue;
-      const scope = ids.get(m.field);
-      if (hasRoster && scope !== "roster") continue;
-      out.push({ op: m.type, value: intC(m.value, 0), scope, cg: m.cg });
+      const { scope, base } = ids.get(m.field);
+      out.push({ op: m.type, value: intC(m.value, 0), scope, cid: m.field, base, cg: m.cg });
     }
   }
   return out;
 }
-function getRosterMax(entry) {
+function absentGateChildIds(node) {
+  const out = [];
+  for (const { modifier, sharedCg } of walkModifiers(node || {})) {
+    if (sharedCg || modifier["@type"] !== "set" || modifier["@field"] !== "hidden" || modifier["@value"] !== "true") continue;
+    const conds = arr(child(modifier, "conditions.condition"));
+    if (!conds.length || arr(child(modifier, "conditionGroups.conditionGroup")).length) continue;
+    const absent = (c) => {
+      const t = c["@type"], v = intC(c["@value"], 0);
+      return (c["@field"] === "selections" || c["@field"] === "forces") && (c["@scope"] === "roster" || c["@scope"] === "force") && (t === "lessThan" && v === 1 || t === "equalTo" && v === 0 || t === "atMost" && v === 0);
+    };
+    if (conds.every(absent)) out.push(conds.map((c) => c["@childId"]).filter(Boolean));
+  }
+  return out;
+}
+function isCrusadeOnlyEntry(entry, link) {
+  return [entry, link].some((n) => n && absentGateChildIds(n).some((ids) => ids.length === 1 && ids[0] === CRUSADE_FORCE_ID));
+}
+function getReqUnitIds(entry, link, idIndex) {
+  const out = { units: [], cats: [] };
+  for (const n of [entry, link]) if (n) for (const ids of absentGateChildIds(n)) {
+    if (ids.length !== 1) continue;
+    const t = idIndex && idIndex.get(ids[0]);
+    if (!t) continue;
+    if (t["@type"] === "unit" || t["@type"] === "model") {
+      if (!out.units.includes(ids[0])) out.units.push(ids[0]);
+    } else if (!t["@type"] && !t["@targetId"] && t["@name"] && !t.profiles && !t.constraints) {
+      if (!out.cats.includes(ids[0])) out.cats.push(ids[0]);
+    }
+  }
+  return out;
+}
+function getRosterMax(entry, link) {
   let roster = 0, force = 0;
-  for (const c of arr(child(entry, "constraints.constraint"))) {
+  for (const c of [...arr(child(entry, "constraints.constraint")), ...link ? arr(child(link, "constraints.constraint")) : []]) {
     if (c["@type"] !== "max" || c["@field"] !== "selections") continue;
     if (c["@scope"] !== "roster" && c["@scope"] !== "force") continue;
     const v = intC(c["@value"], 0);
@@ -5094,6 +5428,7 @@ function getRosterMax(entry) {
     if (c["@scope"] === "roster") roster = roster === 0 ? v : Math.min(roster, v);
     else force = force === 0 ? v : Math.min(force, v);
   }
+  if (roster > 0 && force > 0) return Math.min(roster, force);
   return roster > 0 ? roster : force;
 }
 function getDetReq(entry, detIdToName) {
@@ -5110,7 +5445,8 @@ function getDetReq(entry, detIdToName) {
     ];
     if (conds.some((c) => c["@type"] === "instanceOf")) continue;
     for (const c of conds) {
-      if (c["@type"] !== "lessThan") continue;
+      const t = c["@type"], v = intC(c["@value"], 0);
+      if (!(t === "lessThan" && v === 1 || t === "equalTo" && v === 0 || t === "atMost" && v === 0)) continue;
       const cid = c["@childId"];
       if (cid && detIdToName.has(cid)) dets.add(detIdToName.get(cid));
     }
@@ -5195,7 +5531,7 @@ function getTransportCapacity(entry, idIndex) {
   }
   return dig(entry);
 }
-var MFM_LINK_GROUPS = /* @__PURE__ */ new Set(["Can Lead (MFM)", "Can Support (MFM)"]);
+var MFM_LINK_GROUPS = /* @__PURE__ */ new Set(["Can Lead (MFM)", "Can Support (MFM)", "Led By (MFM)", "Supported By (MFM)"]);
 function stripLeaderLinkGroups(entry) {
   const groups = arr(child(entry, "selectionEntryGroups.selectionEntryGroup"));
   if (!groups.some((g) => MFM_LINK_GROUPS.has(g["@name"]))) return entry;
@@ -5318,7 +5654,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
       }
     }
   }
-  const stats = getStats(cEntry, idIndex);
+  let stats = getStats(cEntry, idIndex);
   const statLines = getStatLines(cEntry, idIndex);
   const conferredIds = [
     ...conferredCategoryIds(entry, catalogueId),
@@ -5329,6 +5665,22 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
   const weapons = collectWeapons(cEntry, idIndex, unitCatIds);
   const optWeapons = collectOptionWeapons(cEntry, idIndex);
   const comp = getComp(entry, idIndex);
+  if (statLines.length > 1 && comp.length) {
+    const toks = (x) => new Set(String(x || "").toLowerCase().split(/[^a-z0-9']+/).filter(Boolean).map((t) => t.replace(/'s$/, "").replace(/s$/, "")));
+    const rows = comp.flatMap((g) => g[3] || []).map((r) => ({ t: toks(r[0]), max: Math.max(1, intC(r[1], 1)) }));
+    const weightOf = (namesJoined) => {
+      const names = String(namesJoined || "").split(/,|&|\band\b/).map((x) => toks(x)).filter((t) => t.size);
+      let w = 0;
+      for (const r of rows) if (names.some((n) => [...n].every((t) => r.t.has(t)))) w += r.max;
+      return w;
+    };
+    const isChar = keywords.some((k) => /^character$/i.test(String(k)));
+    const weighted = statLines.map((l, i) => ({ l, i, w: /\(ref\.? only\)/i.test(l[0]) ? -1 : weightOf(l[0]) }));
+    if (isChar) weighted.sort((a, b) => (a.w < 0) - (b.w < 0) || a.i - b.i);
+    else weighted.sort((a, b) => b.w - a.w || a.i - b.i);
+    statLines.splice(0, statLines.length, ...weighted.map((x) => x.l));
+    if (statLines[0][1] && statLines[0][1].length) stats = statLines[0][1].join("/");
+  }
   const transportCapacity = getTransportCapacity(entry, idIndex);
   if (catIdToName) {
     for (const id of conferredIds) {
@@ -5358,7 +5710,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
       _maxM += g[2];
     }
   }
-  const ptsInfo = getPtsInfo(entry);
+  const ptsInfo = getPtsInfo(entry, link);
   const tiers = getTiers(entry);
   if (ptsInfo.perModelPts && ptsInfo.modelMax > ptsInfo.modelMin) {
     for (let k = ptsInfo.modelMin + 1; k <= ptsInfo.modelMax; k++) {
@@ -5457,6 +5809,15 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
       }
       return m;
     })(),
+    // Selection ids (link + target / entry) of the fixed default weapons: with the
+    // wargear picks and the designations, the row's live selection set that an
+    // enhancement's `needSel` is checked against (Iron Ambassador: "model equipped
+    // with an Autoch-pattern combi-bolter" — standard on the Einhyr Champion).
+    ...(() => {
+      const ids = /* @__PURE__ */ new Set();
+      collectDirectWeapons(entry, idIndex, ids);
+      return ids.size ? { defaultWeaponIds: [...ids] } : {};
+    })(),
     comp,
     tiers,
     // name → selectionEntry id of each composition model (tuple slot 8), so
@@ -5482,7 +5843,8 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     ...(() => {
       const STD = /^(Unit|Ranged Weapons?|Melee Weapons?|Transport|Force Disposition|Abilit(y|ies))$/i;
       const secExtra = forcedWargearProfiles(cEntry, idIndex, unitCatIds).filter((p) => p["@typeName"] && !STD.test(p["@typeName"]));
-      const ab = getAbilities(cEntry, idIndex, unitCatIds, secExtra);
+      if (link) secExtra.push(...entryProfiles(link).filter((p) => isAbilityProfile(p)));
+      const ab = getAbilities(cEntry, idIndex, unitCatIds, secExtra, link ? entryInfoLinks(link) : []);
       addForcedWargearAbilities(ab, cEntry, idIndex, unitCatIds, comp);
       const tk = extractTokens(ab);
       return { abilities: ab, ...tk.length ? { tokens: tk } : {} };
@@ -5526,12 +5888,27 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     // Hero is one-per-army regardless of any declared constraint; a plain
     // Character is NOT 0-1 (Harlequin Troupe Master / Shadowseer / Death Jester
     // are 0-3, from their roster-scoped max).
-    rosterMax: flags.isEpic ? 1 : getRosterMax(entry),
+    rosterMax: flags.isEpic ? 1 : getRosterMax(entry, link),
+    // Datasheets a roster can only field alongside another one (Ripper Swarms
+    // spawned by the Parasite of Mortrex, Spore Mines by the Biovore, Mucolid
+    // Spores by the Sporocyst): `set hidden` unless that unit is in the roster.
+    // The catalogue hides them until the parent datasheet is in the list.
+    ...(() => {
+      const r = getReqUnitIds(entry, link, idIndex);
+      return { ...r.units.length ? { reqUnitIds: r.units } : {}, ...r.cats.length ? { reqCatIds: r.cats } : {} };
+    })(),
     // Conditional caps on that constraint (getRosterMaxMods) and roster-decidable
     // validation messages (getRosterMsgs). Omitted when empty (most datasheets).
     ...(() => {
       const mm = flags.isEpic ? [] : getRosterMaxMods(entry, link);
-      return mm.length ? { rosterMaxMods: mm } : {};
+      if (!mm.length) return {};
+      const caps = [];
+      for (const node of [entry, link]) for (const c of arr(child(node || {}, "constraints.constraint"))) {
+        if (c["@type"] !== "max" || c["@field"] !== "selections" || !c["@id"]) continue;
+        if (c["@scope"] !== "roster" && c["@scope"] !== "force") continue;
+        caps.push({ cid: c["@id"], base: intC(c["@value"], 0), scope: c["@scope"] });
+      }
+      return { rosterMaxMods: mm, rosterCaps: caps };
     })(),
     ...(() => {
       const rm = getRosterMsgs(entry, link, idIndex);
@@ -5588,6 +5965,13 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     // Résidu « groupe Can * (MFM) sans règle Leader/Support » — la règle est
     // VITALE pour mener (codex 11e) : le groupe seul n'annote plus rien, et
     // data-audit signale la donnée à purger.
+    // Liens INVERSES « Led By (MFM) » / « Supported By (MFM) » (dépôt wh40k-11e,
+    // editor/translations/gdc-attach.cjs) : posés sur l'unité MENÉE, ils visent la
+    // fiche du meneur quand celle-ci ne peut pas viser l'unité (cible hors de sa
+    // clôture d'import : Captain du tronc SM → Sword Brethren des Black Templars).
+    // Transitoires : le LEADGRAPH les fusionne dans la liste du meneur, puis les retire.
+    ledByIds: getMfmGroupIds(entry, "Led By (MFM)").concat(link ? getMfmGroupIds(link, "Led By (MFM)") : []),
+    supportedByIds: getMfmGroupIds(entry, "Supported By (MFM)").concat(link ? getMfmGroupIds(link, "Supported By (MFM)") : []),
     ...canLeadOrphan(entry) || link && canLeadOrphan(link) ? { canLeadOrphan: true } : {}
   };
 }
@@ -5709,10 +6093,16 @@ function negateCg(cg) {
   if (!conds.length && !groups.length) return null;
   return { op: cg.op === "or" ? "and" : "or", conds, groups };
 }
+function cgMentionsId(cg, id) {
+  if (!cg) return false;
+  if ((cg.conds || []).some((c) => c.childId === id)) return true;
+  return (cg.groups || []).some((g) => cgMentionsId(g, id));
+}
 function optRevealGate(node) {
   if (node["@hidden"] !== "true") return null;
   const g = runtimeHiddenGate(node);
   if (!g || !g.b || !g.m.some((m) => !m.v)) return null;
+  if (g.m.filter((m) => !m.v).every((m) => cgMentionsId(m.cg, CRUSADE_FORCE_ID))) return null;
   const cstr = (t) => (arr(child(node, "constraints.constraint")).find((c) => c["@type"] === t && c["@field"] === "selections") || {})["@id"];
   const minId = cstr("min"), maxId = cstr("max");
   let min = 0, max = 0;
@@ -5764,7 +6154,7 @@ var PARENT_CATALOGUE = {
   "Chaos - Chaos Daemons": "Chaos - Daemons Library"
 };
 var kwCanon = (s) => String(s).replace(/[‐-―−]/g, "-").replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " ").toLowerCase();
-function enhReqKeywords(desc, factionKeywords) {
+function enhReqKeywords(desc, factionKeywords, noopKeywords) {
   if (!desc || !factionKeywords || !factionKeywords.size) return [];
   const d = String(desc).replace(/[*^]/g, "").trim();
   const m = d.match(/^([A-Za-z‘’'‐-―−\- ,]+?)\s+(?:models?|units?)\s+only\b/i);
@@ -5781,6 +6171,12 @@ function enhReqKeywords(desc, factionKeywords) {
         lp = lp.replace(needle, " ");
       }
     }
+    for (const k of [...noopKeywords || []].sort((a, b) => b.length - a.length)) {
+      const needle = " " + kwCanon(k) + " ";
+      if (lp.includes(needle)) lp = lp.replace(needle, " ");
+    }
+    const rest = lp.replace(/\b(?:and|or|a|an|the|any|each|that|with|in|of)\b/gi, " ").replace(/\s+/g, " ").trim();
+    for (const w of rest ? rest.split(" ") : []) keep.push(w.toLowerCase().replace(new RegExp("(^|[\\s'\u2018\u2019-])(\\p{L})", "gu"), (m0, a, b) => a + b.toUpperCase()));
     if (keep.length) groups.push(keep);
   }
   return groups;
@@ -5992,40 +6388,31 @@ function findDetachmentRoot(catalogue, idIndex) {
 }
 function isHiddenForCatalogue(entry, catalogueId) {
   if (!catalogueId) return false;
-  for (const { modifier } of walkModifiers(entry)) {
+  const evalCond = (c) => {
+    if (c["@scope"] !== "primary-catalogue") return null;
+    if (c["@type"] === "instanceOf") return catalogueId === c["@childId"];
+    if (c["@type"] === "notInstanceOf") return catalogueId !== c["@childId"];
+    return null;
+  };
+  const evalGroup = (g) => {
+    const vals = [
+      ...arr(child(g, "conditions.condition")).map(evalCond),
+      ...arr(child(g, "conditionGroups.conditionGroup")).map(evalGroup)
+    ];
+    if (!vals.length || vals.some((v) => v === null)) return null;
+    return (g["@type"] || "and").toLowerCase() === "or" ? vals.some(Boolean) : vals.every(Boolean);
+  };
+  for (const { modifier, sharedCg } of walkModifiers(entry)) {
     if (modifier["@type"] !== "set") continue;
     if (modifier["@field"] !== "hidden") continue;
     if (modifier["@value"] !== "true") continue;
-    const conds = [
-      ...arr(child(modifier, "conditions.condition")),
-      ...arr(child(modifier, "conditionGroups.conditionGroup")).flatMap(
-        (cg) => arr(child(cg, "conditions.condition"))
-      )
+    if (sharedCg) continue;
+    const vals = [
+      ...arr(child(modifier, "conditions.condition")).map(evalCond),
+      ...arr(child(modifier, "conditionGroups.conditionGroup")).map(evalGroup)
     ];
-    if (conds.length === 0) continue;
-    let allMatch = true;
-    for (const c of conds) {
-      if (c["@scope"] !== "primary-catalogue") {
-        allMatch = false;
-        break;
-      }
-      const childId = c["@childId"];
-      if (c["@type"] === "instanceOf") {
-        if (catalogueId !== childId) {
-          allMatch = false;
-          break;
-        }
-      } else if (c["@type"] === "notInstanceOf") {
-        if (catalogueId === childId) {
-          allMatch = false;
-          break;
-        }
-      } else {
-        allMatch = false;
-        break;
-      }
-    }
-    if (allMatch) return true;
+    if (!vals.length || vals.some((v) => v === null)) continue;
+    if (vals.every(Boolean)) return true;
   }
   return false;
 }
@@ -6356,6 +6743,14 @@ async function parseAllCatalogues(dir) {
           }
         }
       }
+      const pName = PARENT_CATALOGUE[factionKey];
+      const parent = pName && linkedCats.find(({ link }) => link["@name"] === pName);
+      const pRoot = parent && findDetachmentRoot(parent.linked.root, mergedIdIndex);
+      if (pRoot) {
+        for (const det of arr(child(pRoot, "selectionEntries.selectionEntry"))) {
+          if (det["@type"] === "upgrade" && det["@name"] && det["@id"] && !detIdToName.has(det["@id"])) detIdToName.set(det["@id"], det["@name"]);
+        }
+      }
     }
     const catIdToName = buildCatIdToName(info.root);
     for (const { linked } of linkedCats) {
@@ -6364,7 +6759,8 @@ async function parseAllCatalogues(dir) {
       }
     }
     const rawUnitEntries = /* @__PURE__ */ new Map();
-    const extractListed = (listed) => listed.map(({ entry, link }, i) => ({
+    const hiddenForPrimary = (entry, link) => isHiddenForCatalogue(entry, info.catalogueId) || link && isHiddenForCatalogue(link, info.catalogueId) || isCrusadeOnlyEntry(entry, link);
+    const extractListed = (listed) => listed.filter(({ entry, link }) => !hiddenForPrimary(entry, link)).map(({ entry, link }, i) => ({
       entry,
       u: extractUnit(entry, mergedIdIndex, factionKey, i, detIdToName, catIdToName, link, info.catalogueId)
     })).filter(({ entry, u }) => isDatasheetUnit(u, entry)).map(({ entry, u }) => {
@@ -6380,11 +6776,12 @@ async function parseAllCatalogues(dir) {
     for (const { link, linked } of linkedCats) {
       if (link["@importRootEntries"] !== "true") continue;
       const isParent = parentLinkName && link["@name"] === parentLinkName;
-      let linkedUnits = listUnits(linked.root, mergedIdIndex);
-      if (!linkedUnits.length) linkedUnits = listSharedUnits(linked.root, mergedIdIndex);
+      let linkedUnits = listUnits(linked.root, mergedIdIndex, info.catalogueId);
+      if (!linkedUnits.length && nativeMenuCount === 0) linkedUnits = listSharedUnits(linked.root, mergedIdIndex);
       for (const { entry, link: innerLink } of linkedUnits) {
         if (units.some((u2) => u2.bsId === entry["@id"])) continue;
         if (entry["@import"] === "false" || innerLink && innerLink["@import"] === "false") continue;
+        if (hiddenForPrimary(entry, innerLink)) continue;
         const u = extractUnit(entry, mergedIdIndex, factionKey, importedIdx++, detIdToName, catIdToName, innerLink, info.catalogueId);
         if (!isDatasheetUnit(u, entry)) continue;
         if (entry["@id"] && !rawUnitEntries.has(entry["@id"])) rawUnitEntries.set(entry["@id"], entry);
@@ -6396,6 +6793,18 @@ async function parseAllCatalogues(dir) {
     if (!parentLinkName && nativeMenuCount === 0 && linkedCats.some(({ link }) => link["@importRootEntries"] === "true")) {
       const importLinks = linkedCats.filter(({ link }) => link["@importRootEntries"] === "true").map(({ link }) => link["@name"]);
       console.warn(`[allied] "${factionKey}" has NO native datasheet menu and imports its roster from [${importLinks.join(", ")}] with none recognised as parent \u2192 ALL units flagged Allied. Add "${factionKey}": "<primary library link name>" to PARENT_CATALOGUE in bsdata-parser.mjs.`);
+    }
+    for (const u of units) {
+      if (!Array.isArray(u.reqCatIds)) continue;
+      const ids = new Set(u.reqUnitIds || []);
+      for (const v of units) {
+        const re = rawUnitEntries.get(v.bsId);
+        if (!re || v.bsId === u.bsId) continue;
+        if (arr(child(re, "categoryLinks.categoryLink")).some((cl) => u.reqCatIds.includes(cl["@targetId"]))) ids.add(v.bsId);
+      }
+      delete u.reqCatIds;
+      if (ids.size) u.reqUnitIds = [...ids];
+      else delete u.reqUnitIds;
     }
     units.forEach((u, i) => {
       u.id = `${factionKey}_${i}`;
@@ -6451,6 +6860,8 @@ async function parseAllCatalogues(dir) {
     }
     const factionKeywords = /* @__PURE__ */ new Set();
     for (const u of units) for (const k of u.keywords || []) factionKeywords.add(k);
+    const allFactionKeywords = /* @__PURE__ */ new Set();
+    for (const u of units) for (const k of u.factionKeywords || []) allFactionKeywords.add(k);
     {
       const declared = units.map((u) => u.factionKeywords || []).filter((fk) => fk.length);
       for (const fk of declared) {
@@ -6462,7 +6873,7 @@ async function parseAllCatalogues(dir) {
     }
     for (const e of enhs) {
       if (e && (!e.reqKeywords || !e.reqKeywords.length)) {
-        e.reqKeywords = enhReqKeywords(e.desc, factionKeywords);
+        e.reqKeywords = enhReqKeywords(e.desc, factionKeywords, allFactionKeywords);
       }
       if (e) delete e.unitEnh;
     }
@@ -6575,18 +6986,34 @@ async function parseAllCatalogues(dir) {
         })(entry, []);
         return out2;
       };
-      const catSets = new Map(candidates.map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], u.bsId, ...rawUnitEntries.has(u.bsId) ? menuPathCats(rawUnitEntries.get(u.bsId)) : []])]));
-      const allCatSets = new Map(units.filter((u) => u.bsId).map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], u.bsId])]));
-      const collectNeedSel = (cg, into) => {
+      const linkIdsByTarget = /* @__PURE__ */ new Map();
+      for (const [lid, ln] of mergedIdIndex) if (ln && ln["@targetId"] && lid) {
+        if (!linkIdsByTarget.has(ln["@targetId"])) linkIdsByTarget.set(ln["@targetId"], []);
+        linkIdsByTarget.get(ln["@targetId"]).push(lid);
+      }
+      const selfIds = (bsId) => [bsId, ...linkIdsByTarget.get(bsId) || []];
+      const catSets = new Map(candidates.map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], ...selfIds(u.bsId), ...rawUnitEntries.has(u.bsId) ? menuPathCats(rawUnitEntries.get(u.bsId)) : []])]));
+      const allCatSets = new Map(units.filter((u) => u.bsId).map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], ...selfIds(u.bsId)])]));
+      const collectNeedSel = (cg, into, selfId) => {
         for (const c of cg.conds || []) {
-          if (c.type === "lessThan" && Number(c.value) <= 1 && c.field === "selections" && c.scope === "ancestor" && c.childId) into.add(c.childId);
+          if (selfId && c.childId === selfId) continue;
+          if (c.type === "lessThan" && Number(c.value) <= 1 && c.field === "selections" && (c.scope === "ancestor" || c.scope === "parent") && c.childId) into.add(c.childId);
         }
-        for (const g of cg.groups || []) collectNeedSel(g, into);
+        for (const g of cg.groups || []) collectNeedSel(g, into, selfId);
       };
+      const needSelModsOf = /* @__PURE__ */ new Map();
       for (const e of enhs) {
         const needSel = /* @__PURE__ */ new Set();
-        for (const m of e.hideMods || []) collectNeedSel(m.cg, needSel);
-        if (needSel.size) e.needSel = [...needSel];
+        const nsMods = [];
+        for (const m of e.hideMods || []) {
+          const before = needSel.size;
+          collectNeedSel(m.cg, needSel, e.bsId);
+          if (needSel.size > before) nsMods.push(m);
+        }
+        if (needSel.size) {
+          e.needSel = [...needSel];
+          needSelModsOf.set(e, nsMods);
+        }
         const mods = (e.hideMods || []).filter((m) => refsAncestorCat(m.cg));
         delete e.hideMods;
         if (!mods.length) continue;
@@ -6605,7 +7032,14 @@ async function parseAllCatalogues(dir) {
           }
           if (!hidden) eligible.push(u.bsId);
         }
-        if (!anyDecidable || !eligible.length) continue;
+        if (!anyDecidable) continue;
+        if (!eligible.length) {
+          if (!(e.bearers && e.bearers.length)) {
+            e.bearers = [];
+            e.noBearer = true;
+          }
+          continue;
+        }
         if (e.bearers && e.bearers.length) {
           const kept = e.bearers.filter((b) => {
             const cats2 = allCatSets.get(b);
@@ -6617,6 +7051,15 @@ async function parseAllCatalogues(dir) {
         } else {
           e.bearers = eligible;
         }
+      }
+      for (const [e, nsMods] of needSelModsOf) {
+        if (!Array.isArray(e.bearers) || !e.bearers.length) continue;
+        if (!nsMods.every((m) => refsAncestorCat(m.cg))) continue;
+        e._nsUnd = new Set(e.bearers.filter((b) => {
+          const cats2 = allCatSets.get(b) || catSets.get(b);
+          if (!cats2) return true;
+          return nsMods.some((m) => evalTree(m.cg, cats2) === null);
+        }));
       }
     }
     {
@@ -6657,6 +7100,12 @@ async function parseAllCatalogues(dir) {
           return gs.some((g) => g.every((k) => s.has(String(k).toLowerCase())));
         });
         if (kept.length && kept.length < e.bearers.length) e.bearers = kept;
+      }
+      for (const e of enhs) {
+        if (!e._nsUnd) continue;
+        const forB = (e.bearers || []).filter((b) => e._nsUnd.has(b));
+        if (Array.isArray(e.bearers) && forB.length < e.bearers.length) e.needSelFor = forB;
+        delete e._nsUnd;
       }
     }
     {
