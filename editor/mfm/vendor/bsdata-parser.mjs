@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 2300e4b
-// source-sha256: 8b8248e4d9ccd90c
+// source-commit: 5a4e98d
+// source-sha256: 23054968e1dfe84b
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6497,9 +6497,11 @@ function detAllies(se) {
   const keyword = kv("keyword");
   if (!keyword) return null;
   const maxPts = parseInt(kv("maxPts"), 10);
+  const native = /\bnative\b/.test(m[1]) || !kv("faction");
   return {
     keyword,
-    faction: kv("faction") || keyword,
+    faction: native ? "" : kv("faction"),
+    native,
     maxPts: Number.isFinite(maxPts) ? maxPts : 0,
     cannotWarlord: /\bcannot-warlord\b/.test(m[1]),
     killTeamEnhOnly: /\bkill-team-enh-only\b/.test(m[1])
