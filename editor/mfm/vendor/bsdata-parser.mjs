@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: be7b699
-// source-sha256: a30219d2afd5aba3
+// source-commit: 2300e4b
+// source-sha256: 8b8248e4d9ccd90c
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6487,6 +6487,24 @@ function collectDetRules(se, idIndex) {
   }
   return out;
 }
+function detAllies(se) {
+  const m = /det-allies:([^\n]*)/.exec(_commentText(se) || "");
+  if (!m) return null;
+  const kv = (k) => {
+    const r = new RegExp(k + '="([^"]*)"').exec(m[1]) || new RegExp(k + "=(\\S+)").exec(m[1]);
+    return r ? r[1] : "";
+  };
+  const keyword = kv("keyword");
+  if (!keyword) return null;
+  const maxPts = parseInt(kv("maxPts"), 10);
+  return {
+    keyword,
+    faction: kv("faction") || keyword,
+    maxPts: Number.isFinite(maxPts) ? maxPts : 0,
+    cannotWarlord: /\bcannot-warlord\b/.test(m[1]),
+    killTeamEnhOnly: /\bkill-team-enh-only\b/.test(m[1])
+  };
+}
 function getDets(catalogue, idIndex, catalogueId) {
   const root = findDetachmentRoot(catalogue, idIndex);
   if (!root) return [];
@@ -6500,7 +6518,8 @@ function getDets(catalogue, idIndex, catalogueId) {
     const ruleName = rules.length ? rules[0].name : "";
     const tables = detTables(se);
     const fds = detForceDispositions(se);
-    dets.push({ name, rule, ruleName, rules, bsId: se["@id"] || "", dp: detDpCost(se, catalogueId), fd: fds[0] || "", ...fds.length > 1 ? { fdList: fds } : {}, strats: detStrats(se), uniqueKw: detUniqueKeyword(se), ...tables.length ? { tables } : {} });
+    const allies = detAllies(se);
+    dets.push({ name, rule, ruleName, rules, bsId: se["@id"] || "", dp: detDpCost(se, catalogueId), fd: fds[0] || "", ...fds.length > 1 ? { fdList: fds } : {}, strats: detStrats(se), uniqueKw: detUniqueKeyword(se), ...tables.length ? { tables } : {}, ...allies ? { allies } : {} });
   }
   return dets;
 }
@@ -7176,6 +7195,7 @@ async function parseAllCatalogues(dir) {
 export {
   canLeadOrphan,
   classifyCatFile,
+  detAllies,
   detDpCost,
   extractTokens,
   getCoreRules,

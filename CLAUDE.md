@@ -124,6 +124,11 @@ BattleScribe) + un éditeur web zéro-dépendance dans `/editor`.
   gst ; double canal mot-clef littéral + `infoLink`, sémantique évaluée
   avec les mots-clefs du défenseur, Hunter = restriction de ciblage par
   profil (`➤`).
+- **`editor/DETACHMENT_ALLIES_APP_PROMPT.md`** — prompt autonome (application
+  consommatrice) : alliés accordés par un **détachement** (Deathwatch Support : unités
+  DEATHWATCH dans une armée Space Marines, 500 pts max, pas de Warlord, KILL TEAM =
+  améliorations du détachement) ; marqueur `<comment>det-allies: keyword=… maxPts=…
+  cannot-warlord kill-team-enh-only</comment>` sur la `selectionEntry` du détachement.
 - **`editor/BATTLELINE_GRANT_APP_PROMPT.md`** — grants Battleline (catégorie
   conditionnelle `add`/`set-primary` + plafond 0-3→0-6), conditionnés détachement
   (`scope="force"`) ou Warlord (drapeau de catégorie sur la sélection Warlord).
