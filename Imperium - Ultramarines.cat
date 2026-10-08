@@ -161,6 +161,7 @@
             <entryLink import="true" name="" hidden="true" id="63fd-342a-25f1-a9f9" type="selectionEntry" targetId="a3ea-7a0d-fef8-23bf"/>
             <entryLink import="true" name="" hidden="true" id="a97c-3d8d-0557-8c8f" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
             <entryLink import="true" name="" hidden="true" id="c50e-7938-e7fe-c493" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
+            <entryLink import="true" name="Infernus Squad" hidden="true" type="selectionEntry" id="2aeb-e9dc-6342-e7d3" targetId="b007-fc7b-8e4a-b017"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -525,6 +526,7 @@ units, with their original Starting Strengths</characteristic>
         <infoLink name="Combat Doctrines" id="ba17-7cb0-6fd5-7023" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="4c41-ad16-9ecb-7043" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Transhuman Strategist" hidden="false" type="rule" id="63b9-76f5-d31d-781e" targetId="dc23-ec41-a57a-944b"/>
+        <infoLink name="Support" hidden="false" type="rule" id="2498-d57c-7673-e1a4" targetId="21f5-c07c-6d97-4405"/>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="88df-d70e-55fd-552f">
@@ -534,6 +536,15 @@ units, with their original Starting Strengths</characteristic>
           </constraints>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="cef6-ad74-b153-a9c3" type="selectionEntry" targetId="9b89-f132-4fef-8e51"/>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="f2ae-f96c-0876-41a7">
+          <comment>attach-link : unités que ce modèle peut rejoindre — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="5cd9-c2d4-cacb-82c1"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Victrix Honour Guard" hidden="true" type="selectionEntry" id="d7bb-b1b6-329b-c85a" targetId="9b89-f132-4fef-8e51"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -781,6 +792,15 @@ units, with their original Starting Strengths</characteristic>
             <entryLink type="selectionEntry" import="true" name="Furious Assault Upgrade" hidden="false" id="a600-255d-3fd5-622a" targetId="ce34-bd3f-69af-1c22"/>
           </entryLinks>
         </selectionEntryGroup>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="6008-e5be-9848-e4e9">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="e719-3df0-00f6-149f"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Captain" hidden="true" type="selectionEntry" id="e6ef-5b05-0bc9-85c3" targetId="6c10-5b51-5bc0-8d2c"/>
+          </entryLinks>
+        </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
@@ -898,13 +918,10 @@ fnp: 5+</comment>
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="bdf5-9d62-2cf2-58f0" type="selectionEntry" targetId="a10b-fbfe-b1fa-6f0c"/>
             <entryLink import="true" name="" hidden="true" id="e293-062b-04ee-e086" type="selectionEntry" targetId="7044-bf1-f949-c32d"/>
-            <entryLink import="true" name="" hidden="true" id="1065-5e1f-26ca-990c" type="selectionEntry" targetId="2f2e-d99b-b235-163a"/>
             <entryLink import="true" name="" hidden="true" id="c360-0307-7354-2153" type="selectionEntry" targetId="7102-b3a4-9bfc-1b84"/>
             <entryLink import="true" name="" hidden="true" id="4313-8cb3-9717-2d55" type="selectionEntry" targetId="b007-fc7b-8e4a-b017"/>
             <entryLink import="true" name="" hidden="true" id="039a-2e8d-62eb-c189" type="selectionEntry" targetId="8da0-4570-c3c-819f"/>
             <entryLink import="true" name="" hidden="true" id="59fe-4635-0c38-a504" type="selectionEntry" targetId="907f-11-c4d1-ec21"/>
-            <entryLink import="true" name="" hidden="true" id="af37-1fec-e7b6-b0c9" type="selectionEntry" targetId="b793-b77e-9e49-d397"/>
-            <entryLink import="true" name="" hidden="true" id="99ac-e9ff-3c66-28d0" type="selectionEntry" targetId="9b89-f132-4fef-8e51"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -1073,6 +1090,16 @@ fnp: 5+</comment>
         <profile name="Raise the Banner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4ad-a169-15d8-2267">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Movement phase, if this unit is controlling an objective, that objective is secured.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e1fa-3240-f733-5816">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Assault Intercessor Squad
+■ Bladeguard Veteran Squad
+■ Intercessor Squad
+■ Sternguard Veteran Squad
+■ Vanguard Veteran Squad</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1392,6 +1419,15 @@ errata-11e: mot-clef Imperium absent de la carte du codex (omission), retabli po
 ■ Re-roll wound rolls of 1.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4447-b712-828d-adbb">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Assault Intercessor Squad
+■ Bladeguard Veteran Squad
+■ Sternguard Veteran Squad
+■ Victrix Honour Guard</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="cd32-109c-29cf-5c03" primary="true" name="Infantry"/>
@@ -1426,6 +1462,20 @@ errata-11e: mot-clef Imperium absent de la carte du codex (omission), retabli po
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4e82-7792-b02e-aa1e"/>
       </constraints>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="e699-0df4-0f39-1032">
+          <comment>attach-link : unités que ce modèle peut rejoindre — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="1b61-3e35-7b29-51c6"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Assault Intercessor Squad" hidden="true" type="selectionEntry" id="4df4-9064-c87d-9981" targetId="a10b-fbfe-b1fa-6f0c"/>
+            <entryLink import="true" name="Bladeguard Veteran Squad" hidden="true" type="selectionEntry" id="cafb-ee13-907d-092e" targetId="7044-bf1-f949-c32d"/>
+            <entryLink import="true" name="Sternguard Veteran Squad" hidden="true" type="selectionEntry" id="0bd6-70cf-c85e-c27f" targetId="907f-11-c4d1-ec21"/>
+            <entryLink import="true" name="Victrix Honour Guard" hidden="true" type="selectionEntry" id="ecb2-b706-9fcf-465b" targetId="9b89-f132-4fef-8e51"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
   </sharedSelectionEntries>
   <categoryEntries>
