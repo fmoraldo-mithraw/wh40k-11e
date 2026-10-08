@@ -2816,6 +2816,12 @@ While ^^**Typhus^^** is leading this unit, enemy models destroyed as a result of
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, you can select one model from your army with this ability to use this ability. If you do, until the end of that phase, that model&apos;s unit has the Fights First ability. Each model can only be selected for this ability once per battle.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9bf6-b901-ed0c-cb9b">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Plague Marines</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="1358-7bf3-9b02-78c3" targetId="b4dd-3e1f-41cb-218f"/>
@@ -2983,6 +2989,12 @@ sim-mod: source=&quot;Foul Infusion&quot; crit-hit=5 whileLeading</comment>
         <profile name="Foul Infusion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a1e3-4ac3-299c-1417">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, weapons equipped by models in that unit have the [Lethal Hits] ability. In addition, each time a model in that unit makes an attack, a Critical Hit is scored on an unmodified Hit roll of 5+, instead of only on a 6.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0e42-c2e6-ae7d-6775">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Plague Marines</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3187,6 +3199,12 @@ sim-mod: source=&quot;Foul Infusion&quot; crit-hit=5 whileLeading</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, if this model is on the battlefield, roll 2D6: on a 7+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a30a-d796-af51-becd">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Plague Marines</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="4f59-31c5-216d-79a6" targetId="b4dd-3e1f-41cb-218f"/>
@@ -3332,6 +3350,12 @@ sim-mod: source=&quot;Foul Infusion&quot; crit-hit=5 whileLeading</comment>
         <profile name="Inflamed Infections" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="96ee-97c4-3b67-e45">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, select one enemy unit within Engagement Range of this model. Until the end of the phase, each time this model makes an attack that targets that unit, an unmodified Hit roll of 5+ scores a Critical Hit. If that unit is below Half-strength, an unmodified Hit roll of 4+ scores a Critical Hit instead.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0c79-d59b-a7c8-9157">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Plague Marines</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6632,6 +6656,12 @@ must-warlord</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one friendly ^^**Death Guard^^** unit that is Battle-shocked and within 12&quot; of this model. That unit is no longer Battle-shocked.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f671-7375-0158-3667">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Plague Marines</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <entryLinks>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="523b-5a35-ca23-6d94" targetId="c93c-acdd-5ab4-afb8" sortIndex="3"/>
@@ -7727,6 +7757,20 @@ fnp: 6+</comment>
           </conditionGroups>
         </modifier>
       </modifiers>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="a8ab-05e4-95cc-81a6">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="608c-ab6e-70d1-d181"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Epidemius" hidden="true" type="selectionEntry" id="33d3-8304-9284-d6f8" targetId="5851-dc90-9afe-76a7"/>
+            <entryLink import="true" name="Poxbringer" hidden="true" type="selectionEntry" id="d6c3-ae38-ec6e-2dbb" targetId="7b06-189d-b11e-c189"/>
+            <entryLink import="true" name="Sloppity Bilepiper" hidden="true" type="selectionEntry" id="6c25-8aa9-fcda-ab85" targetId="3da0-5db0-7531-33b6"/>
+            <entryLink import="true" name="Spoilpox Scrivener" hidden="true" type="selectionEntry" id="f423-ef53-f77b-075d" targetId="e7cd-468b-37dd-d82f"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Daemonic Icon" hidden="false" id="833e-911e-f64e-f7fb" collective="false">
       <constraints>
@@ -8126,6 +8170,17 @@ fnp: 6+</comment>
           </conditionGroups>
         </modifier>
       </modifiers>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Led By (MFM)" hidden="true" id="4a3b-47fb-97da-88c4">
+          <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="bc92-d6fd-31c1-3a4a"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Horticulous Slimux" hidden="true" type="selectionEntry" id="3d30-df02-da02-7b0a" targetId="7151-238f-a6eb-2f94"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nurglings" hidden="false" id="7e32-0162-71e2-57a0" collective="false">
       <comment>invuln: 5+</comment>
