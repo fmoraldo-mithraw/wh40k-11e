@@ -24637,6 +24637,82 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
             </rule>
           </rules>
         </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Deathwatch Support" hidden="false" id="52d1-bba7-42b2-74da">
+          <comment>codex-11e: contenu integre depuis les captures de l&apos;appli officielle (2026-10-08) ; 1 DP, Force Disposition Disruption (MFM v1.5).
+det-allies: keyword=&quot;Deathwatch&quot; faction=&quot;Deathwatch&quot; maxPts=500 cannot-warlord kill-team-enh-only</comment>
+          <costs>
+            <cost name="pl" typeId="c5fb-5b9b-89f6-86c" value="0"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="b2a0-7906-e9a3-8a23">
+              <characteristics>
+                <characteristic name="Force Disposition" typeId="9145-6e6a-17b9-0a2c">Disruption</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <rules>
+            <rule name="Mission Tactics" id="7762-7c61-68e4-bbcc" hidden="false">
+              <description>Friendly KILL TEAM units with this ability have the following abilities:
+
+Furor Tactics: If the devastator doctrine is active for your unit, your unit’s attacks have [SUSTAINED HITS 1].
+Malleus Tactics: If the tactical doctrine is active for your unit, your unit’s attacks have [LETHAL HITS].
+Purgatus Tactics: If the assault doctrine is active for your unit, your unit’s attacks that target an enemy unit within 9&quot; of this unit have [PRECISION].
+
+DEATHWATCH ALLIES
+
+You can include DEATHWATCH units in your army, even though they do not have the same Chapter faction keyword as other units in your army. The combined points value of such units cannot exceed 500 points.
+
+When mustering your army, unless otherwise stated, you cannot select a DEATHWATCH model to be your WARLORD. In addition KILL TEAM units can only contain enhancements taken from this detachment.
+
+This an exception to the Space Marine Chapters Army Rules (pg156).</description>
+            </rule>
+            <rule name="Blackstar Extraction (Stratagem, 1CP)" id="8e07-a786-de2a-55f5" hidden="false">
+              <comment>strat-timing: turn=opponent phase=fight</comment>
+              <description>Deathwatch Support – STRATAGEM (1CP)
+
+WHEN: End of your opponent’s Fight phase.
+TARGET: One friendly unengaged KILL TEAM unit.
+EFFECT: Place your unit in strategic reserves.</description>
+            </rule>
+            <rule name="Kraken Rounds (Stratagem, 1CP)" id="dc25-1fda-0cc7-bb23" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Deathwatch Support – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
+TARGET: That KILL TEAM unit.
+EFFECT: Your unit’s ranged attacks have:
+■ +6&quot; R.
+■ +1 S.</description>
+            </rule>
+            <rule name="Dragonfire Rounds (Stratagem, 1CP)" id="79f8-e88b-4c48-fce7" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Deathwatch Support – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
+TARGET: That KILL TEAM unit.
+EFFECT: Your unit’s ranged attacks:
+■ Can re-roll wound rolls of 1.
+■ Have [IGNORES COVER].</description>
+            </rule>
+            <rule name="Hellfire Rounds (Stratagem, 1CP)" id="f3f6-1409-6d59-d3b6" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Deathwatch Support – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
+TARGET: That KILL TEAM unit.
+EFFECT: Your unit’s ranged attacks (excluding [DEVASTATING WOUNDS] attacks) have [ANTI-non-VEHICLE 4+].</description>
+            </rule>
+          </rules>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="f89b-84e0-6e3b-f1e2" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Tactical Brethren" hidden="false" id="9d1f-3bda-140f-9c9f">
           <comment>codex-11e: contenu integre depuis le codex ; DP deduit de la regle MFM (2 ameliorations = 1 DP, 4 = 2-3) ; Force Disposition PROVISOIRE (MFM non integre)</comment>
           <categoryLinks>
@@ -30964,6 +31040,65 @@ In your movement phase, at the start or end of this unit’s move, you can selec
           </selectionEntries>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9113-c947-d75a-5e40" includeChildSelections="false"/>
+          </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Deathwatch Support Enhancements" hidden="false" id="db01-f63a-837a-9bb3">
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Beacon Angelis" hidden="false" id="f9ee-2a92-3a4c-ae38">
+              <comment>Deathwatch Support : texte des captures de l&apos;appli officielle, 25 pts (MFM v1.5).</comment>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0e1e-44a3-ac68-e754" includeChildSelections="true" includeChildForces="true"/>
+              </constraints>
+              <profiles>
+                <profile name="Beacon Angelis" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c4ed-d367-2ec7-5271">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. If this unit is a **^^Kill Team^^** unit, this unit has:
+■ Deep Strike.
+■ When you target this unit with the Rapid Ingress Stratagem, that use is -1CP.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <categoryLinks>
+                <categoryLink targetId="6226-9b9b-107a-9ada" id="de9a-5964-97f9-343e" primary="false" name="Enhancement"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+              </costs>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditionGroups>
+                    <conditionGroup type="or">
+                      <conditions>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true"/>
+                      </conditions>
+                      <conditionGroups>
+                        <conditionGroup type="and">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="roster" childId="f9ee-2a92-3a4c-ae38" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                            <condition type="lessThan" value="1" field="selections" scope="parent" childId="f9ee-2a92-3a4c-ae38" shared="true" includeChildForces="true" includeChildSelections="true"/>
+                          </conditions>
+                        </conditionGroup>
+                      </conditionGroups>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+          </selectionEntries>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
+                    <condition type="lessThan" value="1" field="selections" scope="roster" childId="52d1-bba7-42b2-74da" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0156-1775-547e-dd82"/>
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
