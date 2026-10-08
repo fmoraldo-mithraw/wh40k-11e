@@ -4542,7 +4542,6 @@ If this model is not already attached to a unit, you can attach this model to a 
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="4c57-e971-b027-bd48" type="selectionEntry" targetId="e78a-4442-4ed2-66bf"/>
             <entryLink import="true" name="" hidden="true" id="281a-6a2e-4792-2efb" type="selectionEntry" targetId="5452-c4a7-59fb-f05c"/>
-            <entryLink import="true" name="" hidden="true" id="6a04-bca9-67bd-9661" type="selectionEntry" targetId="d61-c058-6bd1-112f"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -4973,7 +4972,6 @@ If this model is not already attached to a unit, you can attach this model to a 
           <entryLinks>
             <entryLink import="true" name="" hidden="true" id="2a22-0196-4dec-13b0" type="selectionEntry" targetId="e78a-4442-4ed2-66bf"/>
             <entryLink import="true" name="" hidden="true" id="e138-4278-ccf2-045e" type="selectionEntry" targetId="5452-c4a7-59fb-f05c"/>
-            <entryLink import="true" name="" hidden="true" id="7fe8-7721-3105-0fb1" type="selectionEntry" targetId="d61-c058-6bd1-112f"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
@@ -10561,7 +10559,6 @@ You can attach this unit to one of the above units, even if Yvraine has already 
             <entryLink import="true" name="" hidden="true" id="e1de-ee38-878a-7980" type="selectionEntry" targetId="cbb7-6669-a014-36fe"/>
             <entryLink import="true" name="" hidden="true" id="484c-7831-3022-616b" type="selectionEntry" targetId="e78a-4442-4ed2-66bf"/>
             <entryLink import="true" name="" hidden="true" id="1e2b-47a6-b6ad-a177" type="selectionEntry" targetId="5452-c4a7-59fb-f05c"/>
-            <entryLink import="true" name="" hidden="true" id="984f-7aef-f1bf-f906" type="selectionEntry" targetId="5bf7-f905-8fab-43b4"/>
             <entryLink import="true" name="" hidden="true" id="452b-b147-064d-f7a8" type="selectionEntry" targetId="807b-0b72-5908-a3d4"/>
             <entryLink import="true" name="" hidden="true" id="27b4-a5bb-f2f0-c77c" type="selectionEntry" targetId="36fd-7c3f-b728-c5d4"/>
           </entryLinks>
@@ -12059,6 +12056,13 @@ def-mod: source=&quot;Protect (Psychic)&quot; wound=-1 conditional</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each ^^Warlock^^ model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model&apos;s Destructor weapon for each other friendly ^^Aeldari Psyker^^ model within 6&quot; of this model (to a maximum of +2).</characteristic>
           </characteristics>
         </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c16e-d16f-85b8-5d5c">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Guardian Defenders
+■ Storm Guardians</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="aa83-44e2-b45f-7d08"/>
@@ -12189,6 +12193,16 @@ def-mod: source=&quot;Protect (Psychic)&quot; wound=-1 conditional</comment>
               </entryLinks>
             </selectionEntry>
           </selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="6acc-3c75-acf0-ab7b">
+          <comment>attach-link : unités que ce modèle peut rejoindre — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="2f90-b04e-0bb4-4df9"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Guardian Defenders" hidden="true" type="selectionEntry" id="4bc1-f05e-b05b-f229" targetId="e78a-4442-4ed2-66bf"/>
+            <entryLink import="true" name="Storm Guardians" hidden="true" type="selectionEntry" id="bb5f-b4cf-1039-28e0" targetId="5452-c4a7-59fb-f05c"/>
+          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks></entryLinks>
@@ -21488,6 +21502,12 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">A Warlock Skyrunner has a 4+ Invulnerable save.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e80-87ea-493e-1619">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Windriders</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <selectionEntryGroups>
         <selectionEntryGroup name="1-2 Warlock Skyrunners" id="3182-c11e-25df-9932" hidden="false" defaultSelectionEntryId="b98a-4fbb-a3d8-1ada" sortIndex="2">
@@ -21729,6 +21749,15 @@ invuln: 4+</comment>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f73f-d640-2f2f-aefb" includeChildSelections="false"/>
             <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="6b8f-9d96-0267-75c0" includeChildSelections="false"/>
           </constraints>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="fec0-42fd-49c0-91ed">
+          <comment>attach-link : unités que ce modèle peut rejoindre — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="59ad-9221-c663-a54c"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Windriders" hidden="true" type="selectionEntry" id="f0cd-20af-47f7-b72a" targetId="592a-b255-6c58-19ec"/>
+          </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <infoLinks>
@@ -29728,6 +29757,12 @@ Place one Drakolithe token next to the unit for each Drakolithe the unit is equi
 ▫ While a unit is ensnared, that unit has -2&quot; M and cannot be pinned.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a002-7bd7-a534-1633">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Dragon Knights</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <categoryLinks>
         <categoryLink id="4b24-ac74-6d09-16ad" name="Stonesinger" hidden="false" targetId="6e49-8c18-c975-070f" primary="false"/>
@@ -29944,6 +29979,15 @@ Place one Drakolithe token next to the unit for each Drakolithe the unit is equi
           <entryLinks>
             <entryLink type="selectionEntry" import="true" name="Spirit Stone of Raelyth" hidden="false" id="a55a-6f79-d5b6-927d" targetId="4196-9426-5925-ce63"/>
             <entryLink type="selectionEntry" import="true" name="Guiding Presence" hidden="false" id="06af-0fbd-873c-750d" targetId="6716-5adc-b3c9-2acb"/>
+          </entryLinks>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="6ece-12e1-808b-29da">
+          <comment>attach-link : unités que ce modèle peut rejoindre — source : fiche officielle (attachesTo)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="dd29-8f63-0d13-44ac"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Dragon Knights" hidden="true" type="selectionEntry" id="354b-9064-fc09-bdc5" targetId="21f2-9f5d-5893-7682"/>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
