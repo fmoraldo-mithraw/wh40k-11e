@@ -45,10 +45,35 @@
         <constraint type="max" value="0" field="51b2-306e-1021-d207" scope="force" shared="true" id="3b93-b9c5-7711-6789" includeChildSelections="true"/>
       </constraints>
       <modifiers>
+        <modifier type="set" value="500" field="3b93-b9c5-7711-6789">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="1558-660f-466b-a087" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
         <modifier type="set" value="1000" field="3b93-b9c5-7711-6789">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="1558-660f-466b-a087" shared="true" includeChildSelections="true"/>
-          </conditions>
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="1558-660f-466b-a087" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="1500" field="3b93-b9c5-7711-6789">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="1558-660f-466b-a087" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
         </modifier>
         <modifier type="set" value="-1" field="3b93-b9c5-7711-6789">
           <conditions>
@@ -6180,8 +6205,17 @@ EFFECT: Until the end of the phase, each time a model in your unit makes an atta
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Khorne Daemonkin" hidden="false" id="1558-660f-466b-a087">
-              <comment>det-allies: keyword=&quot;Blood Legions&quot; maxPts=1000 native</comment>
+              <comment>det-allies: keyword=&quot;Blood Legions&quot; maxPts=1000 maxPtsBySize=&quot;Incursion=500,Strike Force=1000,Onslaught=1500&quot; native cannot-warlord</comment>
               <rules>
+                <rule name="Blood Legions" id="016f-c0f4-14f4-b8c5" hidden="false">
+                  <description>You can include BLOOD LEGIONS units in your army, even though they do not have the WORLD EATERS Faction keyword. The combined points cost of such units you can include in your army is:
+
+■ Incursion: Up to 500 pts
+■ Strike Force: Up to 1000 pts
+■ Onslaught: Up to 1500 pts
+
+No BLOOD LEGIONS models from your army can be your WARLORD.</description>
+                </rule>
                 <rule name="Blood Tithe" id="ece7-477d-069f-b782" hidden="false">
                   <comment>sim-mod: source=&quot;Blood Tithe (Daemonic Rage, Lance)&quot; wound=+1 when=melee onCharge conditional</comment>
                   <description>Each time a ^^**Blood Legions^^** or ^^**World Eaters^^** unit from your army destroys an enemy unit, roll one D6; on a 3+, you gain 1 Blood Tithe point (BTP). At the start of the Command phase, you can spend 1 or more of your BTP to activate one of the following abilities until the end of the battle.
