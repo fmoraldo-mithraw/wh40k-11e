@@ -133,7 +133,8 @@
   améliorations du détachement) ; marqueur `<comment>det-allies: keyword=… maxPts=…
   cannot-warlord kill-team-enh-only</comment>` sur la `selectionEntry` du détachement. Variante
   `native` : démons des légions (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
-  Khorne Daemonkin) **1000 pts max**, plafond aussi encodé sur la catégorie `Faction: <légion>`.
+  Khorne Daemonkin) **500/1000/1500 pts selon le format** (`maxPtsBySize`), pas de Warlord ;
+  plafond aussi encodé sur la catégorie `Faction: <légion>`.
 - **`editor/BATTLELINE_GRANT_APP_PROMPT.md`** — grants Battleline (catégorie
   conditionnelle `add`/`set-primary` + plafond 0-3→0-6), conditionnés détachement
   (`scope="force"`) ou Warlord (drapeau de catégorie sur la sélection Warlord).

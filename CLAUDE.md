@@ -20,7 +20,7 @@ Réponses à l'utilisateur **en français** ; signaler les doutes.
 | Fiches officielles game-datacards, veille quotidienne | `editor/SOURCE_GAME_DATACARDS.md` |
 | Rattachements Leader / Support | `editor/LEADER_LINKS_APP_PROMPT.md` (outil `editor/translations/gdc-attach.cjs`) |
 | Marqueurs `<comment>` : `sim-mod`/`def-mod`, `invuln`/`fnp`/warlord, `strat-timing`, `det-allies`, `chapter-cost` | `SIM_MOD_APP_PROMPT.md`, `STAT_MARKERS_APP_PROMPT.md`, `DETACHMENT_ALLIES_APP_PROMPT.md`, `MARINE_CHAPTER_COST_APP_PROMPT.md` |
-| Alliés accordés par détachement (Deathwatch Support, démons des légions) | `editor/DETACHMENT_ALLIES_APP_PROMPT.md` |
+| Alliés accordés par détachement (Deathwatch Support 500 pts ; démons des légions 500/1000/1500 selon le format, pas de Warlord) | `editor/DETACHMENT_ALLIES_APP_PROMPT.md` |
 | Lecture du format côté appli (vocabulaire, idiomes) | `editor/BSDATA_PARSING_REFERENCE.md` (+ `editor/INDEX.md` pour les `*_APP_PROMPT.md`) |
 | Éditer un `.cat` | `editor/README.md` (lib `editor/lib/catalog.js` + `xml.js`) |
 

@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 5a4e98d
-// source-sha256: 23054968e1dfe84b
+// source-commit: 3d00673
+// source-sha256: 9de11eb36cc6c18b
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6498,11 +6498,18 @@ function detAllies(se) {
   if (!keyword) return null;
   const maxPts = parseInt(kv("maxPts"), 10);
   const native = /\bnative\b/.test(m[1]) || !kv("faction");
+  const bySize = {};
+  for (const part of kv("maxPtsBySize").split(",")) {
+    const [k, v] = part.split("=");
+    const n = parseInt(v, 10);
+    if (k && k.trim() && Number.isFinite(n)) bySize[k.trim()] = n;
+  }
   return {
     keyword,
     faction: native ? "" : kv("faction"),
     native,
     maxPts: Number.isFinite(maxPts) ? maxPts : 0,
+    ...Object.keys(bySize).length ? { maxPtsBySize: bySize } : {},
     cannotWarlord: /\bcannot-warlord\b/.test(m[1]),
     killTeamEnhOnly: /\bkill-team-enh-only\b/.test(m[1])
   };
@@ -7164,6 +7171,12 @@ async function parseAllCatalogues(dir) {
       if (ownLib && ownLib.linked && ownLib.linked.root) armyRules = extractArmyRules(ownLib.linked.root);
     }
     if (!armyRules.length) armyRules = deriveArmyRuleFromUnits(units);
+    for (const d of dets) {
+      const al = d && d.allies;
+      if (!al || !al.native || !al.cannotWarlord) continue;
+      const kw = String(al.keyword).toLowerCase();
+      for (const u of units) if ((u.factionKeywords || []).some((k) => String(k).toLowerCase() === kw)) u.cannotWL = true;
+    }
     out[classify.name] = {
       alliance: classify.alliance,
       // This faction's primary catalogue id — the value runtime cost-mod

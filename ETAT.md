@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-08.
+> Dernière mise à jour : 2026-10-09.
 
 ## Dépôts et branches
 
@@ -18,8 +18,13 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 ## Lignes de base (une régression = un écart à ces nombres)
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
-- `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **60/60** suites (`scripts/dev/tests.sh`).
+- `npm run audit:data` (appli) : **25** anomalies de base + **4 nouvelles Custodes** depuis le codex
+  Custodes 11e (`paliers-non-croissants` : Vigilator Squad, Witchseeker Squad ×3 — paliers de prix
+  dupliqués/décroissants) : à corriger côté données Custodes, puis revenir à 25.
+- Tests appli : **53/60** suites depuis l'intégration du codex Custodes 11e (main, autre session) —
+  7 suites rouges, toutes sur l'Adeptus Custodes (fiches renommées/retirées : goldens leadgraph,
+  listunits, fingerprint, idioms, loadout, vocab, REG-053). Hors démons ; à traiter à part
+  (mise à jour des tests/goldens ou de la donnée Custodes). Objectif : retour à 60/60.
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
@@ -27,18 +32,17 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 1. **Vanguard Veteran Squad (à pied)** — fiche présente au MFM, absente de la base : texte à fournir.
 2. **Eradicator Squad (scission MFM)** — texte de la nouvelle fiche à fournir.
 3. **Grey Knights** — 43 divergences `gdc-apply-weapons.cjs --trust` en attente de décision.
-4. **Démons des légions** (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
-   Khorne Daemonkin) — plafond fixé à **1000 pts quel que soit le format** (avant :
-   500/1000/1500 selon Incursion/Strike Force/Onslaught) : à confirmer. Texte exact de la
-   restriction (absent de game-datacards) ? Warlord démon autorisé (rien encodé) ?
-5. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
+4. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
    de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-09 : démons des légions (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
+  Khorne Daemonkin) = texte officiel : **500 / 1000 / 1500 pts** selon Incursion / Strike Force /
+  Onslaught, **aucun Warlord** démon ; règle « <Légion> » en tête de chaque détachement.
 - 2026-10-08 : la base suit le MFM, toute entrée MFM absente se signale (règle 6).
 - 2026-10-08 : alliés de détachement — marqueur `det-allies:` (Deathwatch Support 500 pts ;
-  variante `native` démons des légions 1000 pts) — `editor/DETACHMENT_ALLIES_APP_PROMPT.md`.
+  variante `native` démons des légions) — `editor/DETACHMENT_ALLIES_APP_PROMPT.md`.
 - 2026-10-07 : la fiche officielle (game-datacards) fait foi à 100 %, retraits compris ;
   seule exception : CT « 7+ » d'une arme Torrent = « - » (N/A).
 - 2026-09-30 : Epic Hero porteur d'amélioration seulement s'il est désigné par les données (règle 1).
