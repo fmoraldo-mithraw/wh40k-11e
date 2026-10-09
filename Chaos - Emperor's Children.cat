@@ -4503,8 +4503,17 @@ EFFECT: Your unit can make a Normal move of up to 6&quot;.</description>
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Carnival of Excess" hidden="false" id="3c9e-2156-254e-66e8">
-              <comment>det-allies: keyword=&quot;Legions of Excess&quot; maxPts=1000 native</comment>
+              <comment>det-allies: keyword=&quot;Legions of Excess&quot; maxPts=1000 maxPtsBySize=&quot;Incursion=500,Strike Force=1000,Onslaught=1500&quot; native cannot-warlord</comment>
               <rules>
+                <rule name="Legions of Excess" id="679e-614d-4941-a984" hidden="false">
+                  <description>You can include LEGIONS OF EXCESS units in your army, even though they do not have the EMPEROR’S CHILDREN Faction keyword. The combined points cost of such units you can include in your army is:
+
+■ Incursion: Up to 500 pts
+■ Strike Force: Up to 1000 pts
+■ Onslaught: Up to 1500 pts
+
+No LEGIONS OF EXCESS models from your army can be your WARLORD.</description>
+                </rule>
                 <rule name="Daemonic Empowerment" id="079a-b3a3-72ce-f4de" hidden="false">
                   <comment>sim-mod: source=&quot;Daemonic Empowerment&quot; sustained=1 conditional</comment>
                   <description>- While an ^^**Emperor&apos;s Children^^** unit from your army is within 6&quot; of one or more friendly ^^**Legions of Excess**^^ units, it is Empowered.
@@ -6745,10 +6754,35 @@ invuln: 5+</comment>
     <categoryEntry name="Maulerfiend" id="c37d-0ec5-9d7c-a853" hidden="false"/>
     <categoryEntry name="Faction: Legions of Excess" id="4c25-d2f3-36bb-8067" hidden="false">
       <modifiers>
+        <modifier type="set" value="500" field="9f42-45d1-6365-8687">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="3c9e-2156-254e-66e8" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
         <modifier type="set" value="1000" field="9f42-45d1-6365-8687">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="3c9e-2156-254e-66e8" shared="true" includeChildSelections="true"/>
-          </conditions>
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="3c9e-2156-254e-66e8" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="1500" field="9f42-45d1-6365-8687">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="3c9e-2156-254e-66e8" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
         </modifier>
         <modifier type="set" value="-1" field="9f42-45d1-6365-8687">
           <conditions>
