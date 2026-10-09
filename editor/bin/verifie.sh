@@ -21,7 +21,7 @@ echo "$OUT" | grep -E "✓|✗|en erreur|dépassement|cassé|ERREUR|manqu" | sed
 COG=${COGITATOR_DIR:-../cogitator-bellicum}
 if [ "$1" != "--rapide" ] && [ -f "$COG/scripts/data-audit.mjs" ]; then
   A=$(BSDATA_DIR="$PWD" node "$COG/scripts/data-audit.mjs" 2>&1); RA=$?
-  echo "$A" | grep -E "anomalies|NOUVELLE|✗" | tail -4
+  echo "$A" | grep -E "anomalies|NOUVELLE|✗" | head -12
   [ $RA -eq 0 ] && echo "✓ audit des améliorations (appli)" || { echo "✗ audit des améliorations (code $RA)"; exit $RA; }
 fi
 exit 0

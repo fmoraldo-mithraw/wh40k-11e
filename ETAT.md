@@ -18,13 +18,8 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 ## Lignes de base (une régression = un écart à ces nombres)
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
-- `npm run audit:data` (appli) : **25** anomalies de base + **4 nouvelles Custodes** depuis le codex
-  Custodes 11e (`paliers-non-croissants` : Vigilator Squad, Witchseeker Squad ×3 — paliers de prix
-  dupliqués/décroissants) : à corriger côté données Custodes, puis revenir à 25.
-- Tests appli : **53/60** suites depuis l'intégration du codex Custodes 11e (main, autre session) —
-  7 suites rouges, toutes sur l'Adeptus Custodes (fiches renommées/retirées : goldens leadgraph,
-  listunits, fingerprint, idioms, loadout, vocab, REG-053). Hors démons ; à traiter à part
-  (mise à jour des tests/goldens ou de la donnée Custodes). Objectif : retour à 60/60.
+- `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
+- Tests appli : **60/60** suites (`scripts/dev/tests.sh`).
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
@@ -37,6 +32,10 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-09 : codex Custodes 11e = données de référence ; les tests de l'appli suivent (corpus
+  réalignés, golden Leader régénéré). Idiomes du parseur disparus de la base (infoGroup « Talons »,
+  désignation Solar Spearhead) testés sur le catalogue Custodes 10e figé
+  (`cogitator-bellicum/tests/fixtures/legacy/`). Restes d'anciens paliers retirés (4 fiches).
 - 2026-10-09 : démons des légions (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
   Khorne Daemonkin) = texte officiel : **500 / 1000 / 1500 pts** selon Incursion / Strike Force /
   Onslaught, **aucun Warlord** démon ; règle « <Légion> » en tête de chaque détachement.
