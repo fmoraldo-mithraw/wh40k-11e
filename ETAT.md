@@ -33,6 +33,9 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-09 : **Incursion : un détachement à 3 DP coûte 2 DP** (35 détachements, modifier natif ;
+  appli `effectiveDetDp`) — `editor/DETACHMENT_DP_APP_PROMPT.md`. Tout nouveau détachement à 3 DP
+  doit porter le modifier.
 - 2026-10-09 : codex Custodes 11e = données de référence ; les tests de l'appli suivent (corpus
   réalignés, golden Leader régénéré). Idiomes du parseur disparus de la base (infoGroup « Talons »,
   désignation Solar Spearhead) testés sur le catalogue Custodes 10e figé

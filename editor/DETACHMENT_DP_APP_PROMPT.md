@@ -81,3 +81,24 @@ locale, non importée), le DP est **déjà** sur l'entrée locale — pas de mod
   les modifiers de coût conditionnés à **tous** les cost types.
 - Correctif côté appli : la donnée est correcte (`catalog.validate` 0 erreur).
 - Compagnon : `MARINE_CHAPTER_COST_APP_PROMPT.md` (même mécanisme, champ `pts`).
+
+## DP selon le format : Incursion, 3 DP → 2 (règle de base 11e, 2026-10-09)
+
+En **Incursion (1000 pts)**, un détachement à **3 DP n'en coûte que 2** (budget Incursion : 2 DP —
+sans cette remise, aucun détachement à 3 DP ne serait jouable). Encodage natif sur chacun des
+35 détachements à coût de base 3 :
+
+```xml
+<modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
+  <conditions>
+    <condition type="atLeast" value="1" field="selections" scope="force"
+               childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+  </conditions>
+</modifier>
+```
+
+(`d62d-…` = « 1. Incursion (1000 Point limit) » du `.gst`.) BattleScribe/NewRecruit l'appliquent tels
+quels. Une appli qui fige le coût DP à la lecture du catalogue doit l'évaluer **au format courant**
+(cogitator-bellicum : `effectiveDetDp(dp, format)` dans `src/rules.js`, appliqué au total dépensé,
+au budget, au sélecteur et aux libellés). Tout **nouveau** détachement à 3 DP doit porter ce modifier.
+

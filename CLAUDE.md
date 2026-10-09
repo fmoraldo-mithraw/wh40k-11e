@@ -15,7 +15,7 @@ Réponses à l'utilisateur **en français** ; signaler les doutes.
 
 | Tâche | Guide(s) |
 |---|---|
-| Faction pack, détachement, stratagèmes, améliorations | `editor/FACTION_PACK_PROMPT.md` + `editor/ENHANCEMENT_BEARERS_PROMPT.md` |
+| Faction pack, détachement, stratagèmes, améliorations | `editor/FACTION_PACK_PROMPT.md` + `editor/ENHANCEMENT_BEARERS_PROMPT.md` (détachement à 3 DP : modifier Incursion → 2, `editor/DETACHMENT_DP_APP_PROMPT.md`) |
 | Points MFM (unités, améliorations, armes, répétition) | `editor/MFM_PROMPT.md` (Agents : `AGENTS_DUAL_COST_PROMPT.md` ; chapitres : `MARINE_CHAPTER_COST_APP_PROMPT.md`) |
 | Fiches officielles game-datacards, veille quotidienne | `editor/SOURCE_GAME_DATACARDS.md` |
 | Rattachements Leader / Support | `editor/LEADER_LINKS_APP_PROMPT.md` (outil `editor/translations/gdc-attach.cjs`) |
