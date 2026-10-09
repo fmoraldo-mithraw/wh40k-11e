@@ -2884,6 +2884,13 @@ sim-mod: sustained=1 source=&quot;Prelocational Optimiser&quot; when=ranged choi
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
               <profiles>
                 <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="4d46-c934-1de8-e93c">
                   <characteristics>
@@ -3260,6 +3267,13 @@ EFFECT: Until the end of the phase, weapons equipped by models in the attacking 
               <costs>
                 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="3"/>
               </costs>
+              <modifiers>
+                <modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
               <rules>
                 <rule name="Relentless Onslaught" id="9917-e3bc-a06c-1f4e" hidden="false">
                   <comment>sim-mod: source=&quot;Relentless Onslaught&quot; hit=+1 conditional</comment>
