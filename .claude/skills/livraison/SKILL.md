@@ -9,9 +9,11 @@ Ordre fixe ; s'arrêter au premier ✗ et le corriger (ne jamais committer un é
 
 1. **Données modifiées ?** `editor/bin/verifie.sh` (xmllint + valider.mjs + audit des améliorations).
    `scripts/dev/sync-data.sh` côté appli si l'appli doit voir les nouvelles données.
-2. **Appli modifiée ?** `npx eslint <fichiers touchés> --max-warnings 0`, puis
-   `scripts/dev/tests.sh --only <suites concernées>`, puis `scripts/dev/tests.sh` (complet, une fois).
-   Comportement visible ? `node scripts/dev/ui-check.mjs …` (texte, pas de capture).
+2. **Appli modifiée ?** `scripts/dev/tests.sh --only <suites concernées>`, puis
+   **`scripts/dev/ci-local.sh`** (lint COMPLET + test:all + audits + valider : exactement la CI ;
+   un lint ciblé a déjà laissé la CI rouge 2 jours). Comportement visible ?
+   `node scripts/dev/ui-check.mjs …` (texte, pas de capture).
+   Après push : vérifier le run CI de `feat/v11` (outil GitHub `actions_list`).
 3. **Commits** (français, descriptifs, pied de page d'attribution fourni par le système) :
    - données : **un commit par faction** (`git add "<Faction>.cat"`), puis un commit doc/outils ;
    - appli : un commit par sujet.
