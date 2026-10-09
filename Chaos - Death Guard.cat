@@ -464,8 +464,17 @@ EFFECT: Select one enemy unit (excluding VEHICLES) that is within 8&quot; of and
               </profiles>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Tallyband Summoners" hidden="false" id="69e5-13c7-06bf-d454">
-              <comment>det-allies: keyword=&quot;Plague Legions&quot; maxPts=1000 native</comment>
+              <comment>det-allies: keyword=&quot;Plague Legions&quot; maxPts=1000 maxPtsBySize=&quot;Incursion=500,Strike Force=1000,Onslaught=1500&quot; native cannot-warlord</comment>
               <rules>
+                <rule name="Plague Legions" id="9c62-407f-44a7-0ee9" hidden="false">
+                  <description>You can include PLAGUE LEGIONS units in your army, even though they do not have the DEATH GUARD Faction keyword. The combined points cost of such units you can include in your army is:
+
+■ Incursion: Up to 500 pts
+■ Strike Force: Up to 1000 pts
+■ Onslaught: Up to 1500 pts
+
+No PLAGUE LEGIONS models from your army can be your WARLORD.</description>
+                </rule>
                 <rule name="Reverberant Rancidity" id="54f8-e273-c8e4-03e2" hidden="false">
                   <description>While a ^^**Plague Legions^^** unit from your army is within 7&quot; of one or more ^^**Death Guard^^** units from your army, that ^^**Plague Legions^^** unit has the Nurgle&apos;s Gift ability.
 
@@ -11814,10 +11823,35 @@ sim-mod: source=&quot;Fell Harvester&quot; attacks=+2 when=melee scope=model</co
         <constraint type="max" value="0" field="51b2-306e-1021-d207" scope="force" shared="true" id="5087-d6a0-994a-08b9" includeChildSelections="true"/>
       </constraints>
       <modifiers>
+        <modifier type="set" value="500" field="5087-d6a0-994a-08b9">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="69e5-13c7-06bf-d454" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
         <modifier type="set" value="1000" field="5087-d6a0-994a-08b9">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="force" childId="69e5-13c7-06bf-d454" shared="true" includeChildSelections="true"/>
-          </conditions>
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="69e5-13c7-06bf-d454" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="1500" field="5087-d6a0-994a-08b9">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="69e5-13c7-06bf-d454" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
         </modifier>
         <modifier type="set" value="-1" field="5087-d6a0-994a-08b9">
           <conditions>
