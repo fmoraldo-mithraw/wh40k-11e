@@ -15,7 +15,9 @@
 // invuln:/fnp: déjà en base). Les lignes def-mod: existantes sont remplacées
 // (zéro churn si identiques) ; une ligne portant `manual` est conservée.
 //
-// usage : node editor/gen-def-mods.mjs [--apply] [--list]
+// usage : node editor/gen-def-mods.mjs [--apply] [--list] [--ajout-seul]
+//   --ajout-seul : n'ajoute des lignes qu'aux nœuds qui n'en ont aucune (ne réécrit
+//                  jamais des lignes existantes, éventuellement affinées à la main)
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
@@ -26,6 +28,7 @@ const REPO = path.resolve(HERE, "..");
 const { Catalog } = require(path.join(REPO, "editor/lib/catalog"));
 const xml = require(path.join(REPO, "editor/lib/xml"));
 const APPLY = process.argv.includes("--apply");
+const ADD_ONLY = process.argv.includes("--ajout-seul");
 const LIST = process.argv.includes("--list");
 
 const clean = (s) => String(s || "").replace(/\*\*|\^\^/g, "").replace(/\s+/g, " ").trim();
@@ -44,13 +47,23 @@ export function extractDef(text, { datasheet = false } = {}) {
   const ctx = (s, i) => DEF_CTX.test(s) || (i > 0 && DEF_CTX.test(sentences[i - 1]));
   sentences.forEach((s, i) => {
     if (!ctx(s, i)) return;
+    // Aura accordée à d'AUTRES unités (« while a friendly X unit is within 6" of
+    // this unit, models in that unit have … ») : pas une résistance du porteur
+    // (Daughters of the Abyss : FNP 5+ pour les Custodes voisins, pas les Sœurs).
+    // Idem quand l'aura est posée dans la phrase précédente et que celle-ci ne fait
+    // que la conclure (Adept of the Omnissiah : « …targets a friendly VEHICLE unit
+    // within 6" of this unit… If you do, that VEHICLE unit has Feel No Pain 5+ »).
+    const AURA = /\bfriendly\b[^.]{0,80}\bwithin \d+"[^.]{0,40}\bof (?:this|the bearer|your)\b/i;
+    if (AURA.test(s) || (i > 0 && !DEF_CTX.test(s) && AURA.test(sentences[i - 1]))) return;
     const when = whenOf(s) || (i > 0 ? whenOf(sentences[i - 1]) : null);
     const stronger = /strength[^.]{0,40}(greater|higher) than[^.]{0,30}toughness|\bS greater than[^.]{0,30}\bT\b/i.test(s);
     const push = (fx) => out.push({ fx, when, stronger });
     if (/subtract 1 from the damage characteristic|-1 to (?:the )?damage|reduce the damage[^.]{0,30}by 1|damage characteristic of that attack is reduced by 1/i.test(s)) push("dmg=-1");
     if (/halve the damage/i.test(s)) push("halfdmg");
     if (/subtract 1 from (?:the|that) wound roll|-1 to wound rolls?/i.test(s)) push("wound=-1");
-    if (/worsen the armou?r penetration[^.]{0,40}by 1/i.test(s)) push("ap=-1");
+    // 10e « worsen the Armour Penetration … by 1 » ; 11e « Attacks that target
+    // this unit have -1 AP » (Meganobz, Custodian Wardens…).
+    if (/worsen the (?:armou?r penetration|AP)[^.]{0,40}by 1|\b(?:have|has|gets?) -1 AP\b/i.test(s)) push("ap=-1");
     if (/benefit of cover/i.test(s) && !/(do not|does not|cannot|lose|ignore)[^.]{0,20}benefit of cover/i.test(s)) push("cover");
     if (!datasheet) {
       const iv = s.match(/(\d)\+\s*(?:invulnerable save|InSv)/i); if (iv) push("inv=" + iv[1]);
@@ -111,6 +124,9 @@ let changed = 0, lines = 0; const perFile = new Map(); const sample = [];
 for (const [node, p] of plan) {
   let com = (node.children || []).find((ch) => ch.tag === "comment");
   const existing = com ? (xml.getText(com) || "") : "";
+  // --ajout-seul : ne touche aucun nœud portant déjà des lignes def-mod: (elles
+  // ont pu être affinées à la main — choice=, conditional… — sans « manual »).
+  if (ADD_ONLY && /def-mod:/.test(existing)) continue;
   const kept = existing.split("\n").filter((l) => l.trim() && !(/^\s*def-mod:/.test(l) && !/\bmanual\b/.test(l)));
   const next = [...kept, ...p.lines].join("\n");
   if (next.trim() === existing.trim()) continue;
