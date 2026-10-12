@@ -3,6 +3,8 @@
 //
 //   def-mod: source="Nom" <effets> [when=ranged|melee] [vsStronger] [conditional]
 //   effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 · cover · inv=4 · fnp=5
+//   `mortal` (après fnp=N) : FNP contre les SEULES blessures mortelles — ne joue
+//   que contre les Devastating Wounds, jamais comme FNP général.
 //
 // Même canal que `sim-mod:` (un <comment>, une ligne par effet-source), posé
 // sur : la selectionEntry de la fiche (aptitudes de datasheet), celle de
@@ -57,7 +59,10 @@ export function extractDef(text, { datasheet = false } = {}) {
     if (AURA.test(s) || (i > 0 && !DEF_CTX.test(s) && AURA.test(sentences[i - 1]))) return;
     const when = whenOf(s) || (i > 0 ? whenOf(sentences[i - 1]) : null);
     const stronger = /strength[^.]{0,40}(greater|higher) than[^.]{0,30}toughness|\bS greater than[^.]{0,30}\bT\b/i.test(s);
-    const push = (fx) => out.push({ fx, when, stronger });
+    // FNP limité aux blessures mortelles (« Feel No Pain 5+ against mortal wounds ») :
+    // ne compte que contre les Devastating Wounds → drapeau `mortal`.
+    const mortal = /mortal wounds?/i.test(s);
+    const push = (fx) => out.push({ fx, when, stronger, mortal: /^fnp=/.test(fx) && mortal });
     if (/subtract 1 from the damage characteristic|-1 to (?:the )?damage|reduce the damage[^.]{0,30}by 1|damage characteristic of that attack is reduced by 1/i.test(s)) push("dmg=-1");
     if (/halve the damage/i.test(s)) push("halfdmg");
     if (/subtract 1 from (?:the|that) wound roll|-1 to wound rolls?/i.test(s)) push("wound=-1");
@@ -72,11 +77,11 @@ export function extractDef(text, { datasheet = false } = {}) {
   });
   // dédoublonne
   const seen = new Set();
-  return out.filter((o) => { const k = o.fx + "|" + o.when + "|" + o.stronger; if (seen.has(k)) return false; seen.add(k); return true; });
+  return out.filter((o) => { const k = o.fx + "|" + o.when + "|" + o.stronger + "|" + o.mortal; if (seen.has(k)) return false; seen.add(k); return true; });
 }
 
 const SITUATIONAL = /\b(once per|while|if |until|each time this unit|in your opponent's|at the start|select one|roll one d6|on a \d\+)/i;
-const line = (src, d, conditional) => `def-mod: source="${src.replace(/"/g, "'")}" ${d.fx}${d.when ? " when=" + d.when : ""}${d.stronger ? " vsStronger" : ""}${conditional ? " conditional" : ""}`;
+const line = (src, d, conditional) => `def-mod: source="${src.replace(/"/g, "'")}" ${d.fx}${d.mortal ? " mortal" : ""}${d.when ? " when=" + d.when : ""}${d.stronger ? " vsStronger" : ""}${conditional ? " conditional" : ""}`;
 
 const c = new Catalog(REPO).load();
 const plan = new Map(); // node → { file, label, lines:[] }

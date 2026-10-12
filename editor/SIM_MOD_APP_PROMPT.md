@@ -191,15 +191,24 @@ par l'unité ciblée ; l'appli ne le mélange jamais aux bonus offensifs
 pour abattre l'unité, profils F5 PA-1 D1 / F6 PA-2 D2 / F10 PA-2 D3, /100 pts).
 
 ```
-def-mod: source="Nom" <effets> [when=ranged|melee] [vsStronger] [conditional] [choice="…"]
+def-mod: source="Nom" <effets> [mortal] [when=ranged|melee] [vsStronger] [conditional] [choice="…"]
 effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 (PA de l'attaque aggravée de 1)
          · cover · inv=4 · fnp=5
 ```
 
 - `vsStronger` : seulement si la Force de l'attaque > Endurance de l'unité.
+- `mortal` (avec `fnp=N`) : FNP **contre les seules blessures mortelles** (« Feel No Pain
+  5+ against mortal wounds ») — ne joue **que contre les Devastating Wounds**, jamais comme
+  FNP général. Les profils de référence de l'indice n'ont pas de Devastating Wounds : l'effet
+  y est tenu à part (`fnpMortal`) et l'indice ne bouge pas ; l'appli l'affiche comme tel.
+- Tournures reconnues pour `ap=-1` : « worsen the Armour Penetration … by 1 » (10e) et
+  « Attacks that target this unit have -1 AP » (11e). Les auras accordées à d'**autres** unités
+  (« friendly … within N" of this unit … that unit has … ») ne sont jamais prises.
 - Posé sur la fiche (aptitude de datasheet), l'amélioration, la `<rule>` de
   règle de détachement ou de stratagème. Les invu/FNP de **fiche** restent
   des marqueurs `invuln:` / `fnp:` (cf. `STAT_MARKERS_APP_PROMPT.md`).
-- Générateur : `node editor/gen-def-mods.mjs [--list] [--apply]` —
+- Générateur : `node editor/gen-def-mods.mjs [--list] [--apply] [--ajout-seul]` —
   extraction prudente (contexte défensif explicite exigé), idempotent ; une
-  ligne portant `manual` est conservée telle quelle.
+  ligne portant `manual` est conservée telle quelle. `--ajout-seul` n'écrit que dans
+  les nœuds sans ligne `def-mod:` (le mode complet réécrirait des lignes affinées à la
+  main — `choice=`, `conditional` — qui ne portent pas `manual`).
