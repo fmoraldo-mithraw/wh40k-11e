@@ -91,6 +91,6 @@ Réponses à l'utilisateur **en français** ; signaler les doutes.
 ## Git et sécurité
 
 Commits par faction, messages descriptifs en français ; ne jamais committer un état
-non validé (`editor/bin/verifie.sh`). Publication : `editor/bin/pousse.sh` (données) et
-`scripts/dev/pousse.sh` (appli). **Jamais de force-push.** Ne jamais lire, diffuser ni
+non validé (`editor/bin/verifie.sh`). Publication : `editor/bin/pousse.sh` (données) **puis**
+`scripts/dev/pousse.sh` (appli) — toujours les données d'abord, la CI de l'appli lit `main` des données. **Jamais de force-push.** Ne jamais lire, diffuser ni
 demander le contenu de `aln-profile/` (session de connexion ALN).

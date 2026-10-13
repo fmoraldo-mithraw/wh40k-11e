@@ -20,8 +20,10 @@ Ordre fixe ; s'arrêter au premier ✗ et le corriger (ne jamais committer un é
 4. **Parseur changé ?** (`scripts/bsdata-parser.mjs`) — après le commit appli :
    `COGITATOR_DIR=../cogitator-bellicum bash editor/mfm/vendor/sync-parser.sh` dans wh40k-11e,
    vérifier que l'en-tête `source-commit:` correspond au commit appli, committer.
-5. **Push** : `scripts/dev/pousse.sh <branche-de-session>` (appli) et
-   `editor/bin/pousse.sh <branche-de-session>` (données). Jamais de force-push.
+5. **Push — données D'ABORD** : `editor/bin/pousse.sh <branche-de-session>` (données), PUIS
+   `scripts/dev/pousse.sh <branche-de-session>` (appli). La CI de l'appli récupère `main`
+   des données au démarrage : appli poussée avant ses données = CI rouge à tort (vécu le
+   2026-10-13 : test du Blastajet + test:chunks). Jamais de force-push.
 6. **ETAT.md** : retirer ce qui est réglé, ajouter les questions ouvertes / nouvelles lignes de
    base / décisions ; committer avec le reste (ou un petit commit « ETAT »).
 7. **Rapport** à l'utilisateur, court : ce qui a changé (données / appli), comment c'est vérifié
