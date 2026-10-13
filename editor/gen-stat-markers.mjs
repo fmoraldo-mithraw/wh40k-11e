@@ -43,6 +43,7 @@ const { mustBeWarlord, cannotBeWarlord } = await import(join(APP, "src/rules.js"
 
 const APPLY = process.argv.includes("--apply");
 const MARKER_RE = /^(invuln|fnp|must-warlord|cannot-warlord|leader-kw)\b/;
+const invKeyOf = (l) => { const m = l.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?/i); return m ? m[1] + "|" + (m[2] || "") : null; };
 
 // FNP « stat de fiche » : l'aptitude s'appelle « Feel No Pain N+ » (valeur dans
 // le nom, description = la règle générique). Rien d'autre ne compte.
@@ -121,15 +122,24 @@ for (const [fk, f] of Object.entries(all)) {
     const existing = com ? (xml.getText(com) || "") : "";
     // Les lignes invuln: à option="…" (invulnérable d'ÉQUIPEMENT, posée à la
     // main) ne se recalculent pas : conservées telles quelles.
-    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && (!MARKER_RE.test(l) || /^invuln:.*\boption="/i.test(l)));
+    // Idem pour une invu CONDITIONNELLE ou annotée (note="…") que la prose ne
+    // permet pas de retrouver : retouche manuelle (Trajann, Moment Shackle « InSv
+    // 3+ » une fois par bataille) — la régénération l'effaçait.
+    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && (!MARKER_RE.test(l) || /^invuln:.*(\boption="|\bconditional\b|\bnote=")/i.test(l)));
+    const keptInv = new Set(kept.map((l) => invKeyOf(l)).filter(Boolean));
     // Une ligne invuln: déjà en base pour la même valeur (et le même modèle)
     // est CONSERVÉE telle quelle : elle peut porter une retouche manuelle que
     // la prose ne dit pas (« conditional », note="against melee attacks only").
-    const invKey = (l) => { const m = l.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?/i); return m ? m[1] + "|" + (m[2] || "") : null; };
+    const invKey = invKeyOf;
     const prevInv = new Map(existing.split("\n").map((l) => l.trim()).filter((l) => invKey(l)).map((l) => [invKey(l), l]));
     for (let i = 0; i < lines.length; i++) { const k = invKey(lines[i]); if (k && prevInv.has(k)) lines[i] = prevInv.get(k); }
+    // une ligne déjà conservée (manuelle) ne se double pas d'une ligne recalculée
+    for (let i = lines.length - 1; i >= 0; i--) { const k = invKey(lines[i]); if (k && keptInv.has(k)) lines.splice(i, 1); }
     const next = [...kept, ...lines].join("\n");
     if (next === existing.split("\n").map((l) => l.trim()).filter(Boolean).join("\n")) continue;
+    // Mêmes lignes dans un autre ordre : rien à écrire (pas de churn de réordonnancement).
+    const norm = (t) => t.split("\n").map((l) => l.trim()).filter(Boolean).sort().join("\n");
+    if (norm(next) === norm(existing)) continue;
 
     unitsMarked++; linesTotal += lines.length;
     perFile.set(file, (perFile.get(file) || 0) + 1);
