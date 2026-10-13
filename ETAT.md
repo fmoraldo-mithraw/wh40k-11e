@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-09.
+> Dernière mise à jour : 2026-10-13.
 
 ## Dépôts et branches
 
@@ -30,8 +30,18 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 3. **Grey Knights** — 43 divergences `gdc-apply-weapons.cjs --trust` en attente de décision.
 4. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
    de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
+5. **Custodes** — seul Guardians of the Throne a un DP officiel (3) ; les 12 autres détachements
+   restent à 1 DP par défaut : valeurs à fournir.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
+
+- 2026-10-13 : **publication : données d'abord, appli ensuite** (la CI de l'appli lit `main` des
+  données au démarrage ; ordre inverse = CI rouge, cf. run 38448670025).
+- 2026-10-13 : **FNP contre blessures mortelles = Devastating Wounds uniquement** (drapeau `mortal`
+  des `def-mod:` ; simulateur : champ « FNP BM », jamais repli sur le FNP général) — `SIM_MOD_APP_PROMPT.md`.
+- 2026-10-13 : invulnérable de base + variante d'option (`invuln: 6+` et `invuln: 5+ option=…`,
+  Wazbom Blastajet) ; `gen-stat-markers.mjs` garde les lignes manuelles (`option=`, `conditional`, `note=`).
+- 2026-10-13 : Guardians of the Throne = 3 DP (2 en Incursion).
 
 - 2026-10-09 : **Incursion : un détachement à 3 DP coûte 2 DP** (35 détachements, modifier natif ;
   appli `effectiveDetDp`) — `editor/DETACHMENT_DP_APP_PROMPT.md`. Tout nouveau détachement à 3 DP
