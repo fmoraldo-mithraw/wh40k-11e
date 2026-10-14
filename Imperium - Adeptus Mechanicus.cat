@@ -641,7 +641,7 @@ must-warlord</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, select one of the abilities in the Canticles of the Omnissiah section. Until the start of your next Command phase, this model has that ability.</characteristic>
           </characteristics>
         </profile>
-        <profile id="5ead-6321-e602-4f39" name="Invocation of Machine Vengeance (Aura)" hidden="false" typeId="a975-f7ec-a9af-33b7" typeName="Canticles of the Omnissiah">
+        <profile id="5ead-6321-e602-4f39" name="Invocation of Machine Vengeance" hidden="false" typeId="a975-f7ec-a9af-33b7" typeName="Canticles of the Omnissiah">
           <characteristics>
             <characteristic name="Effect" typeId="a513-6ce8-1ada-8763">At the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Machine Vengeance target. Each time a model in a friendly ^^**Adeptus Mechanicus**^^ unit makes an attack that targets your Machine Vengeance target, you can re-roll the Hit roll.</characteristic>
           </characteristics>
@@ -2284,7 +2284,6 @@ invuln: 6+</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Blast" id="ac31-c37-3bfa-b9a3" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
                         <infoLink name="Heavy" id="6c4f-ccf3-1e06-9f29" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
@@ -6636,8 +6635,8 @@ invuln: 5+</comment>
         <profile name="Data-severed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="61f6-5779-1755-6d8c">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If there are no **^^Kastelan Robot^^** models in this unit:
-- This unit loses the **^^Vehicle^^** keyword.
-- This unit has the **^^Infantry^^** keyword.</characteristic>
+- This unit loses **^^Vehicle^^**.
+- This unit has **^^Infantry^^**.</characteristic>
           </characteristics>
         </profile>
         <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="20ba-7ccc-c027-ee90">
@@ -11953,7 +11952,9 @@ You can attach this model to a ^^**Kastelan Robots**^^ unit, even if one or more
               <description>BOMBARDMENT
 At the start of the first battle round, for each enemy unit within your opponent’s deployment zone, your opponent must decide whether that unit will take cover or stand firm. You then roll one D6 for each of those enemy units and apply the relevant result below:
 ■ Unit Standing Firm: On a 3+, that unit suffers D3 mortal wounds.
-■ Unit Taking Cover: That unit is Battle-shocked. On a 5+, that unit suffers D3 mortal wounds.
+■ Unit Taking Cover:
+▫ That unit is battle-shocked.
+▫ On a 5+, that unit suffers D3 mortal wounds.
 -
 FALLOUT
 At the start of your Command phase during the second, third, fourth and fifth battle rounds, roll one D6 for each enemy unit within your opponent’s deployment zone. On a 3+, that unit suffers 1 mortal wound and must take a Battle-shock test.</description>
@@ -12372,9 +12373,13 @@ EFFECT: Until the end of the turn, each time an Adeptus Mechanicus unit disembar
               <comment>strat-timing: turn=your phase=movement</comment>
               <description>Haloscreed Battle Clade – STRATAGEM (1CP)
 
-WHEN: Your Movement phase, just after an Adeptus Mechanicus unit from your army Falls back.
+WHEN: Your Movement phase, when a friendly Adeptus Mechanicus unit is selected to make a fall-back move.
 TARGET: That Adeptus Mechanicus unit.
-EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back, and, if it is a Halo Override unit, you can re-roll Desperate Escape tests taken for it.</description>
+EFFECT:
+- If your unit is a Halo Override unit, your unit can re-roll hazard rolls.
+- That fall-back move does not prevent your unit from:
+  - Being eligible to shoot.
+  - Being eligible to declare a charge.</description>
             </rule>
             <rule name="Analytical Divination (Stratagem, 1CP)" id="02da-98f8-fc6c-429b" hidden="false">
               <comment>strat-timing: turn=opponent phase=movement</comment>
