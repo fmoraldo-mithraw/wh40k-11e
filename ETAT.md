@@ -32,8 +32,20 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
    de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
 5. **Custodes — Ares Gunship / Orion Assault Dropship** : fiches reprises par le MFM v1.6,
    absentes de la base : textes à fournir.
+6. **Aquila Kill Team** (Agents, `b040-ce24-7e1a-c903`) — retirée par le faction pack Imperial
+   Agents v1.3 mais encore tarifée par le MFM v1.6 : supprimer (précédent `e9e140c`) ou masquer ?
+7. **Wazbom Blastajet** — socle modifié par l'Event Companion v1.3 (page 83, illisible : extraction
+   Drive tronquée à 80 p.) ; base actuelle « 150x95mm Oval Base » : valeur à fournir.
+8. **AdMech, Chant of Electrotraction** — WHEN « ELECTRO-PRIESTS BATTLECLADE » (texte officiel),
+   mot-clef inexistant (Electro-Priests / Servitor Battleclade) : coquille GW ?
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
+
+- 2026-10-14 : **faction packs du 14/10 intégrés** (AS 1.4, AdMech 1.4, Aeldari 1.4, Agents 1.3,
+  Votann 1.2, Tyranids 1.3 ; errata imprimés Custodes 1.0, SM 1.1) — Rules Updates comparées à la base
+  (le rouge du PDF est perdu en extraction texte : comparaison exhaustive). Un document officiel plus
+  récent que game-datacards l'emporte : rattachements protégés par `attachOverrides` du manifeste
+  (Eldrad/Farseer → Warlock Conclave). Fixture figée Agents (idiome profil hidden) côté appli.
 
 - 2026-10-14 : **MFM v1.6 intégré** (`editor/mfm/state/RESTE-v1.6.md`) — Exorcist 175,
   7 Force Dispositions Custodes réalignées (Guardians of the Throne en offre 2 au choix),
