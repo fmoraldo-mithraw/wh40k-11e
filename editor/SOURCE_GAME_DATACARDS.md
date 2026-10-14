@@ -27,6 +27,10 @@ Manifeste versionné de la source :
   des outils) ; `detachmentTool: true` = détachements synchronisables par
   `gdc-sync-detachments.cjs` (chapitres divergents) ;
 - `knownNoise` : artefacts connus à ignorer ; `tools` : outils associés.
+- `attachOverrides` : rattachements Leader/Support qu'un document officiel **plus récent** que la
+  version suivie ajoute (faction pack, errata) — `gdc-attach.cjs` les ajoute aux cibles de la fiche
+  et ne les retire donc pas ; à vider quand la source les porte (ex. Eldrad/Farseer → Warlock
+  Conclave, faction pack Aeldari v1.4 du 14/10/2026).
 
 Récupérer la source suivie :
 

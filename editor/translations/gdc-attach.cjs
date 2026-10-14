@@ -89,7 +89,9 @@ for (const file of gdcFiles) {
   for (const ds of J.datasheets) {
     const at = ds.attachesTo || []; if (!at.length) continue; if (ONLY.size && !ONLY.has(en(ds.name))) continue;
     for (const L of leaderNodes(file, en(ds.name))) for (const kind of ["leader", "support"]) {
-      const offT = at.filter((a) => a.type === kind).map((a) => a.target); if (!offT.length) continue;
+      // + rattachements ajoutés par un document officiel plus récent (manifeste attachOverrides)
+      const ovr = ((MAN.attachOverrides || {})[en(ds.name)] || {})[kind] || [];
+      const offT = [...new Set([...at.filter((a) => a.type === kind).map((a) => a.target), ...ovr])]; if (!offT.length) continue;
       ensureRule(L.e, L.f, kind);
       const resolved = [];
       for (const tname of offT) {
