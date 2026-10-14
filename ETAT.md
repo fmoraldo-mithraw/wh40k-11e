@@ -46,7 +46,6 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
   (le rouge du PDF est perdu en extraction texte : comparaison exhaustive). Un document officiel plus
   récent que game-datacards l'emporte : rattachements protégés par `attachOverrides` du manifeste
   (Eldrad/Farseer → Warlock Conclave). Fixture figée Agents (idiome profil hidden) côté appli.
-
 - 2026-10-14 : **MFM v1.6 intégré** (`editor/mfm/state/RESTE-v1.6.md`) — Exorcist 175,
   7 Force Dispositions Custodes réalignées (Guardians of the Throne en offre 2 au choix),
   2 seuils de répétition corrigés (Sodalities : +30 dès le 4e). Le v1.6 publie le **DP officiel
@@ -56,10 +55,6 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
   données au démarrage ; ordre inverse = CI rouge, cf. run 38448670025).
 - 2026-10-13 : **FNP contre blessures mortelles = Devastating Wounds uniquement** (drapeau `mortal`
   des `def-mod:` ; simulateur : champ « FNP BM », jamais repli sur le FNP général) — `SIM_MOD_APP_PROMPT.md`.
-- 2026-10-13 : invulnérable de base + variante d'option (`invuln: 6+` et `invuln: 5+ option=…`,
-  Wazbom Blastajet) ; `gen-stat-markers.mjs` garde les lignes manuelles (`option=`, `conditional`, `note=`).
-- 2026-10-13 : Guardians of the Throne = 3 DP (2 en Incursion).
-
 - 2026-10-09 : **Incursion : un détachement à 3 DP coûte 2 DP** (35 détachements, modifier natif ;
   appli `effectiveDetDp`) — `editor/DETACHMENT_DP_APP_PROMPT.md`. Tout nouveau détachement à 3 DP
   doit porter le modifier.
@@ -70,12 +65,8 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 - 2026-10-09 : démons des légions (Tallyband Summoners, Carnival of Excess, Changehost of Deceit,
   Khorne Daemonkin) = texte officiel : **500 / 1000 / 1500 pts** selon Incursion / Strike Force /
   Onslaught, **aucun Warlord** démon ; règle « <Légion> » en tête de chaque détachement.
-- 2026-10-08 : la base suit le MFM, toute entrée MFM absente se signale (règle 6).
 - 2026-10-08 : alliés de détachement — marqueur `det-allies:` (Deathwatch Support 500 pts ;
   variante `native` démons des légions) — `editor/DETACHMENT_ALLIES_APP_PROMPT.md`.
-- 2026-10-07 : la fiche officielle (game-datacards) fait foi à 100 %, retraits compris ;
-  seule exception : CT « 7+ » d'une arme Torrent = « - » (N/A).
-- 2026-09-30 : Epic Hero porteur d'amélioration seulement s'il est désigné par les données (règle 1).
 
 ## Automatismes en place
 
