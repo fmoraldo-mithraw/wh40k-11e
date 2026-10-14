@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-13.
+> Dernière mise à jour : 2026-10-14.
 
 ## Dépôts et branches
 
@@ -30,11 +30,16 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 3. **Grey Knights** — 43 divergences `gdc-apply-weapons.cjs --trust` en attente de décision.
 4. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
    de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
-5. **Custodes** — seul Guardians of the Throne a un DP officiel (3) ; les 12 autres détachements
-   restent à 1 DP par défaut : valeurs à fournir.
+5. **Custodes — Ares Gunship / Orion Assault Dropship** : fiches reprises par le MFM v1.6,
+   absentes de la base : textes à fournir.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-14 : **MFM v1.6 intégré** (`editor/mfm/state/RESTE-v1.6.md`) — Exorcist 175,
+  7 Force Dispositions Custodes réalignées (Guardians of the Throne en offre 2 au choix),
+  2 seuils de répétition corrigés (Sodalities : +30 dès le 4e). Le v1.6 publie le **DP officiel
+  des 13 détachements Custodes** : tous à 1 sauf Guardians of the Throne à 3 — conforme à la base,
+  question ouverte n° 5 close.
 - 2026-10-13 : **publication : données d'abord, appli ensuite** (la CI de l'appli lit `main` des
   données au démarrage ; ordre inverse = CI rouge, cf. run 38448670025).
 - 2026-10-13 : **FNP contre blessures mortelles = Devastating Wounds uniquement** (drapeau `mortal`
