@@ -2415,8 +2415,15 @@ invuln: 4+</comment>
 ■ Or: If this unit is **engaged**, this unit can make a **fall-back move**.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3635-765c-7061-cb55">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+■ Vertus Praetors</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
+        <infoLink id="543a-5fb8-0629-08ff" name="Leader" hidden="false" targetId="b4dd-3e1f-41cb-218f" type="rule"/>
         <infoLink id="03ea-2b24-9b07-d27d" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
         <infoLink id="c840-8b09-c553-2674" name="Invulnerable Save" hidden="false" targetId="4042-b2c1-d581-dbe7" type="profile"/>
         <infoLink id="256d-f916-d9bf-d5b2" name="Aegis of the Emperor" hidden="false" targetId="7a3a-262b-bd7b-6e8c" type="rule"/>
@@ -2460,6 +2467,15 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
+        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="2ba1-fd17-f9ab-148c">
+          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
+          <constraints>
+            <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="6a9a-cb98-bd3c-30d5"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="" hidden="true" id="20d6-9bb5-8f20-b6c2" type="selectionEntry" targetId="918b-c9ed-7af7-74df"/>
+          </entryLinks>
+        </selectionEntryGroup>
         <selectionEntryGroup name="Ranged Weapon" hidden="false" id="cf74-e303-50ff-540a" collective="false" import="true" defaultSelectionEntryId="8577-19d8-01a2-3f5e">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="afc2-39e2-a2a6-09b9"/>
@@ -7501,7 +7517,7 @@ sim-mod: source=&quot;Edge of the Blade&quot; reroll=wound1 onCharge scope=model
               <profiles>
                 <profile name="Superior Creation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="799a-1d90-da2b-948e">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Custodes^^** **^^Infantry^^** model only. At the end of a phase in which this model is **destroyed**, roll one D6:
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Custodes^^** **^^Infantry^^** model only. **(Once per battle, per army)** At the end of a phase in which this model is **destroyed**, roll one D6:
 ■ On a 2+, set this model back up on the battlefield as close as possible to where it was **destroyed**, **unengaged**, with 3 wounds remaining.</characteristic>
                   </characteristics>
                 </profile>
