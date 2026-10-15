@@ -25,8 +25,11 @@ for (const [file, doc] of c.docs) {
     const d = xml.getAttr(g, "defaultSelectionEntryId");
     if (!d || d === "none") return;
     const ids = new Set();
-    for (const h of ["selectionEntries", "entryLinks", "selectionEntryGroups"]) for (const holder of kids(g, h)) for (const k of holder.children || []) {
-      if (k.tag !== "selectionEntry" && k.tag !== "entryLink" && k.tag !== "selectionEntryGroup") continue;
+    // chaque conteneur ne compte que SON type d'enfant : un selectionEntry rangé dans <entryLinks> est
+    // ignoré par BattleScribe/l'appli, il ne peut pas servir de défaut (cf. conteneurs.mjs, 2026-10-15)
+    const OWN = { selectionEntries: "selectionEntry", entryLinks: "entryLink", selectionEntryGroups: "selectionEntryGroup" };
+    for (const h of Object.keys(OWN)) for (const holder of kids(g, h)) for (const k of holder.children || []) {
+      if (k.tag !== OWN[h]) continue;
       for (const a of ["id", "targetId"]) { const v = xml.getAttr(k, a); if (v) ids.add(v); }
     }
     if (ids.has(d)) return;

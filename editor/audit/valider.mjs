@@ -13,6 +13,10 @@
 //   4. les rattachements Leader/Support (rattachements.mjs) — toute fiche
 //      Leader/Support a sa liste (groupe Can Lead/Support, lien inverse Led
 //      By/Supported By, ou prose par mot-clef) ; né de Kaius Konorius (2026-10-08).
+//   5. les éléments mal rangés (conteneurs.mjs) — un selectionEntry dans
+//      <entryLinks> (ou tout enfant hors du type de son conteneur) est du XML
+//      valide mais ignoré par BattleScribe et l'appli ; né des 43 armes perdues
+//      du 2026-10-15 (storm bolter du Brotherhood Librarian).
 // Code de sortie ≠ 0 au premier échec — c'est le contrat de la CI.
 
 import { spawnSync } from "node:child_process";
@@ -49,4 +53,8 @@ if (r3.status) process.exit(r3.status);
 
 console.log("\n── rattachements Leader / Support ──");
 const r4 = spawnSync(process.execPath, [join(HERE, "rattachements.mjs")], { stdio: "inherit" });
-process.exit(r4.status || 0);
+if (r4.status) process.exit(r4.status);
+
+console.log("\n── éléments mal rangés dans les conteneurs ──");
+const r5 = spawnSync(process.execPath, [join(HERE, "conteneurs.mjs")], { stdio: "inherit" });
+process.exit(r5.status || 0);

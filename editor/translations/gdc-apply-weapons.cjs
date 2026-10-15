@@ -21,6 +21,15 @@ const TC = (k) => k.toLowerCase().replace(/\b([a-z])/g, (m) => m.toUpperCase()).
 const kwNorm = (s) => N(s).replace(/\s+/g, " ");
 const ref = new Map(); for (const [, d] of c.docs) xml.walk(d.root, (n) => { const t = xml.getAttr(n, "targetId"); if (t) ref.set(t, (ref.get(t) || 0) + 1); });
 const byId = (id) => (c.byId.get(id) || {}).node;
+// range un selectionEntry dans le <selectionEntries> du propriétaire (créé au besoin, à sa place BattleScribe)
+const SE_ORDER = ["comment", "constraints", "modifiers", "modifierGroups", "profiles", "rules", "infoLinks", "infoGroups", "categoryLinks", "selectionEntries", "selectionEntryGroups", "entryLinks", "costs"];
+function placeInSelectionEntries(owner, entry) {
+  let h = (owner.children || []).find((x) => x.tag === "selectionEntries");
+  if (!h) { h = xml.elem("selectionEntries", {}, []); h.selfClose = false; const r = SE_ORDER.indexOf("selectionEntries");
+    let at = owner.children.length; for (let i = 0; i < owner.children.length; i++) if (SE_ORDER.indexOf(owner.children[i].tag) > r) { at = i; break; }
+    owner.children.splice(at, 0, h); }
+  h.children.push(entry);
+}
 const doc = c.docs.get(FILE); const log = []; const dirty = new Set([FILE]);
 function unit(name) { for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(doc.root, b); if (bx) for (const e of bx.children) if (e.tag === "selectionEntry" && N(nm(e)) === N(name) && xml.getAttr(e, "hidden") !== "true") return e; } return null; }
 // profils d'armes de la fiche avec le chemin de liens qui y mène
@@ -41,7 +50,14 @@ function editable(u, item) { // renvoie le profil à modifier (copie locale si p
     const t = byId(tid); const k = JSON.parse(JSON.stringify(t)); xml.walk(k, (x) => { if (xml.getAttr(x, "id")) xml.setAttr(x, "id", c.newId()); });
     const lc = xml.child(item.link, "constraints"); if (lc) { k.children = k.children.filter((x) => x.tag !== "constraints"); const cc = JSON.parse(JSON.stringify(lc)); xml.walk(cc, (x) => { if (xml.getAttr(x, "id")) xml.setAttr(x, "id", c.newId()); }); k.children.push(cc); }
     xml.setAttr(k, "name", nm(item.link) || nm(t)); let par = null; xml.walk(u, (x) => { if (!par && (x.children || []).includes(item.link)) par = x; });
-    if (!par) return null; par.children[par.children.indexOf(item.link)] = k;
+    if (!par) return null;
+    // La copie est un selectionEntry : elle va dans <selectionEntries> du propriétaire, JAMAIS à la
+    // place du lien dans <entryLinks> (un selectionEntry y est ignoré par BattleScribe et par l'appli :
+    // l'arme disparaissait — storm bolter des Brotherhood Librarian/Chaplain, gdc v981).
+    par.children.splice(par.children.indexOf(item.link), 1);
+    let owner = null; xml.walk(u, (x) => { if (!owner && (x.children || []).includes(par)) owner = x; }); if (!owner) owner = u;
+    placeInSelectionEntries(owner, k);
+    if (!par.children.some((x) => typeof x === "object")) owner.children.splice(owner.children.indexOf(par), 1);
     for (const [, d] of c.docs) xml.walk(d.root, (gg) => { if (gg.tag === "selectionEntryGroup" && xml.getAttr(gg, "defaultSelectionEntryId") === lid) xml.setAttr(gg, "defaultSelectionEntryId", xml.getAttr(k, "id")); });
     localized.set(lid, k); log.push(`${nm(u)} : copie locale de « ${nm(t)} »`); }
   const k = localized.get(lid); let hit = null; const pn = nm(item.p); xml.walk(k, (x) => { if (!hit && x.tag === "profile" && nm(x) === pn) hit = x; }); return hit;
