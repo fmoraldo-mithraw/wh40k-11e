@@ -18,7 +18,7 @@ const PTS = "51b2-306e-1021-d207";
 
 // ── utilitaires
 const en = (x) => (x && typeof x === "object" && "en" in x) ? x.en : (x == null ? "" : String(x));
-const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[–—]/g, "-").replace(/^➤\s*/, "").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
+const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[‐‑‒–—]/g, "-").replace(/\s*\((?:upgrade|upgarde|one per army)\)/g, "").replace(/^➤\s*/, "").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
 const txt = (s) => N(String(s || "").replace(/<[^>]+>/g, " ").replace(/\*\*|\^\^|■|●/g, " ").replace(/[“”"]/g, '"')).replace(/[^a-z0-9+"'-]+/g, " ").trim();
 const wbase = (s) => N(s).split(" - ")[0].trim(); const wsuf = (s) => (N(s).split(" - ")[1] || "").trim();
 const kw = (p) => (p.keywords || []).map(en).map((k) => N(k)).filter(Boolean);

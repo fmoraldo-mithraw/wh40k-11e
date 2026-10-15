@@ -36,8 +36,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
    Agents v1.3 mais encore tarifée par le MFM v1.6 : supprimer (précédent `e9e140c`) ou masquer ?
 7. **Wazbom Blastajet** — socle modifié par l'Event Companion v1.3 (page 83, illisible : extraction
    Drive tronquée à 80 p.) ; base actuelle « 150x95mm Oval Base » : valeur à fournir.
-8. **AdMech, Chant of Electrotraction** — WHEN « ELECTRO-PRIESTS BATTLECLADE » (texte officiel),
-   mot-clef inexistant (Electro-Priests / Servitor Battleclade) : coquille GW ?
+8. **Veille gdc v981 (2026-10-15)** — hors MFM, non intégrées : Aleya, Valerian, Venerable Contemptor, Venerable Land Raider (Custodes), Kill Tank (Orks). Fiches Custodes « retirées » par la source (Caladius, Shield-Captain…) : conservées, présentes au MFM. `gdc-watch` normalise désormais `‑` et « (Upgrade) ». Chant of Electrotraction : la source a corrigé la coquille (ELECTRO-PRIESTS), appliqué.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
