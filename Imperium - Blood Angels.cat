@@ -514,16 +514,6 @@ fnp: 5+</comment>
             <infoLink name="Lethal Hits" id="0c5e-f321-0e8c-5409" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
           </infoLinks>
         </selectionEntry>
-      </selectionEntries>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9276-a8c8-908a-463d" shared="true" id="f953-ecb8-9398-b16c" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="27f7-9d4c-d894-cc79" targetId="caa-f869-3cbd-b48e"/>
     <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="e81b-d26c-21ae-6513">
       <profiles>
         <profile id="3abd-3a92-4fc1-e434" name="➤ Plasma pistol - supercharge" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -563,6 +553,16 @@ fnp: 5+</comment>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="faaf-1c42-e004-d5dc"/>
           </constraints>
     </selectionEntry>
+      </selectionEntries>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="atLeast" value="1" field="selections" scope="roster" childId="9276-a8c8-908a-463d" shared="true" id="f953-ecb8-9398-b16c" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+      <entryLinks>
+        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="27f7-9d4c-d894-cc79" targetId="caa-f869-3cbd-b48e"/>
       </entryLinks>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
@@ -2732,10 +2732,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
         <selectionEntryGroup name="Wargear" id="89cc-2a7b-d938-ecf1" hidden="false" sortIndex="4">
           <selectionEntryGroups>
             <selectionEntryGroup name="Melee" id="e456-2590-25bb-6dc2" hidden="false" defaultSelectionEntryId="5609-e509-a00f-2daf">
-              <entryLinks>
-                <entryLink import="true" name="Power fist" hidden="false" id="5fe7-0510-42bd-50d1" type="selectionEntry" targetId="99de-5985-8cb8-f571"/>
-                <entryLink import="true" name="Relic Weapon" hidden="false" id="2748-096a-c30a-638b" type="selectionEntry" targetId="5baf-8a8a-b5ba-1223"/>
-                <entryLink import="true" name="Astartes Chainsword" hidden="false" id="5609-e509-a00f-2daf" type="selectionEntry" targetId="e10a-a603-e8c9-f1ee"/>
+              <selectionEntries>
     <selectionEntry type="upgrade" import="true" name="Thunder Hammer" id="c705-d07e-f9e7-ec5e">
       <profiles>
         <profile name="Thunder Hammer" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="4b21-0d7a-6eca-5346">
@@ -2758,6 +2755,11 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
         <categoryLink name="Melee Weapon" hidden="false" id="f03f-7b76-e42e-8e60" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
     </selectionEntry>
+              </selectionEntries>
+              <entryLinks>
+                <entryLink import="true" name="Power fist" hidden="false" id="5fe7-0510-42bd-50d1" type="selectionEntry" targetId="99de-5985-8cb8-f571"/>
+                <entryLink import="true" name="Relic Weapon" hidden="false" id="2748-096a-c30a-638b" type="selectionEntry" targetId="5baf-8a8a-b5ba-1223"/>
+                <entryLink import="true" name="Astartes Chainsword" hidden="false" id="5609-e509-a00f-2daf" type="selectionEntry" targetId="e10a-a603-e8c9-f1ee"/>
               </entryLinks>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5171-b9b0-da21-5f1b" includeChildSelections="false"/>
@@ -2771,6 +2773,23 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
               </constraints>
               <entryLinks>
                 <entryLink import="true" name="Hand flamer" hidden="false" id="b9d1-111a-c8fa-00a9" type="selectionEntry" targetId="9dc6-6ad8-818e-db2e"/>
+              </entryLinks>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Heavy Bolt Pistol" hidden="false" id="7f25-57df-7ed0-df5c">
+                  <profiles>
+                    <profile name="Heavy Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="960d-da5a-6963-cf83">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="d690-8151-9701-6f84">
       <profiles>
         <profile id="9cde-9576-47ae-583c" name="➤ Plasma Pistol - Standard" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -2834,23 +2853,6 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
       </categoryLinks>
       <comment>BS3+</comment>
     </selectionEntry>
-              </entryLinks>
-              <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Heavy Bolt Pistol" hidden="false" id="7f25-57df-7ed0-df5c">
-                  <profiles>
-                    <profile name="Heavy Bolt Pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="960d-da5a-6963-cf83">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                </selectionEntry>
               </selectionEntries>
             </selectionEntryGroup>
           </selectionEntryGroups>
@@ -3060,6 +3062,30 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3919-198d-0dda-897a" includeChildSelections="false"/>
                   </constraints>
                 </entryLink>
+              </entryLinks>
+              <constraints>
+                <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="d315-6db3-f4da-217c" includeChildSelections="false"/>
+              </constraints>
+              <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Combat Blade" hidden="false" id="6eed-38dd-a688-fbbf">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8b96-763f-d92a-2c9c"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ca84-7783-8d86-78b8"/>
+                  </constraints>
+      <profiles>
+        <profile name="Combat Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9429-71ff-3460-e3a6">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Grenade Launcher" hidden="false" id="4d4d-ec4b-fa14-ca82">
       <profiles>
         <profile name="➤ Grenade Launcher - Frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b883-1310-dbe5-55ef">
@@ -3096,30 +3122,6 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2e6b-4011-6ea8-d5cd"/>
                     <constraint type="max" value="0" field="selections" scope="3825-ac3a-75ec-fa0d" shared="true" id="f90a-98ba-a242-8818" includeChildSelections="true"/>
                   </constraints>
-    </selectionEntry>
-              </entryLinks>
-              <constraints>
-                <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="d315-6db3-f4da-217c" includeChildSelections="false"/>
-              </constraints>
-              <selectionEntries>
-    <selectionEntry type="upgrade" import="true" name="Combat Blade" hidden="false" id="6eed-38dd-a688-fbbf">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8b96-763f-d92a-2c9c"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ca84-7783-8d86-78b8"/>
-                  </constraints>
-      <profiles>
-        <profile name="Combat Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9429-71ff-3460-e3a6">
-          <characteristics>
-            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
-            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
     </selectionEntry>
               </selectionEntries>
             </selectionEntry>
@@ -3482,7 +3484,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
               </constraints>
             </selectionEntryGroup>
             <selectionEntryGroup name="Ranged Weapon Option" id="0594-cce0-43e8-a8cb" hidden="false" defaultSelectionEntryId="b53f-0e27-f965-52e4">
-              <entryLinks>
+              <selectionEntries>
     <selectionEntry type="upgrade" import="true" name="Twin heavy bolter" hidden="false" id="b53f-0e27-f965-52e4">
       <infoLinks>
         <infoLink name="Sustained Hits" hidden="false" type="rule" id="1e3b-de16-9dc0-16d7" targetId="1897-c22c-9597-12b1"/>
@@ -3503,6 +3505,8 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
         </profile>
       </profiles>
     </selectionEntry>
+              </selectionEntries>
+              <entryLinks>
                 <entryLink import="true" name="Twin multi-melta" hidden="false" id="d865-d29d-90d2-1db4" type="selectionEntry" targetId="6fad-2d0d-8ff9-5f8f"/>
               </entryLinks>
               <constraints>
