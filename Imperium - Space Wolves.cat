@@ -51,31 +51,6 @@
       </categoryLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="f3ad-f021-1317-6179" targetId="caa-f869-3cbd-b48e"/>
-    <selectionEntry type="upgrade" import="true" name="Storm bolter" hidden="false" id="3f3a-137c-b968-a68d">
-      <profiles>
-        <profile name="Storm Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="41c7-e0cb-43c8-e5cd">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Rapid Fire" hidden="false" type="rule" id="cb7a-2f99-0ee6-037c" targetId="c5c8-8b58-b8b6-7786"/>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink name="Ranged Weapon" hidden="false" id="3891-e071-2665-02ea" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-      </categoryLinks>
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4475-ef5c-f9a1-ac85"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2367-a976-5481-53bf"/>
-          </constraints>
-    </selectionEntry>
         <entryLink import="true" name="Axe Morkai" hidden="false" type="selectionEntry" id="7082-5743-3632-3b3e" targetId="df54-1796-1f2-851e"/>
       </entryLinks>
       <profiles>
@@ -140,6 +115,31 @@
             <categoryLink name="Extra Attacks Weapon" hidden="false" id="a4e0-2170-980a-613c" targetId="84c4-6d1e-e724-bd6e" primary="false"/>
           </categoryLinks>
         </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Storm bolter" hidden="false" id="3f3a-137c-b968-a68d">
+      <profiles>
+        <profile name="Storm Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="41c7-e0cb-43c8-e5cd">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="cb7a-2f99-0ee6-037c" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="3891-e071-2665-02ea" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4475-ef5c-f9a1-ac85"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2367-a976-5481-53bf"/>
+          </constraints>
+    </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="5485-661f-6a9f-949c">
@@ -795,6 +795,31 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
         <categoryLink targetId="ff0e-8156-6e6b-8e60" id="af35-b35d-972-853" primary="false" name="Ragnar Blackmane"/>
       </categoryLinks>
       <entryLinks>
+        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="a0d1-3619-231e-ef8f" targetId="caa-f869-3cbd-b48e"/>
+      </entryLinks>
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Frostfang" hidden="false" id="96f2-cab-dda1-b149">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="86d3-2553-d2cd-37da"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3b77-6328-ec29-b003"/>
+          </constraints>
+          <profiles>
+            <profile name="Frostfang" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1808-a7a0-3f8a-c8fc">
+              <characteristics>
+                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">8</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <infoLinks>
+            <infoLink name="Sustained Hits" hidden="false" type="rule" id="4170-38b6-ce27-506d" targetId="1897-c22c-9597-12b1"/>
+          </infoLinks>
+        </selectionEntry>
     <selectionEntry id="ac09-ad09-e096-b438" name="Bolt pistol" hidden="false" collective="false" import="true" type="upgrade">
       <profiles>
         <profile id="2d09-60ae-0712-1a11" name="Bolt Pistol" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -823,31 +848,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a2d1-a463-eaea-ba21"/>
           </constraints>
     </selectionEntry>
-        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="a0d1-3619-231e-ef8f" targetId="caa-f869-3cbd-b48e"/>
-      </entryLinks>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Frostfang" hidden="false" id="96f2-cab-dda1-b149">
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="86d3-2553-d2cd-37da"/>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3b77-6328-ec29-b003"/>
-          </constraints>
-          <profiles>
-            <profile name="Frostfang" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1808-a7a0-3f8a-c8fc">
-              <characteristics>
-                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                <characteristic name="A" typeId="2337-daa1-6682-b110">8</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
-                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <infoLinks>
-            <infoLink name="Sustained Hits" hidden="false" type="rule" id="4170-38b6-ce27-506d" targetId="1897-c22c-9597-12b1"/>
-          </infoLinks>
-        </selectionEntry>
       </selectionEntries>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="6a97-44e8-94d1-c6d5" targetId="b4dd-3e1f-41cb-218f"/>
@@ -3841,7 +3841,7 @@ sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCh
       </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="f410-5daf-751e-080f" hidden="false" sortIndex="4">
-          <entryLinks>
+          <selectionEntries>
     <selectionEntry type="upgrade" import="true" name="Crozius arcanum" hidden="false" id="435c-4a79-1cfc-8fa5">
       <profiles>
         <profile name="Crozius Arcanum" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="52ad-a594-57c0-e7fe">
@@ -3867,6 +3867,8 @@ sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCh
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="daea-2789-0406-84ff" includeChildSelections="false"/>
               </constraints>
     </selectionEntry>
+          </selectionEntries>
+          <entryLinks>
             <entryLink import="true" name="Absolvor bolt pistol" hidden="false" id="505b-0b6c-5670-86b5" type="selectionEntry" targetId="a490-361-c9c4-afeb">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1e07-9212-f020-f1a0-min" includeChildSelections="false"/>
@@ -4739,27 +4741,6 @@ invuln: 4+</comment>
                   </selectionEntries>
                 </selectionEntry>
                 <selectionEntry type="model" import="true" name="Wolf Scout w/ instigator bolt carbine" hidden="false" id="a7f4-14af-04d4-eced" sortIndex="6">
-                  <entryLinks>
-    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="3824-92c2-58c2-55aa">
-      <profiles>
-        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0f83-bf8e-625a-191e">
-          <characteristics>
-            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
-            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
-            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
-          </characteristics>
-        </profile>
-      </profiles>
-                      <constraints>
-                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6b7f-1037-36c4-ad5f" includeChildSelections="false"/>
-                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9e24-fbca-1cd7-9688" includeChildSelections="false"/>
-                      </constraints>
-    </selectionEntry>
-                  </entryLinks>
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a54e-4aca-74f7-f5cb" includeChildSelections="false"/>
                   </constraints>
@@ -4786,6 +4767,25 @@ invuln: 4+</comment>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="580c-c9de-e84b-c5d2" includeChildSelections="false"/>
                       </constraints>
                     </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Combat Knife" hidden="false" id="3824-92c2-58c2-55aa">
+      <profiles>
+        <profile name="Combat Knife" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0f83-bf8e-625a-191e">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+          </characteristics>
+        </profile>
+      </profiles>
+                      <constraints>
+                        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6b7f-1037-36c4-ad5f" includeChildSelections="false"/>
+                        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9e24-fbca-1cd7-9688" includeChildSelections="false"/>
+                      </constraints>
+    </selectionEntry>
                   </selectionEntries>
                 </selectionEntry>
       </selectionEntries>
