@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-14.
+> Dernière mise à jour : 2026-10-15.
 
 ## Dépôts et branches
 
@@ -40,6 +40,9 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-15 : **éléments mal rangés = erreur** (`editor/audit/conteneurs.mjs`, enchaîné par `valider.mjs`) :
+  43 armes copiées par `gdc-apply-weapons.cjs` dans `<entryLinks>` étaient ignorées (storm bolter du
+  Brotherhood Librarian…) ; outil corrigé, données réparées (`--repair`).
 - 2026-10-14 : **faction packs du 14/10 intégrés** (AS 1.4, AdMech 1.4, Aeldari 1.4, Agents 1.3,
   Votann 1.2, Tyranids 1.3 ; errata imprimés Custodes 1.0, SM 1.1) — Rules Updates comparées à la base
   (le rouge du PDF est perdu en extraction texte : comparaison exhaustive). Un document officiel plus
