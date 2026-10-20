@@ -63,7 +63,8 @@ export function extractDef(text, { datasheet = false } = {}) {
     // ne compte que contre les Devastating Wounds → drapeau `mortal`.
     const mortal = /mortal wounds?/i.test(s);
     const push = (fx) => out.push({ fx, when, stronger, mortal: /^fnp=/.test(fx) && mortal });
-    if (/subtract 1 from the damage characteristic|-1 to (?:the )?damage|reduce the damage[^.]{0,30}by 1|damage characteristic of that attack is reduced by 1/i.test(s)) push("dmg=-1");
+    // 11e : « attacks that target this unit have -1 D » (même tournure que « -1 AP »)
+    if (/subtract 1 from the damage characteristic|-1 to (?:the )?damage|reduce the damage[^.]{0,30}by 1|damage characteristic of that attack is reduced by 1|\b(?:have|has|gets?) [-−–]1 (?:\*\*)?D(?:\*\*)?\b/i.test(s)) push("dmg=-1");
     if (/halve the damage/i.test(s)) push("halfdmg");
     if (/subtract 1 from (?:the|that) wound roll|-1 to wound rolls?/i.test(s)) push("wound=-1");
     // 10e « worsen the Armour Penetration … by 1 » ; 11e « Attacks that target
@@ -84,6 +85,10 @@ const SITUATIONAL = /\b(once per|while|if |until|each time this unit|in your opp
 const line = (src, d, conditional) => `def-mod: source="${src.replace(/"/g, "'")}" ${d.fx}${d.mortal ? " mortal" : ""}${d.when ? " when=" + d.when : ""}${d.stronger ? " vsStronger" : ""}${conditional ? " conditional" : ""}`;
 
 const c = new Catalog(REPO).load();
+// Profils Abilities DIRECTS de l'entrée — tous ses conteneurs <profiles> (une
+// entrée peut en porter deux, p. ex. Battlewagon : Unit d'un côté, Mobile
+// Fortress de l'autre ; xml.child ne rendait que le premier → aptitude ignorée).
+const abilityProfiles = (n) => (n.children || []).filter((h) => h.tag === "profiles").flatMap((h) => (h.children || []).filter((p) => p.tag === "profile" && /abilit/i.test(xml.getAttrDecoded(p, "typeName") || "")));
 const plan = new Map(); // node → { file, label, lines:[] }
 const add = (node, file, label, l) => { if (!plan.has(node)) plan.set(node, { file, label, lines: [] }); const p = plan.get(node); if (!p.lines.includes(l)) p.lines.push(l); };
 
@@ -103,7 +108,7 @@ for (const [file, doc] of c.docs) {
     const name = xml.getAttrDecoded(n, "name") || "";
     if (type === "unit" || type === "model") {
       // Aptitudes de la fiche (profils Abilities directs de l'entrée).
-      const profs = ((xml.child(n, "profiles") || {}).children || []).filter((p) => p.tag === "profile" && /abilit/i.test(xml.getAttrDecoded(p, "typeName") || ""));
+      const profs = abilityProfiles(n);
       for (const p of profs) {
         const pn = xml.getAttrDecoded(p, "name") || "";
         if (/^(invul|feel no pain|leader)/i.test(pn)) continue;
@@ -113,7 +118,7 @@ for (const [file, doc] of c.docs) {
     } else if (type === "upgrade") {
       // Améliorations : entrée upgrade portant un profil Abilities à son nom,
       // dans un groupe d'améliorations (catégorie / nom « Enhancement »).
-      const profs = ((xml.child(n, "profiles") || {}).children || []).filter((p) => p.tag === "profile" && /abilit/i.test(xml.getAttrDecoded(p, "typeName") || ""));
+      const profs = abilityProfiles(n);
       const isEnh = /enhancement/i.test(JSON.stringify(((xml.child(n, "categoryLinks") || {}).children || []).map((x) => xml.getAttrDecoded(x, "name")))) || /Upgrade$/.test(name);
       if (!isEnh) return;
       for (const p of profs) {
