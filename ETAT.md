@@ -19,7 +19,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **60/60** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
+- Tests appli : **61/61** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
