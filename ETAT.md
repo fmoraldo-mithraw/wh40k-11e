@@ -40,6 +40,8 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-20 : **def-mods permanents appliqués d'office à l'indice de résistance du catalogue**
+  (`permanentDefMods`, mode tir : sans condition/choix/« en menant »), comme le simulateur les coche.
 - 2026-10-20 : **une arme de mêlée par figurine** (appli) : `deriveAttackerWeapons` porte `bearers`
   (figurine → nombre) ; le simulateur rend exclusives les armes de mêlée d'une même figurine même en
   escouade (hors [Extra Attacks]) ; l'indice de létalité mêlée retient, par figurine et PAR CIBLE, l'arme
