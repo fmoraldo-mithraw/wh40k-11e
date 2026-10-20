@@ -40,6 +40,10 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-20 : **une arme de mêlée par figurine** (appli) : `deriveAttackerWeapons` porte `bearers`
+  (figurine → nombre) ; le simulateur rend exclusives les armes de mêlée d'une même figurine même en
+  escouade (hors [Extra Attacks]) ; l'indice de létalité mêlée retient, par figurine et PAR CIBLE, l'arme
+  la plus létale (`meleePlan`, `src/sim/lethality.js`).
 - 2026-10-15 : **éléments mal rangés = erreur** (`editor/audit/conteneurs.mjs`, enchaîné par `valider.mjs`) :
   43 armes copiées par `gdc-apply-weapons.cjs` dans `<entryLinks>` étaient ignorées (storm bolter du
   Brotherhood Librarian…) ; outil corrigé, données réparées (`--repair`).
