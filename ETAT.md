@@ -40,6 +40,9 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-21 : **cibles étalons** : létalité contre Garde impérial (Cadian Shock Troops 70/10, E3 5+ 1PV)
+  au lieu des Eldars ; les infanteries génériques du simulateur reprennent ces trois profils
+  (E3 5+ 1PV, E5 3+ 2PV, E6 2+ 3PV invu 4+).
 - 2026-10-20 : **def-mods permanents appliqués d'office à l'indice de résistance du catalogue**
   (`permanentDefMods`, mode tir : sans condition/choix/« en menant »), comme le simulateur les coche.
 - 2026-10-20 : **une arme de mêlée par figurine** (appli) : `deriveAttackerWeapons` porte `bearers`
