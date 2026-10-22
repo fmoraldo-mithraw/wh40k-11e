@@ -16,7 +16,10 @@
 //   5. les éléments mal rangés (conteneurs.mjs) — un selectionEntry dans
 //      <entryLinks> (ou tout enfant hors du type de son conteneur) est du XML
 //      valide mais ignoré par BattleScribe et l'appli ; né des 43 armes perdues
-//      du 2026-10-15 (storm bolter du Brotherhood Librarian).
+//      du 2026-10-15 (storm bolter du Brotherhood Librarian) ;
+//   6. les résumés « initiation » (briefs.mjs) — un résumé PÉRIMÉ (la prose a
+//      changé depuis sa rédaction) ou orphelin est une erreur ; un résumé
+//      manquant n'est qu'un rapport de couverture (editor/BRIEFS_PROMPT.md).
 // Code de sortie ≠ 0 au premier échec — c'est le contrat de la CI.
 
 import { spawnSync } from "node:child_process";
@@ -57,4 +60,8 @@ if (r4.status) process.exit(r4.status);
 
 console.log("\n── éléments mal rangés dans les conteneurs ──");
 const r5 = spawnSync(process.execPath, [join(HERE, "conteneurs.mjs")], { stdio: "inherit" });
-process.exit(r5.status || 0);
+if (r5.status) process.exit(r5.status);
+
+console.log("\n── résumés « initiation » (briefs/<lang>.json) ──");
+const r6 = spawnSync(process.execPath, [join(HERE, "briefs.mjs")], { stdio: "inherit" });
+process.exit(r6.status || 0);
