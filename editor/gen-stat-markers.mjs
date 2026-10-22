@@ -1,6 +1,6 @@
 // Générateur des MARQUEURS DE STATS — matérialise en données les trois piliers
 // qui reposaient sur la prose GW côté application :
-//   invuln / FNP  → `invuln: 4+ [model="X"] [conditional] [note="…"] [option="Équipement"]`, `fnp: 5+`
+//   invuln / FNP  → `invuln: 4+ [model="X"] [conditional] [vs=ranged|melee] [lost=wound] [note="…"] [option="Équipement"]`, `fnp: 5+`
 //   Supreme Commander → `must-warlord` / `cannot-warlord`
 //   graphe de chefs (cibles PAR MOTS-CLEFS, la seule part restée prose —
 //   les cibles datasheet sont déjà déclaratives via « Can Lead (MFM) »)
@@ -125,7 +125,7 @@ for (const [fk, f] of Object.entries(all)) {
     // Idem pour une invu CONDITIONNELLE ou annotée (note="…") que la prose ne
     // permet pas de retrouver : retouche manuelle (Trajann, Moment Shackle « InSv
     // 3+ » une fois par bataille) — la régénération l'effaçait.
-    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && (!MARKER_RE.test(l) || /^invuln:.*(\boption="|\bconditional\b|\bnote=")/i.test(l)));
+    const kept = existing.split("\n").map((l) => l.trim()).filter((l) => l && (!MARKER_RE.test(l) || /^invuln:.*(\boption="|\bconditional\b|\bnote="|\b(?:vs|lost)=)/i.test(l)));
     const keptInv = new Set(kept.map((l) => invKeyOf(l)).filter(Boolean));
     // Une ligne invuln: déjà en base pour la même valeur (et le même modèle)
     // est CONSERVÉE telle quelle : elle peut porter une retouche manuelle que

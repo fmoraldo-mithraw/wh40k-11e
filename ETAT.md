@@ -37,9 +37,12 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
-- 2026-10-22 : **invulnérables conditionnelles** (état des lieux des 600+ marqueurs `invuln:`) : seul
-  l'Archon (Shadowfield : 2+ perdue au premier PV perdu) avait perdu son étoile → `conditional` + `note=`.
-  Les « once per battle »/auras (Canoness, Daemon Prince…) ne rendent pas l'invu de base conditionnelle.
+- 2026-10-22 : **invulnérables à contexte** (`STAT_MARKERS_APP_PROMPT.md`, « Groupes de contexte ») :
+  `invuln:` porte `vs=ranged|melee` (Knights, Titans, Rangers, KFF / Judiciar, Banshees et Wyches 4+ en
+  mêlée) ou `lost=wound` (Archon, perdue au 1er PV) ; un bonus « once per battle » est un
+  `def-mod: … inv=N oncePer=battle` (Trajann, Canoness, Daemon Prince, Lelith, Benefictus, Manipulus).
+  Audit `editor/audit/invu-contexte.mjs` (dans `valider.mjs`). Appli : `invulnFor` (mode tir/mêlée),
+  indice de résistance par mode + espérance exacte pour `lost=wound`, simulateur `invulnVs`/`invulnLost`.
 - 2026-10-22 : **résumés « initiation » des capacités** (`briefs/en.json`, `briefs/fr.json`, guide
   `editor/BRIEFS_PROMPT.md`) : une ligne EN + FR par capacité d'unité, clefée par nom (ou nom#empreinte),
   empreinte du texte canonique → audit des périmés (`editor/audit/briefs.mjs`, enchaîné par `valider.mjs`).

@@ -17,6 +17,8 @@
 //      <entryLinks> (ou tout enfant hors du type de son conteneur) est du XML
 //      valide mais ignoré par BattleScribe et l'appli ; né des 43 armes perdues
 //      du 2026-10-15 (storm bolter du Brotherhood Librarian) ;
+//   5b. le contexte des invulnérables de fiche (invu-contexte.mjs) — une
+//      invu conditionnelle doit dire vs=ranged|melee, lost=wound ou option= ;
 //   6. les résumés « initiation » (briefs.mjs) — un résumé PÉRIMÉ (la prose a
 //      changé depuis sa rédaction) ou orphelin est une erreur ; un résumé
 //      manquant n'est qu'un rapport de couverture (editor/BRIEFS_PROMPT.md).
@@ -61,6 +63,10 @@ if (r4.status) process.exit(r4.status);
 console.log("\n── éléments mal rangés dans les conteneurs ──");
 const r5 = spawnSync(process.execPath, [join(HERE, "conteneurs.mjs")], { stdio: "inherit" });
 if (r5.status) process.exit(r5.status);
+
+console.log("\n── contexte des invulnérables de fiche (invuln: vs=/lost=) ──");
+const r7 = spawnSync(process.execPath, [join(HERE, "invu-contexte.mjs")], { stdio: "inherit" });
+if (r7.status) process.exit(r7.status);
 
 console.log("\n── résumés « initiation » (briefs/<lang>.json) ──");
 const r6 = spawnSync(process.execPath, [join(HERE, "briefs.mjs")], { stdio: "inherit" });
