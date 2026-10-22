@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: dce840f
-// source-sha256: 2dbca52362f89f03
+// source-commit: cd65462
+// source-sha256: 7ae9ac2cb2ff9bd3
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5097,7 +5097,9 @@ function parseStatMarkers(text) {
         return a ? a[1] : "";
       };
       const note = attr("note"), option = attr("option");
-      (out.invulnM = out.invulnM || []).push({ value: m[1], model: attr("model"), conditional: /\bconditional\b/i.test(rest), ...note ? { note } : {}, ...option ? { option } : {} });
+      const vs = (rest.match(/\bvs="?(ranged|melee)"?/i) || [])[1];
+      const lost = (rest.match(/\blost="?(wound)"?/i) || [])[1];
+      (out.invulnM = out.invulnM || []).push({ value: m[1], model: attr("model"), conditional: /\bconditional\b/i.test(rest) || !!vs || !!lost, ...vs ? { vs: vs.toLowerCase() } : {}, ...lost ? { lost: lost.toLowerCase() } : {}, ...note ? { note } : {}, ...option ? { option } : {} });
     } else if (m = line.match(/^fnp:\s*(\d)\+\s*$/i)) {
       out.fnpM = parseInt(m[1], 10);
     } else if (/^must-warlord$/i.test(line)) out.mustWL = true;
