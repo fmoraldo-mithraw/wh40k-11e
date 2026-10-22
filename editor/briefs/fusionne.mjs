@@ -17,7 +17,11 @@ const byName = new Map((await abilitiesOfSource(file)).map((a) => [keyOf(a, H), 
 const packs = Object.fromEntries(LANGS.map((l) => [l, loadBriefs(l)]));
 let ok = 0, bad = 0;
 for (const [name, v] of Object.entries(batch)) {
-  const a = byName.get(name); // name = clef (nom, ou nom#empreinte pour un homonyme)
+  // name = clef (nom, ou nom#empreinte pour un homonyme). Un lot rédigé avant
+  // qu'un nom ne devienne homonyme porte la clef simple : accepté si la source
+  // n'a qu'une capacité de ce nom.
+  let a = byName.get(name);
+  if (!a) { const cands = [...byName.values()].filter((x) => x.name === name); if (cands.length === 1) a = cands[0]; }
   if (!a) { console.log(`✗ inconnu dans ${path.basename(file)} : ${name}`); bad++; continue; }
   const errs = [];
   for (const l of LANGS) {
@@ -27,7 +31,7 @@ for (const [name, v] of Object.entries(batch)) {
     else if (/→|←|⇒/.test(b)) errs.push(`${l} contient une flèche`);
   }
   if (errs.length) { console.log(`✗ ${name} : ${errs.join(", ")}`); bad++; continue; }
-  for (const l of LANGS) packs[l].strings[name] = { src: a.src, brief: v[l].replace(/\s+/g, " ").trim() };
+  for (const l of LANGS) packs[l].strings[keyOf(a, H)] = { src: a.src, brief: v[l].replace(/\s+/g, " ").trim() };
   ok++;
 }
 for (const l of LANGS) { rekeyPack(packs[l], H); saveBriefs(l, packs[l]); }
