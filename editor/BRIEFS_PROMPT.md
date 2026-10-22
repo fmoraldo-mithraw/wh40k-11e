@@ -52,6 +52,20 @@ Exemples (tirés du modèle) :
 - Righteous Zeal — FR « phase de Tir adverse, chaque fois qu'une unité ennemie tire et détruit ≥1 figurine de l'unité : mouvement d'élan de D6+1". »
 - Temple Relics — FR « ta phase de Cdt, s'il reste ≥1 Servitor : 1 choix jusqu'à ta prochaine phase de Cdt : Bannière +1 Avance et Charge ; Colonne +1 E ; Eau du Bénitier : PA des armes de mêlée améliorée de 1. »
 
+## Règles d'armée, règles de détachement, stratagèmes (`kind` dans l'extrait)
+
+Source « faction:<Nom> » ; plafond **300 caractères** (encadrés et tables en tête du PDF,
+pas sur chaque fiche). Même télégraphie, mais :
+- `kind: "army"` / `"det"` : la règle entière en une ou deux phrases ; les choix
+  (doctrines, vœux, marques) listés « A : effet ; B : effet ». Exemple (modèle) :
+  « début de ta phase de Cdt : 1 doctrine active pour les unités ADEPTUS ASTARTES jusqu'à ta
+  prochaine phase de Cdt ; Assaut : l'Avance n'empêche pas de charger ; Dévastatrice : tir avec
+  [Assaut] ; Tactique : la Retraite n'empêche pas de tirer ni de charger ; chaque doctrine
+  1×/bataille. »
+- `kind: "strat"` : « <quand, en 3-6 mots>, <cible> : <effet> » — sans les mots QUAND / CIBLE /
+  EFFET, sans le coût en PC (imprimé à part). Exemple : « Combat, unité INFANTERIE choisie pour
+  combattre : ses attaques de mêlée ont [Précision]. »
+
 ## Lot rédigé (entrée de `fusionne.mjs`)
 
 ```json

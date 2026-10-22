@@ -14,7 +14,7 @@ const outIx = argv.indexOf("--out");
 const packs = Object.fromEntries(LANGS.map((l) => [l, loadBriefs(l).strings]));
 const H = await homonymsOf();
 const upToDate = (a) => LANGS.every((l) => { const e = entryOf(packs[l], a); return e && e.brief; });
-const list = (await abilitiesOfSource(file)).filter((a) => tout || !upToDate(a)).map((a) => ({ key: keyOf(a, H), ...a }));
+const list = (await abilitiesOfSource(file)).filter((a) => tout || !upToDate(a)).map((a) => ({ key: keyOf(a, H), ...(a.kind ? { kind: a.kind } : {}), ...a }));
 const json = JSON.stringify(list, null, 1);
 if (outIx >= 0) { writeFileSync(argv[outIx + 1], json); console.log(`${list.length} capacité(s) → ${argv[outIx + 1]}`); }
 else console.log(json);

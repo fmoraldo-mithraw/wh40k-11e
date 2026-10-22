@@ -66,6 +66,16 @@ export async function parsedAbilitiesByFaction() {
     const m = new Map();
     const add = (name, text) => { const n = String(name || "").trim(), t = String(text || "").trim(); if (!n || !t || SKIP.test(n)) return; const src = hashOf(t); const k = n + "#" + src; if (!m.has(k)) m.set(k, { name: n, text: t, src }); };
     for (const u of x.units || []) for (const a of u.abilities || []) { if (!a) continue; add(a[0], a[1]); for (const o of a[2] || []) if (o) add(o[0], o[1]); }
+    // Règles d'armée, règles de détachement et stratagèmes (mode initiation du
+    // PDF : encadrés et tables simplifiés). `kind` guide la rédaction (un
+    // stratagème se résume « quand, cible : effet ») ; même clef nom(#empreinte).
+    const addK = (kind, name, text) => { const before = m.size; add(name, text); if (m.size > before) [...m.values()].pop().kind = kind; };
+    for (const r of x.armyRules || []) addK("army", r.name, r.desc);
+    for (const dt of x.dets || []) {
+      const rl = Array.isArray(dt.rules) && dt.rules.length ? dt.rules : (dt.rule ? [{ name: dt.ruleName || dt.name, desc: dt.rule }] : []);
+      for (const r of rl) addK("det", r.name, r.desc);
+      for (const st of dt.strats || []) addK("strat", st.name, st.description);
+    }
     out.set(fac, [...m.values()]);
   }
   _parsed = out;
