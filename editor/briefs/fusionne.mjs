@@ -10,7 +10,9 @@ import path from "node:path";
 import { LANGS, loadBriefs, saveBriefs, homonymsOf, keyOf, abilitiesOfSource, rekeyPack } from "./lib.mjs";
 const [lot, file] = process.argv.slice(2);
 if (!lot || !file) { console.error("usage: fusionne.mjs <lot.json> <fichier.cat>"); process.exit(2); }
-const MAX = 220;
+// 220 pour une capacité de fiche ; une règle d'armée (source « faction: », imprimée en
+// tête du PDF, pas sur chaque fiche) peut aller à 300.
+const MAX = /^faction:/i.test(file) ? 300 : 220;
 const batch = JSON.parse(readFileSync(lot, "utf8"));
 const H = await homonymsOf();
 const byName = new Map((await abilitiesOfSource(file)).map((a) => [keyOf(a, H), a]));
