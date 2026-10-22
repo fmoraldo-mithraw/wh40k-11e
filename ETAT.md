@@ -25,16 +25,15 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Vanguard Veteran Squad (à pied)** — fiche au MFM, absente de la base. En attendant, les
-   meneurs qui la citent (Lieutenant, Ancient…) mènent la version à réacteurs dorsaux (la prose se
-   résout en mot-clef de catégorie « Vanguard Veteran Squad », que porte l'unité à réacteurs).
-   Texte de la fiche à fournir.
+Aucune au 2026-10-22.
 
-Clos le 2026-10-22 : Eradicator Squad (deux fiches conformes au codex) ; Aquila Kill Team conservée ;
-socle du Blastajet et fiches Custodes Ares/Orion abandonnés ; Aleya, Valerian, Venerable
-Contemptor/Land Raider, Kill Tank non intégrés ; Grey Knights alignés sur game-datacards ; veille
-v995 fusionnée ; **Deathwatch Support confirmé** : une KILL TEAM ne porte que des améliorations de ce
-détachement, le plafond de 500 pts compte options et améliorations.
+Clos le 2026-10-22 : Vanguard Veteran Squad à pied (la fiche n'existe pas ; les meneurs qui la
+citent — Lieutenant, Ancient — mènent la version à réacteurs dorsaux via la catégorie
+« Vanguard Veteran Squad » ; plus dans le MFM) ; Eradicator Squad (deux fiches conformes au codex) ;
+Aquila Kill Team conservée ; socle du Blastajet et fiches Custodes Ares/Orion abandonnés ; Aleya,
+Valerian, Venerable Contemptor/Land Raider, Kill Tank non intégrés ; Grey Knights alignés sur
+game-datacards ; veille v995 fusionnée ; **Deathwatch Support confirmé** : une KILL TEAM ne porte
+que des améliorations de ce détachement, le plafond de 500 pts compte options et améliorations.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
