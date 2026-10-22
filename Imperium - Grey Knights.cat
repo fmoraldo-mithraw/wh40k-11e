@@ -1034,19 +1034,48 @@ invuln: 4+</comment>
       </infoLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="6308-65e2-d4e5-3ce8" hidden="false" sortIndex="4">
+          <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Omnissiah power axe" hidden="false" id="eb02-d53a-927e-9676">
+      <profiles>
+        <profile name="Omnissiah power axe" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="553b-8ec9-128c-ef33">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="increment" value="1" field="41a0-1301-112a-e2f2">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="fd57-61c6-39a4-dee3" shared="true" includeChildSelections="true"/>
+                    <condition type="atLeast" value="1" field="selections" scope="self" childId="128d-c573-273f-47b5" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Melee Weapon" hidden="false" id="e2a9-a666-9a4c-f188" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e4a1-4bdb-e754-ffed"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9b7b-180d-68a7-fc30"/>
+              </constraints>
+    </selectionEntry>
+          </selectionEntries>
           <entryLinks>
             <entryLink targetId="56a2-d965-8a31-8eec" id="a004-fa4e-a5ea-e332" type="selectionEntry" name="Servo-arm" hidden="false">
               <entryLinks></entryLinks>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a439-2174-ed6c-895c"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e724-9f3c-f519-bf7e"/>
-              </constraints>
-            </entryLink>
-            <entryLink targetId="aa5-cfe9-83d9-250a" id="e718-50bf-760b-be95" type="selectionEntry" name="Omnissian power axe" hidden="false">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="babc-84e7-7d38-c82c"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6910-b067-f7d7-9c08"/>
               </constraints>
             </entryLink>
             <entryLink targetId="cdd4-e8f5-f32f-f68c" id="415b-fff4-6689-a30a" type="selectionEntry" name="Grav-pistol" hidden="false">
@@ -2906,7 +2935,7 @@ invuln: 4+</comment>
                   <profiles>
                     <profile name="Las-talon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="fb9-de3-ed8-a4f9">
                       <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
@@ -5080,7 +5109,7 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
       <profiles>
         <profile name="Grey Knights Thunderhawk Gunship" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="357b-e9fc-505d-c82d">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20+&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">12</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">30</characteristic>
@@ -5133,7 +5162,7 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3f26-0d53-af36-5340-max" includeChildSelections="false"/>
               </constraints>
               <profiles>
-                <profile name="Armored Hull" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e9be-6b58-f0bd-9a1f">
+                <profile name="Armoured hull" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e9be-6b58-f0bd-9a1f">
                   <characteristics>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
@@ -6574,8 +6603,8 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 6, Twin-Linked</characteristic>
           </characteristics>
