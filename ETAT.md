@@ -25,18 +25,21 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Vanguard Veteran Squad (à pied)** — fiche présente au MFM, absente de la base : texte à fournir.
-2. **Eradicator Squad (scission MFM)** — texte de la nouvelle fiche à fournir.
-3. **Grey Knights** — 43 divergences `gdc-apply-weapons.cjs --trust` en attente de décision.
-4. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
+1. **Vanguard Veteran Squad (à pied)** — fiche au MFM, absente de la base. Décision du 2026-10-22 :
+   en attendant la fiche, les meneurs qui citent « Vanguard Veteran Squad » (Lieutenant, Ancient…)
+   mènent la version à réacteurs dorsaux — déjà le cas : la prose se résout en mot-clef de
+   catégorie « Vanguard Veteran Squad », que porte l'unité à réacteurs. Texte de la fiche à fournir.
+2. **Grey Knights** — 8 divergences restantes de `gdc-apply-weapons.cjs --trust` (Omnissiah power
+   axe, Thunderhawk M 20", Armoured hull, Hurricane bolter F5 PA-1, Las-talon 24") : appliquer ?
+3. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
    de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
-5. **Custodes — Ares Gunship / Orion Assault Dropship** : fiches reprises par le MFM v1.6,
-   absentes de la base : textes à fournir.
-6. **Aquila Kill Team** (Agents, `b040-ce24-7e1a-c903`) — retirée par le faction pack Imperial
-   Agents v1.3 mais encore tarifée par le MFM v1.6 : supprimer (précédent `e9e140c`) ou masquer ?
-7. **Wazbom Blastajet** — socle modifié par l'Event Companion v1.3 (page 83, illisible : extraction
-   Drive tronquée à 80 p.) ; base actuelle « 150x95mm Oval Base » : valeur à fournir.
-8. **Veille gdc v981 (2026-10-15)** — hors MFM, non intégrées : Aleya, Valerian, Venerable Contemptor, Venerable Land Raider (Custodes), Kill Tank (Orks). Fiches Custodes « retirées » par la source (Caladius, Shield-Captain…) : conservées, présentes au MFM. `gdc-watch` normalise désormais `‑` et « (Upgrade) ». Chant of Electrotraction : la source a corrigé la coquille (ELECTRO-PRIESTS), appliqué.
+4. **Veille gdc v995** (branche `veille-gdc/v995`, 3 corrections : Wolf Guard Headtakers mot-clef
+   Beasts, mots-clefs Tacticus/Gravis Talonstrike et Aquila Kill Team, Power Fist du Death Company
+   Captain A6 CC2+) : fusionner ?
+
+Clos le 2026-10-22 : Eradicator Squad (les deux fiches Heavy Bolters / Melta Rifles sont déjà
+conformes au codex) ; Aquila Kill Team conservée ; socle du Blastajet et fiches Custodes Ares/Orion
+abandonnés ; Aleya, Valerian, Venerable Contemptor/Land Raider, Kill Tank (hors MFM) non intégrés.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
