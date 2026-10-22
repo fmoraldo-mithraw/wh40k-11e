@@ -23,6 +23,7 @@ Réponses à l'utilisateur **en français** ; signaler les doutes.
 | Alliés accordés par détachement (Deathwatch Support 500 pts ; démons des légions 500/1000/1500 selon le format, pas de Warlord) | `editor/DETACHMENT_ALLIES_APP_PROMPT.md` |
 | Lecture du format côté appli (vocabulaire, idiomes) | `editor/BSDATA_PARSING_REFERENCE.md` (+ `editor/INDEX.md` pour les `*_APP_PROMPT.md`) |
 | Éditer un `.cat` | `editor/README.md` (lib `editor/lib/catalog.js` + `xml.js`) |
+| Résumés « initiation » des capacités (PDF débutant) | `editor/BRIEFS_PROMPT.md` (`editor/briefs/{extrait,fusionne}.mjs`, audit `editor/audit/briefs.mjs`) |
 
 ## Outils (sortie courte — à préférer aux grep/sed/scripts jetables)
 

@@ -40,6 +40,11 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-22 : **résumés « initiation » des capacités** (`briefs/en.json`, `briefs/fr.json`, guide
+  `editor/BRIEFS_PROMPT.md`) : une ligne EN + FR par capacité d'unité, clefée par nom (ou nom#empreinte),
+  empreinte du texte canonique → audit des périmés (`editor/audit/briefs.mjs`, enchaîné par `valider.mjs`).
+  Appli : case « Mode initiation » de l'export PDF (fiches compactes, mots-clés ciblés par le
+  détachement surlignés, règles d'armée répétées masquées). Couverture : voir la dernière ligne de l'audit.
 - 2026-10-21 : **cibles étalons** : létalité contre Garde impérial (Cadian Shock Troops 70/10, E3 5+ 1PV)
   au lieu des Eldars ; les infanteries génériques du simulateur reprennent ces trois profils
   (E3 5+ 1PV, E5 3+ 2PV, E6 2+ 3PV invu 4+).
