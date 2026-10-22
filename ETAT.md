@@ -37,6 +37,9 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-22 : **invulnérables conditionnelles** (état des lieux des 600+ marqueurs `invuln:`) : seul
+  l'Archon (Shadowfield : 2+ perdue au premier PV perdu) avait perdu son étoile → `conditional` + `note=`.
+  Les « once per battle »/auras (Canoness, Daemon Prince…) ne rendent pas l'invu de base conditionnelle.
 - 2026-10-22 : **résumés « initiation » des capacités** (`briefs/en.json`, `briefs/fr.json`, guide
   `editor/BRIEFS_PROMPT.md`) : une ligne EN + FR par capacité d'unité, clefée par nom (ou nom#empreinte),
   empreinte du texte canonique → audit des périmés (`editor/audit/briefs.mjs`, enchaîné par `valider.mjs`).
