@@ -44,7 +44,9 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
   `editor/BRIEFS_PROMPT.md`) : une ligne EN + FR par capacité d'unité, clefée par nom (ou nom#empreinte),
   empreinte du texte canonique → audit des périmés (`editor/audit/briefs.mjs`, enchaîné par `valider.mjs`).
   Appli : case « Mode initiation » de l'export PDF (fiches compactes, mots-clés ciblés par le
-  détachement surlignés, règles d'armée répétées masquées). Couverture : voir la dernière ligne de l'audit.
+  détachement surlignés, règles d'armée répétées masquées). Couvre aussi les règles d'armée, de
+  détachement et les stratagèmes (source `faction:<Nom>`, plafond 300) : encadrés et tables simplifiés en
+  tête du PDF initiation. Couverture au 2026-10-22 : 5457/5457 (100 %).
 - 2026-10-21 : **cibles étalons** : létalité contre Garde impérial (Cadian Shock Troops 70/10, E3 5+ 1PV)
   au lieu des Eldars ; les infanteries génériques du simulateur reprennent ces trois profils
   (E3 5+ 1PV, E5 3+ 2PV, E6 2+ 3PV invu 4+).
