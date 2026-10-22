@@ -1,5 +1,5 @@
 // fusionne.mjs — verse un lot de résumés dans briefs/en.json + briefs/fr.json.
-// Usage : node editor/briefs/fusionne.mjs <lot.json> "<fichier.cat>"
+// Usage : node editor/briefs/fusionne.mjs <lot.json> "<fichier.cat>|faction:<Nom>"
 //   lot.json : { "<clef>": { "en": "…", "fr": "…" }, … } (produit par le rédacteur ;
 //   clef = champ `key` d'extrait.mjs).
 // Contrôles : le nom existe dans le .cat (clef exacte), résumés non vides, longueur
@@ -7,13 +7,13 @@
 // refus, bilan. Les entrées valides sont écrites avec l'empreinte `src` courante.
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { ROOT, LANGS, abilitiesOf, loadBriefs, saveBriefs, homonymsOf, keyOf } from "./lib.mjs";
+import { LANGS, loadBriefs, saveBriefs, homonymsOf, keyOf, abilitiesOfSource, rekeyPack } from "./lib.mjs";
 const [lot, file] = process.argv.slice(2);
 if (!lot || !file) { console.error("usage: fusionne.mjs <lot.json> <fichier.cat>"); process.exit(2); }
 const MAX = 220;
 const batch = JSON.parse(readFileSync(lot, "utf8"));
-const H = homonymsOf();
-const byName = new Map(abilitiesOf(path.isAbsolute(file) ? file : path.join(ROOT, file)).map((a) => [keyOf(a, H), a]));
+const H = await homonymsOf();
+const byName = new Map((await abilitiesOfSource(file)).map((a) => [keyOf(a, H), a]));
 const packs = Object.fromEntries(LANGS.map((l) => [l, loadBriefs(l)]));
 let ok = 0, bad = 0;
 for (const [name, v] of Object.entries(batch)) {
@@ -30,6 +30,6 @@ for (const [name, v] of Object.entries(batch)) {
   for (const l of LANGS) packs[l].strings[name] = { src: a.src, brief: v[l].replace(/\s+/g, " ").trim() };
   ok++;
 }
-for (const l of LANGS) saveBriefs(l, packs[l]);
+for (const l of LANGS) { rekeyPack(packs[l], H); saveBriefs(l, packs[l]); }
 console.log(`${ok} résumé(s) fusionné(s), ${bad} refusé(s) — ${path.basename(file)}`);
 process.exit(bad ? 1 : 0);
