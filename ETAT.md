@@ -25,21 +25,16 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Vanguard Veteran Squad (à pied)** — fiche au MFM, absente de la base. Décision du 2026-10-22 :
-   en attendant la fiche, les meneurs qui citent « Vanguard Veteran Squad » (Lieutenant, Ancient…)
-   mènent la version à réacteurs dorsaux — déjà le cas : la prose se résout en mot-clef de
-   catégorie « Vanguard Veteran Squad », que porte l'unité à réacteurs. Texte de la fiche à fournir.
-2. **Grey Knights** — 8 divergences restantes de `gdc-apply-weapons.cjs --trust` (Omnissiah power
-   axe, Thunderhawk M 20", Armoured hull, Hurricane bolter F5 PA-1, Las-talon 24") : appliquer ?
-3. **Deathwatch Support** — lecture retenue : une KILL TEAM ne porte que des améliorations
-   de ce détachement ; le plafond de 500 pts compte options et améliorations. À confirmer.
-4. **Veille gdc v995** (branche `veille-gdc/v995`, 3 corrections : Wolf Guard Headtakers mot-clef
-   Beasts, mots-clefs Tacticus/Gravis Talonstrike et Aquila Kill Team, Power Fist du Death Company
-   Captain A6 CC2+) : fusionner ?
+1. **Vanguard Veteran Squad (à pied)** — fiche au MFM, absente de la base. En attendant, les
+   meneurs qui la citent (Lieutenant, Ancient…) mènent la version à réacteurs dorsaux (la prose se
+   résout en mot-clef de catégorie « Vanguard Veteran Squad », que porte l'unité à réacteurs).
+   Texte de la fiche à fournir.
 
-Clos le 2026-10-22 : Eradicator Squad (les deux fiches Heavy Bolters / Melta Rifles sont déjà
-conformes au codex) ; Aquila Kill Team conservée ; socle du Blastajet et fiches Custodes Ares/Orion
-abandonnés ; Aleya, Valerian, Venerable Contemptor/Land Raider, Kill Tank (hors MFM) non intégrés.
+Clos le 2026-10-22 : Eradicator Squad (deux fiches conformes au codex) ; Aquila Kill Team conservée ;
+socle du Blastajet et fiches Custodes Ares/Orion abandonnés ; Aleya, Valerian, Venerable
+Contemptor/Land Raider, Kill Tank non intégrés ; Grey Knights alignés sur game-datacards ; veille
+v995 fusionnée ; **Deathwatch Support confirmé** : une KILL TEAM ne porte que des améliorations de ce
+détachement, le plafond de 500 pts compte options et améliorations.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
