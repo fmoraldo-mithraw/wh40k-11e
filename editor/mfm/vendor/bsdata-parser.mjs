@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: cd65462
-// source-sha256: 7ae9ac2cb2ff9bd3
+// source-commit: 7d7e17e
+// source-sha256: 8a6b17bfe2320555
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3482,24 +3482,25 @@ function collectModelFixedWeaponIds(m, idIndex) {
 function collectCompMods(entry) {
   const byId = /* @__PURE__ */ new Map();
   const skip = /* @__PURE__ */ new Set(["selections", "category", "hidden", "error", PTS_COST_TYPE_ID]);
-  const visit = (node, gate) => {
+  const visit = (node, gate, parentGate = gate) => {
+    const own = new Set(arr(child(node, "constraints.constraint")).map((c) => c["@id"]).filter(Boolean));
     for (const m of extractModifiers(node)) {
       if (!["set", "increment", "add", "decrement", "subtract", "multiply"].includes(m.type)) continue;
       if (!m.field || skip.has(m.field)) continue;
       if (!byId.has(m.field)) byId.set(m.field, []);
-      byId.get(m.field).push({ type: m.type, value: m.value, cg: m.cg, repeats: m.repeats, gate });
+      byId.get(m.field).push({ type: m.type, value: m.value, cg: m.cg, repeats: m.repeats, gate: own.has(m.field) ? parentGate : gate });
     }
     for (const se of arr(child(node, "selectionEntries.selectionEntry"))) {
       if (se["@hidden"] === "true") continue;
-      visit(se, se["@id"] || gate);
+      visit(se, se["@id"] || gate, gate);
     }
     for (const el of arr(child(node, "entryLinks.entryLink"))) {
       if (el["@hidden"] === "true") continue;
-      visit(el, el["@id"] || gate);
+      visit(el, el["@id"] || gate, gate);
     }
     for (const g of arr(child(node, "selectionEntryGroups.selectionEntryGroup"))) {
       if (g["@hidden"] === "true") continue;
-      visit(g, gate);
+      visit(g, gate, parentGate);
     }
   };
   visit(entry, "");
@@ -3723,9 +3724,14 @@ function choiceUnitMax(...nodes) {
       let base = intC(c["@value"], 0);
       const lt = [];
       let per = null;
-      for (const m of arr(child(n, "modifiers.modifier"))) {
-        if (m["@field"] !== c["@id"]) continue;
-        const conds = [...arr(child(m, "conditions.condition")), ...arr(child(m, "conditionGroups.conditionGroup")).flatMap((g) => arr(child(g, "conditions.condition")))];
+      const condsOf = (m) => [...arr(child(m, "conditions.condition")), ...arr(child(m, "conditionGroups.conditionGroup")).flatMap((g) => arr(child(g, "conditions.condition")))];
+      const atL = (m) => {
+        const al = m["@type"] === "increment" && condsOf(m).find((cond) => cond["@type"] === "atLeast");
+        return al ? intC(al["@value"], 0) : Infinity;
+      };
+      const mods = arr(child(n, "modifiers.modifier")).filter((m) => m["@field"] === c["@id"]).sort((a, b) => atL(a) - atL(b));
+      for (const m of mods) {
+        const conds = condsOf(m);
         if (m["@type"] === "set") {
           for (const cond of conds) if (cond["@type"] === "lessThan") lt.push([intC(cond["@value"], 0), intC(m["@value"], 0)]);
         } else if (m["@type"] === "increment") {
@@ -3742,6 +3748,7 @@ function choiceUnitMax(...nodes) {
           }
         }
       }
+      lt.sort((a, b) => b[0] - a[0]);
       return lt.length || per ? { base, ...lt.length ? { lt } : {}, ...per ? { per } : {} } : base;
     }
   }

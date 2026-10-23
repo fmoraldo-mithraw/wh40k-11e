@@ -40,6 +40,9 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-23 : **parseur, plafonds par taille** : `choiceUnitMax` replie les paliers « +1 à X fig. » par seuil croissant
+  (Thunder Hammer des Sword Brethren) ; `collectCompMods` : un modificateur sur la contrainte de SON propre nœud prend
+  le gate du parent (griffes des Sword Brethren). 7 fiches changent de bornes, toutes vers la donnée (Ratlings, Paladins…).
 - 2026-10-23 : **PDF** : `para()` mesure les mots **sans crénage** (`getStringUnitWidth(…,{kerning:{}})`) — `getTextWidth`
   soustrait les paires AT/TA que `doc.text` ne trace pas (« ASTARTESde »). **Import WTC** : groupe `_fixed` pur
   complété par `cleanModels` (Grimaldus à 0) ; lignes « Nx Figurine: armes » sans puce reconnues (`listImport.js`).
