@@ -42,6 +42,8 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 - 2026-10-23 : traduction FR — **« riled up » se traduit toujours « vénèr »** (clef `Riled Up` → `Vénèr`,
   prose de `translations/fr.json` et `briefs/fr.json`, « Marcheur Vénèr ») ; à garder pour toute nouvelle prose Orks.
+  **Accord** : en nombre seulement — « vénèrs » au pluriel (« des unités vénèrs ») ; même forme au masculin et au féminin
+  (« une unité vénèr », « un Marcheur vénèr »). Au 2026-10-23, les 22 occurrences sont toutes au singulier.
 - 2026-10-22 : **invulnérables à contexte** (`STAT_MARKERS_APP_PROMPT.md`, « Groupes de contexte ») :
   `invuln:` porte `vs=ranged|melee` (Knights, Titans, Rangers, KFF / Judiciar, Banshees et Wyches 4+ en
   mêlée) ou `lost=wound` (Archon, perdue au 1er PV) ; un bonus « once per battle » est un
