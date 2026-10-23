@@ -7,6 +7,9 @@ set -euo pipefail
 cd "$(dirname "$0")/../.."
 command -v xmllint >/dev/null || echo "⚠ xmllint absent (apt-get install -y libxml2-utils)"
 C=$(cd ../cogitator-bellicum 2>/dev/null && pwd || true)
+# Toujours travailler sur les branches principales (main / feat/v11), pas sur la branche de session.
+bash editor/bin/branche-principale.sh "$PWD" main || true
+[ -n "$C" ] && { bash editor/bin/branche-principale.sh "$C" feat/v11 || true; }
 if [ -n "$C" ]; then
   bash "$C/scripts/dev/prepare.sh" || echo "⚠ préparation de l'appli en échec ($C/scripts/dev/prepare.sh)"
   if [ -n "${CLAUDE_ENV_FILE:-}" ]; then

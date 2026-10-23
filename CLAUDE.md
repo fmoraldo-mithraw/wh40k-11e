@@ -91,6 +91,12 @@ Réponses à l'utilisateur **en français** ; signaler les doutes.
 
 ## Git et sécurité
 
+**Branches principales uniquement** (décision du 2026-10-23) : travailler et committer
+sur `main` (données) et `feat/v11` (appli), même si la session annonce une branche
+`claude/…` ; le hook de démarrage s'y place (`editor/bin/branche-principale.sh <dossier>
+<branche>`, prudent : avertit et reste sur place s'il risquait de perdre un commit) ;
+la branche de session ne reçoit qu'une copie via `pousse.sh <branche-de-session>`.
+
 Commits par faction, messages descriptifs en français ; ne jamais committer un état
 non validé (`editor/bin/verifie.sh`). Publication : `editor/bin/pousse.sh` (données) **puis**
 `scripts/dev/pousse.sh` (appli) — toujours les données d'abord, la CI de l'appli lit `main` des données. **Jamais de force-push.** Ne jamais lire, diffuser ni

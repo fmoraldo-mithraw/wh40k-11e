@@ -2,14 +2,17 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-15.
+> Dernière mise à jour : 2026-10-23.
 
 ## Dépôts et branches
 
 | Dépôt | Branche de travail | Publication |
 |---|---|---|
 | `wh40k-11e` (données) | `main` | `editor/bin/pousse.sh <branche-de-session>` (push `main` + copie sur la branche de session) |
-| `cogitator-bellicum` (appli) | branche de session, rebasée sur `feat/v11` | `scripts/dev/pousse.sh <branche-de-session>` (avance et pousse `feat/v11`) |
+| `cogitator-bellicum` (appli) | `feat/v11` | `scripts/dev/pousse.sh <branche-de-session>` (avance et pousse `feat/v11`) |
+
+Toujours sur ces branches principales, jamais sur la branche `claude/…` de la session
+(hook `editor/bin/branche-principale.sh` ; la branche de session reçoit une copie au push).
 
 Le parseur de l'appli est embarqué côté données (`editor/mfm/vendor/bsdata-parser.mjs`) :
 après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
