@@ -40,6 +40,9 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-23 : **PDF** : `para()` mesure les mots **sans crénage** (`getStringUnitWidth(…,{kerning:{}})`) — `getTextWidth`
+  soustrait les paires AT/TA que `doc.text` ne trace pas (« ASTARTESde »). **Import WTC** : groupe `_fixed` pur
+  complété par `cleanModels` (Grimaldus à 0) ; lignes « Nx Figurine: armes » sans puce reconnues (`listImport.js`).
 - 2026-10-23 : **PDF initiation** : chaque unité menée est imprimée juste après son ou ses meneurs
   (Leader, puis Support) — `leadersBeforeLed` (`src/rules.js`) ; le PDF classique garde l'ordre par catégorie.
 - 2026-10-23 : traduction FR — **« riled up » se traduit toujours « vénèr »** (clef `Riled Up` → `Vénèr`,
