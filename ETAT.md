@@ -40,6 +40,8 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-23 : **PDF, règles d'armée masquées par leur NOM** (`faction.armyRules` de l'armée + factions chargées),
+  plus par « capacité vue sur 2+ fiches » — qui cachait Transhuman Strategist (Helbrecht + Marshal), Damaged, Aegis…
 - 2026-10-23 : **parseur, plafonds par taille** : `choiceUnitMax` replie les paliers « +1 à X fig. » par seuil croissant
   (Thunder Hammer des Sword Brethren) ; `collectCompMods` : un modificateur sur la contrainte de SON propre nœud prend
   le gate du parent (griffes des Sword Brethren). 7 fiches changent de bornes, toutes vers la donnée (Ratlings, Paladins…).
