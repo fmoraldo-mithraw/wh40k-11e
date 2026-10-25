@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-23.
+> Dernière mise à jour : 2026-10-25.
 
 ## Dépôts et branches
 
@@ -40,6 +40,8 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-25 : **amélioration homonyme dans deux détachements** (Towering Arrogance 20 pts Kabalite Cartel / 15 pts
+  Kabalite Agonysts) : l'appli garde `enhDet` sur la ligne (`findEnh`, `src/rules.js`) ; unicité toujours par nom.
 - 2026-10-23 : **PDF, règles d'armée masquées par leur NOM** (`faction.armyRules` de l'armée + factions chargées),
   plus par « capacité vue sur 2+ fiches » — qui cachait Transhuman Strategist (Helbrecht + Marshal), Damaged, Aegis…
 - 2026-10-23 : **parseur, plafonds par taille** : `choiceUnitMax` replie les paliers « +1 à X fig. » par seuil croissant
