@@ -22,7 +22,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **61/61** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
+- Tests appli : **64/64** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
@@ -49,6 +49,11 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-26 : **export WTC — DP** : `+ DETACHMENT: A (2 DP), B (1 DP) — 3/3 DP` (coût effectif au format, remise
+  Incursion incluse ; budget omis si format inconnu) ; l'import retire ces suffixes et garde alors les noms à
+  parenthèses entiers (Agents). **Golden de l'export** : `tests/wtc_export_golden_tests.mjs` (appli) — 8 scénarios
+  à entrées figées (`tests/fixtures/wtc-export/`) + invariants sur les 36 factions vivantes ; changement VOLONTAIRE
+  du format → `npm run gen:wtc-export-golden`, relire le diff des `.txt`.
 - 2026-10-26 : **dump MFM v1.6 rafraîchi intégré en no-op** (`editor/mfm/state/RESTE-v1.6-refresh.md`) :
   aucun prix ne change chez GW, seul le parse régresse (libellés `LEADER:`/`SUPPORT:`, cf. questions
   ouvertes). `apply.mjs` 0 delta, dp/wpn/tier-audit verts, `valider.mjs` 0 erreur — marqueur
