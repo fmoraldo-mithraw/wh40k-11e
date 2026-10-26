@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 000617d
-// source-sha256: bd7fff75e4391543
+// source-commit: a220dc5
+// source-sha256: 82f5281ac69f1445
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3714,13 +3714,26 @@ function getComp(entry, idIndex) {
   }
   return comp;
 }
+function repeatableToggle(o, container, el, tgt) {
+  const c = o[1][0];
+  const max = Number(c[2]) || 1;
+  if (max <= 1 || max >= 99 || container && container["@type"] === "model") return o;
+  const cap = unitMaxOf([el, tgt], true);
+  while (c.length < 10) c.push(c.length === 8 ? 0 : null);
+  if (cap != null && (typeof cap !== "number" || cap < max)) c[9] = cap;
+  o[2] = max;
+  return o;
+}
 function choiceUnitMax(...nodes) {
+  return unitMaxOf(nodes, false);
+}
+function unitMaxOf(nodes, allowParent) {
   for (const n of nodes) {
     if (!n) continue;
     for (const c of arr(child(n, "constraints.constraint"))) {
       if (c["@type"] !== "max" || c["@field"] !== "selections") continue;
       const sc = c["@scope"] || "";
-      if (sc === "parent" || sc === "self") continue;
+      if (sc === "parent" && !allowParent || sc === "self") continue;
       let base = intC(c["@value"], 0);
       const lt = [];
       let per = null;
@@ -3734,6 +3747,8 @@ function choiceUnitMax(...nodes) {
         const conds = condsOf(m);
         if (m["@type"] === "set") {
           for (const cond of conds) if (cond["@type"] === "lessThan") lt.push([intC(cond["@value"], 0), intC(m["@value"], 0)]);
+        } else if (m["@type"] === "decrement" && !arr(child(m, "repeats.repeat")).length) {
+          if (conds.length === 1 && conds[0]["@type"] === "lessThan" && conds[0]["@childId"] === "model") lt.push([intC(conds[0]["@value"], 0), Math.max(0, base - intC(m["@value"], 0))]);
         } else if (m["@type"] === "increment") {
           const al = conds.find((cond) => cond["@type"] === "atLeast");
           if (al) {
@@ -4444,7 +4459,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           const subInv = optionInvuln(subAb) || optionInvulnDeep(sub, idIndex);
           const subTuple = [subName, pts, subMax, pickOptionWeaponProfile(sub, idIndex), subAb, collectChoiceComposition(sub, idIndex), subAssoc, subIds, 0, subUnitMax];
           if (subInv) subTuple.push(null, null, null, subInv);
-          out.push([fullName, [subTuple], unitOptGear && !modelOptWeaponOnModel(e) ? subMax : 1, "", null, 0]);
+          out.push([fullName, [subTuple], unitOptGear && !modelOptWeaponOnModel(e) || e === entry && modelOptWeaponOnModel(e) ? subMax : 1, "", null, 0]);
           toggleKey = fullName;
         }
       }
@@ -4549,7 +4564,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       const hasHiddenMod = [el, tgt].some((n) => arr(child(n, "modifiers.modifier")).some((m) => m["@field"] === "hidden"));
       if (effMin < 1 && !hasWeapon && (hasAbility || !addsCategory && !hasHiddenMod && subName !== "Warlord")) {
         const fullName = prefix ? prefix + "::" + subName : subName;
-        out.push([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0]);
+        out.push(repeatableToggle([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0], e, el, tgt));
         gateNested(fullName);
         continue;
       }
@@ -4559,7 +4574,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           continue;
         }
         const fullName = prefix ? prefix + "::" + subName : subName;
-        out.push([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0]);
+        out.push(repeatableToggle([fullName, [[subName, pts, effMax, pickOptionWeaponProfile(tgt, idIndex), pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), collectChoiceComposition(tgt, idIndex), associations]], 1, "", null, 0], e, el, tgt));
         gateNested(fullName);
         continue;
       }

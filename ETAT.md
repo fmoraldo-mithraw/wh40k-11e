@@ -22,7 +22,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **64/64** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
+- Tests appli : **65/65** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
@@ -49,6 +49,11 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-26 : **garde-fou des options** (appli, `test:option-export`) : chaque choix de chaque fiche (4 847) est
+  exporté puis réimporté ; cliquet `tests/fixtures/option-export-baseline.json` (**336** écarts d'import connus,
+  ne fait que baisser — re-figer avec `--fige` après correctif). Toute option perdue à l'export = CI rouge.
+  Option prenable N fois hors modèle = compteur borné par la taille (Plasmacyte, Big Shootas, Aspect Shrine Token —
+  ce dernier simplifié en base : `add error` remplacé par un plafond natif).
 - 2026-10-26 : **Troupe Harlequin** (appli) : plus de doublons d'options ; `u.weaponUnitCaps` partage le plafond
   fusion/neuro (2, 4 à 10+) entre Players et Lead Player. **Simulateur** : `kw=` des sim-mods voit les mots-clefs de
   faction (Malicious Frenzy enfin proposé aux unités Drukhari/Harlequins). Données inchangées.
