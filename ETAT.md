@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-25.
+> Dernière mise à jour : 2026-10-26.
 
 ## Dépôts et branches
 
@@ -28,7 +28,16 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-Aucune au 2026-10-22.
+1. **Octroi SUPPORT de `Murdermind`** (Necrons, Cursed Legion, 15 pts) : le MFM porte une ligne
+   `SUPPORT:` sous cette amélioration, que `mfm_parser.py` n'a jamais su lire — **unités cibles
+   illisibles depuis le dump**, et aucun groupe `Can Support (MFM)` en base. Texte à fournir, ou à
+   relire après le correctif parser ci-dessous. Détail : `editor/mfm/state/RESTE-v1.6-refresh.md`.
+2. **Correctif `mfm_parser.py` à valider avec le réseau** (le conteneur cowork est en 403 sur
+   `mfm.warhammer-community.com`) : GW a déplacé les libellés `LEADER:` / `SUPPORT:` du `<div>`
+   frère vers un `<li>` de la liste des améliorations → les 12 octrois LEADER ne sont plus extraits
+   et 13 améliorations fantômes polluent le résidu ②. Patch proposé (non poussé, non testé) dans
+   `RESTE-v1.6-refresh.md`. Aucune perte en base : les 12 octrois y sont et `enh-leaders.mjs` ne
+   supprime jamais un lien.
 
 Clos le 2026-10-22 : Vanguard Veteran Squad à pied (la fiche n'existe pas ; les meneurs qui la
 citent — Lieutenant, Ancient — mènent la version à réacteurs dorsaux via la catégorie
@@ -40,6 +49,10 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-26 : **dump MFM v1.6 rafraîchi intégré en no-op** (`editor/mfm/state/RESTE-v1.6-refresh.md`) :
+  aucun prix ne change chez GW, seul le parse régresse (libellés `LEADER:`/`SUPPORT:`, cf. questions
+  ouvertes). `apply.mjs` 0 delta, dp/wpn/tier-audit verts, `valider.mjs` 0 erreur — marqueur
+  `state/integre.txt` posé pour ne pas faire tourner la routine cowork à vide.
 - 2026-10-25 : **amélioration homonyme dans deux détachements** (Towering Arrogance 20 pts Kabalite Cartel / 15 pts
   Kabalite Agonysts) : l'appli garde `enhDet` sur la ligne (`findEnh`, `src/rules.js`) ; unicité toujours par nom.
 - 2026-10-23 : **PDF, règles d'armée masquées par leur NOM** (`faction.armyRules` de l'armée + factions chargées),
