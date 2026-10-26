@@ -19,6 +19,21 @@
    • [Space Wolves] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
    • [Space Wolves] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
 
+② AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données.  [13]
+   • [Adepta Sororitas] LEADER: (PENITENT HOST) — aucune amélioration bdd pour ce nom MFM
+   • [Astra Militarum] LEADER: (ABHUMAN AUXILIARIES) — aucune amélioration bdd pour ce nom MFM
+   • [Astra Militarum] LEADER: (GRIZZLED COMPANY) — aucune amélioration bdd pour ce nom MFM
+   • [Chaos Space Marines] LEADER: (MURDERTALON RAIDERS) — aucune amélioration bdd pour ce nom MFM
+   • [Chaos Space Marines] LEADER: (NIGHTMARE HUNT) — aucune amélioration bdd pour ce nom MFM
+   • [Emperor's Children] LEADER: (COURT OF THE PHOENICIAN) — aucune amélioration bdd pour ce nom MFM
+   • [Necrons] SUPPORT: (CURSED LEGION) — aucune amélioration bdd pour ce nom MFM
+   • [Orks] LEADER: (TAKTIKAL BRIGADE) — aucune amélioration bdd pour ce nom MFM
+   • [Orks] LEADER: (WRECKAS) — aucune amélioration bdd pour ce nom MFM
+   • [Space Wolves] LEADER: (SAGA OF THE BEASTSLAYER) — aucune amélioration bdd pour ce nom MFM
+   • [Thousand Sons] LEADER: (WARPMELD PACT) — aucune amélioration bdd pour ce nom MFM
+   • [World Eaters] LEADER: (CULT OF BLOOD) — aucune amélioration bdd pour ce nom MFM
+   • [World Eaters] LEADER: (KHORNE DAEMONKIN) — aucune amélioration bdd pour ce nom MFM
+
 ④ COÛT PORTÉ PAR LES MODÈLES (unité à 0, prix sur les modèles) — confirme le barème par modèle de composition.  [15]
    • [Adeptus Mechanicus] IRONSTRIDER BALLISTARII — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
    • [Astra Militarum] HIPPOGRIFF AFV — coût unité 0 (probablement porté par les modèles de composition), MFM base=70
@@ -43,16 +58,9 @@
 
 ════ DRY-RUN ════
 
-## Audit DP / Force Disposition (ÉCARTS)
+## Audit DP / Force Disposition
 
-✗ ÉCARTS DP/FD/UNIQUE (7) — à corriger via editor/lib/catalog.js :
-  ✗ [adeptus-custodes] Auric Champions (Imperium - Adeptus Custodes.cat) : FD «Priority Assets»→«PURGE THE FOE»
-  ✗ [adeptus-custodes] Emperor's Chosen (Imperium - Adeptus Custodes.cat) : FD «Take and Hold»→«PRIORITY ASSETS»
-  ✗ [adeptus-custodes] Grav-Assault Force (Imperium - Adeptus Custodes.cat) : FD «Purge the Foe»→«RECONNAISSANCE»
-  ✗ [adeptus-custodes] Guardians of the Throne (Imperium - Adeptus Custodes.cat) : FD «Purge the Foe»→«PRIORITY ASSETS / PURGE THE FOE»
-  ✗ [adeptus-custodes] Lions of the Emperor (Imperium - Adeptus Custodes.cat) : FD «Take and Hold»→«DISRUPTION»
-  ✗ [adeptus-custodes] Null Maiden Vigil (Imperium - Adeptus Custodes.cat) : FD «Reconnaissance»→«DISRUPTION»
-  ✗ [adeptus-custodes] Shadowkeepers (Imperium - Adeptus Custodes.cat) : FD «Take and Hold»→«PURGE THE FOE»
+✓ DP, Force Dispositions et mots-clefs UNIQUE alignés sur le MFM.
 
 ## Audit surcoûts d'armes
 
@@ -61,20 +69,8 @@
 
 ## Octrois de LEADER par amélioration
 
-= adepta-sororitas :: PENITENT HOST / Catechism of Divine Penitence → Repentia Squad
-= astra-militarum :: ABHUMAN AUXILIARIES / Exemplar of Duty (Upgrade) → Ogryn Squad, Bullgryn Squad
-= astra-militarum :: GRIZZLED COMPANY / Abhuman Detail → Ogryn Squad, Bullgryn Squad
-= chaos-space-marines :: MURDERTALON RAIDERS / Pact of Cursed Pinions → Warp Talons
-= chaos-space-marines :: NIGHTMARE HUNT / Sorrowscent Vulture → Warp Talons
-= emperors-children :: COURT OF THE PHOENICIAN / Exalted Patron → Flawless Blades
-= orks :: TAKTIKAL BRIGADE / Kill Kommanda → Kommandos
-= orks :: WRECKAS / Kaptin's Hat → Flash Gitz
-= space-wolves :: SAGA OF THE BEASTSLAYER / Wolf-Touched → Wulfen, Wulfen with Storm Shields
-= thousand-sons :: WARPMELD PACT / Bray Lord → Tzaangors
-= world-eaters :: CULT OF BLOOD / Butcher Lord → Jakhals, Goremongers
-= world-eaters :: KHORNE DAEMONKIN / Disciple of Khorne → Bloodcrushers, Flesh Hounds
 
-12 amélioration(s) avec octroi LEADER, 0 lien(s) à ajouter.
+0 amélioration(s) avec octroi LEADER, 0 lien(s) à ajouter.
 
 (dry-run — relancer avec --apply pour écrire)
 
