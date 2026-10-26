@@ -25702,15 +25702,10 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
         <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="5a9b-ff8a-e408-6f40" includeChildSelections="false"/>
       </constraints>
       <modifiers>
-        <modifier type="add" value="1 Token per 5 Models" field="error">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="greaterThan" value="1" field="selections" scope="parent" childId="344f-a1d4-6038-7ee7" shared="true"/>
-                <condition type="lessThan" value="10" field="selections" scope="parent" childId="model" shared="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
+        <modifier type="decrement" value="1" field="5a9b-ff8a-e408-6f40" id="17b0-a422-589a-b732">
+          <conditions>
+            <condition type="lessThan" value="10" field="selections" scope="parent" childId="model" shared="true" id="905f-89c9-f99d-44fc" includeChildSelections="true"/>
+          </conditions>
         </modifier>
       </modifiers>
     </selectionEntry>
