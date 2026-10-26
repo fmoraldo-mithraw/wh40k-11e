@@ -49,6 +49,9 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-26 : **Troupe Harlequin** (appli) : plus de doublons d'options ; `u.weaponUnitCaps` partage le plafond
+  fusion/neuro (2, 4 à 10+) entre Players et Lead Player. **Simulateur** : `kw=` des sim-mods voit les mots-clefs de
+  faction (Malicious Frenzy enfin proposé aux unités Drukhari/Harlequins). Données inchangées.
 - 2026-10-26 : **export WTC — DP** : `+ DETACHMENT: A (2 DP), B (1 DP) — 3/3 DP` (coût effectif au format, remise
   Incursion incluse ; budget omis si format inconnu) ; l'import retire ces suffixes et garde alors les noms à
   parenthèses entiers (Agents). **Golden de l'export** : `tests/wtc_export_golden_tests.mjs` (appli) — 8 scénarios
