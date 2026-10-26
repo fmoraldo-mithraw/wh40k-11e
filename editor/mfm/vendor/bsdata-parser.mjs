@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 7d7e17e
-// source-sha256: 8a6b17bfe2320555
+// source-commit: 000617d
+// source-sha256: bd7fff75e4391543
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5572,6 +5572,7 @@ function markPerFigurineGroups(opts, comp) {
 }
 function synthesizeModelSwapGroups(unit, opts, idIndex) {
   const unitId = unit["@id"] || "";
+  const unitCaps = {};
   const entryPts2 = (...nodes) => {
     for (const n of nodes) if (n) {
       for (const c of arr(child(n, "costs.cost"))) if (c["@name"] === "pts") return intC(c["@value"], 0);
@@ -5630,14 +5631,19 @@ function synthesizeModelSwapGroups(unit, opts, idIndex) {
       const choices = [[base.name, base.pts || 0, 1, base.prof, null, [], [], [], 1, null]];
       for (const s of swaps) {
         const perFig = maxScoped(s, true);
-        choices.push([s.name, s.pts || 0, perFig == null ? 1 : perFig, s.prof, null, [], [], [], 0, unitMaxDesc(s)]);
+        const um = unitMaxDesc(s);
+        choices.push([s.name, s.pts || 0, perFig == null ? 1 : perFig, s.prof, null, [], [], [], 0, um]);
+        if (um != null) unitCaps[s.name] = um;
       }
       const o = [key, choices, 1, base.name, null, 1];
       o[6] = modelName;
       o[7] = "swap";
       opts.push(o);
+      const absorbed = new Set(swaps.map((s) => modelName + "::" + s.name));
+      for (let i = opts.length - 1; i >= 0; i--) if (absorbed.has(opts[i][0]) && opts[i][7] !== "swap") opts.splice(i, 1);
     }
   }
+  return Object.keys(unitCaps).length ? unitCaps : null;
 }
 function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName, link, catalogueId) {
   const rawName = entry["@name"] || "";
@@ -5736,7 +5742,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
   const repeatCost = getRepeatCost(entry) || (link ? getRepeatCost(link) : null);
   const opts = getOpts(entry, idIndex, unitCatIds);
   markPerFigurineGroups(opts, comp);
-  synthesizeModelSwapGroups(entry, opts, idIndex);
+  const weaponUnitCaps = synthesizeModelSwapGroups(entry, opts, idIndex);
   {
     const range = compSizeRange(comp, opts);
     if (range) {
@@ -5848,6 +5854,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     // Mark-of-Chaos +2 Strength blurb gated on the Daemon Prince category
     // shouldn't surface on a Chaos Lord).
     opts,
+    ...weaponUnitCaps ? { weaponUnitCaps } : {},
     // abilities + the structured tokens their text declares (u.tokens — Bomb
     // Squigs, Grot Crew…): [{name, count|null, per:"unit"|"model", hint?, ability}].
     ...(() => {
