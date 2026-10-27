@@ -14,7 +14,7 @@
 // aux cibles du porteur tant que l'amélioration est prise
 // (editor/LEADER_LINKS_APP_PROMPT.md, § « accordé par une amélioration »).
 //
-// Même chose pour « SUPPORT: UNIT A, … » (FR : « SOUTIEN : … ») — champ
+// Même chose pour « SUPPORT: UNIT A, … » (FR : « APPUI : … ») — champ
 // `support` du dump, groupe « Can Support (MFM) » (Murdermind → Destroyers) :
 // le porteur rejoint ces unités comme SUPPORT, pas comme meneur.
 //

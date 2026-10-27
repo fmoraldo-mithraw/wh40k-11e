@@ -572,26 +572,54 @@ def _leader_targets_from_text(text: str) -> list[str] | None:
     return targets or None
 
 
+# Octroi porté par une amélioration : « LEADER: … » / « MENEUR : … » → champ
+# `leader`, « SUPPORT: … » / « APPUI : … » → champ `support` (Murdermind →
+# LOKHUST HEAVY DESTROYERS, …). Les DEUX-POINTS sont exigés : sur un <li>, sans
+# eux une amélioration dont le nom commence par « Leader… » passerait pour un
+# octroi.
+_GRANT_RE = re.compile(r"\s*(LEADER|MENEUR|SUPPORT|APPUI)\s*:\s*(.+)$", re.I)
+_GRANT_FIELD = {"LEADER": "leader", "MENEUR": "leader", "SUPPORT": "support", "APPUI": "support"}
+
+
+def _grant_from_text(text: str) -> tuple[str, list[str]] | None:
+    """("leader"|"support", [UNIT A, UNIT B]) pour un libellé d'octroi, sinon None."""
+    m = _GRANT_RE.match(text.replace("\u00a0", " ").replace("\u202f", " "))
+    if not m:
+        return None
+    targets = [u.strip() for u in m.group(2).split(",") if u.strip()]
+    return (_GRANT_FIELD[m.group(1).upper()], targets) if targets else None
+
+
 def _parse_enhancement_list(card: Any) -> list[dict]:
     res: list[dict] = []
     for el in iter_elements(card):
         t = el_type(el)
         if t == "li":
+            # Depuis la v1.6, GW imprime l'octroi dans un <li> frère de
+            # l'amélioration (classe « no-leaders ») : « SUPPORT: » + unités. Il
+            # se rattache à l'amélioration courante (res[-1]) — ce n'est PAS une
+            # amélioration (les 13 « fantômes » du résidu ②).
+            grant = _grant_from_text(collect_text(el))
+            if grant:
+                if res:
+                    res[-1].setdefault(grant[0], grant[1])
+                continue
             name, cost = _name_and_cost(el)
             if name:
                 entry = {"name": name}
                 if cost:
                     entry.update(cost)
                 res.append(entry)
-        elif t == "div" and res and "leader" not in res[-1]:
-            # Un enhancement peut octroyer le mot-clé LEADER : un <div> frère du
-            # <li> porte "LEADER: UNIT A, UNIT B" (ex. "Pact of Cursed Pinions"
-            # chez les Chaos Space Marines). Dans l'ordre du document ce <div>
-            # suit toujours son <li> et précède le <li> suivant -> on le rattache
-            # à l'enhancement courant (res[-1]).
-            targets = _leader_targets_from_text(collect_text(el))
-            if targets:
-                res[-1]["leader"] = targets
+        elif t == "div" and res:
+            # Ancien balisage (avant v1.6, gardé si GW y revient) : un <div> frère
+            # du <li> porte "LEADER: UNIT A, UNIT B" (ex. "Pact of Cursed
+            # Pinions" chez les Chaos Space Marines). Dans l'ordre du document ce
+            # <div> suit toujours son <li> et précède le <li> suivant -> on le
+            # rattache à l'enhancement courant (res[-1]). setdefault : jamais
+            # d'écriture double avec la branche <li>.
+            grant = _grant_from_text(collect_text(el))
+            if grant:
+                res[-1].setdefault(grant[0], grant[1])
     return res
 
 

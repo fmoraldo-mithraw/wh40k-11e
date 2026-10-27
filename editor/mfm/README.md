@@ -64,12 +64,16 @@ dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
   Vérification : régénérer les matrices puis relancer `apply.mjs` — le bloc AUTO
   doit tomber à zéro.
 
-## Octrois de LEADER par amélioration — `enh-leaders.mjs`
+## Octrois de LEADER / SUPPORT par amélioration — `enh-leaders.mjs`
 
-Une ligne « LEADER: X » (FR « MENEUR : X ») sous une amélioration du MFM est
-extraite par `mfm_parser.py` (champ `leader`) puis écrite en base par
-`node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]` : groupe
-`Can Lead (MFM)` sur l'amélioration (voir `editor/LEADER_LINKS_APP_PROMPT.md`).
+Une ligne « LEADER: X » (FR « MENEUR : X ») ou « SUPPORT: X » (FR « APPUI : X »)
+sous une amélioration du MFM est extraite par `mfm_parser.py` (champ `leader` /
+`support` ; depuis la v1.6 GW l'imprime dans un `<li>` frère de l'amélioration,
+avant dans un `<div>` — les deux sont lus, deux-points exigés) puis écrite en base
+par `node editor/mfm/enh-leaders.mjs <dir-json-mfm> [--apply]` : groupe
+`Can Lead (MFM)` / `Can Support (MFM)` sur l'amélioration (voir
+`editor/LEADER_LINKS_APP_PROMPT.md`). État au 2026-10-27 : 13 octrois (12 LEADER +
+Murdermind SUPPORT), tous en base.
 Dry-run par défaut ; résout les noms via `map/` ; n'ajoute que les liens
 manquants, signale les liens en trop et le résidu non résolu.
 

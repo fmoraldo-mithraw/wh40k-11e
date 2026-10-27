@@ -54,7 +54,7 @@ Cursed Pinions et Sorrowscent Vulture (CSM → Warp Talons) · Exalted Patron
 Bray Lord (TS → Tzaangors) · Butcher Lord (WE → Jakhals, Goremongers) ·
 Disciple of Khorne (WE → Bloodcrushers, Flesh Hounds).
 
-### Correctif proposé — NON appliqué, NON validé
+### Correctif proposé — APPLIQUÉ et validé sur le site le 2026-10-27 (13 octrois extraits, 13 fantômes du résidu ② résorbés)
 
 Le réseau vers `mfm.warhammer-community.com` est **refusé (403)** depuis le
 conteneur cowork : impossible de relire le balisage réel ni de tester une
