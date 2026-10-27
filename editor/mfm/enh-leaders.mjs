@@ -1,4 +1,4 @@
-// Octrois de LEADER par amélioration (MFM) → données.
+// Octrois de LEADER / SUPPORT par amélioration (MFM) → données.
 //
 // Le MFM imprime, sous certaines améliorations, une ligne « LEADER: UNIT A,
 // UNIT B » (FR : « MENEUR : … ») : l'amélioration permet à son porteur de mener
@@ -13,6 +13,10 @@
 // posé comme enfant de la selectionEntry de l'amélioration. L'appli l'ajoute
 // aux cibles du porteur tant que l'amélioration est prise
 // (editor/LEADER_LINKS_APP_PROMPT.md, § « accordé par une amélioration »).
+//
+// Même chose pour « SUPPORT: UNIT A, … » (FR : « SOUTIEN : … ») — champ
+// `support` du dump, groupe « Can Support (MFM) » (Murdermind → Destroyers) :
+// le porteur rejoint ces unités comme SUPPORT, pas comme meneur.
 //
 // Résolution des noms : les matrices de build-map (map/<slug>.json) —
 // `enhancements["DÉTACHEMENT / Nom"]` → id de l'amélioration, `matched[NOM]` →
@@ -44,7 +48,8 @@ if (!mfmDir || !fs.existsSync(mfmDir)) {
   process.exit(1);
 }
 
-const GROUP = "Can Lead (MFM)";
+// Champ du dump MFM → groupe déclaratif posé sur l'amélioration.
+const KINDS = [{ field: "leader", group: "Can Lead (MFM)", label: "LEADER" }, { field: "support", group: "Can Support (MFM)", label: "SUPPORT" }];
 const c = new Catalog(REPO).load();
 
 const todo = [];      // { enhId, enhName, targets:[bsId], file }
@@ -56,14 +61,14 @@ for (const f of fs.readdirSync(mfmDir).filter((x) => x.endsWith(".json") && !x.s
   const mfm = JSON.parse(fs.readFileSync(path.join(mfmDir, f), "utf8"));
   const map = JSON.parse(fs.readFileSync(mapPath, "utf8"));
   for (const det of mfm.detachments || []) {
-    for (const me of det.enhancements || []) {
-      if (!Array.isArray(me.leader) || !me.leader.length) continue;
+    for (const me of det.enhancements || []) for (const K of KINDS) {
+      if (!Array.isArray(me[K.field]) || !me[K.field].length) continue;
       const key = `${det.name} / ${me.name}`;
       const hit = map.enhancements && map.enhancements[key];
       if (!hit || !hit.bsId || !c.byId.get(hit.bsId)) { residue.push(`${slug} :: ${key} — amélioration introuvable en base`); continue; }
       const enhFile = c.byId.get(hit.bsId).file;
       const targets = [];
-      for (const nm of me.leader) {
+      for (const nm of me[K.field]) {
         const m = map.matched && map.matched[nm];
         const ids = m ? (m.targets || []).map((t) => t.bsId).filter((id) => c.byId.get(id)) : [];
         if (!ids.length) { residue.push(`${slug} :: ${key} → ${nm} — datasheet introuvable`); continue; }
@@ -72,23 +77,25 @@ for (const f of fs.readdirSync(mfmDir).filter((x) => x.endsWith(".json") && !x.s
         const local = ids.filter((id) => c.byId.get(id).file === enhFile);
         targets.push(...(local.length ? local : ids));
       }
-      if (targets.length) todo.push({ enhId: hit.bsId, enhName: key, slug, targets: [...new Set(targets)] });
+      if (targets.length) todo.push({ enhId: hit.bsId, enhName: key, slug, K, targets: [...new Set(targets)] });
     }
   }
 }
 
 // Une même amélioration peut apparaître dans plusieurs factions (bibliothèque
 // partagée) : union des cibles.
-const byEnh = new Map();
+const byEnh = new Map(); // clé : amélioration + nature de l'octroi
 for (const t of todo) {
-  const cur = byEnh.get(t.enhId) || { ...t, targets: [] };
+  const k = t.enhId + "|" + t.K.field;
+  const cur = byEnh.get(k) || { ...t, targets: [] };
   cur.targets = [...new Set([...cur.targets, ...t.targets])];
-  byEnh.set(t.enhId, cur);
+  byEnh.set(k, cur);
 }
 
 let added = 0, touched = 0;
 for (const t of byEnh.values()) {
   const { node, file } = c.byId.get(t.enhId);
+  const GROUP = t.K.group;
   const segs = xml.child(node, "selectionEntryGroups");
   let grp = segs && (segs.children || []).find((ch) => ch.tag === "selectionEntryGroup" && xml.getAttrDecoded(ch, "name") === GROUP);
   const have = new Set();
@@ -96,7 +103,7 @@ for (const t of byEnh.values()) {
   const missing = t.targets.filter((id) => !have.has(id));
   const extra = [...have].filter((id) => !t.targets.includes(id));
   const nm = (id) => xml.getAttrDecoded(c.byId.get(id).node, "name");
-  console.log(`${missing.length ? "+" : "="} ${t.slug} :: ${t.enhName} → ${t.targets.map(nm).join(", ")}${missing.length ? `  (ajout : ${missing.map(nm).join(", ")})` : ""}`);
+  console.log(`${missing.length ? "+" : "="} ${t.K.label} ${t.slug} :: ${t.enhName} → ${t.targets.map(nm).join(", ")}${missing.length ? `  (ajout : ${missing.map(nm).join(", ")})` : ""}`);
   if (extra.length) console.log(`  ⚑ liens en base absents du MFM (conservés) : ${extra.map((id) => (c.byId.get(id) ? nm(id) : id)).join(", ")}`);
   if (!missing.length || !APPLY) { added += missing.length; continue; }
   if (!grp) {
@@ -113,7 +120,7 @@ for (const t of byEnh.values()) {
   c.markDirty(file);
 }
 
-console.log(`\n${byEnh.size} amélioration(s) avec octroi LEADER, ${added} lien(s) ${APPLY ? "ajouté(s)" : "à ajouter"}.`);
+console.log(`\n${byEnh.size} octroi(s) LEADER/SUPPORT par amélioration, ${added} lien(s) ${APPLY ? "ajouté(s)" : "à ajouter"}.`);
 if (residue.length) { console.log("\n⚑ À ME RENVOYER :"); for (const r of residue) console.log("  " + r); }
 if (!APPLY) {
   console.log("\n(dry-run — relancer avec --apply pour écrire)");

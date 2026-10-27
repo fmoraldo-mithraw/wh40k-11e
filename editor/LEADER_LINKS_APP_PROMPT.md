@@ -106,6 +106,15 @@ qu'il a l'amélioration**, en plus de ses cibles normales. Pas d'exigence de
 règle *Leader* sur l'amélioration (c'est justement elle qui l'accorde).
 Généré depuis le MFM par `editor/mfm/enh-leaders.mjs` (idempotent).
 
+**Variante SUPPORT** (« SUPPORT: X, Y » sous l'amélioration — ex. **Murdermind** →
+Lokhust Heavy / Ophydian / Skorpekh / Lokhust Destroyers) : même idiome, groupe
+**`Can Support (MFM)`** sur la `selectionEntry` de l'amélioration. Le porteur — un
+*Leader* ailleurs (Cryptek) — rejoint ces unités **comme Support** tant qu'il a
+l'amélioration : le rôle se juge **par rattachement** (Support sur une cible que
+seule l'amélioration ouvre, Leader sur ses cibles normales), si bien qu'une unité
+de Destroyers peut recevoir son Leader **et** ce Support. Même générateur
+(`enh-leaders.mjs`, champ `support` du dump).
+
 ## Ce qui n'est PAS encodé en liens (rester sur la prose)
 
 Quelques rattachements ne se réduisent pas à une liste de datasheets et
