@@ -28,15 +28,13 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Correctif `mfm_parser.py` à valider avec le réseau** : l'environnement refuse
-   `mfm.warhammer-community.com` (403, politique réseau). **Action utilisateur** : ajouter ce domaine
-   aux *Allowed domains* de l'environnement (menu de l'environnement cloud → Edit → Network access ;
-   https://code.claude.com/docs/en/cloud-environments#network-access), puis relancer une session. GW a
-   déplacé les libellés `LEADER:` / `SUPPORT:` du `<div>` frère vers un `<li>` → les 12 octrois LEADER
-   ne sont plus extraits (aucune perte en base). Patch proposé dans `RESTE-v1.6-refresh.md` ; ensuite
-   `enh-leaders.mjs <dump>` (dry-run) doit donner « 0 lien à ajouter » (il lit maintenant aussi `support`).
+Aucune.
 
-Clos le 2026-10-27 : **Murdermind** (Necrons, Cursed Legion) — `SUPPORT: Lokhust Heavy Destroyers,
+Clos le 2026-10-27 : **`mfm_parser.py`** corrigé et validé sur le site (réseau ouvert par l'utilisateur) — octrois
+`LEADER:`/`SUPPORT:` lus dans le `<li>` v1.6 (deux-points exigés), 13 octrois extraits (12 LEADER + Murdermind),
+13 fantômes du résidu ② résorbés, dump `dump/en` et matrices rafraîchis, `enh-leaders.mjs` : 0 lien à ajouter.
+(L'extraction du site FR rend 0 détachement, avant comme après : en-têtes de section en français, non gérés.)
+**Murdermind** (Necrons, Cursed Legion) — `SUPPORT: Lokhust Heavy Destroyers,
 Ophydian Destroyers, Skorpekh Destroyers, Lokhust Destroyers` (texte fourni par l'utilisateur) → groupe
 `Can Support (MFM)` sur l'amélioration ; l'appli rattache le Cryptek porteur comme Support (rôle par
 rattachement). **Alliés des chapitres** : oubli confirmé — Imperial Fists, Salamanders, Black Templars,

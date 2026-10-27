@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: ce5990e
-// source-sha256: 7676a9d8f3935a5f
+// source-commit: 362a87f
+// source-sha256: a621acc3b4f3491f
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6853,7 +6853,13 @@ async function parseAllCatalogues(dir) {
     }
     const rawUnitEntries = /* @__PURE__ */ new Map();
     const hiddenForPrimary = (entry, link) => isHiddenForCatalogue(entry, info.catalogueId) || link && isHiddenForCatalogue(link, info.catalogueId) || isCrusadeOnlyEntry(entry, link);
-    const extractListed = (listed) => listed.filter(({ entry, link }) => !hiddenForPrimary(entry, link)).map(({ entry, link }, i) => ({
+    const hiddenUnitIds = /* @__PURE__ */ new Set();
+    const keepListed = ({ entry, link }) => {
+      if (!hiddenForPrimary(entry, link)) return true;
+      if (entry["@id"]) hiddenUnitIds.add(entry["@id"]);
+      return false;
+    };
+    const extractListed = (listed) => listed.filter(keepListed).map(({ entry, link }, i) => ({
       entry,
       u: extractUnit(entry, mergedIdIndex, factionKey, i, detIdToName, catIdToName, link, info.catalogueId)
     })).filter(({ entry, u }) => isDatasheetUnit(u, entry)).map(({ entry, u }) => {
@@ -6873,8 +6879,11 @@ async function parseAllCatalogues(dir) {
       if (!linkedUnits.length && nativeMenuCount === 0) linkedUnits = listSharedUnits(linked.root, mergedIdIndex);
       for (const { entry, link: innerLink } of linkedUnits) {
         if (units.some((u2) => u2.bsId === entry["@id"])) continue;
-        if (entry["@import"] === "false" || innerLink && innerLink["@import"] === "false") continue;
-        if (hiddenForPrimary(entry, innerLink)) continue;
+        if (entry["@import"] === "false" || innerLink && innerLink["@import"] === "false") {
+          if (entry["@id"]) hiddenUnitIds.add(entry["@id"]);
+          continue;
+        }
+        if (!keepListed({ entry, link: innerLink })) continue;
         const u = extractUnit(entry, mergedIdIndex, factionKey, importedIdx++, detIdToName, catIdToName, innerLink, info.catalogueId);
         if (!isDatasheetUnit(u, entry)) continue;
         if (entry["@id"] && !rawUnitEntries.has(entry["@id"])) rawUnitEntries.set(entry["@id"], entry);
@@ -7266,7 +7275,10 @@ async function parseAllCatalogues(dir) {
       // as a Death Guard ally, even though DG only fields the specific daemons its
       // Tallyband Summoners detachment grants. CSM / Chaos Knights keep daemon
       // allies because THEY import the Daemons Library with importRootEntries.
-      allyFactions: linkedCats.filter(({ link, linked }) => link["@importRootEntries"] === "true" || linked && linked.root && linked.root["@library"] !== "true").map(({ link }) => linkedFactionName(link["@name"])).filter(Boolean)
+      allyFactions: linkedCats.filter(({ link, linked }) => link["@importRootEntries"] === "true" || linked && linked.root && linked.root["@library"] !== "true").map(({ link }) => linkedFactionName(link["@name"])).filter(Boolean),
+      // bsIds left out of this roster on purpose (see hiddenForPrimary above),
+      // minus any that still made it in through another path.
+      hiddenUnitIds: [...hiddenUnitIds].filter((id) => !units.some((u) => u.bsId === id))
     };
   }
   CURRENT_PRIMARY_CAT = null;
