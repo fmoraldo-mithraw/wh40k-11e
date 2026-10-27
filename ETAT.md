@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-26.
+> Dernière mise à jour : 2026-10-27.
 
 ## Dépôts et branches
 
@@ -54,9 +54,14 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
   (cliquet `tests/fixtures/option-export-baseline.json`, re-figer avec `--fige` après correctif) ;
   `test:import-real-cases` : 15 listes réelles (appli GW, New Recruit, à plat, ancien export) issues de deux
   relectures adverses. Base simplifiée : Aspect Shrine Token (plafond natif), Canoptek Tomb Crawlers (une entrée
-  « Tomb Crawler » ×2, isolateur max 1). Défauts anciens NON traités (signalés) : options facultatives DANS un
-  choix composé comptées d'office par le parseur (Hellglaive du Heliarch dans le simulateur) ; aperçu d'import
+  « Tomb Crawler » ×2, isolateur max 1). Défauts anciens NON traités (signalés) : aperçu d'import
   sans le coût des options ; préambule GW « Space Marines » + chapitre ; texte genNR brut non réimportable.
+- 2026-10-27 : **arme facultative dans un choix composé** (parseur `optionalComboMembers`) : un membre-arme sans
+  min ni defaultAmount, à côté d'un membre requis, sort des profils du choix et devient une case à cocher
+  « <choix> — <arme> » gardée par le choix (Hellglaive du Heliarch : seul cas de la base). Un composé dont aucun
+  membre n'a de minimum reste lu en bloc ; Solarite (Scourges) : min 1 ajouté à ses deux armes (fiche officielle).
+  `test:option-export` ouvre désormais les portes {g,c} (5 263 choix). **Import appli GW copiée depuis
+  l'affichage** (« Nazdreg165 points », « Attached Unit N » sans points, 3 détachements sur une ligne) : reconnu.
 - 2026-10-26 : **Troupe Harlequin** (appli) : plus de doublons d'options ; `u.weaponUnitCaps` partage le plafond
   fusion/neuro (2, 4 à 10+) entre Players et Lead Player. **Simulateur** : `kw=` des sim-mods voit les mots-clefs de
   faction (Malicious Frenzy enfin proposé aux unités Drukhari/Harlequins). Données inchangées.

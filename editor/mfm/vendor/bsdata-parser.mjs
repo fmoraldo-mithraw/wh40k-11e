@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 753ffd6
-// source-sha256: c3748949f0d9431b
+// source-commit: 9205aa7
+// source-sha256: 08d818f8e3dea903
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3769,6 +3769,17 @@ function unitMaxOf(nodes, allowParent) {
   }
   return null;
 }
+function optionalComboMembers(container, idIndex) {
+  if (!container) return [];
+  const members = [
+    ...arr(child(container, "selectionEntries.selectionEntry")).map((se) => ({ node: se, tgt: se, link: null })),
+    ...arr(child(container, "entryLinks.entryLink")).filter((el) => el["@type"] === "selectionEntry").map((el) => ({ node: el, tgt: idIndex && idIndex.get(el["@targetId"]), link: el }))
+  ].filter((m) => m.tgt && m.node["@hidden"] !== "true");
+  const required = (m) => intC((m.link && getConstraint(m.link, "min", "selections")) ?? getConstraint(m.tgt, "min", "selections"), 0) >= 1 || (m.link && hasExplicitDefaultAmount(m.link) ? getDefaultAmount(m.link) : getDefaultAmount(m.tgt)) >= 1;
+  if (!members.some(required)) return [];
+  const armed = (t) => arr(child(t, "profiles.profile")).some(isWeaponProfile) || arr(child(t, "infoLinks.infoLink")).some((il) => il["@type"] === "profile" && idIndex && idIndex.get(il["@targetId"]) && isWeaponProfile(idIndex.get(il["@targetId"])));
+  return members.filter((m) => !required(m) && armed(m.tgt)).map((m) => m.node);
+}
 function pickOptionWeaponProfile(targetEntry, idIndex) {
   if (!targetEntry) return null;
   const profs = arr(child(targetEntry, "profiles.profile")).filter(isWeaponProfile);
@@ -3805,9 +3816,10 @@ function pickOptionWeaponProfile(targetEntry, idIndex) {
       if (t && isWeaponProfile(t)) pushW(stamp(fmtWeapon(t)));
     }
   };
-  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) addFrom(sub, Math.max(1, intC(getConstraint(sub, "min", "selections"), 1)));
+  const optional = new Set(optionalComboMembers(targetEntry, idIndex));
+  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) if (!optional.has(sub)) addFrom(sub, Math.max(1, intC(getConstraint(sub, "min", "selections"), 1)));
   for (const el of arr(child(targetEntry, "entryLinks.entryLink"))) {
-    if (el["@type"] === "selectionEntry") {
+    if (el["@type"] === "selectionEntry" && !optional.has(el)) {
       const t = idIndex.get(el["@targetId"]);
       addFrom(t, Math.max(1, intC(getConstraint(el, "min", "selections") ?? (t ? getConstraint(t, "min", "selections") : null), 1)));
     }
@@ -3839,9 +3851,10 @@ function pickComboWeaponProfiles(targetEntry, idIndex) {
       if (tgt) push(tgt);
     }
   };
-  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) addFrom(sub);
+  const optional = new Set(optionalComboMembers(targetEntry, idIndex));
+  for (const sub of arr(child(targetEntry, "selectionEntries.selectionEntry"))) if (!optional.has(sub)) addFrom(sub);
   for (const el of arr(child(targetEntry, "entryLinks.entryLink"))) {
-    if (el["@type"] === "selectionEntry") addFrom(idIndex && idIndex.get(el["@targetId"]));
+    if (el["@type"] === "selectionEntry" && !optional.has(el)) addFrom(idIndex && idIndex.get(el["@targetId"]));
   }
   return out.length ? out : null;
 }
@@ -4380,10 +4393,27 @@ function getOpts(entry, idIndex, unitCategoryIds) {
             out.push([uniq, ngChoices, ngMax, ngDefault, gate, ngMin]);
           }
         };
+        const surfaceOptionalMembers = (container, seName) => {
+          if (parentGroupName == null) return;
+          const opt = optionalComboMembers(container, idIndex);
+          if (!opt.length) return;
+          const pseudo = { selectionEntries: { selectionEntry: opt.filter((n) => !n["@targetId"]) }, entryLinks: { entryLink: opt.filter((n) => n["@targetId"]) } };
+          for (const c of getOptChoices(pseudo, idIndex, unitCategoryIds).choices) {
+            const label = seName + " \u2014 " + c[0];
+            let uniq = prefix ? prefix + "::" + label : label;
+            if (out.some((o) => o[0] === uniq)) {
+              let s = 2;
+              while (out.some((o) => o[0] === uniq + " #" + s)) s++;
+              uniq = uniq + " #" + s;
+            }
+            out.push([uniq, [c], Math.max(1, c[2] || 1), "", { g: parentGroupName, c: seName }, 0]);
+          }
+        };
         for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
           if (se["@hidden"] === "true") continue;
           if (intC(getConstraint(se, "min", "selections"), 0) >= 1) continue;
           surfaceNestedOf(se, se["@name"] || "");
+          surfaceOptionalMembers(se, se["@name"] || "");
         }
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
           if (el["@type"] !== "selectionEntry" || el["@hidden"] === "true") continue;
@@ -4391,6 +4421,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           if (!tgt || tgt["@hidden"] === "true" || isCrusadeOnlyEntry(tgt, el)) continue;
           if (intC(getConstraint(el, "min", "selections") ?? getConstraint(tgt, "min", "selections"), 0) >= 1) continue;
           surfaceNestedOf(el, el["@name"] || tgt["@name"] || "");
+          surfaceOptionalMembers(tgt, el["@name"] || tgt["@name"] || "");
         }
       } else {
         const from = out.length;
