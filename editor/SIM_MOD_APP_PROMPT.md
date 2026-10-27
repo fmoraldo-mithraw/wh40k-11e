@@ -34,6 +34,12 @@ sont entre guillemets) :
 - **Effets** (repliés dans `mods`) :
   - `attacks=+N` `str=+N` `ap=+N` `dmg=+N` `hit=+N` `wound=+N` — bonus
     numériques signés (sur A / S / PA / D / jet de touche / jet de blessure).
+  - `attacks-set=N` — **caractéristique d'Attaques fixée** (« have an Attacks
+    characteristic of N ») : remplace la valeur imprimée, les `attacks=+N`
+    s'ajoutent ensuite (Wracks : Experimental Enhancements ; Arco-Flagellants :
+    Extremis Trigger Word).
+  - `hazardous` — drapeau d'affichage seul (l'arme gagne [HAZARDOUS]) : le
+    simulateur ne compte que les dégâts infligés, pas les pertes subies.
   - `reroll=hit` | `reroll=hit1` | `reroll=wound` | `reroll=wound1` |
     `reroll=dmg` — relances (full vs « 1 » uniquement).
   - `lethal` `dev` `ignores-cover` — drapeaux (Lethal Hits, Devastating
