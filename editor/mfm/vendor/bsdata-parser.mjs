@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: a220dc5
-// source-sha256: 82f5281ac69f1445
+// source-commit: 753ffd6
+// source-sha256: c3748949f0d9431b
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -4487,9 +4487,10 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       const elMinRaw = getConstraint(el, "min", "selections");
       const tgtMin = intC(getConstraint(tgt, "min", "selections"), 0);
       const effMin = elMinRaw != null ? intC(elMinRaw, 0) : tgtMin;
-      const elMaxRaw = getConstraint(el, "max", "selections");
-      const tgtMaxCstrs = arr(child(tgt, "constraints.constraint")).filter((c) => c["@type"] === "max" && c["@field"] === "selections");
-      const tgtMaxCstr = tgtMaxCstrs.find((c) => (c["@scope"] || "parent") === "parent") || null;
+      const parentMaxOf = (n) => arr(child(n, "constraints.constraint")).find((c) => c["@type"] === "max" && c["@field"] === "selections" && (c["@scope"] || "parent") === "parent") || null;
+      const elMaxCstr = parentMaxOf(el);
+      const elMaxRaw = elMaxCstr && elMaxCstr["@value"];
+      const tgtMaxCstr = parentMaxOf(tgt);
       const tgtMaxRaw = tgtMaxCstr && tgtMaxCstr["@value"];
       const tgtMaxId = tgtMaxCstr && tgtMaxCstr["@id"];
       let effMax = intC(elMaxRaw != null ? elMaxRaw : tgtMaxRaw, 1);
