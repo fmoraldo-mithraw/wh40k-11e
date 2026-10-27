@@ -54,8 +54,10 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
   (cliquet `tests/fixtures/option-export-baseline.json`, re-figer avec `--fige` après correctif) ;
   `test:import-real-cases` : 15 listes réelles (appli GW, New Recruit, à plat, ancien export) issues de deux
   relectures adverses. Base simplifiée : Aspect Shrine Token (plafond natif), Canoptek Tomb Crawlers (une entrée
-  « Tomb Crawler » ×2, isolateur max 1). Défauts anciens NON traités (signalés) : aperçu d'import
-  sans le coût des options ; préambule GW « Space Marines » + chapitre ; texte genNR brut non réimportable.
+  « Tomb Crawler » ×2, isolateur max 1). Défauts anciens NON traités (signalés) : préambule GW
+  « Space Marines » + chapitre ; texte genNR brut non réimportable.
+- 2026-10-27 : **aperçu des points à l'import** = total de l'armée importée (App.jsx `importPreviewPts` chiffre
+  les lignes mêmes de `handleFullImport`, `importedArmyRows`) ; garde-fou `test:import-preview` (68 armées, 0 écart).
 - 2026-10-27 : **arme facultative dans un choix composé** (parseur `optionalComboMembers`) : un membre-arme sans
   min ni defaultAmount, à côté d'un membre requis, sort des profils du choix et devient une case à cocher
   « <choix> — <arme> » gardée par le choix (Hellglaive du Heliarch : seul cas de la base). Un composé dont aucun
