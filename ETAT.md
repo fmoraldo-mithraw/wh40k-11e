@@ -38,6 +38,11 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
    et 13 améliorations fantômes polluent le résidu ②. Patch proposé (non poussé, non testé) dans
    `RESTE-v1.6-refresh.md`. Aucune perte en base : les 12 octrois y sont et `enh-leaders.mjs` ne
    supprime jamais un lien.
+3. **Alliés des chapitres** (2026-10-27) : `Imperial Fists` et `Salamanders` ne lient pas
+   `Imperial Knights - Library` ; `Black Templars` et `Deathwatch` ne lient ni Imperial Knights ni Agents
+   of the Imperium — toutes les autres factions Imperium (Space Marines, Space Wolves, Ultramarines, Iron
+   Hands…) lient les deux. Un Armiger (ou un Callidus chez BT/DW) n'y est donc ni proposé ni importable.
+   Oubli à corriger (ajout des `catalogueLink`) ou restriction voulue ? Ne rien changer sans réponse.
 
 Clos le 2026-10-22 : Vanguard Veteran Squad à pied (la fiche n'existe pas ; les meneurs qui la
 citent — Lieutenant, Ancient — mènent la version à réacteurs dorsaux via la catégorie
@@ -55,7 +60,7 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
   `test:import-real-cases` : 15 listes réelles (appli GW, New Recruit, à plat, ancien export) issues de deux
   relectures adverses. Base simplifiée : Aspect Shrine Token (plafond natif), Canoptek Tomb Crawlers (une entrée
   « Tomb Crawler » ×2, isolateur max 1). Préambule GW « Space Marines » + chapitre : la faction du chapitre
-  (`pickFaction`, faction la plus précise). Export genNR (format YellowScribe) : réimport non voulu (utilisateur).
+  (`pickFaction` : préambule GW seulement, catalogue qui contient les autres ; « Factions Used » garde la 1re). Export genNR (format YellowScribe) : réimport non voulu (utilisateur).
 - 2026-10-27 : **aperçu des points à l'import** = total de l'armée importée (App.jsx `importPreviewPts` chiffre
   les lignes mêmes de `handleFullImport`, `importedArmyRows`) ; garde-fou `test:import-preview` (68 armées, 0 écart).
 - 2026-10-27 : **arme facultative dans un choix composé** (parseur `optionalComboMembers`) : un membre-arme sans
