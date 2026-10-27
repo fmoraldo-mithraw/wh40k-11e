@@ -178,6 +178,10 @@ for (const slug of slugs) {
     for (const tag0 of (mu.change_tags || [])) {
       const tagU = String(tag0).toUpperCase();
       if (tagU === "UPDATED") continue;                      // porté par les deltas eux-mêmes
+      // Liste des unités rejointes modifiée : les rattachements de la base suivent
+      // les fiches officielles (editor/translations/gdc-attach.cjs) ; les listes
+      // MFM sont dans le dump (leader_targets / support_targets).
+      if (tagU === "BODYGUARD UNITS UPDATED") continue;
       if (tagU === "WARGEAR COSTS REMOVED") {
         // L'étiquette dit qu'AU MOINS UN surcoût a disparu, pas tous : la carte
         // garde ceux qui restent (Victrix Honour Guard v1.5 : « per Blades of

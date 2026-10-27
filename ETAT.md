@@ -33,7 +33,10 @@ Aucune.
 Clos le 2026-10-27 : **`mfm_parser.py`** corrigé et validé sur le site (réseau ouvert par l'utilisateur) — octrois
 `LEADER:`/`SUPPORT:` lus dans le `<li>` v1.6 (deux-points exigés), 13 octrois extraits (12 LEADER + Murdermind),
 13 fantômes du résidu ② résorbés, dump `dump/en` et matrices rafraîchis, `enh-leaders.mjs` : 0 lien à ajouter.
-(L'extraction du site FR rend 0 détachement, avant comme après : en-têtes de section en français, non gérés.)
+(Site FR hors périmètre : l'anglais suffit — décision utilisateur.) **Extraction EN vérifiée** contre un extracteur
+indépendant (page HTML rendue dans Chromium) : 30 factions, 1 373 fiches, 2 650 lignes de coût, 334 détachements,
+977 améliorations, 13 octrois — 0 écart après ajout du bloc SUPPORT des fiches (`support_targets`, 87) et des
+étiquettes « … UPDATED » (22). Legends (bouton « Show Legends », 424 fiches) non extraites : hors base (décision 22/10).
 **Murdermind** (Necrons, Cursed Legion) — `SUPPORT: Lokhust Heavy Destroyers,
 Ophydian Destroyers, Skorpekh Destroyers, Lokhust Destroyers` (texte fourni par l'utilisateur) → groupe
 `Can Support (MFM)` sur l'amélioration ; l'appli rattache le Cryptek porteur comme Support (rôle par

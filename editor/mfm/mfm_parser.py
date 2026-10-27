@@ -300,12 +300,16 @@ def parse_cost_node(node: Any) -> dict | None:
 # --------------------------------------------------------------------------- #
 # Badges affichés en bas de carte : "UPDATED", "FORCE DISPOSITION(S) CHANGED",
 # "REQUISITION THRESHOLDS REMOVED", ... (divs px-1 font-bold bg-slate-200/300)
-_BADGE_RE = re.compile(r"^(NEW|UPDATED)$|CHANGED|REMOVED|ADDED")
+# « … UPDATED » en fin de libellé aussi : « BODYGUARD UNITS UPDATED » (22 cartes
+# v1.6, liste des unités rejointes modifiée) passait à la trappe.
+_BADGE_RE = re.compile(r"^(NEW|UPDATED)$|CHANGED|REMOVED|ADDED|\bUPDATED$")
 # Libellés de section, en anglais ET dans les versions traduites (FR :
 # OPTIMISATIONS / OPTIONS D'ÉQUIPEMENT / MENEUR) — jamais des badges.
-_BADGE_EXCLUDE = {"ENHANCEMENTS", "WARGEAR OPTIONS", "LEADER", "OPTIMISATIONS", "MENEUR"}
+_BADGE_EXCLUDE = {"ENHANCEMENTS", "WARGEAR OPTIONS", "LEADER", "SUPPORT", "OPTIMISATIONS", "MENEUR", "APPUI"}
 # Libellé LEADER selon la langue du MFM (FR : « MENEUR »).
 _LEADER_WORDS = ("LEADER", "MENEUR")
+# Libellé SUPPORT (FR : « APPUI ») : bloc des unités qu'un modèle Support rejoint.
+_SUPPORT_WORDS = ("SUPPORT", "APPUI")
 
 # Couleur d'en-tête d'une carte modifiée -> nature du changement
 _HEADER_COLORS = {
@@ -701,10 +705,12 @@ def _parse_units(block: Any) -> list[dict]:
         # suivi d'une <ul> de <li> : span(taille) + coût
         profiles = _parse_unit_profiles(card)
 
-        # leader targets : span font-bold après l'en-tête LEADER
-        lt = _parse_leader_targets(card)
-        if lt:
-            leader_targets = lt
+        # cibles de rattachement : span font-bold après l'en-tête LEADER, ou
+        # après l'en-tête SUPPORT (Technomancer → CANOPTEK WRAITHS, …) — ce
+        # second bloc (87 fiches v1.6) n'était pas lu.
+        att = _parse_attach_targets(card)
+        if att.get("leader"):
+            leader_targets = att["leader"]
 
         if name:
             tags = _parse_change_tags(card)
@@ -720,6 +726,7 @@ def _parse_units(block: Any) -> list[dict]:
                                      # "EVERY MODEL HAS THE IMPERIUM KEYWORD"
                 "profiles": profiles,
                 "leader_targets": leader_targets,
+                "support_targets": att.get("support"),  # bloc SUPPORT (modèles Support)
                 "changed": changed,
                 "change": change,             # "increased" | "decreased" | "mixed" | None
                 "change_indicator": indicator,  # "▲", "▼", "▲▼" affiché à côté du nom
@@ -790,17 +797,31 @@ def _parse_unit_profiles(card: Any) -> list[dict]:
 
 
 def _parse_leader_targets(card: Any) -> str | None:
-    found_leader = False
+    return _parse_attach_targets(card).get("leader")
+
+
+def _parse_attach_targets(card: Any) -> dict:
+    """
+    Cibles de rattachement d'une carte d'unité : {"leader": "A, B", "support":
+    "C, D"} — span font-bold qui suit l'en-tête LEADER / SUPPORT (FR : MENEUR /
+    APPUI). Clé absente si la carte n'a pas le bloc.
+    """
+    out: dict = {}
+    mode = None
     for el in iter_elements(card):
-        cls = el_class(el)
-        if el_type(el) == "span" and collect_text(el).strip().upper() in _LEADER_WORDS:
-            found_leader = True
+        if el_type(el) != "span":
             continue
-        if found_leader and el_type(el) == "span" and "font-bold" in cls:
-            t = collect_text(el)
-            if t and t.upper() not in _LEADER_WORDS:
-                return t
-    return None
+        t = collect_text(el).strip()
+        if t.upper() in _LEADER_WORDS:
+            mode = "leader"
+            continue
+        if t.upper() in _SUPPORT_WORDS:
+            mode = "support"
+            continue
+        if mode and "font-bold" in el_class(el) and t and mode not in out:
+            out[mode] = t
+            mode = None
+    return out
 
 
 # --------------------------------------------------------------------------- #
