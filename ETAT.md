@@ -28,21 +28,19 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Octroi SUPPORT de `Murdermind`** (Necrons, Cursed Legion, 15 pts) : le MFM porte une ligne
-   `SUPPORT:` sous cette amélioration, que `mfm_parser.py` n'a jamais su lire — **unités cibles
-   illisibles depuis le dump**, et aucun groupe `Can Support (MFM)` en base. Texte à fournir, ou à
-   relire après le correctif parser ci-dessous. Détail : `editor/mfm/state/RESTE-v1.6-refresh.md`.
-2. **Correctif `mfm_parser.py` à valider avec le réseau** (le conteneur cowork est en 403 sur
-   `mfm.warhammer-community.com`) : GW a déplacé les libellés `LEADER:` / `SUPPORT:` du `<div>`
-   frère vers un `<li>` de la liste des améliorations → les 12 octrois LEADER ne sont plus extraits
-   et 13 améliorations fantômes polluent le résidu ②. Patch proposé (non poussé, non testé) dans
-   `RESTE-v1.6-refresh.md`. Aucune perte en base : les 12 octrois y sont et `enh-leaders.mjs` ne
-   supprime jamais un lien.
-3. **Alliés des chapitres** (2026-10-27) : `Imperial Fists` et `Salamanders` ne lient pas
-   `Imperial Knights - Library` ; `Black Templars` et `Deathwatch` ne lient ni Imperial Knights ni Agents
-   of the Imperium — toutes les autres factions Imperium (Space Marines, Space Wolves, Ultramarines, Iron
-   Hands…) lient les deux. Un Armiger (ou un Callidus chez BT/DW) n'y est donc ni proposé ni importable.
-   Oubli à corriger (ajout des `catalogueLink`) ou restriction voulue ? Ne rien changer sans réponse.
+1. **Correctif `mfm_parser.py` à valider avec le réseau** : l'environnement refuse
+   `mfm.warhammer-community.com` (403, politique réseau). **Action utilisateur** : ajouter ce domaine
+   aux *Allowed domains* de l'environnement (menu de l'environnement cloud → Edit → Network access ;
+   https://code.claude.com/docs/en/cloud-environments#network-access), puis relancer une session. GW a
+   déplacé les libellés `LEADER:` / `SUPPORT:` du `<div>` frère vers un `<li>` → les 12 octrois LEADER
+   ne sont plus extraits (aucune perte en base). Patch proposé dans `RESTE-v1.6-refresh.md` ; ensuite
+   `enh-leaders.mjs <dump>` (dry-run) doit donner « 0 lien à ajouter » (il lit maintenant aussi `support`).
+
+Clos le 2026-10-27 : **Murdermind** (Necrons, Cursed Legion) — `SUPPORT: Lokhust Heavy Destroyers,
+Ophydian Destroyers, Skorpekh Destroyers, Lokhust Destroyers` (texte fourni par l'utilisateur) → groupe
+`Can Support (MFM)` sur l'amélioration ; l'appli rattache le Cryptek porteur comme Support (rôle par
+rattachement). **Alliés des chapitres** : oubli confirmé — Imperial Fists, Salamanders, Black Templars,
+Deathwatch lient désormais Imperial Knights - Library et Agents of the Imperium (`importRootEntries`).
 
 Clos le 2026-10-22 : Vanguard Veteran Squad à pied (la fiche n'existe pas ; les meneurs qui la
 citent — Lieutenant, Ancient — mènent la version à réacteurs dorsaux via la catégorie

@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 9205aa7
-// source-sha256: 08d818f8e3dea903
+// source-commit: ce5990e
+// source-sha256: 7676a9d8f3935a5f
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6364,7 +6364,8 @@ function getEnhs(catalogue, idIndex, catalogueId, fallbackDetIdToName) {
     const weapons = arr(child(se, "profiles.profile")).filter(isWeaponProfile).map(fmtWeapon).map(({ bsId: _b, ...w }) => w);
     const weaponMods = extractWeaponMods(se, idIndex);
     const leadIds = getMfmGroupIds(se, "Can Lead (MFM)");
-    return { name, pts, det, desc, bsId: se["@id"] || "", charOnly: true, reqKeywords: [], unique, hideMods, ...leadIds.length ? { leadIds } : {}, ...weapons.length ? { weapons } : {}, ...sm.length ? { simMods: sm } : {}, ...statMods.length ? { statMods } : {}, ...weaponMods.length ? { weaponMods } : {} };
+    const supportIds = getMfmGroupIds(se, "Can Support (MFM)");
+    return { name, pts, det, desc, bsId: se["@id"] || "", charOnly: true, reqKeywords: [], unique, hideMods, ...leadIds.length ? { leadIds } : {}, ...supportIds.length ? { supportIds } : {}, ...weapons.length ? { weapons } : {}, ...sm.length ? { simMods: sm } : {}, ...statMods.length ? { statMods } : {}, ...weaponMods.length ? { weaponMods } : {} };
   }
   function processSubGroup(sg, unitEnh) {
     if (sg["@hidden"] === "true") return;
