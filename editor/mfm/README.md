@@ -133,6 +133,16 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   de la `categoryEntry` à contrainte `max=1 scope="roster"` si besoin). Dry-run
   par défaut, `--write` pour écrire. Un détachement à override de DP par
   chapitre est signalé, jamais écrasé.
+- `bodyguard-audit.mjs` — audit des **listes de rattachement** (blocs LEADER /
+  SUPPORT des fiches MFM, `leader_targets` / `support_targets`) vs les groupes
+  `Can Lead/Support (MFM)` et les liens inverses `Led By / Supported By (MFM)`.
+  Hors périmètre d'`apply`, qui ignore volontairement l'étiquette « BODYGUARD
+  UNITS UPDATED » (les rattachements suivent la **fiche officielle**). Audite par
+  défaut les seules fiches étiquetées, `--all` pour tout. Lecture seule : un
+  écart se corrige en rafraîchissant la veille game-datacards puis
+  `gdc-attach.cjs --write`, **jamais** à la main (gdc-attach retire les liens que
+  la fiche officielle ne porte pas). État au 2026-10-28 : 22 fiches étiquetées,
+  6 conformes, **16 écarts** — voir `state/RESTE-v1.6-refresh2.md`.
 - `refresh-current.mjs` — REPLI sans le parser de l'app : rafraîchit le cache
   `current` des matrices depuis la bdd. **Ne recalcule pas l'appariement** — une
   matrice à cibles disparues (« GONE ») doit passer par `build-map`.

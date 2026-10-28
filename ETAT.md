@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-27.
+> Dernière mise à jour : 2026-10-28.
 
 ## Dépôts et branches
 
@@ -24,11 +24,17 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
 - Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
-- game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
+- game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-Aucune.
+- **« VANGUARD VETERAN SQUAD » dans les blocs bodyguard du MFM v1.6** (10 fiches : Judiciar ×6,
+  Marneus Calgar, Adrax Agatone, Captain Titus, Chief Librarian Tigurius, Kor'Sarro Khan, Wardens of
+  Ultramar). La fiche à pied n'existe pas en 11e (clos le 2026-10-22) ; la base lie « Vanguard Veteran
+  Squad with Jump Packs » depuis **4 meneurs à réacteurs** seulement (Dante, Shrike, Captain/Chaplain
+  with Jump Pack). Le MFM désigne-t-il l'escouade à réacteurs pour ces 10 meneurs (→ 10 liens à
+  ajouter), ou traîne-t-il le nom générique de la fiche disparue (→ rien à faire) ? Rien n'a été écrit.
+  Détail et audit : `editor/mfm/state/RESTE-v1.6-refresh2.md`, `node editor/mfm/bodyguard-audit.mjs`.
 
 Clos le 2026-10-27 : **`mfm_parser.py`** corrigé et validé sur le site (réseau ouvert par l'utilisateur) — octrois
 `LEADER:`/`SUPPORT:` lus dans le `<li>` v1.6 (deux-points exigés), 13 octrois extraits (12 LEADER + Murdermind),
@@ -53,6 +59,13 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-28 : **MFM v1.6, dump re-extrait intégré** (routine cowork) — correctif parser en place :
+  0 delta de points, 0 delta d'amélioration, `enh-leaders` 13 octrois / 0 lien à ajouter (contrôle croisé
+  rétabli), dp/wpn/tier-audit verts, marqueur `state/integre.txt` posé. Nouvel audit
+  **`editor/mfm/bodyguard-audit.mjs`** (listes LEADER/SUPPORT des fiches vs base, hors périmètre d'`apply`) :
+  22 fiches « BODYGUARD UNITS UPDATED », 6 conformes, **16 écarts** — 10 relèvent de la question ouverte
+  Vanguard ci-dessus, 6 (Trajann, 2 Shield-Captain, Belial, Calgar) attendent un rafraîchissement de la veille
+  game-datacards. Rien écrit en base. Détail : `editor/mfm/state/RESTE-v1.6-refresh2.md`.
 - 2026-10-28 : **simulateur — mot-clef d'unité** : un sim-mod `kw=` se juge sur l'**unité** ; une unité menée a
   les mots-clefs de tous ses modèles (Warboss + Boyz sous Green Tide : Mob-Handed Brutality, Sustained Hits 1,
   sur toutes les armes de mêlée du Warboss). Jeton **`kwModels`** (prose « X models », « each time a X model »)

@@ -68,6 +68,14 @@ origin/main`), puis :
    seuils ; un palier doit s'appliquer dès la taille listée précédente + 1
    (règle MFM du palier supérieur). Corriger les « ✗ » via la lib (valeur
    de la condition), vérifier les « ? » à la main.
+2quinquies. **Audit des rattachements** : `node editor/mfm/bodyguard-audit.mjs
+   editor/mfm/dump/en` — les blocs LEADER / SUPPORT des fiches (étiquette
+   « BODYGUARD UNITS UPDATED ») sont hors périmètre d'`apply`, qui les ignore
+   par conception (la **fiche officielle** fait foi). Un écart ne se corrige
+   **jamais à la main** : il se rapporte (il dit que l'instantané
+   game-datacards est en retard, ou que l'appariement de nom de
+   `gdc-attach.cjs` décroche) — poser le lien serait défait au prochain
+   `gdc-attach --write`.
 3. **Appliquer les deltas AUTO** via `editor/lib/catalog.js` UNIQUEMENT
    (jamais de sed/regex sur les `.cat`) : coût de base, paliers de taille,
    prix par répétition (forme NATIVE increment + atLeast), points
