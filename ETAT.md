@@ -22,7 +22,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 - Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **66/66** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
+- Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **972** (`editor/sources/game-datacards.json`).
 
@@ -53,6 +53,15 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-28 : **simulateur — mot-clef d'unité** : un sim-mod `kw=` se juge sur l'**unité** ; une unité menée a
+  les mots-clefs de tous ses modèles (Warboss + Boyz sous Green Tide : Mob-Handed Brutality, Sustained Hits 1,
+  sur toutes les armes de mêlée du Warboss). Jeton **`kwModels`** (prose « X models », « each time a X model »)
+  → filtre sur les mots-clefs propres du modèle : 35 lignes / 15 catalogues (Combat Drugs, Wrath of Khorne,
+  Powers of Da Waaagh!…) ; TITANIC DUEL des Chaos Knights reste d'unité. Appli : `src/sim/simModMatch.js`
+  (`okw`/`ukw`), `test:sim-mod-match` ; puces Lethal/Sus dédoublonnées dans le tableau. Spec : `SIM_MOD_APP_PROMPT.md`.
+- 2026-10-28 : **formats alignés sur la table MFM « Muster Armies »** (appli, `rules.js` `MFM_BATTLE_SIZE`) :
+  Incursion 2 améliorations, limite Battleline/Dedicated Transport 4 (autres fiches 2) ; Strike Force 4 / 6 / 3 ;
+  Epic Hero 1 dans tous les formats. Onslaught (absent du MFM) garde le doublement.
 - 2026-10-27 : **import/export des listes** (appli) : `test:option-export` rejoue chaque choix de chaque fiche
   (5 163) export → import → ré-export par le VRAI chemin de l'appli (`applyImportedRow`, App.jsx) : **0 écart**
   (cliquet `tests/fixtures/option-export-baseline.json`, re-figer avec `--fige` après correctif) ;

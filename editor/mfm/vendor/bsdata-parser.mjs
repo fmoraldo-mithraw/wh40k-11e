@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 362a87f
-// source-sha256: a621acc3b4f3491f
+// source-commit: fa642b0
+// source-sha256: a268154507d6d0d1
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5066,6 +5066,7 @@ function parseSimMod(text) {
       else if (m2 = /^weapon="([^"]*)"$/i.exec(tk)) sm.weapon = m2[1];
       else if (m2 = /^faction="([^"]*)"$/i.exec(tk)) sm.faction = m2[1];
       else if (m2 = /^kw="([^"]*)"$/i.exec(tk)) sm.kw = sm.kw.concat(m2[1].split(",").map((s) => s.trim()).filter(Boolean));
+      else if (/^kwModels$/i.test(tk)) sm.kwModels = true;
       else if (m2 = /^scope=(model|unit)$/i.exec(tk)) sm.scope = m2[1].toLowerCase();
       else if (m2 = /^choice="([^"]*)"$/i.exec(tk)) sm.choice = m2[1];
       else if (/^choice$/i.test(tk)) sm.choice = true;
