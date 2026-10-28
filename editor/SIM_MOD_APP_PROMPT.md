@@ -76,10 +76,18 @@ sont entre guillemets) :
     Défaut `unit` (« this unit »/« that unit »/`whileLeading`). L'appli tague chaque
     arme et chaque sim-mod d'un `owner` (ligne d'armée) et confine les effets
     `scope=model` aux armes du même owner.
-  - `kw="Mot-clef"` — l'effet ne touche que **les armes des modèles dont l'unité a ce
-    mot-clef** (« weapons equipped by ^^**Paladin Squad**^^ models », « each time a
-    ^^**Beast**^^ model … »). Exclut p. ex. un chef rattaché qui n'a pas le mot-clef.
-    L'appli tague chaque arme des mots-clefs de son unité et filtre dessus.
+  - `kw="Mot-clef"` — l'effet ne touche que **les armes des unités qui ont ce
+    mot-clef** (« ^^**Boyz**^^ units », « that ^^**Infantry**^^ unit »). Le
+    mot-clef se juge sur l'**unité** : une unité menée a les mots-clefs de **tous**
+    ses modèles (décision du 2026-10-28 : un Warboss qui mène des Boyz reçoit
+    Mob-Handed Brutality — Sustained Hits 1 — sur toutes ses armes de mêlée).
+    L'appli tague chaque arme de l'union des mots-clefs de l'unité rattachée (`ukw`,
+    chef + gardes du corps) et de ceux de sa propre ligne (`okw`), et filtre sur `ukw`.
+  - `kwModels` — à joindre à `kw=` quand la prose vise des **modèles** ayant le
+    mot-clef (« weapons equipped by ^^**Paladin Squad**^^ models », « each time a
+    ^^**Beast**^^ model … », « ^^**Khorne**^^ models in that unit ») : le filtre se
+    fait alors sur les mots-clefs **propres** du modèle (`okw`), ce qui exclut un chef
+    rattaché qui n'a pas le mot-clef. 35 lignes portent ce jeton (2026-10-28).
     Syntaxe : `,` entre jetons = **OU** ; `&` dans un jeton = **ET**
     (`kw="Psyker&Infantry,Character"` = (PSYKER et INFANTRY) ou CHARACTER) —
     nécessaire pour les lignes CIBLE à mots-clefs composés des stratagèmes.
