@@ -38,6 +38,23 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
    Librarian, Redemptor Dreadnought, Storm Speeders…), dont la section du guide de juin 2026 n'a que 50 entrées —
    extraction probablement incomplète. Fournir le PDF du Base Size Guide (ou les socles) pour compléter ?
 
+2. **19 détachements de chapitre absents du MFM v1.6** (10e non repris ; question du v1.5 jamais reportée ici) :
+   BT Wrathful Procession, Companions of Vehemence, Vindication TF, Godhammer AF, The Living Miracle ; BA Liberator
+   Assault Group, The Lost Brethren, The Angelic Host, Rage-Cursed Onslaught, Legacy of Grace ; DA Unforgiven TF,
+   Company of Hunters, Lion's Blade TF, Dark Age Arsenal, Interrogation Conclave ; SW Saga of the Hunter, Saga of
+   the Bold, Legends of Saga and Song, Veterans of the Fang — proposés par l'appli avec 63 améliorations. Retirer ?
+3. **Gladius Task Force chez les Black Templars** : au MFM v1.6 pour SM/BA/DA/SW/DW, pas pour BT. Le masquer pour BT ?
+4. **Agents — Beacon Angelis, Amulet of Auto-chastisement** sans porteur (portes visant le Watch Master, dont les
+   liens Warlord/Enhancements sont sur le lien racine, invisibles au parseur) : réservées au Watch Master ?
+5. **Land Raider Crusader (BT)** : Legacy of Jerulas (texte provisoire ALN) vs fiche officielle (Fury of the Machine
+   Spirit). Suivre la fiche officielle ?
+6. **Routine « MFM cowork »** (trig_01UwCB1pdXMJSda5aaWxM5rQ) : force-push de la branche miroir, contraire à CLAUDE.md
+   — remplacer par `editor/bin/pousse.sh` ou retirer l'étape ?
+7. **Branches distantes obsolètes** (18 données, 13 appli, toutes intégrées) : supprimer ?
+8. **CI GitHub de l'appli** hors service depuis le 2026-10-29 00:17 : « recent account payments have failed or your
+   spending limit needs to be increased » (dépôt privé) — à régler dans GitHub → Billing & plans ; en attendant,
+   `scripts/dev/ci-local.sh 22` ET `20` avant chaque push.
+
 Clos le 2026-10-29 (ter) : **Tank Ace Character supprimée** ; **alias de socles** (`aliases` sur l'entrée du guide,
 12 fiches dont le Caladius) ; **second ménage** : références pendantes 565 → 0 (Boarding Actions, coût « pl »,
 publication Index DG, ids Legends des conditions Aeldari…), 235 éléments partagés orphelins (dont les groupes
