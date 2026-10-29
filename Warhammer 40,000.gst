@@ -77,15 +77,7 @@
     <categoryEntry id="aff3-d6a3-2a95-9dc" name="Imperium" hidden="false"/>
     <categoryEntry id="4ac9-fd30-1e3d-b249" name="Configuration" hidden="false"/>
     <categoryEntry id="1160-70ae-a862-b1a8" name="Unit" hidden="false"/>
-    <categoryEntry id="c619-2086-bbcf-69c9" name="Fly" hidden="false">
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </categoryEntry>
+    <categoryEntry id="c619-2086-bbcf-69c9" name="Fly" hidden="false"/>
     <categoryEntry id="6df-937-16bc-8c1a" name="Smoke" hidden="false"/>
     <categoryEntry id="13bf-2bee-3ae0-b414" name="Psyker" hidden="false"/>
     <categoryEntry id="dbd4-63-af05-998" name="Vehicle" hidden="false"/>
@@ -575,25 +567,11 @@
               </costs>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
       </costs>
-      <modifiers>
-        <modifier type="set" value="Mission Ruleset" field="name">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Show/Hide Options" hidden="false" id="e8ef-836a-a9d1-901d">
       <constraints>
@@ -727,13 +705,6 @@ This ability always takes the form Scouts X&quot;. In the Resolve Pre-battle Abi
 ■ If that unit is wholly within your deployment zone, it can make a scout move (see below).
 ■ If that unit is embarked within a **^^Dedicated Transport^^** that is wholly within your deployment zone, and if every model embarked within that **^^Dedicated Transport^^** has the Scouts ability, that **^^Dedicated Transport^^** can make a scout move.
 Scout Move — Maximum distance: the X&quot; in Scouts X&quot;. Eligible if: it is the Resolve Pre-battle Abilities step, and your unit is wholly within your deployment zone. Effect: your unit moves as described in Moving (03). After moving: your unit must be more than 8&quot; horizontally from all enemy units.</description>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </rule>
     <rule id="c05d-f4c3-f091-4938" name="Infiltrators" publicationId="48fc-15aa-b307-9443" page="39" hidden="false">
       <description>Many armies employ reconnaissance units who can sit concealed, waiting for the right moment to strike.
@@ -1072,62 +1043,4 @@ This is a targeting restriction that depends on the enemy unit, so the format ca
       <comment>Single model - ranged only</comment>
     </profile>
   </sharedProfiles>
-  <sharedSelectionEntryGroups>
-    <selectionEntryGroup name="Boarding Actiions Upgrades" id="3167-0f5b-caba-d96e" hidden="false">
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Trademark Weapon upgrade" hidden="false" id="64e7-c46d-98fd-f6aa">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a0e5-8695-7dcc-83c3" includeChildSelections="true"/>
-            <constraint type="min" value="0" field="selections" scope="root-entry" shared="true" id="410d-b816-d735-a66d" includeChildSelections="true"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="69c3-5579-d475-e5a5" shared="true" includeChildSelections="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="upgrade" childId="eeda-8544-a2f3-3fab" shared="true" includeChildSelections="false"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="upgrade" childId="064a-0470-60eb-e3ef" shared="true" includeChildSelections="false"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="64e7-c46d-98fd-f6aa" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="upgrade" childId="64e7-c46d-98fd-f6aa" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="410d-b816-d735-a66d">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="69c3-5579-d475-e5a5" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Artificer Weapon" field="annotation" join=", " scope="upgrade" affects="profiles.Ranged Weapons"/>
-                <modifier type="increment" value="1" field="2229-f494-25db-c5d3" join=", " scope="upgrade" affects="profiles.Ranged Weapons"/>
-                <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="4986-bf86-beb4-13ac.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="982b-de77-dd2d-d9bd.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="increment" value="1" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="add" value="982b-de77-dd2d-d9bd" field="category" scope="upgrade" join="" arg="+0" affects="4986-bf86-beb4-13ac"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
-      </selectionEntries>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </selectionEntryGroup>
-  </sharedSelectionEntryGroups>
 </gameSystem>
