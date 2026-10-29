@@ -1150,17 +1150,6 @@ def-mod: source=&quot;Miasma of Pestilence (Aura)&quot; cover when=ranged condit
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lethal Hits</characteristic>
           </characteristics>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="set" value="4" field="2337-daa1-6682-b110"/>
-                <modifier type="set" value="3+" field="95d1-95f-45b4-11d6"/>
-              </modifiers>
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="e37b-6db-a5-23ed" shared="true"/>
-              </conditions>
-            </modifierGroup>
-          </modifierGroups>
         </profile>
       </profiles>
       <infoLinks>
@@ -1187,11 +1176,6 @@ def-mod: source=&quot;Miasma of Pestilence (Aura)&quot; cover when=ranged condit
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits, Rapid Fire 2</characteristic>
           </characteristics>
           <modifiers>
-            <modifier type="set" value="2+" field="94d-8a98-cf90-183e">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="ca73-6068-bfc9-c0dd" shared="true"/>
-              </conditions>
-            </modifier>
             <modifier type="increment" value="6" field="9896-9419-16a1-92fc">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="ae9a-bd41-1ee6-59e2" shared="true" includeChildSelections="true"/>
@@ -11793,13 +11777,10 @@ sim-mod: source=&quot;Fell Harvester&quot; attacks=+2 when=melee scope=model</co
   <categoryEntries>
     <categoryEntry name="Daemon Prince with Wings" hidden="false" id="5b9e-935a-4ad6-5524"/>
     <categoryEntry name="Typhus" hidden="false" id="ce7a-c25-fcfc-8033"/>
-    <categoryEntry name="Chaos Lord" hidden="false" id="ca73-6068-bfc9-c0dd"/>
     <categoryEntry name="Lord of Virulence" hidden="false" id="5da6-a091-fe72-147e"/>
     <categoryEntry name="Lord of Contagion" hidden="false" id="e79a-932-d885-2d30"/>
-    <categoryEntry name="Sorcerer" hidden="false" id="e37b-6db-a5-23ed"/>
     <categoryEntry name="Malignant Plaguecaster" hidden="false" id="966f-9cb8-39fe-450"/>
     <categoryEntry name="Plague Marines" hidden="false" id="8448-53ec-fbc3-467c"/>
-    <categoryEntry name="Cultists" hidden="false" id="968f-9957-d230-c10f"/>
     <categoryEntry name="Poxwalkers" hidden="false" id="2373-df61-e37e-7376"/>
     <categoryEntry name="Noxious Blightbringer" hidden="false" id="4184-cab9-b99a-d510"/>
     <categoryEntry name="Foul Blightspawn" hidden="false" id="917-dc6c-ae70-a45b"/>
@@ -11821,9 +11802,6 @@ sim-mod: source=&quot;Fell Harvester&quot; attacks=+2 when=melee scope=model</co
     <categoryEntry name="Mortarion" hidden="false" id="cea3-a4bc-e37d-5412"/>
     <categoryEntry name="Death Guard Icon Bearer" hidden="false" id="483a-2919-74ca-338e"/>
     <categoryEntry name="Miasmic Malignifier" hidden="false" id="bc3f-8250-48e4-22aa"/>
-    <categoryEntry name="Palanquin of Nurgle" hidden="false" id="9a8f-6201-471e-9adc"/>
-    <categoryEntry name="Hellblade" hidden="false" id="522-4473-ea58-fb99"/>
-    <categoryEntry name="Possessed" hidden="false" id="17d9-312-1d15-bc7"/>
     <categoryEntry name="Blightlord heavy weapon" id="aa7e-4b31-713a-6732" hidden="true"/>
     <categoryEntry name="Lord of Poxes" id="ceb4-54e4-02d8-e84f" hidden="false"/>
     <categoryEntry name="Helbrute melee weapon" id="8ab0-50bc-55c3-f67e" hidden="true"/>
@@ -11883,11 +11861,6 @@ sim-mod: source=&quot;Fell Harvester&quot; attacks=+2 when=melee scope=model</co
     <categoryEntry id="5392-4b5a-5416-e6c9" name="Frame" hidden="false"/>
   </categoryEntries>
   <sharedProfiles>
-    <profile name="Chaos Lord" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2e70-7085-af42-e162">
-      <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes an attack, re-roll a Hit roll of 1.</characteristic>
-      </characteristics>
-    </profile>
     <profile name="Dessication Conduit (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8e2-8f3e-c390-791a">
       <characteristics>
         <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within Contagion Range of this model, at the end of the turn, roll one D6: on a 4+, that enemy unit suffers D3 mortal wounds.</characteristic>
