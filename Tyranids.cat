@@ -178,17 +178,6 @@
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">D6</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                       </characteristics>
-                      <modifiers>
-                        <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" join="">
-                          <conditionGroups>
-                            <conditionGroup type="or">
-                              <conditions>
-                                <condition type="atLeast" value="1" field="selections" scope="model" childId="84a7-ad58-2a81-91b0" shared="true" includeChildSelections="true"/>
-                              </conditions>
-                            </conditionGroup>
-                          </conditionGroups>
-                        </modifier>
-                      </modifiers>
                     </profile>
                     <profile name="➤ Massive scything talons - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="de26-2863-a6b-1aa0">
                       <characteristics>
@@ -636,22 +625,6 @@ fnp: 5+</comment>
           </modifiers>
         </infoLink>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="9927-7f99-8b1c-5c78" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <comment>Warrior Bioform Onslaught modifiers</comment>
@@ -701,20 +674,6 @@ fnp: 5+</comment>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fb24-5746-efdb-6b18" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
                   </constraints>
                   <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Enhancements" hidden="false" id="eeb0-aeea-21fc-ef4f" collective="false" targetId="fa5b-f646-b960-a8d3" type="selectionEntryGroup" sortIndex="1">
-                  <modifiers>
-                    <modifier type="set" value="true" field="hidden">
-                      <conditionGroups>
-                        <conditionGroup type="or">
-                          <conditions>
-                            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="lessThan" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
                 </entryLink>
               </entryLinks>
               <selectionEntryGroups>
@@ -854,32 +813,8 @@ fnp: 5+</comment>
                 <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="9d6b-a7c8-62b9-e432" includeChildSelections="true"/>
                 <constraint type="max" value="5" field="selections" scope="parent" shared="true" id="9c77-2570-8eb0-8b93" includeChildSelections="true"/>
               </constraints>
-              <modifiers>
-                <modifier type="set" value="2" field="9c77-2570-8eb0-8b93">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Tyranid Warriors" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
         <selectionEntryGroup name="Led By (MFM)" hidden="true" id="a1d9-9608-66e7-d9fc">
           <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
@@ -939,22 +874,6 @@ invuln: 5+</comment>
           </modifiers>
         </infoLink>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="6f04-0b7d-3f57-9baf" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <comment>Warrior Bioform Onslaught modifiers</comment>
@@ -1008,20 +927,6 @@ invuln: 5+</comment>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Enhancements" hidden="false" id="3028-a46d-b594-e141" collective="false" targetId="fa5b-f646-b960-a8d3" type="selectionEntryGroup" sortIndex="1">
-                  <modifiers>
-                    <modifier type="set" value="true" field="hidden">
-                      <conditionGroups>
-                        <conditionGroup type="or">
-                          <conditions>
-                            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                            <condition type="lessThan" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </modifier>
-                  </modifiers>
-                </entryLink>
               </entryLinks>
             </selectionEntry>
           </selectionEntries>
@@ -1056,32 +961,8 @@ invuln: 5+</comment>
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifiers>
-                <modifier type="set" value="2" field="c7cb-2b48-7c6e-859b">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Tyranid Warriors" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="0f40-fb6c-49f7-9541" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
         <selectionEntryGroup name="Led By (MFM)" hidden="true" id="323c-3d20-0dd4-f3df">
           <comment>attach-link inverse : meneurs (fiches) pouvant rejoindre cette unité — source : fiche officielle (attachesTo)</comment>
@@ -1103,13 +984,6 @@ invuln: 5+</comment>
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your opponent&apos;s Movement phase, if an enemy unit ends a move within 8&quot; of this unit, if this unit is not within Engagement Range of one or more enemy units, this unit can make a Normal move of up to D6&quot;.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <categoryLinks>
@@ -1231,13 +1105,6 @@ invuln: 5+</comment>
                 <constraint type="min" value="7" field="selections" scope="parent" shared="true" id="dbdd-f831-f096-9263" includeChildSelections="false" automatic="true"/>
                 <constraint type="max" value="20" field="selections" scope="parent" shared="true" id="6fcf-fa0f-69e6-9985" includeChildSelections="false" automatic="true"/>
               </constraints>
-              <modifiers>
-                <modifier type="set" value="10" field="6fcf-fa0f-69e6-9985">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Termagant w/ Shardlauncher" hidden="false" id="cde6-f48d-6461-14c6">
               <constraints>
@@ -1292,13 +1159,6 @@ invuln: 5+</comment>
                   </categoryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifiers>
-                <modifier type="set" value="1" field="3814-dad8-c888-9526">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Termagant w/ Spike rifle" hidden="false" id="49ea-f11e-4464-46eb">
               <constraints>
@@ -1349,13 +1209,6 @@ invuln: 5+</comment>
                   <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifiers>
-                <modifier type="set" value="1" field="4b0a-edbb-fe5d-4040">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Termagant w/ Strangleweb" hidden="false" id="bda0-156b-2437-8c50">
               <constraints>
@@ -1411,13 +1264,6 @@ invuln: 5+</comment>
                   </categoryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifiers>
-                <modifier type="set" value="1" field="8ed1-3c45-55bf-12e4">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -1426,22 +1272,6 @@ invuln: 5+</comment>
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="026e-a3c1-91b4-e5b6" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry id="f15b-9f9c-9bf0-8160" name="Hormagaunts" hidden="false" collective="false" import="true" type="unit">
       <constraints>
@@ -1475,35 +1305,6 @@ invuln: 5+</comment>
       <infoLinks>
         <infoLink name="Synapse" hidden="false" type="rule" id="353f-9cfc-9696-900c" targetId="86aa-437f-260b-5cad"/>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="a8f1-5754-ab70-6c67" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="force" childId="6467-972f-c95c-d414" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                      </conditions>
-                    </conditionGroup>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="2" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                        <condition type="atLeast" value="1" field="selections" scope="force" childId="6467-972f-c95c-d414" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="10-20 Hormagaunts" id="4957-ad10-877d-424e" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -1546,22 +1347,8 @@ invuln: 5+</comment>
                   <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifiers>
-                <modifier type="set" value="10" field="2015-a152-93d3-a73e">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Hormagaunts" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -2320,22 +2107,6 @@ invuln: 4+</comment>
       <infoLinks>
         <infoLink name="Synapse" hidden="false" type="rule" id="8b45-4334-b86c-e857" targetId="86aa-437f-260b-5cad"/>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="d4d5-1ee5-6d78-a80f" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="1-2 Neurogaunt Nodebeasts" id="cbff-0666-b9fa-d4db" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -2374,13 +2145,6 @@ invuln: 4+</comment>
               </entryLinks>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Neurogaunt Nodebeast" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
         <selectionEntryGroup name="10-20 Neurogaunts" id="18f2-5751-d1c2-9819" hidden="false" sortIndex="4">
           <selectionEntries>
@@ -2411,13 +2175,6 @@ invuln: 4+</comment>
               </entryLinks>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Neurogaunts" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -4443,22 +4200,6 @@ invuln: 5+</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="4a4c-447b-1977-107c" type="selectionEntry" targetId="ceab-62d9-31bf-7c61" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry id="d9b4-8d0f-91f9-d114" name="Tyranid Warrior claws and talons" hidden="false" collective="false" import="true" type="upgrade">
       <profiles>
@@ -5446,16 +5187,6 @@ invuln: 4+</comment>
     <profile name="Bio-minefield" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="374e-ed33-a96f-a014">
       <characteristics>
         <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Enemy units cannot start or end an Advance move within 6&quot; of this unit.</characteristic>
-      </characteristics>
-    </profile>
-    <profile id="6cdf-a79d-f979-75f5" name="Tyranid Warrior" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
-      <characteristics>
-        <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">6&quot;</characteristic>
-        <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
-        <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
-        <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
-        <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-        <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
       </characteristics>
     </profile>
     <profile id="2461-bee9-2afc-8776" name="Termagants" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
