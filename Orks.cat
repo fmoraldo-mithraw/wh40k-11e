@@ -505,22 +505,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </conditions>
         </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="6fdf-1b0b-d252-aaac" type="selectionEntry" targetId="8b5-898c-f79b-5a9c" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2001">
       <comment>pts placeholder (95) : non indique sur la feuille d&apos;unite, a confirmer via le MFM. Regle d&apos;armee &quot;Da Boss&quot; non encodee (indisponible).
@@ -1394,22 +1378,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </conditions>
         </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="b81e-7f1b-a184-ca65" type="selectionEntry" targetId="8b5-898c-f79b-5a9c" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Stompa" hidden="false" id="6c08-9131-14a3-a3b4">
       <comment>invuln: 5+</comment>
@@ -2164,40 +2132,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
           </conditions>
         </modifier>
       </modifiers>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Waaagh!boss" hidden="false" id="8bcd-4872-2581-37ca">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8f96-ef57-948b-aa38" includeChildSelections="false"/>
-        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ebaa-8d5a-dafc-8aee" includeChildSelections="true"/>
-      </constraints>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="47cc-4071-6fda-688e" shared="true"/>
-                <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="ae9d-f74f-769c-5fc" shared="true" childName="Ghazghkull Thraka" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-      </modifiers>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="add" value="3cd9-70a8-d77d-4e9c" field="category" scope="root-entry">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="ae9d-f74f-769c-5fc" shared="true" childName="Ghazghkull Thraka" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="add" value="3cd9-70a8-d77d-4e9c" field="category" scope="root-entry" affects="self.entries.ae9d-f74f-769c-5fc">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="root-entry" childId="ae9d-f74f-769c-5fc" shared="true" childName="Ghazghkull Thraka" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
 <selectionEntry type="upgrade" import="true" name="Extra Sneaky Upgrade" hidden="false" id="0d1a-9f3b-7c40-a020">
   <comment>Amelioration Upgrade (Runt Swarm) : unites GRETCHIN, cumulable, max 1 par unite, jamais Epic Hero. Rattachee a la fiche Gretchin. pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
@@ -5319,7 +5253,7 @@ def-mod: source=&quot;Arrogant Invulnerability&quot; ap=-1</comment>
 <categoryLink targetId="cf47-a0d7-7207-29dc" id="0d1a-e10c-0038" primary="true" name="Infantry"/>
 <categoryLink targetId="0d1a-9f3b-7c40-1e02" id="0d1a-e10c-0039" primary="false" name="Explosives"/>
 <categoryLink targetId="ebd4-277b-d164-39da" id="0d1a-e10c-0040" primary="false" name="Mega Armour"/>
-<categoryLink targetId="null" id="0d1a-e10c-0041" primary="false" name="Meganobz"/>
+<categoryLink targetId="d85d-1dad-b832-cf9f" id="0d1a-e10c-0041" primary="false" name="Meganobz"/>
 <categoryLink targetId="56cc-5f43-2403-8da0" id="0d1a-e10c-0042" primary="false" name="Faction: Orks"/>
 </categoryLinks>
 <infoLinks>
@@ -12671,13 +12605,6 @@ TARGET: One friendly GRETCHIN unit within 3&quot; of that ORKS INFANTRY unit.
 EFFECT: When a hit roll for that enemy unit's ranged attacks that target that ORKS unit results in a hit, if a model in your GRETCHIN unit is on the battlefield, end the attack sequence for that attack and your GRETCHIN unit suffers 1 mortal wound.</description>
 </rule>
   </rules>
-  <modifiers>
-    <modifier type="set" value="true" field="hidden">
-      <conditions>
-        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-      </conditions>
-    </modifier>
-  </modifiers>
   <costs>
     <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12730,13 +12657,6 @@ EFFECT: Your unit's ranged attacks have [SUSTAINED HITS 1].</description>
 <infoLink name="Assault" hidden="false" type="rule" id="0d1a-9f3b-7c40-a109" targetId="fc8a-8c24-bae9-cc1c"/>
 <infoLink name="Sustained Hits" hidden="false" type="rule" id="0d1a-9f3b-7c40-a110" targetId="1897-c22c-9597-12b1"/>
 </infoLinks>
-  <modifiers>
-    <modifier type="set" value="true" field="hidden">
-      <conditions>
-        <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-      </conditions>
-    </modifier>
-  </modifiers>
   <costs>
     <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12786,13 +12706,6 @@ TARGET: That SPEED FREEKS unit.
 EFFECT: Ranged attacks that target your unit fail on an unmodified hit roll of 1-3.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12838,13 +12751,6 @@ TARGET: One friendly unengaged BEAST SNAGGA unit within 6&quot; of a battlefield
 EFFECT: Place your unit in strategic reserves.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12886,13 +12792,6 @@ EFFECT: Your unit&apos;s ranged attacks have:
 - Or: [HAZARDOUS], [LETHAL HITS], [SUSTAINED HITS 1]</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12914,13 +12813,6 @@ When a friendly **^^Warboss^^** model is **destroyed**, if this unit has not bee
 - On a 3+, do not remove this **^^Warboss^^** model from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), this **^^Warboss^^** model is removed from the battlefield.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -12956,13 +12848,6 @@ Friendly **^^Orks^^ ^^Psyker^^** models have the following **psychic abilities**
 - This unit has **Fights First**.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13044,11 +12929,6 @@ EFFECT: Your unit&apos;s ranged attacks have:
 </rule>
   </rules>
   <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
             <modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
@@ -13108,13 +12988,6 @@ TARGET: That BEAST SNAGGA BOYZ/BOYZ unit.
 EFFECT: Your unit has +2 to advance rolls.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13168,13 +13041,6 @@ EFFECT: Ranged attacks that target your unit with a S greater than your unit&apo
 Or (for 1 additional CP): Ranged attacks that target your unit have -1 to wound rolls.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13220,13 +13086,6 @@ TARGET: One friendly unengaged BOYZ/KOMMANDOS/STORMBOYZ unit that was engaged at
 EFFECT: Your unit can make a normal move of up to 6&quot;.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13277,13 +13136,6 @@ TARGET: One friendly FLASH GITZ/TANKBUSTAS unit hit by those attacks.
 EFFECT: Your unit shoots using normal shooting, but while doing so your unit can only target that enemy unit.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13335,13 +13187,6 @@ EFFECT: Your unit can make a normal move of:
 - Or: if your unit is riled up, up to 6&quot;.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13395,13 +13240,6 @@ TARGET: That ORKS WALKER unit.
 EFFECT: Your unit has MOBILE.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13447,13 +13285,6 @@ TARGET: That WAGON unit.
 EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -1 to that battle-shock roll.</description>
 </rule>
   </rules>
-  <modifiers>
-<modifier type="set" value="true" field="hidden">
-<conditions>
-<condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-</conditions>
-</modifier>
-  </modifiers>
   <costs>
 <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
   </costs>
@@ -13527,6 +13358,17 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
     <categoryEntry id="928c-62e7-aad1-b2ac" name="Mozrog Skragbad" hidden="false"/>
     <categoryEntry id="52ba-705f-b8b4-765d" name="Rukkatrukk Squigbuggies" hidden="false"/>
     <categoryEntry id="1951-3507-c828-c6b6" name="Wartrakks" hidden="false"/>
+    <categoryEntry name="Wazdakka Gutsmek" hidden="false" id="4191-d7e3-2b04-9e8e"/>
+    <categoryEntry name="Gretchin" hidden="false" id="b10e-5fe3-6f65-28ce"/>
+    <categoryEntry name="Stormboyz" hidden="false" id="76e1-1bfc-28c8-5458"/>
+    <categoryEntry name="Deffkoptas" hidden="false" id="6564-d296-e11a-6e19"/>
+    <categoryEntry name="Hunta Rig" hidden="false" id="6c11-1242-7b31-f64f"/>
+    <categoryEntry name="Kill Rig" hidden="false" id="8add-6451-d41f-bcf8"/>
+    <categoryEntry name="Blitza-bommer" hidden="false" id="bc7d-b56b-50bb-b409"/>
+    <categoryEntry name="Burna-bommer" hidden="false" id="e6ec-34d5-bc79-faf1"/>
+    <categoryEntry name="Dakkajet" hidden="false" id="7f64-b4fb-d85c-7f31"/>
+    <categoryEntry name="Wazbom Blastajet" hidden="false" id="ba27-989e-951a-8cf8"/>
+    <categoryEntry name="Meganobz" hidden="false" id="d85d-1dad-b832-cf9f"/>
   </categoryEntries>
   <entryLinks>
     <entryLink import="true" name="Boyz" hidden="false" type="selectionEntry" id="187-93d6-1ac7-dbde" targetId="e3b1-1240-2476-cd86"/>
