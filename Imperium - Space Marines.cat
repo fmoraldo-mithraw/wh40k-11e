@@ -69,7 +69,6 @@
     <categoryEntry name="Eliminator Squad" hidden="false" id="ad98-e844-f9ec-7551"/>
     <categoryEntry name="Lieutenant" hidden="false" id="9c1a-42ff-a418-11d1"/>
     <categoryEntry name="Mortis Dreadnought" hidden="false" id="6ea3-4d1e-7551-c10"/>
-    <categoryEntry name="Deimos Predator" hidden="false" id="f834-621c-3327-ca13"/>
     <categoryEntry name="Chaplain Venerable Dreadnought" hidden="false" id="7e5c-674f-433f-c73c"/>
     <categoryEntry name="Carab Culln the Risen" hidden="false" id="6bc5-c225-8ca0-5a5d"/>
     <categoryEntry name="Caestus Assault Ram" hidden="false" id="9f46-e832-a098-c067"/>
@@ -9070,49 +9069,6 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Typhoon missile launcher" hidden="false" id="680d-646b-330b-4a8c">
-      <profiles>
-        <profile name="➤ Typhoon missile launcher - frag" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8c1-7a89-b8c8-926">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">8</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
-          </characteristics>
-          <modifiers>
-            <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="2801-9f1c-645d-cb3d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </profile>
-        <profile name="➤ Typhoon missile launcher - krak" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a218-d637-231e-c466">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3+3</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-          </characteristics>
-          <modifiers>
-            <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" join="">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="584b-5fa7-a3c3-942e" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Blast" hidden="false" type="rule" id="967a-7737-f812-3fc2" targetId="6c1f-1cf7-ff25-c99e"/>
-      </infoLinks>
-    </selectionEntry>
     <selectionEntry type="unit" import="true" name="Hellblaster Squad" hidden="false" id="7102-b3a4-9bfc-1b84">
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
@@ -12582,27 +12538,6 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
           </conditions>
         </modifier>
       </modifiers>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Skyhammer Missile Launcher" hidden="false" id="beea-63c9-1c06-76f9">
-      <profiles>
-        <profile name="Skyhammer Missile Launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e95d-5335-b730-da78">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Fly 2+</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Anti-" hidden="false" type="rule" id="3231-ab58-6ddb-3548" targetId="4111-82e3-9444-e942"/>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink name="Damage Dx Weapon" hidden="false" id="d0ac-c8eb-9a8c-01a2" targetId="4986-bf86-beb4-13ac" primary="false"/>
-      </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Lieutenant" hidden="false" id="ce15-e87e-7cff-b129">
       <comment>sim-mod: source=&quot;Tactical Precision&quot; lethal whileLeading
@@ -17086,21 +17021,6 @@ errata-11e: mot-clef Captain absent de la carte du codex (omission), retabli pou
         <infoLink name="Devastating Wounds" id="a07d-c615-89b0-81b2" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
       </infoLinks>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Godhammer Lascannons" hidden="false" id="3fd3-6ae-e4fe-c09b">
-      <profiles>
-        <profile name="Godhammer Lascannons" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5185-ef4a-7f2c-9bc5">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Helios Launcher" hidden="false" id="3b55-531c-e7d2-f7d9">
       <profiles>
         <profile name="Helios Launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8a05-7457-2058-aa9b">
@@ -17118,37 +17038,6 @@ errata-11e: mot-clef Captain absent de la carte du codex (omission), retabli pou
       <infoLinks>
         <infoLink name="Anti-" hidden="false" type="rule" id="7c6e-2848-b645-cdd7" targetId="4111-82e3-9444-e942"/>
       </infoLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Heavy Plasma Cannon" hidden="false" id="6a16-65ff-b6a2-f359">
-      <profiles>
-        <profile name="➤ Heavy Plasma Cannon - Standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="bf7c-5e35-19a1-d23f">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 2</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="➤ Heavy Plasma Cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a906-4a15-497b-1126">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Blast 2</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Hazardous" hidden="false" type="rule" id="9f7d-102d-d452-a3d9" targetId="8367-374c-f87-c627"/>
-        <infoLink name="Blast" hidden="false" type="rule" id="92b5-a64f-5473-75d6" targetId="6c1f-1cf7-ff25-c99e"/>
-      </infoLinks>
-      <categoryLinks></categoryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Assault Intercessors with Jump Packs" hidden="false" id="cdd9-efda-95-e7b2">
       <selectionEntryGroups>
@@ -18386,28 +18275,6 @@ errata-11e: mot-clef Captain absent de la carte du codex (omission), retabli pou
       </infoLinks>
       <comment>A5 WS3+ S4</comment>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Twin meltagun" hidden="false" id="4f80-b9b6-5209-2f99">
-      <profiles>
-        <profile name="Twin meltagun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c0a9-bcff-02b0-914d">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 2, Twin-linked</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Melta" id="6ff6-eaf1-fce0-9d91" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
-        <infoLink name="Twin-linked" id="3e74-fcd5-1f9b-d9d3" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink name="Damage Dx Weapon" hidden="false" id="ac81-7b56-2377-fb75" targetId="4986-bf86-beb4-13ac" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Heavy Bolter" hidden="false" id="a418-befd-3e1b-87be">
       <profiles>
         <profile name="Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e2c7-539c-ad7c-6635">
@@ -18906,26 +18773,6 @@ errata-11e: mot-clef Captain absent de la carte du codex (omission), retabli pou
         <infoLink name="Indirect Fire" id="292c-6edd-7e21-ea15" hidden="false" type="rule" targetId="4ddd-4e29-acdd-5e6d"/>
         <infoLink name="Blast" id="f62d-bbeb-79ee-ceaf" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
         <infoLink name="Heavy" hidden="false" type="rule" id="edb8-f225-d4c8-f6e6" targetId="1202-10a8-78e9-4c67"/>
-      </infoLinks>
-      <categoryLinks></categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Dreadnought Inferno Cannon" hidden="false" id="57e6-cc22-1cd7-a64c">
-      <profiles>
-        <profile name="Dreadnought Inferno Cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7e87-c57a-20bb-84f7">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">8</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Torrent, Blast 2</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Torrent" id="2289-90a4-987c-414b" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
-        <infoLink name="Blast" hidden="false" type="rule" id="2b34-4976-d206-224c" targetId="6c1f-1cf7-ff25-c99e"/>
       </infoLinks>
       <categoryLinks></categoryLinks>
     </selectionEntry>
@@ -21959,7 +21806,7 @@ Malleus Tactics: If the tactical doctrine is active for your unit, your unit’s
 Purgatus Tactics: If the assault doctrine is active for your unit, your unit’s attacks that target an enemy unit within 9&quot; of this unit have &lt;k&gt;[PRECISION]&lt;k&gt;.
 
 RESTRICTIONS: Your army can include **^^ADEPTUS ASTARTES DEATHWATCH^^** units, but it cannot include any **^^ADEPTUS ASTARTES^^** units drawn from any other Chapter.
-With the exception of **^^Kill Team Cassius^^** (see Legends: Agents of the Imperium), your army cannot include any **^^AGENTS OF THE IMPERIUM DEATHWATCH^^** units.</description>
+Your army cannot include any **^^AGENTS OF THE IMPERIUM DEATHWATCH^^** units.</description>
             </rule>
             <rule name="Armour of Contempt (Stratagem, 1CP)" id="234a-1883-a857-0e3a" hidden="false">
               <comment>strat-timing: turn=either phase=shooting|fight
