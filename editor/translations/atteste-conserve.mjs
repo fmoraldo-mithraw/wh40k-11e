@@ -52,6 +52,7 @@ import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { execFileSync } from "node:child_process";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const require = createRequire(import.meta.url);
@@ -63,7 +64,14 @@ const TERME = val("--terme", "");
 const packPath = join(ROOT, "translations", "fr.json");
 if (!existsSync(packPath)) { console.error(`\n  translations/fr.json introuvable (${packPath}).\n`); process.exit(1); }
 const pack = JSON.parse(await readFile(packPath, "utf-8")).strings || {};
-const entrees = Object.entries(pack).filter(([k, v]) => typeof v === "string" && v !== k);
+// Mémoire : le ménage du 2026-10-29 a retiré du pack les clés que l'appli ne peut plus chercher (textes
+// d'avant une mise à jour, contenu retiré). Leurs traductions restent des PREUVES valables : on relit
+// aussi le pack d'avant le ménage dans git. Les termes à juger, eux, se mesurent au pack vivant.
+const ARCHIVE = "2abf1210:translations/fr.json";
+let archive = {};
+try { archive = JSON.parse(execFileSync("git", ["-C", ROOT, "show", ARCHIVE], { encoding: "utf-8", maxBuffer: 1 << 26, stdio: ["ignore", "pipe", "ignore"] })).strings || {}; }
+catch { console.error(`  ⚠ ${ARCHIVE} illisible (clone superficiel ?) : preuves du pack vivant seulement`); }
+const entrees = Object.entries({ ...archive, ...pack }).filter(([k, v]) => typeof v === "string" && v !== k);
 
 // ── Occurrence en MOT ENTIER, casse comprise ───────────────────────────────
 // « Signum » ne doit pas se reconnaître dans « Signums » pour le test de la
