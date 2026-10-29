@@ -20,13 +20,6 @@
       <entryLinks>
         <entryLink import="true" name="Detachment" hidden="false" id="4137-fb48-edc1-4ce3" type="selectionEntryGroup" targetId="8b85-ad3b-752f-6502"/>
       </entryLinks>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="false" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Boyz" hidden="false" id="e3b1-1240-2476-cd86">
 <comment>sim-mod: source=&quot;Ammo Runts&quot; hit=+1 when=ranged oncePer=battle
@@ -528,58 +521,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </modifiers>
         </entryLink>
       </entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nazdreg" hidden="false" id="0d1a-9f3b-7c40-2001">
       <comment>pts placeholder (95) : non indique sur la feuille d&apos;unite, a confirmer via le MFM. Regle d&apos;armee &quot;Da Boss&quot; non encodee (indisponible).
@@ -1105,58 +1046,6 @@ invuln: 6+</comment>
         </modifier>
       </modifiers>
       <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Nobz" hidden="false" id="b16a-7132-3f8a-abe5">
 <comment>sim-mod: source=&quot;Ammo Runts&quot; hit=+1 when=ranged oncePer=battle
@@ -1521,58 +1410,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </modifiers>
         </entryLink>
       </entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Stompa" hidden="false" id="6c08-9131-14a3-a3b4">
       <comment>invuln: 5+</comment>
@@ -1788,58 +1625,6 @@ Place any number of Ammo Runt tokens next to the unit, removing them when this a
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Tankbustas" hidden="false" id="dadc-d370-ef10-853c">
       <constraints>
@@ -2158,58 +1943,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Trukk" hidden="false" id="1291-7ba8-2c5a-4a92">
       <comment>invuln: 6+</comment>
@@ -2424,58 +2157,6 @@ Place two Bomb Squig tokens next to the unit, removing one each time this abilit
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
       </costs>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <comment>Crusade modifiers</comment>
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </modifierGroup>
-      </modifierGroups>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -11691,11 +11372,6 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
             <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="-1" field="1554-ff4b-b4a5-8649">
-          <conditions>
-            <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
       </modifiers>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="self" shared="true" id="eea8-b34a-f6a4-2ec4" includeChildSelections="true"/>
@@ -11714,7 +11390,6 @@ In a battle round, a friendly **^^Orks^^ ^^Psyker^^** unit can use a number of *
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-9f3b-7c40-a002" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -11820,7 +11495,6 @@ sim-mod: source=&quot;Supa-Glowy Fing&quot; anti=Infantry:4+ dev when=ranged sco
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="b404-44f-e9b4-7fe2" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -11877,7 +11551,6 @@ pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="80e6-2190-9767-a7ed" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -11970,7 +11643,6 @@ pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0003" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12026,7 +11698,6 @@ pts: 10 deduit par analogie MFM 10e - a confirmer.</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0004" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12292,7 +11963,6 @@ pts: 15 (ancien MFM 10e, provisoire).</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e113-0000-0005" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12450,7 +12120,6 @@ pts: 25 deduit par analogie MFM 10e - a confirmer.</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="496c-ddb9-3e71-e0b3" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12610,7 +12279,6 @@ pts: 25 (ancien MFM 10e, provisoire). Id d&apos;origine reutilise.</comment>
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="795f-b961-9504-bd08" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12670,7 +12338,6 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="4b17-a73a-7a0a-a265" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12726,7 +12393,6 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="fdd5-9868-a9ee-e9f1" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12802,7 +12468,6 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="0d1a-e115-0000-0001" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -12876,7 +12541,6 @@ sim-mod: source=&quot;Ferocious Show-Off&quot; attacks=+2 when=melee scope=model
 <conditionGroups>
 <conditionGroup type="and">
 <conditions>
-    <condition type="lessThan" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
     <condition type="lessThan" value="1" field="selections" scope="roster" childId="807c-9732-5465-5ca5" shared="true" includeChildSelections="true" includeChildForces="true"/>
 </conditions>
 </conditionGroup>
@@ -13807,666 +13471,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9958-acc3-9db5-b7ca"/>
       </constraints>
     </selectionEntryGroup>
-    <selectionEntryGroup name="Bestest Bossloot" id="091d-879a-8a05-ab1a" hidden="false" collapsible="true">
-      <comment>Crusade content</comment>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Da Shootiest Blasta" hidden="false" id="44c3-e092-00d3-024f">
-          <profiles>
-            <profile name="Da Shootiest Blasta" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cd39-d53d-7d49-7d58">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Select one ranged weapon equipped by the bearer. That weapon gains the **[MELTA 3]** ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <infoLinks>
-            <infoLink name="Melta" id="0dac-df1d-95cd-0bdb" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
-          </infoLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Rezmekka&apos;s Redder Paint" hidden="false" id="2813-0384-3ee0-5ad3">
-          <profiles>
-            <profile name="Rezmekka&apos;s Redder Paint" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b4f5-2b11-3d55-07a9">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Mounted Waaagh!boss**^^ model only. Add 2&quot; to the Move characteristic of models in the bearer&apos;s unit, and models in the bearer&apos;s unit have the Fights First ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <infoLinks>
-            <infoLink name="Fights First" id="3b8b-a5e3-cac5-e03d" hidden="false" type="rule" targetId="24-c886-e8ba-5a89"/>
-          </infoLinks>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Rezmekka&apos;s Redder Paint" field="annotation" join=", " affects="self.entries.profiles.Unit" scope="root-entry"/>
-                <modifier type="increment" value="2" field="e703-ecb6-5ce7-aec1" affects="profiles.Unit" scope="root-entry"/>
-              </modifiers>
-              <comment>Bestest Bossloot: Da Krushin&apos; Armour</comment>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Da Irongob" hidden="false" id="b275-be5d-40c8-f283">
-          <profiles>
-            <profile name="Da Irongob" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5295-8de9-91af-0fbd">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, you can select one enemy **^^Infantry^^** unit within Engagement Rage of the bearer and roll one D6: on a 2+, that enemy unit suffers 3 mortal wounds and must take a Battle-shock test.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Frazzle Field Generator" hidden="false" id="9200-0e4d-b243-3e70">
-          <profiles>
-            <profile name="Frazzle Field Generator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6700-6765-282f-f548">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Select one melee weapon equipped by the bearer. That weapon gains the **[DEVASTATING WOUNDS]** ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <infoLinks>
-            <infoLink name="Devastating Wounds" id="2e96-7857-92ae-7b15" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-          </infoLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Da Krushin&apos; Armour" hidden="false" id="7851-53b3-a375-32e0">
-          <profiles>
-            <profile name="Da Krushin&apos; Armour" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c52f-63f1-5845-cb48">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- The bearer has a 4+ invulnerable save.
-- Add 1 to the bearer&apos;s Wounds characteristic.
-- Each time the bearer&apos;s unit ends a Charge move, select one enemy unit within Engagement Range of the bearer and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Da Krushin&apos; Armour" field="annotation" join=", " affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                <modifier type="increment" value="1" field="750a-a2ec-90d3-21fe" affects="profiles.Unit" scope="model-or-unit"/>
-              </modifiers>
-              <comment>Bestest Bossloot: Da Krushin&apos; Armour</comment>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
-      </selectionEntries>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="af22-6deb-c945-a540" includeChildSelections="false"/>
-      </constraints>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="model" childId="8bcd-4872-2581-37ca" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Codex Battle Traits" id="0a40-7f8e-2869-2ba3" hidden="false" collapsible="true">
-      <comment>Crusade content</comment>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Bad Reputation" hidden="false" id="c615-76d3-b0c2-0b26">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="dd1d-533f-9018-a07b" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d844-fb57-f3b6-1560" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="697d-7e4d-e117-fd5d" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Bad Reputation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf71-ab64-3470-c3d3">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 5+ invulnerable save.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Bionik Targeters" hidden="false" id="92a7-9b9a-7b42-e725">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9b07-819f-4cd1-444c" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Bionik Targeters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8690-21a6-1833-a7e9">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, add 1 to the Hit roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Boss Mek" hidden="false" id="a933-a9e2-451f-94ee">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c60c-a9b3-a4e5-9534" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="1ea0-8b1a-ddea-4d7c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="f802-1e3a-d9ce-aa99" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Boss Mek" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="95b5-a682-8164-753d">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the battle, if this model part of your Crusade army and is not destroyed, you can ignore one failed Out of Action test taken for an ORKS VEHICLE unit from your Crusade army - that test is treated as having been passed instead.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Dakkaladz" hidden="false" id="ddd1-b24b-4df1-3767">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6bab-b670-1666-b031" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Dakkaladz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d7f8-d182-9f17-6088">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in your Shooting phase, when this unit is selected to shoot, it can use this ability. If it does, after it has shot, select one enemy unit hit by one or more of those attacks; that enemy unit must take a Battle-shock test.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Ded Choppy" hidden="false" id="db6e-eee3-ec4c-50a4">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="20af-06b9-1f93-f530" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Ded Choppy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7099-98be-d281-fe64">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While the Waaagh! is active for your army, each time a model in this unit makes a melee attack, re-roll a Wound roll of 1.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Ded Keen" hidden="false" id="cfe2-4622-c9e6-682f">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5b8c-493d-b286-5f6c" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Ded Keen" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f190-a5d7-0c3d-c44a">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 1 less CP.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Gnarly Scars" hidden="false" id="8eb4-644f-b99d-e197">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9311-cfa2-edb7-de4d" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Gnarly Scars" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="562d-6a91-9acf-e5cf">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within Engagement Range of one or more units with this ability, worsen that unit&apos;s Leadership characteristic by 1.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="High-speed Dakka" hidden="false" id="1910-965b-895e-8bf5">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5c94-798e-914f-371e" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="High-speed Dakka" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="90e0-c20e-67c4-e0c2">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, add 1 to the Hit roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Mekanikal Mekaniak" hidden="false" id="9960-47fa-fbf1-f781">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fabe-c3b2-3ad9-630c" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="1ea0-8b1a-ddea-4d7c" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="f802-1e3a-d9ce-aa99" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Mekanikal Mekaniak" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b94f-5371-af5b-c2c6">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 5+ invulnerable save.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Opportunistic" hidden="false" id="b5a1-5372-75ec-1b6b">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c648-de21-2d1c-f643" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="5aac-7b7-bf84-cae8" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Opportunistic" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fc7c-0e1a-0c89-99ac">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of your Command phase, this unit can use this ability. If it does, until the end of the turn, add 1 to the Objective Control characteristics of models in that unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Recykler" hidden="false" id="5b69-b32e-8ae7-babb">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8725-e625-5101-3191" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="d844-fb57-f3b6-1560" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="697d-7e4d-e117-fd5d" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Recykler" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eedd-20f0-dde6-b629">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the battle, if this model was part of your Crusade army and is not destroyed, you can ignore one failed Out of Action test taken for an ORKS unit from your Crusade army (excluding VEHICLES) - that test is treated as having been passed instead.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Ride &apos;Em Down" hidden="false" id="19f9-7806-e656-7954">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f90c-564f-b6a9-11c0" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Ride &apos;Em Down" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6ae2-f1f1-55e2-f9cc">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 1 to Advance and Charge rolls made for this unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Smog-belchas" hidden="false" id="1511-74d1-8a71-bac5">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8c2c-f1f9-a1c5-0cae" includeChildSelections="false"/>
-          </constraints>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-            <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-            <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-          </costs>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="14a0-40c9-2748-ae6e" shared="true" includeChildSelections="false" includeChildForces="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <profiles>
-            <profile name="Smog-belchas" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="935b-5b10-f08d-97c8">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit gains the SMOKE keyword and, once per battle, you can target this unit with the Smokescreen Stratagem for 0CP.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <categoryLinks>
-            <categoryLink name="Smoke" hidden="false" id="8ddf-3a69-4612-4c4f" targetId="6df-937-16bc-8c1a" primary="false"/>
-          </categoryLinks>
-        </selectionEntry>
-      </selectionEntries>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Kustom Jobs" id="bb76-3cf3-0187-a9ca" hidden="false" collapsible="true">
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Fungus-fuel Injecta" hidden="false" id="5c81-0c3a-79c0-155e">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f62e-cc0b-d567-920b" includeChildSelections="false"/>
-              </constraints>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="fe8b-9078-9a3d-fed" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Fungus-fuel Injecta" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4ba-c082-7b3a-4ae4">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">- Add 2&quot; to the Move characteristic of models in this unit.
-- Once per battle, you can target this unit with the Smokescreen Stratagem for 0CP.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <categoryLinks>
-                <categoryLink name="Smoke" hidden="false" id="2270-3428-496b-42dc" targetId="6df-937-16bc-8c1a" primary="false"/>
-              </categoryLinks>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <modifiers>
-                    <modifier type="increment" value="2" field="e703-ecb6-5ce7-aec1" affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                    <modifier type="append" value="Fungus-fuel Injecta" field="annotation" join=", " affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                  </modifiers>
-                  <comment>Kustom Job: Fungus-fuel Injecta</comment>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Fortress on Wheels" hidden="false" id="5259-d3ab-6b3a-6d56">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0022-8311-1a53-d035" includeChildSelections="false"/>
-              </constraints>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                      </conditions>
-                      <conditionGroups>
-                        <conditionGroup type="and">
-                          <conditions>
-                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="ea9-8161-e2e-53f0" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                            <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9224-dbd4-36ad-6ab2" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                          </conditions>
-                        </conditionGroup>
-                      </conditionGroups>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Fortress on Wheels" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="32aa-c6cb-524c-8d03">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Trukk^^** or **^^Battlewagon^^** model only. Add 1 to the Toughness characteristic of this model, and this model has a 5+ invulnerable save.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <categoryLinks>
-                <categoryLink name="Smoke" hidden="false" id="c83e-ebf3-b39f-8192" targetId="6df-937-16bc-8c1a" primary="false"/>
-              </categoryLinks>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <modifiers>
-                    <modifier type="increment" value="1" field="d29d-cf75-fc2d-34a4" affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                    <modifier type="append" value="Fortress on Wheels" field="annotation" join=", " affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                  </modifiers>
-                  <comment>Kustom Job: Fortress on Wheels</comment>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Shootier Gunz" hidden="false" id="606a-001f-63e1-768e">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="bd1a-ac6a-c133-50a6" includeChildSelections="false"/>
-              </constraints>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="parent" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Shootier Gunz" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e814-43ab-287b-0c93">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, you can roll one D6; on a 1, until the end of the phase, ranged weapons equipped by models in this unit have the [HAZARDOUS] ability; on a 2-5, until the end of the phase, improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1; on a 6, until the end of the phase, improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1 and those weapons have the [IGNORES COVER] ability.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <categoryLinks>
-                <categoryLink name="Smoke" hidden="false" id="558c-3121-004d-5e96" targetId="6df-937-16bc-8c1a" primary="false"/>
-              </categoryLinks>
-              <infoLinks>
-                <infoLink name="Ignores Cover" id="8434-e7b3-1de6-af6b" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
-                <infoLink name="Hazardous" id="319c-2e62-b484-4685" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
-              </infoLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Shokka Hull" hidden="false" id="28e0-5e6a-688e-08af">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7ef0-fd26-13a7-2043" includeChildSelections="false"/>
-              </constraints>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Shokka Hull" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13bd-fb3e-f754-40b1">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Fight phase, each time an enemy unit is selected to fight, if this unit was selected as the target of one or more of the attack unit&apos;s attacks, after those attacks have been resolved, roll one D6: on a 4+, that enemy unit suffers D3 mortal wounds.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <categoryLinks>
-                <categoryLink name="Smoke" hidden="false" id="e23c-0410-c0f2-a73d" targetId="6df-937-16bc-8c1a" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Stompamatic Pistons" hidden="false" id="6c88-9de7-9fa1-befe">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ef59-c391-7955-4532" includeChildSelections="false"/>
-              </constraints>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-                <cost name="Diplomatic Power" typeId="4d7c-04b6-8a79-837f" value="0"/>
-                <cost name="Military Power" typeId="1cbe-d9c9-86a8-2d41" value="0"/>
-              </costs>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditionGroups>
-                    <conditionGroup type="or">
-                      <conditions>
-                        <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="d64b-c6f7-dacf-4035" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="dbd4-63-af05-998" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6dda-e157-334d-e93a" shared="true" includeChildSelections="false" includeChildForces="false"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-              </modifiers>
-              <profiles>
-                <profile name="Stompamatic Pistons" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fff9-8a37-787d-2344">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Walker^^** model only (excluding **^^Killa Kans^^**).
-
-- Add 2&quot; to this model&apos;s Move characteristic.
-- Add 1 to Advance and Charge rolls made for this model.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <categoryLinks>
-                <categoryLink name="Smoke" hidden="false" id="9cf4-fdcc-d772-e749" targetId="6df-937-16bc-8c1a" primary="false"/>
-              </categoryLinks>
-              <modifierGroups>
-                <modifierGroup type="and">
-                  <modifiers>
-                    <modifier type="increment" value="2" field="e703-ecb6-5ce7-aec1" affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                    <modifier type="append" value="Stompamatic Pistons" field="annotation" join=", " affects="self.entries.profiles.Unit" scope="model-or-unit"/>
-                  </modifiers>
-                  <comment>Kustom Job: Stompamatic Pistons</comment>
-                </modifierGroup>
-              </modifierGroups>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
-    </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <categoryEntries>
     <categoryEntry name="Battlewagon" hidden="false" id="9224-dbd4-36ad-6ab2"/>
@@ -14488,10 +13492,8 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
     <categoryEntry name="Trukk" hidden="false" id="ea9-8161-e2e-53f0"/>
     <categoryEntry name="Warboss in Mega Armour" hidden="false" id="d88e-a9e3-30d8-f9fd"/>
     <categoryEntry name="Weirdboy" hidden="false" id="b3fc-3d75-4ff1-5210"/>
-    <categoryEntry name="Wurrboy" hidden="false" id="cf60-40d8-9e81-b639"/>
     <categoryEntry name="Zodgrod Wortsnagga" hidden="false" id="238f-f38b-1614-a849"/>
     <categoryEntry name="Speed Freeks" hidden="false" id="fe8b-9078-9a3d-fed"/>
-    <categoryEntry name="Big Mek on Warbike" hidden="false" id="d0dc-a09c-48bb-de57"/>
     <categoryEntry name="Mega Armour" hidden="false" id="ebd4-277b-d164-39da"/>
     <categoryEntry name="Big Mek" id="1ea0-8b1a-ddea-4d7c" hidden="false"/>
     <categoryEntry name="Grots" id="c7c7-ef60-67e3-def2" hidden="false"/>
@@ -14584,9 +13586,6 @@ EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -
 <entryLink import="true" name="Big&apos;ed Bossbunka" hidden="false" type="selectionEntry" id="f5ac-46c9-972f-c0c3" targetId="b82a-6b65-7050-ac48"/>
   </entryLinks>
   <sharedProfiles></sharedProfiles>
-  <catalogueLinks>
-    <catalogueLink type="catalogue" name="Unaligned Forces" id="9a77-c467-98e7-6ddf" targetId="581a-46b9-5b86-44b7" importRootEntries="true"/>
-  </catalogueLinks>
   <profileTypes>
     <profileType name="Try Dat Button! - D6" id="2ece-65f0-756f-bc77" hidden="false">
       <characteristicTypes>
