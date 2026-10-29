@@ -30,8 +30,14 @@ Cette liste est **redondée** sur la datasheet sous forme d'un
   lien « inverse » n'est nécessaire — contrairement à une version antérieure.)
 - `hidden="true"` + `max=0` → **jamais sélectionnable**, coût nul : ce sont des
   **métadonnées**, pas une option de liste.
-- Le tag `(MFM)` est purement un identifiant stable ; la **source réelle** est la
-  prose de la capacité *Leader* de la datasheet.
+- Le tag `(MFM)` est purement un identifiant stable ; la **source** est la fiche
+  officielle (`attachesTo` de game-datacards, `editor/translations/gdc-attach.cjs`),
+  contrôlée contre le MFM (`editor/mfm/bodyguard-audit.mjs`). La prose *Leader* /
+  *Support* de la fiche est tenue **alignée** sur la même liste (`gdc-attach.cjs
+  --prose`, traduction FR comprise) : l'appli l'affiche (panneau « Peut diriger »)
+  et tire des rattachements par mot-clef des noms qu'elle ne résout pas — une prose
+  périmée se voit et peut rattacher à tort. **Aucune fiche Legends** n'y figure,
+  ni dans les liens ni dans un `leader-kw:` (décision du 2026-10-29).
 - Couvre **toutes les factions** (Space Marines + chapitres, Chaos, Aeldari,
   Astra Militarum, Necrons, Orks, T'au, etc.) — partout où une datasheet liste
   des unités menées en clair.

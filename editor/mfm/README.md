@@ -135,24 +135,21 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   par défaut, `--write` pour écrire. Un détachement à override de DP par
   chapitre est signalé, jamais écrasé.
 - `bodyguard-audit.mjs` — audit des **listes de rattachement** (blocs LEADER /
-  SUPPORT des fiches MFM, `leader_targets` / `support_targets`) vs les groupes
-  `Can Lead/Support (MFM)` et les liens inverses `Led By / Supported By (MFM)`.
-  Hors périmètre d'`apply`, qui ignore volontairement l'étiquette « BODYGUARD
-  UNITS UPDATED » (les rattachements suivent la **fiche officielle**). Audite par
-  défaut les seules fiches étiquetées, `--all` pour tout. Le meneur est résolu par
-  la matrice de **sa** faction (`map/<slug>.json`, alias compris : plus d'union
-  d'homonymes Sorcerer CSM/EC/TS, Watch Master DW/Agents…). Chaque cible MFM est
-  classée : fiche de la base (liée, sinon **écart**), fiche **Legends** du MFM
-  (`legends.json`, hors base : info — sauf si un `leader-kw:` du meneur la vise par
-  une catégorie homonyme, qui rattache alors une AUTRE fiche : **⚑ à arbitrer**),
-  prédicat de mots-clefs couvert par un `leader-kw:` (conforme), fiche au barème
-  absente de la base (domaine d'`apply` ①). Un lien de la base absent du MFM posé
-  par `attachOverrides` (manifeste game-datacards) est une info. Lecture seule,
-  sortie ≠ 0 seulement sur un écart : il se corrige en rafraîchissant la veille
-  game-datacards puis `gdc-attach.cjs --write`, **jamais** à la main (gdc-attach
-  retire les liens que la fiche officielle ne porte pas). État au 2026-10-29 :
-  `--all` 389/389 listes conformes, 3 fiches ⚑ (Lieutenant, Ancient, Wardens of
-  Ultramar → `leader-kw: Vanguard Veteran Squad`) — voir `state/RESTE-v1.6-refresh2.md`.
+  SUPPORT des fiches MFM, `leader_targets` / `support_targets`) vs la base, sous
+  trois formes : groupes `Can Lead/Support (MFM)` + liens inverses `Led By /
+  Supported By (MFM)`, marqueurs `leader-kw:`, et **prose** Leader/Support (que
+  l'appli affiche et lit). Hors périmètre d'`apply`, qui ignore volontairement
+  l'étiquette « BODYGUARD UNITS UPDATED » (les rattachements suivent la **fiche
+  officielle**). Audite par défaut les seules fiches étiquetées, `--all` pour tout.
+  Le meneur est résolu par la matrice de **sa** faction (`map/<slug>.json`, alias
+  compris). Cibles **Legends** de la faction (`legends.json`) : ignorées, hors base.
+  Écarts : cible au barème non liée, lien en trop (y compris un sens que le MFM ne
+  donne pas), `leader-kw:` qui rattache une fiche hors liste MFM, prose ≠ MFM ou
+  nommée selon le mauvais sens. Un lien posé par `attachOverrides` (manifeste
+  game-datacards) est une info. Lecture seule, sortie ≠ 0 sur écart : il se corrige
+  en rafraîchissant la veille game-datacards puis `gdc-attach.cjs --write --prose`,
+  **jamais** à la main. État au 2026-10-29 : `--all` 389/389 conformes (164 écarts
+  sur l'état d'avant la purge Legends) — voir `state/RESTE-v1.6-refresh2.md`.
 - `legends.json` — noms des fiches de la section **LEGENDS** du MFM, par faction
   (`mfm_parser.py legends`, cookie `isLegendsDisplayed=true` que pose
   l'interrupteur « Show Legends » du site). Fichier **à part** du dump : `apply`

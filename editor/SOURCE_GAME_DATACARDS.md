@@ -49,7 +49,7 @@ git -C /tmp/gdc-old init -q && git -C /tmp/gdc-old fetch --depth 1 \
 | `gdc-apply-weapons.cjs` | aligne caractéristiques + profils d'armes d'un catalogue (copie locale avant toute entrée partagée, CT 7+ Torrent lue N/A). `--trust` : retire aussi les mots-clefs absents de la fiche (sauf notre `Hunter (…)`) ; `--only "Fiche"`, `--skip`, `--nokw "Fiche:Arme"`. |
 | `gdc-apply-abilities.cjs` | textes d'aptitudes officiels (`--rename`, `--drop`). |
 | `gdc-sync-detachments.cjs` | règles, stratagèmes, améliorations des détachements (chapitres). |
-| `gdc-attach.cjs` | **rattachements Leader / Support** (`attachesTo`) toutes factions : groupe `Can Lead/Support (MFM)` sur le meneur si la cible est dans sa clôture d'import, sinon lien inverse `Led By / Supported By (MFM)` sur l'unité menée ; règle + aptitude Leader/Support ajoutées si absentes ; liens absents de la fiche retirés. Noms appariés tirets typographiques normalisés, fiches hidden exposées comprises, alias `editor/mfm/aliases.json`. Invariant vérifié par `editor/audit/rattachements.mjs` (enchaîné par `valider.mjs`) ; contrôle croisé avec le MFM : `editor/mfm/bodyguard-audit.mjs`. |
+| `gdc-attach.cjs` | **rattachements Leader / Support** (`attachesTo`) toutes factions : groupe `Can Lead/Support (MFM)` sur le meneur si la cible est dans sa clôture d'import, sinon lien inverse `Led By / Supported By (MFM)` sur l'unité menée ; règle + aptitude Leader/Support ajoutées si absentes ; liens absents de la fiche retirés, y compris tout un sens que la fiche ne porte pas ; cibles **Legends** (`editor/mfm/legends.json`) jamais liées. `--prose` : réécrit la liste de la prose Leader/Support (et sa traduction FR) quand elle diffère — à lancer avec chaque `--write`, l'appli affiche cette prose. Noms appariés tirets typographiques normalisés, fiches hidden exposées comprises, alias `editor/mfm/aliases.json`. Invariant vérifié par `editor/audit/rattachements.mjs` (enchaîné par `valider.mjs`) ; contrôle croisé avec le MFM : `editor/mfm/bodyguard-audit.mjs`. |
 
 Tous s'exécutent **à blanc** par défaut ; `--write` applique. Toujours relire le dry-run :
 il couvre toutes les divergences du catalogue, pas seulement le changement du jour.
@@ -69,8 +69,8 @@ node editor/translations/gdc-watch.cjs --old /tmp/gdc-old/11th/gdc --new /tmp/gd
 | 🛠 à appliquer (caractéristiques, valeurs d'arme, mots-clefs **ajoutés ou retirés**, aptitude/arme/option ajoutée **ou retirée**, texte d'aptitude, stratagème/amélioration) | **appliquer** : `gdc-apply-weapons.cjs --trust` (dry-run d'abord, `--only "Fiche"` pour cibler), `gdc-apply-abilities.cjs`, `gdc-sync-detachments.cjs`, sinon édition ciblée via `editor/lib/catalog.js` ; FR officiel dans `translations/fr.json` ; validation CLAUDE.md règle 4. |
 | 💰 points | appliquer le prix de l'appli officielle selon `MFM_PROMPT.md` (paliers, répétition) ; signaler si le dernier MFM diffère. |
 | ✋ manuel (composition, options, mots-clefs de fiche, fiche nouvelle, stratagèmes hors chapitres) | encoder selon les guides (règles maison : porteurs, Upgrade, UNIQUE…). |
-| ❓ doute | **seul cas** : fiche entière retirée de l'appli (Legends ?) → demander avant de supprimer. |
-| 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. |
+| ❓ doute | **seul cas** : fiche entière retirée de l'appli officielle → si le MFM la range en **Legends**, la retirer de la base (rien de Legends dans la base ni l'appli, décision du 2026-10-29 ; `gdc-watch` la classe 🛠) ; sinon demander avant de supprimer. |
+| 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. Nouvelle fiche amont **Legends** au MFM (`editor/mfm/legends.json`) : hors base, ignorer (décision du 2026-10-29). |
 
 Les changements appliqués sont poussés sur une **branche `veille-gdc/v<B>`** (jamais
 directement sur `main`), avec le rapport et le manifeste mis à jour (`tracked`) ; la fusion

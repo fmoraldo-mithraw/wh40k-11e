@@ -70,16 +70,15 @@ origin/main`), puis :
    de la condition), vérifier les « ? » à la main.
 2quinquies. **Audit des rattachements** : `python3 editor/mfm/mfm_parser.py legends
    -o editor/mfm/legends.json` (si la version du MFM a changé), puis
-   `node editor/mfm/bodyguard-audit.mjs editor/mfm/dump/en` — les blocs LEADER /
-   SUPPORT des fiches (étiquette « BODYGUARD UNITS UPDATED ») sont hors périmètre
-   d'`apply`, qui les ignore par conception (la **fiche officielle** fait foi).
-   Les cibles **Legends** sont classées à part (hors base) ; un **⚑** signale un
-   `leader-kw:` qui vise une Legends par une catégorie homonyme (à rapporter,
-   c'est un arbitrage). Un écart ne se corrige **jamais à la main** : il se
-   rapporte (il dit que l'instantané game-datacards est en retard, ou que
-   l'appariement de nom de `gdc-attach.cjs` décroche) — poser le lien serait
+   `node editor/mfm/bodyguard-audit.mjs editor/mfm/dump/en` — listes LEADER /
+   SUPPORT des fiches (étiquette « BODYGUARD UNITS UPDATED ») vs liens, `leader-kw:`
+   et prose de la base ; hors périmètre d'`apply`, qui les ignore par conception (la
+   **fiche officielle** fait foi). Les cibles **Legends** sont ignorées (rien de
+   Legends dans la base ni l'appli, décision du 2026-10-29). Un écart ne se corrige
+   **jamais à la main** : il se rapporte (instantané game-datacards en retard, ou
+   appariement de `gdc-attach.cjs` qui décroche) — un lien posé à la main serait
    défait au prochain `gdc-attach --write`. Si réseau : relancer d'abord
-   `gdc-attach.cjs <gdc>/11th/gdc` à blanc sur la tête de game-datacards.
+   `gdc-attach.cjs <gdc>/11th/gdc --prose` à blanc sur la tête de game-datacards.
 3. **Appliquer les deltas AUTO** via `editor/lib/catalog.js` UNIQUEMENT
    (jamais de sed/regex sur les `.cat`) : coût de base, paliers de taille,
    prix par répétition (forme NATIVE increment + atLeast), points

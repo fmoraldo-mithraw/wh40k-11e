@@ -187,23 +187,47 @@ faction, Legends classées, `leader-kw` et `attachOverrides` reconnus. Étiquet�
 22/22 conformes ; `--all` : **389/389** (l'ancien audit en voyait 106, presque
 tous des unions d'homonymes ou des cibles Legends).
 
-### ⚑ Reste à arbitrer (utilisateur)
+### Tranché par l'utilisateur le 2026-10-29 — et fait
 
-1. **`leader-kw: Vanguard Veteran Squad`** sur **Lieutenant**, **Ancient** (tronc
-   SM, donc aussi BT/BA/DA/DW/SW) et **Wardens of Ultramar** : le marqueur (figé le
-   2026-10-13 depuis la prose) vise la catégorie « Vanguard Veteran Squad » que
-   porte… la **Vanguard Veteran Squad with Jump Packs**. Ces trois fiches peuvent
-   donc rejoindre l'escouade à réacteurs, qu'aucune liste officielle ne leur donne
-   (seuls Captain/Chaplain with Jump Pack, Dante, Shrike la mènent ; le mot-clef
-   n'existe pas sur la fiche officielle). Les dix autres meneurs qui citent la
-   Vanguard Legends (Captain, Chaplain, Librarian, Judiciar, Titus, Tigurius,
-   Agatone, Khan, Calgar, Vulkan) n'ont pas ce marqueur. Retirer les 3 marqueurs
-   (recommandé : la fiche officielle fait foi) ou les garder (état du 2026-10-22) ?
-2. **Prose « Leader / Support » périmée** (constat annexe, antérieur) : `gdc-attach`
-   n'ajoute l'aptitude que si elle manque, il ne la réécrit jamais. ~100 meneurs
-   affichent une liste plus courte que leurs liens réels (Trajann : « Custodian
-   Guard, Custodian Wardens »). Le rattachement de l'appli suit les groupes, pas
-   la prose — c'est un défaut d'affichage (fiche, PDF). Réécrire ces proses depuis
-   la fiche officielle ? À trancher avec le point 1 : `gen-stat-markers.mjs`
-   dérive les `leader-kw` de la prose ; une prose rafraîchie citant « Vanguard
-   Veteran Squad » recréerait le marqueur sur dix fiches de plus.
+Consigne : « Je ne veux pas les fiches Legends dans la base. Tout ce qui a trait à
+des fiches Legends n'a pas sa place dans l'appli ni la base » ; trancher le reste sur
+le MFM.
+
+1. **Pont vers la Vanguard à réacteurs** : `leader-kw: Vanguard Veteran Squad`
+   (Lieutenant, Ancient, Wardens of Ultramar) retiré, catégorie homonyme greffée sur
+   la Vanguard with Jump Packs retirée (3 traits de Croisade reciblés sur sa propre
+   catégorie). Le graphe de l'appli le recréait aussi depuis la **prose** : retiré là
+   aussi (−25 classes de mots-clefs au golden).
+2. **Prose Leader/Support** : réécrite depuis la fiche officielle (= MFM) sur 79
+   fiches, Legends exclues, traduction FR posée (`gdc-attach.cjs --prose`). L'appli
+   suivait la PROSE : le Judiciar ne rejoignait que 5 unités au lieu de 11.
+   **Judiciar** et **Sanguinary Priest** sont Support (aptitude renommée, liens « Can
+   Lead » retirés — le Sanguinary Priest « menait » Captain et Lieutenant).
+3. **Purge Legends** : bibliothèque « Astartes Heresy Legends » supprimée (2 profils
+   Damaged relogés), Death Company Intercessors et Land Raider Banisher retirées
+   (fiches cachées que l'appli proposait, absentes du MFM et de la fiche officielle),
+   Marneus Calgar n'est plus « HIDDEN UNTIL LEGENDS », conditions mortes sur des fiches
+   Legends (Gabriel Seth, Logan on Stormrider, Daemonhost, Jokaero, Proteus Kill Team)
+   retirées, 199 catégories + statlines + équipements orphelins de fiches Legends
+   retirés, 163 noms Legends retirés du pack FR. Outils verrouillés (gdc-attach,
+   gdc-watch, gen-stat-markers, bodyguard-audit).
+4. **Oubliés de la routine, corrigés** : prix de répétition en double (Ironstrider
+   Ballistarii +15, Lokhust Heavy Destroyers +10 — BattleScribe surfacturait la 3e
+   unité), lascannon de l'Ironstrider compté deux fois (100 au lieu de 90 sous
+   BattleScribe), matrices régénérées, commentaire périmé de l'Invader ATV.
+
+Audit final : `bodyguard-audit --all` 389/389 (listes, `leader-kw`, proses), apply
+0 delta, dp/wpn/tier-audit verts, enh-leaders 0 lien à ajouter, valider.mjs 0 erreur,
+436 ids dupliqués (re-figé).
+
+### Reste à arbitrer (utilisateur)
+
+- **Astraeus, Thunderhawk Gunship (tronc SM), Gargantuan Squiggoth (Orks)** : au
+  barème **principal** du MFM v1.6 (pas Legends), absents de la base. Les RESTE
+  précédents les disent « abandonnés le 2026-10-22 », mais aucune trace de cette
+  décision dans ETAT (seuls Ares / Orion y figurent). Règle 6 : fournir les fiches
+  (game-datacards v995 les a) ou acter l'abandon. Incohérence liée : le Thunderhawk
+  Gunship des Grey Knights est en base.
+- Règle du détachement **Black Spear Task Force** (« Mission Tactics ») : le texte
+  officiel cite « Kill Team Cassius (see Legends: Agents of the Imperium) ». Texte GW
+  conservé tel quel (une règle ne se réécrit pas) — à retoucher seulement sur demande.

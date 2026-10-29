@@ -20,27 +20,26 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Lignes de base (une régression = un écart à ces nombres)
 
-- Ids dupliqués : **444** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
+- Ids dupliqués : **436** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
 - Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
-- `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 3 fiches ⚑ (question 1 ci-dessous).
+- `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 0 écart (liens, `leader-kw:`, proses).
+- Golden des rattachements (appli) : **4109** paires, 87 classes de mots-clefs.
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **`leader-kw: Vanguard Veteran Squad`** (Lieutenant, Ancient — tronc SM, donc tous les chapitres —, Wardens
-   of Ultramar) : le marqueur vise la catégorie « Vanguard Veteran Squad » que porte la **Vanguard Veteran Squad
-   with Jump Packs** ; ces 3 fiches peuvent donc la rejoindre, ce qu'aucune liste officielle ne prévoit (la
-   « Vanguard Veteran Squad » qu'elles citent est la fiche à pied, **Legends** au MFM v1.6 — vérifié sur le site).
-   Retirer les 3 marqueurs (recommandé) ou les garder (état du 2026-10-22) ? `bodyguard-audit.mjs --all` les signale ⚑.
-2. **Prose « Leader / Support » périmée** sur ~100 meneurs (`gdc-attach` ne la réécrit jamais ; l'appli suit les
-   groupes, défaut d'affichage seulement). La réécrire depuis la fiche officielle ? Dépend du point 1
-   (`gen-stat-markers.mjs` dérive les `leader-kw` de la prose). Détail : `editor/mfm/state/RESTE-v1.6-refresh2.md`.
+1. **Astraeus, Thunderhawk Gunship (tronc SM), Gargantuan Squiggoth (Orks)** : au barème PRINCIPAL du MFM v1.6
+   (pas Legends), absents de la base ; leur « abandon du 2026-10-22 » n'est écrit que dans les RESTE, pas ici
+   (seuls Ares / Orion le sont). Fournir les fiches (game-datacards v995 les a) ou acter l'abandon ? Le Thunderhawk
+   Gunship des Grey Knights, lui, est en base.
 
 Clos le 2026-10-29 : classe A du constat bodyguard MFM v1.6 = cibles **Legends** (Vanguard Veteran Squad à pied,
 Sagittarum Custodians, Custodian Guard à lances Adrasite/Pyrithite), rien à lier ; classe B = angles morts de
-`gdc-attach` (tiret U+2011, fiche hidden exposée, alias), corrigés, 10 liens posés.
+`gdc-attach` (tiret U+2011, fiche hidden exposée, alias), corrigés, 10 liens posés. **Rien de Legends dans la base ni
+l'appli** (utilisateur) : `leader-kw` Vanguard retirés, prose Leader/Support réécrite depuis la fiche officielle
+(`gdc-attach --prose`), purge faite (détail : `editor/mfm/state/RESTE-v1.6-refresh2.md`).
 
 Clos le 2026-10-27 : **`mfm_parser.py`** corrigé et validé sur le site (réseau ouvert par l'utilisateur) — octrois
 `LEADER:`/`SUPPORT:` lus dans le `<li>` v1.6 (deux-points exigés), 13 octrois extraits (12 LEADER + Murdermind),
@@ -65,6 +64,14 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-29 : **rien de Legends dans la base ni l'appli** (utilisateur). Référence : `editor/mfm/legends.json`
+  (section LEGENDS du MFM). Purge : bibliothèque « Astartes Heresy Legends », Death Company Intercessors et Land Raider
+  Banisher (cachées, hors MFM, proposées par l'appli), `leader-kw` / catégorie Vanguard, conditions mortes (Gabriel
+  Seth, Logan on Stormrider, Daemonhost, Jokaero, Proteus), 199 catégories et des équipements orphelins, 163 noms du
+  pack FR. Garde-fous : `gdc-attach` (jamais de cible Legends, `--prose`), `gdc-watch` (Legends → 🔇),
+  `gen-stat-markers`, `bodyguard-audit`. **La prose Leader/Support est tenue alignée** sur la fiche officielle :
+  l'appli l'affiche ET en tire ses rattachements (Judiciar : 5 cibles au lieu de 11 avant). Judiciar et Sanguinary
+  Priest = Support. Prix de répétition en double (Ironstrider, Lokhust) et lascannon de l'Ironstrider corrigés.
 - 2026-10-29 : **rattachements MFM v1.6 ↔ base** : `gdc-attach.cjs` normalise les tirets typographiques, traite
   les fiches hidden exposées par un lien visible et résout les noms par `editor/mfm/aliases.json` → 10 liens
   posés (Trajann ×3, Shield-Captain on Dawneagle, Belial, Calgar ×4, Vulkan), golden appli 4026 paires.
