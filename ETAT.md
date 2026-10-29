@@ -20,29 +20,30 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Lignes de base (une régression = un écart à ces nombres)
 
-- Ids dupliqués : **436** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
+- Ids dupliqués : **427** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
 - Tests appli : **70/70** suites (`scripts/dev/tests.sh`, dont `test:legends-names`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 22 le 2026-10-29, sous Node 20 le 2026-10-09).
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 0 écart (liens, `leader-kw:`, proses).
 - Golden des rattachements (appli) : **4109** paires, 87 classes de mots-clefs.
-- `editor/audit/legends.mjs` : **0** écart (274 fiches Legends-only du MFM v1.6) ; pack FR **13 934** clés ;
-  résumés **4 563** capacités (100 %) ; socles **1 010** entrées ; **45** catalogues (.cat + .gst).
+- `editor/audit/legends.mjs` : **0** écart (274 fiches Legends-only du MFM v1.6) ; pack FR **13 442** clés ;
+  résumés **4 388** capacités (100 %) ; socles **1 010** entrées (+ alias) ; **45** catalogues (.cat + .gst) ;
+  références pendantes **0**.
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Tank Ace Character** (SM 8810-ebe3-94f2-8eab, ~23 liens SM/BT/BA, désignation proposée par l'appli sur ~40
-   véhicules, test REG-056) : depuis le codex SM 11e (e9e140c1), son `set hidden` ne dépend plus que de « moins de
-   1 force Crusade » → toujours masqué chez BattleScribe, toujours visible dans l'appli. Le supprimer, ou le
-   rattacher à un détachement 11e (lequel ?) ?
-2. **Socles introuvables par l'appli** (impression du codex) pour 9 fiches VIVANTES dont le guide GW garde l'ancien
-   nom : Custodian Guard (→ Sodality), Prosecutors / Vigilators / Witchseekers (→ … Squad), Aquilon et Venatari
-   Custodians (→ … with …), Agamatus Custodians (→ Gyrfalcon ?), Sword Brethren (→ Squad), The Emperor's Champion.
-   Ajouter des alias à la recherche de socle (`makeBaseSizeLookup`) ?
-3. **Restes morts hors du ménage du 2026-10-29** (non demandés) : ~350 éléments partagés orphelins (dont ~60 groupes
-   « Crucible content » par faction) et ~560 références pendantes (Boarding Actions 1d6e ×367, coût « pl », ids
-   Legends des conditions Aeldari) — même ménage ?
+1. **Socles absents du guide** (impression du codex) : 40 fiches vivantes sans entrée dans `editor/base-sizes.json`,
+   surtout le tronc Space Marines (Intercessor, Hellblaster, Infernus, Infiltrator, Reiver, Scout Squad, Lieutenant,
+   Librarian, Redemptor Dreadnought, Storm Speeders…), dont la section du guide de juin 2026 n'a que 50 entrées —
+   extraction probablement incomplète. Fournir le PDF du Base Size Guide (ou les socles) pour compléter ?
+
+Clos le 2026-10-29 (ter) : **Tank Ace Character supprimée** ; **alias de socles** (`aliases` sur l'entrée du guide,
+12 fiches dont le Caladius) ; **second ménage** : références pendantes 565 → 0 (Boarding Actions, coût « pl »,
+publication Index DG, ids Legends des conditions Aeldari…), 235 éléments partagés orphelins (dont les groupes
+« Crucible content »), 11 catégories Orks restaurées (mots-clefs vivants), Kroot « max 3 » réécrit sans Boarding
+Actions, alertes T'au « … upgrade is required » impossibles à lever retirées, Tyranid Warriors plus porteurs
+d'améliorations (non-personnages, règle 1), 492 clés FR et 175 résumés devenus orphelins.
 
 Clos le 2026-10-29 (bis) : **abandon acté** d'Astraeus, du Thunderhawk Gunship du tronc SM et du Gargantuan
 Squiggoth (`editor/mfm/abandons.json`, avec Ares/Orion du 2026-10-22 : la routine ne les redemande plus) ;
