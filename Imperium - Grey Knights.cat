@@ -5348,174 +5348,6 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="model" import="true" name="Land Raider Banisher" hidden="true" id="69d-a656-fde3-6c3e">
-      <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="255"/>
-      </costs>
-      <categoryLinks>
-        <categoryLink targetId="75e8-57c4-40e3-1817" id="70cf-964f-78b5-4517" primary="false" name="Transport"/>
-        <categoryLink targetId="dbd4-63-af05-998" id="a5e7-ac61-d10-400d" primary="true" name="Vehicle"/>
-        <categoryLink targetId="6df-937-16bc-8c1a" id="4ed9-1d53-9e9e-572" primary="false" name="Smoke"/>
-        <categoryLink targetId="aff3-d6a3-2a95-9dc" id="316a-7457-4035-dc13" primary="false" name="Imperium"/>
-        <categoryLink targetId="3741-4bcf-f67e-1942" id="c448-ca78-6b11-c252" primary="false" name="Land Raider Banisher"/>
-        <categoryLink targetId="d564-3284-bf44-b873" id="ed0d-2209-7ce-aeca" primary="false" name="Faction: Grey Knights"/>
-      </categoryLinks>
-      <profiles>
-        <profile name="Land Raider Banisher" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="19a8-1a57-5977-53ac">
-          <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
-            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">12</characteristic>
-            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
-            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">16</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">5</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Assault Ramp" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4749-41d6-2cbd-4b70">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a unit disembarks from this model after it has made a Normal move, that unit is still eligible to declare a charge this turn.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Land Raider Banisher" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="11a-f6f2-ef6e-1aed">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 12 Grey Knights Infantry models. Each Terminator model takes up the space of 2 models.</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Deadly Demise" hidden="false" type="rule" id="ay84-xp9u-3c5j-z6he" targetId="b68a-5ded-65ac-98c">
-          <modifiers>
-            <modifier type="append" value="D6" field="name"/>
-          </modifiers>
-        </infoLink>
-        <infoLink name="Damaged: 1-5 Wounds Remaining" id="a3d5-7b09-1679-2c08" hidden="false" targetId="e6a-44ad-c190-51c5" type="profile"/>
-      </infoLinks>
-      <constraints>
-        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="61f9-48b7-5a9c-2cca" includeChildSelections="true"/>
-      </constraints>
-      <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Wargear" id="0bd3-d668-c79c-9036" hidden="false" sortIndex="2">
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Twin psycannon" hidden="false" id="88e0-4fa-8acc-7b7c">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2506-272c-4714-918"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e10d-d4-9a9a-8e0a"/>
-              </constraints>
-              <infoLinks>
-                <infoLink name="Twin-linked" id="df36-2c25-8bad-3dcd" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-                <infoLink name="Sustained Hits" id="e17b-1246-e472-ab2a" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
-                <infoLink name="Psychic" id="e178-bc33-76ae-c3cd" hidden="false" type="rule" targetId="e9c4-2bb8-12ee-cd1b"/>
-              </infoLinks>
-              <profiles>
-                <profile name="Twin psycannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="bd0d-bf5-b1f7-108e">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Psychic, Sustained Hits 1, Twin-linked</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <entryLinks></entryLinks>
-              <categoryLinks>
-                <categoryLink name="Psychic Weapon" hidden="false" id="6dbe-9689-0447-8ceb" targetId="4546-4a0c-b3be-e84c" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-          </selectionEntries>
-          <entryLinks>
-            <entryLink import="true" name="Storm bolter" hidden="false" id="dec1-921c-7b78-224f" type="selectionEntry" targetId="0dde-039e-fac4-9c96">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b378-595f-6fe9-4e1c"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Hunter-killer missile" hidden="false" id="bc04-4744-0482-1766" type="selectionEntry" targetId="3790-5850-3cab-142c">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3de9-eb83-bb76-94d5" includeChildSelections="false"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Multi-melta" hidden="false" id="574a-a3b6-737c-dae0" type="selectionEntry" targetId="5f8c-4833-2298-a8fa">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="fe18-9744-6a4a-f082"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Heavy incinerator" hidden="false" id="8316-7cc0-9425-3a34" type="selectionEntry" targetId="bed5-712c-a207-c3d1">
-              <constraints>
-                <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="b502-e3b3-4125-17d6"/>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="274a-0705-4604-4391"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Armoured tracks" hidden="false" id="575d-d9a5-d50c-c6b4" type="selectionEntry" targetId="bfd4-2575-e8d7-1f09">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0074-7189-cd7e-8e4f" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d801-4dc2-1e8f-fadf" includeChildSelections="false"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </entryLink>
-          </entryLinks>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
-      <comment>HIDDEN IN CASE OF LEGENDS</comment>
-    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Detachment" hidden="false" id="c05f-e67a-d2db-b3de">
       <categoryLinks>
         <categoryLink targetId="4ac9-fd30-1e3d-b249" id="9aae-3f8d-a1c6-2d54" primary="true" name="Configuration"/>
@@ -6018,28 +5850,6 @@ sim-mod: source=&quot;Sanctity of Purpose (objectif)&quot; reroll=wound conditio
       <comment>BS3+</comment>
       <categoryLinks>
         <categoryLink name="Ranged Weapon" hidden="false" id="9812-68df-91a0-b557" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Storm bolter" hidden="false" id="0dde-039e-fac4-9c96">
-      <profiles>
-        <profile name="Storm bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2360-685e-307f-f481">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Rapid Fire" id="b920-85b2-784a-9cfb" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
-      </infoLinks>
-      <comment>BS3+</comment>
-      <categoryLinks>
-        <categoryLink name="Ranged Weapon" hidden="false" id="e8d2-68aa-8165-69b3" targetId="eeda-8544-a2f3-3fab" primary="false"/>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Nemesis doomglaive" hidden="false" id="2ca0-052b-eadb-6240" collective="false">
@@ -10443,7 +10253,6 @@ EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
     <entryLink import="true" name="Stormtalon Gunship" hidden="false" type="selectionEntry" id="98a2-a561-b183-56a" targetId="84ac-b9ea-921f-9082"/>
     <entryLink import="true" name="Venerable Dreadnought" hidden="false" type="selectionEntry" id="b24d-be83-c5fe-d3fc" targetId="bd43-b303-66e0-4c10"/>
     <entryLink import="true" name="Interceptor Squad" hidden="false" type="selectionEntry" id="a53-5d6c-8148-4393" targetId="d9f7-71b7-8e67-7f44"/>
-    <entryLink import="true" name="Land Raider Banisher" hidden="false" type="selectionEntry" id="db7e-ce0-7ace-dc10" targetId="69d-a656-fde3-6c3e"/>
     <entryLink import="true" name="Nemesis Dreadknight" hidden="false" type="selectionEntry" id="9342-1cf-b2ab-b143" targetId="5458-a458-c51d-c4e9"/>
     <entryLink import="true" name="Paladin Squad" hidden="false" type="selectionEntry" id="1e9b-5681-eaf7-5e08" targetId="6528-4634-c2cf-2840"/>
     <entryLink import="true" name="Grey Knights Thunderhawk Gunship" hidden="false" type="selectionEntry" id="b257-3749-9bb2-4d4d" targetId="8989-2fd2-4d29-e795"/>
@@ -10462,7 +10271,6 @@ EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
   <categoryEntries>
     <categoryEntry name="Frame" hidden="false" id="180d-d3ca-a492-6f94"/>
     <categoryEntry name="Brother-Captain" hidden="false" id="71ac-a100-1ec8-14e9"/>
-    <categoryEntry name="Brother-Captain Stern" hidden="false" id="9e54-c14b-9ec9-e387"/>
     <categoryEntry name="Brotherhood Champion" hidden="false" id="c427-b327-40a0-a401"/>
     <categoryEntry name="Brotherhood Chaplain" hidden="false" id="ebf4-5ffe-19e7-c6c7"/>
     <categoryEntry name="Brotherhood Librarian" hidden="false" id="bd80-12a6-cd23-96c9"/>
@@ -10483,16 +10291,11 @@ EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
     <categoryEntry name="Thunderhawk Gunship" hidden="false" id="f580-2968-19f3-1320"/>
     <categoryEntry name="Venerable Dreadnought" hidden="false" id="33d4-b50a-18e8-16e8"/>
     <categoryEntry name="Interceptor Squad" hidden="false" id="b7d3-6b00-c657-ebd7"/>
-    <categoryEntry name="Kaldor Draigo" hidden="false" id="77b6-bfe8-648b-9fb4"/>
-    <categoryEntry name="Land Raider Banisher" hidden="false" id="3741-4bcf-f67e-1942"/>
     <categoryEntry name="Nemesis Dreadknight" hidden="false" id="8083-7b7a-c9d7-fd31"/>
     <categoryEntry name="Paladin Squad" hidden="false" id="9020-9fb5-8ef8-5ad4"/>
     <categoryEntry name="Purgation Squad" hidden="false" id="8084-5bdd-7c6-bae4"/>
     <categoryEntry name="Purifier Squad" hidden="false" id="67f8-444-b8b7-ad0"/>
-    <categoryEntry name="Servitors" hidden="false" id="5bc8-a8b7-1c69-9043"/>
     <categoryEntry name="Strike Squad" hidden="false" id="103f-a8cd-8c1f-24df"/>
-    <categoryEntry id="4c57-a2d1-fe45-4ec1" name="Dreadnought" hidden="false"/>
-    <categoryEntry id="6ee2-b8d8-f50b-67e3" name="Relic Razorback" hidden="false"/>
     <categoryEntry name="Champion of Titan" id="388b-54d7-a32c-1404" hidden="false"/>
     <categoryEntry name="Purifier" id="961d-1e52-9dbc-3798" hidden="false"/>
     <categoryEntry name="Dreadknight Champion" id="388d-ad8b-7040-1b89" hidden="false"/>
