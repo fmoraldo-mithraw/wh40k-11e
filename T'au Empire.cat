@@ -5,13 +5,6 @@
       <description>If your Army Faction is **^^T&apos;au Empire^^**, at the start of your Shooting phase you can select units from your army with this ability to become Observer units. During your Shooting phase, for each Observer unit from your army that has not been selected to shoot this phase and is eligible to shoot (excluding **^^Fortification^^** and Battle-shocked units) select one enemy unit that is visible to be marked as their Spotted unit until the end of the phase. Each enemy unit can only be marked as a Spotted unit once per phase.
 
 Units from your army with the For the Greater Good ability (excluding Observer units) are Guided units while targeting one or more Spotted units. Until the end of the phase, each time a model from your army in a Guided unit makes an attack that targets a Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if the Spotted unit was marked by an Observer unit that has the **^^Markerlight^^** keyword, that attack has the **[IGNORES COVER]** ability.</description>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </rule>
   </rules>
   <sharedSelectionEntries>
@@ -22,18 +15,6 @@ Units from your army with the For the Greater Good ability (excluding Observer u
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7ca5-48b6-5801-c3ef"/>
       </constraints>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="6ef3-61ac-4974-0b11" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Guardian Drone" hidden="false" id="1549-5b7-b34e-e156">
       <profiles>
@@ -259,13 +240,6 @@ must-warlord</comment>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
       <selectionEntryGroups></selectionEntryGroups>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Commander Farsight" hidden="false" id="a67c-e2aa-41d7-e91e">
       <comment>sim-mod: source=&quot;Way of the Short Blade&quot; wound=+1 whileLeading conditional
@@ -570,13 +544,6 @@ def-mod: source=&quot;Enforcer Commander&quot; ap=-1 when=ranged conditional</co
                     <constraint type="max" value="4" field="selections" scope="parent" shared="true" id="8488-feb3-d130-a9e2"/>
                     <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="54d3-dc6d-bed9-a080" includeChildSelections="false"/>
                   </constraints>
-                  <modifiers>
-                    <modifier type="set" value="1" field="54d3-dc6d-bed9-a080">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="fb72-80a9-f2b5-31a6" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                  </modifiers>
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Plasma rifle" hidden="false" id="e1e7-ffd5-f7c3-9e85" type="selectionEntry" targetId="e87a-3ab1-2834-bb10">
@@ -806,13 +773,6 @@ def-mod: source=&quot;Enforcer Commander&quot; ap=-1 when=ranged conditional</co
                     <constraint type="max" value="4" field="selections" scope="parent" shared="true" id="b0a7-fe8e-c153-130d"/>
                     <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="4582-a7ac-1f9b-7bfa" includeChildSelections="false"/>
                   </constraints>
-                  <modifiers>
-                    <modifier type="set" value="1" field="4582-a7ac-1f9b-7bfa">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="fb72-80a9-f2b5-31a6" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                  </modifiers>
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Plasma rifle" hidden="false" id="fddd-9b4b-c121-8e96" type="selectionEntry" targetId="e87a-3ab1-2834-bb10">
@@ -1470,22 +1430,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
       <infoLinks>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="4f5c-a782-73b1-531c" targetId="eeb6-c42-48f7-cc21"/>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="1598-28ca-8f8e-bbf1" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Pulse pistol" hidden="false" id="4310-a1ce-dde7-70e3" collective="true">
       <comment>BS4+</comment>
@@ -1581,22 +1525,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
       <infoLinks>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="911a-7f32-c2aa-6b3c" targetId="eeb6-c42-48f7-cc21"/>
       </infoLinks>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="5402-5549-883e-0039" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Breacher Fire Warrior Shas&apos;ui" id="a781-6d34-ae23-e754" hidden="false" sortIndex="3" collapsible="true">
           <selectionEntries>
@@ -1680,13 +1608,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the your Command phase, if this unit within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="Bodyguard" hidden="false" id="d0e7-bbff-a4f8-1b2d" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -1770,18 +1691,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
             <constraint type="max" value="19" field="selections" scope="parent" shared="true" id="e1ac-bca1-42e5-a7e7"/>
             <constraint type="min" value="9" field="selections" scope="parent" shared="true" id="932e-ffcc-e5c6-8cce"/>
           </constraints>
-          <modifiers>
-            <modifier type="set" value="9" field="e1ac-bca1-42e5-a7e7">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="Kroot Carnivores" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
         <selectionEntryGroup name="Long-quill" id="e882-5b70-ae11-a7aa" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -1840,22 +1749,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
           </conditions>
         </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="64b2-c950-8d15-ab64" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
           <comment>Kroot Hunting Pack</comment>
@@ -1902,13 +1795,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your opponent&apos;s Shooting phase, when a friendly KROOT INFANTRY unit within 6&quot; of this unit is selected as the target of an attack, one unit from your army with this ability can use it. If it does, after that enemy unit has finished making its attacks, that unit with this ability can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit (and only if it is an eligible target).</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <infoLinks>
@@ -1919,7 +1805,7 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
         </infoLink>
       </infoLinks>
       <constraints>
-        <constraint type="max" value="0" field="selections" scope="roster" shared="true" id="50d7-8a49-d850-e856"/>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="50d7-8a49-d850-e856"/>
       </constraints>
       <selectionEntryGroups>
         <selectionEntryGroup name="Krootox Riders" hidden="false" id="aee2-c887-105a-ea1b" defaultSelectionEntryId="a3cd-29ef-8419-fde6" sortIndex="3">
@@ -1988,13 +1874,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifiers>
-                <modifier type="set" value="1" field="169-e233-354d-68c5">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Krootox Rider w/ tanglecannon" hidden="false" id="e8d6-71b5-aa6b-335c">
               <constraints>
@@ -2061,26 +1940,12 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifiers>
-                <modifier type="set" value="1" field="29ac-216b-7c77-e422">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1b01-8927-9879-ae2e" includeChildSelections="false"/>
             <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="b08f-d59e-2ecf-4d5f" includeChildSelections="false" automatic="true"/>
           </constraints>
-          <modifiers>
-            <modifier type="set" value="1" field="b08f-d59e-2ecf-4d5f">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <modifiers>
@@ -2094,28 +1959,7 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
             <condition type="atLeast" value="3" field="selections" scope="self" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="3" field="50d7-8a49-d850-e856">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="5dd6-0c40-a349-a121" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
       </costs>
@@ -2380,22 +2224,6 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
       </costs>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="9ad0-7435-03ca-e0f0" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Battlesuit fists" hidden="false" id="6cf1-5611-ba26-a9b1" collective="true">
       <comment>Stealth</comment>
@@ -2756,13 +2584,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Pathfinder Team" hidden="false" id="2598-d700-9952-e439">
       <comment>sim-mod: source=&quot;Target Uploaded&quot; hit=+1 ignores-cover conditional
@@ -3258,33 +3079,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="56e5-01e3-3df2-f633" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                <condition type="lessThan" value="1" field="selections" scope="force" childId="7e3b-b9cf-5be0-8bc1" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="15">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="2598-d700-9952-e439" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -3498,13 +3293,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <categoryLinks>
@@ -3514,15 +3302,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <categoryLink targetId="b0eb-efa7-735c-4174" id="5f4d-2556-8cc7-9a81" primary="false" name="Vespid Stingwings"/>
       </categoryLinks>
       <infoLinks>
-        <infoLink name="Deep Strike" hidden="false" type="rule" id="3faa-c494-3f57-38e5" targetId="7cb5-dd6b-dd87-ad3b">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="3faa-c494-3f57-38e5" targetId="7cb5-dd6b-dd87-ad3b"/>
       </infoLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="30db-1915-83b0-8dc9"/>
@@ -3537,22 +3317,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           </conditions>
         </modifier>
       </modifiers>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="9c88-b359-4669-3409" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Vespid Strain Leader" id="2455-7576-8e0d-04f6" hidden="false" sortIndex="3">
           <selectionEntries>
@@ -3572,11 +3336,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
                         <modifier type="set" value="0" field="81f9-7d77-5348-4a4f">
                           <conditions>
                             <condition type="lessThan" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </modifier>
-                        <modifier type="set" value="true" field="hidden">
-                          <conditions>
-                            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
                           </conditions>
                         </modifier>
                         <modifier type="add" value="Cannot take {this} with less than 10 models in unit" field="error">
@@ -3646,13 +3405,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
                   </constraints>
                 </entryLink>
               </entryLinks>
-              <modifiers>
-                <modifier type="set" value="4" field="f667-e1ba-f3fc-ff3d">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Vespid Stingwings w/ T&apos;au Flamer" hidden="false" id="27c5-aeb2-dfed-057c">
               <constraints>
@@ -3662,11 +3414,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
                 <modifier type="set" value="0" field="857d-c8ff-dc8e-c658">
                   <conditions>
                     <condition type="lessThan" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
                   </conditions>
                 </modifier>
                 <modifier type="add" value="Cannot take {this} with less than 10 models in unit" field="error">
@@ -3730,11 +3477,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
                     <condition type="lessThan" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
                 <modifier type="add" value="Cannot take {this} with less than 10 models in unit" field="error">
                   <conditionGroups>
                     <conditionGroup type="and">
@@ -3789,11 +3531,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
                     <condition type="lessThan" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
                   </conditions>
                 </modifier>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
                 <modifier type="add" value="Cannot take {this} with less than 10 models in unit" field="error">
                   <conditionGroups>
                     <conditionGroup type="and">
@@ -3819,18 +3556,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
             <constraint type="min" value="4" field="selections" scope="parent" shared="true" id="7b4f-7b20-f7f4-2da7" includeChildSelections="false"/>
             <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="d549-49a4-1858-cf31" includeChildSelections="false"/>
           </constraints>
-          <modifiers>
-            <modifier type="set" value="4" field="d549-49a4-1858-cf31">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="Vespid Stingwings" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>
@@ -3850,13 +3575,6 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, if this unit is within 6&quot; of one or more friendly KROOT INFANTRY units, then until the end of the turn, this unit is eligible to declare a charge in a turn in which it Advanced.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="Hunting Hounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3cfd-4cf6-9b8c-874b">
           <characteristics>
@@ -3908,22 +3626,8 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
                   <entryLinks></entryLinks>
                 </selectionEntry>
               </selectionEntries>
-              <modifiers>
-                <modifier type="set" value="5" field="5404-6333-f14-c1f1">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
             </selectionEntry>
           </selectionEntries>
-          <modifiers>
-            <modifier type="set" value="Kroot Hounds" field="name">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
@@ -3935,31 +3639,10 @@ Designer’s Note: Place an Oversight Drone token next to the bearer, removing i
             <condition type="greaterThan" value="5" field="selections" scope="6883-85aa-b338-b88" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="3" field="77cc-c844-3bf3-c836">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
       </modifiers>
       <constraints>
-        <constraint type="max" value="0" field="selections" scope="roster" shared="true" id="77cc-c844-3bf3-c836"/>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="77cc-c844-3bf3-c836"/>
       </constraints>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="f9b2-89a0-4594-2178" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Broadside Battlesuits" hidden="false" id="a594-317-b90a-a226">
       <comment>sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
@@ -4801,11 +4484,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="4" field="selections" scope="roster" childId="14f3-9aa6-21af-7fe3" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -5143,13 +4821,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Tidewall Droneport" hidden="false" id="af7f-fc61-e9c0-6a7e">
       <profiles>
@@ -5228,13 +4899,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Tidewall Gunrig" hidden="false" id="e412-ea81-6767-9974">
       <constraints>
@@ -5308,13 +4972,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Stormsurge" hidden="false" id="439b-e08-4466-e162">
       <comment>sim-mod: source=&quot;Titan-killer&quot; reroll=hit when=ranged conditional scope=model
@@ -5633,7 +5290,7 @@ sim-mod: source=&quot;Pech&apos;ra&quot; ignores-cover when=ranged scope=model</
         </profile>
       </profiles>
       <constraints>
-        <constraint type="max" value="0" field="selections" scope="roster" shared="true" id="69df-ed38-2bef-60d6"/>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="69df-ed38-2bef-60d6"/>
       </constraints>
       <infoLinks>
         <infoLink name="Infiltrators" hidden="false" type="rule" id="a535-3aee-e88c-dcda" targetId="c05d-f4c3-f091-4938"/>
@@ -5936,28 +5593,7 @@ sim-mod: source=&quot;Pech&apos;ra&quot; ignores-cover when=ranged scope=model</
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="fefa-4fd6-742a-086d" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
       <modifiers>
-        <modifier type="set" value="3" field="69df-ed38-2bef-60d6">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="72f2-7d0b-80f9-43b7" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -6298,11 +5934,6 @@ invuln: 5+</comment>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="790"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="100">
           <conditions>
             <condition type="atLeast" value="2" field="selections" scope="roster" childId="16d6-79b5-817d-f084" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -6897,13 +6528,6 @@ invuln: 5+</comment>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Farstalker firearm" hidden="false" id="a230-c248-9983-658f" collective="true">
       <profiles>
@@ -6983,15 +6607,7 @@ invuln: 4+</comment>
         </selectionEntry>
       </selectionEntries>
       <infoLinks>
-        <infoLink name="Deep Strike" hidden="false" type="rule" id="b35d-9dd8-9d52-94d4" targetId="7cb5-dd6b-dd87-ad3b">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="b35d-9dd8-9d52-94d4" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="6cb2-d56c-5681-963c" targetId="eeb6-c42-48f7-cc21"/>
         <infoLink name="Invulnerable Save (4+)" id="d0a4-1494-600f-e3de" hidden="false" type="profile" targetId="b79a-617-8519-d24f">
           <modifiers>
@@ -7057,22 +6673,6 @@ invuln: 4+</comment>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="80c9-37d0-bb5b-33aa" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Crisis Fireknife Battlesuits" hidden="false" id="9373-d0b3-94c9-e47">
       <comment>sim-mod: source=&quot;Fireknife&quot; reroll=hit1 when=ranged choice=&quot;Fireknife&quot;
@@ -7157,15 +6757,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </selectionEntry>
       </selectionEntries>
       <infoLinks>
-        <infoLink name="Deep Strike" hidden="false" type="rule" id="20eb-4810-f7df-86bd" targetId="7cb5-dd6b-dd87-ad3b">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="20eb-4810-f7df-86bd" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="3d7f-a105-8d5-63fb" targetId="eeb6-c42-48f7-cc21"/>
       </infoLinks>
       <constraints>
@@ -7244,22 +6836,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="0b8f-65f4-8e82-4618" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Crisis Starscythe Battlesuits" hidden="false" id="fb32-c683-b38f-d339">
       <comment>sim-mod: source=&quot;Starscythe&quot; ap=+1 when=ranged conditional
@@ -7351,15 +6927,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </selectionEntry>
       </selectionEntries>
       <infoLinks>
-        <infoLink name="Deep Strike" hidden="false" type="rule" id="284a-9c73-c751-f9ef" targetId="7cb5-dd6b-dd87-ad3b">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Deep Strike" hidden="false" type="rule" id="284a-9c73-c751-f9ef" targetId="7cb5-dd6b-dd87-ad3b"/>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="1c1-549a-2e50-e590" targetId="eeb6-c42-48f7-cc21"/>
       </infoLinks>
       <constraints>
@@ -7438,22 +7006,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" id="a129-d6bd-8380-f8e0" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                    <condition type="atLeast" value="1" field="selections" scope="force" childId="9cfd-1c32-585f-7d5c" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
-        </entryLink>
-      </entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Kroot Trail Shaper" hidden="false" id="2ebe-a524-656d-7f0e">
       <categoryLinks>
@@ -7923,13 +7475,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <entryLink import="true" name="Warlord" hidden="false" id="a1e2-1859-bb25-1180" type="selectionEntry" targetId="179c-d88a-d49b-48b9" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="b0ea-3beb-e871-a3c8" type="selectionEntryGroup" targetId="fae2-569a-6bec-9167" sortIndex="3"/>
       </entryLinks>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Krootox Rampagers" hidden="false" id="7f73-6728-df6f-1446">
       <categoryLinks>
@@ -8014,11 +7559,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
             <condition type="atLeast" value="4" field="selections" scope="self" childId="model" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="false"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="7f73-6728-df6f-1446" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -8088,31 +7628,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <categoryLink name="Ranged Weapon" hidden="false" id="65d0-1b80-1d14-7651" targetId="eeda-8544-a2f3-3fab" primary="false"/>
         <categoryLink name="Attacks Dx Weapon" hidden="false" id="f939-1805-4e06-4669" targetId="e993-e086-6de1-12af" primary="false"/>
         <categoryLink name="Airbursting Fragmentation Projector Weapon" hidden="false" id="c123-736b-4531-1d2a" targetId="784e-8685-51f5-cac4" primary="false"/>
-      </categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Airbursting fragmentation projector" hidden="false" id="91cc-510a-3381-0a8b">
-      <profiles>
-        <profile name="Airbursting fragmentation projector" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c993-5cf8-fd6a-bc2e">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">3</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Indirect Fire</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Blast" id="906e-e737-4fbe-e89c" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
-        <infoLink name="Indirect Fire" id="c8e9-b51a-090b-e75b" hidden="false" type="rule" targetId="4ddd-4e29-acdd-5e6d"/>
-      </infoLinks>
-      <comment>BS4+</comment>
-      <categoryLinks>
-        <categoryLink name="Attacks Dx Weapon" hidden="false" id="909b-7900-18a7-064f" targetId="e993-e086-6de1-12af" primary="false"/>
-        <categoryLink name="Airbursting Fragmentation Projector Weapon" hidden="false" id="4346-1aeb-7ca5-80e6" targetId="784e-8685-51f5-cac4" primary="false"/>
-        <categoryLink name="Ranged Weapon" hidden="false" id="b1bf-14b0-e66a-cf58" targetId="eeda-8544-a2f3-3fab" primary="false"/>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Cyclic ion blaster" hidden="false" id="9e40-f25b-c5dd-6712">
@@ -8216,25 +7731,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
           </characteristics>
         </profile>
       </profiles>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Twin burst cannon" hidden="false" id="a542-256c-cd86-bf9e">
-      <profiles>
-        <profile name="Twin burst cannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7fd9-c324-5a2a-d2e3">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Twin-linked" id="e078-e5eb-3d2d-9115" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-      </infoLinks>
-      <comment>BS5+</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Fusion blaster" hidden="false" id="a384-146f-1171-f49f">
       <profiles>
@@ -8348,22 +7844,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <categoryLinks>
         <categoryLink name="Melee Weapon" hidden="false" id="bb62-c318-6485-d3b2" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="91a4-8007-a727-b6bc" collective="true">
-      <profiles>
-        <profile name="Close combat weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b684-0b7e-0204-cacc">
-          <characteristics>
-            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
-            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">6+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">3</characteristic>
-            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <comment>A1 BS6+ S3</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="2b7a-8436-43c4-2378" collective="true">
       <profiles>
@@ -8600,25 +8080,10 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Indirect Fire, Twin-linked</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="replace" field="7f1b-8591-2fcf-d01c" arg="Indirect Fire, ">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Indirect Fire" id="7cb2-35fe-51c5-baf8" hidden="false" type="rule" targetId="4ddd-4e29-acdd-5e6d">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Indirect Fire" id="7cb2-35fe-51c5-baf8" hidden="false" type="rule" targetId="4ddd-4e29-acdd-5e6d"/>
         <infoLink name="Twin-linked" id="3d07-916b-b594-9983" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
       </infoLinks>
       <categoryLinks>
@@ -9418,13 +8883,6 @@ invuln: 4+</comment>
           </characteristics>
         </profile>
       </profiles>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
     </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Negation Emitters Upgrade" hidden="false" id="2f07-3d89-2834-68f3">
               <costs>
@@ -9568,16 +9026,6 @@ invuln: 4+</comment>
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="add" value="Thermoneutronic Projector upgrade is required" field="warning">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="1184-c004-494b-642e" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="61f4-6563-bdb8-ec27" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
         <modifier type="set" value="true" field="hidden">
           <conditionGroups>
             <conditionGroup type="or">
@@ -9619,16 +9067,6 @@ invuln: 4+</comment>
                     </conditionGroup>
                   </conditionGroups>
                 </modifier>
-                <modifier type="add" value="Plasma Accelerator Rifle upgrade is required" field="warning">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="bc44-f33b-73bc-5ae5" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="e396-458e-e066-fdbb" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
         <modifier type="set" value="true" field="hidden">
           <conditionGroups>
             <conditionGroup type="or">
@@ -9666,16 +9104,6 @@ invuln: 4+</comment>
                       <conditions>
                         <condition type="atLeast" value="1" field="selections" scope="roster" childId="8588-2b55-0468-0a97" shared="true" includeChildForces="true" includeChildSelections="true"/>
                         <condition type="lessThan" value="1" field="selections" scope="parent" childId="8588-2b55-0468-0a97" shared="true" includeChildForces="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </modifier>
-                <modifier type="add" value="Supernova Launcher upgrade is required" field="warning">
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="roster" childId="8588-2b55-0468-0a97" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="e844-ec7e-9e46-1071" shared="true" includeChildSelections="true" includeChildForces="true"/>
                       </conditions>
                     </conditionGroup>
                   </conditionGroups>
@@ -9757,11 +9185,6 @@ invuln: 4+</comment>
         <modifier type="set" value="true" field="hidden">
           <conditions>
             <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set" value="2" field="0e66-3ab4-670c-143b">
-          <conditions>
-            <condition type="atLeast" value="1" field="forces" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -9937,11 +9360,6 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
                 </conditionGroup>
               </conditionGroups>
             </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
           </modifiers>
         </selectionEntryGroup>
         <selectionEntryGroup name="Mont&apos;ka Enhancements" hidden="false" id="c40e-e3bc-a1e4-9a9c" flatten="false" collapsible="false">
@@ -10102,11 +9520,6 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
             </modifier>
           </modifiers>
         </selectionEntryGroup>
@@ -10270,11 +9683,6 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
             </modifier>
           </modifiers>
         </selectionEntryGroup>
@@ -10451,11 +9859,6 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-            </modifier>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
             </modifier>
           </modifiers>
         </selectionEntryGroup>
@@ -10640,13 +10043,6 @@ RESTRICTION: You cannot target a unit that is within Engagement Range of one or 
           <infoLinks>
             <infoLink name="Sustained Hits" hidden="false" type="rule" id="f7b-c18-c364-a52" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
@@ -10722,11 +10118,6 @@ EFFECT: Until the end of the phase, each time an attack is allocated to your uni
             <infoLink name="Lethal Hits" hidden="false" type="rule" id="1950-5e28-9ebc-5958" targetId="d1d1-611e-5191-1095"/>
           </infoLinks>
           <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
@@ -10813,11 +10204,6 @@ EFFECT: Until the end of the phase, models in your unit have the Feel No Pain 6+
             <categoryLink id="3f66-12cd-d536-ed98" name="UNIQUE BATTLESUIT" hidden="false" targetId="58be-cbad-0af1-caac" primary="false"/>
           </categoryLinks>
           <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
             <modifier type="set" value="2" field="0d99-4ee2-7b3c-1f5a">
               <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
@@ -10904,13 +10290,6 @@ EFFECT: Until the end of the phase, worsen the Weapon Skill and Ballistic Skill 
           <categoryLinks>
             <categoryLink id="7ff3-9815-adc6-6cf4" name="UNIQUE AUXILIARY" hidden="false" targetId="2fbc-00bc-c137-1352" primary="false"/>
           </categoryLinks>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
@@ -10964,13 +10343,6 @@ EFFECT: Your unit&apos;s ranged attacks that target a unit within 9&quot; of a f
           <categoryLinks>
             <categoryLink id="28a3-6169-00ae-e166" name="UNIQUE AUXILIARY" hidden="false" targetId="2fbc-00bc-c137-1352" primary="false"/>
           </categoryLinks>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
@@ -11021,13 +10393,6 @@ EFFECT: Your unit&apos;s ranged attacks have:
           <categoryLinks>
             <categoryLink id="94ea-8733-c72c-b890" name="UNIQUE BATTLESUIT" hidden="false" targetId="58be-cbad-0af1-caac" primary="false"/>
           </categoryLinks>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
@@ -11069,13 +10434,6 @@ TARGET: That PATHFINDER TEAM/STEALTH BATTLESUITS unit.
 EFFECT: Your unit has +1 Sv.</description>
             </rule>
           </rules>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="force" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
           <costs>
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="1"/>
           </costs>
@@ -11201,1113 +10559,6 @@ EFFECT: Your unit has +1 Sv.</description>
           </entryLinks>
         </selectionEntry>
       </selectionEntries>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Enhancement Upgrades" id="14ac-72a0-13cf-0187" hidden="false">
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Fusion Blades upgrade" hidden="false" id="4cb3-e969-20d8-b003" collective="false">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="model-or-unit" childId="fb72-80a9-f2b5-31a6" shared="true" includeChildSelections="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="upgrade" childId="c366-a7c4-45e2-5b6e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="4cb3-e969-20d8-b003" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="4cb3-e969-20d8-b003" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="db71-c17a-5b61-9e8c">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="fb72-80a9-f2b5-31a6" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ecf6-b2fe-16d0-ff11" includeChildSelections="true"/>
-            <constraint type="min" value="0" field="selections" scope="roster" shared="true" id="db71-c17a-5b61-9e8c" includeChildSelections="true"/>
-          </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Fusion Blades" field="annotation" join=", " scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="increment" value="3" field="2229-f494-25db-c5d3" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="replace" value="Melta 4" field="7f1b-8591-2fcf-d01c" scope="upgrade" affects="self.entries.profiles.Ranged Weapons" arg="Melta 2" join=", "/>
-                <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.e993-e086-6de1-12af.profiles.Ranged Weapons" arg="+0" join=""/>
-                <modifier type="replace" value="true" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.6337-b83b-0d1e-5770.profiles.Ranged Weapons" arg="+0"/>
-                <modifier type="increment" value="1" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.profiles.Ranged Weapons" position="-1"/>
-                <modifier type="decrement" value="1" field="3bb-c35f-f54-fb08" join=", " scope="upgrade" affects="self.entries.84c4-6d1e-e724-bd6e.profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.profiles.Ranged Weapons" arg="+0"/>
-                <modifier type="add" value="6337-b83b-0d1e-5770" field="category" scope="upgrade" arg="+0" affects="self.entries.e993-e086-6de1-12af"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Plasma Accelerator Rifle upgrade" hidden="false" id="e396-458e-e066-fdbb" collective="false">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="model-or-unit" childId="bc44-f33b-73bc-5ae5" shared="true" includeChildSelections="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="upgrade" childId="630e-f998-7bab-7116" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="e396-458e-e066-fdbb" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="e396-458e-e066-fdbb" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="4cb3-e969-20d8-b003" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="4cb3-e969-20d8-b003" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="d2e0-1a7f-b5d2-7d01">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="bc44-f33b-73bc-5ae5" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ea7f-7e30-c6d7-0d87" includeChildSelections="true"/>
-            <constraint type="min" value="0" field="selections" scope="roster" shared="true" id="d2e0-1a7f-b5d2-7d01" includeChildSelections="true"/>
-          </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Plasma Accelerator Rifle" field="annotation" join=", " scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="increment" value="2" field="2229-f494-25db-c5d3" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="decrement" value="1" field="9ead-8a10-520-de15" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.e993-e086-6de1-12af.profiles.Ranged Weapons" arg="+0" join=""/>
-                <modifier type="replace" value="true" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.6337-b83b-0d1e-5770.profiles.Ranged Weapons" arg="+0"/>
-                <modifier type="increment" value="1" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.profiles.Ranged Weapons" position="-1"/>
-                <modifier type="decrement" value="1" field="3bb-c35f-f54-fb08" join=", " scope="upgrade" affects="self.entries.84c4-6d1e-e724-bd6e.profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="3bb-c35f-f54-fb08" scope="upgrade" affects="self.entries.profiles.Ranged Weapons" arg="+0"/>
-                <modifier type="add" value="6337-b83b-0d1e-5770" field="category" scope="upgrade" arg="+0" affects="self.entries.e993-e086-6de1-12af"/>
-                <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="4986-bf86-beb4-13ac.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="982b-de77-dd2d-d9bd.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="increment" value="1" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="add" value="982b-de77-dd2d-d9bd" field="category" scope="upgrade" join="" arg="+0" affects="4986-bf86-beb4-13ac"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Supernova Launcher upgrade" hidden="false" id="e844-ec7e-9e46-1071">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="model-or-unit" childId="8588-2b55-0468-0a97" shared="true" includeChildSelections="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="upgrade" childId="784e-8685-51f5-cac4" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="e844-ec7e-9e46-1071" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="e844-ec7e-9e46-1071" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="b154-2a39-236a-8de2">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="8588-2b55-0468-0a97" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8334-982b-381e-2585" includeChildSelections="true"/>
-            <constraint type="min" value="0" field="selections" scope="roster" shared="true" id="b154-2a39-236a-8de2" includeChildSelections="true"/>
-          </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Supernova Launcher" field="annotation" join=", " scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="increment" value="3" field="2229-f494-25db-c5d3" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="decrement" value="1" field="9ead-8a10-520-de15" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="4986-bf86-beb4-13ac.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="982b-de77-dd2d-d9bd.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="increment" value="1" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="add" value="982b-de77-dd2d-d9bd" field="category" scope="upgrade" join="" arg="+0" affects="4986-bf86-beb4-13ac"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Thermoneutronic Projector upgrade" hidden="false" id="61f4-6563-bdb8-ec27" collective="false">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="model-or-unit" childId="1184-c004-494b-642e" shared="true" includeChildSelections="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4f3a-f0f7-6647-348d" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="upgrade" childId="41b7-324d-21d3-af5e" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                  <conditionGroups>
-                    <conditionGroup type="and">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="model-or-unit" childId="61f4-6563-bdb8-ec27" shared="true" includeChildSelections="true"/>
-                        <condition type="lessThan" value="1" field="selections" scope="parent" childId="61f4-6563-bdb8-ec27" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </conditionGroup>
-                  </conditionGroups>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="set" value="1" field="9558-f0bb-b86c-844c">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="1184-c004-494b-642e" shared="true" includeChildSelections="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="c026-0d27-19ef-898d" includeChildSelections="true"/>
-            <constraint type="min" value="0" field="selections" scope="roster" shared="true" id="9558-f0bb-b86c-844c" includeChildSelections="true"/>
-          </constraints>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Thermoneutronic Projector" field="annotation" join=", " scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="increment" value="2" field="2229-f494-25db-c5d3" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="decrement" value="1" field="9ead-8a10-520-de15" scope="upgrade" affects="self.entries.profiles.Ranged Weapons"/>
-                <modifier type="append" value="+0" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="4986-bf86-beb4-13ac.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="982b-de77-dd2d-d9bd.profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="increment" value="1" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" position="-1"/>
-                <modifier type="replace" value="true" field="a354-c1c8-a745-f9e3" scope="upgrade" affects="profiles.Ranged Weapons" join="" arg="+0"/>
-                <modifier type="add" value="982b-de77-dd2d-d9bd" field="category" scope="upgrade" join="" arg="+0" affects="4986-bf86-beb4-13ac"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
-          </costs>
-        </selectionEntry>
-      </selectionEntries>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Ability" id="ac1c-82d2-84b0-5ea7" hidden="false" defaultSelectionEntryId="none">
-      <comment>Crucible content</comment>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Ritual Butchery" hidden="false" id="20d4-90be-3d90-d355">
-          <profiles>
-            <profile name="Ritual Butchery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1e0f-82d6-b1d4-c00e">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Kinband Champion^^** only. While this model is leading a unit, melee weapons equipped by models in that unit have the **[SUSTAINED HITS 1]** ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="85c3-e9c6-25fd-22d9" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Fire and Fade" hidden="false" id="1c38-b7b0-9bd2-3121">
-          <profiles>
-            <profile name="Fire and Fade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="89c1-ed70-f0fa-24f3">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Kinband Champion^^** only. In your Shooting phase, after this unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6&quot;. If it does, until the end of the turn, this unit is not eligible to declare a charge.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="85c3-e9c6-25fd-22d9" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Cunning Ambush" hidden="false" id="8016-ff87-24eb-00eb">
-          <profiles>
-            <profile name="Cunning Ambush" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ff11-566b-7cc9-4409">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After both players have deployed their armies, you can redeploy this model&apos;s unit and one other friendly **^^T&apos;au Empire^^** unit. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Warrior Bond" hidden="false" id="8646-62a8-f159-7490">
-          <profiles>
-            <profile name="Warrior Bond" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e2e0-d032-a183-71f5">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one friendly **^^T&apos;au Empire^^** unit that is Battle-shocked and within 12&quot; of this model. That unit is no longer Battle-shocked.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Fire Discipline" hidden="false" id="c4eb-57e0-dfc5-0f25">
-          <profiles>
-            <profile name="Fire Discipline" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="44f9-96ce-cf30-c1fb">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a ranged attack, re-roll a Hit roll of 1.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </selectionEntry>
-      </selectionEntries>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8a53-a608-3756-685d" includeChildSelections="false"/>
-        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="75bf-3340-4aa0-e9e8" includeChildSelections="false"/>
-      </constraints>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Specialisms" id="00b9-d08c-5538-77ef" hidden="false">
-      <comment>Crucible content</comment>
-      <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Broadside Battlesuit" hidden="false" id="9694-07cd-6228-0f2f">
-          <profiles>
-            <profile name="Broadside Battlesuit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="047c-a9e7-84af-f560">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Battlesuit Veteran^^** only. Change this model&apos;s Move characteristic to 5&quot;, its Toughness characteristic to 6, its Save characteristic to 2+, and its Wounds characteristic to 10. Remove the **^^Infantry^^** keyword, add the **^^Vehicle^^** and **^^Walker^^** keywords, and remove the Infiltrators and Stealth abilities. It can be equipped with up to three ranged weapons, and replace the list of units this model can be attached to: **^^Broadside Battlesuits^^**.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="94a9-f85d-f135-d79e" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="remove" value="cf47-a0d7-7207-29dc" field="category" scope="root-entry"/>
-                <modifier type="add" value="dbd4-63-af05-998" field="category" scope="root-entry"/>
-                <modifier type="add" value="6dda-e157-334d-e93a" field="category" scope="root-entry"/>
-                <modifier type="set" value="5&quot;" field="e703-ecb6-5ce7-aec1" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="6" field="d29d-cf75-fc2d-34a4" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="2+" field="450-a17e-9d5e-29da" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="10" field="750a-a2ec-90d3-21fe" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="append" value="Broadside Battlesuit" field="annotation" scope="root-entry" affects="profiles.Unit" join=", "/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
-          </costs>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Kalamandra" hidden="false" id="a978-e78f-d1dc-d682">
-          <profiles>
-            <profile name="Kalamandra" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d2c5-1f5f-d6a6-bbc5">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Kinband Champion^^** only. Change this model&apos;s Move characteristic to 12&quot;, its Toughness characteristic to 5, its Save characteristic to 5+, its Wounds characteristic to 6, and it is equipped with 1 kalamandra&apos;s bite in addition to the weapons you choose in Step 4. Remove the **^^Infantry^^** keyword, add the **^^Mounted^^** keyword and it gains the Lone Operative ability.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="85c3-e9c6-25fd-22d9" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="remove" value="cf47-a0d7-7207-29dc" field="category" scope="root-entry"/>
-                <modifier type="add" value="14a0-40c9-2748-ae6e" field="category" scope="root-entry"/>
-                <modifier type="set" value="12&quot;" field="e703-ecb6-5ce7-aec1" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="5" field="d29d-cf75-fc2d-34a4" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="5+" field="450-a17e-9d5e-29da" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="6" field="750a-a2ec-90d3-21fe" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="append" value="Kalamandra" field="annotation" scope="root-entry" affects="profiles.Unit" join=", "/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
-          </costs>
-          <infoLinks>
-            <infoLink name="Lone Operative" id="a382-36d6-9925-10c2" hidden="false" type="rule" targetId="a8a0-8fe7-898-e0f3"/>
-          </infoLinks>
-          <entryLinks>
-            <entryLink import="true" name="Kalamandra&apos;s bite" hidden="false" id="020b-c923-6349-632e" targetId="d18c-6a8c-64b7-dfe" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e09a-7098-2118-4969" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="27dc-1a71-abda-d054" includeChildSelections="false"/>
-              </constraints>
-            </entryLink>
-          </entryLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Krootox" hidden="false" id="176d-a02d-5783-2c43">
-          <profiles>
-            <profile name="Krootox" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="69c6-2668-8f37-f828">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Kinband Champion^^** only. Change this model&apos;s Toughness characteristic to 6, its Save characteristic to 5+ and its Wounds characteristic to 7, and it is equipped with 1 Rampager fists in addition to the weapons you choose in Step 4. Remove the **^^Infantry^^** keyword, add the **^^Mounted^^** keyword, and replace the list of units this model can be attached to: **^^Krootox Rampagers^^**, **^^Krootox Riders^^**.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="85c3-e9c6-25fd-22d9" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="remove" value="cf47-a0d7-7207-29dc" field="category" scope="root-entry"/>
-                <modifier type="add" value="14a0-40c9-2748-ae6e" field="category" scope="root-entry"/>
-                <modifier type="set" value="6" field="d29d-cf75-fc2d-34a4" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="5+" field="450-a17e-9d5e-29da" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="set" value="7" field="750a-a2ec-90d3-21fe" scope="root-entry" affects="profiles.Unit"/>
-                <modifier type="append" value="Krootox" field="annotation" scope="root-entry" affects="profiles.Unit" join=", "/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-          <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
-          </costs>
-          <entryLinks>
-            <entryLink import="true" name="Rampager fists" hidden="false" id="c082-3b3b-10ef-799c" targetId="7078-665d-6c11-2999" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c07e-bda5-57d9-25b8" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="56c9-2bbc-0e94-ef4d" includeChildSelections="false"/>
-              </constraints>
-            </entryLink>
-          </entryLinks>
-        </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Veteran Scout" hidden="false" id="76e6-c0f0-7eae-f999">
-          <profiles>
-            <profile name="Veteran Scout" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="694e-a8dd-1b0a-5b7e">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Shas&apos;nel^^** only. Change this model&apos;s Move characteristic to 7&quot;, it gains the Scouts 7&quot; ability, and replace the list of units this model can be attached to: **^^Pathfinder Team^^**.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="3627-4b67-2f0d-9327" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <infoLinks>
-            <infoLink name="Scouts" id="b40f-ab9d-ad06-0da2" hidden="false" type="rule" targetId="ada6-bac1-ffe0-d6f7">
-              <modifiers>
-                <modifier type="append" value="7&quot;" field="name"/>
-              </modifiers>
-            </infoLink>
-          </infoLinks>
-          <modifierGroups>
-            <modifierGroup type="and">
-              <modifiers>
-                <modifier type="append" value="Veteran Scout" field="annotation" scope="root-entry" affects="profiles.Unit" join=", "/>
-                <modifier type="set" value="7&quot;" field="e703-ecb6-5ce7-aec1" scope="root-entry" affects="profiles.Unit"/>
-              </modifiers>
-            </modifierGroup>
-          </modifierGroups>
-        </selectionEntry>
-      </selectionEntries>
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c6ff-7ce4-bbe8-a6b0" includeChildSelections="false"/>
-      </constraints>
-    </selectionEntryGroup>
-    <selectionEntryGroup name="Weapons" id="744d-74d3-2e22-d164" hidden="false">
-      <comment>Crucible content</comment>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Ranged Weapons" id="82dc-f84f-1b88-b8fd" hidden="false">
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d67b-8a06-6b24-0bd3" includeChildSelections="false" automatic="true"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="Tanglebomb launcher" hidden="false" id="0e83-2f5f-b0cf-77a8" targetId="49e7-3666-8d29-6ca" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d43f-bfe6-e6d3-2812" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Fireblade pulse rifle" hidden="false" id="4dbd-350e-3a02-1498" targetId="a840-cffd-5513-7ef5" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5895-acfd-4fec-d526" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="3" field="5895-acfd-4fec-d526">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Kroot rifle" hidden="false" id="e85d-bf45-5c4e-2220" targetId="753f-f27b-6694-4def" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9774-6363-2fc6-ceb5" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Blast javelin" hidden="false" id="123d-c51d-8162-144a" targetId="f8e6-8320-d704-b84c" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5135-19c0-c665-ce79" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Fusion blaster" hidden="false" id="b361-753f-4cfb-e12b" targetId="a384-146f-1171-f49f" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cf4e-9440-cc4d-e769" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="7288-48b3-c4df-66c6" shared="true"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="3" field="cf4e-9440-cc4d-e769">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Burst cannon" hidden="false" id="56f6-89b6-9221-e473" targetId="3a5c-c8e4-823f-c18c" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4183-ab0d-9ec9-194e" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="7288-48b3-c4df-66c6" shared="true"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="3" field="4183-ab0d-9ec9-194e">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Kroot carbine" hidden="false" id="3b9f-b92e-07c7-c609" targetId="4ee1-94ec-cc6e-64df" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="96f2-b5db-07be-4acc" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Kroot long gun" hidden="false" id="4ccd-ceb3-338b-e319" targetId="927c-e643-8875-419e" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7aa2-3a42-8ede-a91a" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Dart-bow and tri-blade" hidden="false" id="deda-b5ea-e07b-590f" targetId="11ae-fb31-f76d-a3bd" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="dea8-973d-c3b7-b062" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Kroot scattergun" hidden="false" id="d9bb-404d-a728-5cb8" targetId="7ff0-339a-6785-810d" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="20e6-5c9f-509e-a324" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Londaxi tribalest" hidden="false" id="c032-cb24-ee98-eda9" targetId="7dd3-901a-45b8-8a99" type="selectionEntry" collective="true">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e743-78c9-05c9-af72" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Pulse blaster" hidden="false" id="ad61-082a-4442-d054" targetId="13ec-4217-90b8-e270" type="selectionEntry" collective="true">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d3d7-d5cd-3721-b777" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="3" field="d3d7-d5cd-3721-b777">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Dvorgite skinner" hidden="false" id="483f-f104-0a89-15e9" targetId="705c-da9b-4fe1-fd47" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4bfe-90a1-e342-a2b0" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-          </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Heavy rail rifle" hidden="false" id="b1f1-9f9e-7f84-055b" collective="false">
-              <profiles>
-                <profile name="Heavy rail rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="64a9-ee54-eef8-1efc">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">60&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Heavy</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Heavy" id="cb1f-379a-f60d-0f7b" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
-                <infoLink name="Devastating Wounds" id="dd4e-eaf3-5548-ee55" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="953d-c7b7-4d11-fa61" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="4057-ca1e-1916-25c9" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="High-yield missile pods" hidden="false" id="3137-8ede-cb70-3c1b" collective="false">
-              <profiles>
-                <profile name="High-yield missile pods" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2091-4449-6b4b-193e">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Twin-linked" id="dbf6-aa35-9db8-cb7f" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-              </infoLinks>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="7085-88f8-42ab-4ece" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <comment>Crucible variant</comment>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="5323-9b3b-d479-e3cc" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Ion rifle" hidden="false" id="b039-a868-9897-3c1d">
-              <profiles>
-                <profile name="➤ Ion rifle - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="69ea-abfc-4c97-bb99">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="➤ Ion rifle - overcharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="0125-0fe7-919f-8887">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Heavy</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Hazardous" id="afaf-620c-fc83-333e" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
-                <infoLink name="Heavy" id="bae1-3694-1787-bed7" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
-              </infoLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8655-e64b-9e99-0bc4" includeChildSelections="false"/>
-              </constraints>
-              <comment>Crucible variant</comment>
-              <entryLinks></entryLinks>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="c8d1-96e3-2252-b7cd" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <modifiers>
-                <modifier type="set" value="3" field="8655-e64b-9e99-0bc4">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Pulse carbine" hidden="false" id="9e02-6828-1052-5cc4">
-              <profiles>
-                <profile name="Pulse carbine" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="024d-6fdd-57b0-81e6">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">20&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <constraints>
-                <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="a080-e9e7-f378-b19c" includeChildSelections="false" automatic="true"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3f84-e5f3-c3a0-746f" includeChildSelections="false"/>
-              </constraints>
-              <comment>Crucible variant</comment>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="55be-519d-85a5-b546" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <entryLinks></entryLinks>
-              <modifiers>
-                <modifier type="set" value="1" field="a080-e9e7-f378-b19c">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="30ba-0f84-6771-0815" shared="true"/>
-                  </conditions>
-                </modifier>
-                <modifier type="set" value="3" field="3f84-e5f3-c3a0-746f">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Rail rifle" hidden="false" id="288c-8e5e-937f-f990">
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b39d-feb9-9335-840b" includeChildSelections="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Rail rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a4b3-a008-1f37-66ab">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Heavy</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Heavy" id="bd6a-7ce9-5757-3742" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
-                <infoLink name="Devastating Wounds" id="c667-09ae-545f-d4cb" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <entryLinks></entryLinks>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="fb7b-3690-a819-f6dc" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <modifiers>
-                <modifier type="set" value="3" field="b39d-feb9-9335-840b">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Seeker missile" hidden="false" id="bfdc-dc2d-ba0c-c706">
-              <profiles>
-                <profile name="Seeker missile" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="d2b7-57bd-ca63-a955">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">14</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">One Shot</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="One Shot" id="9427-0e4e-b638-407c" hidden="false" type="rule" targetId="cd26-1611-860a-91e4"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="4c54-9b4f-edec-28af" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="0685-80ed-39a9-65b9" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Semi-automatic grenade launcher" hidden="false" id="30ba-0f84-6771-0815" collective="false">
-              <profiles>
-                <profile name="➤ Semi-automatic grenade launcher - EMP" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b3bd-17e4-d9b1-8edd">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">3</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Vehicle 4+, Devastating Wounds</characteristic>
-                  </characteristics>
-                </profile>
-                <profile name="➤ Semi-automatic grenade launcher - fusion" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ee98-6d18-c84c-f530">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Anti-" id="72e5-af8b-5860-a122" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-                <infoLink name="Devastating Wounds" id="83a5-d274-4784-a2a6" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="61c6-2162-daf3-5c5f" includeChildSelections="false"/>
-              </constraints>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="cf45-b0a6-5695-828f" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <modifiers>
-                <modifier type="set" value="3" field="61c6-2162-daf3-5c5f">
-                  <conditions>
-                    <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Twin plasma rifle" hidden="false" id="d944-3ecd-e863-f3fc">
-              <profiles>
-                <profile name="Twin plasma rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4cf2-7056-c149-9a84">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Twin-linked" id="096f-b316-7d09-1be2" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="3143-d150-2e39-4268" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="28ca-c354-7841-1cdf" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Twin smart missile system" hidden="false" id="ba2b-6e5f-4525-f293">
-              <profiles>
-                <profile name="Twin smart missile system" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7a7e-8666-57bb-6afa">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Indirect Fire, Twin-linked</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Twin-linked" id="4156-5bd3-c8f8-0b0f" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-                <infoLink name="Indirect Fire" id="e1ea-c399-39b5-57d6" hidden="false" type="rule" targetId="4ddd-4e29-acdd-5e6d"/>
-              </infoLinks>
-              <comment>Crucible variant</comment>
-              <categoryLinks>
-                <categoryLink name="Ranged Weapon" hidden="false" id="1880-e0fc-ca74-b4f6" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-              </categoryLinks>
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="9924-739d-0faa-390e" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </selectionEntry>
-          </selectionEntries>
-          <modifiers>
-            <modifier type="increment" value="1" field="d67b-8a06-6b24-0bd3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="parent" childId="30ba-0f84-6771-0815" shared="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="3" field="d67b-8a06-6b24-0bd3">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="parent" childId="9694-07cd-6228-0f2f" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Pistols" id="7657-1fc5-e93c-14bb" hidden="false">
-          <constraints>
-            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="80dd-906b-ba16-4edf" includeChildSelections="false"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="Pulse pistol" hidden="false" id="1cc9-5b6c-19f7-ed92" targetId="ba81-87dc-de58-d901" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="7119-a3c8-2c8c-7169" includeChildSelections="false"/>
-              </constraints>
-            </entryLink>
-            <entryLink import="true" name="Kroot pistol and hunting javelins" hidden="false" id="7478-24d1-2606-3e55" targetId="f5bb-88e6-afd3-2ab" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="a6a7-a5a0-c2b2-c2e5" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Kroot pistol" hidden="false" id="cff9-cf77-8ab2-40fc" targetId="591e-d6ae-6069-c203" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="6af3-c924-2dfc-8a10" includeChildSelections="false"/>
-              </constraints>
-            </entryLink>
-          </entryLinks>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="root-entry" childId="7288-48b3-c4df-66c6" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Melee Weapons" id="8667-ee89-003b-cc7d" hidden="false" defaultSelectionEntryId="none">
-          <constraints>
-            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="bd2f-8634-bbad-5c5a" includeChildSelections="false"/>
-            <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="e140-65c8-ee42-a2d5" includeChildSelections="false"/>
-          </constraints>
-          <entryLinks>
-            <entryLink import="true" name="Bladestave and prey-hook" hidden="false" id="9863-212a-cca8-0e6b" targetId="e1f4-5129-6594-944c" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="dfaa-9ce2-dac7-9c9b" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Close combat weapon" hidden="false" id="c37a-06e1-20b1-3c71" targetId="9723-19aa-cd65-d7d0" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7664-f7de-583b-3318" includeChildSelections="false"/>
-              </constraints>
-            </entryLink>
-            <entryLink import="true" name="Hunting blades" hidden="false" id="2265-a36e-3fc0-856a" targetId="309-bb0b-4db9-b66a" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9150-e99f-7b1d-ba08" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Shaper&apos;s blade" hidden="false" id="8b0d-09de-7037-1b4b" targetId="88d1-1fe9-5428-1482" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c3c2-3ddd-147b-fcc5" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-            <entryLink import="true" name="Twin ritualistic blades" hidden="false" id="99d2-724b-3fb9-ebca" targetId="5112-d6ea-fced-68ae" type="selectionEntry">
-              <entryLinks></entryLinks>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9107-151b-00d6-b725" includeChildSelections="false"/>
-              </constraints>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="root-entry" childId="79c5-9fc4-7b97-7c3f" shared="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-            </entryLink>
-          </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Crushing bulk" hidden="false" id="5bc4-3780-d71b-a273">
-              <profiles>
-                <profile name="Crushing bulk" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ca65-4673-8cdd-8846">
-                  <characteristics>
-                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
-                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <comment>Crucible variant</comment>
-              <categoryLinks>
-                <categoryLink name="Melee Weapon" hidden="false" id="f648-8741-6f26-67d4" targetId="ccdd-3987-11ed-90cd" primary="false"/>
-              </categoryLinks>
-              <modifiers>
-                <modifier type="set" value="true" field="hidden">
-                  <conditions>
-                    <condition type="lessThan" value="1" field="selections" scope="root-entry" childId="9694-07cd-6228-0f2f" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </modifier>
-              </modifiers>
-              <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b8b5-dbe5-7887-f3c7" includeChildSelections="false"/>
-              </constraints>
-              <entryLinks></entryLinks>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <categoryEntries>
@@ -12439,11 +10690,4 @@ EFFECT: Your unit has +1 Sv.</description>
       </characteristicTypes>
     </profileType>
   </profileTypes>
-  <sharedRules>
-    <rule name="Void Combat Discipline" id="1a7a-a079-15fb-f3d9" hidden="false">
-      <description>Units from your army with the For the Greater Good ability lose that ability and **^^T&apos;au Empire^^** units from your army gain this one.
-
-Each time a model in this unit makes a ranged attack, it can ignore other models in this unit for the purposes of determining visibility. In addition, this unit is eligible to perform the Set Overwatch Tactical Manoeuvre in a turn in which it Advanced or Fell Back.</description>
-    </rule>
-  </sharedRules>
 </catalogue>
