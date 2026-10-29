@@ -13,6 +13,10 @@
 // Le meneur reçoit aussi la règle de base (Leader b4dd-… / Support 21f5-…) et l'aptitude « Leader » / « Support »
 // (texte officiel) s'il ne les porte pas. Les liens que la fiche officielle ne porte pas sont retirés (la fiche
 // fait foi), sauf si la cible a été scindée côté officiel (« Eradicator Squad » ↔ « Eradicator Squad with … »).
+// Appariement des noms (2026-10-29 — trois angles morts qui laissaient des fiches hors synchronisation) :
+// tirets typographiques normalisés (« Shield‑Captain », U+2011), fiche racine hidden exposée par un entryLink
+// visible (Marneus Calgar), noms officiels ≠ les nôtres résolus par editor/mfm/aliases.json (« Eradicator Squad
+// with melta rifles » → « Eradicator Squad », « Ancient in Terminator Armour » → « … Armor »).
 //
 //   node editor/translations/gdc-attach.cjs <dossier 11th/gdc> [--write] [--only "Fiche"] [--strings fr.json]
 const fs = require("fs"); const path = require("path"); const R = path.resolve(__dirname, "../..");
@@ -26,7 +30,8 @@ const FWD = { leader: "Can Lead (MFM)", support: "Can Support (MFM)" };
 const REV = { leader: "Led By (MFM)", support: "Supported By (MFM)" };
 const ABIL_TYPE = "9cc3-6d83-4dd3-9b64";
 const en = (x) => (x && typeof x === "object" && "en" in x) ? x.en : (x == null ? "" : String(x));
-const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
+// tirets typographiques (U+2010–2015) ramenés à « - » : la source écrit « Shield‑Captain » (U+2011), comme gdc-watch
+const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[\u2010-\u2015]/g, "-").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
 const nm = (n) => xml.getAttrDecoded(n, "name") || "";
 const el = (tag, attrs, kids) => { const e = xml.elem(tag, attrs, kids || []); e.selfClose = !(kids && kids.length); return e; };
 const c = new Catalog(R).load(); const dirty = new Set(); const log = []; const warn = [];
@@ -36,9 +41,18 @@ const fileOfCat = new Map(); for (const [f, d] of c.docs) fileOfCat.set(xml.getA
 const closure = new Map();
 function clos(f) { if (closure.has(f)) return closure.get(f); const s = new Set([f]); closure.set(f, s);
   const cl = xml.child(c.docs.get(f).root, "catalogueLinks"); if (cl) for (const k of cl.children) { const t = fileOfCat.get(xml.getAttr(k, "targetId")); if (t) for (const x of clos(t)) s.add(x); } return s; }
-// ── fiches racine par nom
+// ── fiches racine par nom ; une fiche hidden reste une datasheet si un entryLink racine VISIBLE l'expose
+// (Marneus Calgar, « HIDDEN UNTIL LEGENDS » : l'appli le propose, sa liste doit suivre la fiche officielle)
+const linkedVisible = new Set(); for (const [, d] of c.docs) { const el = xml.child(d.root, "entryLinks"); if (el) for (const k of el.children) if (k.tag === "entryLink" && xml.getAttr(k, "hidden") !== "true") linkedVisible.add(xml.getAttr(k, "targetId")); }
 const units = new Map(); for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (!bx) continue;
-  for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && xml.getAttr(e, "hidden") !== "true") { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ f, e }); } }
+  for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && (xml.getAttr(e, "hidden") !== "true" || linkedVisible.has(xml.getAttr(e, "id")))) { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ f, e }); } }
+// noms officiels qui diffèrent des nôtres : la table d'alias du MFM (mêmes noms que la source) —
+// « Eradicator Squad with melta rifles » → « Eradicator Squad », « Ancient in Terminator Armour » → « … Armor »
+const ALIAS = new Map(); { const A = JSON.parse(fs.readFileSync(R + "/editor/mfm/aliases.json", "utf8"));
+  for (const [slug, m] of Object.entries(A)) if (slug !== "_doc") for (const [k, v] of Object.entries(m)) { const s = ALIAS.get(N(k)) || new Set(); for (const x of [].concat(v)) s.add(x); ALIAS.set(N(k), s); } }
+const byName = (name) => { const direct = units.get(N(name)); if (direct) return direct; const out = [];
+  for (const v of ALIAS.get(N(name)) || []) { const hit = c.byId.get(v); if (hit && hit.node.tag === "selectionEntry") { for (const l of units.values()) for (const x of l) if (x.e === hit.node) out.push(x); } else out.push(...(units.get(N(v)) || [])); }
+  return out; };
 // fiches EXPOSÉES (cibles d'un entryLink racine d'un catalogue) : entre homonymes, seules celles-ci sont des datasheets
 // (la seconde entrée « Wolf Guard Headtakers », de type model, n'en est pas une)
 const exposed = new Set(); for (const [, d] of c.docs) { const el = xml.child(d.root, "entryLinks"); if (el) for (const k of el.children) if (k.tag === "entryLink") exposed.add(xml.getAttr(k, "targetId")); }
@@ -49,7 +63,7 @@ const gdcFiles = Object.keys(MAN.files).filter((f) => fs.existsSync(path.join(GD
 const sheetsOf = new Map(); for (const f of gdcFiles) sheetsOf.set(f, new Set(JSON.parse(fs.readFileSync(path.join(GDC, f), "utf8")).datasheets.map((d) => N(en(d.name)))));
 const primaryFile = (f) => (MAN.files[f].catalogues || [])[0];
 function leaderNodes(file, name) {
-  const cands = units.get(N(name)) || []; const mine = cands.filter((x) => (MAN.files[file].catalogues || []).includes(x.f)); if (mine.length) return mine.slice(0, 1);
+  const cands = byName(name); const mine = cands.filter((x) => (MAN.files[file].catalogues || []).includes(x.f)); if (mine.length) return mine.slice(0, 1);
   // hors manifeste (ex. fiche Ultramarines dans space_marines.json) : écarter un fichier primaire d'une AUTRE source qui a la même fiche
   return cands.filter((x) => !gdcFiles.some((g) => g !== file && primaryFile(g) === x.f && sheetsOf.get(g).has(N(name)))).slice(0, 1);
 }
@@ -83,19 +97,19 @@ function ensureProse(u, f, kind, targets) { const pname = RULE[kind][1]; if (has
 
 // ── synchronisation
 const officialPairs = new Set(); // "kind|leaderId|targetId" attendus (pour les liens inverses en trop)
-const touchedRev = new Set();
+const touchedRev = new Set(); const processed = new Set(); // ids des meneurs synchronisés (alias compris)
 for (const file of gdcFiles) {
   const J = JSON.parse(fs.readFileSync(path.join(GDC, file), "utf8"));
   for (const ds of J.datasheets) {
     const at = ds.attachesTo || []; if (!at.length) continue; if (ONLY.size && !ONLY.has(en(ds.name))) continue;
-    for (const L of leaderNodes(file, en(ds.name))) for (const kind of ["leader", "support"]) {
+    for (const L of leaderNodes(file, en(ds.name))) { processed.add(xml.getAttr(L.e, "id")); for (const kind of ["leader", "support"]) {
       // + rattachements ajoutés par un document officiel plus récent (manifeste attachOverrides)
       const ovr = ((MAN.attachOverrides || {})[en(ds.name)] || {})[kind] || [];
       const offT = [...new Set([...at.filter((a) => a.type === kind).map((a) => a.target), ...ovr])]; if (!offT.length) continue;
       ensureRule(L.e, L.f, kind);
       const resolved = [];
       for (const tname of offT) {
-        const cands = (units.get(N(tname)) || []).filter((t) => t.e !== L.e);
+        const cands = byName(tname).filter((t) => t.e !== L.e);
         if (!cands.length) { if (!(at.find((a) => a.target === tname) || {}).targetType || at.find((a) => a.target === tname).targetType === "datasheet") warn.push(`${en(ds.name)} : cible « ${tname} » introuvable chez nous`); continue; }
         resolved.push(tname);
         for (const T of cands) {
@@ -105,13 +119,13 @@ for (const file of gdcFiles) {
       }
       // prose : noms de NOS fiches (une fiche officielle scindée — « Eradicator Squad with melta rifles » —
       // s'écrit sous notre nom « Eradicator Squad », sinon l'appli ne la résoudrait pas)
-      const ourName = (o) => { if (units.has(N(o))) return nm(units.get(N(o))[0].e); for (const [k, v] of units) if (N(o).startsWith(k + " ")) return nm(v[0].e); return o; };
+      const ourName = (o) => { const b = byName(o); if (b.length) return nm(b[0].e); for (const [k, v] of units) if (N(o).startsWith(k + " ")) return nm(v[0].e); return o; };
       if (resolved.length) ensureProse(L.e, L.f, kind, [...new Set(offT.map(ourName))]);
       // liens directs que la fiche officielle ne porte pas → retirés (sauf cible scindée côté officiel)
       for (const tid of linkIds(group(L.e, FWD[kind], false))) { const t = c.byId.get(tid); if (!t) continue; const tn = N(nm(t.node));
-        if (offT.some((o) => N(o) === tn || N(o).startsWith(tn + " ") || tn.startsWith(N(o) + " "))) continue;
+        if (offT.some((o) => N(o) === tn || N(o).startsWith(tn + " ") || tn.startsWith(N(o) + " ") || byName(o).some((x) => xml.getAttr(x.e, "id") === tid))) continue;
         dropLink(L.e, L.f, FWD[kind], tid, nm(t.node) + " (absent de la fiche officielle)"); }
-    }
+    } }
   }
 }
 // liens (directs ou inverses) vers un homonyme qui n'est pas une datasheet → retirés
@@ -121,7 +135,7 @@ for (const [f, d] of c.docs) xml.walk(d.root, (u) => { if (u.tag !== "selectionE
 for (const [f, d] of c.docs) xml.walk(d.root, (u) => { if (u.tag !== "selectionEntry") return;
   for (const kind of ["leader", "support"]) { const g = group(u, REV[kind], false); if (!g) continue;
     for (const lid of linkIds(g)) { const L = c.byId.get(lid); if (!L) continue; if (ONLY.size && !ONLY.has(nm(L.node))) continue;
-      const handled = gdcFiles.some((gf) => sheetsOf.get(gf).has(N(nm(L.node))));
+      const handled = processed.has(lid) || gdcFiles.some((gf) => sheetsOf.get(gf).has(N(nm(L.node))));
       if (handled && !officialPairs.has(`${kind}|${lid}|${xml.getAttr(u, "id")}`)) dropLink(u, f, REV[kind], lid, nm(L.node) + " (absent de la fiche officielle)"); } } });
 
 for (const l of log) console.log("Δ " + l); for (const w of warn) console.log("⚠ " + w);
