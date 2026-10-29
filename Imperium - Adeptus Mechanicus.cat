@@ -25,7 +25,6 @@
     <categoryEntry id="fb11-aa41-617f-2adc" name="Sterylizors" hidden="false"/>
     <categoryEntry id="2ca0-ee66-2659-8616" name="Serberys Raiders" hidden="false"/>
     <categoryEntry id="2f2d-8608-4615-d4da" name="Serberys Sulphurhounds" hidden="false"/>
-    <categoryEntry id="8bed-149-735e-9e73" name="Servitors" hidden="false"/>
     <categoryEntry id="a6e7-8605-af27-3b57" name="Sicarian" hidden="false"/>
     <categoryEntry id="e659-53c-94b7-7428" name="Ruststalkers" hidden="false"/>
     <categoryEntry id="58c1-8e13-6d05-ee24" name="Marshal" hidden="false"/>
@@ -39,10 +38,6 @@
     <categoryEntry id="5441-b72-c2ad-f28a" name="Technoarcheologist" hidden="false"/>
     <categoryEntry id="2a4e-9018-d675-74f1" name="Skitarii" hidden="false"/>
     <categoryEntry id="6fdf-6180-8f3c-a07" name="Kataphron" hidden="false"/>
-    <categoryEntry id="7069-de6a-26a0-9d26" name="Secutarii Peltasts" hidden="false"/>
-    <categoryEntry id="b6bd-96ba-9704-2166" name="Secutarii Hoplites" hidden="false"/>
-    <categoryEntry id="5f5c-48ec-136a-7c17" name="Terrax-pattern Termite" hidden="false"/>
-    <categoryEntry name="X-101" hidden="false" id="2565-ab00-5e76-8873"/>
     <categoryEntry name="Sydonian" hidden="false" id="fe37-1124-2cfd-f11b"/>
     <categoryEntry name="Dragoons with Radium Jezzails" hidden="false" id="30e5-b0cd-364f-7d9c"/>
     <categoryEntry name="Dragoons with Taser Lances" hidden="false" id="4ebd-bec7-572d-1dfa"/>
@@ -1246,7 +1241,7 @@ def-mod: source=&quot;Electro-Infusion&quot; wound=-1 conditional</comment>
                       </constraints>
                       <entryLinks></entryLinks>
                       <costs>
-                        <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                     </selectionEntry>
                   </selectionEntries>
@@ -1277,11 +1272,6 @@ def-mod: source=&quot;Electro-Infusion&quot; wound=-1 conditional</comment>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition field="selections" scope="7efb-de37-79c4-cccb" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="7efb-de37-79c4-cccb" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
       </modifiers>
@@ -5730,10 +5720,14 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
         <profile id="4fe6-68c7-06d7-e127" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+
 ■ Corpuscarii Electro-Priests
 ■ Fulgurite Electro-Priests
+■ Hastarii Exterminators
+■ Hastarii Fusiliers
 ■ Kataphron Breachers
 ■ Kataphron Destroyers
+■ Servitor Battleclade
 ■ Skitarii Rangers
 ■ Skitarii Vanguard</characteristic>
           </characteristics>
@@ -6032,11 +6026,11 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
         <profile id="caa6-2932-0474-188f" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+
 ■ Corpuscarii Electro-Priests
 ■ Fulgurite Electro-Priests
 ■ Kataphron Breachers
 ■ Kataphron Destroyers
-■ Servitors
 ■ Skitarii Rangers
 ■ Skitarii Vanguard</characteristic>
           </characteristics>
@@ -6223,10 +6217,14 @@ def-mod: source=&quot;Defend the Divine Work&quot; inv=4 oncePer=battle</comment
         <profile id="259a-6380-dd29-8ae0" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+
 ■ Corpuscarii Electro-Priests
 ■ Fulgurite Electro-Priests
+■ Hastarii Exterminators
+■ Hastarii Fusiliers
 ■ Kataphron Breachers
 ■ Kataphron Destroyers
+■ Servitor Battleclade
 ■ Skitarii Rangers
 ■ Skitarii Vanguard</characteristic>
           </characteristics>
