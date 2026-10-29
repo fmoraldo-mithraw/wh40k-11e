@@ -3796,26 +3796,10 @@ leader-kw: Infantry &amp; Battleline &amp; Imperium</comment>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="Ignores Cover" field="7f1b-8591-2fcf-d01c">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="81a3-a972-dfb1-24f9" shared="true" includeChildSelections="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Rapid Fire" hidden="false" type="rule" id="feff-2e13-e01-bbb5" targetId="c5c8-8b58-b8b6-7786"/>
-        <infoLink name="Ignores Cover" id="f41f-5589-d522-0e83" hidden="false" type="rule" targetId="4640-43e7-30b-215a">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="81a3-a972-dfb1-24f9" shared="true" includeChildSelections="false"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Detachment" hidden="false" id="1162-9cd5-d6b0-1663">
@@ -10456,16 +10440,6 @@ invuln: 4+</comment>
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
-    <categoryEntry name="Karamazov" hidden="false" id="74b-b77d-ea83-6803">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
-    <categoryEntry name="Eisenhorn" hidden="false" id="673b-fa00-24a6-28ad">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="2343-dd53-d08-2ab5" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
     <categoryEntry name="Inquisitorial Henchmen" hidden="false" id="bf73-46e-399-91c0">
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9e1c-e0b-5d37-7a99" includeChildSelections="true"/>
@@ -10587,11 +10561,6 @@ invuln: 4+</comment>
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="3983-e92c-d696-55db" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
-    <categoryEntry name="Damned Legionaires" hidden="false" id="81a3-a972-dfb1-24f9">
-      <constraints>
-        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="c467-93f6-6c57-46cf" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
     <categoryEntry name="Voidfarers" id="7aea-df68-2ade-9bd6" hidden="false"/>
     <categoryEntry name="Ordo Malleus" id="5ef0-886d-e892-b934" hidden="false"/>
     <categoryEntry name="Ordo Xenos" id="ab1c-1334-d1cc-08df" hidden="false"/>
@@ -10652,24 +10621,13 @@ invuln: 4+</comment>
     <categoryEntry name="Sisters of Battle Immolator" id="a860-cde8-a263-dfa0" hidden="false"/>
     <categoryEntry name="Voidfarer Character" id="dc9f-a416-58db-fe5a" hidden="true"/>
     <categoryEntry name="Corvus Blackstar" id="509b-cfe0-9bcd-f84c" hidden="false"/>
-    <categoryEntry name="Deathwatch Terminator Squad" id="8382-2911-b97f-d6d2" hidden="false"/>
-    <categoryEntry name="Fortis Kill Team" id="94a4-4c41-84a4-d038" hidden="false"/>
-    <categoryEntry name="Indomitor Kill Team" id="2546-062b-7236-7fa3" hidden="false"/>
     <categoryEntry name="Kill Team" id="a523-2f75-c927-f911" hidden="false"/>
-    <categoryEntry name="Spectrus Kill Team" id="2b33-05a8-bf42-72f9" hidden="false"/>
     <categoryEntry name="Watch Master" id="428f-8c3b-d212-3eab" hidden="false"/>
-    <categoryEntry name="Indom JP Int" id="0edb-4bb2-e62f-710b" hidden="true"/>
-    <categoryEntry name="Indom PF int" id="6345-bfcd-66e1-76f3" hidden="true"/>
     <categoryEntry name="Puritan" id="34d8-ef3d-2c30-1671" hidden="false">
       <comment>Crusade content</comment>
     </categoryEntry>
     <categoryEntry name="Radical" id="22a1-b48a-b3d4-dc02" hidden="false">
       <comment>Crusade content</comment>
-    </categoryEntry>
-    <categoryEntry name="Ostromandeus" id="e2d0-e01e-c95a-bd0e" hidden="false">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="8679-ab11-1d64-c420" includeChildSelections="true"/>
-      </constraints>
     </categoryEntry>
     <categoryEntry name="Tacticus" id="6c22-f7e3-6731-b974" hidden="false"/>
     <categoryEntry name="Aquila Kill Team" id="6596-ebf9-88dc-59dc" hidden="false"/>
