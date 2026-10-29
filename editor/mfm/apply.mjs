@@ -39,6 +39,22 @@ const DET_TOKENS = (() => {
 // jeu de mots du nom (ordre et ponctuation libres : « Ordo Hereticus, Purgation Force » = « Purgation Force (Ordo Hereticus) »)
 function detTokens(s) { return [...new Set(String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[’']/g, "").split(/[^a-z0-9]+/).filter(Boolean))].sort().join(" "); }
 const detInBase = (name) => DET_TOKENS.includes(detTokens(name));
+// Abandons actés (editor/mfm/abandons.json, lu aussi par build-map.mjs et gdc-watch.cjs) : slug → Map(nom
+// normalisé → { name, why }). Un nom abandonné n'est JAMAIS redemandé en « ① » — y compris depuis une matrice
+// antérieure à abandons.json — : il sort en ligne « ℹ abandonné ». Apparié à une datasheet de la base, il part
+// en « ⚠ ABANDON CADUC » (à renvoyer). Même normalisation que build-map.mjs (norm).
+const abNorm = (s) => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[’‘`]/g, "'").replace(/[–—]/g, "-")
+  .replace(/\bw\/\s*/gi, "with ").toUpperCase().replace(/[^A-Z0-9]+/g, " ").trim();
+let ABANDONS_ERR = null;
+const ABANDONS = (() => {
+  const out = new Map();
+  try {
+    const j = JSON.parse(fs.readFileSync(path.join(HERE, "abandons.json"), "utf8"));
+    for (const [slug, v] of Object.entries(j)) if (!slug.startsWith("_") && v && typeof v === "object" && !Array.isArray(v))
+      out.set(slug, new Map(Object.entries(v).map(([n, why]) => [abNorm(n), { name: n, why: String(why) }])));
+  } catch (e) { if (e.code !== "ENOENT") ABANDONS_ERR = e.message; }
+  return out;
+})();
 
 const args = process.argv.slice(2);
 const flags = new Set(args.filter((a) => a.startsWith("--")));
@@ -152,6 +168,8 @@ for (const slug of slugs) {
 // vue depuis plusieurs factions ; met en REVIEW les bsId conflictuels).
 const emittedWrite = new Set();                            // `${bsId}|${field}` déjà émis en Δ
 const actions = [];                                        // { cat, faction, name, detail } — « à me renvoyer »
+const abandonedInfo = [];                                  // { faction, name, why } — abandons actés (ℹ, rien à renvoyer)
+if (ABANDONS_ERR) actions.push({ cat: "erreur", faction: "—", name: "editor/mfm/abandons.json", detail: `illisible (${ABANDONS_ERR}) : les abandons actés retombent en « ① »` });
 for (const slug of slugs) {
   const map = JSON.parse(fs.readFileSync(path.join(MAP_DIR, slug + ".json"), "utf8"));
   const mfmPath = path.join(mfmDir, slug + ".json");
@@ -266,7 +284,23 @@ for (const slug of slugs) {
     }
   }
   // ── résidu de la matrice (Phase 1) : noms/amél. non-mappés, erreurs ─────────
-  for (const n of (map.unmapped || [])) actions.push({ cat: "nom-non-mappe", faction: map.faction, name: n, detail: "aucune datasheet .cat pour ce nom MFM" });
+  // Abandons actés : jamais « ① » (matrice ancienne ou récente) ; un nom de `abandoned` que abandons.json ne
+  // porte plus (abandon levé, matrice pas encore régénérée) redevient un « ① ».
+  const abHere = ABANDONS.get(slug) || new Map();
+  const noSheet = (n) => actions.push({ cat: "nom-non-mappe", faction: map.faction, name: n, detail: "aucune datasheet .cat pour ce nom MFM" });
+  for (const n of (map.unmapped || [])) {
+    const ab = abHere.get(abNorm(n));
+    if (ab) abandonedInfo.push({ faction: map.faction, name: n, why: ab.why }); else noSheet(n);
+  }
+  for (const a of (map.abandoned || [])) {
+    const ab = abHere.get(abNorm(a.name));
+    if (ab) abandonedInfo.push({ faction: map.faction, name: a.name, why: ab.why }); else noSheet(a.name);
+  }
+  for (const [n, entry] of Object.entries(map.matched || {})) {
+    const ab = abHere.get(abNorm(n));
+    if (ab) actions.push({ cat: "abandon-caduc", faction: map.faction, name: n,
+      detail: `apparié à ${(entry.targets || []).map((t) => `« ${t.catName} » ${t.bsId}`).join(", ")} alors qu'editor/mfm/abandons.json le dit abandonné (${ab.why})` });
+  }
   for (const n of (map.enhUnmapped || [])) actions.push({ cat: "enh-non-mappee", faction: map.faction, name: n, detail: "aucune amélioration bdd pour ce nom MFM" });
   for (const e of (map.errors || [])) {
     if (/déjà mappé/.test(e.why)) continue;                 // dual-cost Agents : bénin, ignoré
@@ -284,6 +318,7 @@ console.log(lines.length ? lines.join("\n") : "  (aucun — la bdd est alignée 
 // Un bloc par catégorie d'action, avec l'instruction concrète de ce qu'il faut
 // fournir. C'est LA liste à me renvoyer.
 const CAT = {
+  "abandon-caduc":   { icon: "⚠", titre: "ABANDON CADUC — un nom d'editor/mfm/abandons.json est apparié à une datasheet de la base : fiche intégrée → retirer l'entrée d'abandons.json ; abandon maintenu → retirer la fiche. Confirme." },
   "det-absent":      { icon: "⓪", titre: "DÉTACHEMENT MFM ABSENT DE LA BASE — envoie-moi son TEXTE (règle de détachement, stratagèmes, améliorations) : je l'intègre (FACTION_PACK_PROMPT)." },
   "nom-non-mappe":   { icon: "①", titre: "NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias." },
   "enh-non-mappee":  { icon: "②", titre: "AMÉLIORATIONS MFM SANS ENTRÉE BDD — envoie le nom exact en base, ou confirme qu'elle manque dans les données." },
@@ -316,7 +351,15 @@ if (!actions.length) {
   // toute catégorie non prévue (garde-fou)
   for (const [cat, items] of byCat) if (!CAT[cat]) for (const it of items) console.log(`\n? ${cat}: [${it.faction}] ${it.name} — ${it.detail}`);
 }
+// Abandons actés : information seule (jamais « ① », hors décompte « À ME RENVOYER »), un nom par ligne
+// avec ses factions — l'en-tête ne finit pas par « [N] » (run.sh y lit la ventilation des catégories).
+if (abandonedInfo.length) {
+  const grp = new Map();
+  for (const a of abandonedInfo) { const k = a.name + "\u0000" + a.why; if (!grp.has(k)) grp.set(k, { ...a, facs: [] }); grp.get(k).facs.push(a.faction); }
+  console.log(`\nℹ ABANDONS ACTÉS (editor/mfm/abandons.json) — rien à renvoyer, ne plus les redemander : ${abandonedInfo.length} nom(s) MFM`);
+  for (const g of grp.values()) console.log(`   ℹ abandonné : ${g.name} [${g.facs.join(", ")}] — ${g.why}`);
+}
 
 console.log(`\n════ DRY-RUN ════`);
-console.log(`Unités examinées: ${tot.units} · deltas points auto: ${tot.deltas} · deltas améliorations auto: ${tot.enhDeltas} · À ME RENVOYER: ${actions.length}`);
+console.log(`Unités examinées: ${tot.units} · deltas points auto: ${tot.deltas} · deltas améliorations auto: ${tot.enhDeltas} · À ME RENVOYER: ${actions.length} · abandons actés (ℹ): ${abandonedInfo.length}`);
 console.log(`Aucune écriture (dry-run). Applique le bloc AUTO en Phase 3 ; renvoie-moi le bloc « ⚑ À ME RENVOYER » pour le reste.`);

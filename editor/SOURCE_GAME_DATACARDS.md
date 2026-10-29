@@ -70,7 +70,7 @@ node editor/translations/gdc-watch.cjs --old /tmp/gdc-old/11th/gdc --new /tmp/gd
 | 💰 points | appliquer le prix de l'appli officielle selon `MFM_PROMPT.md` (paliers, répétition) ; signaler si le dernier MFM diffère. |
 | ✋ manuel (composition, options, mots-clefs de fiche, fiche nouvelle, stratagèmes hors chapitres) | encoder selon les guides (règles maison : porteurs, Upgrade, UNIQUE…). |
 | ❓ doute | **seul cas** : fiche entière retirée de l'appli officielle → si le MFM la range en **Legends**, la retirer de la base (rien de Legends dans la base ni l'appli, décision du 2026-10-29 ; `gdc-watch` la classe 🛠) ; sinon demander avant de supprimer. |
-| 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. Nouvelle fiche amont **Legends** au MFM (`editor/mfm/legends.json`) : hors base, ignorer (décision du 2026-10-29). |
+| 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. Nouvelle fiche amont **Legends** au MFM (`editor/mfm/legends.json`) : hors base, ignorer (décision du 2026-10-29). Fiche **abandonnée** (`editor/mfm/abandons.json` : Astraeus, Thunderhawk Gunship du tronc SM, Gargantuan Squiggoth, Ares, Orion) : ignorer. |
 
 Les changements appliqués sont poussés sur une **branche `veille-gdc/v<B>`** (jamais
 directement sur `main`), avec le rapport et le manifeste mis à jour (`tracked`) ; la fusion

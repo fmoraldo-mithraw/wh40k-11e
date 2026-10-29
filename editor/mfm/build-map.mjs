@@ -5,7 +5,15 @@
 // catalog) ses coûts actuels ET **toutes ses options d'armes/wargear porteuses
 // de coût** (id + pts courant), afin qu'un futur surcoût par arme puisse être
 // adressé sans re-recherche. Écrit editor/mfm/map/<slug>.json
-// { matched, unmapped, orphans, errors }. Lecture seule sur la bdd.
+// { matched, unmapped, abandoned, abandonedConflicts, orphans, errors, … }.
+// Lecture seule sur la bdd.
+//
+// Abandons actés (editor/mfm/abandons.json, { "<slug>": { "<NOM MFM>": "décision
+// du AAAA-MM-JJ : …" } }) : un nom MFM sans datasheet dont l'intégration est
+// abandonnée par l'utilisateur va dans `abandoned` (plus dans `unmapped`, donc
+// plus jamais redemandé en « ① » par apply.mjs). S'il correspond À NOUVEAU à une
+// datasheet de la base, il reste apparié (la base fait foi tant que la fiche y
+// est) ET part dans `abandonedConflicts`, signalé bruyamment ici et par apply.
 //
 // Robustesse (« ne rien insérer de douteux ») : chaque unité est résolue dans
 // un try/catch ; un bsId qui ne retombe pas sur un nœud de la bdd, un coût non
@@ -23,6 +31,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, "..", "..");                    // wh40k-11e
 const MAP_DIR = path.join(HERE, "map");
 const ALIASES = path.join(HERE, "aliases.json");
+const ABANDONS = path.join(HERE, "abandons.json");
 
 // Dépendance UNIQUE et EN LECTURE SEULE hors de ce dépôt : le parser de l'app
 // cogitator-bellicum, utilisé seulement pour résoudre la CLÔTURE D'IMPORT (quels
@@ -124,6 +133,26 @@ try {
 if (!all || Object.keys(all).length === 0) { console.error("aucune faction parsée — abandon."); process.exit(2); }
 
 const aliases = fs.existsSync(ALIASES) ? JSON.parse(fs.readFileSync(ALIASES, "utf8")) : {};
+// Abandons actés : slug → Map(nom normalisé → { name, why }). Format vérifié
+// (slug connu, motif « décision du AAAA-MM-JJ ») — toute anomalie est affichée.
+const abandonWarn = [];
+const abandonOf = new Map();
+if (fs.existsSync(ABANDONS)) {
+  let ab = {};
+  try { ab = JSON.parse(fs.readFileSync(ABANDONS, "utf8")); }
+  catch (e) { abandonWarn.push(`abandons.json illisible (${e.message}) — aucun abandon pris en compte`); }
+  for (const [slug, v] of Object.entries(ab)) {
+    if (slug.startsWith("_")) continue;
+    if (!SLUG_TO_POOL[slug]) { abandonWarn.push(`abandons.json : slug inconnu « ${slug} » — ignoré`); continue; }
+    if (!v || typeof v !== "object" || Array.isArray(v)) { abandonWarn.push(`abandons.json : « ${slug} » n'est pas un objet { nom: décision } — ignoré`); continue; }
+    const m = new Map();
+    for (const [name, why] of Object.entries(v)) {
+      if (typeof why !== "string" || !/décision du \d{4}-\d{2}-\d{2}/.test(why)) abandonWarn.push(`abandons.json : ${slug} / ${name} — motif sans « décision du AAAA-MM-JJ »`);
+      m.set(norm(name), { name, why: String(why) });
+    }
+    abandonOf.set(slug, m);
+  }
+}
 fs.mkdirSync(MAP_DIR, { recursive: true });
 
 const COST_PTS = "51b2-306e-1021-d207";
@@ -191,7 +220,8 @@ const slugs = fs.readdirSync(mfmDir)
   .map((f) => f.replace(/\.json$/, ""))
   .filter((s) => !onlySlug || s === onlySlug);
 
-let tot = { mfm: 0, matched: 0, aliased: 0, unmapped: 0, orphans: 0, errors: 0, weaponOpts: 0, enh: 0, enhUnmapped: 0 };
+let tot = { mfm: 0, matched: 0, aliased: 0, unmapped: 0, abandoned: 0, abandonConflicts: 0, orphans: 0, errors: 0, weaponOpts: 0, enh: 0, enhUnmapped: 0 };
+const loud = [];                                            // abandons caducs (fiche revenue en base)
 const summary = [];
 
 for (const slug of slugs) {
@@ -221,6 +251,8 @@ for (const slug of slugs) {
 
   const alias = aliases[slug] || {};
   const matched = {}, unmapped = [], errors = [];
+  const abandoned = [], abandonedConflicts = [];
+  const abHere = abandonOf.get(slug) || new Map(), abSeen = new Set();
   const matchedIds = new Set();
 
   for (const mu of mfm.units) {
@@ -236,7 +268,17 @@ for (const slug of slugs) {
       const av = alias[mu.name];
       hits = (Array.isArray(av) ? av : [av]).map(resolveOne).filter(Boolean);
     }
-    if (!hits.length) { unmapped.push(mu.name); tot.unmapped++; continue; }
+    const ab = abHere.get(norm(mu.name));
+    if (ab) abSeen.add(norm(mu.name));
+    if (!hits.length) {
+      if (ab) { abandoned.push({ name: mu.name, why: ab.why }); tot.abandoned++; continue; }
+      unmapped.push(mu.name); tot.unmapped++; continue;
+    }
+    if (ab) {                                               // abandon caduc : la base a (de nouveau) la fiche
+      abandonedConflicts.push({ name: mu.name, why: ab.why, targets: hits.map((h) => ({ catName: h.name, bsId: h.bsId || null, faction: h._fac })) });
+      tot.abandonConflicts++;
+      loud.push(`[${slug}] ${mu.name} → ${hits.map((h) => `« ${h.name} » ${h.bsId || "?"}`).join(", ")} (${ab.why})`);
+    }
 
     // Chaque cible est résolue défensivement : bsId présent, non déjà mappé,
     // coûts numériques, options lisibles. Une cible fautive n'entre PAS dans la
@@ -320,25 +362,36 @@ for (const slug of slugs) {
     }
   }
 
+  const abandonStale = [...abHere.values()].filter((a) => !abSeen.has(norm(a.name))).map((a) => a.name);
+
   const primary = all[pool[0]];
   const orphans = primary ? primary.units.filter((u) => !matchedIds.has(u.bsId)).map((u) => u.name) : [];
   tot.orphans += orphans.length;
 
   const out = {
     faction: pool[0], slug, mfmVersion: mfm.version || null,
-    counts: { mfm: mfm.units.length, matched: Object.keys(matched).length, unmapped: unmapped.length, orphans: orphans.length, errors: errors.length, enh: Object.keys(enhancements).length, enhUnmapped: enhUnmapped.length },
-    matched, unmapped, orphans, errors, enhancements, enhUnmapped,
+    counts: { mfm: mfm.units.length, matched: Object.keys(matched).length, unmapped: unmapped.length, abandoned: abandoned.length, abandonedConflicts: abandonedConflicts.length, orphans: orphans.length, errors: errors.length, enh: Object.keys(enhancements).length, enhUnmapped: enhUnmapped.length },
+    matched, unmapped, abandoned, abandonedConflicts, orphans, errors, enhancements, enhUnmapped,
   };
   fs.writeFileSync(path.join(MAP_DIR, slug + ".json"), JSON.stringify(out, null, 1) + "\n");
   tot.enh += Object.keys(enhancements).length; tot.enhUnmapped += enhUnmapped.length;
   summary.push(`${pool[0]}: ${Object.keys(matched).length}/${mfm.units.length} matchés · ${Object.keys(enhancements).length} amél.` +
     (unmapped.length ? ` · ${unmapped.length} NON-MAPPÉS: ${unmapped.slice(0, 6).join(", ")}${unmapped.length > 6 ? "…" : ""}` : "") +
+    (abandoned.length ? ` · ℹ ${abandoned.length} abandonné(s): ${abandoned.map((a) => a.name).join(", ")}` : "") +
+    (abandonedConflicts.length ? ` · ⚠⚠ ${abandonedConflicts.length} ABANDON(S) CADUC(S): ${abandonedConflicts.map((a) => a.name).join(", ")}` : "") +
+    (abandonStale.length ? ` · ℹ abandon(s) sans objet (plus au MFM, entrée d'abandons.json à retirer): ${abandonStale.join(", ")}` : "") +
     (enhUnmapped.length ? ` · ${enhUnmapped.length} amél. non-mappées` : "") +
     (errors.length ? ` · ⚠ ${errors.length} erreurs` : ""));
 }
 
 console.log(summary.join("\n"));
-console.log(`\n════ ${tot.matched}/${tot.mfm} unités (${(100 * tot.matched / tot.mfm).toFixed(1)}%) dont ${tot.aliased} alias · ${tot.unmapped} non-mappées · ${tot.errors} erreurs`);
+console.log(`\n════ ${tot.matched}/${tot.mfm} unités (${(100 * tot.matched / tot.mfm).toFixed(1)}%) dont ${tot.aliased} alias · ${tot.unmapped} non-mappées · ${tot.abandoned} abandonnées (abandons.json) · ${tot.errors} erreurs`);
 console.log(`     ${tot.enh} améliorations mappées (${tot.enhUnmapped} non-mappées) · ${tot.weaponOpts} options d'armes indexées · ${tot.orphans} orphelins bdd`);
 console.log(`Matrices : ${path.relative(REPO, MAP_DIR)}/`);
+for (const w of abandonWarn) console.log(`⚠ ${w}`);
+if (loud.length) {
+  console.log(`\n⚠⚠⚠ ${loud.length} ABANDON(S) CADUC(S) — un nom d'editor/mfm/abandons.json correspond À NOUVEAU à une datasheet de la base`);
+  console.log(`    (appariée et chiffrée normalement ; retire l'entrée d'abandons.json si la fiche est intégrée, ou la fiche si l'abandon tient) :`);
+  for (const l of loud) console.log(`    ⚠ ${l}`);
+}
 if (tot.errors) console.log(`⚠ ${tot.errors} entrées écartées pour cause d'erreur (voir champ "errors" des matrices) — jamais appliquées.`);

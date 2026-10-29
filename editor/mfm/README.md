@@ -8,7 +8,7 @@ au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
 
 **Tout l'outillage MFM est dans CE dépôt** (`wh40k-11e/editor/mfm/`) :
 `mfm_parser.py`/`mfm_dump.py` (extraction), `build-map.mjs`, `apply.mjs`,
-`run.sh`, `aliases.json`, `map/`.
+`run.sh`, `aliases.json`, `abandons.json`, `map/`.
 
 **Les écritures en base se font dans ce dépôt**, via `editor/lib/catalog.js`
 (`editUnit` costs/tiers, helpers repeat-cost) — jamais de `sed`, jamais de
@@ -49,7 +49,10 @@ dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
      fournir : noms MFM sans datasheet (①), améliorations sans entrée (②), coûts
      de chapitre (③), coûts portés par les modèles (④), prix à composition avec
      barème (⑤), paliers non atteignables (⑥), etc. C'est **la liste à renvoyer**
-     pour compléter l'intégration. N'écrit rien.
+     pour compléter l'intégration. N'écrit rien. Les fiches d'`abandons.json`
+     n'y figurent jamais en ① : elles sortent en fin de bloc en lignes
+     « ℹ abandonné » (hors décompte) ; une fiche abandonnée de nouveau appariée
+     en base y part en « ⚠ ABANDON CADUC ».
 
   Comparaison robuste aux idiomes d'encodage : le coût de base est le coût
   **effectif** (parser, résout les coûts imbriqués), les paliers sont comparés à
@@ -175,10 +178,28 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
 - `aliases.json` — résidu nom MFM → datasheet(s) bdd (nom cat, bsId, ou tableau
   pour un nom générique couvrant plusieurs datasheets, ex. `SOUL GRINDER` → 4
   variantes de dieu). Fusionné avant l'auto-match ; revérifié à chaque build.
+- `abandons.json` — fiches **au barème** du MFM dont l'intégration est
+  **abandonnée** par l'utilisateur (règle 6 : une absence se signale, sauf
+  abandon acté) : `{ "_doc": "…", "<slug>": { "<NOM MFM>": "décision du
+  AAAA-MM-JJ : motif" } }`, une entrée par slug (le Grey Knights Thunderhawk
+  Gunship, fiche propre, n'est pas concerné par l'abandon du Thunderhawk du tronc
+  SM). Contenu au 2026-10-29 : ARES GUNSHIP et ORION ASSAULT DROPSHIP (Custodes,
+  décision du 2026-10-22), ASTRAEUS et THUNDERHAWK GUNSHIP (6 slugs du tronc SM)
+  et GARGANTUAN SQUIGGOTH (Orks), décision du 2026-10-29. Lecteurs :
+  `build-map.mjs` (nom sans datasheet → champ `abandoned` de la matrice, plus
+  `unmapped` ; nom qui correspond **de nouveau** à une datasheet → apparié
+  normalement **et** consigné dans `abandonedConflicts`, avertissement
+  « ⚠⚠⚠ ABANDON CADUC » ; slug inconnu, motif sans date ou entrée plus au MFM →
+  avertis), `apply.mjs` (lignes « ℹ abandonné », jamais ① ; « ⚠ ABANDON CADUC »
+  à renvoyer, même depuis une matrice antérieure) et
+  `editor/translations/gdc-watch.cjs` (fiche amont nouvelle/modifiée sous un nom
+  abandonné, absente de la base → 🔇 bruit « abandonnée le … » ; présente → ❓).
+  Fiche finalement intégrée → retirer son entrée.
 - `map/<slug>.json` — matrices générées (commitées : leur diff montre d'un coup
   les datasheets ajoutées/retirées entre deux MFM). Champs : `matched`
-  (targets[] avec `current` + `weaponOptions`), `unmapped`, `orphans`, `errors`,
-  `enhancements`, `enhUnmapped`.
+  (targets[] avec `current` + `weaponOptions`), `unmapped`, `abandoned`
+  (`{ name, why }`), `abandonedConflicts` (`{ name, why, targets }`), `orphans`,
+  `errors`, `enhancements`, `enhUnmapped`.
 - `poc/` — scripts de mesure de couverture (52 % par fichier vs 98/99 % parsé).
 
 ## Automatisation (cron serveur + cowork GitHub)

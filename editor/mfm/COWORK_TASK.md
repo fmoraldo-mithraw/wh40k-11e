@@ -104,7 +104,8 @@ origin/main`), puis :
      `current` des matrices sont un cache de la bdd : périmés, ils font
      ressortir des écarts déjà corrigés) **et après** les écritures, puis
      re-lancer `apply.mjs` : le résidu Orks doit tomber à « pas de datasheet
-     » (Gargantuan Squiggoth, hors base) + composition Gretchin. **Committer
+     » (Gargantuan Squiggoth : abandon acté le 2026-10-29, ligne ℹ via
+     `abandons.json`) + composition Gretchin. **Committer
      les matrices** régénérées avec les données.
 6. **Validation obligatoire** avant tout commit :
    `node editor/audit/valider.mjs` → 0 erreur, 0 id dupliqué nouveau.

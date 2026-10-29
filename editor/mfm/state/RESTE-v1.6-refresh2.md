@@ -133,7 +133,12 @@ qui retire les liens que la fiche officielle ne porte pas**.
 
 - **① datasheets absentes (15)** : ASTRAEUS et THUNDERHAWK GUNSHIP (tronc SM,
   6 slugs), ARES GUNSHIP et ORION ASSAULT DROPSHIP (Custodes), GARGANTUAN
-  SQUIGGOTH (Orks) — abandonnées par l'utilisateur le 2026-10-22.
+  SQUIGGOTH (Orks) — abandons actés par l'utilisateur (Ares / Orion le
+  2026-10-22 ; Astraeus, Thunderhawk Gunship et Gargantuan Squiggoth le
+  2026-10-29, voir plus bas). Encodés depuis le 2026-10-29 dans
+  `editor/mfm/abandons.json` : `build-map` les range dans `abandoned` (plus dans
+  `unmapped`), `apply` ne les liste plus en ① mais en « ℹ abandonné », et
+  `gdc-watch` classe leurs fiches amont en 🔇 bruit.
 - **④ coût porté par les modèles (15)** et **⑤ prix à composition (3)** :
   barèmes vérifiés conformes, hors périmètre d'`apply`.
 - **2 lignes AUTO Custodes** (`CALADIUS GRAV-TANK`, `VENATARI WITH VERUTUM
@@ -222,12 +227,15 @@ Audit final : `bodyguard-audit --all` 389/389 (listes, `leader-kw`, proses), app
 
 ### Reste à arbitrer (utilisateur)
 
-- **Astraeus, Thunderhawk Gunship (tronc SM), Gargantuan Squiggoth (Orks)** : au
+- ~~**Astraeus, Thunderhawk Gunship (tronc SM), Gargantuan Squiggoth (Orks)** : au
   barème **principal** du MFM v1.6 (pas Legends), absents de la base. Les RESTE
   précédents les disent « abandonnés le 2026-10-22 », mais aucune trace de cette
   décision dans ETAT (seuls Ares / Orion y figurent). Règle 6 : fournir les fiches
   (game-datacards v995 les a) ou acter l'abandon. Incohérence liée : le Thunderhawk
-  Gunship des Grey Knights est en base.
+  Gunship des Grey Knights est en base.~~ **Tranchée le 2026-10-29 : abandon**
+  (« on acte l'abandon »). Encodé dans `editor/mfm/abandons.json` avec Ares / Orion
+  (abandon du 2026-10-22) ; socles retirés de `editor/base-sizes.json` (et de la
+  copie de l'appli). Le Grey Knights Thunderhawk Gunship, fiche propre, reste en base.
 - Règle du détachement **Black Spear Task Force** (« Mission Tactics ») : le texte
   officiel cite « Kill Team Cassius (see Legends: Agents of the Imperium) ». Texte GW
   conservé tel quel (une règle ne se réécrit pas) — à retoucher seulement sur demande.

@@ -3,6 +3,7 @@
 // nouveau = tête du dépôt amont), puis confronte CHAQUE changement amont à notre base et rend un verdict :
 //   ✅ déjà conforme · 🛠 à appliquer (outil + commande) · 💰 points (à confirmer par le MFM)
 //   ✋ manuel (composition, options, mots-clefs, fiche nouvelle) · ❓ doute · 🔇 bruit connu de la source
+//   (dont les fiches Legends du MFM et les fiches ABANDONNÉES d'editor/mfm/abandons.json : jamais « fiche à créer »)
 // Décision du 2026-10-07 : la fiche officielle fait foi à 100 % (retraits compris) ; seule la CT « 7+ » d'une arme
 // Torrent est lue comme « - ». Rien n'est modifié : le script produit un rapport Markdown (+ JSON) ; l'application se fait avec les
 // outils gdc-* existants, puis la validation habituelle (CLAUDE.md, règle 4).
@@ -33,6 +34,16 @@ const LEG_ANY = new Set(), PRICED = new Set();
 try { for (const v of Object.values(JSON.parse(fs.readFileSync(path.join(R, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEG_ANY.add(N(n)); } catch { console.log("⚠ editor/mfm/legends.json illisible : les fiches Legends ne sont pas reconnues"); }
 try { const D = path.join(R, "editor/mfm/dump/en"); for (const f of fs.readdirSync(D)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(fs.readFileSync(path.join(D, f), "utf8")).units || []) PRICED.add(N(u.name)); } catch {}
 const isLegends = (name) => LEG_ANY.has(N(name)) && !PRICED.has(N(name));
+// ── fiches au barème dont l'intégration est ABANDONNÉE (editor/mfm/abandons.json, même source que build-map/apply :
+// { "<slug MFM>": { "<NOM MFM>": "décision du AAAA-MM-JJ : …" } }) : une fiche amont nouvelle ou modifiée sous un nom
+// abandonné et absente de notre base → 🔇 bruit (« abandonnée le … »), jamais « fiche à créer ». Appariement par nom
+// normalisé, toutes factions confondues ; présente chez nous (dans les catalogues du fichier) → ❓ doute.
+const ABANDONED = new Map();
+try { for (const [slug, v] of Object.entries(JSON.parse(fs.readFileSync(path.join(R, "editor/mfm/abandons.json"), "utf8"))))
+  if (!slug.startsWith("_") && v && typeof v === "object") for (const [n, why] of Object.entries(v)) if (!ABANDONED.has(N(n))) ABANDONED.set(N(n), String(why)); }
+catch (e) { if (e.code !== "ENOENT") console.error("⚠ editor/mfm/abandons.json illisible : les fiches abandonnées ne sont pas reconnues"); }
+const abandonedOn = (name) => { const w = ABANDONED.get(N(name)); return w == null ? null : ((w.match(/décision du (\d{4}-\d{2}-\d{2})/) || [])[1] || "?"); };
+const ABD = "editor/mfm/abandons.json";
 
 // ── notre base : index des fiches (unités/figurines non cachées au niveau racine)
 const c = new Catalog(R).load(); const byId = (id) => (c.byId.get(id) || {}).node;
@@ -41,7 +52,7 @@ for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selecti
   for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && xml.getAttr(e, "hidden") !== "true") { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ file: f, node: e }); } }
 // repli hors des catalogues du manifeste : jamais pour un nom Legends dans une faction (Razorback : Legends SM,
 // au barème GK — la fiche SM ne doit pas s'apparier à la nôtre, GK)
-function ourUnit(name, file) { const l = units.get(N(name)) || []; const pref = (MANIFEST.files[file] || {}).catalogues || []; return l.find((u) => pref.includes(u.file)) || (LEG_ANY.has(N(name)) ? null : l[0]) || null; }
+function ourUnit(name, file) { const l = units.get(N(name)) || []; const pref = (MANIFEST.files[file] || {}).catalogues || []; return l.find((u) => pref.includes(u.file)) || (LEG_ANY.has(N(name)) || ABANDONED.has(N(name)) ? null : l[0]) || null; }
 function subtree(u, fn) { const seen = new Set(); const go = (n, depth) => { for (const k of n.children || []) { if (!k.tag) continue; fn(k);
   if (k.tag === "selectionEntryGroup" && /Enhancement|^Can (Lead|Support)/.test(nm(k))) continue;
   if ((k.tag === "entryLink" || k.tag === "infoLink") && depth < 4) { if (/^(Warlord|Enhancements)$/.test(nm(k)) || /Upgrade$/.test(nm(k))) continue; const t = byId(xml.getAttr(k, "targetId")); if (t && !seen.has(t)) { seen.add(t); fn(t); go({ children: [t] }, depth + 1); } continue; }
@@ -117,10 +128,14 @@ function diffMisc(file, ds0, ds1, u) {
 function diffFaction(file, F0, F1) {
   const dsKey = (d) => d.id || N(en(d.name)); const a = new Map((F0.datasheets || []).map((d) => [dsKey(d), d]));
   for (const d of F1.datasheets || []) { const o = a.get(dsKey(d)); const u = ourUnit(en(d.name), file);
-    if (!o) { const leg = !u && isLegends(en(d.name)); add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : leg ? V.noise : V.manual, u ? "déjà présente chez nous" : leg ? "fiche Legends du MFM : hors base (décision du 2026-10-29)" : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
+    const abd = abandonedOn(en(d.name));
+    if (abd && u) add(file, en(d.name), "fiche", `fiche abandonnée le ${abd} (${ABD}) mais présente chez nous`, V.doubt, `fiche intégrée → retirer l'entrée d'${ABD} ; abandon maintenu → retirer la fiche`);
+    if (!o) { const leg = !u && isLegends(en(d.name)); add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : leg || abd ? V.noise : V.manual, u ? "déjà présente chez nous" : leg ? "fiche Legends du MFM : hors base (décision du 2026-10-29)" : abd ? `fiche abandonnée le ${abd} (${ABD}) : rien à encoder` : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
     for (const k of Object.keys(d)) if (!(k in o)) newFields.add(`datasheets.${k}`);
     if (JSON.stringify(o) === JSON.stringify(d)) continue;
     if (!u && LEG_ANY.has(N(en(d.name)))) { add(file, en(d.name), "fiche", "fiche Legends modifiée en amont", V.noise, "hors base (décision du 2026-10-29) : rien à encoder"); continue; }
+    // abandonnée sous l'ancien ET le nouveau nom (un renommage vers un nom abandonné reste examiné)
+    if (!u && abd && abandonedOn(en(o.name))) { add(file, en(d.name), "fiche", "fiche abandonnée modifiée en amont", V.noise, `fiche abandonnée le ${abd} (${ABD}) : rien à encoder`); continue; }
     diffStats(file, o, d, u); diffWeapons(file, o, d, u); diffAbilities(file, o, d, u); diffMisc(file, o, d, u); }
   const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) { const ours = ourUnit(en(o.name), file), leg = isLegends(en(o.name));
     add(file, en(o.name), "fiche", leg ? "fiche passée en Legends au MFM" : "fiche retirée de l'appli officielle (Legends ?)", !ours ? V.ok : leg ? V.apply : V.doubt, leg ? "retirer la fiche de la base : rien de Legends dans la base ni l'appli (décision du 2026-10-29)" : "seul cas à confirmer : retirer la fiche entière"); }
