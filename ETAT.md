@@ -27,20 +27,28 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 0 écart (liens, `leader-kw:`, proses).
 - Golden des rattachements (appli) : **4109** paires, 87 classes de mots-clefs.
-- `editor/audit/legends.mjs` : **0** écart (274 fiches Legends-only du MFM v1.6) ; pack FR **21 148** clés.
+- `editor/audit/legends.mjs` : **0** écart (274 fiches Legends-only du MFM v1.6) ; pack FR **13 934** clés ;
+  résumés **4 563** capacités (100 %) ; socles **1 010** entrées ; **45** catalogues (.cat + .gst).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Astraeus, Thunderhawk Gunship (tronc SM), Gargantuan Squiggoth (Orks)** : au barème PRINCIPAL du MFM v1.6
-   (pas Legends), absents de la base ; leur « abandon du 2026-10-22 » n'est écrit que dans les RESTE, pas ici
-   (seuls Ares / Orion le sont). Fournir les fiches (game-datacards v995 les a) ou acter l'abandon ? Le Thunderhawk
-   Gunship des Grey Knights, lui, est en base.
-2. **Ménage hors Legends** (relecture critique du 2026-10-29, rien de prouvé Legends) : catalogue **Unaligned
-   Forces** entièrement mort (fortifications hors MFM v1.6, Legends en 10e ; importé par 16 catalogues, 2 bascules
-   du .gst) ; **~119 catégories mortes** sans preuve Legends (Ironclad, Thunderfire, Caestus, Telion, Chronus…) et
-   contenu Croisade ; restes [Crucible] morts (catégories Skyrunner 62c9, Stalker Necrons bf46) et profil orphelin
-   « Corsair Skyreaver Band » ; ~4 750 clés FR mortes sans lien Legends ; dossier `editor/mfm-source/` (chaîne
-   d'avant la 11e, marquée OBSOLETE). Supprimer ? (rien n'est fait sans accord).
+1. **Tank Ace Character** (SM 8810-ebe3-94f2-8eab, ~23 liens SM/BT/BA, désignation proposée par l'appli sur ~40
+   véhicules, test REG-056) : depuis le codex SM 11e (e9e140c1), son `set hidden` ne dépend plus que de « moins de
+   1 force Crusade » → toujours masqué chez BattleScribe, toujours visible dans l'appli. Le supprimer, ou le
+   rattacher à un détachement 11e (lequel ?) ?
+2. **Socles introuvables par l'appli** (impression du codex) pour 9 fiches VIVANTES dont le guide GW garde l'ancien
+   nom : Custodian Guard (→ Sodality), Prosecutors / Vigilators / Witchseekers (→ … Squad), Aquilon et Venatari
+   Custodians (→ … with …), Agamatus Custodians (→ Gyrfalcon ?), Sword Brethren (→ Squad), The Emperor's Champion.
+   Ajouter des alias à la recherche de socle (`makeBaseSizeLookup`) ?
+3. **Restes morts hors du ménage du 2026-10-29** (non demandés) : ~350 éléments partagés orphelins (dont ~60 groupes
+   « Crucible content » par faction) et ~560 références pendantes (Boarding Actions 1d6e ×367, coût « pl », ids
+   Legends des conditions Aeldari) — même ménage ?
+
+Clos le 2026-10-29 (bis) : **abandon acté** d'Astraeus, du Thunderhawk Gunship du tronc SM et du Gargantuan
+Squiggoth (`editor/mfm/abandons.json`, avec Ares/Orion du 2026-10-22 : la routine ne les redemande plus) ;
+**ménage fait** : catalogue Unaligned Forces supprimé, restes Croisade (147 racines, 8 052 conditions constantes),
+83 catégories mortes (dont les restes [Crucible]), 13 catégories Croisade, profil Corsair Skyreaver Band, 7 214 clés FR mortes, 883 résumés
+orphelins, 18 socles sans fiche, dossier `editor/mfm-source/`.
 
 Clos le 2026-10-29 : classe A du constat bodyguard MFM v1.6 = cibles **Legends** (Vanguard Veteran Squad à pied,
 Sagittarum Custodians, Custodian Guard à lances Adrasite/Pyrithite), rien à lier ; classe B = angles morts de
@@ -70,6 +78,13 @@ game-datacards ; veille v995 fusionnée ; **Deathwatch Support confirmé** : une
 que des améliorations de ce détachement, le plafond de 500 pts compte options et améliorations.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
+
+- 2026-10-29 : **ménage des restes morts** (utilisateur) et **abandon** Astraeus / Thunderhawk SM / Squiggoth. Une
+  fiche abandonnée va dans `editor/mfm/abandons.json` (build-map → `abandoned`, apply → ℹ, gdc-watch → 🔇), jamais
+  en question ① à chaque routine. Le pack FR ne garde que les clés que l'appli peut chercher ; l'ancienne mémoire de
+  traduction reste dans git (`2abf1210:translations/fr.json`, relue par `atteste-conserve.mjs`). Chaos Knights : les
+  erreurs « only in an Iconoclast Fiefdom » (Croisade seulement) retirées, la restriction réelle reste le `set
+  hidden` → detReq (test:vocab adapté).
 
 - 2026-10-29 : **rien de Legends dans la base ni l'appli** (utilisateur). Référence : `editor/mfm/legends.json`
   (section LEGENDS du MFM). Purge : bibliothèque « Astartes Heresy Legends », Death Company Intercessors et Land Raider
