@@ -916,6 +916,7 @@ def cmd_legends(args) -> None:
     raw = fetch_rsc(f"/{args.lang}/adepta-sororitas.rsc")
     idx = extract_faction_index(FlightDocument(raw), args.lang)
     out: dict[str, Any] = {"lang": args.lang, "version": None, "factions": {}}
+    failed: list[str] = []
     for i, fac in enumerate(idx, 1):
         slug = fac["slug"]
         print(f"[{i}/{len(idx)}] {slug} ...", file=sys.stderr)
@@ -925,7 +926,10 @@ def cmd_legends(args) -> None:
             out["factions"][slug] = sorted({u["name"] for u in data["units"] if u.get("section") == "LEGENDS"})
         except Exception as e:  # noqa: BLE001
             print(f"   ! échec {slug}: {e}", file=sys.stderr)
+            failed.append(slug)
         time.sleep(args.delay)
+    if failed:  # un fichier partiel ferait passer des Legends pour des fiches inconnues : on n'écrit rien
+        sys.exit(f"✗ legends : {len(failed)} faction(s) en échec ({', '.join(failed)}) — fichier NON écrit")
     _dump(out, args.output)
 
 

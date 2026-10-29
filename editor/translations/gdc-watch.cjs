@@ -26,6 +26,14 @@ const sig = (p) => [p.range, p.attacks, p.skill, p.strength, p.ap, p.damage].map
 const load = (d, f) => { try { return JSON.parse(fs.readFileSync(path.join(d, f), "utf8")); } catch { return null; } };
 const nm = (n) => xml.getAttrDecoded(n, "name") || "";
 
+// ── fiches Legends du MFM (editor/mfm/legends.json) : hors base, rien de Legends dans la base ni l'appli
+// (décision du 2026-10-29). Une Legends d'une faction au barème d'une autre (Venerable Dreadnought SM / GK) reste
+// à trier à la main.
+const LEG_ANY = new Set(), PRICED = new Set();
+try { for (const v of Object.values(JSON.parse(fs.readFileSync(path.join(R, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEG_ANY.add(N(n)); } catch {}
+try { const D = path.join(R, "editor/mfm/dump/en"); for (const f of fs.readdirSync(D)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(fs.readFileSync(path.join(D, f), "utf8")).units || []) PRICED.add(N(u.name)); } catch {}
+const isLegends = (name) => LEG_ANY.has(N(name)) && !PRICED.has(N(name));
+
 // ── notre base : index des fiches (unités/figurines non cachées au niveau racine)
 const c = new Catalog(R).load(); const byId = (id) => (c.byId.get(id) || {}).node;
 const units = new Map();
@@ -107,11 +115,12 @@ function diffMisc(file, ds0, ds1, u) {
 function diffFaction(file, F0, F1) {
   const dsKey = (d) => d.id || N(en(d.name)); const a = new Map((F0.datasheets || []).map((d) => [dsKey(d), d]));
   for (const d of F1.datasheets || []) { const o = a.get(dsKey(d)); const u = ourUnit(en(d.name), file);
-    if (!o) { add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : V.manual, u ? "déjà présente chez nous" : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
+    if (!o) { const leg = !u && isLegends(en(d.name)); add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : leg ? V.noise : V.manual, u ? "déjà présente chez nous" : leg ? "fiche Legends du MFM : hors base (décision du 2026-10-29)" : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
     for (const k of Object.keys(d)) if (!(k in o)) newFields.add(`datasheets.${k}`);
     if (JSON.stringify(o) === JSON.stringify(d)) continue;
     diffStats(file, o, d, u); diffWeapons(file, o, d, u); diffAbilities(file, o, d, u); diffMisc(file, o, d, u); }
-  const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) add(file, en(o.name), "fiche", "fiche retirée de l'appli officielle (Legends ?)", ourUnit(en(o.name), file) ? V.doubt : V.ok, "seul cas à confirmer : retirer la fiche entière (ou la passer en Legends)");
+  const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) { const ours = ourUnit(en(o.name), file), leg = isLegends(en(o.name));
+    add(file, en(o.name), "fiche", leg ? "fiche passée en Legends au MFM" : "fiche retirée de l'appli officielle (Legends ?)", !ours ? V.ok : leg ? V.apply : V.doubt, leg ? "retirer la fiche de la base : rien de Legends dans la base ni l'appli (décision du 2026-10-29)" : "seul cas à confirmer : retirer la fiche entière"); }
   // détachements, stratagèmes, améliorations, règles d'armée / de détachement
   const sync = (MANIFEST.files[file] || {}).detachmentTool;
   const SECS = { detachments: (F) => F.detachments || [], stratagems: (F) => F.stratagems || [], enhancements: (F) => F.enhancements || [],

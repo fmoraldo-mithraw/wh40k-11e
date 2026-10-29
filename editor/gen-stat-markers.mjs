@@ -42,6 +42,11 @@ const { pickInvuln } = await import(join(APP, "src/sim/datasheet.js"));
 const { mustBeWarlord, cannotBeWarlord } = await import(join(APP, "src/rules.js"));
 
 const APPLY = process.argv.includes("--apply");
+// Fiches Legends du MFM (editor/mfm/legends.json) : un nom de prose non résolu qui est une Legends ne devient
+// JAMAIS un leader-kw (le 13/10, « Vanguard Veteran Squad » — Legends à pied — rattachait par sa catégorie
+// homonyme la Vanguard à réacteurs ; rien de Legends dans la base ni l'appli, décision du 2026-10-29).
+const NL = (s) => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[\u2010-\u2015]/g, "-").replace(/[\u2019'`]/g, "'").replace(/\s+/g, " ").trim();
+const LEGENDS = new Set(); try { for (const v of Object.values(JSON.parse((await import("node:fs")).readFileSync(join(ROOT, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEGENDS.add(NL(n)); } catch {}
 const MARKER_RE = /^(invuln|fnp|must-warlord|cannot-warlord|leader-kw)\b/;
 const invKeyOf = (l) => { const m = l.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?/i); return m ? m[1] + "|" + (m[2] || "") : null; };
 
@@ -107,7 +112,7 @@ for (const [fk, f] of Object.entries(all)) {
           const nm = (or || []).map((id) => catName.get(id)).find(Boolean);
           return nm || "";
         }).filter(Boolean).join(" & "))
-        .filter(Boolean);
+        .filter((g) => g && !(g.indexOf(" & ") < 0 && LEGENDS.has(NL(g))));
       if (groups.length) lines.push("leader-kw: " + groups.join(" | "));
     }
     if (!lines.length) continue;

@@ -13,7 +13,9 @@
 //   · option combinée (« Battle cannon and heavy stubber » = 10) ;
 //   · modèle-variante (« Thunderwolf w/ storm shield » = 5,
 //     « Venatari Custodian (Venatari lance) » = 5) ;
-//   · wargear nommé (« Banner of Macragge » = 15).
+//   · wargear nommé (« Banner of Macragge » = 15) ;
+//   · modèle-variante à PRIX PLEIN : l'écart avec une variante sœur (« Ironstrider Ballistarius (Twin cognis
+//     lascannon) » = 90 contre 80 pour l'autocannon : surcoût 10 ; l'arme imposée, elle, est à 0).
 // L'audit accepte N ou 2×N sur tout nœud coûté du sous-arbre de l'unité dont
 // le nom contient l'arme (liens résolus). Écart signalé seulement quand des
 // nœuds au nom correspondant existent mais qu'AUCUN ne produit N ni 2×N ;
@@ -60,7 +62,7 @@ function paidNodes(unitNode) {
       const costs = (k.children || []).find((x) => x.tag === "costs");
       const pts = costs && (costs.children || []).find((x) => x.tag === "cost" && xml.getAttr(x, "name") === "pts");
       const v = pts ? parseInt(xml.getAttr(pts, "value"), 10) : 0;
-      if (v > 0) out.push({ name: xml.getAttrDecoded(k, "name") || "", pts: v });
+      if (v > 0) out.push({ name: xml.getAttrDecoded(k, "name") || "", pts: v, type: xml.getAttr(k, "type") });
     });
   };
   collect(unitNode);
@@ -108,7 +110,8 @@ for (const f of fs.readdirSync(DUMP).sort()) {
       };
       const named = nodes.filter(match);
       if (!named.length) { push(manual, `${label} — aucun nœud coûté au nom correspondant (encodage à vérifier à la main)`); continue; }
-      if (named.some((n) => n.pts === want || n.pts === 2 * want)) ok++;
+      const sibling = (n) => n.type === "model" && nodes.some((o) => o.type === "model" && !match(o) && (n.pts - o.pts === want || n.pts - o.pts === 2 * want));
+      if (named.some((n) => n.pts === want || n.pts === 2 * want || sibling(n))) ok++;
       else push(issues, `${label} — nœuds trouvés : ${[...new Set(named.map((n) => `«${n.name}»=${n.pts}`))].join(", ")}`);
     }
   }

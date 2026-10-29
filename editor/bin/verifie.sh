@@ -7,7 +7,7 @@
 # ligne de base) si le dépôt cogitator-bellicum est à côté ($COGITATOR_DIR).
 # Code de sortie ≠ 0 au moindre échec. Usage : editor/bin/verifie.sh [--rapide]
 cd "$(dirname "$0")/../.." || exit 2
-mapfile -d '' F < <(git diff -z --name-only HEAD -- '*.cat' '*.gst'; git ls-files -z --others --exclude-standard -- '*.cat' '*.gst')
+mapfile -d '' F < <(git diff -z --name-only --diff-filter=d HEAD -- '*.cat' '*.gst'; git ls-files -z --others --exclude-standard -- '*.cat' '*.gst')
 if [ ${#F[@]} -gt 0 ]; then
   xmllint --noout "${F[@]}" || { echo "✗ xmllint"; exit 1; }
   echo "✓ xmllint (${#F[@]} fichier(s) modifié(s))"
