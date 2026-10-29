@@ -19,6 +19,10 @@
 //      du 2026-10-15 (storm bolter du Brotherhood Librarian) ;
 //   5b. le contexte des invulnérables de fiche (invu-contexte.mjs) — une
 //      invu conditionnelle doit dire vs=ranged|melee, lost=wound ou option= ;
+//   5c. rien de Legends dans la base (legends.mjs, décision du 2026-10-29) :
+//      noms « [Legends] », fiches Legends exposées, leader-kw / prose, renvois
+//      « (see Legends: …) », catégories mortes au nom d'une fiche Legends, clés
+//      FR mortes qui en nomment une (editor/mfm/legends.json + dump) ;
 //   6. les résumés « initiation » (briefs.mjs) — un résumé PÉRIMÉ (la prose a
 //      changé depuis sa rédaction) ou orphelin est une erreur ; un résumé
 //      manquant n'est qu'un rapport de couverture (editor/BRIEFS_PROMPT.md).

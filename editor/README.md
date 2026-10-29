@@ -33,7 +33,9 @@ Aucune dépendance à installer : 100 % Node natif + JS navigateur.
   recherche par nom + **filtres à facettes** propres à chaque onglet (avec
   compteur de résultats et bouton de réinitialisation) :
   - *Unités* : rôle (Character, Battleline, Vehicle, Monster…), mot-clé,
-    fourchette de points, Endurance ≥, masquer les [Legends], Epic Hero.
+    fourchette de points, Endurance ≥, Epic Hero. (Plus de filtre Legends : la
+    base ne contient **aucune** fiche Legends — décision du 2026-10-29, garde-fou
+    `editor/audit/legends.mjs` ; n'en intégrer aucune.)
   - *Armes* : type (distance/mêlée), mot-clé (Pistol, Heavy, Devastating
     Wounds, Torrent… regroupés), Force ≥, partagée uniquement.
   - *Détachements* : avec enhancements.

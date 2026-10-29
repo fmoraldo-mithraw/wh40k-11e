@@ -156,6 +156,15 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   et `build-map` n'en voient rien (Legends hors base, décision du 2026-10-22).
   À rafraîchir avec chaque nouveau MFM (l'audit prévient si sa version diffère
   de celle du dump).
+- `legends-fr.json` — `{ "<NOM EN MFM>": "<nom FR>" }` pour 177 des 274 fiches
+  **Legends-only** (nom de `legends.json` au barème d'aucune faction). Extrait
+  **statique** du pack FR d'avant la purge (décision du 2026-10-29 : rien de
+  Legends dans la base ni l'appli — le pack `translations/fr.json` ne les contient
+  plus). Seul consommateur : le sidecar de l'appli `src/data/legends-names.json`
+  (`scripts/gen-legends-names.mjs`, `npm run gen:legends-names`), qui empêche
+  l'import de liste de rabattre une fiche Legends (EN ou FR) sur une fiche au
+  barème. Ne pas le régénérer depuis le pack ; un nom Legends sans traduction
+  reste simplement absent.
 - `refresh-current.mjs` — REPLI sans le parser de l'app : rafraîchit le cache
   `current` des matrices depuis la bdd. **Ne recalcule pas l'appariement** — une
   matrice à cibles disparues (« GONE ») doit passer par `build-map`.

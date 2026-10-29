@@ -67,7 +67,7 @@ All fields are optional; a renderer skips the section whose data is missing.
 | `opts`       | option groups                          | see *Options* |
 | `minM,maxM`  | number                                 | model-count range (composition header) |
 | `tiers`      | `[[atModels, pts], …]`                 | cost tiers shown in the composition header |
-| `isEpic` `isChar` `isAllied` `isCrusade` `isLegend` `inArmy` | bool | header chips |
+| `isEpic` `isChar` `isAllied` `isCrusade` `inArmy` | bool | header chips |
 
 A **weapon** `w`:
 

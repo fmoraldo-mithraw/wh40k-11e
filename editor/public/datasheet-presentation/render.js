@@ -21,7 +21,7 @@
 //   opts        option groups   (see renderOptions)
 //   minM,maxM   number                       model count range (composition header)
 //   pts,tiers   number / [[atModels, pts]]   cost tiers
-//   isEpic,isChar,isAllied,isCrusade,isLegend  bool  → header chips
+//   isEpic,isChar,isAllied,isCrusade  bool      → header chips
 //   isWarlord, inArmy  bool                  → header chips
 //
 // Invulnerable save, Feel No Pain and the "Can lead" list are DERIVED from the
@@ -204,12 +204,11 @@ export function renderHeader(unit, { lang = "fr" } = {}) {
   if (unit.isChar && !unit.isEpic) chips.push(`<span class="ds-kw ds-kw-c">${escapeHtml(tr(lang, "Personnage", "Character"))}</span>`);
   if (unit.isAllied) chips.push(`<span class="ds-kw ds-kw-a">${escapeHtml(tr(lang, "Allié", "Allied"))}</span>`);
   if (unit.isCrusade) chips.push(`<span class="ds-kw ds-kw-x">${escapeHtml(tr(lang, "Croisade", "Crusade"))}</span>`);
-  if (unit.isLegend) chips.push(`<span class="ds-kw ds-kw-l">${escapeHtml(tr(lang, "Légendes", "Legends"))}</span>`);
   if (unit.inArmy) chips.push(`<span class="ds-kw ds-kw-ok">✓</span>`);
   const chipRow = chips.length ? `<div class="ds-uc-kw">${chips.join("")}</div>` : "";
   return `<div class="ds-uc"><div class="ds-uc-r">`
     + `<span class="ds-uc-ct">${escapeHtml(catLabel)}</span>`
-    + `<span class="ds-uc-n${unit.isLegend ? " ds-leg" : ""}">${escapeHtml(unit.name)}</span>`
+    + `<span class="ds-uc-n">${escapeHtml(unit.name)}</span>`
     + (unit.pts != null ? `<span class="ds-uc-p">${escapeHtml(String(unit.pts))}</span>` : "")
     + `</div>${chipRow}</div>`;
 }

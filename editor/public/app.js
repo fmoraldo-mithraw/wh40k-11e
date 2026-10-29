@@ -91,7 +91,6 @@ function unitToShape(u) {
     abilities: (u.abilities || []).map((a) => [a.name || '', (a.chars && a.chars.Description) || a.description || '']),
     isChar: keywordNames.includes('Character'),
     isEpic: keywordNames.includes('Epic Hero'),
-    isLegend: /\[legends?\]/i.test(u.name || '') || keywordNames.some((k) => /legend/i.test(k)),
   };
   const sp = u.statProfiles || [];
   if (sp.length > 1) shape.statLines = sp.map((p) => [p.name, statsArray(p.chars)]);
@@ -206,7 +205,6 @@ function applyFilters(items) {
       if (f.ptsMin !== undefined && f.ptsMin !== '' && (it.pts == null || it.pts < Number(f.ptsMin))) return false;
       if (f.ptsMax !== undefined && f.ptsMax !== '' && (it.pts == null || it.pts > Number(f.ptsMax))) return false;
       if (f.tMin !== undefined && f.tMin !== '' && !(Number(it.t) >= Number(f.tMin))) return false;
-      if (f.hideLegend && it.legend) return false;
       if (f.epic && !it.epic) return false;
     } else if (state.tab === 'weapons') {
       if (f.kind && f.kind !== '*' && it.kind !== f.kind) return false;
@@ -275,7 +273,7 @@ function renderFacets() {
     host.appendChild(selectRow('Mot-clé', 'kw', [{ v: '*', t: 'Tous' }, ...kws.map((k) => ({ v: k, t: k }))]));
     host.appendChild(numRow('Points', numInput('ptsMin', 'min'), numInput('ptsMax', 'max')));
     host.appendChild(numRow('Endur. ≥', numInput('tMin', 'T')));
-    host.appendChild(el('div', { class: 'fchecks' }, [check('Masquer Legends', 'hideLegend'), check('Epic Hero', 'epic')]));
+    host.appendChild(el('div', { class: 'fchecks' }, [check('Epic Hero', 'epic')]));
   } else if (state.tab === 'weapons') {
     const kws = distinct(items.flatMap((i) => (i.keywords || []).map(WEAPON_KW_BASE)).filter(Boolean));
     host.appendChild(selectRow('Type', 'kind', [{ v: '*', t: 'Tous' }, { v: 'ranged', t: 'À distance' }, { v: 'melee', t: 'Mêlée' }]));

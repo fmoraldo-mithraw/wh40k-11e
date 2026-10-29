@@ -108,6 +108,10 @@ log(`  fiches ALN          : ${Object.keys(fiches).length}`);
 const propositions = [], conflits = [], rejets = [];
 let accord = 0, desaccord = 0;
 for (const [id, f] of Object.entries(fiches)) {
+  // Rien de Legends (décision du 2026-10-29) : une fiche ALN « [Legends] … » partage
+  // presque tous ses mots-clefs avec la fiche au barème (« Logan Grimnar sur
+  // Stormrider » ↔ Logan Grimnar) et proposerait le nom FR de la variante Legends.
+  if (/\[\s*(legends?|l[ée]gendes?)\s*\]/i.test(f.fr || "")) { rejets.push({ id, fr: f.fr, etat: "Legends" }); continue; }
   const kws = (f.labels || []).filter((l) => l && (l.type === "mot-clef" || l.type === "faction")).map((l) => norm(l.fr)).filter(Boolean);
   const trace = TRACE && norm(f.fr).includes(norm(TRACE));
   if (kws.length < 2) { rejets.push({ id, fr: f.fr, etat: "moins de 2 mots-clefs" }); continue; }

@@ -167,7 +167,10 @@ Piège à connaître si la piste est reprise : ALN préfixe ses noms de balises 
 collection (`[Legends] [SW] Gardes Loups`). Une première version prenait ces
 noms tels quels et produisait 82 « traductions » dont **60 n'étaient que le
 texte anglais avec la balise déplacée**. Un nom qui, balises retirées, égale
-l'anglais n'est pas une traduction.
+l'anglais n'est pas une traduction. Depuis la décision du 2026-10-29 (rien de
+Legends dans la base ni l'appli), `aln-attach.mjs` écarte d'office toute fiche
+ALN « [Legends] » (rejet `Legends`) : ses mots-clefs recouvrent ceux de la fiche
+au barème et lui prêteraient le nom FR de la variante Legends.
 
 Deux autres impasses vérifiées, pour éviter de les rouvrir : le miroir
 `NewRecruitEU/translations` ne contient que 2 chaînes pour ce système, et le fork

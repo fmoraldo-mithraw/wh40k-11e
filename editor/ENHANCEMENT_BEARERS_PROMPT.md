@@ -12,9 +12,13 @@
 
 Pour chaque amélioration **non-« Upgrade »** d'une faction :
 
-> Tout personnage **non-Epic** (hors [Legends]/[Crucible]) dont les
+> Tout personnage **non-Epic** (hors [Crucible]) dont les
 > mots-clefs satisfont la clause de prose « … model only » doit être un
 > porteur **structurel** — et personne d'autre.
+
+La base ne contient **aucune** fiche Legends (décision du 2026-10-29 ; garde-fou
+`editor/audit/legends.mjs`, enchaîné par `valider.mjs`) : il n'y a donc rien à
+exclure à ce titre, et aucune fiche Legends ne doit être intégrée.
 
 La prose est la source de vérité (règle maison n° 2 : conjonction de
 mots-clefs, jamais de traversée du menu central). Les « Upgrade » suivent

@@ -1238,7 +1238,6 @@ function unitMeta(node, id, name) {
     pts: pts != null && pts !== '' ? Number(pts) : null,
     t: stat && stat.chars ? stat.chars.T : null,
     w: stat && stat.chars ? stat.chars.W : null,
-    legend: /\[legend/i.test(name || ''),
     epic: keywords.includes('Epic Hero'),
   };
 }

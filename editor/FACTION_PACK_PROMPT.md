@@ -77,7 +77,9 @@ commit/push par faction (conteneur éphémère). Le/les PDF sont dans
   SHAPER (partition exacte par noms de catégories complètes ; fallback =
   union de mots, à signaler). « WAGON » = Battlewagon/Hunta Rig/Kill Rig.
 - `model only` → datasheets **Character** ; `unit only` → toutes ;
-  honore « (excluding X) » ; exclus **[Legends]/[Crucible]** ; exclus
+  honore « (excluding X) » ; exclus **[Crucible]** (aucune fiche Legends
+  dans la base — décision du 2026-10-29, garde-fou `editor/audit/legends.mjs` ;
+  n'en intégrer aucune) ; exclus
   **Epic Hero** (toujours pour Upgrade ; aussi pour les character-only).
 - **NE TRAVERSE JAMAIS le menu central « Enhancements »** pour trouver des
   porteurs : chaque personnage lie ce menu en bloc → le traverser ferait

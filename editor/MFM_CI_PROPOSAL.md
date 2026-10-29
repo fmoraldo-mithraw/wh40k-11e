@@ -91,7 +91,7 @@ Un fichier par faction, **régénéré à chaque run** et commité :
     "MEK": { "bsId": "…", "catName": "Mek" },
     "BOYZ": { "bsId": "…", "catName": "Boyz", "tiers": true, "repeat": true } },
   "unmapped": ["…"],           // noms MFM sans datasheet → à relire
-  "orphans": ["…"] }           // datasheets sans nom MFM (Legends, variantes) → info
+  "orphans": ["…"] }           // datasheets sans nom MFM (variantes ; aucune Legends : audit/legends.mjs) → info
 ```
 
 - `matched` : jointure automatique (normalisation ci-dessous).
