@@ -15,7 +15,7 @@
 // fait foi), sauf si la cible a été scindée côté officiel (« Eradicator Squad » ↔ « Eradicator Squad with … »).
 // Appariement des noms (2026-10-29 — trois angles morts qui laissaient des fiches hors synchronisation) :
 // tirets typographiques normalisés (« Shield‑Captain », U+2011), fiche racine hidden exposée par un entryLink
-// visible (Marneus Calgar), noms officiels ≠ les nôtres résolus par editor/mfm/aliases.json (« Eradicator Squad
+// visible (Marneus Calgar jusqu'au 2026-10-29), noms officiels ≠ les nôtres résolus par editor/mfm/aliases.json (« Eradicator Squad
 // with melta rifles » → « Eradicator Squad », « Ancient in Terminator Armour » → « … Armor »).
 //
 // Fiches LEGENDS (editor/mfm/legends.json, décision du 2026-10-29 : rien de Legends dans la base ni l'appli) : une
@@ -51,7 +51,7 @@ const closure = new Map();
 function clos(f) { if (closure.has(f)) return closure.get(f); const s = new Set([f]); closure.set(f, s);
   const cl = xml.child(c.docs.get(f).root, "catalogueLinks"); if (cl) for (const k of cl.children) { const t = fileOfCat.get(xml.getAttr(k, "targetId")); if (t) for (const x of clos(t)) s.add(x); } return s; }
 // ── fiches racine par nom ; une fiche hidden reste une datasheet si un entryLink racine VISIBLE l'expose
-// (Marneus Calgar, « HIDDEN UNTIL LEGENDS » : l'appli le propose, sa liste doit suivre la fiche officielle)
+// (cas de Marneus Calgar jusqu'au 2026-10-29 : l'appli le proposait, sa liste devait suivre la fiche officielle)
 const linkedVisible = new Set(); for (const [, d] of c.docs) { const el = xml.child(d.root, "entryLinks"); if (el) for (const k of el.children) if (k.tag === "entryLink" && xml.getAttr(k, "hidden") !== "true") linkedVisible.add(xml.getAttr(k, "targetId")); }
 const units = new Map(); for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (!bx) continue;
   for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && (xml.getAttr(e, "hidden") !== "true" || linkedVisible.has(xml.getAttr(e, "id")))) { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ f, e }); } }
@@ -62,9 +62,12 @@ const ALIAS = new Map(); { const A = JSON.parse(fs.readFileSync(R + "/editor/mfm
 const byName = (name) => { const direct = units.get(N(name)); if (direct) return direct; const out = [];
   for (const v of ALIAS.get(N(name)) || []) { const hit = c.byId.get(v); if (hit && hit.node.tag === "selectionEntry") { for (const l of units.values()) for (const x of l) if (x.e === hit.node) out.push(x); } else out.push(...(units.get(N(v)) || [])); }
   return out; };
-// fiches Legends du MFM (hors base) : jamais liées ni écrites dans une prose
-const LEGENDS = new Set(); try { for (const v of Object.values(JSON.parse(fs.readFileSync(R + "/editor/mfm/legends.json", "utf8")).factions || {})) for (const n of v) LEGENDS.add(N(n)); } catch { console.log("⚠ editor/mfm/legends.json illisible : les cibles Legends ne sont pas reconnues"); }
-const isLegends = (o) => LEGENDS.has(N(o)) && !byName(o).length;
+// fiches Legends du MFM (hors base) : jamais liées ni écrites dans une prose. Legends = nom de
+// editor/mfm/legends.json qui n'est au barème d'AUCUNE faction (Razorback : Legends SM, au barème GK).
+const LEGENDS = new Set(); try { for (const v of Object.values(JSON.parse(fs.readFileSync(R + "/editor/mfm/legends.json", "utf8")).factions || {})) for (const n of v) LEGENDS.add(N(n));
+  const D = R + "/editor/mfm/dump/en"; for (const f of fs.readdirSync(D)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(fs.readFileSync(D + "/" + f, "utf8")).units || []) LEGENDS.delete(N(u.name));
+} catch { console.log("⚠ editor/mfm/legends.json ou le dump MFM illisible : les cibles Legends ne sont pas reconnues"); }
+const isLegends = (o) => LEGENDS.has(N(o));
 // fiches EXPOSÉES (cibles d'un entryLink racine d'un catalogue) : entre homonymes, seules celles-ci sont des datasheets
 // (la seconde entrée « Wolf Guard Headtakers », de type model, n'en est pas une)
 const exposed = new Set(); for (const [, d] of c.docs) { const el = xml.child(d.root, "entryLinks"); if (el) for (const k of el.children) if (k.tag === "entryLink") exposed.add(xml.getAttr(k, "targetId")); }
@@ -168,7 +171,8 @@ for (const file of gdcFiles) {
   for (const ds of J.datasheets) {
     const at = ds.attachesTo || []; if (!at.length) continue; if (ONLY.size && !ONLY.has(en(ds.name))) continue;
     const LN = leaderNodes(file, en(ds.name));
-    if (!LN.length && !isLegends(en(ds.name))) warn.push(`${en(ds.name)} [${file}] : meneur officiel sans fiche chez nous (renommage ? alias à ajouter) — liens non synchronisés`);
+    if (isLegends(en(ds.name))) { if (LN.length) warn.push(`${en(ds.name)} [${file}] : fiche Legends PRÉSENTE dans la base — à retirer (editor/audit/legends.mjs), non synchronisée`); continue; }
+    if (!LN.length) warn.push(`${en(ds.name)} [${file}] : meneur officiel sans fiche chez nous (renommage ? alias à ajouter) — liens non synchronisés`);
     for (const L of LN) { processed.add(xml.getAttr(L.e, "id")); for (const kind of ["leader", "support"]) {
       // + rattachements ajoutés par un document officiel plus récent (manifeste attachOverrides)
       const ovr = ((MAN.attachOverrides || {})[en(ds.name)] || {})[kind] || [];
@@ -176,12 +180,12 @@ for (const file of gdcFiles) {
       if (!offT.length) { // sens absent de la fiche officielle : ses liens directs tombent (les inverses : plus bas)
         for (const tid of linkIds(group(L.e, FWD[kind], false))) { const t = c.byId.get(tid); dropLink(L.e, L.f, FWD[kind], tid, (t ? nm(t.node) : tid) + ` (la fiche officielle n'a pas de ${RULE[kind][1]})`); }
         continue; }
-      ensureRule(L.e, L.f, kind);
       const resolved = [];
       for (const tname of offT) {
+        if (isLegends(tname)) { legendsSkipped.add(tname); if (byName(tname).length) warn.push(`${en(ds.name)} : cible Legends « ${tname} » PRÉSENTE dans la base — à retirer, jamais liée`); continue; }
         const cands = byName(tname).filter((t) => t.e !== L.e);
         if (!cands.length) { const tt = (at.find((a) => a.target === tname) || {}).targetType;
-          if (isLegends(tname)) legendsSkipped.add(tname); else if (!tt || tt === "datasheet") warn.push(`${en(ds.name)} : cible « ${tname} » introuvable chez nous`); continue; }
+          if (!tt || tt === "datasheet") warn.push(`${en(ds.name)} : cible « ${tname} » introuvable chez nous`); continue; }
         resolved.push(tname);
         for (const T of cands) {
           if (clos(L.f).has(T.f)) { officialPairs.add(`${kind}|${xml.getAttr(L.e, "id")}|${xml.getAttr(T.e, "id")}`); addLink(L.e, L.f, FWD[kind], T); }
@@ -191,6 +195,8 @@ for (const file of gdcFiles) {
       // prose : noms de NOS fiches (une fiche officielle scindée — « Eradicator Squad with melta rifles » —
       // s'écrit sous notre nom « Eradicator Squad », sinon l'appli ne la résoudrait pas)
       const ourName = (o) => { const b = byName(o); if (b.length) return nm(b[0].e); for (const [k, v] of units) if (N(o).startsWith(k + " ")) return nm(v[0].e); return o; };
+      if (!resolved.length) continue; // aucune cible chez nous (toutes Legends ?) : ni règle, ni prose, ni lien
+      ensureRule(L.e, L.f, kind);
       // liste de prose = cibles officielles qui sont des fiches de la base (Legends et introuvables exclues)
       const proseNames = [...new Set(resolved.map(ourName))];
       if (resolved.length) { if (PROSE) syncProse(L.e, L.f, kind, proseNames, at); else ensureProse(L.e, L.f, kind, proseNames); }
@@ -198,7 +204,7 @@ for (const file of gdcFiles) {
       for (const tid of linkIds(group(L.e, FWD[kind], false))) { const t = c.byId.get(tid); if (!t) continue; const tn = N(nm(t.node));
         // gardé si une cible officielle s'y résout (nom, alias) ; l'exception « fiche scindée » par préfixe ne joue
         // plus que pour une cible officielle qui ne se résout nulle part chez nous
-        if (offT.some((o) => byName(o).some((x) => xml.getAttr(x.e, "id") === tid) || (!byName(o).length && (N(o).startsWith(tn + " ") || tn.startsWith(N(o) + " "))))) continue;
+        if (offT.some((o) => byName(o).some((x) => xml.getAttr(x.e, "id") === tid) || (!byName(o).length && !isLegends(o) && (N(o).startsWith(tn + " ") || tn.startsWith(N(o) + " "))))) continue;
         dropLink(L.e, L.f, FWD[kind], tid, nm(t.node) + " (absent de la fiche officielle)"); }
     } }
   }

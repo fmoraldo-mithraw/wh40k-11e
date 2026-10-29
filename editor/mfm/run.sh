@@ -48,6 +48,9 @@ if [ -z "$MFM_DIR" ]; then
   python3 "$SCRIPT_DIR/mfm_parser.py" --lang "$LANG_MFM" all -o "$MFM_DIR" 2>&1 | sed 's/^/    /' \
     || die "échec de la génération MFM (réseau/proxy ?). Fournis un dump existant en argument."
   say "    ${c_g}✓ MFM généré : $(ls "$MFM_DIR"/*.json 2>/dev/null | wc -l) factions → ${MFM_DIR#$REPO/}${c_0}"
+  # Fiches LEGENDS (à part du dump, hors base) : référence des audits et des outils de rattachement.
+  python3 "$SCRIPT_DIR/mfm_parser.py" --lang en legends -o "$SCRIPT_DIR/legends.json" 2>&1 | sed 's/^/    /' \
+    || say "    ⚠ legends.json non rafraîchi (l'ancien reste)."
 fi
 
 [ -d "$MFM_DIR" ] || die "dossier MFM introuvable : $MFM_DIR"

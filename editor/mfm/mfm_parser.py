@@ -350,7 +350,7 @@ def _parse_change_tags(card: Any) -> list[str]:
 # --------------------------------------------------------------------------- #
 #  Extraction haut-niveau d'une faction
 # --------------------------------------------------------------------------- #
-def extract_faction(doc: FlightDocument, faction_slug: str | None = None) -> dict:
+def extract_faction(doc: FlightDocument, faction_slug: str | None = None, include_legends: bool = False) -> dict:
     """
     Reconstitue les sections DETACHMENTS et UNITS à partir du flux résolu.
     On part de la ligne racine "5" (corps de page) ou on scanne toutes les
@@ -387,6 +387,14 @@ def extract_faction(doc: FlightDocument, faction_slug: str | None = None) -> dic
     units_block = _find_section_block(resolved_lines, "UNITS")
     if units_block is not None:
         units = _parse_units(units_block)
+    # Cartes de la section LEGENDS : jamais dans le dump (rien de Legends dans la base, décision du
+    # 2026-10-29) — le site les masque par défaut, on ne s'en remet pas à lui. Seule la commande
+    # `legends` les lit, vers un fichier à part (editor/mfm/legends.json).
+    if not include_legends:
+        n_leg = sum(1 for u in units if u.get("section") == "LEGENDS")
+        if n_leg:
+            print(f"   (section LEGENDS ignorée : {n_leg} carte(s))", file=sys.stderr)
+            units = [u for u in units if u.get("section") != "LEGENDS"]
 
     det_changed = sum(1 for d in detachments if d.get("changed"))
     units_changed = sum(1 for u in units if u.get("changed"))
@@ -921,7 +929,7 @@ def cmd_legends(args) -> None:
         slug = fac["slug"]
         print(f"[{i}/{len(idx)}] {slug} ...", file=sys.stderr)
         try:
-            data = extract_faction(FlightDocument(fetch_rsc(f"/{args.lang}/{slug}.rsc", legends=True)), slug)
+            data = extract_faction(FlightDocument(fetch_rsc(f"/{args.lang}/{slug}.rsc", legends=True)), slug, include_legends=True)
             out["version"] = out["version"] or data.get("version")
             out["factions"][slug] = sorted({u["name"] for u in data["units"] if u.get("section") == "LEGENDS"})
         except Exception as e:  # noqa: BLE001

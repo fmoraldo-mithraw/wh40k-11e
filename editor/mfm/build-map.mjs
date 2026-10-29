@@ -209,7 +209,6 @@ for (const slug of slugs) {
     const fac = all[facName];
     if (!fac) continue;
     for (const u of fac.units) {
-      if (u.isLegend) continue;
       const rec = { ...u, _fac: facName };
       poolUnits.push(rec);
       const k = norm(u.name);
@@ -322,7 +321,7 @@ for (const slug of slugs) {
   }
 
   const primary = all[pool[0]];
-  const orphans = primary ? primary.units.filter((u) => !u.isLegend && !matchedIds.has(u.bsId)).map((u) => u.name) : [];
+  const orphans = primary ? primary.units.filter((u) => !matchedIds.has(u.bsId)).map((u) => u.name) : [];
   tot.orphans += orphans.length;
 
   const out = {

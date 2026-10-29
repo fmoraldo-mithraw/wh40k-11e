@@ -86,6 +86,14 @@ log "NOUVEAU MFM détecté (version ${VERSION}, ${NCH} fichier(s) modifié(s))."
 mkdir -p "$DUMP_DIR"
 rm -f "$DUMP_DIR"/*.json
 cp "$TMP"/*.json "$DUMP_DIR/"
+# Fiches LEGENDS du MFM (fichier À PART du dump, hors base — décision du 2026-10-29) : référence de
+# editor/audit/legends.mjs, bodyguard-audit, gdc-attach et gdc-watch. Best-effort : en cas d'échec,
+# l'ancien legends.json reste (les audits préviennent si sa version diffère de celle du dump).
+if python3 editor/mfm/mfm_parser.py --lang en legends -o "$TMP/legends.json" >> "$LOG" 2>&1; then
+  cp "$TMP/legends.json" editor/mfm/legends.json; log "legends.json rafraîchi."
+else
+  log "⚠ legends.json non rafraîchi — voir $LOG"
+fi
 
 # Matrices et rapport : best-effort — même si la chaîne échoue (nouvelles
 # unités inconnues, parser app absent…), le dump DOIT partir : c'est le canal
@@ -141,6 +149,16 @@ if TIA_OUT="$(node editor/mfm/tier-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
 else
   { echo; echo "## Audit seuils de paliers (ÉCARTS)"; echo; printf '%s\n' "${TIA_OUT:-<échec du script>}"; } >> "$REPORT"
   log "⚠ audit seuils de paliers : écarts détectés (ou échec) — voir A_RENVOYER.md."
+fi
+
+# Audit des rattachements (blocs LEADER / SUPPORT des fiches vs liens, leader-kw et proses de la base,
+# cibles Legends ignorées) — best-effort, annexé.
+if BGA_OUT="$(node editor/mfm/bodyguard-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
+  { echo; echo "## Audit des rattachements"; echo; printf '%s\n' "$BGA_OUT"; } >> "$REPORT"
+  log "audit des rattachements : OK."
+else
+  { echo; echo "## Audit des rattachements (ÉCARTS)"; echo; printf '%s\n' "${BGA_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ audit des rattachements : écarts — voir A_RENVOYER.md (gdc-attach --prose --write, jamais à la main)."
 fi
 
 git add editor/mfm

@@ -46,7 +46,7 @@ const APPLY = process.argv.includes("--apply");
 // JAMAIS un leader-kw (le 13/10, « Vanguard Veteran Squad » — Legends à pied — rattachait par sa catégorie
 // homonyme la Vanguard à réacteurs ; rien de Legends dans la base ni l'appli, décision du 2026-10-29).
 const NL = (s) => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[\u2010-\u2015]/g, "-").replace(/[\u2019'`]/g, "'").replace(/\s+/g, " ").trim();
-const LEGENDS = new Set(); try { for (const v of Object.values(JSON.parse((await import("node:fs")).readFileSync(join(ROOT, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEGENDS.add(NL(n)); } catch {}
+const LEGENDS = new Set(); try { for (const v of Object.values(JSON.parse((await import("node:fs")).readFileSync(join(ROOT, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEGENDS.add(NL(n)); } catch { console.log("⚠ editor/mfm/legends.json illisible : un nom Legends pourrait devenir un leader-kw"); }
 const MARKER_RE = /^(invuln|fnp|must-warlord|cannot-warlord|leader-kw)\b/;
 const invKeyOf = (l) => { const m = l.match(/^invuln:\s*(\d\+)(?:\s+model="([^"]*)")?/i); return m ? m[1] + "|" + (m[2] || "") : null; };
 
@@ -112,7 +112,7 @@ for (const [fk, f] of Object.entries(all)) {
           const nm = (or || []).map((id) => catName.get(id)).find(Boolean);
           return nm || "";
         }).filter(Boolean).join(" & "))
-        .filter((g) => g && !(g.indexOf(" & ") < 0 && LEGENDS.has(NL(g))));
+        .filter((g) => { if (g && g.indexOf(" & ") < 0 && LEGENDS.has(NL(g))) { console.log(`⚠ ${u.name} : leader-kw « ${g} » écarté (fiche Legends) — nettoyer la prose (gdc-attach --prose)`); return false; } return !!g; });
       if (groups.length) lines.push("leader-kw: " + groups.join(" | "));
     }
     if (!lines.length) continue;

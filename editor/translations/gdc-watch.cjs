@@ -28,9 +28,9 @@ const nm = (n) => xml.getAttrDecoded(n, "name") || "";
 
 // ── fiches Legends du MFM (editor/mfm/legends.json) : hors base, rien de Legends dans la base ni l'appli
 // (décision du 2026-10-29). Une Legends d'une faction au barème d'une autre (Venerable Dreadnought SM / GK) reste
-// à trier à la main.
+// au barème (fiche valide) ; ourUnit ne la rapproche jamais d'une autre faction.
 const LEG_ANY = new Set(), PRICED = new Set();
-try { for (const v of Object.values(JSON.parse(fs.readFileSync(path.join(R, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEG_ANY.add(N(n)); } catch {}
+try { for (const v of Object.values(JSON.parse(fs.readFileSync(path.join(R, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEG_ANY.add(N(n)); } catch { console.log("⚠ editor/mfm/legends.json illisible : les fiches Legends ne sont pas reconnues"); }
 try { const D = path.join(R, "editor/mfm/dump/en"); for (const f of fs.readdirSync(D)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(fs.readFileSync(path.join(D, f), "utf8")).units || []) PRICED.add(N(u.name)); } catch {}
 const isLegends = (name) => LEG_ANY.has(N(name)) && !PRICED.has(N(name));
 
@@ -39,7 +39,9 @@ const c = new Catalog(R).load(); const byId = (id) => (c.byId.get(id) || {}).nod
 const units = new Map();
 for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (!bx) continue;
   for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && xml.getAttr(e, "hidden") !== "true") { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ file: f, node: e }); } }
-function ourUnit(name, file) { const l = units.get(N(name)) || []; const pref = (MANIFEST.files[file] || {}).catalogues || []; return l.find((u) => pref.includes(u.file)) || l[0] || null; }
+// repli hors des catalogues du manifeste : jamais pour un nom Legends dans une faction (Razorback : Legends SM,
+// au barème GK — la fiche SM ne doit pas s'apparier à la nôtre, GK)
+function ourUnit(name, file) { const l = units.get(N(name)) || []; const pref = (MANIFEST.files[file] || {}).catalogues || []; return l.find((u) => pref.includes(u.file)) || (LEG_ANY.has(N(name)) ? null : l[0]) || null; }
 function subtree(u, fn) { const seen = new Set(); const go = (n, depth) => { for (const k of n.children || []) { if (!k.tag) continue; fn(k);
   if (k.tag === "selectionEntryGroup" && /Enhancement|^Can (Lead|Support)/.test(nm(k))) continue;
   if ((k.tag === "entryLink" || k.tag === "infoLink") && depth < 4) { if (/^(Warlord|Enhancements)$/.test(nm(k)) || /Upgrade$/.test(nm(k))) continue; const t = byId(xml.getAttr(k, "targetId")); if (t && !seen.has(t)) { seen.add(t); fn(t); go({ children: [t] }, depth + 1); } continue; }
@@ -105,7 +107,7 @@ function diffMisc(file, ds0, ds1, u) {
   const kAdd = kB.filter((x) => !kA.includes(x)), kRem = kA.filter((x) => !kB.includes(x));
   if (kAdd.length || kRem.length) add(file, name, "mots-clefs", `${kAdd.length ? "+[" + kAdd.join(", ") + "] " : ""}${kRem.length ? "−[" + kRem.join(", ") + "]" : ""}`, V.manual, "categoryLinks de la fiche (et ENHANCEMENT_BEARERS_PROMPT si mot-clef porteur)");
   const att = (ds) => (ds.attachesTo || []).map((a) => `${a.type}:${a.target}`).sort().join(" | ");
-  if (att(ds0) !== att(ds1)) add(file, name, "rattachements", `${att(ds0) || "—"} → ${att(ds1) || "—"}`, V.apply, `node editor/translations/gdc-attach.cjs <gdc> --only "${name}" --write  (groupes Can Lead/Support + liens inverses ; valider.mjs vérifie l'invariant)`);
+  if (att(ds0) !== att(ds1)) add(file, name, "rattachements", `${att(ds0) || "—"} → ${att(ds1) || "—"}`, V.apply, `node editor/translations/gdc-attach.cjs <gdc> --only "${name}" --prose --write  (groupes Can Lead/Support + liens inverses + prose et sa traduction ; valider.mjs vérifie l'invariant)`);
   if (j(ds0.composition) !== j(ds1.composition)) add(file, name, "composition", `${j(ds0.composition)} → ${j(ds1.composition)}`, V.manual, "bornes de modèles (UNIT_COMPOSITION_APP_PROMPT)");
   if (j(ds0.wargear) !== j(ds1.wargear) || j(ds0.loadout) !== j(ds1.loadout)) add(file, name, "options", "options d'équipement / équipement de base modifiés", V.manual, "groupes d'armes (WEAPON_SLOTS_APP_PROMPT) ; voir l'option dans la fiche");
   const pt = (ds) => (ds.points || []).map((p) => `${p.models}:${p.cost}${p.keyword ? "@" + p.keyword : ""}`).join(" ");
@@ -118,6 +120,7 @@ function diffFaction(file, F0, F1) {
     if (!o) { const leg = !u && isLegends(en(d.name)); add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : leg ? V.noise : V.manual, u ? "déjà présente chez nous" : leg ? "fiche Legends du MFM : hors base (décision du 2026-10-29)" : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
     for (const k of Object.keys(d)) if (!(k in o)) newFields.add(`datasheets.${k}`);
     if (JSON.stringify(o) === JSON.stringify(d)) continue;
+    if (!u && LEG_ANY.has(N(en(d.name)))) { add(file, en(d.name), "fiche", "fiche Legends modifiée en amont", V.noise, "hors base (décision du 2026-10-29) : rien à encoder"); continue; }
     diffStats(file, o, d, u); diffWeapons(file, o, d, u); diffAbilities(file, o, d, u); diffMisc(file, o, d, u); }
   const b = new Set((F1.datasheets || []).map(dsKey)); for (const [k, o] of a) if (!b.has(k)) { const ours = ourUnit(en(o.name), file), leg = isLegends(en(o.name));
     add(file, en(o.name), "fiche", leg ? "fiche passée en Legends au MFM" : "fiche retirée de l'appli officielle (Legends ?)", !ours ? V.ok : leg ? V.apply : V.doubt, leg ? "retirer la fiche de la base : rien de Legends dans la base ni l'appli (décision du 2026-10-29)" : "seul cas à confirmer : retirer la fiche entière"); }
