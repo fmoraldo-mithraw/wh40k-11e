@@ -36,7 +36,6 @@
       <comment>invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="8982-a084-f83c-2727" primary="false" name="Faction: Adeptus Astartes"/>
@@ -359,9 +358,6 @@ fnp: 5+
 def-mod: source=&quot;Legendary Tenacity&quot; wound=-1 vsStronger conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="ec98-6794-bb95-a1a0" primary="false" name="Faction: Adeptus Astartes"/>
@@ -530,9 +526,6 @@ sim-mod: source=&quot;Champion of the Kingsguard&quot; reroll=hit1 when=melee vs
 sim-mod: source=&quot;Champion of the Kingsguard&quot; reroll=wound1 when=melee vs=Character scope=model</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="e815-f2cd-d050-44cc" primary="false" name="Faction: Adeptus Astartes"/>
@@ -788,9 +781,6 @@ sim-mod: source=&quot;Battle-lust&quot; attacks=+2 when=melee onCharge scope=mod
 sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading kw=&quot;Blood Claws&quot;</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="cdce-f344-2182-f56d" primary="false" name="Faction: Adeptus Astartes"/>
@@ -1097,7 +1087,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
     <selectionEntry type="unit" import="true" name="Blood Claws" hidden="false" id="fa8f-f5a2-993-bdbb">
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="290" field="51b2-306e-1021-d207">
@@ -1195,9 +1184,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
-              <entryLinks>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="d4a0-80e3-ff71-6f98" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
-              </entryLinks>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -1221,58 +1207,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="b1a3-f1b6-13ff-4c0d" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="c5c2-d76d-97ed-de16" collective="true">
       <profiles>
@@ -1297,9 +1231,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
       <comment>sim-mod: source=&quot;Cunning Hunters&quot; str=+1 ap=+1 when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <profiles>
         <profile name="Cunning Hunters" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="879f-7a62-1926-b2c5">
@@ -1345,7 +1276,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="87a4-5ba3-ed9d-cc8c" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Replace Chainsword" id="ed88-83e7-1b7f-8fe2" hidden="false" defaultSelectionEntryId="d4a8-d5c4-25e3-6510">
@@ -1475,58 +1405,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="9721-d9e3-e7df-a872" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Flamer" hidden="false" id="e550-b2bd-ee82-32a4" collective="true">
       <constraints>
@@ -1667,7 +1545,6 @@ sim-mod: source=&quot;War Howl&quot; str=+1 sustained=1 when=melee whileLeading 
 def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <profiles>
         <profile name="Rugged Resilience" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b2ea-319f-b86-ab13">
@@ -2060,9 +1937,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
               </selectionEntries>
             </selectionEntryGroup>
           </selectionEntryGroups>
-          <entryLinks>
-            <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="8d4b-f070-f308-7bc7" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
-          </entryLinks>
           <profiles>
             <profile name="Wolf Guard Terminator Pack Leader" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="b42c-d1fb-d98b-d92d">
               <characteristics>
@@ -2101,58 +1975,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="81f6-6b89-b752-c98a" includeChildSelections="true"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Storm bolter" id="2fb0-97d5-262d-b992" collective="false">
       <profiles>
@@ -2244,7 +2066,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <comment>sim-mod: source=&quot;Death Totem&quot; reroll=hit1 when=melee scope=model</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="ab49-c561-fe2f-f3e4" primary="false" name="Faction: Adeptus Astartes"/>
@@ -2277,7 +2098,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
                 <entryLink import="true" name="Stormfrag auto-launcher" hidden="false" type="selectionEntry" id="5faf-510e-856d-42bf" targetId="2b70-55e9-caf0-c94d">
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="889d-0c34-02e4-e678" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="f1be-bc14-6939-813c"/>
@@ -2312,9 +2132,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
               <constraints>
                 <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="7f8b-3736-ae90-8630"/>
               </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="a963-d356-404e-5fc9" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
-              </entryLinks>
               <profiles>
                 <profile name="Death Totem" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a661-be27-a2d2-caa7">
                   <characteristics>
@@ -2393,58 +2210,6 @@ def-mod: source=&quot;Rugged Resilience&quot; wound=-1 vsStronger conditional</c
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="53f3-b338-72c9-a49e" includeChildSelections="false"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Stormfrag auto-launcher" hidden="false" id="2b70-55e9-caf0-c94d" collective="true">
       <constraints>
@@ -2484,9 +2249,6 @@ fnp: 6+</comment>
       </modifiers>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="4990-8cee-28fe-6070" primary="false" name="Faction: Adeptus Astartes"/>
@@ -2609,67 +2371,12 @@ fnp: 6+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="86d8-9d34-55a7-337c" includeChildSelections="true"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Murderfang" hidden="false" id="6ef5-6700-d888-df3b">
       <comment>fnp: 6+
 cannot-warlord</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="fc38-f33d-895d-7055" primary="false" name="Faction: Adeptus Astartes"/>
@@ -2772,9 +2479,6 @@ cannot-warlord</comment>
       <comment>sim-mod: source=&quot;Thunderous Charge&quot; str=+1 dmg=+1 when=melee onCharge</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="8508-fd1c-a749-c025" primary="false" name="Faction: Adeptus Astartes"/>
@@ -2822,7 +2526,6 @@ cannot-warlord</comment>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="d6ce-2ccb-6680-4d0f" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="7e7b-ed78-7dd1-6320"/>
@@ -2847,7 +2550,6 @@ cannot-warlord</comment>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="2e6f-01af-845e-6265" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="7e7b-ed78-7dd1-6320"/>
@@ -2866,7 +2568,6 @@ cannot-warlord</comment>
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Storm shield" hidden="false" type="selectionEntry" id="de28-9f74-b8ae-3a76" targetId="14d9-290f-100f-881c"/>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="4113-249c-2904-9d1f" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="7e7b-ed78-7dd1-6320"/>
@@ -2894,7 +2595,6 @@ cannot-warlord</comment>
                   </constraints>
                   <entryLinks></entryLinks>
                 </entryLink>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="49cb-236a-c90f-cc10" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
               </entryLinks>
               <constraints>
                 <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="7e7b-ed78-7dd1-6320"/>
@@ -2944,58 +2644,6 @@ cannot-warlord</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="c248-3f67-1863-52ed" includeChildSelections="true"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Storm shield" hidden="false" id="14d9-290f-100f-881c" collective="true">
       <constraints>
@@ -3052,7 +2700,6 @@ cannot-warlord</comment>
     <selectionEntry type="unit" import="true" name="Fenrisian Wolves" hidden="false" id="dc75-5a79-4121-1d72">
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="18fc-cf42-bb30-a524" primary="false" name="Faction: Adeptus Astartes"/>
@@ -3133,66 +2780,11 @@ cannot-warlord</comment>
         <infoLink name="Combat Doctrines" hidden="false" type="rule" id="c1d5-a1f4-d62d-a1ad" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
       <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Iron Priest" hidden="false" id="3212-bec7-a50e-3363">
       <comment>sim-mod: source=&quot;Judgement of the Omnissiah&quot; reroll=wound conditional scope=model</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="f32d-cdd8-5178-706e" primary="false" name="Faction: Adeptus Astartes"/>
@@ -3251,58 +2843,6 @@ cannot-warlord</comment>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="23f3-dff-17f4-479a" targetId="caa-f869-3cbd-b48e" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="bf16-53de-2e57-1f2" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
       </entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="45a5-c53b-cb71-0564" hidden="false" sortIndex="4">
           <selectionEntries>
@@ -3322,13 +2862,6 @@ cannot-warlord</comment>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Torrent</characteristic>
                   </characteristics>
-                  <modifiers>
-                    <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="self" childId="2801-9f1c-645d-cb3d" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                  </modifiers>
                 </profile>
                 <profile name="➤ Helfrost pistol - focused" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="f115-8359-22b0-30b0">
                   <characteristics>
@@ -3432,9 +2965,6 @@ cannot-warlord</comment>
       </modifiers>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="6e7-40c-58d9-e402" id="3ef5-feac-e8be-f7e3" primary="false" name="Faction: Adeptus Astartes"/>
@@ -3544,13 +3074,6 @@ cannot-warlord</comment>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Torrent</characteristic>
                       </characteristics>
-                      <modifiers>
-                        <modifier type="append" value="+0" field="3bb-c35f-f54-fb08" join="">
-                          <conditions>
-                            <condition type="atLeast" value="1" field="selections" scope="self" childId="2801-9f1c-645d-cb3d" shared="true" includeChildSelections="true"/>
-                          </conditions>
-                        </modifier>
-                      </modifiers>
                     </profile>
                     <profile name="➤ Helfrost cannon - focused" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9a14-199f-feda-9419">
                       <characteristics>
@@ -3631,58 +3154,6 @@ cannot-warlord</comment>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <entryLinks></entryLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Blizzard shield" hidden="false" id="d837-153d-f6ae-2a87">
       <profiles>
@@ -3783,58 +3254,6 @@ sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCh
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="55ed-42ec-30ca-ce1a" includeChildSelections="true"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="f410-5daf-751e-080f" hidden="false" sortIndex="4">
           <selectionEntries>
@@ -3937,7 +3356,6 @@ sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCh
       </selectionEntryGroups>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wolf Guard Battle Leader" hidden="false" id="bbdb-49fd-da4d-3d7a">
@@ -3967,13 +3385,6 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">■ This unit&apos;s attacks have **[SUSTAINED HITS 1]**.
 ■ This unit&apos;s attacks that target an enemy unit within 6&quot; of this unit can re-roll hit rolls of 1.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="53eb-8812-59ca-e2bc" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="Heroic Last Stand" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ea31-1e1d-d30f-3431">
           <characteristics>
@@ -3992,27 +3403,12 @@ invuln: 4+</comment>
 ■ Intercessor Squad
 ■ Wolf Guard Headtakers</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="53eb-8812-59ca-e2bc" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Invulnerable Save" id="62ec-6ce0-3e12-b8cb" hidden="false" type="profile" targetId="db19-dee7-9530-ef0e"/>
         <infoLink name="Combat Doctrines" id="04f2-537a-5a0b-7d38" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
-        <infoLink name="Leader" id="cabe-887f-2e8b-e787" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="53eb-8812-59ca-e2bc" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Leader" id="cabe-887f-2e8b-e787" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
       </infoLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" id="a9c0-53c5-15af-e300" type="selectionEntry" targetId="caa-f869-3cbd-b48e" sortIndex="2"/>
@@ -4138,58 +3534,6 @@ invuln: 4+</comment>
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="e8b4-ee3b-931b-1b2a" includeChildSelections="true"/>
       </constraints>
@@ -4205,7 +3549,6 @@ invuln: 4+</comment>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Wolf Guard Headtakers" hidden="false" id="d4ef-1ddc-1ed5-5156">
@@ -4300,7 +3643,6 @@ invuln: 4+</comment>
       </constraints>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="170" field="51b2-306e-1021-d207">
@@ -4338,11 +3680,6 @@ invuln: 4+</comment>
             <condition type="atLeast" value="4" field="selections" scope="d4ef-1ddc-1ed5-5156" childId="2097-c650-2684-5972" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="d4ef-1ddc-1ed5-5156" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -4370,7 +3707,6 @@ invuln: 4+</comment>
 invuln: 4+</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="6764-8ed3-88d0-65fc" targetId="6e7-40c-58d9-e402" primary="false"/>
@@ -4403,9 +3739,6 @@ invuln: 4+</comment>
               <constraints>
                 <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="82ca-bf77-134e-2d2c"/>
               </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="fd2d-49c7-a9fd-b686" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
-              </entryLinks>
               <profiles>
                 <profile name="Death Totem" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="970c-3a08-c8df-0557">
                   <characteristics>
@@ -4456,7 +3789,6 @@ invuln: 4+</comment>
                 <constraint type="max" value="10" field="selections" scope="parent" shared="true" id="b46d-5e6c-cf62-982f"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Terminator Honours upgrade" hidden="false" id="9d98-8b0b-13a5-4b7c" type="selectionEntry" targetId="e7f9-66f5-9b9e-c587"/>
                 <entryLink import="true" name="Stormfrag auto-launcher" hidden="false" id="c3e8-fcc5-c17b-a205" type="selectionEntry" targetId="2b70-55e9-caf0-c94d">
                   <entryLinks></entryLinks>
                 </entryLink>
@@ -4544,58 +3876,6 @@ invuln: 4+</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="fe6c-80eb-51d4-e99a" includeChildSelections="false"/>
       </constraints>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wolf Guard Headtakers" hidden="false" id="c135-aa4c-6d86-2e05">
       <entryLinks>
@@ -4790,9 +4070,6 @@ invuln: 4+</comment>
       </selectionEntries>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
-        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
-        <cost name="Honour Points" typeId="8135-9a2f-6627-09e2" value="0"/>
-        <cost name="Relic Fragments" typeId="0ece-6541-4662-ece2" value="0"/>
       </costs>
       <entryLinks>
                 <entryLink targetId="4174-3c06-0bf7-e559" id="c3a6-3151-fe5d-ef1f" type="selectionEntry" name="Wolf Scout Pack Leader" hidden="false" sortIndex="1">
@@ -4838,73 +4115,6 @@ invuln: 4+</comment>
         </infoLink>
         <infoLink name="Combat Doctrines" id="0ef6-e93a-6171-d209" hidden="false" type="rule" targetId="3b76-4053-ece9-6e7d"/>
       </infoLinks>
-      <modifierGroups>
-        <modifierGroup type="and">
-          <modifiers>
-            <modifier type="set" value="6" field="75bb-ded1-c86d-bdf0">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="self" childId="1511-18fe-f51e-7b9d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-            <modifier type="set" value="2" field="716d-91b7-d55a-1022">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="set" value="2" field="716d-91b7-d55a-1022">
-              <repeats>
-                <repeat value="1" repeats="1" field="selections" scope="self" childId="d1a5-4297-168b-11cd" shared="true" roundUp="false" includeChildSelections="true"/>
-              </repeats>
-            </modifier>
-            <modifier type="append" value="(Battle-ready)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="atMost" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Blooded)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="5" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Battle-hardened)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="15" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Heroic)" field="name">
-              <conditionGroups>
-                <conditionGroup type="and">
-                  <conditions>
-                    <condition type="greaterThan" value="30" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                    <condition type="atMost" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-            <modifier type="append" value="(Legendary)" field="name">
-              <conditions>
-                <condition type="greaterThan" value="50" field="selections" scope="self" childId="2dbf-4d49-5d74-85c9" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-          <comment>Crusade modifiers</comment>
-        </modifierGroup>
-      </modifierGroups>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="27ff-44c3-ca3a-2dd0" includeChildSelections="true"/>
       </constraints>
