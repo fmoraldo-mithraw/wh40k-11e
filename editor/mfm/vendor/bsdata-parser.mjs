@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: fa642b0
-// source-sha256: a268154507d6d0d1
+// source-commit: 0cfed89
+// source-sha256: 4811948531b5fe72
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5695,7 +5695,7 @@ function synthesizeModelSwapGroups(unit, opts, idIndex) {
 }
 function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName, link, catalogueId) {
   const rawName = entry["@name"] || "";
-  const cleanName = rawName.replace(" [Legends]", "").replace(" [Crucible]", "");
+  const cleanName = rawName.replace(" [Crucible]", "");
   const flags = getFlags(entry);
   const cEntry = stripLeaderLinkGroups(entry);
   const kwData = getKeywordData(cEntry, idIndex);
@@ -5705,7 +5705,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     const haveFac = new Set(kwData.faction.map((k) => k.toLowerCase()));
     for (const cl of arr(child(link, "categoryLinks.categoryLink"))) {
       const n = (cl["@name"] || "").trim();
-      if (!n || n === "Crucible" || n === "Legends") continue;
+      if (!n || n === "Crucible") continue;
       if (/^Faction:/i.test(n)) {
         const f = n.replace(/^Faction:\s*/i, "").trim();
         if (f && !haveFac.has(f.toLowerCase())) {
