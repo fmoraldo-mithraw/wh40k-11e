@@ -68,6 +68,10 @@ console.log("\n── contexte des invulnérables de fiche (invuln: vs=/lost=) �
 const r7 = spawnSync(process.execPath, [join(HERE, "invu-contexte.mjs")], { stdio: "inherit" });
 if (r7.status) process.exit(r7.status);
 
+console.log("\n── rien de Legends dans la base (décision du 2026-10-29) ──");
+const r8 = spawnSync(process.execPath, [join(HERE, "legends.mjs")], { stdio: "inherit" });
+if (r8.status) process.exit(r8.status);
+
 console.log("\n── résumés « initiation » (briefs/<lang>.json) ──");
 const r6 = spawnSync(process.execPath, [join(HERE, "briefs.mjs")], { stdio: "inherit" });
 process.exit(r6.status || 0);

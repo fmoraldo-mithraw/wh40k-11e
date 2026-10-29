@@ -69,6 +69,17 @@ async function fetchFromGithub(lang) {
   return Array.isArray(data.translations) ? data.translations : [];
 }
 
+// Rien de Legends dans la base ni l'appli (décision du 2026-10-29) : ni « … [Legends] », ni nom d'une fiche
+// Legends du MFM (editor/mfm/legends.json) qui n'est au barème d'aucune faction.
+const NL = (s) => String(s || "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[\u2010-\u2015]/g, "-").replace(/[\u2019'`]/g, "'").replace(/\s+/g, " ").trim();
+const LEGENDS = new Set();
+try {
+  for (const v of Object.values(JSON.parse(await readFile(join(ROOT, "editor/mfm/legends.json"), "utf8")).factions || {})) for (const n of v) LEGENDS.add(NL(n));
+  const dump = join(ROOT, "editor/mfm/dump/en"); const { readdir } = await import("node:fs/promises");
+  for (const f of await readdir(dump)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(await readFile(join(dump, f), "utf8")).units || []) LEGENDS.delete(NL(u.name));
+} catch { /* sans liste : seul le suffixe [Legends] est filtré */ }
+const isLegends = (key) => /\[Legends\]/i.test(key) || LEGENDS.has(NL(key));
+
 // Fusionne dans translations/<lang>.json EXISTANT (les corrections locales
 // commitées gagnent sur une chaîne re-téléchargée identique non traduite ;
 // une traduction fraîche non vide remplace l'ancienne).
@@ -83,6 +94,7 @@ async function mergeAndWrite(lang, list, source) {
     const val = (t.translation || "").trim();
     if (!key || !val || val === key) continue;           // vide / identique → inutile
     if (t.translated === false) continue;                 // non validée côté NR
+    if (isLegends(key)) continue;                          // fiche Legends : hors base
     if (!(key in strings)) { strings[key] = val; added++; }
     else if (strings[key] !== val) { strings[key] = val; updated++; }
   }
