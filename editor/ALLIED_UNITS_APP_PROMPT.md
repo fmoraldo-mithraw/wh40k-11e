@@ -65,8 +65,8 @@ la chaîne.
    (Battleline, Character, Mounted…).
 3. Une unité qui **ne le contient pas** → « Allied Units ».
 4. Exception data : une unité dont la **catégorie primaire EST « Allied
-   Units »** dans la donnée (p. ex. `Unaligned Forces`, `Library -
-   Titans`) est **toujours** alliée, quelle que soit l'armée — respecte
+   Units »** dans la donnée (p. ex. `Library - Titans` ; `Unaligned
+   Forces` a été supprimé le 2026-10-29) est **toujours** alliée, quelle que soit l'armée — respecte
    ça.
 5. **N'utilise JAMAIS le fichier de définition** pour décider du statut
    allié. Les entrées importées par `importRootEntries` sont attribuées
@@ -106,7 +106,7 @@ la chaîne.
 - **Non-régression** : Craftworlds / Astra Militarum (unités en
   `entryLink` explicites) inchangées — unités primaires, et leurs alliés
   importés (Agents, Imperial Knights) toujours en Allied Units.
-- Unités `Unaligned Forces` / `Titans` (catégorie primaire « Allied
+- Unités `Titans` (catégorie primaire « Allied
   Units » dans la donnée) restent alliées dans n'importe quelle armée.
 
 ## Invariants (ce qui ne change PAS)
