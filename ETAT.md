@@ -33,7 +33,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-1. **Socles absents du guide** (impression du codex) : 40 fiches vivantes sans entrée dans `editor/base-sizes.json`,
+1. *(Mise de côté le 2026-10-29 : « pas besoin de tous les socles pour l'instant ».)* **Socles absents du guide** (impression du codex) : 40 fiches vivantes sans entrée dans `editor/base-sizes.json`,
    surtout le tronc Space Marines (Intercessor, Hellblaster, Infernus, Infiltrator, Reiver, Scout Squad, Lieutenant,
    Librarian, Redemptor Dreadnought, Storm Speeders…), dont la section du guide de juin 2026 n'a que 50 entrées —
    extraction probablement incomplète. Fournir le PDF du Base Size Guide (ou les socles) pour compléter ?
