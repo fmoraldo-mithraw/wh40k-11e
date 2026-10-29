@@ -89,6 +89,7 @@ editor/mfm/run.sh <dir-json-mfm>  # utilise un dump existant (hors-ligne, pas de
 
 # étapes séparées (lecture seule) :
 python3 editor/mfm/mfm_parser.py --lang en all -o editor/mfm/dump/en   # extraction
+python3 editor/mfm/mfm_parser.py legends -o editor/mfm/legends.json    # noms des fiches LEGENDS (à part)
 node    editor/mfm/build-map.mjs editor/mfm/dump/en [slug]             # matrices
 node    editor/mfm/apply.mjs     editor/mfm/dump/en [slug] [--changed-only]  # diff
 ```
@@ -138,11 +139,26 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   `Can Lead/Support (MFM)` et les liens inverses `Led By / Supported By (MFM)`.
   Hors périmètre d'`apply`, qui ignore volontairement l'étiquette « BODYGUARD
   UNITS UPDATED » (les rattachements suivent la **fiche officielle**). Audite par
-  défaut les seules fiches étiquetées, `--all` pour tout. Lecture seule : un
-  écart se corrige en rafraîchissant la veille game-datacards puis
-  `gdc-attach.cjs --write`, **jamais** à la main (gdc-attach retire les liens que
-  la fiche officielle ne porte pas). État au 2026-10-28 : 22 fiches étiquetées,
-  6 conformes, **16 écarts** — voir `state/RESTE-v1.6-refresh2.md`.
+  défaut les seules fiches étiquetées, `--all` pour tout. Le meneur est résolu par
+  la matrice de **sa** faction (`map/<slug>.json`, alias compris : plus d'union
+  d'homonymes Sorcerer CSM/EC/TS, Watch Master DW/Agents…). Chaque cible MFM est
+  classée : fiche de la base (liée, sinon **écart**), fiche **Legends** du MFM
+  (`legends.json`, hors base : info — sauf si un `leader-kw:` du meneur la vise par
+  une catégorie homonyme, qui rattache alors une AUTRE fiche : **⚑ à arbitrer**),
+  prédicat de mots-clefs couvert par un `leader-kw:` (conforme), fiche au barème
+  absente de la base (domaine d'`apply` ①). Un lien de la base absent du MFM posé
+  par `attachOverrides` (manifeste game-datacards) est une info. Lecture seule,
+  sortie ≠ 0 seulement sur un écart : il se corrige en rafraîchissant la veille
+  game-datacards puis `gdc-attach.cjs --write`, **jamais** à la main (gdc-attach
+  retire les liens que la fiche officielle ne porte pas). État au 2026-10-29 :
+  `--all` 389/389 listes conformes, 3 fiches ⚑ (Lieutenant, Ancient, Wardens of
+  Ultramar → `leader-kw: Vanguard Veteran Squad`) — voir `state/RESTE-v1.6-refresh2.md`.
+- `legends.json` — noms des fiches de la section **LEGENDS** du MFM, par faction
+  (`mfm_parser.py legends`, cookie `isLegendsDisplayed=true` que pose
+  l'interrupteur « Show Legends » du site). Fichier **à part** du dump : `apply`
+  et `build-map` n'en voient rien (Legends hors base, décision du 2026-10-22).
+  À rafraîchir avec chaque nouveau MFM (l'audit prévient si sa version diffère
+  de celle du dump).
 - `refresh-current.mjs` — REPLI sans le parser de l'app : rafraîchit le cache
   `current` des matrices depuis la bdd. **Ne recalcule pas l'appariement** — une
   matrice à cibles disparues (« GONE ») doit passer par `build-map`.

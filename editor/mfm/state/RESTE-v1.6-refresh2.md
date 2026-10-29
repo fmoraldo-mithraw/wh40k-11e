@@ -151,3 +151,59 @@ routine ne les résorberait** : ils se corrigent avec la veille game-datacards,
 là où le réseau et l'instantané officiel sont disponibles. Laisser le marqueur
 en arrière ferait tourner la routine à vide et brouillerait la détection d'un
 *vrai* nouveau MFM.
+
+## Suite du 2026-10-29 — écarts traités (réseau ouvert)
+
+game-datacards joignable : la tête est **toujours la v995** (celle de la base). Elle
+portait **déjà** les cibles de la classe B : les écarts ne venaient pas d'un
+instantané en retard mais de **trois angles morts d'appariement de
+`gdc-attach.cjs`** (les deux premières causes envisagées plus haut étaient
+fausses ; la troisième, juste, sous une autre forme) :
+
+| Angle mort | Fiches restées hors synchronisation |
+|---|---|
+| tiret insécable U+2011 de la source (« Shield‑Captain ») non normalisé | Shield-Captain, … in Allarus Terminator Armour, … on Dawneagle Jetbike, Knight-Centura |
+| fiche racine `hidden` exposée par un entryLink visible ignorée | Marneus Calgar (« HIDDEN UNTIL LEGENDS », proposé par l'appli) |
+| nom officiel ≠ le nôtre, sans passer par `aliases.json` | Eradicator Squad with melta rifles (Vulkan He'stan), Ancient in Terminator Armour |
+
+Les recommandations `gdc-attach --only "Trajann Valoris" / "Belial"` de la veille
+v981 n'avaient en outre jamais été exécutées. Outil corrigé, `--write` relu :
+**10 liens ajoutés, 0 retiré** — Trajann → Allarus Custodians, Aquilon ×2 ;
+Shield-Captain on Dawneagle → Gyrfalcon Jetbike Sodality ; Belial → Terminator
+Assault Squad ; Calgar → Terminator Squad, Terminator Assault Squad, Victrix Honour
+Guard, Eradicator Squad with Heavy Bolters ; Vulkan → Eradicator Squad. Golden des
+rattachements de l'appli régénéré (4016 → 4026 paires, exactement ces 10).
+
+**Classe A tranchée par la preuve** : le site du MFM v1.6 (interrupteur « Show
+Legends ») range « VANGUARD VETERAN SQUAD » (à pied, 5 fig. 120 / 10 fig. 240)
+dans sa section **LEGENDS** — ce n'est pas une imprécision du MFM, c'est une fiche
+Legends, hors base (décision du 2026-10-22). Idem « SAGITTARUM CUSTODIANS
+SODALITY » et « CUSTODIAN GUARD SODALITY WITH ADRASITE / PYRITHITE SPEARS ». Rien
+à lier. Liste extraite : `editor/mfm/legends.json` (`mfm_parser.py legends`,
+424 fiches, 30 factions) ; aucune fiche de la base n'est Legends-seulement.
+
+**Audit fiabilisé** (`bodyguard-audit.mjs`) : meneur résolu par la matrice de sa
+faction, Legends classées, `leader-kw` et `attachOverrides` reconnus. Étiquetées :
+22/22 conformes ; `--all` : **389/389** (l'ancien audit en voyait 106, presque
+tous des unions d'homonymes ou des cibles Legends).
+
+### ⚑ Reste à arbitrer (utilisateur)
+
+1. **`leader-kw: Vanguard Veteran Squad`** sur **Lieutenant**, **Ancient** (tronc
+   SM, donc aussi BT/BA/DA/DW/SW) et **Wardens of Ultramar** : le marqueur (figé le
+   2026-10-13 depuis la prose) vise la catégorie « Vanguard Veteran Squad » que
+   porte… la **Vanguard Veteran Squad with Jump Packs**. Ces trois fiches peuvent
+   donc rejoindre l'escouade à réacteurs, qu'aucune liste officielle ne leur donne
+   (seuls Captain/Chaplain with Jump Pack, Dante, Shrike la mènent ; le mot-clef
+   n'existe pas sur la fiche officielle). Les dix autres meneurs qui citent la
+   Vanguard Legends (Captain, Chaplain, Librarian, Judiciar, Titus, Tigurius,
+   Agatone, Khan, Calgar, Vulkan) n'ont pas ce marqueur. Retirer les 3 marqueurs
+   (recommandé : la fiche officielle fait foi) ou les garder (état du 2026-10-22) ?
+2. **Prose « Leader / Support » périmée** (constat annexe, antérieur) : `gdc-attach`
+   n'ajoute l'aptitude que si elle manque, il ne la réécrit jamais. ~100 meneurs
+   affichent une liste plus courte que leurs liens réels (Trajann : « Custodian
+   Guard, Custodian Wardens »). Le rattachement de l'appli suit les groupes, pas
+   la prose — c'est un défaut d'affichage (fiche, PDF). Réécrire ces proses depuis
+   la fiche officielle ? À trancher avec le point 1 : `gen-stat-markers.mjs`
+   dérive les `leader-kw` de la prose ; une prose rafraîchie citant « Vanguard
+   Veteran Squad » recréerait le marqueur sur dix fiches de plus.

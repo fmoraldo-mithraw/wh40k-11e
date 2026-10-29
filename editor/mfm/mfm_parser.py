@@ -43,8 +43,10 @@ LANGS = ["en", "de", "es", "fr", "it", "ja", "ko", "zh"]
 # --------------------------------------------------------------------------- #
 #  Téléchargement
 # --------------------------------------------------------------------------- #
-def fetch_rsc(path: str, *, retries: int = 3, timeout: int = 30) -> str:
-    """Télécharge une ressource .rsc. Lève une exception en cas d'échec."""
+def fetch_rsc(path: str, *, retries: int = 3, timeout: int = 30, legends: bool = False) -> str:
+    """Télécharge une ressource .rsc. Lève une exception en cas d'échec.
+    `legends` : envoie le cookie que pose l'interrupteur « Show Legends » du site
+    (isLegendsDisplayed=true) — le flux contient alors une section h3 « LEGENDS »."""
     import requests
 
     url = path if path.startswith("http") else f"{BASE_URL}{path}"
@@ -56,6 +58,8 @@ def fetch_rsc(path: str, *, retries: int = 3, timeout: int = 30) -> str:
         "User-Agent": "Mozilla/5.0 (mfm-parser)",
         "Accept": "*/*",
     }
+    if legends:
+        headers["Cookie"] = "isLegendsDisplayed=true"
     last_err = None
     for attempt in range(retries):
         try:
@@ -905,6 +909,26 @@ def cmd_all(args) -> None:
     print(f"Terminé -> {outdir}/", file=sys.stderr)
 
 
+def cmd_legends(args) -> None:
+    """Noms des fiches de la section LEGENDS, par faction (hors base, décision du
+    2026-10-22). Fichier À PART du dump : apply.mjs et build-map n'en voient rien ;
+    bodyguard-audit.mjs s'en sert pour classer une cible de rattachement Legends."""
+    raw = fetch_rsc(f"/{args.lang}/adepta-sororitas.rsc")
+    idx = extract_faction_index(FlightDocument(raw), args.lang)
+    out: dict[str, Any] = {"lang": args.lang, "version": None, "factions": {}}
+    for i, fac in enumerate(idx, 1):
+        slug = fac["slug"]
+        print(f"[{i}/{len(idx)}] {slug} ...", file=sys.stderr)
+        try:
+            data = extract_faction(FlightDocument(fetch_rsc(f"/{args.lang}/{slug}.rsc", legends=True)), slug)
+            out["version"] = out["version"] or data.get("version")
+            out["factions"][slug] = sorted({u["name"] for u in data["units"] if u.get("section") == "LEGENDS"})
+        except Exception as e:  # noqa: BLE001
+            print(f"   ! échec {slug}: {e}", file=sys.stderr)
+        time.sleep(args.delay)
+    _dump(out, args.output)
+
+
 def _dump(obj: Any, output: str | None) -> None:
     text = json.dumps(obj, ensure_ascii=False, indent=2)
     if output:
@@ -939,6 +963,11 @@ def main() -> None:
     pa.add_argument("-o", "--output", help="dossier de sortie")
     pa.add_argument("--delay", type=float, default=0.5, help="pause entre requêtes")
     pa.set_defaults(func=cmd_all)
+
+    pl = sub.add_parser("legends", help="noms des fiches LEGENDS par faction (réseau)")
+    pl.add_argument("-o", "--output", help="fichier de sortie JSON")
+    pl.add_argument("--delay", type=float, default=0.5, help="pause entre requêtes")
+    pl.set_defaults(func=cmd_legends)
 
     args = p.parse_args()
     args.func(args)

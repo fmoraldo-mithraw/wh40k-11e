@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-28.
+> Dernière mise à jour : 2026-10-29.
 
 ## Dépôts et branches
 
@@ -25,16 +25,22 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 - Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
+- `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 3 fiches ⚑ (question 1 ci-dessous).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
-- **« VANGUARD VETERAN SQUAD » dans les blocs bodyguard du MFM v1.6** (10 fiches : Judiciar ×6,
-  Marneus Calgar, Adrax Agatone, Captain Titus, Chief Librarian Tigurius, Kor'Sarro Khan, Wardens of
-  Ultramar). La fiche à pied n'existe pas en 11e (clos le 2026-10-22) ; la base lie « Vanguard Veteran
-  Squad with Jump Packs » depuis **4 meneurs à réacteurs** seulement (Dante, Shrike, Captain/Chaplain
-  with Jump Pack). Le MFM désigne-t-il l'escouade à réacteurs pour ces 10 meneurs (→ 10 liens à
-  ajouter), ou traîne-t-il le nom générique de la fiche disparue (→ rien à faire) ? Rien n'a été écrit.
-  Détail et audit : `editor/mfm/state/RESTE-v1.6-refresh2.md`, `node editor/mfm/bodyguard-audit.mjs`.
+1. **`leader-kw: Vanguard Veteran Squad`** (Lieutenant, Ancient — tronc SM, donc tous les chapitres —, Wardens
+   of Ultramar) : le marqueur vise la catégorie « Vanguard Veteran Squad » que porte la **Vanguard Veteran Squad
+   with Jump Packs** ; ces 3 fiches peuvent donc la rejoindre, ce qu'aucune liste officielle ne prévoit (la
+   « Vanguard Veteran Squad » qu'elles citent est la fiche à pied, **Legends** au MFM v1.6 — vérifié sur le site).
+   Retirer les 3 marqueurs (recommandé) ou les garder (état du 2026-10-22) ? `bodyguard-audit.mjs --all` les signale ⚑.
+2. **Prose « Leader / Support » périmée** sur ~100 meneurs (`gdc-attach` ne la réécrit jamais ; l'appli suit les
+   groupes, défaut d'affichage seulement). La réécrire depuis la fiche officielle ? Dépend du point 1
+   (`gen-stat-markers.mjs` dérive les `leader-kw` de la prose). Détail : `editor/mfm/state/RESTE-v1.6-refresh2.md`.
+
+Clos le 2026-10-29 : classe A du constat bodyguard MFM v1.6 = cibles **Legends** (Vanguard Veteran Squad à pied,
+Sagittarum Custodians, Custodian Guard à lances Adrasite/Pyrithite), rien à lier ; classe B = angles morts de
+`gdc-attach` (tiret U+2011, fiche hidden exposée, alias), corrigés, 10 liens posés.
 
 Clos le 2026-10-27 : **`mfm_parser.py`** corrigé et validé sur le site (réseau ouvert par l'utilisateur) — octrois
 `LEADER:`/`SUPPORT:` lus dans le `<li>` v1.6 (deux-points exigés), 13 octrois extraits (12 LEADER + Murdermind),
@@ -59,6 +65,11 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides)
 
+- 2026-10-29 : **rattachements MFM v1.6 ↔ base** : `gdc-attach.cjs` normalise les tirets typographiques, traite
+  les fiches hidden exposées par un lien visible et résout les noms par `editor/mfm/aliases.json` → 10 liens
+  posés (Trajann ×3, Shield-Captain on Dawneagle, Belial, Calgar ×4, Vulkan), golden appli 4026 paires.
+  **Legends extraites à part** : `mfm_parser.py legends` → `editor/mfm/legends.json` (424, hors dump, hors base) ;
+  `bodyguard-audit.mjs` résout le meneur par la matrice de sa faction et classe Legends / leader-kw / overrides.
 - 2026-10-28 : **MFM v1.6, dump re-extrait intégré** (routine cowork) — correctif parser en place :
   0 delta de points, 0 delta d'amélioration, `enh-leaders` 13 octrois / 0 lien à ajouter (contrôle croisé
   rétabli), dp/wpn/tier-audit verts, marqueur `state/integre.txt` posé. Nouvel audit
