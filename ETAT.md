@@ -23,7 +23,7 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 - Ids dupliqués : **436** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
 - Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
-  `scripts/dev/ci-local.sh [20|22]` (verte sous Node 20 et 22 le 2026-10-09).
+  `scripts/dev/ci-local.sh [20|22]` (verte sous Node 22 le 2026-10-29, sous Node 20 le 2026-10-09).
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 0 écart (liens, `leader-kw:`, proses).
 - Golden des rattachements (appli) : **4109** paires, 87 classes de mots-clefs.
@@ -67,9 +67,13 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 - 2026-10-29 : **rien de Legends dans la base ni l'appli** (utilisateur). Référence : `editor/mfm/legends.json`
   (section LEGENDS du MFM). Purge : bibliothèque « Astartes Heresy Legends », Death Company Intercessors et Land Raider
   Banisher (cachées, hors MFM, proposées par l'appli), `leader-kw` / catégorie Vanguard, conditions mortes (Gabriel
-  Seth, Logan on Stormrider, Daemonhost, Jokaero, Proteus), 199 catégories et des équipements orphelins, 163 noms du
-  pack FR. Garde-fous : `gdc-attach` (jamais de cible Legends, `--prose`), `gdc-watch` (Legends → 🔇),
-  `gen-stat-markers`, `bodyguard-audit`. **La prose Leader/Support est tenue alignée** sur la fiche officielle :
+  Seth, Logan on Stormrider, Daemonhost, Jokaero, Proteus), 199 catégories et des équipements orphelins, 163 noms et
+  250 clés « [Legends] » du pack FR, 11 socles. Garde-fous : **`editor/audit/legends.mjs`** (enchaîné par
+  `valider.mjs` : échoue sur tout nom « [Legends] », fiche Legends exposée, `leader-kw`/prose qui en nomme une),
+  `mfm_parser.py` (section LEGENDS jamais dans le dump ; `run.sh`/cron rafraîchissent `legends.json`), `gdc-attach`
+  (jamais de cible Legends, `--prose`), `gdc-watch` (Legends → 🔇), `gen-stat-markers`, `bodyguard-audit`. Appli :
+  l'import ne rapproche jamais une ligne « [Legends] » ni un nom de base d'une variante « … with … » ; fixtures
+  WTC régénérées (générateur réparé), non-régression 1006 fiches. **La prose Leader/Support est tenue alignée** sur la fiche officielle :
   l'appli l'affiche ET en tire ses rattachements (Judiciar : 5 cibles au lieu de 11 avant). Judiciar et Sanguinary
   Priest = Support. Prix de répétition en double (Ironstrider, Lokhust) et lascannon de l'Ironstrider corrigés.
 - 2026-10-29 : **rattachements MFM v1.6 ↔ base** : `gdc-attach.cjs` normalise les tirets typographiques, traite
