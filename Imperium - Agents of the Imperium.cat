@@ -7812,7 +7812,10 @@ fnp: 6+</comment>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d5b5-ce50-fdad-3a41" publicationId="4115-3627-e608-39f6" page="10">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units: DEATHWATCH KILL TEAM</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+
+■ Aquila Kill Team
+■ Deathwatch Kill Team</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -7926,7 +7929,10 @@ fnp: 6+</comment>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef77-98ab-f3f6-87d3" publicationId="4115-3627-e608-39f6" page="8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units: DEATHWATCH KILL TEAM</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+
+■ Aquila Kill Team
+■ Deathwatch Kill Team</characteristic>
           </characteristics>
         </profile>
         <profile name="Watch Master" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5ca8-0cc5-3b5c-d89c">
@@ -8307,23 +8313,9 @@ fnp: 6+</comment>
                 <conditionGroup type="and">
                   <conditions>
                     <condition type="atLeast" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="1b81-a12a-8e8e-5dd4" shared="true" includeChildSelections="true"/>
                   </conditions>
                 </conditionGroup>
               </conditionGroups>
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="unit" childId="1b81-a12a-8e8e-5dd4" shared="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-        <modifier type="increment" value="2" field="5083-9f38-9545-f5cc">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="atLeast" value="10" field="selections" scope="unit" childId="model" shared="true" includeChildSelections="true"/>
-                <condition type="instanceOf" value="1" field="selections" scope="unit" childId="1b81-a12a-8e8e-5dd4" shared="true"/>
-              </conditions>
             </conditionGroup>
           </conditionGroups>
         </modifier>
@@ -8406,28 +8398,6 @@ fnp: 6+</comment>
         </profile>
       </profiles>
       <comment>4/4/4/-1/1</comment>
-    </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Twin boltgun" hidden="false" id="a6a6-96cc-de3f-be83">
-      <profiles>
-        <profile name="Twin boltgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="f506-8600-4914-63c7" publicationId="4115-3627-e608-39f6" page="17">
-          <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-            <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-Linked</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink name="Twin-linked" id="ad6d-2582-98c4-4732" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
-      </infoLinks>
-      <constraints>
-        <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8986-1aea-e618-d3d7"/>
-        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f2c6-9900-ca6d-751e"/>
-      </constraints>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Assault cannon" hidden="false" id="be34-7406-10cd-c6e2" publicationId="4115-3627-e608-39f6" page="29">
       <profiles>
@@ -10415,39 +10385,6 @@ invuln: 4+</comment>
             <condition type="atLeast" value="1" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
-        <modifier type="increment" value="3" field="77aa-f5f6-f7b5-b974">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="atLeast" value="3" field="selections" scope="force" childId="2ba8-cb91-7a80-93fc" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="3" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-        <modifier type="increment" value="2" field="77aa-f5f6-f7b5-b974">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="atLeast" value="2" field="selections" scope="force" childId="2ba8-cb91-7a80-93fc" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="2" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
-        <modifier type="increment" value="1" field="77aa-f5f6-f7b5-b974">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="2ba8-cb91-7a80-93fc" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-        </modifier>
         <modifier type="increment" value="1" field="77aa-f5f6-f7b5-b974">
           <conditionGroups>
             <conditionGroup type="and">
@@ -10594,18 +10531,6 @@ invuln: 4+</comment>
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="ec84-2fe2-fbf8-5993" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="1" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-          <comment>Agents and Daemonhost</comment>
-        </modifier>
-        <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
                 <condition type="atLeast" value="1" field="selections" scope="force" childId="d75b-79c6-fe15-a72a" shared="true" includeChildSelections="true"/>
                 <condition type="atLeast" value="1" field="selections" scope="force" childId="dc9f-a416-58db-fe5a" shared="true" includeChildSelections="true"/>
                 <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
@@ -10618,18 +10543,6 @@ invuln: 4+</comment>
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
-                <condition type="atLeast" value="2" field="selections" scope="force" childId="ec84-2fe2-fbf8-5993" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="2" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-          <comment>Agents and Daemonhost</comment>
-        </modifier>
-        <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
                 <condition type="atLeast" value="2" field="selections" scope="force" childId="92d3-447e-a71e-6739" shared="true" includeChildSelections="true"/>
                 <condition type="atLeast" value="2" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
                 <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
@@ -10637,18 +10550,6 @@ invuln: 4+</comment>
             </conditionGroup>
           </conditionGroups>
           <comment>Inq + Agents</comment>
-        </modifier>
-        <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
-          <conditionGroups>
-            <conditionGroup type="and">
-              <conditions>
-                <condition type="atLeast" value="3" field="selections" scope="force" childId="ec84-2fe2-fbf8-5993" shared="true" includeChildSelections="true"/>
-                <condition type="atLeast" value="3" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </conditionGroup>
-          </conditionGroups>
-          <comment>Agents and Daemonhost</comment>
         </modifier>
         <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
           <conditionGroups>
@@ -10681,24 +10582,9 @@ invuln: 4+</comment>
         </modifier>
       </modifiers>
     </categoryEntry>
-    <categoryEntry name="UR-025" hidden="false" id="4652-629b-bba3-9e2f">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="77d9-4c9c-106c-54b2" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
     <categoryEntry name="Espern Locarno" hidden="false" id="9130-31ab-b9c9-9cb0">
       <constraints>
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="3983-e92c-d696-55db" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
-    <categoryEntry name="Neyam Shai Murad" hidden="false" id="c415-c700-132e-bbfe">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="911b-dc23-1516-60a6" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
-    <categoryEntry name="Janus Draik" hidden="false" id="3409-9e5d-fcb2-ae7b">
-      <constraints>
-        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
     <categoryEntry name="Damned Legionaires" hidden="false" id="81a3-a972-dfb1-24f9">
@@ -10764,18 +10650,13 @@ invuln: 4+</comment>
     <categoryEntry name="Imperial Rhino" id="c779-37d6-af9a-db1a" hidden="false"/>
     <categoryEntry name="Sisters of Battle Squad" id="f710-a22a-34f3-26c0" hidden="false"/>
     <categoryEntry name="Sisters of Battle Immolator" id="a860-cde8-a263-dfa0" hidden="false"/>
-    <categoryEntry name="Daemonhost" id="ec84-2fe2-fbf8-5993" hidden="false"/>
-    <categoryEntry name="Jokaero Weaponsmith" id="2ba8-cb91-7a80-93fc" hidden="false"/>
     <categoryEntry name="Voidfarer Character" id="dc9f-a416-58db-fe5a" hidden="true"/>
     <categoryEntry name="Corvus Blackstar" id="509b-cfe0-9bcd-f84c" hidden="false"/>
     <categoryEntry name="Deathwatch Terminator Squad" id="8382-2911-b97f-d6d2" hidden="false"/>
     <categoryEntry name="Fortis Kill Team" id="94a4-4c41-84a4-d038" hidden="false"/>
     <categoryEntry name="Indomitor Kill Team" id="2546-062b-7236-7fa3" hidden="false"/>
     <categoryEntry name="Kill Team" id="a523-2f75-c927-f911" hidden="false"/>
-    <categoryEntry name="Kill Team Cassius" id="ca02-4767-b068-1ccf" hidden="false"/>
-    <categoryEntry name="Proteus Kill Team" id="1b81-a12a-8e8e-5dd4" hidden="false"/>
     <categoryEntry name="Spectrus Kill Team" id="2b33-05a8-bf42-72f9" hidden="false"/>
-    <categoryEntry name="Veteran Bike Squad" id="f6a3-3911-2359-24e2" hidden="false"/>
     <categoryEntry name="Watch Master" id="428f-8c3b-d212-3eab" hidden="false"/>
     <categoryEntry name="Indom JP Int" id="0edb-4bb2-e62f-710b" hidden="true"/>
     <categoryEntry name="Indom PF int" id="6345-bfcd-66e1-76f3" hidden="true"/>
