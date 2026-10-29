@@ -22,11 +22,12 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
 
 - Ids dupliqués : **436** (`editor/audit/dup-ids.mjs` ; re-figer avec `--fige` seulement s'il baisse).
 - `npm run audit:data` (appli) : **25** anomalies, 0 nouvelle.
-- Tests appli : **69/69** suites (`scripts/dev/tests.sh`) ; CI appli rejouable en local :
+- Tests appli : **70/70** suites (`scripts/dev/tests.sh`, dont `test:legends-names`) ; CI appli rejouable en local :
   `scripts/dev/ci-local.sh [20|22]` (verte sous Node 22 le 2026-10-29, sous Node 20 le 2026-10-09).
 - game-datacards suivi : version de données **995** (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** listes conformes, 0 écart (liens, `leader-kw:`, proses).
 - Golden des rattachements (appli) : **4109** paires, 87 classes de mots-clefs.
+- `editor/audit/legends.mjs` : **0** écart (274 fiches Legends-only du MFM v1.6) ; pack FR **21 148** clés.
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
@@ -34,6 +35,12 @@ après tout commit touchant `scripts/bsdata-parser.mjs`, lancer
    (pas Legends), absents de la base ; leur « abandon du 2026-10-22 » n'est écrit que dans les RESTE, pas ici
    (seuls Ares / Orion le sont). Fournir les fiches (game-datacards v995 les a) ou acter l'abandon ? Le Thunderhawk
    Gunship des Grey Knights, lui, est en base.
+2. **Ménage hors Legends** (relecture critique du 2026-10-29, rien de prouvé Legends) : catalogue **Unaligned
+   Forces** entièrement mort (fortifications hors MFM v1.6, Legends en 10e ; importé par 16 catalogues, 2 bascules
+   du .gst) ; **~119 catégories mortes** sans preuve Legends (Ironclad, Thunderfire, Caestus, Telion, Chronus…) et
+   contenu Croisade ; restes [Crucible] morts (catégories Skyrunner 62c9, Stalker Necrons bf46) et profil orphelin
+   « Corsair Skyreaver Band » ; ~4 750 clés FR mortes sans lien Legends ; dossier `editor/mfm-source/` (chaîne
+   d'avant la 11e, marquée OBSOLETE). Supprimer ? (rien n'est fait sans accord).
 
 Clos le 2026-10-29 : classe A du constat bodyguard MFM v1.6 = cibles **Legends** (Vanguard Veteran Squad à pied,
 Sagittarum Custodians, Custodian Guard à lances Adrasite/Pyrithite), rien à lier ; classe B = angles morts de
@@ -73,7 +80,11 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
   `mfm_parser.py` (section LEGENDS jamais dans le dump ; `run.sh`/cron rafraîchissent `legends.json`), `gdc-attach`
   (jamais de cible Legends, `--prose`), `gdc-watch` (Legends → 🔇), `gen-stat-markers`, `bodyguard-audit`. Appli :
   l'import ne rapproche jamais une ligne « [Legends] » ni un nom de base d'une variante « … with … » ; fixtures
-  WTC régénérées (générateur réparé), non-régression 1006 fiches. **La prose Leader/Support est tenue alignée** sur la fiche officielle :
+  WTC régénérées (générateur réparé), non-régression 1006 fiches. **Relecture critique** (même jour) : l'import
+  rabattait 68 variantes Legends sur la fiche au barème (Logan on Stormrider → Logan Grimnar) → l'appli refuse tout
+  nom Legends-only EN/FR (`src/lib/legendsNames.js`) ; clause « Kill Team Cassius (see Legends…) » retirée de
+  Mission Tactics ; 36 catégories mortes, 24 éléments orphelins et 3 branches de conditions mortes retirés ;
+  248 clés FR mortes liées aux Legends élaguées ; `legends.mjs` étendu (renvois, catégories mortes, clés FR). **La prose Leader/Support est tenue alignée** sur la fiche officielle :
   l'appli l'affiche ET en tire ses rattachements (Judiciar : 5 cibles au lieu de 11 avant). Judiciar et Sanguinary
   Priest = Support. Prix de répétition en double (Ironstrider, Lokhust) et lascannon de l'Ironstrider corrigés.
 - 2026-10-29 : **rattachements MFM v1.6 ↔ base** : `gdc-attach.cjs` normalise les tirets typographiques, traite
@@ -198,5 +209,8 @@ que des améliorations de ce détachement, le plafond de 500 pts compte options 
 - Routine **veille game-datacards** `trig_01LeEKKKSbD2SyUgmXjRYSgn` : quotidienne 13:12
   (Europe/Paris), session neuve, pousse seulement sur `veille-gdc/v<N>`, liste les entrées
   manquantes en « TEXTE À FOURNIR ».
+- **Liste des noms Legends de l'appli** (`src/data/legends-names.json`, `npm run gen:legends-names`) : générée
+  depuis `editor/mfm/legends.json` + dump + `editor/mfm/legends-fr.json` ; la suite `test:legends-names` passe au
+  ROUGE dès que ces noms changent (MFM rafraîchi par le cron) — relancer `gen:legends-names` côté appli.
 - Hook de démarrage de session (`.claude/hooks/session-start.sh` des deux dépôts) :
   dépendances de l'appli, cache de données synchronisé, variables d'environnement.
