@@ -48,6 +48,7 @@ The first time your selected Deed is completed your Oath is fulfilled and, until
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="e7c3-976a-4a01-c263"/>
       </constraints>
     </categoryEntry>
+    <categoryEntry id="3e0a-2f14-cae8-6ca3" name="Frame" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink targetId="10d8-d702-f556-5d3c" id="a482-c98a-21ce-b96e" type="selectionEntry" name="Knight Destrier"/>
@@ -116,7 +117,7 @@ The first time your selected Deed is completed your Oath is fulfilled and, until
             </profile>
             <profile name="Legendary Freeblade" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" id="b927-9dc2-5b23-19dd">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, you can target this model with a Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem in the same phase.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -532,7 +533,7 @@ invuln: 5+ conditional vs=ranged</comment>
         </profile>
         <profile name="Suppression Protocols" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" id="1d28-343b-c471-4427">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) hit by one or more of those attacks made with an Armiger autocannon. Until the start of your next turn, that enemy unit is suppressed. While that unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) hit by one or more of those attacks made with an Armiger autocannon. Until the start of your next turn, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2099,6 +2100,7 @@ invuln: 5+ conditional vs=ranged</comment>
         <categoryLink targetId="b5e4-3253-c157-54fd" id="6e4-8901-4104-107d" primary="false" name="Faction: Imperial Knights"/>
         <categoryLink targetId="5a04-db4c-d29a-7b35" id="5c81-83eb-40fb-8f55" primary="false" name="Knight Asterius"/>
         <categoryLink targetId="f76f-29c1-de9-74c2" id="428c-4f17-6b6c-fe6e" primary="false" name="Acastus"/>
+        <categoryLink name="Frame" hidden="false" id="d2ad-fd07-01db-7ce3" targetId="3e0a-2f14-cae8-6ca3" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Acastus Knight Asterius" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="68a2-c0af-9c9e-24">
@@ -2276,6 +2278,7 @@ invuln: 5+ conditional vs=ranged</comment>
         <categoryLink targetId="b5e4-3253-c157-54fd" id="e34b-93ae-6b9f-6e2" primary="false" name="Faction: Imperial Knights"/>
         <categoryLink targetId="f76f-29c1-de9-74c2" id="cc4e-6c00-3dbf-cedb" primary="false" name="Acastus"/>
         <categoryLink targetId="9268-e2f7-7df-ab15" id="2da2-bcec-ad18-d60c" primary="false" name="Knight Porphyrion"/>
+        <categoryLink name="Frame" hidden="false" id="21a1-df85-f4b0-1206" targetId="3e0a-2f14-cae8-6ca3" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="2544-d9d6-2798-d15c" targetId="b68a-5ded-65ac-98c">
@@ -2822,6 +2825,7 @@ invuln: 5+ conditional vs=ranged</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Cerastus Knight Acheron" hidden="false" id="11d3-167b-6dff-a4c2">
+      <comment>invuln: 5+ conditional vs=ranged</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="6798-aa98-bf7e-b9a6"/>
       </constraints>
@@ -2841,13 +2845,9 @@ invuln: 5+ conditional vs=ranged</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks made with an Acheron flame cannon. Until the end of the phase, that enemy unit cannot have the Benefit of Cover.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Cerastus Knight Acheron" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7afa-5443-53e3-5707">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 5+ invulnerable save against ranged attacks only.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <infoLinks>
+        <infoLink name="Invulnerable Save (5+*)" type="profile" id="2303-c11e-f4c0-d220" targetId="8552-862d-6a49-4879"/>
         <infoLink name="Damaged: 1-10 Wounds Remaining" hidden="false" type="profile" id="1840-a13c-fbd7-33ab" targetId="1934-9c67-78e2-4fd9"/>
         <infoLink name="Code Chivalric" hidden="false" type="rule" id="3820-201f-51c9-2812" targetId="cbd-943-bc7b-20ec"/>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="9264-6312-5214-1aa1" targetId="b68a-5ded-65ac-98c">
@@ -3707,7 +3707,10 @@ invuln: 5+</comment>
         </profile>
         <profile name="Protection Protocols" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7c4e-84cb-7fa5-362b">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the **Heroic Intervention stratagem**, regardless of any other uses of that **stratagem** this phase. If you do:
+
+■ That use is -1 CP.
+■ That use does not prevent any uses of that stratagem on other units this phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4537,7 +4540,7 @@ invuln: 5+ conditional vs=ranged</comment>
                     <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
