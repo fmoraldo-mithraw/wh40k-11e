@@ -39,6 +39,8 @@
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="8a8f-a56c-79c8-6256"/>
       </constraints>
     </categoryEntry>
+    <categoryEntry name="Pioneers" id="08c6-fa05-246a-2f9a" hidden="false"/>
+    <categoryEntry name="Yaegirs" id="514e-99cb-5080-8e1f" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink id="0ec6-9ba0-eef0-b5b9" name="Detachment" hidden="false" collective="false" import="true" targetId="5914-3326-fac9-bf29" type="selectionEntry"/>
@@ -768,7 +770,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Grim Efficiency" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d3b8-a9b6-d4ff-013e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, when a friendly ^^**Leagues of Votann**^^ unit within 12&quot; of this model is targeted with a Stratagem, this model can use this ability. If it does, reduce the CP cost of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, when a friendly **^^Leagues of Votann^^** unit within 12&quot; of this model is targeted with a Stratagem, this model can use this ability. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -783,6 +785,7 @@ invuln: 4+</comment>
         <categoryLink id="4699-5604-2a38-566e" name="Character" hidden="false" targetId="9cfd-1c32-585f-7d5c" primary="false"/>
         <categoryLink id="5241-4a5b-c8c7-3df8" name="Epic Hero" hidden="false" targetId="4f3a-f0f7-6647-348d" primary="true"/>
         <categoryLink id="0974-7d55-af05-5970" name="Ûthar the Destined" hidden="false" targetId="a360-cb11-e139-55df" primary="false"/>
+        <categoryLink targetId="ef5e-c660-d7fb-5b4b" id="35ee-c1d3-9dda-ff60" primary="false" name="Kâhl"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry id="677d-60c2-7663-aa31" name="Blade of the Ancestors" hidden="false" collective="false" import="true" type="upgrade">
@@ -849,9 +852,9 @@ fnp: 6+</comment>
         <constraint field="selections" scope="force" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="bb5d-3510-9d18-c809" type="max"/>
       </constraints>
       <profiles>
-        <profile id="183b-a8a1-b9eb-2dd5" name="Luck Has, Need Keeps, Toil Earns" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile id="183b-a8a1-b9eb-2dd5" name="Luck Has. Need Keeps. Toil Earns." hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, until your opponent&apos;s Level of Control over that is greater than yours at the end of a phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
         <profile id="15e9-df12-30b7-42cb" name="Hearthkyn Warriors" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -1739,7 +1742,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Seized Opportunity" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b182-3f2c-3c8d-0b91">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per phase, one model from your army with this ability can use it when its unit destroys an enemy unit. If it does, gain 1YP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per phase, one model from your army with this ability can use it when its unit destroys an enemy unit. If it does, you gain 1YP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1757,15 +1760,40 @@ invuln: 4+</comment>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="1a8d-e45d-57bc-3872" hidden="false" sortIndex="4">
           <selectionEntryGroups>
-            <selectionEntryGroup name="Crest" id="4624-f155-ae28-d0cd" hidden="false" collective="false" import="true" defaultSelectionEntryId="13c9-0632-b390-34b5">
+            <selectionEntryGroup name="Crest" id="4624-f155-ae28-d0cd" hidden="false" collective="false" import="true" defaultSelectionEntryId="f1b7-c94e-2337-3590">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="222b-8395-f55c-210d" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="20f5-cc46-2862-ef2d" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
               </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Rampart crest" hidden="false" id="13c9-0632-b390-34b5" collective="false" targetId="0369-3c56-a9d1-307d" type="selectionEntry"/>
-                <entryLink import="true" name="Teleport crest" hidden="false" id="ffd1-aac2-01c0-c05a" collective="false" targetId="0a19-2550-9aad-a268" type="selectionEntry"/>
-              </entryLinks>
+              <selectionEntries>
+    <selectionEntry id="f1b7-c94e-2337-3590" name="Rampart crest" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="a675-ba80-551a-ba6a" type="max"/>
+      </constraints>
+      <profiles>
+        <profile id="acbd-151c-a275-c453" name="Rampart crest" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have a 5+ invulnerable save.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+    </selectionEntry>
+    <selectionEntry id="92d7-5421-02ad-f83f" name="Teleport crest" hidden="false" collective="false" import="true" type="upgrade">
+      <profiles>
+        <profile id="84a3-fd02-19e6-c878" name="Teleport crest" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Deep Strike ability.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+    </selectionEntry>
+              </selectionEntries>
             </selectionEntryGroup>
             <selectionEntryGroup name="Melee weapon" id="5fd9-0b10-8ba6-5b5e" hidden="false" collective="false" import="true" defaultSelectionEntryId="e03d-99af-36d8-3789">
               <constraints>
@@ -2129,7 +2157,7 @@ invuln: 4+</comment>
         </profile>
         <profile id="467f-6b90-9fac-e6bc" name="Fortify (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Feel No Pain 5+ ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is leading a unit, models in that unit have the Feel No Pain 5+ ability.</characteristic>
           </characteristics>
         </profile>
         <profile id="fed0-9336-a1da-52b5" name="Grimnyr&apos;s Regard" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2401,7 +2429,7 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Forgewrought Expertise" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ce7a-e6ed-4d44-a5df">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Movement phase, this model can repair one friendly ^^**Leagues of Votann Vehicle, Exoframe^^** or ^^**Ironkin Steeljacks^^** unit within 3&quot; of it. One model in that unit regains up to D3 lost wounds, or up to 3 lost wounds if this unit contains an Ironkin Assistant model. Each unit can only be repaired once per turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Movement phase, this unit can repair one friendly **^^Leagues of Votann Vehicle^^**, **^^Exoframe^^** or **^^Ironkin Steeljacks^^** unit within 3&quot; of it. One model in that unit regains up to D3 lost wounds, or up to 3 lost wounds instead if this unit contains an Ironkin Assistant model. Each unit can only be repaired once per turn.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2455,13 +2483,10 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
-                  <infoLinks>
-                    <infoLink name="Pistol" id="b06d-8bb9-f7ef-05b2" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
-                  </infoLinks>
                   <costs>
                     <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                   </costs>
@@ -3262,7 +3287,7 @@ fnp: 4+</comment>
       <profiles>
         <profile id="668c-fdea-d78d-76da" name="Cyberstimms" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6, adding one to the result if units from your army have Fortify Takeover: on a 4+, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6, adding 1 to the result if units from your army have Fortify Takeover: on a 4+, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3456,7 +3481,9 @@ fnp: 4+</comment>
               <profiles>
                 <profile id="6b1b-5b1b-e5de-f7c2" name="Subterranean Explosives" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy unit (excluding ^^**Monsters**^^ and ^^**Vehicles^^**) that was hit by one or more of those attacks made with a mole grenade launcher. Until the start of your next Shooting phase, that enemy unit cannot be targeted with the Fire Overwatch Stratagem.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) hit by one or more of those attacks made with a mole grenade launcher. Until the start of your next Shooting phase, that enemy unit cannot be targeted with the Fire Overwatch Stratagem.
+
+**Designer’s Note:** *We recommend placing a Mole Grenade token next to that enemy unit as a reminder.*</characteristic>
                   </characteristics>
                 </profile>
                 <profile name="Beserk" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2765-107e-1e51-064f">
@@ -3624,6 +3651,8 @@ fnp: 4+</comment>
         <categoryLink id="fc83-8a9a-5f30-4237" name="Grenades" hidden="false" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
         <categoryLink id="3dfb-ea1f-17c0-b749" name="Fly" hidden="false" targetId="c619-2086-bbcf-69c9" primary="false"/>
         <categoryLink id="be95-376d-a284-8c03" name="Hernkyn Pioneers" hidden="false" targetId="8b60-36d5-35a8-8a69" primary="false"/>
+        <categoryLink targetId="3b76-147c-3f98-f6c0" id="5a2a-4bd9-e059-06db" primary="false" name="Hernkyn"/>
+        <categoryLink targetId="08c6-fa05-246a-2f9a" id="f265-e016-a158-fbe8" primary="false" name="Pioneers"/>
       </categoryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup id="6016-5c68-b821-0070" name="3 - 6 Pioneers" hidden="false" collective="false" import="true" defaultSelectionEntryId="48b1-2aa0-4098-6661" sortIndex="2">
@@ -3851,9 +3880,6 @@ fnp: 4+</comment>
                           </characteristics>
                         </profile>
                       </profiles>
-                      <infoLinks>
-                        <infoLink name="Sustained Hits" id="8e23-4024-ef12-5f17" hidden="false" targetId="1897-c22c-9597-12b1" type="rule"/>
-                      </infoLinks>
                       <costs>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
@@ -4152,9 +4178,31 @@ fnp: 4+</comment>
                       <entryLinks></entryLinks>
                     </selectionEntry>
                     <selectionEntry type="upgrade" import="true" name="L7 missile launcher" hidden="false" id="766a-90c8-ee3c-64f8">
+                      <profiles>
+    <profile id="4c5b-fcbb-29ad-6bfb" name="➤ L7 missile launcher - blast" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+      <characteristics>
+        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
+        <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+      </characteristics>
+    </profile>
+    <profile id="a886-63a8-ecbd-c67a" name="➤ L7 missile launcher - focused" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+      <characteristics>
+        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+        <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+        <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
+        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+      </characteristics>
+    </profile>
+                      </profiles>
                       <infoLinks>
-                        <infoLink name="➤ L7 missile launcher - blast" id="a45b-7ce6-2af7-ee58" hidden="false" targetId="df2e-7066-b61c-1a2d" type="profile"/>
-                        <infoLink name="➤ L7 missile launcher - focused" id="8588-9ef1-2608-fd8b" hidden="false" targetId="0f47-f0cd-0d5b-514b" type="profile"/>
                         <infoLink name="Blast" id="f644-c2a5-2ca3-1f99" hidden="false" targetId="6c1f-1cf7-ff25-c99e" type="rule"/>
                       </infoLinks>
                       <constraints>
@@ -4762,6 +4810,8 @@ fnp: 4+</comment>
         <categoryLink name="Infantry" hidden="false" id="dd00-d80e-eeba-c6da" targetId="cf47-a0d7-7207-29dc" primary="true"/>
         <categoryLink name="Grenades" hidden="false" id="e1f0-3ee7-9b35-87f3" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
         <categoryLink name="Hernkyn Yaegirs" hidden="false" id="1fd8-7f1a-ace9-8572" targetId="5b17-69c0-77f9-d2f4" primary="false"/>
+        <categoryLink targetId="3b76-147c-3f98-f6c0" id="edc7-88c8-f5b0-b2bd" primary="false" name="Hernkyn"/>
+        <categoryLink targetId="514e-99cb-5080-8e1f" id="6796-6332-ab01-94bc" primary="false" name="Yaegirs"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
@@ -5198,7 +5248,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Computational Mastermind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="83a2-efc4-1e59-b3ea">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, before you determine if units from your army have Hostile Acquisition or Fortify Takeover, for each objective marker you control that has one or more models with this ability in range of it, you can spend 1YP or gain 1YP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, before you determine if units from your army have Hostile Acquisition or Fortify Takeover, for each objective marker you control that has one or more models with this ability within range of it, you can spend 1YP or gain 1YP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Predictive Guidance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="455d-1e24-c53e-c789">
@@ -5320,7 +5370,7 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Resource Transmutation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ee59-d825-22fa-51b8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your Shooting phase, one model with this ability can choose to use it when it is selected to shoot. If it does, you must spend 1YP and, until the end of the phase, ranged weapons equipped by that model have the [^^**Sustained Hits 1**^^] ability and, after that model has shot this phase, if one or more enemy units were destroyed by those attacks, you can gain up to 2YP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your Shooting phase, one model with this ability can use it when it is selected to shoot. If it does, you must spend 1YP and, until the end of the phase, ranged weapons equipped by that model have the **[Sustained Hits 1]** ability and, after that model has shot this phase, if one or more enemy units were destroyed by those attacks, you can gain up to 2YP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6301,12 +6351,15 @@ fnp: 4+</comment>
         </profile>
         <profile name="Break the Foe" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bde3-2380-e35d-4b9f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Melee weapons equipped by models in this unit have the [^^Sustained Hits 1^^] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Melee weapons equipped by models in this model’s unit have the **[Sustained Hits 1]** ability</characteristic>
           </characteristics>
         </profile>
         <profile name="Relentless Avalanche" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="90bf-038f-b323-01d7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this model&apos;s unit with the Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can target this unit with the **Heroic Intervention stratagem**, regardless of any other uses of that **stratagem** this phase. If you do:
+
+■ That use is -1 CP.
+■ That use does not prevent any uses of that **stratagem** on other units this phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="afcf-70e3-6e45-b361">
@@ -6330,7 +6383,7 @@ fnp: 4+</comment>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster 3+, Anti-Vehicle 3+, Sustained Hits 1</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Monster 3+, Anti-Vehicle 3+</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Kromlôk&apos;s Revenge - plasma sweeps" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9f27-8819-500a-1509">
@@ -6341,13 +6394,12 @@ fnp: 4+</comment>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
           <infoLinks>
             <infoLink name="Anti-" id="edc1-1b04-e668-6a73" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-            <infoLink name="Sustained Hits" id="41b3-e76a-39e6-7689" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Warforge gauntlets" hidden="false" id="a337-b91b-f5af-3682" sortIndex="4">
@@ -6364,7 +6416,7 @@ fnp: 4+</comment>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks, Sustained Hits 1</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
               </characteristics>
             </profile>
           </profiles>
