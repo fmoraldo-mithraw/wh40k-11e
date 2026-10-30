@@ -426,7 +426,6 @@
     <categoryEntry name="Tacticus" id="883d-54fa-524d-0db3" hidden="false"/>
     <categoryEntry name="Phobos" id="a6b1-cfcf-c1a1-71bf" hidden="false"/>
     <categoryEntry name="Deathwatch" id="15df-a532-a570-461e" hidden="false"/>
-    <categoryEntry name="Ordo Xenos" id="df23-f48a-60b1-480d" hidden="false"/>
     <categoryEntry name="Deathwatch Kill Team" id="b917-6755-58fc-bba0" hidden="false"/>
     <categoryEntry name="Watch Sergeant loadout" id="ecbb-2557-ffeb-7a49" hidden="true">
       <constraints>
@@ -446,11 +445,12 @@ sim-mod: source=&quot;Purgatus Quarry&quot; reroll=wound1 whileLeading condition
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="468d-e565-4261-1362" primary="true" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="2329-ff0e-f491-e7ac" primary="false" name="Infantry"/>
         <categoryLink targetId="2d7f-1892-2fd0-e29c" id="436a-e0ff-996c-e10" primary="false" name="Captain"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="d348-487c-3d53-c1cc" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="d348-487c-3d53-c1cc" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="15fc-cfc4-d2e6-7329" primary="false" name="Imperium"/>
         <categoryLink name="Watch Master" hidden="false" id="5af4-ded8-65a5-b731" targetId="6e-71bd-2538-d468" primary="false"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="c0cc-215c-8e3f-7e15" targetId="6e7-40c-58d9-e402" primary="false"/>
         <categoryLink name="Faction: Deathwatch" hidden="false" id="86e0-2861-333a-2b8b" targetId="d39c-9989-db7f-d815" primary="false"/>
+        <categoryLink name="Kill Team" hidden="false" id="40b8-fdc2-4b2f-499f" targetId="81b0-a893-4fb7-c298" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Watch Master" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="db91-f6d2-e8ff-cfcd" publicationId="4115-3627-e608-39f6" page="7">
@@ -624,12 +624,13 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="5638-47d5-7e51-4ea0" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="735d-dffc-9ab8-e8d2" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="cb4d-64c5-31dc-dacb" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="287d-bd92-4f64-a6dc" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="287d-bd92-4f64-a6dc" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="b74a-5b0d-a712-61ee" primary="false" name="Imperium"/>
         <categoryLink targetId="76e-a320-40ba-2a3" id="1c7e-91ae-a92f-66f0" primary="false" name="Watch Captain Artemis"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="d15d-4f84-0375-8ad3" targetId="6e7-40c-58d9-e402" primary="false"/>
         <categoryLink name="Faction: Deathwatch" hidden="false" id="c30d-20b1-04e4-61cb" targetId="d39c-9989-db7f-d815" primary="false"/>
         <categoryLink targetId="2d7f-1892-2fd0-e29c" id="2852-67cc-14eb-7484" primary="false" name="Captain"/>
+        <categoryLink name="Kill Team" hidden="false" id="fc47-36d4-037f-f9d2" targetId="81b0-a893-4fb7-c298" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Leader" hidden="false" type="rule" id="a22-980a-787a-f53d" targetId="b4dd-3e1f-41cb-218f"/>
@@ -759,9 +760,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
           </characteristics>
         </profile>
       </profiles>
-      <infoLinks>
-        <infoLink name="Devastating Wounds" hidden="false" type="rule" id="630f-51ef-5a87-48b9" targetId="be1e-ac8e-1e2c-3528"/>
-      </infoLinks>
       <comment>Armoury - 3+</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Heavy flamer" hidden="false" id="f705-bc58-183b-767">
@@ -780,7 +778,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Ignores Cover" hidden="false" type="rule" id="7c8-c041-e1e4-4c2f" targetId="4640-43e7-30b-215a"/>
         <infoLink name="Torrent" hidden="false" type="rule" id="e46c-db20-f30-5906" targetId="5edf-d619-23e0-9b56"/>
       </infoLinks>
     </selectionEntry>
@@ -797,13 +794,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Rapid Fire 2, Sustained Hits 1</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="Sustained Hits 1" field="7f1b-8591-2fcf-d01c">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3448-bcbe-089a-0373" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="➤ Infernus heavy bolter - heavy flamer" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dde2-d05e-7d2e-f4c6" publicationId="4115-3627-e608-39f6" page="29">
           <characteristics>
@@ -818,18 +808,9 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Heavy" hidden="false" type="rule" id="d711-a238-437a-f905" targetId="1202-10a8-78e9-4c67">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3448-bcbe-089a-0373" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
+        <infoLink name="Heavy" hidden="false" type="rule" id="d711-a238-437a-f905" targetId="1202-10a8-78e9-4c67"/>
         <infoLink name="Sustained Hits" hidden="false" type="rule" id="2943-4127-78e0-cdeb" targetId="1897-c22c-9597-12b1"/>
         <infoLink name="Torrent" hidden="false" type="rule" id="8181-3e87-2cc4-51d9" targetId="5edf-d619-23e0-9b56"/>
-        <infoLink name="Ignores Cover" hidden="false" type="rule" id="5c63-5f25-6fbe-122b" targetId="4640-43e7-30b-215a"/>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="2902-b665-48b6-bb09" collective="true">
@@ -860,7 +841,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
       </profiles>
       <infoLinks>
         <infoLink name="Hazardous" hidden="false" type="rule" id="73b8-d622-86fc-bc75" targetId="8367-374c-f87-c627"/>
-        <infoLink name="Pistol" hidden="false" type="rule" id="6efa-d138-894f-5be0" targetId="8bf7-8812-923d-29e4"/>
+        <infoLink name="Close-Quarters" hidden="false" type="rule" id="6efa-d138-894f-5be0" targetId="59e0-775e-fce5-43ca"/>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Corvus Blackstar" hidden="false" id="d861-972b-54f9-bdfa">
@@ -875,6 +856,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
         <categoryLink targetId="b9d0-ad1e-b2c9-c2b9" id="9621-88e3-b9a-29f7" primary="false" name="Corvus Blackstar"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="aa61-4f4d-b546-e940" targetId="6e7-40c-58d9-e402" primary="false"/>
         <categoryLink name="Faction: Deathwatch" hidden="false" id="0d0a-eaea-4097-0493" targetId="d39c-9989-db7f-d815" primary="false"/>
+        <categoryLink name="Smoke" hidden="false" id="fa56-c5d6-a0b8-ed87" targetId="6df-937-16bc-8c1a" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="a03a-d2e-830-c5bd" targetId="b68a-5ded-65ac-98c">
@@ -983,7 +965,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Devastating Wounds" id="c50a-ea11-f97e-69e5" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
                     <infoLink name="Twin-linked" id="da83-571b-220a-3aea" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                   </infoLinks>
                   <entryLinks></entryLinks>
@@ -1651,7 +1632,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="efbb-bbf1-57eb-c7e1" primary="true" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="8ebd-731d-ffed-1a89" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="8ebd-731d-ffed-1a89" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="1ff3-743d-4483-538d" primary="false" name="Imperium"/>
         <categoryLink targetId="a2bb-b582-9f57-27f5" id="5c0-51e7-95a9-bfb9" primary="false" name="Fortis Kill Team"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="5156-1413-318e-d9be" targetId="6e7-40c-58d9-e402" primary="false"/>
@@ -1862,7 +1843,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Blast" id="e282-67c4-2b87-51d7" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
                         <infoLink name="Heavy" id="b99e-5934-1610-d018" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
                       </infoLinks>
                     </selectionEntry>
@@ -1986,7 +1966,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Pistol" id="28de-cf4c-c252-7676" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                    <infoLink name="Close-Quarters" id="28de-cf4c-c252-7676" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                   </infoLinks>
                 </selectionEntry>
               </selectionEntries>
@@ -2553,7 +2533,6 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Ignores Cover" id="1e0d-a5ed-0e5f-6d88" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
                         <infoLink name="Torrent" id="81fd-aefc-21f9-0c5a" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
                         <infoLink name="Twin-linked" id="4f60-2769-50b1-299e" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                       </infoLinks>
@@ -2809,7 +2788,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
       </selectionEntryGroups>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="724-5cc5-c3ce-22ef" primary="true" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="cb0b-4033-8cb9-3e7b" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="cb0b-4033-8cb9-3e7b" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="440d-60e0-37b3-eaf8" primary="false" name="Imperium"/>
         <categoryLink targetId="6acb-612b-3fe6-9061" id="c96c-ed1-afd6-907" primary="false" name="Indomitor Kill Team"/>
         <categoryLink targetId="81f0-f40e-c36c-5a30" id="301b-b4d3-4949-1e15" primary="false" name="Gravis"/>
@@ -2839,7 +2818,7 @@ sim-mod: source=&quot;Tactical Instinct&quot; sustained=1 whileLeading</comment>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="78bb-27f7-5c80-c0ec" primary="true" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="bd90-2457-31b9-d3a3" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="bd90-2457-31b9-d3a3" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="c41d-87ee-4fd5-2b02" primary="false" name="Imperium"/>
         <categoryLink targetId="6df-937-16bc-8c1a" id="6db6-124d-99e8-1a17" primary="false" name="Smoke"/>
         <categoryLink targetId="2de5-9b49-eb99-3e9f" id="22b4-be42-58ca-3bce" primary="false" name="Spectrus Kill Team"/>
@@ -3041,30 +3020,6 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b898-aea3-99f2-ab21"/>
               </constraints>
               <selectionEntries>
-                <selectionEntry type="upgrade" import="true" name="Deathwatch marksman bolt carbine" hidden="false" id="eaaa-a55e-ee06-4295">
-                  <constraints>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8baf-afcd-ad06-592b"/>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7ffc-371e-4959-64b8"/>
-                  </constraints>
-                  <profiles>
-                    <profile name="Deathwatch marksman bolt carbine" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="64ad-a661-43fb-f2de">
-                      <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
-                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy, Lethal Hits</characteristic>
-                      </characteristics>
-                    </profile>
-                  </profiles>
-                  <infoLinks>
-                    <infoLink name="Heavy" id="e54e-e74b-1e9b-101f" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
-                    <infoLink name="Lethal Hits" id="26c1-a4b0-4fb7-b3c5" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
-                  </infoLinks>
-                  <entryLinks></entryLinks>
-                </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Ceramite Fists" hidden="false" id="0d26-46cc-462a-5d78" collective="true">
       <profiles>
         <profile name="Ceramite Fists" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="4de3-ad53-5239-45f0">
@@ -3162,7 +3117,7 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Pistol" id="dbb6-6466-aade-49cb" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="dbb6-6466-aade-49cb" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                         <infoLink name="Precision" id="7b68-6539-a881-ff15" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
@@ -3228,7 +3183,7 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Pistol" id="3ee8-09a7-63f6-79b6" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="3ee8-09a7-63f6-79b6" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                         <infoLink name="Precision" id="41eb-148b-35a2-fc03" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
@@ -3329,7 +3284,6 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Heavy" id="62a3-9986-f90d-a091" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
                         <infoLink name="Precision" id="309a-0831-4910-4a79" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
@@ -3583,7 +3537,6 @@ If this unit has a Leader unit attached to it during the Declare Battle Formatio
       </profiles>
       <infoLinks>
         <infoLink name="Assault" hidden="false" id="4f29-496-d22c-baa9" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
-        <infoLink name="Heavy" hidden="false" id="9a30-ae1-a95-3765" type="rule" targetId="1202-10a8-78e9-4c67"/>
         <infoLink name="Hazardous" hidden="false" id="a4f4-f6c3-472f-b225" type="rule" targetId="8367-374c-f87-c627"/>
       </infoLinks>
     </selectionEntry>
@@ -3596,13 +3549,12 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
       <categoryLinks>
         <categoryLink name="Infantry" hidden="false" id="e3a5-4752-9a44-00f1" targetId="cf47-a0d7-7207-29dc" primary="false"/>
         <categoryLink name="Battleline" hidden="false" id="f842-24ac-1ac0-6a60" targetId="e338-111e-d0c6-b687" primary="true"/>
-        <categoryLink name="Grenades" hidden="false" id="edf7-e06e-92c3-0a47" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
+        <categoryLink name="Explosives" hidden="false" id="edf7-e06e-92c3-0a47" targetId="286f-80f7-f31d-d070" primary="false"/>
         <categoryLink name="Imperium" hidden="false" id="ac65-8b5b-08b3-2eec" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
-        <categoryLink name="Ordo Xenos" hidden="false" id="ed52-91af-f4e8-4329" targetId="df23-f48a-60b1-480d" primary="false"/>
-        <categoryLink name="Retinue" hidden="false" id="eac4-377e-b280-6a37" targetId="cc77-a53-fca8-f48e" primary="false"/>
         <categoryLink name="Deathwatch Kill Team" hidden="false" id="ad2a-8494-9c57-4d6a" targetId="b917-6755-58fc-bba0" primary="false"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="cd75-c4e2-3ae7-c683" targetId="6e7-40c-58d9-e402" primary="false"/>
         <categoryLink name="Faction: Deathwatch" hidden="false" id="f041-8ef7-aabb-6ee8" targetId="d39c-9989-db7f-d815" primary="false"/>
+        <categoryLink name="Kill Team" hidden="false" id="ca17-a4ad-370c-c0c2" targetId="81b0-a893-4fb7-c298" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Death to the Alien" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="079c-c14f-83f1-25a6" publicationId="4115-3627-e608-39f6" page="13">
@@ -4052,18 +4004,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="3+" field="94d-8a98-cf90-183e">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="8aae-3dc4-861e-47ab" shared="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="➤ Combi-weapon - Purgatus" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="538d-1402-2fcd-fa2a">
           <characteristics>
@@ -4139,18 +4079,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="3+" field="94d-8a98-cf90-183e">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="8aae-3dc4-861e-47ab" shared="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="➤ Combi-weapon - Purgatus" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6bd6-c9da-4d11-4e27">
           <characteristics>
@@ -4226,18 +4154,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast 1, Torrent</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="3+" field="94d-8a98-cf90-183e">
-              <conditionGroups>
-                <conditionGroup type="or">
-                  <conditions>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
-                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="8aae-3dc4-861e-47ab" shared="true"/>
-                  </conditions>
-                </conditionGroup>
-              </conditionGroups>
-            </modifier>
-          </modifiers>
         </profile>
         <profile name="➤ Combi-weapon - Purgatus" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="1be1-08ed-56b7-e9c9">
           <characteristics>
@@ -4423,7 +4339,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         <categoryLink name="Infantry" hidden="false" id="9b5d-f6c5-9431-1e57" targetId="cf47-a0d7-7207-29dc" primary="true"/>
         <categoryLink name="Fly" hidden="false" id="8369-4a3e-9b3f-9d7d" targetId="c619-2086-bbcf-69c9" primary="false"/>
         <categoryLink name="Jump Pack" hidden="false" id="8f8e-196e-cdb9-0b93" targetId="dda2-bb0a-215e-ad9c" primary="false"/>
-        <categoryLink name="Grenades" hidden="false" id="1b20-cf56-32e2-859a" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
+        <categoryLink name="Explosives" hidden="false" id="1b20-cf56-32e2-859a" targetId="286f-80f7-f31d-d070" primary="false"/>
         <categoryLink name="Imperium" hidden="false" id="2efe-03f0-ebb9-4046" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink name="Kill Team" hidden="false" id="3bf9-eb5d-ac98-096c" targetId="81b0-a893-4fb7-c298" primary="false"/>
         <categoryLink name="Talonstrike Kill Team" hidden="false" id="480a-4e71-6e90-d954" targetId="4082-03bb-1ab3-a93b" primary="false"/>
@@ -4593,7 +4509,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                         <infoLink name="Assault" id="c79d-1449-275a-7598" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
                         <infoLink name="Twin-linked" id="fcd1-0c77-3e78-78c4" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                         <infoLink name="Sustained Hits" id="11d6-f6d5-6c7c-72c9" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
-                        <infoLink name="Pistol" id="9c74-9376-9b61-75b2" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="9c74-9376-9b61-75b2" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                       </infoLinks>
                     </selectionEntry>
                     <selectionEntry type="upgrade" import="true" name="Plasma exterminators" hidden="false" id="af8e-9b8b-a106-2f1b" collective="false">
@@ -4623,7 +4539,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
                       </profiles>
                       <infoLinks>
                         <infoLink name="Assault" id="493e-7e57-6847-2ac6" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
-                        <infoLink name="Pistol" id="6586-88ec-b752-f9fd" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="6586-88ec-b752-f9fd" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                         <infoLink name="Twin-linked" id="5d03-eacf-71f1-dca7" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                         <infoLink name="Hazardous" id="e418-f0e3-ce43-a3e6" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
                       </infoLinks>
@@ -4809,7 +4725,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Pistol" id="a5ac-bb77-431f-06a6" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+        <infoLink name="Close-Quarters" id="a5ac-bb77-431f-06a6" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
         <infoLink name="Precision" id="7532-227a-82ec-1a90" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
         <infoLink name="Lethal Hits" id="a7af-fae0-7157-49b4" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
       </infoLinks>
@@ -4829,7 +4745,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         <categoryLink name="Faction: Deathwatch" hidden="false" id="db2f-6f6d-8dc9-c5c2" targetId="d39c-9989-db7f-d815" primary="false"/>
         <categoryLink name="Infantry" hidden="false" id="f709-0377-58cd-6d33" targetId="cf47-a0d7-7207-29dc" primary="false"/>
         <categoryLink name="Battleline" hidden="false" id="c04e-7686-1abf-2616" targetId="e338-111e-d0c6-b687" primary="true"/>
-        <categoryLink name="Grenades" hidden="false" id="4840-b1f7-9838-9daf" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
+        <categoryLink name="Explosives" hidden="false" id="4840-b1f7-9838-9daf" targetId="286f-80f7-f31d-d070" primary="false"/>
         <categoryLink name="Imperium" hidden="false" id="cadb-8e53-8f5f-87ab" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink name="Kill Team" hidden="false" id="9743-44c4-b0a0-8525" targetId="81b0-a893-4fb7-c298" primary="false"/>
         <categoryLink name="Tacticus" hidden="false" id="06e4-3862-2fc4-b176" targetId="5179-8ede-45e3-49a2" primary="false"/>
@@ -5265,7 +5181,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Pistol" id="4405-cec2-b6f4-c2c4" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+        <infoLink name="Close-Quarters" id="4405-cec2-b6f4-c2c4" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
         <infoLink name="Precision" id="1caf-5667-0cba-b274" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
         <infoLink name="Lethal Hits" id="ae51-09c8-d4bd-435c" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
       </infoLinks>
@@ -5403,7 +5319,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
               <infoLinks>
                 <infoLink name="Sustained Hits" id="d0d2-d044-4c06-5c1d" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
                 <infoLink name="Torrent" id="b5fb-455a-c2d3-a506" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
-                <infoLink name="Ignores Cover" id="9870-91a4-dab8-7538" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
               </infoLinks>
             </selectionEntry>
           </selectionEntries>
@@ -5453,8 +5368,7 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Pistol" id="241a-c605-7272-29b4" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
-        <infoLink name="Lethal Hits" id="2740-6645-58f8-0a90" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
+        <infoLink name="Close-Quarters" id="241a-c605-7272-29b4" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
       </infoLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Twin lightning claws" hidden="false" id="6c8d-3bcf-4b4e-1d5f" collective="true">
@@ -5521,7 +5435,6 @@ sim-mod: source=&quot;Death to the Alien (vs non-Imp/Chaos)&quot; reroll=hit con
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Heavy" id="31a7-1291-a734-574d" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
         <infoLink name="Melta" id="bd8a-2971-26c0-617f" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
         <infoLink name="Hunter (Monster/Vehicle)" hidden="false" type="rule" id="bf50-c764-0806-79c0" targetId="0d1a-9f3b-7c40-1c06"/>
       </infoLinks>
