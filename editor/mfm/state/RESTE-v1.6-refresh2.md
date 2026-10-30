@@ -236,6 +236,9 @@ Audit final : `bodyguard-audit --all` 389/389 (listes, `leader-kw`, proses), app
   (« on acte l'abandon »). Encodé dans `editor/mfm/abandons.json` avec Ares / Orion
   (abandon du 2026-10-22) ; socles retirés de `editor/base-sizes.json` (et de la
   copie de l'appli). Le Grey Knights Thunderhawk Gunship, fiche propre, reste en base.
-- Règle du détachement **Black Spear Task Force** (« Mission Tactics ») : le texte
+- ~~Règle du détachement **Black Spear Task Force** (« Mission Tactics ») : le texte
   officiel cite « Kill Team Cassius (see Legends: Agents of the Imperium) ». Texte GW
-  conservé tel quel (une règle ne se réécrit pas) — à retoucher seulement sur demande.
+  conservé tel quel (une règle ne se réécrit pas) — à retoucher seulement sur demande.~~
+  **Clause retirée le 2026-10-29** (commit `bfa63a5d`, rien de Legends dans la base ni
+  l'appli) : la règle dit désormais « Your army cannot include any AGENTS OF THE
+  IMPERIUM DEATHWATCH units. » (traduction FR et résumé « initiation » régénérés).

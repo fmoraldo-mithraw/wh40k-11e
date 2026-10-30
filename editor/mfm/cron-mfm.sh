@@ -107,20 +107,21 @@ if APPLY_OUT="$(node editor/mfm/apply.mjs "$DUMP_DIR" 2>>"$LOG")"; then
   {
     echo "# MFM — à renvoyer ($MFM_LANG, ${VERSION})"
     echo
-    printf '%s\n' "$APPLY_OUT" | sed -n '/⚑ À ME RENVOYER/,/════ DRY-RUN/p' | sed '$d'
+    printf '%s\n' "$APPLY_OUT" | sed -n '/╔══ ⚑ À ME RENVOYER/,/════ DRY-RUN/p' | sed '$d'
   } > "$REPORT"
   log "diff calculé — rapport A_RENVOYER.md mis à jour."
 else
   log "⚠ apply (dry-run) a échoué — rapport non régénéré."
 fi
 # Audit DP / Force Disposition des détachements (trou v1.3 : apply ne couvre
-# que les points) — best-effort, annexé au rapport.
+# que les points) + contrôle symétrique base → MFM (« ◇ à trancher » : détachement
+# proposé par l'appli absent du MFM de sa faction) — best-effort, annexé au rapport.
 if DPA_OUT="$(node editor/mfm/dp-audit.mjs "$DUMP_DIR" 2>>"$LOG")"; then
-  { echo; echo "## Audit DP / Force Disposition"; echo; printf '%s\n' "$DPA_OUT"; } >> "$REPORT"
-  log "audit DP/FD : OK."
+  { echo; echo "## Audit DP / Force Disposition / détachements hors MFM"; echo; printf '%s\n' "$DPA_OUT"; } >> "$REPORT"
+  log "audit DP/FD + contrôle symétrique : OK."
 else
-  { echo; echo "## Audit DP / Force Disposition (ÉCARTS)"; echo; printf '%s\n' "${DPA_OUT:-<échec du script>}"; } >> "$REPORT"
-  log "⚠ audit DP/FD : écarts détectés (ou échec) — voir A_RENVOYER.md."
+  { echo; echo "## Audit DP / Force Disposition / détachements hors MFM (ÉCARTS — « ◇ » = à trancher)"; echo; printf '%s\n' "${DPA_OUT:-<échec du script>}"; } >> "$REPORT"
+  log "⚠ audit DP/FD : écarts ou détachements hors MFM à trancher (ou échec) — voir A_RENVOYER.md."
 fi
 # Audit des surcoûts d'armes (« per <arme> », hors périmètre d'apply) —
 # best-effort, annexé au rapport.

@@ -9,7 +9,7 @@
 // Garde-fous « ne rien insérer de douteux » — une proposition de changement
 // n'est émise QUE si TOUTES ces conditions tiennent, sinon la ligne part en
 // SKIP/REVIEW (jamais en delta appliquable) :
-//   • chaque valeur MFM est un entier fini 0 < p ≤ 3000 ;
+//   • chaque valeur MFM est un entier fini 0 < p ≤ 4000 (Warlord Titan : 3500) ;
 //   • le delta reste dans une fourchette plausible (|Δ| ≤ 200) ;
 //   • la cible bdd a bien un coût du type attendu (base présente pour une base,
 //     etc.) — un « nouveau coût » (cat sans base, MFM avec) part en REVIEW ;
@@ -56,6 +56,12 @@ const ABANDONS = (() => {
   return out;
 })();
 
+// Lignes de revue DÉJÀ VÉRIFIÉES conformes (editor/mfm/verifies.json, module verifies.mjs, lu aussi par
+// tier-audit.mjs et phase3.mjs) : ④ / ⑤ d'une unité dont le barème MFM n'a pas bougé depuis la vérification
+// sortent en « ℹ déjà vérifié le … » (hors « À ME RENVOYER ») ; barème changé → la demande revient.
+import { loadVerifies, infoLine, staleNote } from "./verifies.mjs";
+const VERIF = loadVerifies();
+
 const args = process.argv.slice(2);
 const flags = new Set(args.filter((a) => a.startsWith("--")));
 const pos = args.filter((a) => !a.startsWith("--"));
@@ -67,7 +73,7 @@ if (!mfmDir || !fs.existsSync(mfmDir)) {
   process.exit(1);
 }
 
-const MAX_PTS = 3000, MAX_DELTA = 200;
+const MAX_PTS = 4000, MAX_DELTA = 200;            // 4000 : Warlord Titan 3500 (barème titan-legions, MFM v1.6)
 // Valide un point MFM → entier sûr, ou lève (capté → REVIEW, jamais appliqué).
 function safePts(raw, ctx) {
   const n = Number(raw);
@@ -169,6 +175,8 @@ for (const slug of slugs) {
 const emittedWrite = new Set();                            // `${bsId}|${field}` déjà émis en Δ
 const actions = [];                                        // { cat, faction, name, detail } — « à me renvoyer »
 const abandonedInfo = [];                                  // { faction, name, why } — abandons actés (ℹ, rien à renvoyer)
+const verifiedInfo = [];                                   // { faction, name, cat, info } — déjà vérifiés (ℹ, rien à renvoyer)
+for (const e of VERIF.errors) actions.push({ cat: "erreur", faction: "—", name: "editor/mfm/verifies.json", detail: e });
 if (ABANDONS_ERR) actions.push({ cat: "erreur", faction: "—", name: "editor/mfm/abandons.json", detail: `illisible (${ABANDONS_ERR}) : les abandons actés retombent en « ① »` });
 for (const slug of slugs) {
   const map = JSON.parse(fs.readFileSync(path.join(MAP_DIR, slug + ".json"), "utf8"));
@@ -178,6 +186,12 @@ for (const slug of slugs) {
 
   const facLines = [];                                      // uniquement les Δ auto-applicables
   const review = (cat, name, detail) => { actions.push({ cat, faction: map.faction, name, detail }); tot.review++; };
+  // revue d'une unité MFM : déjà vérifiée (verifies.json, barème inchangé) → ℹ ; barème changé → demande annotée
+  const reviewUnit = (cat, mu, name, detail) => {
+    const v = VERIF.check(slug, mfm, mu.name, "apply:" + cat);
+    if (v && v.ok) { verifiedInfo.push({ faction: map.faction, name, cat, info: infoLine(v) }); return; }
+    review(cat, name, detail + (v ? staleNote(v) : ""));
+  };
   // ── unités ────────────────────────────────────────────────────────────────
   const seen = new Set();                                   // dédup dual-cost (nom vu 1×)
   for (const mu of mfm.units) {
@@ -218,7 +232,7 @@ for (const slug of slugs) {
     let costs;
     try { costs = mfmUnitCosts(mu); }
     catch (e) { review("valeur-douteuse", mu.name, e.message); continue; }
-    if (costs.skip) { review("composition", mu.name, costs.skip + ` — barème MFM: ${(mu.profiles || []).map((p) => p.size + "=" + p.points).join(", ")}`); continue; }
+    if (costs.skip) { reviewUnit("composition", mu, mu.name, costs.skip + ` — barème MFM: ${(mu.profiles || []).map((p) => p.size + "=" + p.points).join(", ")}`); continue; }
 
     for (const tgt of entry.targets) {
       const cur = tgt.current;
@@ -226,12 +240,12 @@ for (const slug of slugs) {
       // base : compare le coût EFFECTIF (cur.basePts, résolu par le parser) au
       // MFM. Coût effectif 0/absent + MFM>0 → porté par les modèles (④).
       if (cur.basePts == null || cur.basePts === 0) {
-        if (costs.basePts != null) review("modele-porte", mu.name + tag, `coût unité ${cur.basePts == null ? "absent" : "0"} (probablement porté par les modèles de composition), MFM base=${costs.basePts}`);
+        if (costs.basePts != null) reviewUnit("modele-porte", mu, mu.name + tag, `coût unité ${cur.basePts == null ? "absent" : "0"} (probablement porté par les modèles de composition), MFM base=${costs.basePts}`);
       } else if (costs.basePts !== cur.basePts) {
         const d = costs.basePts - cur.basePts;
         if (isConflicted(tgt.bsId, "base")) review("cout-chapitre", mu.name + tag, `datasheet partagée, prix divergent selon la faction (bdd ${cur.basePts} → MFM ${costs.basePts})`);
         else if (!saneDelta(d)) review("hors-bornes", mu.name + tag, `BASE Δ${d} implausible (bdd ${cur.basePts} → MFM ${costs.basePts})`);
-        else if (cur.baseOnNode == null) review("base-imbriquee", mu.name + tag, `coût effectif ${cur.basePts} porté hors de l'entrée unité (modèle/imbriqué), MFM=${costs.basePts} — écriture manuelle`);
+        else if (cur.baseOnNode == null) reviewUnit("base-imbriquee", mu, mu.name + tag, `coût effectif ${cur.basePts} porté hors de l'entrée unité (modèle/imbriqué), MFM=${costs.basePts} — écriture manuelle`);
         else if (emittedWrite.has(tgt.bsId + "|base")) { /* écriture partagée déjà émise */ }
         else { facLines.push(`  Δ ${mu.name}${tag} BASE: ${cur.basePts} → ${costs.basePts} (${d > 0 ? "+" : ""}${d})`); emittedWrite.add(tgt.bsId + "|base"); tot.deltas++; }
       }
@@ -360,6 +374,12 @@ if (abandonedInfo.length) {
   for (const g of grp.values()) console.log(`   ℹ abandonné : ${g.name} [${g.facs.join(", ")}] — ${g.why}`);
 }
 
+// Déjà vérifiés (verifies.json, barème MFM inchangé) : information seule, hors décompte — même règle d'en-tête.
+if (verifiedInfo.length) {
+  console.log(`\nℹ DÉJÀ VÉRIFIÉS (editor/mfm/verifies.json, barème MFM inchangé) — rien à renvoyer : ${verifiedInfo.length} ligne(s)`);
+  for (const v of verifiedInfo) console.log(`   ℹ ${CAT[v.cat] ? CAT[v.cat].icon : "?"} [${v.faction}] ${v.name} — ${v.info}`);
+}
+
 console.log(`\n════ DRY-RUN ════`);
-console.log(`Unités examinées: ${tot.units} · deltas points auto: ${tot.deltas} · deltas améliorations auto: ${tot.enhDeltas} · À ME RENVOYER: ${actions.length} · abandons actés (ℹ): ${abandonedInfo.length}`);
+console.log(`Unités examinées: ${tot.units} · deltas points auto: ${tot.deltas} · deltas améliorations auto: ${tot.enhDeltas} · À ME RENVOYER: ${actions.length} · abandons actés (ℹ): ${abandonedInfo.length} · déjà vérifiés (ℹ): ${verifiedInfo.length}`);
 console.log(`Aucune écriture (dry-run). Applique le bloc AUTO en Phase 3 ; renvoie-moi le bloc « ⚑ À ME RENVOYER » pour le reste.`);

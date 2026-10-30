@@ -68,7 +68,7 @@ APPLY_OUT="$(node editor/mfm/apply.mjs "$MFM_DIR")"
 {
   echo "# MFM — à renvoyer ($(basename "$MFM_DIR"))"
   echo
-  printf '%s\n' "$APPLY_OUT" | sed -n '/⚑ À ME RENVOYER/,/════ DRY-RUN/p' | sed '$d'
+  printf '%s\n' "$APPLY_OUT" | sed -n '/╔══ ⚑ À ME RENVOYER/,/════ DRY-RUN/p' | sed '$d'
 } > "$REPORT"
 
 AUTO="$(printf '%s\n' "$APPLY_OUT" | sed -n '/DELTAS AUTO-APPLICABLES/,/⚑ À ME RENVOYER/p' | sed '$d')"
@@ -84,6 +84,15 @@ else
   { echo; echo "## Octrois de LEADER / SUPPORT par amélioration (ÉCARTS)"; echo; printf '%s\n' "$ENHL_OUT"; } >> "$REPORT"
 fi
 
+# DP / Force Disposition des détachements + contrôle symétrique base → MFM (détachement
+# proposé par l'appli absent du MFM de sa faction, « ◇ à trancher ») : écarts annexés.
+if DPA_OUT="$(node editor/mfm/dp-audit.mjs "$MFM_DIR" 2>/dev/null)"; then
+  DPA_STATE="${c_g}aligné${c_0}"
+else
+  DPA_STATE="${c_y}écarts / détachements à trancher : voir editor/mfm/A_RENVOYER.md${c_0}"
+  { echo; echo "## Audit DP / Force Disposition / détachements hors MFM (ÉCARTS — « ◇ » = à trancher)"; echo; printf '%s\n' "${DPA_OUT:-<échec du script>}"; } >> "$REPORT"
+fi
+
 # ── 3) résumé ───────────────────────────────────────────────────────────────
 say "\n${c_b}▸ 3/3  Résumé${c_0}"
 say "\n${c_g}── Modifications auto-applicables (Phase 3) ──${c_0}"
@@ -94,6 +103,7 @@ say "  Détail complet écrit dans : ${c_b}editor/mfm/A_RENVOYER.md${c_0}"
 printf '%s\n' "$APPLY_OUT" | grep -E '\[[0-9]+\]$' | sed 's/^/  /' || true
 say "\n  ${STATLINE}"
 say "  Octrois de LEADER / SUPPORT par amélioration : ${ENHL_STATE}"
+say "  DP / Force Disposition / détachements hors MFM : ${DPA_STATE}"
 
 # ── état git ────────────────────────────────────────────────────────────────
 # Modifications versionnées à committer : matrices + alias + rapport, ET tout

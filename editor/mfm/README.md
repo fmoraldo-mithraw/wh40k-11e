@@ -8,7 +8,8 @@ au strict résidu. Conception : `editor/MFM_CI_PROPOSAL.md`.
 
 **Tout l'outillage MFM est dans CE dépôt** (`wh40k-11e/editor/mfm/`) :
 `mfm_parser.py`/`mfm_dump.py` (extraction), `build-map.mjs`, `apply.mjs`,
-`run.sh`, `aliases.json`, `abandons.json`, `map/`.
+`run.sh`, `pools.mjs` (slug MFM → factions de l'appli, résolution du parser),
+`aliases.json`, `abandons.json`, `verifies.json`, `map/`.
 
 **Les écritures en base se font dans ce dépôt**, via `editor/lib/catalog.js`
 (`editUnit` costs/tiers, helpers repeat-cost) — jamais de `sed`, jamais de
@@ -21,7 +22,8 @@ une faction « importateur mince » possède réellement) et ainsi matcher les n
 MFM. Sans lui, un match par fichier ne couvre que ~52 % (cf. `poc/`). Ce parser
 ne fait que LIRE ; il ne touche jamais aux données. Chemin configurable :
 `BSDATA_PARSER=/chemin/bsdata-parser.mjs` ou `COGITATOR_DIR=/chemin/cogitator-bellicum`
-(défaut : le dépôt frère `../cogitator-bellicum`). **Repli sans le dépôt de
+(défaut : le dépôt frère `../cogitator-bellicum`, s'il a ses dépendances npm ;
+résolution partagée avec `dp-audit.mjs` : `pools.mjs`). **Repli sans le dépôt de
 l'app** : copie autonome commitée `vendor/bsdata-parser.mjs` (bundle esbuild,
 aucune dépendance npm) — la routine cowork, qui n'a pas accès à
 cogitator-bellicum, régénère donc les matrices sans blocage. Après une
@@ -52,7 +54,9 @@ dépôt) → **écriture** (Phase 3, ce dépôt, via `catalog.js`).
      pour compléter l'intégration. N'écrit rien. Les fiches d'`abandons.json`
      n'y figurent jamais en ① : elles sortent en fin de bloc en lignes
      « ℹ abandonné » (hors décompte) ; une fiche abandonnée de nouveau appariée
-     en base y part en « ⚠ ABANDON CADUC ».
+     en base y part en « ⚠ ABANDON CADUC ». Les ④ / ⑤ **déjà vérifiés conformes**
+     (`verifies.json`, barème MFM inchangé) sortent de même en « ℹ déjà vérifié
+     le … » (hors décompte).
 
   Comparaison robuste aux idiomes d'encodage : le coût de base est le coût
   **effectif** (parser, résout les coûts imbriqués), les paliers sont comparés à
@@ -99,15 +103,18 @@ node    editor/mfm/apply.mjs     editor/mfm/dump/en [slug] [--changed-only]  # d
 
 Prérequis pour la génération : `python3` + le module `requests`
 (`pip install requests`). `run.sh` écrit la liste des modifications manquantes
-dans `editor/mfm/A_RENVOYER.md` (gitignoré) — c'est le fichier à me renvoyer.
-Le dump généré va dans `editor/mfm/dump/<lang>/` (gitignoré).
+dans `editor/mfm/A_RENVOYER.md` (**commité** : le rapport voyage par git avec les
+matrices ; `cron-mfm.sh` le régénère de la même façon et y annexe ses audits) —
+c'est le fichier à me renvoyer. Le dump généré va dans `editor/mfm/dump/<lang>/` :
+`dump/en/*.json` est **commité** (canal de transmission vers l'agent
+d'intégration, voir `.gitignore`), les autres langues restent locales.
 
 ## Garde-fous (« ne rien insérer de douteux »)
 
 Une valeur n'est proposée à l'écriture QUE si toutes ces conditions tiennent ;
 sinon la ligne part en **REVIEW** (manuel), jamais en delta appliquable :
 
-- coût MFM = entier fini `0 < p ≤ 3000` ; delta `|Δ| ≤ 200` ;
+- coût MFM = entier fini `0 < p ≤ 4000` (Warlord Titan : 3500) ; delta `|Δ| ≤ 200` ;
 - le bsId retombe bien sur un nœud bdd avec un coût du type attendu ;
 - **coût bdd 0/absent + MFM > 0** → coût probablement **porté par les modèles**
   (Ironstrider, Mek Gunz, Firestrike, Lokhust…) → manuel, jamais écrit sur
@@ -175,6 +182,38 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   (trou v1.3 : apply ne couvre que les points ; Lions of the Emperor 3 DP
   était passé inaperçu). Overrides par chapitre évalués, alias par sac de
   mots (dets Agents), exception Orks ≤ v1.3 (inerte depuis le MFM v1.4, Orks traités normalement).
+  **Contrôle symétrique base → MFM** (2026-10-30) : chaque détachement que
+  l'appli **propose** à une faction (parser de l'app via `pools.mjs`, repli
+  `vendor/`) doit figurer dans la liste MFM du slug de cette faction ; sinon
+  ligne « ◇ à trancher » (retirer, masquer pour la faction, ou consigner la
+  décision — un nom d'`abandons.json` pour ce slug sort en « ℹ »). Sortie ≠ 0.
+  Cas d'origine : 19 détachements de chapitre 10e absents du MFM v1.6 et
+  Gladius Task Force proposé aux Black Templars (retirés / masqué le
+  2026-10-30). `run.sh` et `cron-mfm.sh` annexent la sortie à `A_RENVOYER.md`.
+- `pools.mjs` — `SLUG_TO_POOL` (slug MFM → factions de l'appli, la première =
+  faction de la matrice ; `titan-legions` → Adeptus Titanicus,
+  `chaos-titan-legions` → Titanicus Traitoris, fiches partagées de
+  `Library - Titans.cat`, noms « CHAOS … TITAN » par `aliases.json`) et
+  `resolveParser()` / `parseRepo()`, partagés par `build-map.mjs` et `dp-audit.mjs`.
+- `verifies.json` (+ module `verifies.mjs`) — **bruit permanent vérifié** : lignes
+  de revue déjà vérifiées conformes, `{ "<slug>": { "<NOM MFM>": { le, empreinte,
+  lignes, motif } } }`. `lignes` = sortes couvertes : `apply:modele-porte` (④),
+  `apply:base-imbriquee` (④), `apply:composition` (⑤), `tier-audit` (« ? »),
+  `phase3:paliers` (« ? »). `empreinte` = sha1 (12 hex) du **barème MFM** de
+  l'unité (tier / taille / points de toutes ses occurrences dans le dump). Tant
+  qu'elle est identique, `apply.mjs`, `tier-audit.mjs` et `phase3.mjs` sortent la
+  ligne en « ℹ déjà vérifié le … » (hors « À ME RENVOYER ») ; barème changé → la
+  demande revient, annotée « barème MFM changé depuis la vérification du … ».
+  Vérifier = recalculer au **moteur de l'appli** (`src/lib/pts.js` de
+  cogitator-bellicum) le prix de chaque taille / composition du barème (et la
+  répétition) ; n'y inscrire qu'une ligne revérifiée. État :
+  `node editor/mfm/verifies.mjs` (✓ / ⚠ par entrée, sortie ≠ 0 si une entrée est
+  à revérifier) ; empreinte d'une unité : `node editor/mfm/verifies.mjs
+  editor/mfm/dump/en "slug::NOM"`. Contenu au 2026-10-30 : 31 unités (④ 15, ⑤ 3,
+  tier-audit 4, phase3 12, certaines communes) ; **non inscrit** : ATALAN JACKALS
+  (Genestealer Cults) : prix calculé non conforme (160 pts dès 5 figurines, le
+  modifier « set 160 si ≥ 1 Wolfquad » joue toujours puisque la fiche a au moins
+  un Wolfquad ; MFM 5 = 85) — écart à corriger, le « ? » de tier-audit reste.
 - `aliases.json` — résidu nom MFM → datasheet(s) bdd (nom cat, bsId, ou tableau
   pour un nom générique couvrant plusieurs datasheets, ex. `SOUL GRINDER` → 4
   variantes de dieu). Fusionné avant l'auto-match ; revérifié à chaque build.

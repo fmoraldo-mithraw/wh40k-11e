@@ -25,6 +25,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { SLUG_TO_POOL, resolveParser } from "./pools.mjs";
 
 const require = createRequire(import.meta.url);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -38,40 +39,18 @@ const ABANDONS = path.join(HERE, "abandons.json");
 // datasheets un chapitre / une faction « importateur mince » possède réellement)
 // afin de matcher les noms MFM — sans lui, le match par fichier ne couvre que
 // ~52 % (voir poc/). Les ÉCRITURES en base (Phase 3) n'en dépendent pas : elles
-// passent par editor/lib/catalog.js, dans CE dépôt. Résolution configurable :
-//   BSDATA_PARSER=<chemin .mjs>  ou  COGITATOR_DIR=<repo>  ou le dépôt frère
-//   ../cogitator-bellicum, et EN REPLI la copie autonome commitée
-//   vendor/bsdata-parser.mjs (bundle, aucune dépendance) — la routine cowork,
-//   qui n'a pas accès au dépôt de l'app, ne se bloque donc plus. Resynchroniser
-//   la copie : vendor/sync-parser.sh (vérif : --check).
-function resolveParser() {
-  const cands = [
-    process.env.BSDATA_PARSER,
-    process.env.COGITATOR_DIR && path.join(process.env.COGITATOR_DIR, "scripts", "bsdata-parser.mjs"),
-    path.resolve(REPO, "..", "cogitator-bellicum", "scripts", "bsdata-parser.mjs"),
-  ].filter(Boolean);
-  // Le parser d'une source ne se charge que si ses dépendances npm sont
-  // installées (clone nu sans node_modules → import en échec) : sinon repli.
-  for (const c of cands) {
-    if (!fs.existsSync(c)) continue;
-    const appNm = path.resolve(path.dirname(c), "..", "node_modules", "fast-xml-parser");
-    if (c === process.env.BSDATA_PARSER || fs.existsSync(appNm)) return c;
-    console.error(`[build-map] ${c} présent mais dépendances non installées — repli sur la copie vendorisée.`);
-  }
-  const vendored = path.join(HERE, "vendor", "bsdata-parser.mjs");
-  if (fs.existsSync(vendored)) {
-    const head = fs.readFileSync(vendored, "utf8").slice(0, 600);
-    const commit = (head.match(/source-commit: (\S+)/) || [])[1] || "?";
-    console.error(`[build-map] parser de l'app absent — copie vendorisée (commit app ${commit}).`);
-    return vendored;
-  }
+// passent par editor/lib/catalog.js, dans CE dépôt. Résolution (pools.mjs,
+// partagée avec dp-audit.mjs) : BSDATA_PARSER=<chemin .mjs> ou COGITATOR_DIR=<repo>
+// ou le dépôt frère ../cogitator-bellicum, et EN REPLI la copie autonome commitée
+// vendor/bsdata-parser.mjs — la routine cowork, qui n'a pas accès au dépôt de
+// l'app, ne se bloque donc plus. Resynchroniser la copie : vendor/sync-parser.sh.
+const PARSER = resolveParser("build-map");
+if (!PARSER) {
   console.error(
     "[build-map] parser bsdata introuvable (nécessaire pour la clôture d'import).\n" +
-    "  Fournis-le : BSDATA_PARSER=/chemin/bsdata-parser.mjs  ou  COGITATOR_DIR=/chemin/cogitator-bellicum\n" +
-    "  Cherché : " + cands.join(", "));
+    "  Fournis-le : BSDATA_PARSER=/chemin/bsdata-parser.mjs  ou  COGITATOR_DIR=/chemin/cogitator-bellicum");
   process.exit(2);
 }
-const PARSER = resolveParser();
 
 const mfmDir = process.argv[2];
 const onlySlug = process.argv[3] || null;
@@ -94,27 +73,12 @@ export function norm(s) {
 function ptsInt(raw, ctx) {
   if (raw == null || raw === "") return null;
   const n = Number(raw);
-  if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0 || n > 3000)
+  if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0 || n > 4000)   // 4000 : Warlord Titan 3500
     throw new Error(`coût non valide (${JSON.stringify(raw)}) sur ${ctx}`);
   return n;
 }
 
-const SM_CHAPTERS = ["Space Marines", "Ultramarines", "Imperial Fists", "Iron Hands", "Raven Guard", "Salamanders", "White Scars"];
-const SLUG_TO_POOL = {
-  "orks": ["Orks"], "necrons": ["Necrons"], "tyranids": ["Tyranids"],
-  "space-marines": SM_CHAPTERS,
-  "space-wolves": ["Space Wolves"], "blood-angels": ["Blood Angels"], "dark-angels": ["Dark Angels"],
-  "black-templars": ["Black Templars"], "deathwatch": ["Deathwatch"],
-  "imperial-knights": ["Imperial Knights"], "chaos-knights": ["Chaos Knights"],
-  "adeptus-mechanicus": ["Adeptus Mechanicus"], "adepta-sororitas": ["Adepta Sororitas"],
-  "adeptus-custodes": ["Adeptus Custodes"], "astra-militarum": ["Astra Militarum"],
-  "grey-knights": ["Grey Knights"], "imperial-agents": ["Agents of the Imperium"],
-  "chaos-space-marines": ["Chaos Space Marines"], "death-guard": ["Death Guard"],
-  "thousand-sons": ["Thousand Sons"], "world-eaters": ["World Eaters"],
-  "chaos-daemons": ["Chaos Daemons"], "emperors-children": ["Emperor's Children"],
-  "genestealer-cults": ["Genestealer Cults"], "leagues-of-votann": ["Leagues of Votann"],
-  "tau-empire": ["T'au Empire"], "aeldari": ["Craftworlds"], "drukhari": ["Drukhari"],
-};
+// slug MFM → factions de l'appli : SLUG_TO_POOL (pools.mjs, partagé avec dp-audit.mjs).
 
 // ── chargement bdd (parser import-résolu + lib catalog pour les ids/coûts) ──
 const { parseAllCatalogues } = await import(PARSER);

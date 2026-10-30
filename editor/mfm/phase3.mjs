@@ -21,8 +21,12 @@ const COST_PTS = "51b2-306e-1021-d207";
 const xml = require(path.join(REPO, "editor", "lib", "xml.js"));
 const { Catalog } = require(path.join(REPO, "editor", "lib", "catalog.js"));
 const cat = new Catalog(REPO); cat.load();
+// « ? » de paliers d'une unité déjà vérifiée conforme (editor/mfm/verifies.json, sorte « phase3:paliers », barème
+// MFM inchangé) → « ℹ déjà vérifié le … » ; barème changé → le « ? » revient, annoté. Jamais d'écriture pour eux.
+const { loadVerifies, infoLine, staleNote } = await import(path.join(REPO, "editor", "mfm", "verifies.mjs"));
+const VERIF = loadVerifies();
 
-const MAX_PTS = 3000, MAX_DELTA = 200;
+const MAX_PTS = 4000, MAX_DELTA = 200;            // comme apply.mjs (Warlord Titan 3500)
 function safePts(raw, ctx) {
   const n = Number(raw);
   if (raw == null || !Number.isFinite(n) || !Number.isInteger(n) || n <= 0 || n > MAX_PTS)
@@ -125,7 +129,8 @@ const slugs = (slugArg ? slugArg.split(",") : fs.readdirSync(MAP_DIR).filter((f)
   .filter((s) => slugArg || !SM.has(s));
 
 const done = new Set();                                   // bsId|champ déjà écrit (datasheets partagées)
-const log = [], review = [];
+const log = [], review = [], known = [];
+for (const e of VERIF.errors) review.push(e);
 let nBase = 0, nTier = 0, nRep = 0, nRepNew = 0, nEnh = 0;
 
 for (const slug of slugs) {
@@ -164,7 +169,9 @@ for (const slug of slugs) {
         const missing = wanted.map((w) => w.pts).filter((p) => !achievable.has(p));
         if (missing.length) {
           if (dbTiers.length !== wanted.length) {
-            review.push(`[${fac}] ${mu.name} — paliers: bdd ${JSON.stringify(dbTiers.map((t) => [t.atModels, t.pts]))} vs MFM ${JSON.stringify(wanted.map((w) => [w.models, w.pts]))} (nombre différent)`);
+            const line = `[${fac}] ${mu.name} — paliers: bdd ${JSON.stringify(dbTiers.map((t) => [t.atModels, t.pts]))} vs MFM ${JSON.stringify(wanted.map((w) => [w.models, w.pts]))} (nombre différent)`;
+            const v = VERIF.check(slug, mfm, mu.name, "phase3:paliers");
+            if (v && v.ok) known.push(`${line} — ${infoLine(v)}`); else review.push(line + (v ? staleNote(v) : ""));
           } else if (!done.has(tgt.bsId + "|tiers")) {
             const patch = [];
             for (let i = 0; i < wanted.length; i++) {
@@ -224,5 +231,6 @@ for (const slug of slugs) {
 
 for (const l of log) console.log("Δ " + l);
 if (review.length) { console.log("\n── à vérifier à la main ──"); for (const r of review) console.log("? " + r); }
-console.log(`\nbase:${nBase} paliers:${nTier} répétition:${nRep} répétition-nouvelle:${nRepNew} améliorations:${nEnh} · review:${review.length} · write=${WRITE}`);
+if (known.length) { console.log(`\n── déjà vérifiés (editor/mfm/verifies.json, barème MFM inchangé) : ${known.length} ──`); for (const r of known) console.log("ℹ " + r); }
+console.log(`\nbase:${nBase} paliers:${nTier} répétition:${nRep} répétition-nouvelle:${nRepNew} améliorations:${nEnh} · review:${review.length} · déjà vérifiés:${known.length} · write=${WRITE}`);
 if (WRITE) { const dirty = cat.dirtyFiles(); cat.save(); console.log("fichiers écrits: " + dirty.length + "\n  " + dirty.join("\n  ")); }

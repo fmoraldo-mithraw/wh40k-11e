@@ -30,7 +30,7 @@ const cat = new Catalog(REPO); cat.load();
 function ptsInt(raw, ctx) {
   if (raw == null || raw === "") return null;
   const n = Number(raw);
-  if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0 || n > 3000) throw new Error(`coût non valide (${JSON.stringify(raw)}) sur ${ctx}`);
+  if (!Number.isFinite(n) || !Number.isInteger(n) || n < 0 || n > 4000) throw new Error(`coût non valide (${JSON.stringify(raw)}) sur ${ctx}`);
   return n;
 }
 function readCurrentCosts(bsId) {

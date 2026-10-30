@@ -57,6 +57,9 @@ origin/main`), puis :
    Force Dispositions et mots-clefs UNIQUE (retraits compris) se vérifient
    avec cet outil (overrides par chapitre évalués, exception Orks bornée à
    ≤ v1.3). Corriger chaque écart signalé via `editor/lib/catalog.js`.
+   Les lignes « ◇ à trancher » (contrôle symétrique : détachement proposé par
+   l'appli mais absent du MFM de sa faction) ne se corrigent **pas** seules :
+   les rapporter à l'utilisateur (retirer, masquer, ou consigner la décision).
 2ter. **Audit surcoûts d'armes** : `node editor/mfm/wpn-audit.mjs
    editor/mfm/dump/en` — les profils « per <arme> = N pts » sont aussi hors
    du périmètre d'apply. L'outil accepte les formes réelles d'encodage
@@ -67,7 +70,9 @@ origin/main`), puis :
    editor/mfm/dump/en` — apply compare les prix des paliers, pas leurs
    seuils ; un palier doit s'appliquer dès la taille listée précédente + 1
    (règle MFM du palier supérieur). Corriger les « ✗ » via la lib (valeur
-   de la condition), vérifier les « ? » à la main.
+   de la condition), vérifier les « ? » à la main. Les « ℹ déjà vérifié » (et
+   ceux d'apply / phase3) viennent d'`editor/mfm/verifies.json` : ils
+   redeviennent des demandes dès que le barème MFM de l'unité change.
 2quinquies. **Audit des rattachements** : `python3 editor/mfm/mfm_parser.py legends
    -o editor/mfm/legends.json` (si la version du MFM a changé), puis
    `node editor/mfm/bodyguard-audit.mjs editor/mfm/dump/en` — listes LEADER /

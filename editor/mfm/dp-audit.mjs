@@ -13,11 +13,22 @@
 //
 // Évalue les overrides de DP par chapitre (modifier `set` sur le coût DP
 // conditionné `primary-catalogue`, à la MARINE_CHAPTER_COST) avant de signaler.
+//
+// CONTRÔLE SYMÉTRIQUE base → MFM (« ◇ à trancher ») : chaque détachement que
+// l'APPLI propose à une faction (parser de l'app, clôture d'import — même
+// résolution que build-map.mjs : pools.mjs, repli vendor/bsdata-parser.mjs) doit
+// figurer dans la liste MFM du slug de cette faction (SLUG_TO_POOL). Sinon :
+// ligne « à trancher » (retirer le détachement, le masquer pour la faction, ou
+// consigner la décision). Un nom consigné dans editor/mfm/abandons.json pour ce
+// slug sort en « ℹ ». Le sens MFM → base reste la ligne « ? » ci-dessous (et le
+// « ⓪ » d'apply.mjs). Exemple : 19 détachements de chapitre 10e absents du MFM
+// v1.6 et Gladius Task Force proposé aux Black Templars (inventaire du 2026-10-29).
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { Catalog } from "../lib/catalog.js";
 import * as xml from "../lib/xml.js";
+import { SLUG_TO_POOL, parseRepo } from "./pools.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "../..");
@@ -116,6 +127,43 @@ for (const f of fs.readdirSync(DUMP).sort()) {
   }
 }
 
+// ── contrôle symétrique base → MFM ───────────────────────────────────────────
+const toDecide = new Map(), symInfo = [];                  // clé slug::nom → { slug, name, facs[], dp, enh }
+let symErr = null, all = null;
+try { all = await parseRepo("dp-audit"); if (!all) symErr = "parser de l'app introuvable (ni dépôt frère, ni vendor/bsdata-parser.mjs)"; }
+catch (e) { symErr = `parseAllCatalogues en échec (${e.message})`; }
+const abandonsDet = new Map();                             // slug → Set(bag(nom)) — editor/mfm/abandons.json
+try { for (const [slug, v] of Object.entries(JSON.parse(fs.readFileSync(path.join(HERE, "abandons.json"), "utf8"))))
+  if (!slug.startsWith("_") && v && typeof v === "object") abandonsDet.set(slug, new Map(Object.keys(v).map((n) => [bag(n), String(v[n])]))); }
+catch (e) { if (e.code !== "ENOENT") symInfo.push(`abandons.json illisible (${e.message})`); }
+if (all) {
+  const pooled = new Set(Object.values(SLUG_TO_POOL).flat());
+  const dumped = new Set();
+  for (const f of fs.readdirSync(DUMP).sort()) {
+    if (!f.endsWith(".json") || f.startsWith("_")) continue;
+    const slug = f.replace(/\.json$/, ""); dumped.add(slug);
+    const pool = SLUG_TO_POOL[slug];
+    if (!pool) { symInfo.push(`slug MFM sans faction de l'appli (pools.mjs) : ${slug}`); continue; }
+    const d = JSON.parse(fs.readFileSync(path.join(DUMP, f), "utf8"));
+    const mfmDets = new Set((d.detachments || []).map((x) => bag(x.name)));
+    for (const fac of pool) {
+      const F = all[fac];
+      if (!F) { symInfo.push(`faction « ${fac} » (${slug}) absente de la sortie du parser`); continue; }
+      for (const det of F.dets || []) {
+        if (mfmDets.has(bag(det.name))) continue;
+        const ab = (abandonsDet.get(slug) || new Map()).get(bag(det.name));
+        if (ab) { symInfo.push(`[${slug}] ${fac} :: ${det.name} — consigné dans abandons.json (${ab})`); continue; }
+        const k = slug + "::" + det.name;
+        if (!toDecide.has(k)) toDecide.set(k, { slug, name: det.name, facs: [], dp: det.dp, enh: (F.enhs || []).filter((e) => e.det === det.name).length });
+        toDecide.get(k).facs.push(fac);
+      }
+    }
+  }
+  // factions de l'appli qui proposent des détachements sans barème MFM (aucun slug du dump ne les couvre)
+  for (const [fac, F] of Object.entries(all)) if ((F.dets || []).length && !pooled.has(fac)) symInfo.push(`faction de l'appli sans barème MFM (pools.mjs) : ${fac} — ${F.dets.length} détachement(s) non contrôlé(s)`);
+  for (const [slug, pool] of Object.entries(SLUG_TO_POOL)) if (!dumped.has(slug)) symInfo.push(`slug ${slug} (${pool.join(", ")}) absent du dump : non contrôlé`);
+}
+
 if (notFound.length) {
   console.log(`? détachements MFM non appariés (${notFound.length}) — nouveaux dets ou renommages à examiner :`);
   for (const x of notFound) console.log("  ?", x);
@@ -123,6 +171,13 @@ if (notFound.length) {
 if (orksSkipped.length) {
   console.log(`~ écarts Orks ignorés (MFM ≤ v1.3, codex plus récent) : ${orksSkipped.length}`);
 }
+if (symErr) { console.log(`⚠ contrôle symétrique base → MFM indisponible : ${symErr}`); process.exitCode = 1; }
+else if (toDecide.size) {
+  console.log(`◇ À TRANCHER — détachements proposés par l'appli ABSENTS du MFM de leur faction (${toDecide.size}) : retirer, masquer pour la faction, ou consigner la décision :`);
+  for (const t of toDecide.values()) console.log(`  ◇ [${t.slug}] ${t.name} — proposé à ${t.facs.join(", ")} (${t.dp ?? "?"} DP, ${t.enh} amélioration(s)) ; absent du MFM ${t.slug}`);
+  process.exitCode = 1;
+} else console.log("✓ contrôle symétrique : tout détachement proposé par l'appli figure au MFM de sa faction.");
+for (const l of symInfo) console.log("  ℹ", l);
 if (issues.length) {
   console.log(`✗ ÉCARTS DP/FD/UNIQUE (${issues.length}) — à corriger via editor/lib/catalog.js :`);
   for (const x of [...new Set(issues)]) console.log("  ✗", x);

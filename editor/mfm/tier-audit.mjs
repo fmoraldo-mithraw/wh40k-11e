@@ -9,21 +9,27 @@
 //
 // Usage : node editor/mfm/tier-audit.mjs [dir-dump]   (défaut editor/mfm/dump/en)
 // Lecture seule ; sortie ≠ 0 s'il reste un seuil à corriger (via catalog.js).
+// Les « ? » d'une unité déjà vérifiée conforme (editor/mfm/verifies.json, sorte « tier-audit », barème MFM
+// inchangé) sortent en « ℹ déjà vérifié le … » ; barème changé → le « ? » revient, annoté.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { Catalog } from "../lib/catalog.js";
 import * as xml from "../lib/xml.js";
+import { loadVerifies, infoLine, staleNote } from "./verifies.mjs";
 const APPLY = false; // lecture seule — la correction se fait via editor/lib/catalog.js
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../.."), PTS = "51b2-306e-1021-d207";
 const c = new Catalog(ROOT); await c.load();
 const DUMP = process.argv[2] || path.join(ROOT, "editor/mfm/dump/en"), MAPD = path.join(ROOT, "editor/mfm/map");
-const fixes = [], odd = []; let checked = 0, ok = 0;
+const fixes = [], odd = [], known = []; let checked = 0, ok = 0;
+const VERIF = loadVerifies(); for (const e of VERIF.errors) odd.push(e);
 for (const f of fs.readdirSync(DUMP).sort()) {
   if (!f.endsWith(".json") || f.startsWith("_")) continue;
   const slug = f.replace(/\.json$/, "");
   const d = JSON.parse(fs.readFileSync(`${DUMP}/${f}`, "utf8"));
   let matched = {}; try { matched = JSON.parse(fs.readFileSync(`${MAPD}/${slug}.json`, "utf8")).matched || {}; } catch { continue; }
+  // « ? » : déjà vérifié (verifies.json) → ℹ ; sinon à vérifier (annoté si le barème a changé depuis la vérification)
+  const oddLine = (u, line) => { const v = VERIF.check(slug, d, u.name, "tier-audit"); if (v && v.ok) known.push(`${line} — ${infoLine(v)}`); else odd.push(line + (v ? staleNote(v) : "")); };
   for (const u of d.units || []) {
     // tailles listées du PREMIER barème (1ST… / YOUR UNIT COSTS)
     const firstTier = (u.profiles || []).find((p) => /^\d+ models?$/i.test(p.size || ""))?.tier;
@@ -45,11 +51,11 @@ for (const f of fs.readdirSync(DUMP).sort()) {
         const { n: sk, pts } = sizes[k], prev = sizes[k - 1].n;
         if (prev + 1 === sk) continue; // pas de trou : seuil = taille listée, rien à faire
         const cand = mods.filter((x) => x.pts === pts);
-        if (cand.length !== 1) { odd.push(`[${slug}] ${u.name} (${t.catName}) : palier ${sk}=${pts} → ${cand.length} modifier(s) à ce prix`); continue; }
+        if (cand.length !== 1) { oddLine(u, `[${slug}] ${u.name} (${t.catName}) : palier ${sk}=${pts} → ${cand.length} modifier(s) à ce prix`); continue; }
         const x = cand[0]; const thr = x.type === "atLeast" ? x.v : x.v + 1; // nombre de modèles à partir duquel le palier s'applique
         const want = prev + 1;
         if (thr === want) { ok++; continue; }
-        if (thr !== sk) { odd.push(`[${slug}] ${u.name} (${t.catName}) : palier ${sk}=${pts} appliqué dès ${thr} modèles (ni ${sk} ni ${want})`); continue; }
+        if (thr !== sk) { oddLine(u, `[${slug}] ${u.name} (${t.catName}) : palier ${sk}=${pts} appliqué dès ${thr} modèles (ni ${sk} ni ${want})`); continue; }
         fixes.push(`[${slug}] ${u.name} (${t.catName}) : ${pts} pts dès ${thr} → dès ${want} modèles (tailles ${prev}/${sk})`);
       }
     }
@@ -58,4 +64,5 @@ for (const f of fs.readdirSync(DUMP).sort()) {
 console.log(`unités examinées : ${checked} · paliers déjà conformes : ${ok}`);
 console.log(`── SEUILS À CORRIGER (${fixes.length}) — palier appliqué dès la taille listée au lieu de la précédente + 1 ──`); for (const l of fixes) console.log("  ✗", l);
 console.log(`── À VÉRIFIER À LA MAIN (${odd.length}) — encodage non standard (sélecteur de taille, doublon de prix, coût de chapitre…) ──`); for (const l of odd) console.log("  ?", l);
+if (known.length) { console.log(`── DÉJÀ VÉRIFIÉS (editor/mfm/verifies.json, barème MFM inchangé) : ${known.length} ──`); for (const l of known) console.log("  ℹ", l); }
 if (fixes.length) process.exitCode = 1;

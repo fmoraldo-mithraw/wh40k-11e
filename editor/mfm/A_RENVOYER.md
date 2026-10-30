@@ -1,44 +1,32 @@
 # MFM — à renvoyer (en)
 
 ╔══ ⚑ À ME RENVOYER — non traité automatiquement ══╗
+  (rien — tout est soit appliqué automatiquement, soit déjà aligné)
 
-① NOMS MFM SANS DATASHEET — envoie-moi le nom EXACT de la datasheet .cat (ou son bsId) : j'ajoute l'alias.  [15]
-   • [Adeptus Custodes] ARES GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Adeptus Custodes] ORION ASSAULT DROPSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Black Templars] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Black Templars] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Blood Angels] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Blood Angels] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Dark Angels] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Dark Angels] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Deathwatch] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Deathwatch] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Orks] GARGANTUAN SQUIGGOTH — aucune datasheet .cat pour ce nom MFM
-   • [Space Marines] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Space Marines] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
-   • [Space Wolves] ASTRAEUS — aucune datasheet .cat pour ce nom MFM
-   • [Space Wolves] THUNDERHAWK GUNSHIP — aucune datasheet .cat pour ce nom MFM
+ℹ ABANDONS ACTÉS (editor/mfm/abandons.json) — rien à renvoyer, ne plus les redemander : 15 nom(s) MFM
+   ℹ abandonné : ARES GUNSHIP [Adeptus Custodes] — décision du 2026-10-22 : fiche retirée de la base le 2026-09-30 (absente du codex Adeptus Custodes 11e), réintégration abandonnée
+   ℹ abandonné : ORION ASSAULT DROPSHIP [Adeptus Custodes] — décision du 2026-10-22 : fiche retirée de la base le 2026-09-30 (absente du codex Adeptus Custodes 11e), réintégration abandonnée
+   ℹ abandonné : ASTRAEUS [Black Templars, Blood Angels, Dark Angels, Deathwatch, Space Marines, Space Wolves] — décision du 2026-10-29 : au barème du MFM v1.6 mais absente du codex Space Marines 11e (fiche du tronc commun supprimée), intégration abandonnée
+   ℹ abandonné : THUNDERHAWK GUNSHIP [Black Templars, Blood Angels, Dark Angels, Deathwatch, Space Marines, Space Wolves] — décision du 2026-10-29 : au barème du MFM v1.6 mais absente du codex Space Marines 11e (fiche du tronc commun supprimée ; le Grey Knights Thunderhawk Gunship reste), intégration abandonnée
+   ℹ abandonné : GARGANTUAN SQUIGGOTH [Orks] — décision du 2026-10-29 : au barème du MFM v1.6 mais jamais intégrée à la base, intégration abandonnée
 
-④ COÛT PORTÉ PAR LES MODÈLES (unité à 0, prix sur les modèles) — confirme le barème par modèle de composition.  [15]
-   • [Adeptus Mechanicus] IRONSTRIDER BALLISTARII — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Astra Militarum] HIPPOGRIFF AFV — coût unité 0 (probablement porté par les modèles de composition), MFM base=70
-   • [Black Templars] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Black Templars] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
-   • [Blood Angels] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Blood Angels] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
-   • [Dark Angels] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Dark Angels] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
-   • [Deathwatch] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Deathwatch] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
-   • [Necrons] LOKHUST HEAVY DESTROYERS — coût unité 0 (probablement porté par les modèles de composition), MFM base=50
-   • [Space Marines] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Space Marines] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
-   • [Space Wolves] FIRESTRIKE SERVO-TURRETS — coût unité 0 (probablement porté par les modèles de composition), MFM base=80
-   • [Space Wolves] INVADER ATVS — coût unité 0 (probablement porté par les modèles de composition), MFM base=65
+ℹ DÉJÀ VÉRIFIÉS (editor/mfm/verifies.json, barème MFM inchangé) — rien à renvoyer : 18 ligne(s)
+   ℹ ④ [Adeptus Mechanicus] IRONSTRIDER BALLISTARII — déjà vérifié le 2026-10-30 — 1/2/3 figurines = 80/160/250, répétition +15 dès la 3e unité : moteur de l'appli = MFM (coût sur les figurines, palier 3 en increment)
+   ℹ ④ [Astra Militarum] HIPPOGRIFF AFV — déjà vérifié le 2026-10-30 — 1/2 = 70/140 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ⑤ [Black Templars] CRUSADER SQUAD — déjà vérifié le 2026-10-30 — 10 figurines (1 SB, 4 N, 5 I) = 160, 11 à 20 = 305 (palier supérieur) : moteur de l'appli = MFM
+   ℹ ④ [Black Templars] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Black Templars] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Blood Angels] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Blood Angels] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Dark Angels] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Dark Angels] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Deathwatch] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Deathwatch] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Necrons] LOKHUST HEAVY DESTROYERS — déjà vérifié le 2026-10-30 — 1/2/3 = 50/100/165, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Space Marines] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Space Marines] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ⑤ [Space Wolves] WOLF GUARD HEADTAKERS — déjà vérifié le 2026-10-30 — 3 / 3+3 / 6 / 6+6 = 85/115/170/230 (4-5 Headtakers → palier supérieur), répétition +10 dès la 3e unité : moteur de l'appli = MFM
+   ℹ ④ [Space Wolves] FIRESTRIKE SERVO-TURRETS — déjà vérifié le 2026-10-30 — 1/2 = 80/160 : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ④ [Space Wolves] INVADER ATVS — déjà vérifié le 2026-10-30 — 1/2 = 65/130, répétition +10 dès la 3e unité : coût porté par les figurines, moteur de l'appli = MFM
+   ℹ ⑤ [T'au Empire] TIDEWALL SHIELDLINE — déjà vérifié le 2026-10-30 — 85, + Tidewall Defence Platform 20 (option payante) : moteur de l'appli = MFM
 
-⑤ PRIX À COMPOSITION (tailles spéciales : Runtherds…) — le barème MFM est donné ci-dessous, confirme l'encodage voulu.  [3]
-   • [Black Templars] CRUSADER SQUAD — composition (taille non « N model ») — barème MFM: 1 Sword Brother, 4 Neophytes, 5 Initiates=160, 1 Sword Brother, 8 Neophytes, 11 Initiates=305
-   • [Space Wolves] WOLF GUARD HEADTAKERS — composition (taille non « N model ») — barème MFM: 3 Wolf Guard Headtakers=85, 3 Wolf Guard Headtakers, 3 Hunting Wolves=115, 6 Wolf Guard Headtakers=170, 6 Wolf Guard Headtakers, 6 Hunting Wolves=230, 3 Wolf Guard Headtakers=95, 3 Wolf Guard Headtakers, 3 Hunting Wolves=125, 6 Wolf Guard Headtakers=180, 6 Wolf Guard Headtakers, 6 Hunting Wolves=240
-   • [T'au Empire] TIDEWALL SHIELDLINE — composition (taille non « N model ») — barème MFM: 1 model=85, + 1 Tidewall Defence Platform=20
-
-════ DRY-RUN ════

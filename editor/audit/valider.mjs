@@ -37,7 +37,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, "..", "..");
 const require = createRequire(import.meta.url);
 
-console.log("── validation de la lib (47 fichiers, round-trip + références) ──");
+console.log("── validation de la lib (tous les .cat/.gst, round-trip + références) ──");
 const { Catalog } = require(join(ROOT, "editor", "lib", "catalog.js"));
 const cat = new Catalog(ROOT);
 cat.load();
@@ -45,7 +45,7 @@ const v = cat.validate();
 const errs = v.results.filter((r) => r.errors.length);
 for (const r of errs) console.error(`  ✗ ${r.file} : ${r.errors.join(" / ")}`);
 console.log(`  ${v.results.length} fichiers, ${errs.length} en erreur`);
-// Plancher dur : le dépôt a ~47 .cat/.gst. catalog.validate() rend
+// Plancher dur : le dépôt a 45 .cat/.gst (2026-10-30). catalog.validate() rend
 // { ok: results.every(...) }, et `every` sur un tableau VIDE vaut true → un
 // checkout partiel (LFS, sparse, clone raté) validait « 0 fichiers, 0 erreur »
 // au vert. On exige un nombre plausible de fichiers validés.
