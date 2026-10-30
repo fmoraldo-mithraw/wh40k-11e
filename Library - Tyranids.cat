@@ -121,8 +121,7 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry id="507d-5ea4-6ef1-bf66" name="Winged Tyranid Prime" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: source=&quot;Alpha Warrior&quot; sustained=1 whileLeading
-sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional
-invuln: 5+</comment>
+sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="e86d-792-10b7-df58" type="max"/>
       </constraints>
@@ -478,7 +477,9 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
         </profile>
         <profile name="Hypersensory Array" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c630-ebc4-f48c-6eba">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, you can target this unit with the Rapid Ingress or Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already targeted a different unit with that Stratagem this turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, you can target this unit with the **Rapid Ingress/Heroic Intervention** **stratagem**, regardless of any other uses of that **stratagem** this phase. If you do:
+■ That use is -1 CP.
+■ That use does not prevent any uses of that **stratagem** on other units this phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -731,7 +732,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       <profiles>
         <profile name="Terror from the Deep" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5b71-bc6f-68c5-a06a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is set up on the battlefield using the Deep Strike ability, roll one D6 for each enemy unit within 12&quot; of this model: on a 2-4, that unit suffers D3 mortal wounds; on a 5+, that unit suffers 3 mortal wounds and must take a Battle-shock test.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model is set up on the battlefield using the Deep Strike ability, roll one D6 for each enemy unit within 12&quot; of this model: on a 2-4, that unit suffers D3 mortal wounds; on a 5+, that unit suffers 3 mortal wounds and must take a Battle-shock test.</characteristic>
           </characteristics>
         </profile>
         <profile name="Mawloc" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="c9fa-4640-80ed-c955">
@@ -869,10 +870,9 @@ invuln: 4+</comment>
         </profile>
         <profile name="Psychological Saboteur (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f420-4c72-dafd-6998">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is with 12&quot; of this model, if that unit is Battle-shocked:
-
-- Each time a model in that unit makes an attack, subtract 1 from the Hit roll
-- Each time a friendly TYRANIDS model makes an attack that targets that unit, add 1 to the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within 12&quot; of this model, if that unit is Battle-shocked:
+■ Each time a model in that unit makes an attack, subtract 1 from the Hit roll.
+■ Each time a friendly **^^Tyranids^^** model makes an attack that targets that unit, add 1 to the Wound roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1265,6 +1265,7 @@ invuln: 4+</comment>
         <categoryLink targetId="6438-b712-55f4-c84c" id="b43e-721a-dcc2-ad3" primary="false" name="Tyrannocyte"/>
         <categoryLink targetId="d1d8-6ae0-1be7-e9e" id="74cf-4dbc-78d1-a876" primary="false" name="Faction: Tyranids"/>
         <categoryLink targetId="5ff0-d52d-e2b8-9de" id="c8f2-e34f-dfae-991e" primary="false" name="Vanguard Invader"/>
+        <categoryLink targetId="1f1e-bb41-6136-94c8" id="c750-cff8-a55b-c93a" primary="false" name="Frame"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
@@ -4626,6 +4627,7 @@ RESTRICTIONS: You cannot target units that are within Engagement Range of one or
         <selectionEntry type="upgrade" import="true" name="Warrior Bioform Onslaught" hidden="false" id="7416-b7cc-fdbf-5bf0">
           <rules>
             <rule name="Leader-beasts" id="372a-a870-cbf9-05e4" hidden="false">
+              <comment>def-mod: source=&quot;Leader-beasts&quot; inv=5 conditional kw=&quot;Tyranid Warriors,Tyranid Warriors with Ranged Bio-weapons,Tyranid Warriors with Melee Bio-weapons,Tyranid Prime with Lash Whip,Winged Tyranid Prime&quot; kwModels</comment>
               <description>- Friendly **^^Tyranid Warriors With Ranged Bio-weapons^^**/**^^Tyranid Warriors With Melee Bio-weapons^^** units have:
   - **^^Tyranid Warriors^^**.
   - **^^Battleline^^**.
@@ -5483,7 +5485,7 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
     </profile>
     <profile name="Will of the Hive Mind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="13-98c1-d481-eb95">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when a friendly **^^Tyranids^^** unit within 12&quot; of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
     <profile name="Feeder Tendrils" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3f46-6dbb-d99b-4ae2">
@@ -5543,5 +5545,6 @@ EFFECT: Ranged attacks that target your unit have -1 AP until that unit has atta
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="ac4f-61ac-f8c9-9930"/>
       </constraints>
     </categoryEntry>
+    <categoryEntry name="Frame" id="1f1e-bb41-6136-94c8" hidden="false"/>
   </categoryEntries>
 </catalogue>
