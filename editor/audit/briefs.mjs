@@ -19,8 +19,11 @@ for (const f of catFiles()) {
     const k = keyOf(a, H); seen.add(k); seen.add(a.name + "#" + a.src); if (entryOf(packs.en, a) === packs.en[a.name] || entryOf(packs.fr, a) === packs.fr[a.name]) seen.add(a.name);
     const miss = LANGS.filter((l) => !entryOf(packs[l], a));
     const st = LANGS.filter((l) => !entryOf(packs[l], a) && packs[l][k] && packs[l][k].src !== a.src);
-    if (miss.length) { m++; if (listMissing) console.log(`  manquant (${miss.join(",")}) : ${a.name}`); }
-    else if (st.length) { s++; console.log(`  PÉRIMÉ (${st.join(",")}) : ${a.name} — ${f}`); }
+    // PÉRIMÉ d'abord : un résumé dont l'empreinte diffère n'est pas trouvé par
+    // entryOf (donc aussi dans `miss`) — tester `miss` en premier le classait à
+    // tort « manquant » (non bloquant) et valider.mjs ne voyait jamais de périmé.
+    if (st.length) { s++; console.log(`  PÉRIMÉ (${st.join(",")}) : ${a.name} — ${f}`); }
+    else if (miss.length) { m++; if (listMissing) console.log(`  manquant (${miss.join(",")}) : ${a.name}`); }
   }
   total += list.length; missing += m; stale += s;
   console.log(`${f.padEnd(44)} ${String(list.length).padStart(4)} capacités · ${String(m).padStart(4)} manquantes · ${s} périmées`);
@@ -35,8 +38,8 @@ for (const [fac, list] of await parsedAbilitiesByFaction()) {
     const k = keyOf(a, H); seen.add(k); seen.add(a.name + "#" + a.src); if (entryOf(packs.en, a) === packs.en[a.name] || entryOf(packs.fr, a) === packs.fr[a.name]) seen.add(a.name);
     const miss = LANGS.filter((l) => !entryOf(packs[l], a));
     const st = LANGS.filter((l) => !entryOf(packs[l], a) && packs[l][k] && packs[l][k].src !== a.src);
-    if (miss.length) { m++; if (listMissing) console.log(`  manquant (${miss.join(",")}) : ${a.name}`); }
-    else if (st.length) { s++; console.log(`  PÉRIMÉ (${st.join(",")}) : ${a.name} — ${fac}`); }
+    if (st.length) { s++; console.log(`  PÉRIMÉ (${st.join(",")}) : ${a.name} — ${fac}`); }
+    else if (miss.length) { m++; if (listMissing) console.log(`  manquant (${miss.join(",")}) : ${a.name}`); }
   }
   total += extra.length; missing += m; stale += s;
   if (extra.length) console.log(`${("faction:" + fac).padEnd(44)} ${String(extra.length).padStart(4)} capacités · ${String(m).padStart(4)} manquantes · ${s} périmées`);

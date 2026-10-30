@@ -205,7 +205,7 @@ par l'unité ciblée ; l'appli ne le mélange jamais aux bonus offensifs
 pour abattre l'unité, profils F5 PA-1 D1 / F6 PA-2 D2 / F10 PA-2 D3, /100 pts).
 
 ```
-def-mod: source="Nom" <effets> [mortal] [when=ranged|melee] [vsStronger] [conditional] [oncePer=battle|turn|phase] [choice="…"]
+def-mod: source="Nom" <effets> [mortal] [when=ranged|melee] [vsStronger] [conditional] [oncePer=battle|turn|phase] [choice="…"] [kw="…" [kwModels]]
 effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 (PA de l'attaque aggravée de 1)
          · cover · inv=4 · fnp=5
 ```
@@ -213,6 +213,9 @@ effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 (PA de l'attaque aggravée de 1)
 - `oncePer=` : effet activé une fois par bataille/tour (invu 3+ « Once per battle » de
   Trajann, Canoness…) — situationnel (décoché d'office), libellé « 1×/bataille ».
 - `vsStronger` : seulement si la Force de l'attaque > Endurance de l'unité.
+- `kw="…"` (+ `kwModels`) : même grammaire et même jugement que pour `sim-mod:` (`,` = OU, `&` = ET,
+  sur l'**unité défendue** = mots-clefs de toutes ses figurines) ; sinon la bascule n'est pas proposée
+  et l'effet ne joue pas. `kwModels` : seules les figurines des lignes qui ont les mots-clefs en profitent.
 - `mortal` (avec `fnp=N`) : FNP **contre les seules blessures mortelles** (« Feel No Pain
   5+ against mortal wounds ») — ne joue **que contre les Devastating Wounds**, jamais comme
   FNP général. Les profils de référence de l'indice n'ont pas de Devastating Wounds : l'effet

@@ -15,6 +15,21 @@
 //   modele    — choix de modélisation de la base : catégories internes (« Faction: », « … * », nom d'unité),
 //               profils « (ref. only) », mot-clef Hunter (…), CT 7+ Torrent = N/A, préfixe (Once per …).
 //
+// Profils lus comme l'appli les affiche (parseur ../cogitator-bellicum/scripts/bsdata-parser.mjs : PROFILE_CTX,
+// characteristics/applyProfileMods, staticPrimaryCatVerdict/unitCatLeaf) — sinon faux « vrais » écarts :
+//   (a) PORTEUR — un modifier set / increment / decrement / append d'une caractéristique, porté par le profil ou
+//       par l'infoLink qui l'atteint, conditionné par instanceOf / notInstanceOf de portée ancestor, root-entry,
+//       unit ou model, est évalué contre la fiche comparée : ses catégories (categoryLinks + ajouts − retraits
+//       inconditionnels), l'id de son entrée, et les figurines (entrées model) traversées pour atteindre l'arme.
+//       Ex. : Storm Bolter partagé SM (eb61, profil 83a0) BS 3+ → 2+ pour un Captain / Lieutenant / … ;
+//       Mechanicus pistol 3+ sur un CHARACTER. Toute autre condition (sélections, roster, primary-catalogue)
+//       est indécidable ici : modificateur non appliqué (valeur imprimée).
+//   (b) RÈGLE PROJETÉE PAR UN DÉTACHEMENT — un profil ou infoLink masqué sur une liste vide et révélé seulement
+//       par une condition de sélection roster/force (hidden="true" + « set hidden=false si atLeast 1 <détachement> »,
+//       ou visible + « set hidden=true si lessThan 1 <détachement> ») n'est pas une aptitude de la fiche : ignoré
+//       pour l'invulnérable et les aptitudes (invulnérables 5+ tyranides de Warrior Bioform Onslaught, Brazen
+//       Fury, Disciples of Be'lakor, Firebase Control…). Un masquage sans charnière roster/force reste compté.
+//
 //   node editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir <dossier> [--only a.json,b.json]
 //   node editor/translations/gdc-compare.cjs <rapport.md> [/tmp/gdc/11th/gdc]   (ancien usage : chapitres
 //        divergents DA, BA, SW, BT, DW en un seul Markdown — editor/SM_FICHES_OFFICIELLES_11E.md)
@@ -31,7 +46,7 @@ const MANIFEST = JSON.parse(fs.readFileSync(R + "/editor/sources/game-datacards.
 
 // ── normalisations
 const en = (x) => (x && typeof x === "object" && "en" in x) ? x.en : (x == null ? "" : String(x));
-const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[‐‑‒–—]/g, "-").replace(/^➤\s*/, "").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
+const N = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[‐-―−]/g, "-").replace(/^➤\s*/, "").replace(/[’'`]/g, "'").replace(/\s+/g, " ").trim();
 const K = (s) => N(s).replace(/\s*\((aura|psychic)\)$/i, "");                   // nom d'aptitude
 const sing = (s) => N(s).replace(/s$/, "");
 const plain = (s) => N(String(s || "").replace(/^\s*\(once per [^)]*\)\s*/i, "").replace(/<[^>]+>/g, " ").replace(/\*\*|\^\^/g, "").replace(/[■▫•●]/g, " ")).replace(/[^a-z0-9+]+/g, "");
@@ -68,28 +83,79 @@ const roots = [];
 for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (!bx) continue;
   for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && (xml.getAttr(e, "hidden") !== "true" || exposed.has(xml.getAttr(e, "id")))) roots.push({ file: f, node: e, name: nm(e) }); }
 
+// ── modificateurs de profil décidables statiquement (voir l'en-tête : (a) porteur, (b) règle projetée)
+const elems = (n, box, tag) => { const b = xml.child(n, box); return b ? b.children.filter((x) => x.tag === tag) : []; };
+const leavesOf = (...ns) => { const o = []; for (const n of ns) xml.walk(n, (q) => { if (q.tag === "condition") o.push(q); }); return o; };
+// verdict des conditions d'un modifier / modifierGroup / conditionGroup : true, false, ou null (une feuille indécidable)
+function verdict(n, leaf, op = "and") {
+  const parts = [...elems(n, "conditions", "condition").map(leaf), ...elems(n, "conditionGroups", "conditionGroup").map((g) => verdict(g, leaf, xml.getAttr(g, "type") === "or" ? "or" : "and"))];
+  if (!parts.length) return true; if (parts.some((x) => x === null)) return null; return op === "or" ? parts.some(Boolean) : parts.every(Boolean); }
+const modsOf = (n) => { const o = []; const rec = (x, gs) => { for (const m of elems(x, "modifiers", "modifier")) o.push([m, gs]); for (const g of elems(x, "modifierGroups", "modifierGroup")) rec(g, [...gs, g]); }; if (n) rec(n, []); return o; };
+const fires = (m, gs, leaf) => verdict(m, leaf) === true && gs.every((g) => verdict(g, leaf) === true);
+// (a) ids d'un porteur (fiche ou figurine) : catégories + ajouts − retraits inconditionnels, + id de l'entrée
+function bearerIds(e) { const s = new Set(elems(e, "categoryLinks", "categoryLink").map((l) => xml.getAttr(l, "targetId")));
+  const catMods = elems(e, "modifiers", "modifier").filter((m) => xml.getAttr(m, "field") === "category" && !leavesOf(m).length);
+  for (const m of catMods) if (xml.getAttr(m, "type") === "add") s.add(xml.getAttr(m, "value"));
+  for (const m of catMods) if (xml.getAttr(m, "type") === "remove") s.delete(xml.getAttr(m, "value"));
+  s.add(xml.getAttr(e, "id")); s.delete(undefined); s.key = xml.getAttr(e, "id") || ""; return s; }
+// feuille instanceOf / notInstanceOf de portée porteur → true / false ; autre feuille → null (comme unitCatLeaf)
+const bearerLeaf = (ctx) => (q) => { const t = xml.getAttr(q, "type"); if (t !== "instanceOf" && t !== "notInstanceOf") return null; const sc = xml.getAttr(q, "scope");
+  const top = ctx.model.length ? ctx.model[ctx.model.length - 1] : (ctx.unitIsModel ? ctx.unit : null);
+  const has = sc === "root-entry" || sc === "unit" ? (id) => ctx.unit.has(id) : sc === "model" ? (top && ((id) => top.has(id))) : sc === "ancestor" ? (id) => ctx.unit.has(id) || ctx.model.some((x) => x.has(id)) : null;
+  if (!has) return null; const r = has(xml.getAttr(q, "childId")); return t === "instanceOf" ? r : !r; };
+const RANK = { set: 0, increment: 1, decrement: 1, append: 2 };
+// caractéristiques d'un profil vues par ce porteur ; fired = caractéristiques touchées par un modifier appliqué
+function effChars(p, link, ctx) {
+  const ch = {}, byType = {}; xml.walk(p, (q) => { if (q.tag === "characteristic") { const n = xml.getAttrDecoded(q, "name"); ch[n] = xml.getText(q) || ""; byType[xml.getAttr(q, "typeId")] = n; } });
+  const charOf = (m) => byType[xml.getAttr(m, "field")] || (xml.getAttr(m, "field") in ch ? xml.getAttr(m, "field") : null);
+  const mods = [...modsOf(p), ...modsOf(link)].filter(([m]) => RANK[xml.getAttr(m, "type")] != null && !xml.getAttr(m, "affects") && xml.getAttr(m, "value") != null && charOf(m))
+    .sort((a, b) => RANK[xml.getAttr(a[0], "type")] - RANK[xml.getAttr(b[0], "type")]);
+  const fired = new Set(); const leaf = bearerLeaf(ctx);
+  for (const [m, gs] of mods) { if (!fires(m, gs, leaf)) continue; const k = charOf(m), t = xml.getAttr(m, "type"), v = xml.getAttrDecoded(m, "value"); let nv = null;
+    if (t === "set") nv = v;
+    else if (t === "append") { const a = v.trim(), b = String(ch[k] || "").trim(); if (a) nv = !b || b === "-" ? a : b + (xml.getAttr(m, "join") ? xml.getAttrDecoded(m, "join") : k === "Keywords" ? ", " : " ") + a; }
+    else { const mm = /^(-?\d+)("?)$/.exec(String(ch[k] || "").trim()); const d = Number(v); if (mm && Number.isFinite(d)) nv = `${Number(mm[1]) + (t === "increment" ? d : -d)}${mm[2]}`; }
+    if (nv != null) { ch[k] = nv; fired.add(k); } }
+  return { ch, fired }; }
+// (b) masqué sur une liste vide (sélections roster/force comptées 0) ET charnière roster/force : règle projetée
+const ZERO = { atLeast: (v) => 0 >= v, greaterThan: (v) => 0 > v, lessThan: (v) => 0 < v, atMost: (v) => 0 <= v, equalTo: (v) => 0 === v, notEqualTo: (v) => 0 !== v };
+const ROSTER = (q) => /^(roster|force)$/.test(xml.getAttr(q, "scope") || "");
+const rosterLeaf = (q) => ROSTER(q) && xml.getAttr(q, "field") === "selections" && ZERO[xml.getAttr(q, "type")] ? ZERO[xml.getAttr(q, "type")](Number(xml.getAttr(q, "value"))) : null;
+function projected(...ns) { let hinge = false, hidden = false;
+  for (const n of ns) { if (!n) continue; let h = xml.getAttr(n, "hidden") === "true";
+    for (const [m, gs] of modsOf(n)) { if (xml.getAttr(m, "field") !== "hidden" || xml.getAttr(m, "type") !== "set" || !leavesOf(m, ...gs).some(ROSTER)) continue;
+      hinge = true; if (fires(m, gs, rosterLeaf)) h = xml.getAttr(m, "value") === "true"; }
+    hidden = hidden || h; }
+  return hidden && hinge; }
+
 // sous-arbre d'une fiche (liens visibles suivis, hors améliorations / Upgrade / Warlord / rattachements) ;
 // les profils atteints par infoLink (profils partagés : « Battle Sister », « Bolt pistol »…) comptent comme les profils directs.
+// Contexte de porteur (a) : la fiche + la pile des figurines traversées ; une entrée partagée atteinte sous deux
+// figurines différentes est relue dans chaque contexte (profils dédoublonnés sur nœud + valeurs effectives).
 function collect(u) {
-  const W = [], S = [], A = [], L = new Set(), cats = new Set(), figs = []; let prov = "", invuln = null; const seen = new Set(), seenP = new Set();
+  const W = [], S = [], A = [], L = new Set(), cats = new Set(), figs = []; let prov = "", invuln = null; const seen = new Map(), seenP = new Map(), figSeen = new Set();
   const com = xml.child(u, "comment"); if (com) { const t = xml.getText(com) || ""; const m = t.match(/^texte-provisoire:.*?— (.*)$/m); if (m) prov = m[1]; const iv = t.match(/invuln:\s*(\d\+)/); if (iv) invuln = iv[1]; }
   const catsOf = (e) => { const o = new Set(); const cl = xml.child(e, "categoryLinks"); for (const l of cl ? cl.children : []) if (l.tag === "categoryLink") { const t = byId(xml.getAttr(l, "targetId")); o.add((t ? nm(t) : "") || nm(l)); }
     const ms = xml.child(e, "modifiers"); for (const m of ms ? ms.children : []) if (m.tag === "modifier" && xml.getAttr(m, "type") === "add" && xml.getAttr(m, "field") === "category") { const t = byId(xml.getAttr(m, "value")); if (t) o.add(nm(t)); } o.delete(""); return o; };
-  const prof = (k, name) => { if (seenP.has(k)) return; seenP.add(k); const t = xml.getAttrDecoded(k, "typeName") || ""; const ch = {}; xml.walk(k, (q) => { if (q.tag === "characteristic") ch[xml.getAttrDecoded(q, "name")] = xml.getText(q) || ""; });
+  const unitCtx = bearerIds(u); const unitIsModel = xml.getAttr(u, "type") === "model";
+  const prof = (k, name, link, ms) => { const { ch } = effChars(k, link, { unit: unitCtx, model: ms, unitIsModel }); const key = JSON.stringify(ch);
+    if (!seenP.has(k)) seenP.set(k, new Set()); if (seenP.get(k).has(key)) return; seenP.get(k).add(key); const t = xml.getAttrDecoded(k, "typeName") || "";
     if (/Weapons$/.test(t)) W.push({ name, ch, kind: /^Melee/.test(t) ? "M" : "R", node: k });
     else if (t === "Unit") S.push({ name, v: [ch.M, ch.T, ch.SV, ch.W, ch.LD, ch.OC], node: k });
     else if (t === "Abilities") A.push({ name, text: Object.values(ch).join(" "), node: k });
     else if (t) A.push({ name: /^Transport$/i.test(t) ? t : name, text: Object.values(ch).join(" "), node: k, typed: t }); };   // Transport, Canticles…
   for (const x of catsOf(u)) cats.add(x); if (xml.getAttr(u, "type") === "model") figs.push({ name: nm(u), cats: catsOf(u), node: u });
-  const st = [u]; while (st.length) { const n = st.pop(); if (!n || seen.has(n)) continue; seen.add(n);
-    const go = (x) => { for (const k of x.children || []) { if (!k.tag) continue;
+  const isModel = (k) => k && k !== u && k.tag === "selectionEntry" && xml.getAttr(k, "type") === "model";
+  const st = [[u, []]]; while (st.length) { const [n, ms0] = st.pop(); if (!n) continue; const ms = isModel(n) ? [...ms0, bearerIds(n)] : ms0;
+    const sk = ms.map((x) => x.key).join(">"); if (!seen.has(n)) seen.set(n, new Set()); if (seen.get(n).has(sk)) continue; seen.get(n).add(sk);
+    const go = (x, ms) => { for (const k of x.children || []) { if (!k.tag) continue;
       if ((k.tag === "selectionEntryGroup" && /Enhancement|^(Can (Lead|Support)|Led By|Supported By)/i.test(nm(k))) || (k.tag === "selectionEntry" && /Upgrade$/.test(nm(k)))) continue;
-      if (k.tag === "selectionEntry" && xml.getAttr(k, "type") === "model" && k !== u) figs.push({ name: nm(k), cats: catsOf(k), node: k });
-      if (k.tag === "profile") prof(k, nm(k));
-      if (k.tag === "infoLink") { const t = byId(xml.getAttr(k, "targetId")); if (t && t.tag === "profile") prof(t, nm(k) || nm(t)); else L.add(N(nm(k) || (t ? nm(t) : ""))); continue; }
-      if (k.tag === "entryLink") { if (xml.getAttr(k, "hidden") !== "true" && !/Upgrade$|^Warlord$|^Enhancements$/.test(nm(k))) st.push(byId(xml.getAttr(k, "targetId"))); continue; }
-      go(k); } };
-    go(n); }
+      if (isModel(k) && !figSeen.has(k)) { figSeen.add(k); figs.push({ name: nm(k), cats: catsOf(k), node: k }); }
+      if (k.tag === "profile") { if (projected(k)) continue; prof(k, nm(k), null, ms); }
+      if (k.tag === "infoLink") { const t = byId(xml.getAttr(k, "targetId")); if (projected(k, t)) continue; if (t && t.tag === "profile") prof(t, nm(k) || nm(t), k, ms); else L.add(N(nm(k) || (t ? nm(t) : ""))); continue; }
+      if (k.tag === "entryLink") { if (xml.getAttr(k, "hidden") !== "true" && !/Upgrade$|^Warlord$|^Enhancements$/.test(nm(k))) st.push([byId(xml.getAttr(k, "targetId")), ms]); continue; }
+      go(k, isModel(k) ? [...ms, bearerIds(k)] : ms); } };
+    go(n, ms); }
   return { W, S, A, L, cats, figs, prov, invuln };
 }
 
