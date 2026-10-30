@@ -1,5 +1,12 @@
 # Codex Space Marines 11e — état d'intégration (2026-09-16)
 
+> **État au 2026-10-30** : points des unités et des améliorations, DP et Force
+> Disposition sont **ceux du MFM v1.6** (`node editor/mfm/apply.mjs editor/mfm/dump/en` :
+> 0 delta ; `editor/mfm/dp-audit.mjs` : aligné). Les sections « Points PROVISOIRES » et
+> « Provisoire / déduit » ci-dessous sont **historiques** pour tout ce qui touche au MFM ;
+> les fiches se contrôlent désormais contre les fiches officielles
+> (`editor/translations/gdc-compare.cjs`, toutes factions).
+
 > Journal de ce qui est **sourcé** (pages du codex), **déduit** (extrapolé)
 > et **encore manquant**. À mettre à jour à chaque nouveau lot de pages,
 > puis à supprimer quand tout est sourcé (points MFM compris).
@@ -9,7 +16,7 @@
 Codex Space Marines 11e, photos des pages 156-229 (fichier
 `Space Marine Codex - 11th Edition.pdf`, uploads découpés par 5 pages).
 Toutes les pages de fiches sont reçues (208-212 arrivées en dernier). Aucune
-page de points : le MFM reste à intégrer.
+page de points : les points viennent du MFM (intégré, v1.6 au 2026-10-30).
 
 ## Sourcé et intégré
 
@@ -142,14 +149,14 @@ toujours estimées** (10-25), la table ne les donne pas. Script :
 
 | Objet | État |
 |---|---|
-| DP des 15 détachements | **déduits de la règle constatée sur les 348 détachements du MFM v1.4** : 2 améliorations ⇒ 1 DP (98/98), 4 améliorations ⇒ 2 ou 3 DP ; Gladius Task Force 3 (valeur MFM v1.4), les 14 autres 1 |
-| Force Disposition (15 détachements) | provisoire ; Gladius/Stormlance/Ironstorm conformes au MFM v1.4 |
-| Points des unités | **leak Art of War** (section ci-dessus), MFM officiel à intégrer |
-| Points des améliorations | estimés (10-25), absents du leak |
+| DP des 15 détachements | ~~déduits de la règle MFM v1.4~~ → **MFM v1.6** (dp-audit aligné, 2026-10-30) |
+| Force Disposition (15 détachements) | ~~provisoire~~ → **MFM v1.6** (dp-audit aligné) |
+| Points des unités | ~~leak Art of War~~ → **MFM v1.6** (apply : 0 delta) ; Firestrike Servo-Turrets et Invader ATV : coût porté par les figurines, vérifié conforme (`editor/mfm/verifies.json`) |
+| Points des améliorations | ~~estimés~~ → **MFM v1.6** (apply : 0 delta) |
 | Options « pour 5 (ou 3) figurines » (Scout lourds/snipers, Eradicator multi-melta, Outrider/Vanguard plasma) | plafond simple (max 2, ou max 4) sans modificateur par tranche |
 | Composition Terminator Assault Squad (variantes TH/SS), Heavy Intercessor (modèle heavy bolter), Wardens (profil fusionné Gadriel/Metaurus OC) | simplifications du dépôt conservées |
-| Mots-clefs par figurine (Company Heroes : Ancient/Champion ; Victrix : Chapter Ancient/Champion Epic Hero) | à poser à la main |
-| Copies locales Black Templars (Impulsor, Repulsor, Gladiators, LR Crusader, Sternguard, Terminators) | non touchées (supplément BT) |
+| Mots-clefs par figurine (Company Heroes : Ancient/Champion ; Victrix : Chapter Ancient/Champion Epic Hero) | Victrix posés (veille du 2026-10-30) ; Company Heroes : Character de l'Ancient en cours (`ETAT.md`) |
+| Copies locales Black Templars (Impulsor, Repulsor, Gladiators, Sternguard, Terminators ; LR Crusader : copie retirée le 2026-10-30, les BT reçoivent la fiche du tronc, conforme à l'officiel) | non touchées (supplément BT) ; écarts relevés par `gdc-compare.cjs` le 2026-10-30 (ex. Terminator Squad de la copie BT : E5, officiel 6) |
 | Listes *Leader* (prose + `Can Lead`) | inchangées : le codex ne les imprime pas sur les cartes |
 
 Plus aucune fiche déduite : toutes les statlines et armes du tronc commun
@@ -158,6 +165,6 @@ sont sourcées sur les cartes (Tacticus T5, Phobos T4, Gravis T6, Scouts T4
 
 ## À faire
 
-1. MFM : points, DP, Force Disposition.
+1. ~~MFM : points, DP, Force Disposition.~~ Fait (MFM v1.6).
 2. Vérifier les options d'équipement fiche par fiche (rapport
    `scratchpad/codex/apply_report.txt`, lignes `OPTIONS codex`).

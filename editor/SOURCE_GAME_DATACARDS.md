@@ -22,7 +22,11 @@
 
 Manifeste versionné de la source :
 
-- `tracked` : **version de données suivie** (dernier état trié/intégré) + commit amont ;
+- `tracked` : **version de données suivie** (dernier état trié/intégré) + commit amont +
+  `updated` = **tampon d'export** (le plus récent des `updated` des JSON à fiches et de
+  `core.json` : `node editor/translations/gdc-watch.cjs --stamp <gdc>/11th/gdc`). Un
+  **ré-export à version égale** (16/10 : `modelKeywords` ajouté, données toujours 995) ne
+  change que ce tampon : la veille le détecte et le trie comme une nouveauté ;
 - `files` : correspondance fichier amont → **nos catalogues** (premier = catalogue cible
   des outils) ; `detachmentTool: true` = détachements synchronisables par
   `gdc-sync-detachments.cjs` (chapitres divergents) ;
@@ -44,8 +48,8 @@ git -C /tmp/gdc-old init -q && git -C /tmp/gdc-old fetch --depth 1 \
 
 | Outil | Rôle |
 |---|---|
-| `gdc-watch.cjs` | **veille** : diff amont (version suivie → tête) confronté à notre base, verdict par changement, rapport MD/JSON. Ne modifie rien. |
-| `gdc-compare.cjs` | rapport complet base ↔ source pour les chapitres (`editor/SM_FICHES_OFFICIELLES_11E.md`). |
+| `gdc-watch.cjs` | **veille** : diff amont (version suivie → tête) confronté à notre base, verdict par changement, rapport MD/JSON. Mots-clefs : un mot-clef **de figurine** (`modelKeywords`, qui remonte aussi dans les mots-clefs de l'unité) se compare aux catégories de la **figurine de même nom** (nom anglais ou traductions, au pluriel près ; figurine absente — modèles ajoutés par une aptitude, ex. Split — : toute la fiche) → ✅ si présent, ✋ sinon. `--stamp <gdc>` : tampon d'export et nouveauté (`aucune` / `version` / `ré-export`). Ne modifie rien. |
+| `gdc-compare.cjs` | rapport complet base ↔ source, **toutes les factions** : `--gdc <gdc> --out-dir <dossier> [--only a.json,…]` → un Markdown + un JSON par fichier amont + index (caractéristiques, armes champ par champ, mots-clefs d'unité et de figurine, aptitudes et invulnérable ; chaque copie d'une fiche comparée, y compris hors faction — Deathwatch du catalogue Agents) ; écarts classés **vrai** (à corriger) / **nom** (faux positif d'appariement) / **modélisation** (choix de la base), avec `fichier:ligne`. Ancien usage (`<rapport.md> [gdc]`) : les cinq chapitres divergents en un fichier (`editor/SM_FICHES_OFFICIELLES_11E.md`). Lecture seule. |
 | `gdc-apply-weapons.cjs` | aligne caractéristiques + profils d'armes d'un catalogue (copie locale avant toute entrée partagée, CT 7+ Torrent lue N/A). `--trust` : retire aussi les mots-clefs absents de la fiche (sauf notre `Hunter (…)`) ; `--only "Fiche"`, `--skip`, `--nokw "Fiche:Arme"`. |
 | `gdc-apply-abilities.cjs` | textes d'aptitudes officiels (`--rename`, `--drop`). |
 | `gdc-sync-detachments.cjs` | règles, stratagèmes, améliorations des détachements (chapitres). |
@@ -57,9 +61,13 @@ il couvre toutes les divergences du catalogue, pas seulement le changement du jo
 ## Veille quotidienne (routine)
 
 ```sh
+node editor/translations/gdc-watch.cjs --stamp /tmp/gdc/11th/gdc     # {"nouveaute": "aucune" | "version" | "ré-export"}
 node editor/translations/gdc-watch.cjs --old /tmp/gdc-old/11th/gdc --new /tmp/gdc/11th/gdc \
   --changelogs /tmp/gdc/11th/changelogs --out editor/sources/veille/<date>-v<A>-v<B>.md --json /tmp/veille.json
 ```
+
+Nouvelle version → branche `veille-gdc/v<B>` ; ré-export à version égale → `veille-gdc/v<B>-r2`,
+`-r3`… (premier suffixe libre).
 
 ### Règle de décision (ce qu'on fait de chaque nouveauté)
 
@@ -68,10 +76,10 @@ node editor/translations/gdc-watch.cjs --old /tmp/gdc-old/11th/gdc --new /tmp/gd
 | ✅ déjà conforme | rien. |
 | 🛠 à appliquer (caractéristiques, valeurs d'arme, mots-clefs **ajoutés ou retirés**, aptitude/arme/option ajoutée **ou retirée**, texte d'aptitude, stratagème/amélioration) | **appliquer** : `gdc-apply-weapons.cjs --trust` (dry-run d'abord, `--only "Fiche"` pour cibler), `gdc-apply-abilities.cjs`, `gdc-sync-detachments.cjs`, sinon édition ciblée via `editor/lib/catalog.js` ; FR officiel dans `translations/fr.json` ; validation CLAUDE.md règle 4. |
 | 💰 points | appliquer le prix de l'appli officielle selon `MFM_PROMPT.md` (paliers, répétition) ; signaler si le dernier MFM diffère. |
-| ✋ manuel (composition, options, mots-clefs de fiche, fiche nouvelle, stratagèmes hors chapitres) | encoder selon les guides (règles maison : porteurs, Upgrade, UNIQUE…). |
+| ✋ manuel (composition, options, mots-clefs absents de notre fiche ou de la figurine, fiche nouvelle, stratagèmes hors chapitres) | encoder selon les guides (règles maison : porteurs, Upgrade, UNIQUE…). Un mot-clef de figurine déjà porté par la figurine de même nom (ou par l'unité) est ✅, pas ✋. |
 | ❓ doute | **seul cas** : fiche entière retirée de l'appli officielle → si le MFM la range en **Legends**, la retirer de la base (rien de Legends dans la base ni l'appli, décision du 2026-10-29 ; `gdc-watch` la classe 🛠) ; sinon demander avant de supprimer. |
 | 🔇 bruit connu | CT « 7+ » d'une arme Torrent = « - » (N/A) : ignorer. Nouvelle fiche amont **Legends** au MFM (`editor/mfm/legends.json`) : hors base, ignorer (décision du 2026-10-29). Fiche **abandonnée** (`editor/mfm/abandons.json` : Astraeus, Thunderhawk Gunship du tronc SM, Gargantuan Squiggoth, Ares, Orion) : ignorer. |
 
-Les changements appliqués sont poussés sur une **branche `veille-gdc/v<B>`** (jamais
+Les changements appliqués sont poussés sur une **branche `veille-gdc/v<B>[-r<k>]`** (jamais
 directement sur `main`), avec le rapport et le manifeste mis à jour (`tracked`) ; la fusion
 reste une décision humaine. Une version déjà triée (branche existante) n'est pas retraitée.

@@ -1,5 +1,14 @@
 # Chapitres divergents — reliquat de la mise à jour 11e
 
+> **Mise à jour du 2026-10-30** : depuis la décision du 2026-10-07 (« la fiche officielle
+> fait foi à 100 % », source game-datacards, `editor/SOURCE_GAME_DATACARDS.md`), les
+> textes et doutes ALN ont été tranchés par les fiches officielles : **parties B et C
+> closes** (plus aucun marqueur `texte-provisoire:` dans la base ; le dernier, Land
+> Raider Crusader BT « Legacy of Jerulas », est remplacé par la fiche officielle le
+> 2026-10-30 sur décision de l'utilisateur). Le reliquat **A** est à recouper avec le
+> comparateur généralisé `node editor/translations/gdc-compare.cjs --gdc <gdc>/11th/gdc
+> --out-dir <dossier>` (toutes factions, écarts classés vrai / nom / modélisation).
+
 État au 2026-10-06 après application automatique des valeurs ALN (récolte du jour,
 contrôlée sur les fiches vérifiées par captures de l'appli officielle).
 
@@ -52,7 +61,10 @@ Reste (structure ou donnée absente d'ALN) :
   fists* (= Close combat weapon DW, F5), *Artificer Crozius Arcanum*, *Combat
   knife* des Wolf Scouts (= Combat Blade).
 
-## B. Capacités au texte provisoire (ALN traduit, à remplacer par le texte officiel)
+## B. Capacités au texte provisoire (ALN traduit, à remplacer par le texte officiel) — CLOSE
+
+*Close le 2026-10-30 : textes officiels posés (veille game-datacards, `gdc-apply-abilities.cjs`),
+marqueurs retirés. Liste conservée pour l'historique.*
 
 Chaque fiche ci-dessous porte en `<comment>` un marqueur
 `texte-provisoire: ALN (traduit, à vérifier sur la carte officielle) — A | B` listant
@@ -114,7 +126,15 @@ les capacités concernées ; le retirer une fois le texte officiel posé.
 - **Indomitor Kill Team** : Indomitor Doctrines
 - **Spectrus Kill Team** : Spectrus Doctrines, Specialist Optics and Munitions
 
-## C. Doutes à trancher sur les cartes officielles
+## C. Doutes à trancher sur les cartes officielles — CADUQUE
+
+*Caduque le 2026-10-30 : chaque point est tranché par la fiche officielle (game-datacards v995),
+qui fait foi depuis le 2026-10-07. Contrôle du jour (`gdc-compare.cjs`) : les cinq noms inventés
+n'existent plus dans la base ; Guile of the Wolf, Sigismund's Heir, Temple Relics et Murderous
+Hurricane ont le texte officiel (aucun écart) ; la capacité « Sanguinary Priest » n'est pas sur la
+fiche officielle (retrait confirmé) ; les rattachements (Attached Unit / Leader) suivent les
+`attachesTo` officiels (`gdc-attach.cjs`, invariant `editor/audit/rattachements.mjs`). Liste
+d'origine conservée pour l'historique :*
 
 - **Noms inventés** (VO absente d’ALN, traduction littérale) : *Grey Manes* (Grey Hunters, « Crinières Grises »), *Stormherald* (Njal, « Messager de la Tempête »), *Purgatus Target* (Watch Master, « Cible Purgatus »), *Specialist Optics and Munitions* (Spectrus, « Optiques et Munitions Spécialisées »), *Cenobyte Faithful* (Grimaldus, « Fidèles Cénobites »).
 - **Logan Grimnar — Guile of the Wolf** : ALN donne « les 3 doctrines actives au début de chaque phase » à la place de l’ancienne aura (+1 PC aux stratagèmes adverses) ; possible erreur d’ALN.

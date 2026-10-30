@@ -2,19 +2,31 @@
 // Compare deux instantanés de 11th/gdc (ancien = version suivie dans editor/sources/game-datacards.json,
 // nouveau = tête du dépôt amont), puis confronte CHAQUE changement amont à notre base et rend un verdict :
 //   ✅ déjà conforme · 🛠 à appliquer (outil + commande) · 💰 points (à confirmer par le MFM)
-//   ✋ manuel (composition, options, mots-clefs, fiche nouvelle) · ❓ doute · 🔇 bruit connu de la source
+//   ✋ manuel (composition, options, mots-clefs absents de notre fiche, fiche nouvelle) · ❓ doute · 🔇 bruit connu de la source
+//   (mots-clefs : ceux d'une figurine — champ modelKeywords — se comparent aux catégories de la figurine de même nom)
 //   (dont les fiches Legends du MFM et les fiches ABANDONNÉES d'editor/mfm/abandons.json : jamais « fiche à créer »)
 // Décision du 2026-10-07 : la fiche officielle fait foi à 100 % (retraits compris) ; seule la CT « 7+ » d'une arme
 // Torrent est lue comme « - ». Rien n'est modifié : le script produit un rapport Markdown (+ JSON) ; l'application se fait avec les
 // outils gdc-* existants, puis la validation habituelle (CLAUDE.md, règle 4).
 //   node editor/translations/gdc-watch.cjs --old <ancien 11th/gdc> --new <nouveau 11th/gdc>
 //        [--changelogs <11th/changelogs>] [--out rapport.md] [--json rapport.json]
+//   node editor/translations/gdc-watch.cjs --stamp <11th/gdc>   (détection : nouvelle version ou ré-export à version égale)
 const fs = require("fs"); const path = require("path"); const R = path.resolve(__dirname, "../..");
 const { Catalog } = require(R + "/editor/lib/catalog"); const xml = require(R + "/editor/lib/xml");
 const args = process.argv.slice(2); const opt = (k) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : null; };
-const OLD = opt("--old"), NEW = opt("--new"), CL = opt("--changelogs"), OUT = opt("--out"), JOUT = opt("--json");
-if (!OLD || !NEW) { console.error("usage : --old <dir> --new <dir> [--changelogs dir] [--out md] [--json f]"); process.exit(2); }
+const OLD = opt("--old"), NEW = opt("--new"), CL = opt("--changelogs"), OUT = opt("--out"), JOUT = opt("--json"), STAMP = opt("--stamp");
 const MANIFEST = JSON.parse(fs.readFileSync(R + "/editor/sources/game-datacards.json", "utf8"));
+// ── tampon d'export d'un instantané 11th/gdc : version de données + « updated » = le plus récent des JSON que la base
+// reflète (fichiers à fiches `datasheets` et core.json, stratagèmes de base ; ni faqs.json ni keywords.json). C'est la
+// valeur de tracked.updated. Un ré-export à version égale (16/10 : 10:07 → 18:38, modelKeywords) n'a que ce champ de neuf.
+//   node editor/translations/gdc-watch.cjs --stamp <dir>/11th/gdc  → {"dataVersion","updated","nouveaute"} (aucune|version|ré-export)
+function stampOf(dir) { let v = null, u = ""; for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".json"))) { let j; try { j = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); } catch { continue; }
+  if (!j || !(Array.isArray(j.datasheets) || f === "core.json")) continue; if (j.compatibleDataVersion != null && (v == null || +j.compatibleDataVersion > v)) v = +j.compatibleDataVersion; if (j.updated && j.updated > u) u = j.updated; } return { dataVersion: v, updated: u || null }; }
+if (STAMP) { const s = stampOf(STAMP), t = MANIFEST.tracked || {};
+  if (s.dataVersion == null) { console.error(`--stamp : aucun JSON à fiches dans ${STAMP} (attendu : <clone>/11th/gdc)`); process.exit(2); }
+  const nouveaute = s.dataVersion !== +t.dataVersion ? "version" : (s.updated && t.updated && s.updated > t.updated ? "ré-export" : "aucune");
+  console.log(JSON.stringify({ ...s, nouveaute, tracked: { dataVersion: t.dataVersion, updated: t.updated } })); process.exit(0); }
+if (!OLD || !NEW) { console.error("usage : --old <dir> --new <dir> [--changelogs dir] [--out md] [--json f]  |  --stamp <dir>"); process.exit(2); }
 const PTS = "51b2-306e-1021-d207";
 
 // ── utilitaires
@@ -61,10 +73,16 @@ const chars = (p) => { const o = {}; xml.walk(p, (q) => { if (q.tag === "charact
 function ourWeapons(u) { const o = []; subtree(u, (k) => { if (k.tag === "profile" && /Weapons$/.test(xml.getAttrDecoded(k, "typeName") || "")) o.push(k); }); return o; }
 function ourAbilities(u) { const o = new Map(); subtree(u, (k) => { if (k.tag === "profile" && xml.getAttrDecoded(k, "typeName") === "Abilities") { const ch = chars(k); o.set(N(nm(k)).replace(/\s*\(.*$/, ""), Object.values(ch)[0] || ""); } if (k.tag === "infoLink" && xml.getAttr(k, "type") === "rule") o.set(N(nm(k)), ""); }); return o; }
 function ourStats(u) { const o = []; subtree(u, (k) => { if (k.tag === "profile" && xml.getAttrDecoded(k, "typeName") === "Unit") o.push({ name: nm(k), ch: chars(k) }); }); return o; }
+// figurines (selectionEntry type=model, liens suivis) et catégories d'une entrée (categoryLinks + modifiers « add category »)
+function ourFigurines(u) { const o = []; if (xml.getAttr(u, "type") === "model") o.push(u); subtree(u, (k) => { if (k.tag === "selectionEntry" && xml.getAttr(k, "type") === "model" && !o.includes(k)) o.push(k); }); return o; }
+const catName = (l) => { const t = byId(xml.getAttr(l, "targetId") || xml.getAttr(l, "value")); return N((t ? nm(t) : "") || nm(l)).replace(/^faction: /, ""); };
+function ownCats(e) { const o = new Set(); const cl = xml.child(e, "categoryLinks"); for (const l of cl ? cl.children : []) if (l.tag === "categoryLink") o.add(catName(l));
+  const ms = xml.child(e, "modifiers"); for (const m of ms ? ms.children : []) if (m.tag === "modifier" && xml.getAttr(m, "type") === "add" && xml.getAttr(m, "field") === "category") o.add(catName(m)); o.delete(""); return o; }
 function ourPts(u) { const cs = xml.child(u.node, "costs"); const k = cs && cs.children.find((x) => xml.getAttr(x, "typeId") === PTS); return k ? xml.getAttr(k, "value") : null; }
 const ourRuleNames = new Set(); for (const [, d] of c.docs) xml.walk(d.root, (n) => { if (n.tag === "rule" || (n.tag === "selectionEntry" && xml.getAttr(n, "type") === "upgrade")) ourRuleNames.add(N(nm(n)).replace(/\s*\((stratagem|enhancement)[^)]*\)$/, "")); });
 
 // ── verdicts
+const USED_FIELDS = new Set(["modelKeywords"]); // champs amont exploités même s'ils sont absents de l'ancien instantané
 const newFields = new Set(); const items = []; const V = { ok: "✅ déjà conforme", apply: "🛠 à appliquer", pts: "💰 points", manual: "✋ manuel", doubt: "❓ doute", noise: "🔇 bruit connu" };
 const add = (file, unit, kind, detail, verdict, action) => items.push({ faction: (MANIFEST.files[file] || {}).label || file, file, unit, kind, detail, verdict, action: action || "" });
 const tool = (file, t) => { const m = MANIFEST.files[file] || {}; const cat = (m.catalogues || [])[0]; return cat ? `node editor/translations/${t} "${cat}" <gdc>/${file}` : `(pas de catalogue associé à ${file} dans le manifeste)`; };
@@ -116,7 +134,27 @@ function diffMisc(file, ds0, ds1, u) {
   const j = (x) => JSON.stringify(Array.isArray(x) ? x.map(en) : (x && typeof x === "object" && !("en" in x) ? x : en(x))); const name = en(ds1.name);
   const kA = (ds0.keywords || []).map(en).map(N), kB = (ds1.keywords || []).map(en).map(N);
   const kAdd = kB.filter((x) => !kA.includes(x)), kRem = kA.filter((x) => !kB.includes(x));
-  if (kAdd.length || kRem.length) add(file, name, "mots-clefs", `${kAdd.length ? "+[" + kAdd.join(", ") + "] " : ""}${kRem.length ? "−[" + kRem.join(", ") + "]" : ""}`, V.manual, "categoryLinks de la fiche (et ENHANCEMENT_BEARERS_PROMPT si mot-clef porteur)");
+  // modelKeywords (champ du ré-export v995 du 16/10) : un mot-clef propre à une figurine remonte aussi dans les mots-clefs
+  // de l'unité ; il se compare aux catégories de la FIGURINE de même nom chez nous (nom anglais ou ses traductions, au
+  // pluriel près), ou, figurine absente (modèles ajoutés par une aptitude, ex. Split), à celles de toute la fiche.
+  // Mot-clef d'unité : catégories de l'unité. ✅ si présent (retrait : si absent), ✋ sinon.
+  const MK = (ds) => (ds.modelKeywords || []).map((m) => ({ name: en(m.name), names: [...new Set(Object.values(m.name && typeof m.name === "object" ? m.name : { en: m.name }).map((x) => N(x).replace(/s$/, "")))], kws: (m.keywords || []).map(en).map(N) }));
+  const mk0 = MK(ds0), mk1 = MK(ds1); const checks = [];
+  for (const k of kAdd) checks.push({ k, sign: "+", models: mk1.filter((m) => m.kws.includes(k)) });
+  for (const k of kRem) checks.push({ k, sign: "−", models: [] });
+  // ajout propre à une figurine (déjà au niveau de l'unité) : seulement si l'ancien instantané avait déjà modelKeywords
+  if (ds0.modelKeywords) for (const m of mk1) { const o = mk0.find((x) => x.names.some((n) => m.names.includes(n))); for (const k of m.kws) if (!kAdd.includes(k) && !(o && o.kws.includes(k))) checks.push({ k, sign: "+", models: [m] }); }
+  if (checks.length) { const figs = u ? ourFigurines(u.node) : [], uCats = u ? ownCats(u.node) : new Set(); const allCats = new Set([...uCats, ...figs.flatMap((f) => [...ownCats(f)])]);
+    const okL = [], koL = [];
+    for (const { k, sign, models } of checks) {
+      if (!u) { koL.push(`${sign}[${k}] (fiche introuvable chez nous)`); continue; }
+      if (sign === "−") { (uCats.has(k) ? koL : okL).push(`−[${k}]${uCats.has(k) ? " — encore sur notre fiche" : ""}`); continue; }
+      if (!models.length) { (uCats.has(k) ? okL : koL).push(`+[${k}]${uCats.has(k) ? "" : " — absent de notre fiche"}`); continue; }
+      for (const m of models) { const f = figs.filter((x) => m.names.includes(N(nm(x)).replace(/s$/, "")));
+        const has = f.length ? f.every((x) => ownCats(x).has(k) || uCats.has(k)) : allCats.has(k);
+        (has ? okL : koL).push(`+[${k}] (figurine « ${m.name} »${f.length ? (f.length && N(nm(f[0])) !== N(m.name) ? ` = notre « ${nm(f[0])} »` : "") : " absente de notre fiche"})${has ? "" : " — absent chez nous"}`); } }
+    if (okL.length) add(file, name, "mots-clefs", okL.join(" ; "), V.ok);
+    if (koL.length) add(file, name, "mots-clefs", koL.join(" ; "), V.manual, "categoryLinks de la fiche ou de la figurine (et ENHANCEMENT_BEARERS_PROMPT si mot-clef porteur)"); }
   const att = (ds) => (ds.attachesTo || []).map((a) => `${a.type}:${a.target}`).sort().join(" | ");
   if (att(ds0) !== att(ds1)) add(file, name, "rattachements", `${att(ds0) || "—"} → ${att(ds1) || "—"}`, V.apply, `node editor/translations/gdc-attach.cjs <gdc> --only "${name}" --prose --write  (groupes Can Lead/Support + liens inverses + prose et sa traduction ; valider.mjs vérifie l'invariant)`);
   if (j(ds0.composition) !== j(ds1.composition)) add(file, name, "composition", `${j(ds0.composition)} → ${j(ds1.composition)}`, V.manual, "bornes de modèles (UNIT_COMPOSITION_APP_PROMPT)");
@@ -131,7 +169,7 @@ function diffFaction(file, F0, F1) {
     const abd = abandonedOn(en(d.name));
     if (abd && u) add(file, en(d.name), "fiche", `fiche abandonnée le ${abd} (${ABD}) mais présente chez nous`, V.doubt, `fiche intégrée → retirer l'entrée d'${ABD} ; abandon maintenu → retirer la fiche`);
     if (!o) { const leg = !u && isLegends(en(d.name)); add(file, en(d.name), "fiche", "nouvelle fiche amont", u ? V.ok : leg || abd ? V.noise : V.manual, u ? "déjà présente chez nous" : leg ? "fiche Legends du MFM : hors base (décision du 2026-10-29)" : abd ? `fiche abandonnée le ${abd} (${ABD}) : rien à encoder` : "fiche à créer (FACTION_PACK_PROMPT)"); continue; }
-    for (const k of Object.keys(d)) if (!(k in o)) newFields.add(`datasheets.${k}`);
+    for (const k of Object.keys(d)) if (!(k in o) && !USED_FIELDS.has(k)) newFields.add(`datasheets.${k}`);
     if (JSON.stringify(o) === JSON.stringify(d)) continue;
     if (!u && LEG_ANY.has(N(en(d.name)))) { add(file, en(d.name), "fiche", "fiche Legends modifiée en amont", V.noise, "hors base (décision du 2026-10-29) : rien à encoder"); continue; }
     // abandonnée sous l'ancien ET le nouveau nom (un renommage vers un nom abandonné reste examiné)
@@ -160,13 +198,14 @@ function diffFaction(file, F0, F1) {
 
 // ── parcours
 const files = fs.readdirSync(NEW).filter((f) => f.endsWith(".json"));
-let v0 = null, v1 = null;
+let v0 = null, v1 = null; const st0 = stampOf(OLD), st1 = stampOf(NEW);
 for (const f of files) { const F1 = load(NEW, f); if (!F1 || !Array.isArray(F1.datasheets)) continue; const F0 = load(OLD, f) || { datasheets: [] };
   v0 = v0 || F0.compatibleDataVersion; v1 = v1 || F1.compatibleDataVersion; diffFaction(f, F0, F1); }
 
 // ── rapport
 const order = [V.apply, V.pts, V.manual, V.doubt, V.noise, V.ok]; const count = (v) => items.filter((i) => i.verdict === v).length;
-const L = [`# Veille game-datacards — données ${v0 ?? "?"} → ${v1 ?? "?"}`, "", `Source : ${MANIFEST.repo} (${MANIFEST.path}). Généré par \`editor/translations/gdc-watch.cjs\`.`, "",
+const L = [`# Veille game-datacards — données ${v0 ?? "?"} → ${v1 ?? "?"}`, "", `Source : ${MANIFEST.repo} (${MANIFEST.path}). Généré par \`editor/translations/gdc-watch.cjs\`.`
+  + ` Export : ${st0.updated ?? "?"} → ${st1.updated ?? "?"}${v0 === v1 && st0.updated !== st1.updated ? " (ré-export à version égale)" : ""}.`, "",
   ...(newFields.size ? [`> ℹ️ Format de la source : champ(s) nouveau(x) ${[...newFields].map((f) => "`" + f + "`").join(", ")} — ignoré(s) par la comparaison ; à exploiter si utile (ex. \`uniqueTags\` ↔ UNIQUE_DETACHMENT_APP_PROMPT).`, ""] : []),
   "| Verdict | Nombre |", "|---|---|", ...order.map((v) => `| ${v} | ${count(v)} |`), ""];
 if (CL) { const notes = fs.readdirSync(CL).filter((f) => /_summary\.md$/.test(f)).map((f) => [parseInt(f), f]).filter(([n]) => n > (v0 || 0) && n <= (v1 || Infinity)).sort((x, y) => x[0] - y[0]);
@@ -177,5 +216,5 @@ for (const v of order) { const its = items.filter((i) => i.verdict === v); if (!
     L.push(`- **${i.unit}** · ${i.kind} · ${i.detail}${i.action ? `  \n  → ${i.action}` : ""}`); }
   if (v === V.ok) L.push("", "</details>"); L.push(""); }
 const md = L.join("\n") + "\n"; if (OUT) fs.writeFileSync(OUT, md); else process.stdout.write(md);
-if (JOUT) fs.writeFileSync(JOUT, JSON.stringify({ from: v0, to: v1, counts: Object.fromEntries(order.map((v) => [v, count(v)])), items }, null, 1));
+if (JOUT) fs.writeFileSync(JOUT, JSON.stringify({ from: v0, to: v1, fromUpdated: st0.updated, toUpdated: st1.updated, counts: Object.fromEntries(order.map((v) => [v, count(v)])), items }, null, 1));
 console.error(`gdc-watch : ${v0} → ${v1} · ` + order.map((v) => `${v} ${count(v)}`).join(" · "));

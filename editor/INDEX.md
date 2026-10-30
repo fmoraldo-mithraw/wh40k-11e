@@ -160,12 +160,16 @@
   `game-datacards/datasources` (`11th/gdc` : caractéristiques, armes, texte officiel
   des capacités, composition, options d'équipement en EN/FR). Source de référence
   pour remplacer les textes provisoires ALN et encoder les compositions ;
-  régénérer avec `editor/translations/gdc-compare.cjs` (mode d'emploi en tête).
+  régénérer avec `editor/translations/gdc-compare.cjs <rapport.md> <gdc>` (ancien usage). Le
+  comparateur couvre désormais **toutes les factions** (`--gdc <gdc> --out-dir <dossier>` :
+  un Markdown + un JSON par fichier amont, écarts classés vrai / nom / modélisation avec
+  fichier:ligne ; copies hors faction comprises — Deathwatch du catalogue Agents…).
 - **`editor/SOURCE_GAME_DATACARDS.md`** — la source game-datacards sauvegardée
   (`editor/sources/game-datacards.json` : version suivie, correspondance fichier ↔
   catalogue, bruits connus), ses outils `gdc-*` et la **veille quotidienne**
   (`gdc-watch.cjs` : diff amont confronté à la base, verdict par changement, règle de
-  décision ; rapports dans `editor/sources/veille/`, branche `veille-gdc/v<N>`).
+  décision ; mots-clefs de figurine `modelKeywords` comparés à la figurine de même nom ;
+  `--stamp` détecte aussi un ré-export à version égale ; rapports dans `editor/sources/veille/`).
 - `editor/README.md` — l'éditeur web (`node editor/server.js`) et la lib
   `editor/lib/catalog.js` + `editor/lib/xml.js` (round-trip XML fidèle :
   toujours passer par cette lib pour éditer, jamais de sed/regex sur les
@@ -186,7 +190,7 @@
 - **`editor/SM_CODEX_11E.md`** — journal d'intégration du codex Space Marines 11e
   (sourcé / déduit / manquant).
 - **`editor/SM_DIVERGENTS_11E.md`** — reliquat de la mise à jour 11e des chapitres
-  divergents (état au 2026-10-06).
+  divergents (état au 2026-10-06 ; parties B et C closes le 2026-10-30).
 - **`editor/README.md`** — l'éditeur web et la lib `editor/lib/catalog.js` + `xml.js`.
 - **`ETAT.md`** (racine) — état de reprise : branches, lignes de base, questions
   ouvertes à l'utilisateur, décisions récentes.
