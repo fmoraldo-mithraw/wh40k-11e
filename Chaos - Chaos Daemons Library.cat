@@ -62,7 +62,7 @@
     <categoryEntry id="7750-481d-9ad-7b3c" name="The Masque of Slaanesh" hidden="false"/>
     <categoryEntry id="a05-bf7-2667-d6a4" name="Syll&apos;esske" hidden="false"/>
     <categoryEntry id="72ec-31eb-611-6056" name="Contorted Epitome" hidden="false"/>
-    <categoryEntry id="79e8-a88c-ad73-2a94" name="Tormentbringer" hidden="false"/>
+    <categoryEntry id="79e8-a88c-ad73-2a94" name="Tormentbringer on Exalted Seeker Chariot" hidden="false"/>
     <categoryEntry id="a14a-ccaa-8931-e0ab" name="Tranceweaver" hidden="false"/>
     <categoryEntry id="e70c-8ee7-836c-caa2" name="Daemonettes" hidden="false"/>
     <categoryEntry id="45be-dcbc-e09c-69ba" name="Fiends" hidden="false"/>
@@ -188,6 +188,9 @@
     <categoryEntry name="Daemonic Herald" id="b277-7b77-8690-e074" hidden="false"/>
     <categoryEntry name="Daemonic Charioteer" id="acf6-41e2-1269-ee18" hidden="false"/>
     <categoryEntry name="Immortal Champion" id="3726-2343-e8d4-44f6" hidden="false"/>
+    <categoryEntry name="Horrors" id="0857-5a2d-ff37-7c70" hidden="false"/>
+    <categoryEntry name="Brimstone" id="e8ba-4dca-0719-e884" hidden="false"/>
+    <categoryEntry name="Frame" id="93cd-69fe-5e5d-e0a0" hidden="false"/>
   </categoryEntries>
   <entryLinks>
     <entryLink id="c236-c9e2-b67c-97ab" name="Detachment" hidden="false" collective="false" import="false" targetId="6470-c44a-45f4-3313" type="selectionEntry"/>
@@ -2795,6 +2798,7 @@ invuln: 4+</comment>
         <categoryLink id="2754-6d09-f4d7-452a" name="Skull Altar" hidden="false" targetId="e472-900b-ddbc-f548" primary="false"/>
         <categoryLink name="Khorne non-Battleline" hidden="false" id="9fc8-881f-6515-98ea" targetId="2308-7f1a-2beb-1e16" primary="false"/>
         <categoryLink name="Shadow Legion" hidden="false" id="0083-698c-2107-7750" targetId="4df3-beae-010c-9087" primary="false"/>
+        <categoryLink name="Frame" hidden="false" id="921d-b8c6-66e1-eabf" targetId="93cd-69fe-5e5d-e0a0" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
@@ -2813,7 +2817,8 @@ invuln: 4+</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry id="2c37-2898-8350-ef45" name="Be&apos;lakor" publicationId="e3ec-7a32-ae62-8727" page="109-110" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+must-warlord</comment>
       <constraints>
         <constraint field="selections" scope="force" value="1" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="d5a2-e715-2f49-38b4" type="max"/>
       </constraints>
@@ -2830,7 +2835,7 @@ invuln: 4+</comment>
         </profile>
         <profile id="73bf-4533-6404-fde5" name="The Dark Master (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The area of the battlefield within 6&quot; of this model is considered to be within your army’s Shadow of Chaos.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The area of the battlefield within 6&quot; of this model is within your army’s Shadow of Chaos.</characteristic>
           </characteristics>
         </profile>
         <profile id="98aa-f4a6-f65a-7d9e" name="Shadow Form" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -2856,6 +2861,11 @@ invuln: 4+</comment>
         <profile id="46d7-f3e9-b24d-d0b6" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Supreme Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5f5f-860c-a687-669c">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your **WARLORD**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3496,6 +3506,26 @@ def-mod: source=&quot;Unholy Vigour&quot; inv=3 oncePer=battle</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of one or more friendly ^^**Legiones Daemonica^^** Infantry units, this model has the Lone Operative ability.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Daemonic Allegiance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1cf0-a2f7-72e5-db0d">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When you select this model to include in your army, you must select one of the following keywords for it to gain:
+
+■ **KHORNE**
+■ **TZEENTCH**
+■ **NURGLE**
+■ **SLAANESH**
+
+The keyword you select will also affect some of this model’s characteristics.
+
+**Daemon Prince of Khorne**: If this model has the **KHORNE** keyword, add 2 to the Strength characteristic of this model’s hellforged weapons.
+
+**Daemon Prince of Tzeentch**: If this model has the **TZEENTCH** keyword, add 3 to the Attacks characteristic of this model’s infernal cannon.
+
+**Daemon Prince of Nurgle**: If this model has the **NURGLE** keyword, add 1 to this model’s Toughness characteristic.
+
+**Daemon Prince of Slaanesh**: If this model has the **SLAANESH** keyword, add 2&quot; to this model’s Move characteristic.</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink id="69b-4ee6-5282-f9ed" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
@@ -3771,6 +3801,26 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Daemonic Allegiance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="080c-fb30-c7ce-8543">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When you select this model to include in your army, you must select one of the following keywords for it to gain:
+
+■ **KHORNE**
+■ **TZEENTCH**
+■ **NURGLE**
+■ **SLAANESH**
+
+The keyword you select will also affect some of this model’s characteristics.
+
+**Daemon Prince of Khorne**: If this model has the **KHORNE** keyword, add 2 to the Strength characteristic of this model’s hellforged weapons.
+
+**Daemon Prince of Tzeentch**: If this model has the **TZEENTCH** keyword, add 3 to the Attacks characteristic of this model’s infernal cannon.
+
+**Daemon Prince of Nurgle**: If this model has the **NURGLE** keyword, add 1 to this model’s Toughness characteristic.
+
+**Daemon Prince of Slaanesh**: If this model has the **SLAANESH** keyword, add 2&quot; to this model’s Move characteristic.</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink id="b634-2ce0-6b2a-4443" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
@@ -4032,7 +4082,7 @@ invuln: 4+</comment>
         </profile>
         <profile id="9d33-996b-cbcb-61c5" name="One Head Looks Back" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a Stratagem, you can use this ability. If you do, increase the CP cost of that use of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when your opponent targets a unit from their army within 12&quot; of this model with a **stratagem**, you can use this ability. If you do, increase the CP cost of the use of that **stratagem** by 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4747,7 +4797,7 @@ invuln: 4+</comment>
         </profile>
         <profile id="8ed5-4270-6a08-16d2" name="Altered Reality (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, after a Hit roll, a Wound roll or a saving throw is made for this model, you can change the result of that roll to a 6.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, after a Hit roll, a Wound roll, or a saving throw is made for this model, you can change the result of that roll to an unmodified 6.</characteristic>
           </characteristics>
         </profile>
         <profile id="471e-5e4b-fba7-1463" name="Invulnerable Save: Fluxmaster" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -5226,6 +5276,8 @@ invuln: 4+</comment>
         <categoryLink id="3c23-b3d5-ca0c-f3" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
         <categoryLink targetId="a83e-ba41-7d03-5b2d" id="660-d803-99a3-a0d2" primary="false" name="Tzeentch Battleline"/>
         <categoryLink name="Shadow Legion" hidden="false" id="5a68-a12b-67e6-d0d3" targetId="4df3-beae-010c-9087" primary="false"/>
+        <categoryLink name="Horrors" hidden="false" id="7f4d-751d-48b5-a3ea" targetId="0857-5a2d-ff37-7c70" primary="false"/>
+        <categoryLink name="Brimstone" hidden="false" id="21c3-c189-e0f7-9c83" targetId="e8ba-4dca-0719-e884" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry id="b506-5bce-64c6-51b0" name="Blue Horror" hidden="false" collective="false" import="true" type="model" sortIndex="2">
@@ -5361,10 +5413,9 @@ invuln: 4+</comment>
         </profile>
         <profile id="1984-1a4a-b3ce-77a4" name="Horrors are Pink. Horrors are Blue. Where once there was one, now there are two." hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If, at any point, this unit contains no ^^Pink Horrors^^ models, use the ^^Blue Horrors^^ datasheet for this unit. 
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If, at any point, this unit contains no **PINK HORROR** models, use the **BLUE HORRORS** datasheet for this unit.
 
-
-_Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models, the Cackling Horrors and Exploding Horrors abilities from the Blue Horrors datasheet do not apply to this unit._</characteristic>
+_Designer’s Note: While this unit contains one or more **PINK HORROR** models, the Sullen Malevolence and Exploding Horrors abilities from the **BLUE HORRORS** datasheet do not apply to this unit._</characteristic>
           </characteristics>
         </profile>
         <profile id="9b1f-350f-2b73-36b4" name="Coruscating Yellow flames (ref. only)" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
@@ -5445,6 +5496,9 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
         <categoryLink id="d797-e536-56b8-23dd" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
         <categoryLink targetId="a83e-ba41-7d03-5b2d" id="e54a-1c12-19f6-52f4" primary="false" name="Tzeentch Battleline"/>
         <categoryLink name="Shadow Legion" hidden="false" id="05a4-0d8a-9d35-6554" targetId="4df3-beae-010c-9087" primary="false"/>
+        <categoryLink name="Horrors" hidden="false" id="5575-f701-53e3-5138" targetId="0857-5a2d-ff37-7c70" primary="false"/>
+        <categoryLink name="Blue" hidden="false" id="ce7f-1519-c1f7-855f" targetId="ddad-e1d6-b68a-4aa8" primary="false"/>
+        <categoryLink name="Brimstone" hidden="false" id="9d21-0b28-1ba9-5bfa" targetId="e8ba-4dca-0719-e884" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry id="c34d-3170-c314-148e" name="Pink Horror" hidden="false" collective="false" import="true" type="model" sortIndex="2">
@@ -5465,7 +5519,6 @@ _Designer’s Note: While this unit contains one or more ^^Pink Horrors^^ models
             </profile>
           </profiles>
           <categoryLinks>
-            <categoryLink id="a60a-5070-3354-eb40" name="Blue" hidden="false" targetId="ddad-e1d6-b68a-4aa8" primary="false"/>
             <categoryLink id="87f7-49bf-4473-4518" name="Pink" hidden="false" targetId="9b87-7cc6-efb-e1b1" primary="false"/>
           </categoryLinks>
           <selectionEntries>
@@ -6258,7 +6311,7 @@ fnp: 6+</comment>
         </profile>
         <profile id="4a6-2d-af1-918a" name="Virulent Blessing (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, you can select one enemy unit within 24&quot; of and visible to this model. Until the end of the phase, each time an attack made by a NURGLE LEGIONES DAEMONICA model is allocated to a model in that unit, add 1 to the Damage characteristic of that attack.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, you can select one enemy unit within 24&quot; and visible to this model. Until the end of the phase, each time an attack made by a **NURGLE LEGIONES DAEMONICA** model is allocated to a model in that unit, add 1 to the Damage characteristic of that attack.</characteristic>
           </characteristics>
         </profile>
         <profile id="bfb1-1cf6-946-5e11" name="Deluge of Nurgle (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6521,7 +6574,7 @@ fnp: 6+</comment>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">12</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lethal Hits</characteristic>
@@ -7278,7 +7331,10 @@ invuln: 5+</comment>
         </profile>
         <profile id="9e9a-f522-8a7b-5982" name="Beast Handler" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, you can re-roll Charge rolls made for that unit. In addition, once per battle, you can target that unit with the Heroic Intervention Stratagem for 1 less CP, and can do so even if you have already used that Stratagem on a different unit this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, you can re-roll charge rolls made for that unit. In addition, once per battle, you can target this unit with the **Heroic Intervention stratagem**, regardless of any other uses of that **stratagem** this phase. If you do:
+
+■ That use is -1 CP.
+■ That use does not prevent any uses of that **stratagem** on other units this phase.</characteristic>
           </characteristics>
         </profile>
         <profile id="9993-f853-355c-b859" name="Seed the Garden of Nurgle" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -7409,7 +7465,7 @@ invuln: 5+</comment>
         </profile>
         <profile id="3f42-6084-24d6-8e1b" name="Infected Outbreak" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
         <profile id="8665-6291-45e-81da" name="Plaguebearers" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -8167,6 +8223,7 @@ invuln: 5+</comment>
         <categoryLink id="5576-d74a-866f-67f8" name="Feculent Gnarlmaw" hidden="false" targetId="c344-95bf-6a3b-e050" primary="false"/>
         <categoryLink targetId="8e3c-5782-5118-b4b8" id="4546-3d9c-cc00-ba5d" primary="false" name="Nurgle non-Battleline"/>
         <categoryLink name="Shadow Legion" hidden="false" id="e8d6-a741-7ec8-6a61" targetId="4df3-beae-010c-9087" primary="false"/>
+        <categoryLink name="Frame" hidden="false" id="2669-180d-bdde-d4f3" targetId="93cd-69fe-5e5d-e0a0" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
@@ -9366,7 +9423,7 @@ invuln: 4+</comment>
         </profile>
         <profile id="6563-fd19-91d4-8074" name="Tormentbringer (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **^^Slaanesh Legions Daemonica^^** unit is within 6&quot; of this model, melee weapons in that unit have the [^^SUSTAINED HITS 1^^] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **SLAANESH LEGIONES DAEMONICA** unit is within 6&quot; of this model, melee weapons in that unit have the **[SUSTAINED HITS 1]** ability.</characteristic>
           </characteristics>
         </profile>
         <profile id="a132-d15f-e3fb-346c" name="Hysterical Frenzy" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -9405,7 +9462,7 @@ invuln: 4+</comment>
         <categoryLink id="37e1-dbc7-8044-9df9" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
         <categoryLink id="2c85-36b3-335b-3673" name="Daemon" hidden="false" targetId="9c0e-7e25-4580-e439" primary="false"/>
         <categoryLink id="2cad-5e6b-a09b-f41" name="Slaanesh" hidden="false" targetId="b2a9-ede5-7a83-4da8" primary="false"/>
-        <categoryLink id="7365-b4c3-cc1a-b14a" name="Tormentbringer" hidden="false" targetId="79e8-a88c-ad73-2a94" primary="false"/>
+        <categoryLink id="7365-b4c3-cc1a-b14a" name="Tormentbringer on Exalted Seeker Chariot" hidden="false" targetId="79e8-a88c-ad73-2a94" primary="false"/>
         <categoryLink targetId="8aa7-4f0e-f4ab-83a3" id="d9a1-fc41-4550-9b6d" primary="false" name="Slaanesh non-Battleline"/>
         <categoryLink name="Shadow Legion" hidden="false" id="6dab-f7cb-73e9-1774" targetId="4df3-beae-010c-9087" primary="false"/>
       </categoryLinks>
@@ -9750,7 +9807,7 @@ invuln: 5+</comment>
         </profile>
         <profile id="fdb2-c864-accd-13af" name="Horrifying Beauty " hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, each enemy unit within Engagement Range of one of more units from your army with this ability must take a Battle-shock test, subtracting 1 from the result if that enemy unit is Below Half-strength.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, each enemy unit within Engagement Range of one or more units from your army with this ability must take a Battle-shock test, subtracting 1 from the result if that enemy unit is Below Half-strength.</characteristic>
           </characteristics>
         </profile>
         <profile id="8bd3-66d6-ca3-51e3" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
