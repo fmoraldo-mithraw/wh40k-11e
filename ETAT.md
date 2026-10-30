@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **426** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **71/71** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **72/72** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 et 20 le 2026-10-30.
 - Pack FR **13 790** clés ; résumés **4 219** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
@@ -65,6 +65,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-10-30 (nuit) : simulateur, cible choisie → bouton « 🛡 Défenses » : `def-mod` de sa fiche, de sa règle d'armée et de
+  chaque détachement de sa faction (stratagèmes filtrés par leur ligne TARGET) — `src/sim/targetDefense.js`.
 - 2026-10-30 (soir) : **jamais renommer une entrée de choix ni ses profils d'arme** (l'appli enregistre les choix par
   nom et résout leurs armes par le nom des profils ; `gdc-apply-weapons` signale, `--rename-profils` pour le profil) ;
   invulnérable projetée par un détachement = infoLink masqué révélé par le détachement + `def-mod` sur la règle
