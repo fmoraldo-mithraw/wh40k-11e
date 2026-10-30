@@ -74,6 +74,7 @@
     <categoryEntry id="14a0-40c9-2748-ae6e" name="Mounted" hidden="false"/>
     <categoryEntry id="2d7f-1892-2fd0-e29c" name="Captain" hidden="false"/>
     <categoryEntry id="5a61-81ac-eb7c-a87e" name="Grenades" hidden="false"/>
+    <categoryEntry id="286f-80f7-f31d-d070" name="Explosives" hidden="false"/>
     <categoryEntry id="aff3-d6a3-2a95-9dc" name="Imperium" hidden="false"/>
     <categoryEntry id="4ac9-fd30-1e3d-b249" name="Configuration" hidden="false"/>
     <categoryEntry id="1160-70ae-a862-b1a8" name="Unit" hidden="false"/>
