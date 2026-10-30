@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 450aeb2
-// source-sha256: 38b02d5ded55dd7a
+// source-commit: f9d808e
+// source-sha256: 8f20ca3360394ab5
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3292,7 +3292,6 @@ function collectDirectWeapons(entry, idIndex, idsOut) {
     }
     if (isTransparentGroup(grp)) {
       for (const el of arr(child(grp, "entryLinks.entryLink"))) {
-        if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
         if (el["@hidden"] === "true") continue;
         const tgt = idIndex.get(el["@targetId"]);
         const elMinRaw = getConstraint(el, "min", "selections");
@@ -4141,7 +4140,6 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
   const defaultId = grp["@defaultSelectionEntryId"] || "";
   let defaultName = "";
   for (const el of arr(child(grp, "entryLinks.entryLink"))) {
-    if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
     if (el["@hidden"] === "true") continue;
     if (el["@type"] === "selectionEntryGroup") continue;
     if (entryHiddenFor(el, unitCategoryIds)) continue;
@@ -4297,7 +4295,6 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           if (m["@type"] === "model") rec(m, m["@name"] || "");
         }
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
-          if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
           if (el["@hidden"] === "true") continue;
           const t = el["@targetId"] && idIndex.get(el["@targetId"]);
           if (t && t["@type"] === "model" && t["@hidden"] !== "true") rec(t, el["@name"] || t["@name"] || "");
@@ -4346,7 +4343,6 @@ function getOpts(entry, idIndex, unitCategoryIds) {
           parentGroupName = uniqueName;
         }
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
-          if (isCrusadeOnlyEntry(idIndex && idIndex.get(el["@targetId"]) || null, el)) continue;
           if (el["@type"] !== "selectionEntryGroup") continue;
           if (el["@hidden"] === "true") continue;
           const tgt = idIndex.get(el["@targetId"]);
@@ -4418,7 +4414,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
         for (const el of arr(child(grp, "entryLinks.entryLink"))) {
           if (el["@type"] !== "selectionEntry" || el["@hidden"] === "true") continue;
           const tgt = idIndex.get(el["@targetId"]);
-          if (!tgt || tgt["@hidden"] === "true" || isCrusadeOnlyEntry(tgt, el)) continue;
+          if (!tgt || tgt["@hidden"] === "true") continue;
           if (intC(getConstraint(el, "min", "selections") ?? getConstraint(tgt, "min", "selections"), 0) >= 1) continue;
           surfaceNestedOf(el, el["@name"] || tgt["@name"] || "");
           surfaceOptionalMembers(tgt, el["@name"] || tgt["@name"] || "");
@@ -4455,7 +4451,7 @@ function getOpts(entry, idIndex, unitCategoryIds) {
         return t && entryHasWeaponProfile(t, idIndex);
       }) || arr(child(n, "selectionEntries.selectionEntry")).some((k) => k["@type"] === "upgrade" && entryHasWeaponProfile(k, idIndex));
       const modelOptWeapon = (e["@type"] === "model" || unitOptGear || looseGroup) && sub["@type"] === "upgrade" && (getConstraint(sub, "min", "selections") != null || getConstraint(sub, "max", "selections") != null) && !getDefaultAmount(sub) && (nestedWeapon(sub) || arr(child(sub, "profiles.profile")).some(isAbilityProfile));
-      if ((parentIsTransparent || subAssoc.length || modelOptWeapon) && sub["@type"] === "upgrade" && subName && !isCrusadeOnlyEntry(sub, null)) {
+      if ((parentIsTransparent || subAssoc.length || modelOptWeapon) && sub["@type"] === "upgrade" && subName) {
         const subMin = intC(getConstraint(sub, "min", "selections"), 0);
         const subMaxRaw = intC(effEntryConstraint(sub, "max", unitCategoryIds), subMin);
         if (subMin >= 1 && subMaxRaw > subMin && (e["@type"] === "model" || unitOptGear) && entryHasWeaponProfile(sub, idIndex) && !removableMin(sub)) {
@@ -4509,7 +4505,6 @@ function getOpts(entry, idIndex, unitCategoryIds) {
       if (isEnhancementsMenu(el["@name"])) continue;
       const tgt = idIndex.get(el["@targetId"]);
       if (!tgt || tgt["@hidden"] === "true") continue;
-      if (isCrusadeOnlyEntry(tgt, el)) continue;
       if (tgt["@type"] === "model") {
         rec(tgt, el["@name"] || tgt["@name"] || "");
         continue;
@@ -4821,7 +4816,7 @@ function forcedWargearProfiles(entry, idIndex, unitCatIds) {
     if (seen.has(key)) return;
     seen.add(key);
     const nm = link && link["@name"] || n["@name"] || "";
-    if (MFM_LINK_GROUPS.has(nm) || /Enhancement|Crusade|Battle Scar|Battle Honour|Warlord/i.test(nm)) return;
+    if (MFM_LINK_GROUPS.has(nm) || /Enhancement|^Crusade(?:\s+(?:Relics?|Upgrades?|Rules?))?$|Battle Scar|Battle Honour|Warlord/i.test(nm)) return;
     if (n["@type"] === "upgrade") {
       const mn = Math.max(link ? minOf(link) ?? 0 : 0, minOf(n) ?? 0);
       if (mn >= 1) pushProfiles(n);
@@ -5395,6 +5390,9 @@ function getDesignations(entry, idIndex, detIdToName) {
       if (se["@type"] === "upgrade") consider(se, []);
     }
   }
+  for (const se of arr(child(entry, "selectionEntries.selectionEntry"))) {
+    if (se["@type"] === "upgrade") consider(se, []);
+  }
   return out;
 }
 var ROSTER_SCOPES = /* @__PURE__ */ new Set(["roster", "force", "primary-catalogue"]);
@@ -5458,9 +5456,6 @@ function absentGateChildIds(node) {
     if (conds.every(absent)) out.push(conds.map((c) => c["@childId"]).filter(Boolean));
   }
   return out;
-}
-function isCrusadeOnlyEntry(entry, link) {
-  return [entry, link].some((n) => n && absentGateChildIds(n).some((ids) => ids.length === 1 && ids[0] === CRUSADE_FORCE_ID));
 }
 function getReqUnitIds(entry, link, idIndex) {
   const out = { units: [], cats: [] };
@@ -6759,7 +6754,6 @@ function linkedFactionName(linkName) {
   n = n.replace(/^(Chaos|Imperium|Aeldari) - /, "").trim();
   n = n.replace(/\s*-\s*$/, "").trim();
   if (n.startsWith("Library")) return null;
-  if (n === "Unaligned Forces") return null;
   return n || null;
 }
 async function parseAllCatalogues(dir) {
@@ -6853,7 +6847,7 @@ async function parseAllCatalogues(dir) {
       }
     }
     const rawUnitEntries = /* @__PURE__ */ new Map();
-    const hiddenForPrimary = (entry, link) => isHiddenForCatalogue(entry, info.catalogueId) || link && isHiddenForCatalogue(link, info.catalogueId) || isCrusadeOnlyEntry(entry, link);
+    const hiddenForPrimary = (entry, link) => isHiddenForCatalogue(entry, info.catalogueId) || link && isHiddenForCatalogue(link, info.catalogueId);
     const hiddenUnitIds = /* @__PURE__ */ new Set();
     const keepListed = ({ entry, link }) => {
       if (!hiddenForPrimary(entry, link)) return true;
@@ -7209,6 +7203,51 @@ async function parseAllCatalogues(dir) {
         const forB = (e.bearers || []).filter((b) => e._nsUnd.has(b));
         if (Array.isArray(e.bearers) && forB.length < e.bearers.length) e.needSelFor = forB;
         delete e._nsUnd;
+      }
+    }
+    {
+      const UNIT_LOCAL = /* @__PURE__ */ new Set(["root-entry", "model-or-unit", "self", "parent", "ancestor"]);
+      const forcedBy = (cg, ids, into) => {
+        if (!cg) return;
+        const parts = (cg.conds || []).length + (cg.groups || []).length;
+        if (cg.op !== "or" && parts !== 1) return;
+        for (const c of cg.conds || []) {
+          if (c.type === "lessThan" && Number(c.value) === 1 && c.field === "selections" && UNIT_LOCAL.has(c.scope) && ids.has(c.childId)) into.add(c.childId);
+        }
+        for (const g of cg.groups || []) forcedBy(g, ids, into);
+      };
+      const menuNeed = /* @__PURE__ */ new Map();
+      for (const u of units) {
+        if (!u.bsId || !Array.isArray(u.designations) || !u.designations.length || !rawUnitEntries.has(u.bsId)) continue;
+        const dzIds = new Set(u.designations.flatMap((d) => d.ids || []));
+        const need = /* @__PURE__ */ new Set();
+        (function walk2(n) {
+          if (!n || typeof n !== "object") return;
+          if (Array.isArray(n)) {
+            for (const x of n) walk2(x);
+            return;
+          }
+          if (n["@targetId"] && enhMenuIds.has(n["@targetId"])) {
+            for (const m of extractModifiers(n)) if (m.type === "set" && m.field === "hidden" && String(m.value) === "true") forcedBy(m.cg, dzIds, need);
+            return;
+          }
+          for (const v of Object.values(n)) if (v && typeof v === "object") walk2(v);
+        })(rawUnitEntries.get(u.bsId));
+        if (need.size) menuNeed.set(u.bsId, [...need].sort());
+      }
+      if (menuNeed.size) {
+        for (const e of enhs) {
+          if (!Array.isArray(e.bearers) || !e.bearers.length) continue;
+          const gated = e.bearers.filter((b) => menuNeed.has(b));
+          if (!gated.length) continue;
+          const key = menuNeed.get(gated[0]).join(",");
+          if (e.needSel || gated.some((b) => menuNeed.get(b).join(",") !== key)) {
+            console.warn(`[enh] "${factionKey}" ${e.name}: menu gated by a designation, needSel not representable (kept ungated)`);
+            continue;
+          }
+          e.needSel = key.split(",");
+          if (gated.length < e.bearers.length) e.needSelFor = gated;
+        }
       }
     }
     {
