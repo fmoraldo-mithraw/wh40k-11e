@@ -809,12 +809,6 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
             <condition type="greaterThan" value="5" field="selections" scope="self" childId="model" shared="true" includeChildSelections="true" includeChildForces="false"/>
           </conditions>
         </modifier>
-        <modifier type="set" value="160" field="51b2-306e-1021-d207">
-          <comment>MFM 22-07: 5 Jackals + 4 Wolfquads = 160 pts (les Wolfquads priment sur le palier 10 Jackals)</comment>
-          <conditions>
-            <condition type="atLeast" value="1" field="selections" scope="self" childId="de61-4088-f84c-24a5" shared="true" includeChildSelections="true"/>
-          </conditions>
-        </modifier>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
             <condition type="atLeast" value="3" field="selections" scope="roster" childId="3a81-2b84-bf4c-4f85" shared="true" includeChildSelections="true" includeChildForces="true"/>
@@ -1119,7 +1113,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         </profile>
         <profile name="Demolition Run" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a1b0-4124-e468-17a3">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, in your Movement phase, when this unit ends a Normal, Advance, or Fall Back move, you can select one enemy unit within 6&quot; of and visible to this unit and roll one D6 for each ATALAN JACKALS model in this unit: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds.)</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your Movement phase, when this unit ends a Normal, Advance or Fall Back move, you can select one enemy unit within 6&quot; of and visible to this unit and roll one D6 for each **^^Atalan Jackals^^** model in this unit: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1287,7 +1281,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
       <profiles>
         <profile name="Voice of New Truths" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ebfc-acb-d5c5-a4c4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, one model from your army with this ability can use it, if it does, select one enemy unit with 18&quot; of it, that enemy unit must take a Battle-shock test.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, one model from your army with this ability can use it. If it does, select one enemy unit within 18&quot; of it; that enemy unit must take a Battle-shock test.</characteristic>
           </characteristics>
         </profile>
         <profile name="Clamavus" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7f74-bf54-fc5c-8ba7">
@@ -1383,7 +1377,7 @@ sim-mod: source=&quot;Industrialised Destruction&quot; reroll=wound conditional 
         </profile>
         <profile name="Grinding Line-breaker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="71f5-5ca9-3279-9545">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding MONSTER and VEHICLES) that is within Engagement Range of this model Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) that is within Engagement Range of this model Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.</characteristic>
           </characteristics>
         </profile>
         <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="ae9f-1465-7a41-c32c">
@@ -2188,17 +2182,19 @@ leader-kw: Acolyte Hybrids</comment>
       <profiles>
         <profile name="Psychic Familiar" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6032-de57-f8f6-e3d8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any of your opponent’s Shooting phases, this model can use its psychic familiar. If it does, until the end of the phase, add 6&quot; to the range of its Mind Control ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of your opponent’s Shooting phase, this model can use its psychic familiar. If it does, until the end of the phase, add 6&quot; to the range of its Mind Control ability.
+
+**Designer’s Note:** *Place a Psychic Familiar token next to the model, removing it once this ability has been used.*</characteristic>
           </characteristics>
         </profile>
         <profile name="Mind Control (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="72c3-6768-b2e4-cbcc">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent’s Shooting phase, one PSYKER model from your army with this ability can use it. If used, select one enemy unit within 18&quot; of and visible to that PSYKER model and roll one D6: on a 1, that PSYKER model suffers D3 mortal wounds; on a 2-5, until the end of the phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll; on a 6, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll and subtract 1 from the Wound Roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent’s Shooting phase, one **^^Psyker^^** model from your army with this ability can use it. If used, select one enemy unit within 18&quot; of that **^^Psyker^^** model and roll one D6: on a 1, that **^^Psyker^^** model suffers D3 mortal wounds; on a 2-5, until the end of the phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll; on a 6, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll and subtract 1 from the Wound roll.</characteristic>
           </characteristics>
         </profile>
         <profile name="Spiritual Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6861-b91-d08f-8f28">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one friendly GENESTELERS CULTS unit that is Battle-shocked and within 12&quot; of this model. That unit is no longer Battle-shocked.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, you can select one friendly **^^Genestealer Cults^^** unit that is Battle-shocked and within 12&quot; of this model. That unit is no longer Battle shocked.</characteristic>
           </characteristics>
         </profile>
         <profile name="Magus" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="275f-3264-3ec9-8c56">
@@ -2392,7 +2388,7 @@ leader-kw: Acolyte Hybrids</comment>
                   <profiles>
                     <profile name="Cult Icon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4ed9-34a-7356-a80c">
                       <characteristics>
-                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, you can return up to 3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to D3+3 destroyed models to that unit instead. This ability cannot be used to return destroyed CHARACTER models in Attached units and any [ONE SHOT] weapons equipped with by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
+                        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, you can return up to 3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to D3+3 destroyed models to that unit instead. This ability cannot be used to return destroyed **^^Character^^** models in Attached units and any **[One Shot]** weapons equipped by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2663,7 +2659,7 @@ leader-kw: Acolyte Hybrids</comment>
                           </constraints>
                           <entryLinks></entryLinks>
                         </entryLink>
-                        <entryLink import="true" name="Autopistol" hidden="false" id="5305-946c-df01-b210" type="selectionEntry" targetId="ffd4-af63-eb03-4bb5">
+                        <entryLink import="true" name="Autopistol" hidden="false" id="5305-946c-df01-b210" type="selectionEntry" targetId="c213-e6c4-7183-4041">
                           <constraints>
                             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f166-62a8-edff-db11"/>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4c97-1754-7d80-e0ba"/>
@@ -2681,7 +2677,7 @@ leader-kw: Acolyte Hybrids</comment>
                           </constraints>
                           <entryLinks></entryLinks>
                         </entryLink>
-                        <entryLink import="true" name="Autopistol" hidden="false" id="79a7-b668-8582-a230" type="selectionEntry" targetId="ffd4-af63-eb03-4bb5">
+                        <entryLink import="true" name="Autopistol" hidden="false" id="79a7-b668-8582-a230" type="selectionEntry" targetId="c213-e6c4-7183-4041">
                           <constraints>
                             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="083e-2407-6f68-a752"/>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="871b-8c2a-acfd-348d"/>
@@ -2721,7 +2717,7 @@ leader-kw: Acolyte Hybrids</comment>
                           </constraints>
                           <entryLinks></entryLinks>
                         </entryLink>
-                        <entryLink import="true" name="Autopistol" hidden="false" id="ab92-5151-962d-a998" type="selectionEntry" targetId="ffd4-af63-eb03-4bb5">
+                        <entryLink import="true" name="Autopistol" hidden="false" id="ab92-5151-962d-a998" type="selectionEntry" targetId="c213-e6c4-7183-4041">
                           <constraints>
                             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9bec-bbf2-ca3c-19e8"/>
                             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1650-6952-d18f-73c4"/>
@@ -2785,7 +2781,7 @@ leader-kw: Acolyte Hybrids</comment>
       <profiles>
         <profile name="A Plan Generations in the Making" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="12fe-1624-b6ac-9f68">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3398,7 +3394,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Cloaked Assassin" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="df3b-ad7f-4065-3cf7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with a Sanctus Bio-dagger, enemy units cannot target this unit with snap shooting attacks.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Enemy units cannot target this unit with snap shooting attacks.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3696,7 +3692,7 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Cult Icon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="22c6-be05-5fd4-ebc8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed CHARACTER models in Attached units and any [ONE SHOT] weapons equipped with by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed **^^Character^^** models in Attached units and any **[One Shot]** weapons equipped by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4123,7 +4119,7 @@ def-mod: source=&quot;Psionic Shield&quot; inv=4 oncePer=battle</comment>
       <profiles>
         <profile name="Claimed for the Cult" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecc9-8238-d25d-6ce9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, roll one D6 for each objective marker that you control that has one or more units from your army with this ability within range of it. If one or more of the results is a 4+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, roll one D6 for each objective marker you control that has one or more units from your army with this ability within range of it. If one or more of the results is a 4+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
