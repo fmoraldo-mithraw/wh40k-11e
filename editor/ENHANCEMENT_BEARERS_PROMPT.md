@@ -91,8 +91,12 @@ la même logique mais visent des **unités** (règle maison n° 1).
    Sa jumelle `amelioration-personne` (décision du 2026-09-30) liste les
    améliorations offertes à **personne** : clause « X model only » dont X
    n'existe pas dans la faction (Narthecis Gauntlet chez les Space Wolves),
-   ou porte décidable qui exclut tout candidat (Beacon Angelis chez les
-   Agents : Watch Master) — l'appli ne les offre plus à tout personnage.
+   ou porte décidable qui exclut tout candidat — l'appli ne les offre plus
+   à tout personnage. (Beacon Angelis et Amulet of Auto-chastisement chez
+   les Agents n'en sont plus, depuis le 2026-10-30 : leurs portes visent le
+   Watch Master, dont les liens « Warlord » et « Enhancements » étaient posés
+   sur le lien racine, invisibles au parseur ; déplacés dans l'entrée, le
+   Watch Master est leur seul porteur.)
    Attendu pour les améliorations d'un autre chapitre vues du tronc commun ;
    une NOUVELLE occurrence ailleurs = prose mal lue ou porte trop large.
    Une porte `lessThan 1` (scope `ancestor` **ou** `parent`) sur une
