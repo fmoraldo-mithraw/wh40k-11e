@@ -16,7 +16,6 @@ invuln: 4+</comment>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="d23a-e650-3750-9f1c" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="de99-73ce-af5a-db0b" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="fc44-41f9-326d-2178" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="333-3750-4e57-1ac7" primary="false" name="Grenades"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="8453-b83a-5c-4a5a" primary="false" name="Fly"/>
         <categoryLink targetId="dda2-bb0a-215e-ad9c" id="4069-39a2-f945-a58f" primary="false" name="Jump Pack"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="35c2-8950-42de-80f7" primary="false" name="Imperium"/>
@@ -24,6 +23,7 @@ invuln: 4+</comment>
         <categoryLink targetId="6e7-40c-58d9-e402" id="7602-2152-3830-4f1d" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="b2fd-e768-9174-9e5b" primary="false" name="Faction: Blood Angels"/>
         <categoryLink targetId="da64-bc59-71f9-96e8" id="5e2c-d136-51e8-cf0c" primary="false" name="Astorath"/>
+        <categoryLink name="Tacticus" hidden="false" id="943b-aa81-2623-6ba4" targetId="5179-8ede-45e3-49a2" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Astorath" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="bd83-7f95-9b20-3b25">
@@ -193,7 +193,6 @@ invuln: 4+</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Ignores Cover" id="c2a4-65e2-7d47-0274" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
                         <infoLink name="Torrent" id="7be2-cb3f-0800-51b5" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
                         <infoLink name="Assault" id="c6d8-2b3c-5852-ee03" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
                       </infoLinks>
@@ -260,7 +259,6 @@ invuln: 4+</comment>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Ignores Cover" id="b747-3302-29f7-d550" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
                     <infoLink name="Torrent" id="a6a9-1e19-bc04-f294" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
                     <infoLink name="Assault" id="9899-280e-aecc-1ab2" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
                   </infoLinks>
@@ -281,7 +279,6 @@ invuln: 4+</comment>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Devastating Wounds" id="44c6-2fa9-9a28-e2a1" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
                     <infoLink name="Assault" id="f937-6835-b9e0-16c5" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
                     <infoLink name="Twin-linked" id="72c4-d07f-0986-3b82" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                   </infoLinks>
@@ -326,12 +323,13 @@ fnp: 5+</comment>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="3237-1a66-35d0-d554" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="a7ac-3054-3c4f-5316" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="1738-e3f9-79df-a4d8" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="91d0-1af3-4358-569c" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="91d0-1af3-4358-569c" primary="false" name="Explosives"/>
         <categoryLink targetId="5179-8ede-45e3-49a2" id="3abf-3c69-1687-6a48" primary="false" name="Tacticus"/>
         <categoryLink targetId="13bf-2bee-3ae0-b414" id="38cc-768a-1825-5bf" primary="false" name="Psyker"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="440f-cff0-1134-f3d2" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="9a7e-5e89-fe1c-afb9" primary="false" name="Faction: Blood Angels"/>
         <categoryLink targetId="369e-b2c9-4637-8cba" id="1e2c-42d8-5d7c-2a8c" primary="false" name="Chief Librarian Mephiston"/>
+        <categoryLink name="Imperium" hidden="false" id="7bb8-9887-ee60-d6c5" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="76f1-154d-581a-b2ae"/>
@@ -415,8 +413,7 @@ fnp: 5+</comment>
           </profiles>
           <infoLinks>
             <infoLink name="Hazardous" hidden="false" type="rule" id="db6e-451f-943a-870a" targetId="8367-374c-f87-c627"/>
-            <infoLink name="Sustained Hits" hidden="false" type="rule" id="dfe-8eda-7f91-d0ac" targetId="1897-c22c-9597-12b1"/>
-            <infoLink name="Pistol" hidden="false" type="rule" id="4d3f-56a1-d3dd-ee01" targetId="8bf7-8812-923d-29e4"/>
+            <infoLink name="Close-Quarters" hidden="false" type="rule" id="4d3f-56a1-d3dd-ee01" targetId="59e0-775e-fce5-43ca"/>
             <infoLink name="Psychic" hidden="false" type="rule" id="2b16-bb92-1501-efc" targetId="e9c4-2bb8-12ee-cd1b"/>
           </infoLinks>
         </selectionEntry>
@@ -469,7 +466,6 @@ fnp: 5+</comment>
         </profile>
       </profiles>
       <infoLinks>
-        <infoLink name="Hazardous" hidden="false" type="rule" id="2a74-734a-4b06-2707" targetId="8367-374c-f87-c627"/>
         <infoLink name="Close-Quarters" hidden="false" type="rule" id="6031-fbbf-5207-d031" targetId="59e0-775e-fce5-43ca"/>
       </infoLinks>
       <categoryLinks>
@@ -498,7 +494,7 @@ fnp: 5+</comment>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="923b-c5fc-cd3b-c5bc" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="f571-17c8-73c0-142d" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="3ee5-fd0-d03f-2875" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="f4b8-1ad6-1316-e4a2" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="f4b8-1ad6-1316-e4a2" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="3efa-34dd-be75-3a12" primary="false" name="Imperium"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="601f-3afb-73dc-d183" primary="false" name="Fly"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="42ad-a8f4-fc9-f298" primary="false" name="Faction: Adeptus Astartes"/>
@@ -567,7 +563,7 @@ fnp: 5+</comment>
           </profiles>
           <infoLinks>
             <infoLink name="Melta" hidden="false" type="rule" id="14c7-d026-3f33-df36" targetId="7cdb-fb99-44a9-8849"/>
-            <infoLink name="Pistol" hidden="false" type="rule" id="ae5e-e22-b492-b463" targetId="8bf7-8812-923d-29e4"/>
+            <infoLink name="Close-Quarters" hidden="false" type="rule" id="ae5e-e22-b492-b463" targetId="59e0-775e-fce5-43ca"/>
             <infoLink name="Sustained Hits" hidden="false" type="rule" id="4a1d-1068-3f3c-f477" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
         </selectionEntry>
@@ -623,7 +619,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="933a-a48d-3fb6-7c1a" primary="true" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="3870-b516-6d07-d388" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="3870-b516-6d07-d388" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="f544-fede-9da7-b7d1" primary="false" name="Imperium"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="2a33-62a2-7f8d-7db8" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="d6f-6af9-8f1-c0b2" primary="false" name="Faction: Blood Angels"/>
@@ -994,7 +990,7 @@ def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1</comment>
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="40ee-2e76-5838-d294" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="2bff-b3cb-96fb-e5e" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="792f-de94-80d5-59c8" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="c0ae-f5c4-d558-67e8" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="c0ae-f5c4-d558-67e8" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="a460-2bf6-a032-58c1" primary="false" name="Imperium"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="3450-8168-5c0f-24d1" primary="false" name="Fly"/>
         <categoryLink targetId="1fb1-3603-a4bd-485" id="5c8b-c2bc-c24a-7947" primary="false" name="Chaplain"/>
@@ -1002,6 +998,8 @@ def-mod: source=&quot;Guardian of the Lost&quot; dmg=-1</comment>
         <categoryLink targetId="6e7-40c-58d9-e402" id="306c-4b2c-1e6-d8c4" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="2458-9dd0-bd9a-ebc" primary="false" name="Faction: Blood Angels"/>
         <categoryLink targetId="dda2-bb0a-215e-ad9c" id="26c6-9ca3-e011-47b" primary="false" name="Jump Pack"/>
+        <categoryLink name="Tacticus" hidden="false" id="e641-f2be-4129-934b" targetId="5179-8ede-45e3-49a2" primary="false"/>
+        <categoryLink name="Death Company" hidden="false" id="7752-a00b-596c-6ec9" targetId="7278-781b-ce6c-d23c" primary="false"/>
       </categoryLinks>
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="3553-2c25-6f68-f80d" targetId="caa-f869-3cbd-b48e"/>
@@ -1118,12 +1116,13 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="b929-ac1e-a8dc-dd66" primary="true" name="Infantry"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="f435-d9a6-3cf-2e16" primary="false" name="Fly"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="8867-e098-b622-93a" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="8867-e098-b622-93a" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="e653-4b48-7007-b3c4" primary="false" name="Imperium"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="9ad7-b573-d4c9-d207" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="3800-e0c6-41c9-55b6" primary="false" name="Faction: Blood Angels"/>
         <categoryLink targetId="d30a-a7c5-389a-e78" id="2dc9-9fcf-347d-8f15" primary="false" name="Sanguinary Guard"/>
         <categoryLink targetId="dda2-bb0a-215e-ad9c" id="f28d-9816-dbcc-1b5b" primary="false" name="Jump Pack"/>
+        <categoryLink name="Tacticus" hidden="false" id="9b6d-a1c2-bc8c-7a7b" targetId="5179-8ede-45e3-49a2" primary="false"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e74-7290-177d-cfc1"/>
@@ -1211,7 +1210,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Pistol" id="7d61-e571-3ea4-9365" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="7d61-e571-3ea4-9365" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
                     </selectionEntry>
@@ -1289,7 +1288,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger</comment>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="1745-3589-5d6b-5454" primary="true" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="f4c-54f0-e9b9-e40a" primary="false" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="b840-b7fc-90f4-afaa" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="b840-b7fc-90f4-afaa" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="f102-fdf3-83ae-4bca" primary="false" name="Imperium"/>
         <categoryLink targetId="561f-8606-9555-b3ba" id="a064-e396-b8ec-6f5d" primary="false" name="Sanguinary Priest"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="5914-910-c561-83d4" primary="false" name="Faction: Adeptus Astartes"/>
@@ -1465,6 +1464,7 @@ def-mod: source=&quot;Heirs of Azkaellon&quot; wound=-1 vsStronger</comment>
         <categoryLink targetId="8f39-9585-fc72-ba71" id="6c75-19dc-6fa0-1737" primary="false" name="The Sanguinor"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="eac6-850b-d2b2-eb5e" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="e25b-8fb1-48d9-8415" primary="false" name="Faction: Blood Angels"/>
+        <categoryLink name="Tacticus" hidden="false" id="2c52-82a4-b5d2-4afd" targetId="5179-8ede-45e3-49a2" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Encarmine Broadsword" hidden="false" id="b37d-bd5a-db3e-28e7">
@@ -1606,7 +1606,7 @@ invuln: 4+</comment>
                     </profile>
                   </profiles>
                   <infoLinks>
-                    <infoLink name="Pistol" id="6067-d788-2b38-d165" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                    <infoLink name="Close-Quarters" id="6067-d788-2b38-d165" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                   </infoLinks>
                   <selectionEntryGroups></selectionEntryGroups>
                   <categoryLinks>
@@ -1665,7 +1665,7 @@ invuln: 4+</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="e7e3-3a3f-3162-3112" primary="false" name="Infantry"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="9349-1078-0ef5-e100" primary="true" name="Character"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="2d53-4ea3-41cc-31b8" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="2d53-4ea3-41cc-31b8" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="b384-f04e-82f9-1a29" primary="false" name="Imperium"/>
         <categoryLink targetId="2d7f-1892-2fd0-e29c" id="ecfa-ade5-383d-2318" primary="false" name="Captain"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="5345-68be-18bd-ab25" primary="false" name="Faction: Adeptus Astartes"/>
@@ -1846,7 +1846,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
       <categoryLinks>
         <categoryLink name="Infantry" hidden="false" id="9266-84ed-6879-cb79" targetId="cf47-a0d7-7207-29dc" primary="false"/>
         <categoryLink name="Character" hidden="false" id="d47f-4886-dcd6-58eb" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
-        <categoryLink name="Grenades" hidden="false" id="fa12-0092-70fe-1e26" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
+        <categoryLink name="Explosives" hidden="false" id="fa12-0092-70fe-1e26" targetId="286f-80f7-f31d-d070" primary="false"/>
         <categoryLink name="Imperium" hidden="false" id="4038-19ce-c638-641b" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink name="Captain" hidden="false" id="d331-3399-9094-c8f1" targetId="2d7f-1892-2fd0-e29c" primary="false"/>
         <categoryLink name="Faction: Adeptus Astartes" hidden="false" id="0d3a-1a16-2eb0-321d" targetId="6e7-40c-58d9-e402" primary="false"/>
@@ -1943,9 +1943,6 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
         </profile>
       </profiles>
       <comment>A5 WS 3+</comment>
-      <infoLinks>
-        <infoLink name="Devastating Wounds" id="365b-3497-804f-7195" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
-      </infoLinks>
       <categoryLinks>
         <categoryLink name="Melee Weapon" hidden="false" id="f03f-7b76-e42e-8e60" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
@@ -2129,7 +2126,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="0bdf-50ed-4cad-4033" primary="true" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="6bfc-b46e-d68d-e94d" primary="false" name="Infantry"/>
         <categoryLink targetId="2d7f-1892-2fd0-e29c" id="b066-4071-288a-4769" primary="false" name="Captain"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="f677-afd3-7ec6-a2a6" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="f677-afd3-7ec6-a2a6" primary="false" name="Explosives"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="ce1d-8b9b-99f1-4aa1" primary="false" name="Fly"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="85a0-c2cb-3e16-bcff" primary="false" name="Faction: Blood Angels"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="999d-d87d-a224-3b9a" primary="false" name="Faction: Adeptus Astartes"/>
@@ -2308,7 +2305,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Pistol" id="84bb-668e-21e4-d52d" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+                        <infoLink name="Close-Quarters" id="84bb-668e-21e4-d52d" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                       </infoLinks>
                     </selectionEntry>
                   </selectionEntries>
@@ -2415,7 +2412,7 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
       </infoLinks>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="b9e0-f110-6f3a-4fb0" primary="true" name="Infantry"/>
-        <categoryLink targetId="5a61-81ac-eb7c-a87e" id="92d1-4fb8-ff23-39da" primary="false" name="Grenades"/>
+        <categoryLink targetId="286f-80f7-f31d-d070" id="92d1-4fb8-ff23-39da" primary="false" name="Explosives"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="ea6a-1ce7-b63c-708f" primary="false" name="Imperium"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="ffb6-3cd1-274d-bcbe" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="62ac-ef42-27b4-ae7" id="7e0f-489d-ad94-f447" primary="false" name="Faction: Blood Angels"/>
@@ -2569,7 +2566,6 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
       <infoLinks>
         <infoLink name="Sustained Hits" hidden="false" type="rule" id="1e3b-de16-9dc0-16d7" targetId="1897-c22c-9597-12b1"/>
         <infoLink name="Twin-linked" hidden="false" type="rule" id="6d95-7aa1-f8b4-60ab" targetId="cf93-ad4d-2f08-a79d"/>
-        <infoLink name="Rapid Fire" hidden="false" type="rule" id="0dd2-9258-bf65-f078" targetId="c5c8-8b58-b8b6-7786"/>
       </infoLinks>
       <profiles>
         <profile name="Twin Heavy Bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8854-9647-df9b-ed6d">
@@ -2746,9 +2742,6 @@ sim-mod: source=&quot;Black Rage&quot; reroll=hit1 when=melee</comment>
           </characteristics>
         </profile>
       </profiles>
-      <infoLinks>
-        <infoLink name="Sustained Hits" hidden="false" type="rule" id="fbc6-0bb5-a1b4-718e" targetId="1897-c22c-9597-12b1"/>
-      </infoLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Relic Weapon" id="cf61-1b31-eaea-2ebb">
       <profiles>
