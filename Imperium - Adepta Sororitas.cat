@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="b39e-4401-8f3e-fdf7" name="Imperium - Adepta Sororitas" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="111" battleScribeVersion="2.03" authorName="CrusherJoe" type="catalogue" authorContact="@CrusherJoe on Discord">
+  <profileTypes>
+    <profileType id="e254-05c1-08af-2269" name="Relics of the Matriarchs">
+      <characteristicTypes>
+        <characteristicType id="b372-92c7-bafb-df8c" name="Effect"/>
+      </characteristicTypes>
+    </profileType>
+  </profileTypes>
   <categoryEntries>
     <categoryEntry name="Aestred Thurga and Agathae Dolan" hidden="false" id="c8ba-2b2d-e47f-d7a6"/>
     <categoryEntry name="Battle Sisters Squad" hidden="false" id="2a27-80d9-39c1-4944"/>
@@ -120,7 +127,7 @@ invuln: 4+</comment>
             </profile>
             <profile name="Recount the Deeds of the Saints" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aa7c-b9b-2657-ddbd">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is leading a unit and contains and Agathae Dolan model, each time that unit destroys an enemy unit, you gain 1 Miracle dice. When that Agathae Dolan model is destroyed, you gain D3 Miracle dice.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this unit is leading a unit and contains an Agathe Dolan model, each time that unit destroys an enemy unit, you gain 1 Miracle dice. When that Agathae Dolan model is destroyed, you gain D3 Miracle dice.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -796,7 +803,7 @@ sim-mod: source=&quot;Extremis Trigger Word&quot; attacks-set=6 hazardous weapon
       <profiles>
         <profile name="Extremis Trigger Word" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b91b-e2eb-4678-72c7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to fight, you can choose to invoke its extremis trigger word. If you do, then until the end of the phase, arco-flails equipped by models in this unit have an Attacks characteristic of 6 and the HAZARDOUS ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to fight, you can choose to invoke its extremis trigger word. If you do, until the end of the phase, arco-flails equipped by models in this unit have an Attacks characteristic of 6 and the **[HAZARDOUS]** ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Arco-Flagellants" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="f777-d73c-fdbb-b61e">
@@ -1028,7 +1035,7 @@ sim-mod: source=&quot;Extremis Trigger Word&quot; attacks-set=6 hazardous weapon
       <profiles>
         <profile name="Defenders of the Faith" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4b9-855b-cce7-f501">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7048-aade-fcf3-9011">
@@ -1289,6 +1296,7 @@ def-mod: source=&quot;The Emperor&apos;s Grace&quot; inv=2 oncePer=battle</comme
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="56a4-4e9a-acb2-e01a" primary="false" name="Grenades"/>
         <categoryLink targetId="fef8-7c60-b716-cf27" id="dd73-8f5c-e6fb-6bb" primary="false" name="Canoness"/>
         <categoryLink targetId="fd71-afa6-b13b-7fda" id="5865-74c2-fccf-70a7" primary="false" name="Faction: Adepta Sororitas"/>
+        <categoryLink name="Imperium" hidden="false" id="73cf-a52b-0fd0-3b24" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
       </categoryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="0b0d-b9a4-57e7-8b23" hidden="false" sortIndex="4">
@@ -2227,9 +2235,7 @@ def-mod: source=&quot;Sworn Protectors&quot; wound=-1 conditional</comment>
 ■ Celestian Sacresants
 ■ Dominion Squad
 ■ Retributor Squad
-■ Sisters Novitiate Squad
-
-This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine, Junith Eruita, or Aestred Thurga unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Sisters Novitiate Squad</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2399,9 +2405,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
 ■ Celestian Insidiants
 ■ Celestian Sacresants
 ■ Dominion Squad
-■ Retributor Squad
-
-This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine, Junith Eruita, or Aestred Thurga unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Retributor Squad</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2786,7 +2790,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </profile>
         <profile name="Devastating Refrain" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="62d8-4f1-3996-bcb9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, if one or more of those attacks made with an Indirect Fire weapon scored a hit against an enemy unit, that unit must take a Battle-shock test. Each time such an attack destroys an enemy model that has the Deadly Demise ability, the model&apos;s Deadly Demise ability inflicts mortal wounds on a D6 roll of 5+ instead of a 6.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, if one or more of those attacks made with an Indirect Fire weapon scored a hit against an enemy unit, that unit must take a Battle-shock test. Each time such an attack destroys an enemy model that has the Deadly Demise ability, that models Deadly Demise ability inflicts mortal wounds on a D6 roll of 5+ instead of on a 6.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ccbb-de3f-002d-9476">
@@ -2953,9 +2957,7 @@ invuln: 6+</comment>
 ■ Celestian Sacresants
 ■ Dominion Squad
 ■ Retributor Squad
-■ Sisters Novitiate Squad
-
-This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine, Junith Eruita, or Aestred Thurga unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Sisters Novitiate Squad</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2983,7 +2985,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </profile>
         <profile name="Sacred Healing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="acf-9a6a-c5b4-93fe">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, in your Command phase, you can return up to 1 destroyed model (excluding Character models) to that unit. If you wish, you first discard 1 Miracle dice; if you do, you can return up to D3+1 destroyed models (excluding Character models) to that unit instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, in your Command phase, you can return up to 1 destroyed model (excluding **^^Character^^** models) to that unit. If you wish, you can first discard 1 Miracle dice; if you do, you can return up to D3+1 destroyed models (excluding **^^Character^^** models) to that unit instead.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5d3-7240-b966-c4cc">
@@ -3099,9 +3101,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
 ■ Celestian Insidiants
 ■ Celestian Sacresants
 ■ Dominion Squad
-■ Retributor Squad
-
-This model can be attached to a Battle Sisters Squad, even if one Canoness, Palatine, Junith Eruita, or Aestred Thurga unit has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Retributor Squad</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -3128,7 +3128,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </profile>
         <profile name="Litany of Deeds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="72b8-e076-cff5-2e74">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you gain a Miracle dice as the result of a friendly ADEPTA SORORITAS unit or model being destroyed, if that unit or model was destroyed within 12&quot; of this model, you can re-roll the result of that Miracle dice before adding it to your Miracle dice pool.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you gain a Miracle dice as the result of an **^^Adepta Sororitas^^** unit or model from your army being destroyed, if that unit or model was destroyed within 12&quot; of this model, you can re-roll the result of that Miracle dice before adding it to your Miracle Dice pool.</characteristic>
           </characteristics>
         </profile>
         <profile name="Stanchion of Holy Martyrs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecf0-4fea-74c7-1091">
@@ -3857,7 +3857,7 @@ fnp: 5+</comment>
       <profiles>
         <profile name="Anguish of the Unredeemed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b337-3b2d-d22b-9ca9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 2+, do not remove it from play; that destroyed model can fight after attacking unit has finished making its attacks, and is then removed from play.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit is destroyed by a melee attack, if that model has not fought this phase, roll one D6. On a 2+, do not remove it from play; that destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a6d5-54f2-962a-7371">
@@ -4131,12 +4131,21 @@ invuln: 4+</comment>
             <selectionEntryGroup name="Pistols" id="3be8-e600-f2d7-7629" hidden="false" defaultSelectionEntryId="b469-3642-608f-349d">
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="b469-3642-608f-349d" collective="false">
+                  <profiles>
+                    <profile name="Bolt pistol" hidden="false" id="940a-06c4-fb66-73cc" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
                   <infoLinks>
-                    <infoLink name="Bolt pistol" id="a92b-e159-faff-1d8c" hidden="false" type="profile" targetId="c934-fc40-d6a2-8919">
-                      <modifiers>
-                        <modifier type="set" value="2+" field="94d-8a98-cf90-183e"/>
-                      </modifiers>
-                    </infoLink>
+                    <infoLink name="Pistol" id="ab6b-5b7f-d397-112a" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
                   </infoLinks>
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4d9f-b56-c08b-7f4d"/>
@@ -4239,7 +4248,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Rapturous Blows" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d505-3475-8bdc-a018">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model’s unit is selected to fight, you can discard 1 Miracle dice. If you do, then until the end of the phase, each time a melee attack made by this model scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model’s unit is selected to fight, you can discard 1 Miracle dice. If you do, until the end of the phase, each time a melee attack made by this model scores a wound, the target of that attack suffers 1 mortal wound in addition to any normal damage.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="20b3-dac6-46c2-361b">
@@ -5073,7 +5082,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Zealot" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf7e-519e-c4e1-5abc">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength and Attacks characteristics of melee weapons equipped by this model by 3.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Attacks and Strength characteristics of melee weapons equipped by this model by 3.</characteristic>
           </characteristics>
         </profile>
         <profile name="Holy Mission" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="672b-2d5c-38af-1861">
@@ -6334,34 +6343,34 @@ invuln: 6+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle round, select up to two of the abilities in the Relics of the Matriarchs section. Until the start of the next battle round, this model has those abilities.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - The Fiery Heart (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af36-63c-5792-332d">
+        <profile name="Relic of the Matriarch - The Fiery Heart (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="af36-63c-5792-332d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, add 2&quot; to that unit&apos;s Move characteristic and add 1 to the Advance and Charge rolls made for that unit.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, add 2&quot; to that unit’s Move characteristic and add 1 to Advance and Charge rolls made for that unit.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - Censer of the Sacred Rose (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="bc2a-1efd-5bf1-16c7">
+        <profile name="Relic of the Matriarch - Censer of the Sacred Rose (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="bc2a-1efd-5bf1-16c7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, you can re-roll all Battle-shock tests taken for that unit.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, you can re-roll Battle-shock tests taken for that unit.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - Simulacrum of the Ebon Chalice (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7dfb-33ee-debe-bc02">
+        <profile name="Relic of the Matriarch - Simulacrum of the Ebon Chalice (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="7dfb-33ee-debe-bc02">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, that unit can perform up to two Acts of Faith per phase, instead of only one.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, that unit can perform up to two Acts of Faith per phase, instead of only one.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - Simulacrum of the Argent Shroud (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ba51-e749-8362-b9af">
+        <profile name="Relic of the Matriarch - Simulacrum of the Argent Shroud (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="ba51-e749-8362-b9af">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, each time a model in that unit makes a ranged attack, re-roll a Wound roll of 1.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, each time a model in that unit makes a ranged attack, re-roll a Wound roll of 1.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - Icon of the Valorous Heart (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="79b6-f74e-253c-153f">
+        <profile name="Relic of the Matriarch - Icon of the Valorous Heart (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="79b6-f74e-253c-153f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, models in that unit have the Feel No Pain 6+ ability.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, models in that unit have the Feel No Pain 6+ ability.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Relic of the Matriarch - Petals of the Bloody Rose (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ee9f-15cc-2a69-8a31">
+        <profile name="Relic of the Matriarch - Petals of the Bloody Rose (Aura)" typeId="e254-05c1-08af-2269" typeName="Relics of the Matriarchs" hidden="false" id="ee9f-15cc-2a69-8a31">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly Adepta Sororitas unit is within 6&quot; of this model, improve the Armour Penetration characteristic of melee weapons equipped by model in that unit by 1.</characteristic>
+            <characteristic name="Effect" typeId="b372-92c7-bafb-df8c">While a friendly **^^Adepta Sororitas^^** unit is within 6&quot; of this model, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.</characteristic>
           </characteristics>
         </profile>
         <profile name="Solemn Procession" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3d31-2f99-c625-f047">
@@ -6561,7 +6570,7 @@ If this unit made a Charge move this turn, until the end of the phase, select bo
           <characteristics>
             <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">3</characteristic>
-            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2</characteristic>
+            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
@@ -6887,7 +6896,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Divine Deliverance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d29e-6553-723c-5067">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by the model and those weapons have the [DEVASTATING WOUNDS] ability</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and those weapons have the **[DEVASTATING WOUNDS]** ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7506-7743-d517-3826">
@@ -6952,7 +6961,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Attached Unit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3907-15ad-c461-6590">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a ^^**Ministorum Priest^^** model from your army with the Leader ability can be attached to a ^^**Battle Sisters Squad^^**, it can be attached to this unit instead. If a ^^**Ministorum Priest^^** model from your army is attached to this unit during the Declare Battle Formations step, that model gains the Scouts 6&quot; ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a **^^Ministorum Priest^^** from your army with the Leader ability can be attached to a **^^Battle Sisters Squad^^**, it can be attached to this unit instead. If a **^^Ministorum Priest^^** from your army is attached to this unit during the Declare Battle Formations step, that model gains the Scouts 6&quot; ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4540-bee4-a354-4d09">
@@ -7084,9 +7093,9 @@ invuln: 5+</comment>
                       <profiles>
                         <profile name="➤ Plasma gun - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3625-d75b-437e-e1ed" publicationId="4115-3627-e608-39f6" page="29">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
@@ -7095,9 +7104,9 @@ invuln: 5+</comment>
                         </profile>
                         <profile name="➤ Plasma gun - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="aaa5-0197-1f9c-bbd5" publicationId="4115-3627-e608-39f6" page="29">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
@@ -8093,7 +8102,7 @@ fnp: 5+</comment>
     </profile>
     <profile name="Sacred Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e8c6-0df9-48c0-7c29">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when it is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
   </sharedProfiles>
