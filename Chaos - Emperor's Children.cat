@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <catalogue library="false" id="03fe-a162-4c02-f07b" name="Chaos - Emperor&apos;s Children" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="31" revision="49" authorContact="Mad_Spy" battleScribeVersion="2.03" type="catalogue" xmlns="http://www.battlescribe.net/schema/catalogueSchema">
+  <profileTypes>
+    <profileType name="Daemon Primarch of Slaanesh" hidden="false" id="728d-facd-6f78-268c">
+      <characteristicTypes>
+        <characteristicType id="d2ee-e50d-55e6-ccd5" name="Effect"/>
+      </characteristicTypes>
+    </profileType>
+  </profileTypes>
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Lucius the Eternal" hidden="false" id="e390-b58b-db9-816" collective="false">
       <comment>sim-mod: source=&quot;A Challenge Worthy of Skill&quot; reroll=hit reroll=wound vs=Character,Monster,Walker scope=model
@@ -34,7 +41,7 @@ fnp: 5+</comment>
         </profile>
         <profile name="A Challenge Worthy of Skill" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="01a5-5e86-b905-a68c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a **^^Character, Monster^^** or **^^Walker^^** unit, you can re-roll the Hit roll and re-roll the Wound roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a **CHARACTER, MONSTER** or **WALKER** unit, you can re-roll the Hit roll and you can re-roll the Wound roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -169,9 +176,24 @@ must-warlord</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase and the Fight phase, after this model has finished making its attacks, select one enemy unit hit by one or more of those attacks. Until the end of the battle, that enemy unit is poisoned. At the start of each player&apos;s Command phase, roll one D6 for each poisoned enemy unit on the battlefield: on a 4+, that enemy unit suffers D3 mortal wounds.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Daemon Prince of Slaanesh" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca20-91b8-b9e8-c14d">
+        <profile name="Daemon Primarch of Slaanesh" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca20-91b8-b9e8-c14d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent&apos;s Command phase, select one of the abilities in the Daemon Prince of Slaanesh section. Until the start of your opponent&apos;s next Command phase, this model has that ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your opponent’s Command phase, select one of the abilities in the Daemon Primarch of Slaanesh section (see below). Until the start of your opponent’s next Command phase, this model has that ability.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Beguiling Form" typeId="728d-facd-6f78-268c" typeName="Daemon Primarch of Slaanesh" hidden="false" id="3a41-f55f-c44f-9782">
+          <characteristics>
+            <characteristic name="Effect" typeId="d2ee-e50d-55e6-ccd5">Each time a model makes an attack that targets this model, subtract 1 from the Hit roll.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Daemonic Speed" typeId="728d-facd-6f78-268c" typeName="Daemon Primarch of Slaanesh" hidden="false" id="62c3-70df-90c4-5136">
+          <characteristics>
+            <characteristic name="Effect" typeId="d2ee-e50d-55e6-ccd5">This model has the Fights First ability.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Enthralling Hypnosis (Aura)" typeId="728d-facd-6f78-268c" typeName="Daemon Primarch of Slaanesh" hidden="false" id="24ce-3caf-5629-156e">
+          <characteristics>
+            <characteristic name="Effect" typeId="d2ee-e50d-55e6-ccd5">While an enemy unit is within 6&quot; of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.</characteristic>
           </characteristics>
         </profile>
         <profile name="Damaged: 1-6 Wounds Remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af1c-9f7a-30bf-7eb0">
@@ -182,11 +204,6 @@ must-warlord</comment>
         <profile name="Supreme Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="498c-ad14-6e2b-bbfb">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your **^^Warlord^^**.</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Serpentine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9842-31b9-4cb1-d821">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a Normal, Advance or Fall Back move, it can move over sections of terrain features that are 4&quot; or less in height.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -288,27 +305,6 @@ must-warlord</comment>
           </modifiers>
         </infoLink>
       </infoLinks>
-      <infoGroups>
-        <infoGroup name="Daemon Prince of Slaanesh" id="78af-0610-dd0b-ceb1" hidden="false">
-          <profiles>
-            <profile name="Beguiling Form" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3a41-f55f-c44f-9782">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model makes an attack that targets this unit, subtract 1 from the Hit roll.</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="Daemonic Speed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="62c3-70df-90c4-5136">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the Fights First ability.</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="Enthralling Hypnosis (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="24ce-3caf-5629-156e">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within 6&quot; of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
-        </infoGroup>
-      </infoGroups>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f5ce-3f52-3eba-2880" includeChildSelections="true"/>
       </constraints>
@@ -353,12 +349,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Euphoric Strikes" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="828a-cdf4-e64a-cf75">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, this model can use this ability. If it does so, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and improve the Armour Penetration characteristic of those weapons by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of melee weapons equipped by this model and improve the Armour Penetration characteristic of those weapons by 1.</characteristic>
           </characteristics>
         </profile>
         <profile name="Lord of the Host" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3cf5-ff3c-e78d-51c8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is attached to an **^^Emperor&apos;s Children Battleline^^** unit during the Declare Battle Formations step, this model has the Infiltrators and Scouts 6&quot; ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is attached to an **EMPEROR’S CHILDREN BATTLELINE** unit during the Declare Battle Formations step, this model has the Infiltrators and Scouts 6&quot; abilities.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8799-26c2-ca52-3969">
@@ -376,15 +372,6 @@ invuln: 4+</comment>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="fab5-19a3-46fb-d77b" hidden="false" sortIndex="4">
-          <entryLinks>
-            <entryLink import="true" name="Bolt pistol" hidden="false" id="ca53-c39c-8291-16d1" type="selectionEntry" targetId="3469-166f-44f3-51b8">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9da1-6ef8-4db1-7841-min" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9da1-6ef8-4db1-7841-max" includeChildSelections="false"/>
-              </constraints>
-              <selectionEntryGroups></selectionEntryGroups>
-            </entryLink>
-          </entryLinks>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="d5fe-026f-1f46-e9c5">
               <constraints>
@@ -409,9 +396,45 @@ invuln: 4+</comment>
                 <categoryLink name="Melee Weapon" hidden="false" id="20f2-0930-f91b-530a" targetId="ccdd-3987-11ed-90cd" primary="false"/>
               </categoryLinks>
             </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="daa6-f13f-3471-5908" collective="true">
+      <comment>Collective</comment>
+      <infoLinks>
+        <infoLink name="Pistol" id="8892-bae4-9796-092d" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <profiles>
+        <profile name="Bolt pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="99c7-bb15-e1e3-61c6">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <modifiers>
+        <modifier type="set" value="2+" field="94d-8a98-cf90-183e" affects="entries.profiles.Ranged Weapons" scope="parent">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="6264-8211-3a47-31d6" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="c3ca-812f-39f3-e8df" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f9a2-bbb4-cba7-698d" includeChildSelections="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="636a-f70f-b3fb-5acd" includeChildSelections="false"/>
+              </constraints>
+    </selectionEntry>
           </selectionEntries>
           <selectionEntryGroups>
-            <selectionEntryGroup name="Plasma Pistol" id="e594-feb1-c608-86d9" hidden="false" defaultSelectionEntryId="96d6-d69e-37b6-a9da">
+            <selectionEntryGroup name="Plasma Pistol" id="e594-feb1-c608-86d9" hidden="false" defaultSelectionEntryId="ec96-f913-4b3f-6d9d">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="82c6-20cd-d7c4-7cdf-min" includeChildSelections="false"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="82c6-20cd-d7c4-7cdf-max" includeChildSelections="false"/>
@@ -440,14 +463,52 @@ invuln: 4+</comment>
                     <categoryLink name="Extra Attacks Weapon" hidden="false" id="6dd1-a4ea-84bb-14f7" targetId="84c4-6d1e-e724-bd6e" primary="false"/>
                   </categoryLinks>
                 </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="ec96-f913-4b3f-6d9d" collective="true">
+      <comment>Collective</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="93b4-73d9-ea95-58cb" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+      </constraints>
+      <infoLinks>
+        <infoLink name="Hazardous" id="e9b3-33de-a63d-96ae" hidden="false" targetId="8367-374c-f87-c627" type="rule"/>
+        <infoLink name="Pistol" id="5054-e4d5-1506-22e6" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <modifiers>
+        <modifier type="set" value="2+" field="94d-8a98-cf90-183e" affects="entries.profiles.Ranged Weapons" scope="parent">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="6264-8211-3a47-31d6" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+      <profiles>
+        <profile name="➤ Plasma pistol - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="801c-c50e-207e-dd27">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma pistol - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="9f83-b889-ac7d-944b">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Plasma pistol" hidden="false" id="96d6-d69e-37b6-a9da" type="selectionEntry" targetId="e13a-503d-72dc-f4ed">
-                  <selectionEntryGroups></selectionEntryGroups>
-                  <categoryLinks>
-                    <categoryLink name="Ranged Weapon" hidden="false" id="b0b1-34c1-465a-78e3" targetId="eeda-8544-a2f3-3fab" primary="false"/>
-                  </categoryLinks>
-                </entryLink>
                 <entryLink import="true" name="Power fist" hidden="false" id="95ba-0c75-8d73-154e" type="selectionEntry" targetId="aab5-3545-6d30-9e87">
                   <selectionEntryGroups></selectionEntryGroups>
                   <categoryLinks>
@@ -617,8 +678,8 @@ invuln: 4+</comment>
         <profile name="Power fist" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e7a4-da5e-3ad4-ccf3">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
-            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
@@ -784,12 +845,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Obsessive Annunciation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8fdb-0d21-37f4-ecca">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, ranged weapons equipped by that unit have the [SUSTAINED HITS 1] ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, ranged weapons equipped by models in that unit have the **[SUSTAINED HITS 1]** ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Doom Siren" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f8bf-39ff-4779-40f2">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model&apos;s unit has shot, select one enemy **^^Infantry^^** unit hit by one or more of those attacks and roll three D6: for each 4+, that enemy unit suffers 1 mortal wound. If an enemy suffers one or more mortal wounds as a result of this ability, it must take a Battle-shock test.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model’s unit has shot, select one enemy **INFANTRY** unit hit by one or more of those attacks and roll three D6: for each 4+, that enemy unit suffers 1 mortal wound. If an enemy unit suffers one or more mortal wounds as a result of this ability, it must take a Battle-shock test.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1102,12 +1163,12 @@ invuln: 4+</comment>
         </profile>
         <profile name="Lord of Excess" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e6ea-7b81-ac62-18b5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of one or more friendly **^^Slaanesh Infantry^^**, this model has the Lone Operative ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is within 3&quot; of one or more friendly **SLAANESH INFANTRY** units, this model has the Lone Operative ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Excessive Vigour (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="222f-a01c-620b-a089">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **^^Slaanesh^^** unit is within 6&quot; of this model, if that unit made a Charge move this turn, improve the Armour Penetration characteristic of melee weapons equipped by that unit by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While a friendly **SLAANESH** unit is within 6&quot; of this model, if that unit made a Charge move this turn, improve the Armour Penetration characteristic of melee weapons equipped by models in that unit by 1.</characteristic>
           </characteristics>
         </profile>
         <profile name="Ecstatic Death" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9a99-ab28-dcc6-bc4c">
@@ -1240,7 +1301,7 @@ def-mod: source=&quot;Stimulated by Pain&quot; dmg=-1</comment>
         </profile>
         <profile name="Daemonic Destruction" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="33de-9a37-baa6-5a99">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Charge move, select one enemy unit within Engagement Range of this model and roll one D6 for each of this model&apos;s remaining wounds: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6 for each of this model’s remaining wounds: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds).</characteristic>
           </characteristics>
         </profile>
         <profile name="Stimulated by Pain" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="913e-136d-35d5-5c63">
@@ -1308,19 +1369,107 @@ def-mod: source=&quot;Stimulated by Pain&quot; dmg=-1</comment>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="be65-5396-8fc2-d266-max" includeChildSelections="false"/>
           </constraints>
           <selectionEntryGroups>
-            <selectionEntryGroup name="Bolt Pistol" id="2f12-3ba3-d0b7-503b" hidden="false" defaultSelectionEntryId="c7e0-4018-5ca0-804f">
+            <selectionEntryGroup name="Bolt Pistol" id="2f12-3ba3-d0b7-503b" hidden="false" defaultSelectionEntryId="6634-7c43-b594-ff72">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="daa0-b05b-c344-5a11-min" includeChildSelections="false"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="daa0-b05b-c344-5a11-max" includeChildSelections="false"/>
               </constraints>
-              <entryLinks>
-                <entryLink import="true" name="Bolt pistol" hidden="false" id="c7e0-4018-5ca0-804f" type="selectionEntry" targetId="3469-166f-44f3-51b8">
-                  <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Plasma pistol" hidden="false" id="0503-5db5-90bd-7505" type="selectionEntry" targetId="e13a-503d-72dc-f4ed">
-                  <entryLinks></entryLinks>
-                </entryLink>
-              </entryLinks>
+              <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Plasma pistol" hidden="false" id="bdf2-1156-dbe9-8bbb" collective="true">
+      <comment>Collective</comment>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8689-a3ef-5c09-b20d" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+      </constraints>
+      <infoLinks>
+        <infoLink name="Hazardous" id="5b56-2110-5aee-ef47" hidden="false" targetId="8367-374c-f87-c627" type="rule"/>
+        <infoLink name="Pistol" id="6e40-7ae0-35e0-cb74" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+        <infoLink name="Precision" id="bf82-58a3-f220-8162" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="b950-835c-0fb7-9b47" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </infoLink>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <profiles>
+        <profile name="➤ Plasma pistol - standard" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ae51-e74c-448a-251c">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol, Precision</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="➤ Plasma pistol - supercharge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7742-8521-d05d-43ac">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol, Precision</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="6634-7c43-b594-ff72" collective="true">
+      <comment>Collective</comment>
+      <infoLinks>
+        <infoLink name="Pistol" id="cef8-a5cb-13a5-c4f9" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+        <infoLink name="Precision" id="e038-9099-45a3-f9ce" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="b950-835c-0fb7-9b47" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </infoLink>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <profiles>
+        <profile name="Bolt pistol" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="2d6a-0716-d751-a1f0">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol, Precision</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="Pistol, Precision" field="7f1b-8591-2fcf-d01c">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="b950-835c-0fb7-9b47" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <modifiers>
+        <modifier type="set" value="2+" field="94d-8a98-cf90-183e" affects="entries.profiles.Ranged Weapons" scope="parent">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="6264-8211-3a47-31d6" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="8c61-9f05-ca33-e806" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
+              </selectionEntries>
             </selectionEntryGroup>
             <selectionEntryGroup name="Power Sword" id="dd8c-f527-07d6-8b04" hidden="false" defaultSelectionEntryId="c975-6d96-54d0-5ff7">
               <entryLinks>
@@ -1348,7 +1497,7 @@ def-mod: source=&quot;Stimulated by Pain&quot; dmg=-1</comment>
           <profiles>
             <profile name="Icon of Excess" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="54b6-52b7-2959-e73b">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Shooting phase or the Fight phase, if the bearer&apos;s unit destroyed one or more enemy units this phase, the bearer&apos;s unit takes a Leadership test. If that test is passed, you gain 1CP.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Shooting phase or the Fight phase, if the bearer’s unit destroyed one or more enemy units that phase, the bearer’s unit takes a Leadership test. If that test is passed, you gain 1CP.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1636,7 +1785,7 @@ sim-mod: source=&quot;Excessive Assault (objectif)&quot; reroll=wound when=melee
           <profiles>
             <profile name="Icon of Excess" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f61d-01f1-ace6-1243">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Shooting phase or the Fight phase, if the bearer&apos;s unit destroyed one or more enemy units this phase, the bearer&apos;s unit takes a Leadership test. If that test is passed, you gain 1CP.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Shooting phase or the Fight phase, if the bearer’s unit destroyed one or more enemy units that phase, the bearer’s unit takes a Leadership test. If that test is passed, you gain 1CP.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1661,18 +1810,64 @@ sim-mod: source=&quot;Excessive Assault (objectif)&quot; reroll=wound when=melee
                 </entryLink>
               </entryLinks>
             </selectionEntryGroup>
-            <selectionEntryGroup name="Melee weapon" id="81a6-b1c5-acfe-1416" hidden="false" defaultSelectionEntryId="e946-b9c2-b1f8-a05f">
-              <entryLinks>
-                <entryLink import="true" name="Rapture lash" hidden="false" id="0e29-530a-4bfa-b9d1" type="selectionEntry" targetId="7d60-17ec-c8ad-1ba4">
-                  <entryLinks></entryLinks>
-                </entryLink>
-                <entryLink import="true" name="Power sword" hidden="false" id="e946-b9c2-b1f8-a05f" type="selectionEntry" targetId="ea86-f483-33bb-182b">
-                  <entryLinks></entryLinks>
-                  <infoLinks>
-                    <infoLink name="Precision" id="3fd9-9a19-11ce-2544" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007"/>
-                  </infoLinks>
-                </entryLink>
-              </entryLinks>
+            <selectionEntryGroup name="Melee weapon" id="81a6-b1c5-acfe-1416" hidden="false" defaultSelectionEntryId="71c4-c4f5-03bf-6a51">
+              <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Rapture lash" hidden="false" id="6870-8b3b-4490-6fa6">
+      <profiles>
+        <profile name="Rapture lash" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="5a96-c2e2-b9bd-7961">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="Precision" field="893f-9000-ccf7-648e">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="ff6d-0152-7e0e-7e88" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Precision" id="bbe1-49e1-e6ca-c43f" hidden="false" type="rule" targetId="9143-31ae-e0a6-6007">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="ff6d-0152-7e0e-7e88" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </infoLink>
+      </infoLinks>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Power sword" hidden="false" id="71c4-c4f5-03bf-6a51">
+      <profiles>
+        <profile name="Power sword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="df7b-9019-0d92-6684">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Precision</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="Precision" field="893f-9000-ccf7-648e">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="ff6d-0152-7e0e-7e88" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+    </selectionEntry>
+              </selectionEntries>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="16ad-01c4-df8e-21a2-min" includeChildSelections="false"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="16ad-01c4-df8e-21a2-max" includeChildSelections="false"/>
@@ -2417,7 +2612,7 @@ invuln: 5+</comment>
     <selectionEntry type="unit" import="true" name="Chaos Spawn" hidden="false" id="896c-5816-3abd-5199" collective="false">
       <comment>fnp: 5+</comment>
       <constraints>
-        <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="2483-3cde-30ea-2bb0" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="2483-3cde-30ea-2bb0" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
       </constraints>
       <profiles>
         <profile name="Chaos Spawn" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="faf3-660b-3da1-2ebe">
@@ -3248,7 +3443,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Assault Vehicle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="629b-52e7-f21d-1c5f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Units can disembark from this **^^Vehicle^^** after it has Advanced. Units that do so count as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Units can disembark from this **TRANSPORT** after it has Advanced. Units that do so count as having made a Normal move, and cannot declare a charge that turn.</characteristic>
           </characteristics>
         </profile>
         <profile name="Chaos Rhino" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="1ad0-2bd0-ba02-0db9">
