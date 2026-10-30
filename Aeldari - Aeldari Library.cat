@@ -4,6 +4,13 @@
     <publication id="442c-a37c-3908-d701" name="Codex: Aeldari" shortName="C:Aeldari" publisher="Codex: Aeldari" publicationDate="08/02/2025"/>
     <publication id="1427-7c5c-863f-ac94" name="Index: Drukhari" shortName="I:Drukhari" publisher="Index: Drukhari" publicationDate="6/15/2023"/>
   </publications>
+  <profileTypes>
+    <profileType name="Vanguard of the Dark City" hidden="false" id="d179-737d-f641-ca60">
+      <characteristicTypes>
+        <characteristicType id="068c-dcd4-9158-3367" name="Effect"/>
+      </characteristicTypes>
+    </profileType>
+  </profileTypes>
   <categoryEntries>
     <categoryEntry id="6fba-69f6-a9d8-9754" name="Wraithguard" hidden="false"/>
     <categoryEntry id="c250-f6c5-ffc8-bcd5" name="Wraith Construct" hidden="false"/>
@@ -213,6 +220,7 @@
     <categoryEntry id="11b2-24f7-1671-2292" name="Leystalker" hidden="false"/>
     <categoryEntry id="6e49-8c18-c975-070f" name="Stonesinger" hidden="false"/>
     <categoryEntry id="e429-2e02-cedf-4023" name="Clanblade" hidden="false"/>
+    <categoryEntry name="Warlock Skyrunner Conclave" id="1c7b-0397-6666-b8ec" hidden="false"/>
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry id="828d-840a-9a67-9074" name="Asurmen" publicationId="442c-a37c-3908-d701" page="7" hidden="false" collective="false" import="true" type="model">
@@ -1289,7 +1297,7 @@ sim-mod: source=&quot;Reavers of the Void (objectif)&quot; reroll=hit conditiona
       <profiles>
         <profile id="131a-a751-8f2d-afb2" name="Reavers of the Void" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is an enemy unit within range of an objective marker, you can re-roll the Hit roll instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1780,7 +1788,7 @@ sim-mod: source=&quot;Reavers of the Void (objectif)&quot; reroll=hit conditiona
       <profiles>
         <profile id="ba5d-c71b-b708-1000" name="Piratical Raiders" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select one unit from your opponent’s army. Each time a model in this unit makes an attack that targets that unit, that attack has the [LETHAL HITS] and [PRECISION] abilities.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select one unit from your opponent’s army. Weapons equipped by models in this unit have the **[Lethal Hits]** and **[Precision]** abilities while targeting that unit.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2642,7 +2650,6 @@ invuln: 5+</comment>
         <categoryLink targetId="e035-51fc-813a-1313" id="1f85-1a66-3993-0a6b" primary="false" name="Aeldari"/>
         <categoryLink targetId="4d82-2943-8868-2782" id="c19e-49e5-6ebc-cf65" primary="false" name="Aspect Warrior"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="7c39-c4c4-0691-6fb1" primary="false" name="Ynnari"/>
-        <categoryLink id="0063-1c43-ad99-7359" name="Frame" hidden="false" targetId="55f4-181c-4861-dfc3" primary="false"/>
       </categoryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="5f07-9f16-64f3-1ef3" hidden="false" sortIndex="2">
@@ -2791,7 +2798,7 @@ invuln: 5+</comment>
         </profile>
         <profile id="3a61-eed0-8af5-c4ac" name="Inescapable Accuracy" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and any or all modifiers to the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, you can ignore any or all modifiers to that attack’s Ballistic Skill characteristic and to the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4055,7 +4062,7 @@ If this model is not already attached to a unit, you can attach this model to a 
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
@@ -5081,7 +5088,6 @@ invuln: 5+</comment>
         <categoryLink id="40ab-da39-90d1-445" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="e035-51fc-813a-1313" id="065d-49a6-91b5-ae52" primary="false" name="Aeldari"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="69ce-c691-14b8-43bd" primary="false" name="Ynnari"/>
-        <categoryLink id="6ed5-2126-59ac-e72f" name="Frame" hidden="false" targetId="55f4-181c-4861-dfc3" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="155"/>
@@ -5175,6 +5181,7 @@ invuln: 4+ conditional vs=melee</comment>
         <categoryLink id="e036-2053-89cd-4eab" name="Faction: Asuryani" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="884c-2a58-3189-cad7" primary="false" name="Ynnari"/>
         <categoryLink targetId="4d82-2943-8868-2782" id="0726-d2aa-d59f-5fb4" primary="false" name="Aspect Warrior"/>
+        <categoryLink targetId="e035-51fc-813a-1313" id="a0a5-ad98-e6aa-d517" primary="false" name="Aeldari"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
@@ -6492,7 +6499,7 @@ invuln: 4+</comment>
                         </profile>
                       </profiles>
                       <infoLinks>
-                        <infoLink name="Sustained Hits" id="d374-613f-cc33-6668" hidden="false" targetId="1897-c22c-9597-12b1" type="rule"/>
+                        <infoLink name="Lethal Hits" id="d374-613f-cc33-6668" hidden="false" targetId="d1d1-611e-5191-1095" type="rule"/>
                       </infoLinks>
                       <entryLinks></entryLinks>
                     </selectionEntry>
@@ -6869,7 +6876,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry id="f88f-60c5-3daf-3d2f" name="Solitaire" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: source=&quot;Blitz&quot; attacks=+3 when=melee oncePer=battle conditional scope=model
-invuln: 4+</comment>
+invuln: 4+
+cannot-warlord</comment>
       <categoryLinks>
         <categoryLink id="12b3-5a4e-680-cdf8" name="Solitaire" hidden="false" targetId="15c1-57ac-89c7-7a47" primary="false"/>
         <categoryLink id="5b70-bf65-8ee9-8943" name="Character" hidden="false" targetId="9cfd-1c32-585f-7d5c" primary="false"/>
@@ -6909,6 +6917,11 @@ Attacks characteristic of this model’s Solitaire weapons.</characteristic>
         <profile name="Blur of Movement" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="98ed-81a6-809f-2cd9">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model is eligible to declare a charge in a turn in which it Advanced.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Path of Damnation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="efd7-2b08-a4b5-e571">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model cannot be your **^^Warlord^^**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -7806,7 +7819,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Grenade Pack Flyover" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2a42-58e6-07e0-6d33">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your Movement phase, when this unit is set-up on the battlefield or ends a Normal, Advance or Fall Back move, it can use this ability. If it does, select one enemy unit within 8&quot; of and visible to this unit and roll one D6 for each ^^Swooping Hawks^^ model in this unit. For each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds). Each time this unit uses this ability , until the end of the turn, you cannot target this unit with the Grenades Stratagem.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your Movement phase, when this unit is set up on the battlefield or ends a Normal, Advance or Fall Back move, it can use this ability. If it does, select one enemy unit within 8&quot; of and visible to this unit and roll one D6 for each **^^Swooping Hawks^^** model in this unit: for each 4+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds). Each time this unit uses this ability, until the end of the turn, you cannot target this unit with the Grenade Stratagem.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -8092,9 +8105,7 @@ invuln: 5+</comment>
 ■ Guardian Defenders
 ■ Storm Guardians
 ■ Ynnari Kabalite Warriors
-■ Ynnari Wyches
-
-You can attach this unit to one of the above units, even if Yvraine has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Ynnari Wyches</characteristic>
           </characteristics>
         </profile>
         <profile name="The Visarch" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3e4-3577-5a37-5f19">
@@ -8724,7 +8735,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Choreographer of War" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f892-e9fd-e9cb-c309">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes a Pile In or Consolidate move, it can move up to 6&quot; instead of 3&quot;. In addition, it does not need to end that move closer to the closest enemy model, provided it ends as close as possible to the closest enemy unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes a Pile-in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;. In addition, it does not need to end that move closer to the closest enemy model, provided it ends it as close as possible to the closest enemy unit.</characteristic>
           </characteristics>
         </profile>
         <profile name="Cegorach’s Favour:" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6a66-66c0-9d13-46c9">
@@ -9139,8 +9150,7 @@ invuln: 4+</comment>
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
 ■ Guardian Defenders
-■ Storm Guardians
-You can attach this model to a unit, even  if one ^^Autarch^^ or ^^Farseer^^ model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.</characteristic>
+■ Storm Guardians</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save (Warlock)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c1d2-224a-96a1-424d">
@@ -9319,7 +9329,7 @@ def-mod: source=&quot;Protect (Psychic)&quot; wound=-1 conditional</comment>
         </profile>
         <profile name="Psychic Communion (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0788-7422-2940-1777">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each ^^Warlock^^ model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model&apos;s Destructor weapon for each other friendly ^^Aeldari Psyker^^ model within 6&quot; of this model (to a maximum of +2).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each **^^Warlock^^** model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model’s Destructor weapon for each other friendly **^^Aeldari Psyker^^** model within 6&quot; of that model (to a maximum of +2).</characteristic>
           </characteristics>
         </profile>
         <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c16e-d16f-85b8-5d5c">
@@ -11531,7 +11541,7 @@ invuln: 2+ conditional lost=wound note=&quot;until this model loses a wound (exc
         </profile>
         <profile id="e9c3-fd99-a21e-bcac" name="Shadowfield" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model has an invulnerable save, this unit cannot re-roll save rolls. When this model loses a wound (excluding from mortal wounds), this model has no invulnerable save until the end of the battle.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model has an **InSv**, this unit cannot re-roll **save rolls**. When this model loses a wound (excluding from **mortal wounds**), this model has no **InSv** until the end of the battle.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf9c-beff-c4be-f7ed">
@@ -11541,7 +11551,7 @@ invuln: 2+ conditional lost=wound note=&quot;until this model loses a wound (exc
         </profile>
         <profile name="Hatred Eternal (Pain)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5b90-2ff8-3fd5-83b4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting or the Fight phase, when you select this model&apos;s unit to shoot or fight, you can spend 1 Pain token to Empower that unit. While that unit is Empowered, each time a model in that unit makes an attack, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase or the Fight phase, when you select this model’s unit to shoot or fight, you can spend 1 Pain token to Empower that unit. While that unit is Empowered, each time a model in that unit makes an attack, you can re‑roll the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -11785,7 +11795,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Silent Executioner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="eddc-286e-4a78-6f8d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model make an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll. If that target is Below Half-Strength, you can re-roll the Wound roll as well.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a unit that is below its Starting Strength, you can re‑roll the Hit roll. If that target is Below Half‑strength, you can re‑roll the Wound roll as well.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -13045,7 +13055,7 @@ invuln: 6+</comment>
         </profile>
         <profile name="Cruel Enforcers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="66c7-77bf-53c-e9d4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under you control, until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Sadistic Raiders (Pain)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7438-166c-2a79-f18d">
@@ -13452,11 +13462,6 @@ invuln: 6+</comment>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
           </characteristics>
         </profile>
-        <profile name="Aethersails" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="56f2-83c1-b537-4f8">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While one or more ^^**Drukhari**^^ units are embarked within this model, you can re-roll Advance and Charge rolls made for this model.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Raider" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="26e-2946-d18b-708b">
           <characteristics>
             <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 11 ^^**Drukhari Infantry **^^ models (excluding ^^**Jump Pack**^^ models).</characteristic>
@@ -13469,22 +13474,27 @@ invuln: 6+</comment>
         </profile>
         <profile name="Vanguard of the Dark City" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b5ad-5da5-e41f-016b">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, select one of the abilities in the Vanguard of the Dark City section (see left) for this model. Until the start of your next Command phase, this model has that ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, select one of the abilities in the Vanguard of the Dark City section (see below) for this model. Until the start of your next Command phase, this model has that ability.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Masters of the Shadowed Sky" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fc02-97e0-e204-bf1c">
+        <profile name="Masters of the Shadowed Sky" typeId="d179-737d-f641-ca60" typeName="Vanguard of the Dark City" hidden="false" id="fc02-97e0-e204-bf1c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this model is within range of an objective marker you control, and if one or more ^^**Kabalite Warriors**^^ units are embarked within it, that objective marker remains under your control until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
+            <characteristic name="Effect" typeId="068c-dcd4-9158-3367">At the end of your Command phase, if this model is within range of an objective marker you control, and if one or more ^^**Kabalite Warriors**^^ units are embarked within it, that objective marker remains under your control until your opponent&apos;s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Speed of the Kill" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1ea1-be46-313b-d0dd">
+        <profile name="Speed of the Kill" typeId="d179-737d-f641-ca60" typeName="Vanguard of the Dark City" hidden="false" id="1ea1-be46-313b-d0dd">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a ^^**Wyches**^^ unit disembarks from this model (excluding Emergency Disembarkations), models in that ^^**Wyches**^^ unit must be setup wholly within 6&quot; of this model.</characteristic>
+            <characteristic name="Effect" typeId="068c-dcd4-9158-3367">Each time a ^^**Wyches**^^ unit disembarks from this model (excluding Emergency Disembarkations), models in that ^^**Wyches**^^ unit must be setup wholly within 6&quot; of this model.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Visions of Butchery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6737-688c-ed8b-236c">
+        <profile name="Visions of Butchery" typeId="d179-737d-f641-ca60" typeName="Vanguard of the Dark City" hidden="false" id="6737-688c-ed8b-236c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While one or more ^^**Wracks**^^ units are embarked within this model, for each ^^**Wracks**^^ model embarked within this model, add 1 to the Attacks characteristic of this model&apos;s Bladevanes and chainsnares.</characteristic>
+            <characteristic name="Effect" typeId="068c-dcd4-9158-3367">While one or more ^^**Wracks**^^ units are embarked within this model, for each ^^**Wracks**^^ model embarked within this model, add 1 to the Attacks characteristic of this model&apos;s Bladevanes and chainsnares.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Aethersails" typeId="d179-737d-f641-ca60" typeName="Vanguard of the Dark City" hidden="false" id="56f2-83c1-b537-4f8">
+          <characteristics>
+            <characteristic name="Effect" typeId="068c-dcd4-9158-3367">While one or more ^^**Drukhari**^^ units are embarked within this model, you can re-roll Advance and Charge rolls made for this model.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -13656,7 +13666,6 @@ invuln: 6+</comment>
         <categoryLink id="253-5d0e-d6de-f762" name="Aircraft" hidden="false" targetId="63f1-e6e8-f6f6-a4f0" primary="false"/>
         <categoryLink id="16cc-696b-168d-f754" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="true"/>
         <categoryLink id="a3a6-a4b-bd7b-d2fa" name="Fly" hidden="false" targetId="c619-2086-bbcf-69c9" primary="false"/>
-        <categoryLink id="f8d1-877d-18c7-1aa4" name="Frame" hidden="false" targetId="55f4-181c-4861-dfc3" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
@@ -14433,7 +14442,7 @@ invuln: 6+</comment>
         </profile>
         <profile name="Eviscerating Fly-by" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="34cd-164d-decf-7a31">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit ends a Normal or Advance move, you can select one enemy unit (excluding ^^**Monster **^^and ^^**Vehicle**^^ units) that it moved over during that move, then roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit ends a Normal or Advance move, you can select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) that it moved over during that move, then roll one D6 for each model in this unit: for each 4+, that enemy unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
         <profile name="Matchless Swiftness (Pain)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b01b-c688-fa86-dcbe">
@@ -14841,12 +14850,12 @@ invuln: 5+</comment>
         </profile>
         <profile name="Airborne Evasion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a316-b681-7594-faac">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, if it is not within Engagement Range of any enemy units, it can make a Normal move of up to 6&quot;. If it does, until the end of the turn, this unit is not eligible to declare a charge.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6&quot;. If it does, until the end of the turn, this unit is not eligible to declare a charge.</characteristic>
           </characteristics>
         </profile>
         <profile name="Winged Strike (Pain)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="405f-1984-f624-369c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when you select this unit to shoot, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit makes a range attack, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, when you select this unit to shoot, you can spend 1 Pain token to Empower this unit. While Empowered, each time a model in this unit makes a ranged attack, you can re‑roll the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -15509,7 +15518,6 @@ Before the battle, at the start of the Declare Battle Formations step, you can s
         <categoryLink id="57d0-1ad0-547-66d8" name="Aircraft" hidden="false" targetId="63f1-e6e8-f6f6-a4f0" primary="false"/>
         <categoryLink id="1457-772a-1e9c-e3b4" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="true"/>
         <categoryLink id="bae6-a153-8caf-39c4" name="Fly" hidden="false" targetId="c619-2086-bbcf-69c9" primary="false"/>
-        <categoryLink id="a63a-cbfc-e456-e274" name="Frame" hidden="false" targetId="55f4-181c-4861-dfc3" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="245"/>
@@ -15527,7 +15535,7 @@ Before the battle, at the start of the Declare Battle Formations step, you can s
         </profile>
         <profile name="Void Mine" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e54e-3f36-2002-d6d9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent&apos;s Fight phase, select one visible enemy model (excluding **^^Lone Operative^^** units) within 24&quot; of this unit, and roll one D6 for each enemy unit within D6&quot; of that model: for each 4+, that enemy unit suffers D6 mortal wounds.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your opponent’s Fight phase, select one visible enemy model (excluding Lone Operative units) within 24&quot; of this unit, and roll one D6 for each enemy unit within D6&quot; of that model: For each 4+, that unit suffers D6 mortal wounds.</characteristic>
           </characteristics>
         </profile>
         <profile name="Voidraven" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="9090-be81-b3c6-2e64">
@@ -15597,7 +15605,7 @@ Before the battle, at the start of the Declare Battle Formations step, you can s
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
                   </characteristics>
@@ -15974,8 +15982,7 @@ sim-mod: source=&quot;Experimental Enhancements&quot; attacks-set=4 hazardous wh
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry id="edca-1a1b-902d-421a" name="Wyches" hidden="false" collective="false" import="true" type="unit">
-      <comment>invuln: 6+
-invuln: 4+ conditional vs=melee</comment>
+      <comment>invuln: 4+ conditional vs=melee</comment>
       <categoryLinks>
         <categoryLink id="6202-28ef-4b77-b013" name="Wyches" hidden="false" targetId="d357-8df3-b183-f757" primary="false"/>
         <categoryLink id="41a2-ef4c-9812-75a5" name="Wych Cult" hidden="false" targetId="b165-8f68-caff-407a" primary="false"/>
@@ -16206,13 +16213,12 @@ invuln: 4+ conditional vs=melee</comment>
         </profile>
         <profile id="a194-b00f-151-3084" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has a 6+ Invulnerable save.
-This unit has a 4+ Invulnerable save against melee attacks.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit has a 4+ Invulnerable save against melee attacks.</characteristic>
           </characteristics>
         </profile>
         <profile name="No Escape" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="738e-6610-276b-db9f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding ^^**Monsters**^^ and ^^**Vehicles**^^) within Engagement Range of one or more units from your army with this ability Falls Back, all models in that enemy unit must take Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) within Engagement Range of one or more units from your army with this ability Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle‑shocked, subtract 1 from each of those tests.</characteristic>
           </characteristics>
         </profile>
         <profile name="Acrobatic Gladiators (Pain)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c7d6-113e-0229-85bc">
@@ -16955,6 +16961,7 @@ invuln: 4+</comment>
         <categoryLink targetId="e035-51fc-813a-1313" id="bc53-d0e7-e97f-962d" primary="false" name="Aeldari"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="ec74-0c77-703d-11bc" primary="false" name="Fly"/>
         <categoryLink targetId="9032-f917-9bc5-fd47" id="707a-b318-4d3d-ed96" primary="false" name="Ynnari"/>
+        <categoryLink targetId="1c7b-0397-6666-b8ec" id="c5de-e17b-5e52-fb3c" primary="false" name="Warlock Skyrunner Conclave"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
@@ -16973,7 +16980,7 @@ invuln: 4+</comment>
       <profiles>
         <profile name="Psychic Communion (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d154-b054-ea41-1579">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each ^^Warlock^^ model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model&apos;s Destructor weapon for each other friendly ^^Aeldari Psyker^^ model within 6&quot; of this model (to a maximum of +2).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit is selected to shoot, for each **^^Warlock^^** model in this unit, until the end of the phase, add 1 to the Attacks and Strength characteristics of that model’s Destructor weapon for each other friendly **^^Aeldari Psyker^^** model within 6&quot; of that model (to a maximum of +2).</characteristic>
           </characteristics>
         </profile>
         <profile name="Runes of Battle (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca83-0825-3a7d-a3b5">
@@ -17237,7 +17244,8 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Ynnari Archon" hidden="false" id="5f10-27fc-f1e4-af90" publicationId="442c-a37c-3908-d701" page="166" collective="false">
-      <comment>sim-mod: source=&quot;Overlord&quot; reroll=wound1 whileLeading</comment>
+      <comment>sim-mod: source=&quot;Overlord&quot; reroll=wound1 whileLeading
+invuln: 2+ conditional lost=wound note=&quot;See Shadow Field ability&quot;</comment>
       <categoryLinks>
         <categoryLink name="Character" hidden="false" id="22b9-374b-1141-7c28" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
         <categoryLink name="Infantry" hidden="false" id="fefb-144c-7fde-81c4" targetId="cf47-a0d7-7207-29dc" primary="false"/>
@@ -17279,9 +17287,9 @@ invuln: 4+</comment>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Shadow Field" hidden="false" id="67ed-3a6f-f17a-f978">
               <profiles>
-                <profile name="Invulnerable Save - Shadow Field" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cd12-5520-3853-12d1">
+                <profile name="Shadow Field" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cd12-5520-3853-12d1">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">An Archon has an Invulnerable Save of 2+. You cannot re-roll invulnerable saving throws made for the bearer. The first time an invulnerable saving throw made for the bearer is failed, until the end of the battle, the bearer has no invulnerable saving throw.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You cannot re-roll invulnerable saving throws made for the bearer. The first time an invulnerable saving throw made for the bearer is failed, until the end of the battle, the bearer has no invulnerable save.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -17400,7 +17408,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Reborn Mastermind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d2f3-7c56-0952-564e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratgem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -17710,7 +17718,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Crystalline Targeting" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6a7f-5c47-38f0-87">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly ^^Aeldari^^ unit makes an attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. Each unit can only be selected for that ability once per turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the phase, each time a friendly **^^Aeldari^^** unit makes an attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. Each unit can only be selected for this ability once per turn.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -17773,7 +17781,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Monofilament Snare" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7ec2-51bb-4994-8dec">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks made with its Shadow Weaver. Until the start of your next turn, that enemy unit it snared. While a unit is snared, each time that unit makes a Normal, Advance or Fall Back move, roll one D6 for each model in that unit: for each 1, that unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks made with its shadow weaver. Until the start of your next turn, that enemy unit is snared. While a unit is snared, each time that unit makes a Normal, Advance or Fall Back move, roll one D6 for each model in that unit: for each 1, that unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -18006,7 +18014,7 @@ invuln: 4+</comment>
                       <profiles>
                         <profile name="Bright Lance" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="1e77-7e71-6fa9-51d1">
                           <characteristics>
-                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                            <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
@@ -18425,7 +18433,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Empowered by Death" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="94e2-1d96-9b44-bb16">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, if this model&apos;s unit is below its Starting Strength, models in that unit have the Fights First ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, if this model’s unit is below its Starting Strength, until the end of the phase, models in that unit have the Fights First ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Storm of Blades" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d4a4-50d3-b07c-89d5">
@@ -18831,7 +18839,7 @@ invuln: 4+</comment>
                           <characteristics>
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">2</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
@@ -18941,7 +18949,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Sadistic Raiders" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b70b-cd15-94bb-7b2a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if you control an objective marker that this unit (or a Transport it is embarked within) is within range of, that objective marker remains under your control until your opponent&apos;s Level of Control  over that objective marker is greater than yours at the end of any phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if you control an objective marker that this unit (or a **^^Transport^^** it is embarked within) is within range of, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -19086,7 +19094,7 @@ invuln: 4+ conditional vs=melee</comment>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                             <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+                            <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
                           </characteristics>
@@ -19156,7 +19164,7 @@ invuln: 4+ conditional vs=melee</comment>
         </profile>
         <profile name="No Escape" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e027-fb7b-6a7d-8222">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding Monsters and Vehicles) within Engagement Range of one or more units from your army with this ability is selected to Fall Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle-shocked, subtract 1 from each of those tests.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) within Engagement Range of one or more units from your army with this ability is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle-shocked. When doing so, if that enemy unit is also Battle-shocked by other means, subtract 1 from each of those Desperate Escape tests.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -19477,7 +19485,7 @@ invuln: 4+ conditional vs=melee</comment>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Reaver Wargear" hidden="false" id="29d3-9097-7026-6840" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="29d3-9097-7026-6840" type="selectionEntryGroup" targetId="7a2a-3ea8-3624-a3f9">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="915d-ad53-9518-7a85" shared="true" id="a736-840d-746b-f382" includeChildSelections="true"/>
                   </constraints>
@@ -19589,7 +19597,7 @@ invuln: 4+ conditional vs=melee</comment>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Reaver Wargear" hidden="false" id="1709-6be9-30e0-9cd4" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="1709-6be9-30e0-9cd4" type="selectionEntryGroup" targetId="7a2a-3ea8-3624-a3f9">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="915d-ad53-9518-7a85" shared="true" id="1ad2-81e7-e262-c65e" includeChildSelections="true"/>
                   </constraints>
@@ -19705,7 +19713,7 @@ invuln: 4+ conditional vs=melee</comment>
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Reaver Wargear" hidden="false" id="4040-07ef-56ab-eb31" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="4040-07ef-56ab-eb31" type="selectionEntryGroup" targetId="7a2a-3ea8-3624-a3f9">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="915d-ad53-9518-7a85" shared="true" id="e795-2d55-77e4-df44" includeChildSelections="true"/>
                   </constraints>
@@ -19895,7 +19903,7 @@ invuln: 4+ conditional vs=melee</comment>
                 </selectionEntryGroup>
               </selectionEntryGroups>
               <entryLinks>
-                <entryLink import="true" name="Reaver Wargear" hidden="false" id="457f-226a-35f6-5607" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="457f-226a-35f6-5607" type="selectionEntryGroup" targetId="7a2a-3ea8-3624-a3f9">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="915d-ad53-9518-7a85" shared="true" id="50bd-2d27-1d94-f935" includeChildSelections="true"/>
                   </constraints>
@@ -20493,7 +20501,7 @@ fnp: 5+</comment>
         </profile>
         <profile name="Precognisant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0b6f-fd27-b904-5e30">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you army includes this model, after both players have deployed their armies, select up to three ^^**Drukhari**^^ units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your army includes this model, after both players have deployed their armies, select up to three **^^Drukhari^^** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.</characteristic>
           </characteristics>
         </profile>
         <profile name="Mind Like a Steel Trap [Aura]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4df1-d473-1ecb-c14f">
@@ -21068,10 +21076,6 @@ invuln: 6+</comment>
                       </characteristics>
                     </profile>
                   </profiles>
-                  <infoLinks>
-                    <infoLink name="Anti-" id="64c3-537c-56ad-c108" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
-                    <infoLink name="Pistol" id="7a51-fb80-de16-3d02" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
-                  </infoLinks>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Splinter Pistol" hidden="false" id="dc88-eb9b-ac01-e13a">
                   <profiles>
@@ -21603,7 +21607,7 @@ invuln: 6+</comment>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">3</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
@@ -21839,7 +21843,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Prince of Corsairs" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1196-bb5e-dfe3-7e0d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After both players have deployed their armies, if this model is on the battlefield (or any ^^**Transport**^^ it is embarked within is on the battlefield), select up to three ^^**Aeldari**^^ units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After both players have deployed their armies, if this unit is on the battlefield (or any **^^Transport^^** it is embarked within is on the battlefield), select up to three **^^Aeldari^^** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -22366,7 +22370,7 @@ invuln: 4+</comment>
       <profiles>
         <profile name="Raid and Run" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="23a3-e96a-5cb2-ced1">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if this unit was eligible to fight this phase, and is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D3+3&quot;. Otherwise, if this unit was eligible to fight this phase, this unit can make a Fall Back move of up to D3+3&quot;.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the Fight phase, if this unit was eligible to fight this phase, if this unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to D3+3&quot;. Otherwise, if this unit was eligible to fight this phase, this unit can make a Fall Back move of up to D3+3&quot;.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -26214,6 +26218,40 @@ EFFECT: That move does not prevent your unit from being eligible to declare a ch
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ffe2-70f9-a7de-30d8"/>
       </constraints>
     </selectionEntryGroup>
+    <selectionEntryGroup name="Reaver Wargear" id="7a2a-3ea8-3624-a3f9" hidden="false">
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Cluster Caltrops" hidden="false" id="97e7-a356-ee68-a8cb">
+          <profiles>
+            <profile name="Cluster Caltrops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2ea0-5a43-68bf-0297">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you roll to inflict wounds using this unit’s Eviscerating Fly-by ability, you can re-roll one D6 for each model in this unit equipped with cluster caltrops.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="0f93-36dc-ed8b-6720"/>
+          </constraints>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Grav Talon" hidden="false" id="51dc-b1a8-45b6-6232">
+          <profiles>
+            <profile name="Grav Talon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="86fc-439b-e48e-6639">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer’s melee weapons have the **[Lance]** ability.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1979-af00-2cb2-b6ea"/>
+          </constraints>
+          <infoLinks>
+            <infoLink name="Lance" id="a4bd-c750-c1cd-f8b0" hidden="false" type="rule" targetId="2ebc-abdf-8129-6c57"/>
+          </infoLinks>
+        </selectionEntry>
+      </selectionEntries>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="72fe-da06-7f5a-1485"/>
+      </constraints>
+    </selectionEntryGroup>
     <selectionEntryGroup name="Enhancements" id="4e2c-4ba5-749f-745a" hidden="false" collapsible="true">
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -28373,7 +28411,7 @@ This model, and any unit it is joined to, cannot embark within a Transport.</cha
     </profile>
     <profile name="Support Weapon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f2e7-5ea4-fbe5-9afd">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this model&apos;s unit, it that unit contains one or more other models, until that attack is resolved, this model has a Toughness characteristic of 3.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an attack targets this model’s unit, if that unit contains one or more other models, until that attack is resolved, this model has a Toughness characteristic of 3.</characteristic>
       </characteristics>
     </profile>
     <profile name="Corsair Voidreaver" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="57e2-27b5-2c68-cb6e">
@@ -28392,7 +28430,7 @@ This model, and any unit it is joined to, cannot embark within a Transport.</cha
         <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">3</characteristic>
         <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
         <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
-        <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
+        <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
         <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
       </characteristics>
     </profile>
