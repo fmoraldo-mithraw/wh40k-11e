@@ -46,7 +46,7 @@
         </profile>
         <profile name="Defence Line" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6d15-ae73-bc60-165b">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an **^^Astra Militarum Infantry^^** model has the Benefit of Cover as a result of this terrain feature, that model has a 4+ invulnerable save</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an **^^Astra Militarum Infantry^^** model has the Benefit of Cover as a result of this terrain feature (see above), that model has a 4+ invulnerable save.</characteristic>
           </characteristics>
         </profile>
         <profile name="Deployment" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c620-2ef7-d09d-1ed3">
@@ -1165,7 +1165,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Orders" typeId="3fc9-16d8-8670-c8e2" typeName="Orders" hidden="false" id="21e5-4e9-7904-8d96">
           <characteristics>
-            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue 2 Orders to **^^Regiment^^** units.</characteristic>
+            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue up to 2 Orders to **^^Regiment^^** units.</characteristic>
           </characteristics>
         </profile>
         <profile name="Senior Officer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a7f5-adb8-d1c9-2a2d">
@@ -1703,7 +1703,6 @@ invuln: 5+</comment>
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="f339-3b38-4ee8-87c" primary="false" name="Grenades"/>
         <categoryLink targetId="c8a1-fef-5569-61c9" id="487a-1245-f3c6-fa99" primary="false" name="Regiment"/>
         <categoryLink targetId="edff-c2d-8999-4f45" id="27c0-e890-be99-7558" primary="false" name="Platoon"/>
-        <categoryLink targetId="ec4a-9386-40bd-7fb7" id="94dd-fbb2-ca1c-981c" primary="false" name="Cadian"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="acd1-da30-2656-832a" includeChildSelections="true" includeChildForces="true"/>
@@ -1778,7 +1777,7 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Shock Troops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="24e3-c4d3-963b-cb10">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2266,7 +2265,7 @@ invuln: 5+</comment>
                       <characteristics>
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
-                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
+                        <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">3</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
@@ -2731,11 +2730,11 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
         </profile>
         <profile name="Deathstrike Missile" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b575-1e86-b37d-68a3">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, each time this model is selected to shoot, if it has not shot with its  Deathstrike missile this battle, you can do one of the following in addition to resolving this model’s ranged attacks:
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, each time this model is selected to shoot, if it has not shot with its Deathstrike missile this battle, you can do one of the following in addition to resolving this model’s ranged attacks:
 
-- **Designate Target:** If this model does not have a Deathstrike Target marker on the battlefield, place a Deathstrike Target marker for this model anywhere on the battlefield.
+■ **Designate Target:** If this model does not have a Deathstrike Target marker on the battlefield, place a unique Deathstrike Target marker for this model anywhere on the battlefield.
 
-- **Adjust Target:** If this model has a Deathstrike Target marker on the battlefield, move that marker to anywhere else on the battlefield.</characteristic>
+■ **Adjust Target:** If this model has a Deathstrike Target marker on the battlefield, move that marker to anywhere else on the battlefield.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2770,7 +2769,7 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
               </constraints>
               <entryLinks></entryLinks>
             </entryLink>
-            <entryLink import="true" name="Wargear Options" hidden="false" id="6642-d2e0-4201-57ba" type="selectionEntryGroup" targetId="0605-ba19-1769-0a44"/>
+            <entryLink import="true" name="Wargear Options" hidden="false" id="6642-d2e0-4201-57ba" type="selectionEntryGroup" targetId="8cd0-2b00-8421-e743"/>
           </entryLinks>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Deathstrike Missile" hidden="false" id="e994-dc10-3f71-1f2b">
@@ -2876,7 +2875,7 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
         </profile>
         <profile name="Close-range Titan Killer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="160a-6689-b784-4de7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model’s magma cannon targets a **^^Monster^^** or **^^Vehicle^^** unit, that target is always considered to be within half range of that weapon.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model’s magma cannon targets an enemy **^^Monster^^** or **^^Vehicle^^** unit, that target is always considered to be within half range of that weapon.</characteristic>
           </characteristics>
         </profile>
         <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="a90b-1886-701f-b638">
@@ -4258,7 +4257,7 @@ def-mod: source=&quot;Tanith Camo-cloaks&quot; cover</comment>
       <profiles>
         <profile name="Warrior Elite" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9034-3b9d-d631-1da5">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, at the start of any phase, you can select one Order to affect this unit until the start of your next Command phase, in addition to any other Orders issued to this unit by an **^^Officer^^** model this turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, at the start of any phase, you can select one Order to affect this unit until the start of your next Command phase, in addition to any other Orders issued to this unit by an **^^Officer^^** model this battle round.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4574,6 +4573,7 @@ def-mod: source=&quot;Tanith Camo-cloaks&quot; cover</comment>
                     <entryLink import="true" name="Chainsword" hidden="false" id="f5b8-84b1-30a5-8a58" type="selectionEntry" targetId="3d79-ea50-dfa0-af68">
                       <entryLinks></entryLinks>
                     </entryLink>
+                    <entryLink import="true" name="Power weapon" hidden="false" id="f1cc-0835-3c5c-f714" type="selectionEntry" targetId="600b-6aef-1737-a654"/>
                   </entryLinks>
                 </selectionEntryGroup>
               </selectionEntryGroups>
@@ -5920,7 +5920,7 @@ This model cannot be selected as your **^^Warlord^^** and cannot be given Enhanc
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2ac3-6e2b-f526-9933"/>
               </constraints>
               <entryLinks>
-                <entryLink import="true" name="Ripper gun" hidden="false" id="de24-e966-f355-6359" targetId="e383-791c-b4cf-e0be" type="selectionEntry">
+                <entryLink import="true" name="Ripper gun" hidden="false" id="de24-e966-f355-6359" targetId="3f93-a289-fbc1-637b" type="selectionEntry">
                   <entryLinks></entryLinks>
                 </entryLink>
                 <entryLink import="true" name="Grenadier gauntlet" hidden="false" id="e326-d368-9bed-1c1d" type="selectionEntry" targetId="4c19-7a93-f2d6-30e9">
@@ -6840,6 +6840,7 @@ fnp: 6+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sly Marbo" hidden="false" id="4d50-e535-616a-259c">
+      <comment>cannot-warlord</comment>
       <categoryLinks>
         <categoryLink targetId="7c52-4f28-e70f-292e" id="207b-8e14-cdb0-5d57" primary="false" name="Sly Marbo"/>
         <categoryLink targetId="fa45-57e-930e-602b" id="99a6-c41c-5d90-2d4e" primary="false" name="Faction: Astra Militarum"/>
@@ -6882,6 +6883,11 @@ fnp: 6+</comment>
         <profile name="One-man Army" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f49f-7aa1-4d43-590">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your opponent&apos;s Shooting phase, when an enemy unit makes a ranged attack that targets a friendly **^^Regiment^^** unit within 3&quot; of this model, after that enemy unit has shot, this model can shoot as if it were your Shooting phase, but it must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Loner" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e986-8a1b-e74e-d9d6">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model cannot be selected as your **^^Warlord^^**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -7103,7 +7109,6 @@ fnp: 6+</comment>
         <categoryLink targetId="6df-937-16bc-8c1a" id="d18d-d60f-b287-2446" primary="false" name="Smoke"/>
         <categoryLink targetId="5929-ad51-d006-e008" id="7155-f0e4-ede5-24e2" primary="false" name="Titanic"/>
         <categoryLink targetId="dbd4-63-af05-998" id="e2f-7ba9-4447-9480" primary="true" name="Vehicle"/>
-        <categoryLink id="39d8-c5bf-f8f0-2b02" name="Frame" hidden="false" targetId="74a9-11cd-45b4-aa11" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="430"/>
@@ -7353,7 +7358,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Orders" typeId="3fc9-16d8-8670-c8e2" typeName="Orders" hidden="false" id="d520-92fd-8c74-ec6e">
           <characteristics>
-            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue 2 Orders to **^^Squadron^^** units.</characteristic>
+            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue up to 2 Orders to **^^Squadron^^** units.</characteristic>
           </characteristics>
         </profile>
         <profile name="Death Befitting An Officer" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c082-8d5a-82a8-68dc">
@@ -7687,7 +7692,7 @@ fnp: 6+</comment>
       <profiles>
         <profile name="Transport Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b3bc-461f-e5b5-2e0b">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the end of the phase, each time a friendly model that disembarked from this **^^Transport^^** this turn makes an attack that targets that enemy unit, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. Until the end of the phase, each time a model that disembarked from this **^^Transport^^** this turn makes an attack that targets that enemy unit, you can re-roll the Hit roll.</characteristic>
           </characteristics>
         </profile>
         <profile name="Taurox Prime" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2aa0-2c04-8c46-42be">
@@ -8386,7 +8391,6 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
         <categoryLink targetId="dbd4-63-af05-998" id="1be6-7308-7e2d-e9c9" primary="true" name="Vehicle"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="659e-1ad4-494d-de98" primary="false" name="Fly"/>
         <categoryLink name="Imperium" hidden="false" id="cb09-53af-3494-2451" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
-        <categoryLink id="b1d5-2465-b633-c9e0" name="Frame" hidden="false" targetId="74a9-11cd-45b4-aa11" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
@@ -8566,7 +8570,7 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
         </profile>
         <profile name="Suppression Bombardment" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6e74-fe3e-7f84-91cd">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) that was hit by one or more attacks made with this model’s Wyvern quad stormshard mortar. Unit the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, select one enemy unit (excluding **^^Monsters^^** and **^^Vehicles^^**) that was hit by one or more of those attacks made with this model’s Wyvern quad stormshard mortar. Until the start of your next Shooting phase, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -9094,6 +9098,28 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
         <categoryLink name="Damage Dx Weapon" hidden="false" id="2d4c-020a-43d6-f2b9" targetId="4986-bf86-beb4-13ac" primary="false"/>
       </categoryLinks>
     </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Hunter-killer missile" hidden="false" id="9110-8949-d9fb-eb5b">
+      <profiles>
+        <profile name="Hunter-killer missile" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="6696-4e4d-37d3-7ed2">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">14</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">One Shot</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="One Shot" hidden="false" type="rule" id="200a-1574-0070-f321" targetId="cd26-1611-860a-91e4"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="e3e0-58f5-a384-d1a8" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="1271-83b7-900c-c179" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Heavy stubber" hidden="false" id="d20f-db4b-d083-7c0a">
       <profiles>
         <profile name="Heavy stubber" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5cfc-cfe8-ba72-efa5">
@@ -9383,7 +9409,7 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
       <profiles>
         <profile name="Medi-pack" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b8e3-1e1f-b58b-1ca0">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, if the bearer&apos;s unit is below its Starting Strength, you can return up to D3 destroyed **^^Platoon^^** (excluding **^^Characters^^**) to this unit.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, if the bearer’s unit is below its Starting Strength, you can return up to D3 destroyed **^^Platoon^^** models (excluding **^^Characters^^**) to this unit.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -9790,6 +9816,40 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
         <categoryLink name="Melee Weapon" hidden="false" id="ca82-7fb3-7a5e-cf5f" targetId="ccdd-3987-11ed-90cd" primary="false"/>
       </categoryLinks>
       <comment>BS4+</comment>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Ripper gun" hidden="false" id="3f93-a289-fbc1-637b" collective="true">
+      <infoLinks>
+        <infoLink name="Rapid Fire" hidden="false" type="rule" id="760d-8878-ed3c-aa69" targetId="c5c8-8b58-b8b6-7786"/>
+      </infoLinks>
+      <profiles>
+        <profile name="Ripper gun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5c6f-260c-5f96-5695">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 3</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Ripper gun" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="34ca-2e72-dc0e-dff7">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="9d5c-1082-f39e-0bcf" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+        <categoryLink name="Melee Weapon" hidden="false" id="35a2-9771-dac0-60e3" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+      </categoryLinks>
+      <comment>BS4+, mêlée A5 (Ogryn Bodyguard)</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Bullgryn maul" hidden="false" id="5bf-ab9e-390c-cc84">
       <profiles>
@@ -10544,7 +10604,7 @@ sim-mod: source=&quot;Storm Troopers (objectif)&quot; reroll=wound conditional c
             <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-fly 2</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Anti-Fly 2+</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -11698,7 +11758,7 @@ Designer&apos;s Note: Place a Servo-scribes token next to the unit, removing it 
               <selectionEntryGroups>
                 <selectionEntryGroup name="Chainsword" id="fb79-08b2-d2a7-3aaa" hidden="false" defaultSelectionEntryId="4075-8391-f4ce-dc56">
                   <entryLinks>
-                    <entryLink import="true" name="Chainsword" hidden="false" id="4075-8391-f4ce-dc56" type="selectionEntry" targetId="7934-5223-153f-104e"/>
+                    <entryLink import="true" name="Chainsword" hidden="false" id="4075-8391-f4ce-dc56" type="selectionEntry" targetId="3d79-ea50-dfa0-af68"/>
                     <entryLink import="true" name="Power weapon" hidden="false" id="2bba-8612-e2df-faf7" type="selectionEntry" targetId="600b-6aef-1737-a654"/>
                   </entryLinks>
                   <constraints>
@@ -12648,7 +12708,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Orders" typeId="3fc9-16d8-8670-c8e2" typeName="Orders" hidden="false" id="2798-cdef-e114-6795">
           <characteristics>
-            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue 2 Orders to **^^Squadron^^** units.</characteristic>
+            <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This **^^Officer^^** can issue up to 2 Orders to **^^Squadron^^** units.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -14081,7 +14141,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
         <profile name="Close combat weapon" hidden="false" id="f3dd-8d16-3982-689e" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
@@ -14479,10 +14539,10 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
         </profile>
         <profile name="Counterstrategist" typeId="aecc-a2a4-54d6-841b" typeName="Hero of Hades Hive" hidden="false" id="6cdd-cc41-84bf-2873">
           <characteristics>
-            <characteristic name="Description" typeId="8c8a-dbca-6a03-6124">At the end of your opponent’s Movement phase, you can select one enemy unit that was set up or ended a move within 9&quot; of this model, and one friendly **^^Regiment^^** unit within 6&quot; of and visible to this model that has not made a Normal move or been targeted with the Fire Overwatch Stratagem this phase. That **^^Regiment^^**unit can then either:
-- Make a Normal move of up to D6&quot;.
-- Shoot at that enemy unit, but only if it is an eligible target. Until the end of the phase, each time a model in that unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers.
-- Make a Surge move. To do so, roll one D6: models in that unit move a number of inches up to the result, but that unit must end that move as close as possible to the closest enemy unit (excluding **^^Aircraft^^**). When doing so, those models can be moved within Engagement Range of that enemy unit. That unit cannot make a Surge move while it is Battle‑shocked or within Engagement Range of one or more enemy units, and can only make one Surge move per phase.</characteristic>
+            <characteristic name="Description" typeId="8c8a-dbca-6a03-6124">At the end of your opponent’s Movement phase, you can select one enemy unit that was set up or ended a move within 8&quot; of this model, and one friendly **^^Regiment^^** unit within 6&quot; of and visible to this model that has not made a Normal move or been targeted with the Fire Overwatch Stratagem this phase. That **^^Regiment^^** unit can then either:
+■ Make a Normal move of up to D6&quot;.
+■ Shoot at that enemy unit, but only if it is an eligible target. Until the end of the phase, each time a model in that unit makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers.
+■ Declare a charge. That Regiment unit must end that **charge move engaged** with the enemy unit you selected (note that even if this charge is successful, the charging unit does not receive any Charge bonus this turn).</characteristic>
           </characteristics>
         </profile>
         <profile name="Decisive Command" typeId="aecc-a2a4-54d6-841b" typeName="Hero of Hades Hive" hidden="false" id="198f-5dab-db07-14e3">
@@ -15706,7 +15766,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
       <profiles>
         <profile name="Independent Operatives" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="182f-d6c9-866c-6a32">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an Order is issued to this unit, that Order affects this unit until a new Order is issued to this unit, or until this unit becomes Battle‑shocked, or until the battle ends (whichever happens first).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an Order is issued to this unit, that Order affects this unit until a new Order is issued to this unit, or until this unit become Battle-shocked, or until the battle ends (whichever happens first).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -16992,9 +17052,9 @@ EFFECT: Until the end of the phase, each time a model in your unit makes an atta
         <selectionEntry type="upgrade" import="true" name="Armoured Infantry" hidden="false" id="d071-6e6b-dde6-dcf4">
           <rules>
             <rule name="Squadron Command" id="6ed3-5540-0f8d-a27c" hidden="false">
-              <description>Add ^^**Squadron^^** to the list of units each ^^**Officer^^** unit from your army can issue Orders to. Add the Order below to those listed in the Voice of Command ability.
+              <description>Add **^^Squadron^^** to the list of units each **^^Officer^^** unit from your army can issue Orders to. Add the Order below to those listed in the Voice of Command ability.
 
-**ON MY SIGNAL (Order):** This Order can only be issued to ^^**Armoured Skirmisher^^** units (see below). Each time an enemy unit ends a Normal or Advance move within 9&quot; of this unit, this unit can make a Normal move of up to D6&quot;. Each unit can only move in this way once per turn.</description>
+**ON MY SIGNAL (Order):** This Order can only be issued to **^^Armoured Skirmisher^^** units (see Keywords). Each time an enemy unit ends a Normal or Advance move within 8&quot; of this unit, this unit can make a Normal move of up to D6&quot;. Each unit can only move in this way once per turn.</description>
             </rule>
             <rule name="Keywords" id="a000-80e8-9b15-d7fe" hidden="false">
               <description>**^^Astra Militarum Squadron^^** units from your army have the **^^Armoured Skirmisher^^** keyword (excluding **^^Artillery^^** units and units containing one or more models with a Wounds characteristic of 13 or higher).</description>
@@ -17054,7 +17114,7 @@ EFFECT: Until the end of the phase, each time a model in your unit makes an atta
           <profiles>
             <profile name="On My Signal" typeId="3fc9-16d8-8670-c8e2" typeName="Orders" hidden="false" id="a263-ad7a-1a68-8f66">
               <characteristics>
-                <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This Order can only be issued to **^^Armoured Skirmisher^^** units. Each time an enemy unit ends a Normal or Advance move within 9&quot; of this unit, this unit can make a Normal move of up to D6&quot;. Each unit can only move in this way once per turn.</characteristic>
+                <characteristic name="Orders" typeId="36b-c3c9-245f-e97d">This Order can only be issued to **^^Armoured Skirmisher^^** units (see Keywords). Each time an enemy unit ends a Normal or Advance move within 8&quot; of this unit, this unit can make a Normal move of up to D6&quot;. Each unit can only move in this way once per turn.</characteristic>
               </characteristics>
             </profile>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="446f-42da-39d4-5768">
@@ -18375,6 +18435,33 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogr
         </entryLink>
       </entryLinks>
       <comment>Chimera chassis artillery</comment>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Wargear Options" id="8cd0-2b00-8421-e743" hidden="false">
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Heavy Bolter" id="cdb4-1d90-7d8f-857a" hidden="false" defaultSelectionEntryId="a22f-5ec5-9d6c-4f9c" sortIndex="2">
+          <entryLinks>
+            <entryLink import="true" name="Heavy bolter" hidden="false" id="a22f-5ec5-9d6c-4f9c" type="selectionEntry" targetId="51a8-ffe2-928f-3f50">
+              <entryLinks></entryLinks>
+            </entryLink>
+            <entryLink import="true" name="Heavy flamer" hidden="false" id="9cbe-040d-48d0-ebab" type="selectionEntry" targetId="6fef-cbbd-be33-44a4">
+              <entryLinks></entryLinks>
+            </entryLink>
+          </entryLinks>
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="56ef-5b72-e737-160a"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8b42-bbeb-28b4-f210"/>
+          </constraints>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+      <entryLinks>
+        <entryLink import="true" name="Hunter-killer missile" hidden="false" id="b847-518f-7735-0e06" type="selectionEntry" targetId="9110-8949-d9fb-eb5b" sortIndex="1">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="004d-6019-80b7-49b1"/>
+          </constraints>
+          <entryLinks></entryLinks>
+        </entryLink>
+      </entryLinks>
+      <comment>Deathstrike (missile Hunter-killer CT 3+)</comment>
     </selectionEntryGroup>
     <selectionEntryGroup name="Wargear Options" id="947a-b0d1-6bb2-336a" hidden="false">
       <selectionEntryGroups>
