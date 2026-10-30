@@ -6,6 +6,11 @@
         <characteristicType id="a513-6ce8-1ada-8763" name="Effect"/>
       </characteristicTypes>
     </profileType>
+    <profileType id="ebaa-5c3d-bfd4-8788" name="Icon of War">
+      <characteristicTypes>
+        <characteristicType id="9b75-7ab6-ae85-9910" name="Effect"/>
+      </characteristicTypes>
+    </profileType>
   </profileTypes>
   <categoryEntries>
     <categoryEntry id="f826-1ad1-a542-2058" name="Archaeopter Fusilave" hidden="false"/>
@@ -222,7 +227,7 @@
         </profile>
         <profile id="e589-6b4b-708c-0a93" name="Strafing Run" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets an enemy unit (excluding units that can Fly), add 1 to the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a unit that cannot **^^Fly^^**, add 1 to the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -307,7 +312,7 @@
                 <profile name="Twin cognis lascannon" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7894-6024-5bb1-400a">
                   <characteristics>
                     <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
@@ -640,7 +645,6 @@ Binharic Courage (Aura): While a friendly ^^**Adeptus Mechanicus**^^ unit is wit
             </profile>
           </profiles>
           <infoLinks>
-            <infoLink name="Blast" hidden="false" type="rule" id="1424-4ca9-fc04-71c3" targetId="6c1f-1cf7-ff25-c99e"/>
             <infoLink name="Melta" hidden="false" type="rule" id="e23-9f6a-5100-774b" targetId="7cdb-fb99-44a9-8849"/>
           </infoLinks>
         </selectionEntry>
@@ -1945,7 +1949,7 @@ In either case, if it does, until the end of the turn, this unit is not eligible
                     <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 2</characteristic>
                   </characteristics>
@@ -2120,7 +2124,7 @@ invuln: 5+</comment>
                     <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
                     <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
-                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
                     <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 2</characteristic>
                   </characteristics>
@@ -2780,6 +2784,11 @@ invuln: 5+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While an enemy unit is within 6&quot; of this unit, each time a Battle-shock or Leadership test is taken for that unit, subtract 1 from that test. While this unit is within 6&quot; of one or more friendly ^^**Adeptus Mechanicus Battleline^^** units, subtract 2 from that test instead.</characteristic>
           </characteristics>
         </profile>
+        <profile name="Voices in the Code" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cbdf-f6ed-5d4d-facc">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test.</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink id="1705-cfa2-e00f-b1e0" name="Infiltrators" hidden="false" targetId="c05d-f4c3-f091-4938" type="rule"/>
@@ -3347,7 +3356,7 @@ invuln: 5+</comment>
         </profile>
         <profile id="3d74-3888-b3ba-d044" name="Objective Scouted" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4165,7 +4174,7 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
         </profile>
         <profile id="1533-6fbb-c18b-7c86" name="Broad spectrum data-tether" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select the bearer as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select this model as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile id="995c-124a-0d6b-f011" name="Blistering Salvoes" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -4331,7 +4340,7 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
       <profiles>
         <profile id="5575-8d81-7fd4-caf6" name="Broad spectrum data-tether" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select the bearer as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select this model as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile id="28eb-c1af-6634-4b08" name="Fire Support" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -4409,7 +4418,7 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
         </profile>
         <profile id="2361-39d9-6fbe-27e2" name="Broad Spectrum Data-tether" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select the bearer as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select this unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4968,7 +4977,7 @@ def-mod: source=&quot;Defend the Divine Work&quot; inv=4 oncePer=battle</comment
         </profile>
         <profile id="fda2-046d-2f2f-a407" name="Defend the Divine Work" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, this model can use this ability. If it does, until the  end of the phase, all models in this model’s unit have a 4+ invulnerable save.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, models in this model’s unit have a 4+ invulnerable save.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5864,7 +5873,7 @@ invuln: 5+</comment>
         </profile>
         <profile id="c0d5-262f-61a9-6cb1" name="Broad Spectrum Data-tether" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select the bearer as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you select this unit as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6365,13 +6374,19 @@ must-warlord</comment>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
           </characteristics>
         </profile>
-        <profile id="93af-4f1d-63c7-7a5b" name="Icon of War" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile name="Fanatical Devotion" typeId="ebaa-5c3d-bfd4-8788" typeName="Icon of War" hidden="false" id="4337-ed37-aa41-7b01">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**Fanatical Devotion:** You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, that unit is eligible to shoot and declare a charge in a turn in which it Advanced.
-
-**Adaptive Tactics:** You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back.
-
-**The Fires of Mars:** You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, the Conqueror Imperative and Protector Imperative are both active for that unit.</characteristic>
+            <characteristic name="Effect" typeId="9b75-7ab6-ae85-9910">You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, that unit is eligible to shoot and declare a charge in a turn in which it Advanced.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Adaptive Tactics" typeId="ebaa-5c3d-bfd4-8788" typeName="Icon of War" hidden="false" id="07c9-c549-1e45-237e">
+          <characteristics>
+            <characteristic name="Effect" typeId="9b75-7ab6-ae85-9910">You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="The Fires of Mars" typeId="ebaa-5c3d-bfd4-8788" typeName="Icon of War" hidden="false" id="9128-3d4d-6b89-b7d5">
+          <characteristics>
+            <characteristic name="Effect" typeId="9b75-7ab6-ae85-9910">You can select one friendly **^^Skitarii^^** or **^^Thulia Ghuld^^** unit within 6&quot; of this model; until the start of your next Command phase, the Conqueror Imperative and Protector Imperative are both active for that unit.</characteristic>
           </characteristics>
         </profile>
         <profile id="eabc-5fb7-a61a-20ce" name="Mechanicus Bodyguard" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -6910,9 +6925,9 @@ invuln: 5+</comment>
         <profile name="Power weapon" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="e169-ab36-0cd9-a242">
           <characteristics>
             <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
-            <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
             <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4+</characteristic>
-            <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
             <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
