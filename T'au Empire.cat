@@ -283,7 +283,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Puretide&apos;s Teachings" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="49a3-e55-9ec9-32fd">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when it is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Commander Farsight" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8889-bb93-823-4843">
@@ -302,6 +302,11 @@ invuln: 4+</comment>
 - **^^Crisis Sunforge Battlesuits^^**
 - **^^Crisis Fireknife Battlesuits^^**
 - **^^Crisis Starscythe Battlesuits^^**</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Independent Power" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ea70-e9d8-69e8-cd1c">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your army includes **^^Commander Farsight^^**, it cannot include any **^^Ethereal^^** units. If your army includes any **^^Ethereal^^** units, it cannot include **^^Commander Farsight^^**.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1001,7 +1006,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Coordinated Leadership" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3a16-c8c-5d03-c1a1">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Command phase, roll one D6: on a 4+, you gain 1CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, roll one D6: on a 4+, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="28bc-81f2-45a9-1e5e">
@@ -1245,7 +1250,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       <profiles>
         <profile name="Suppression Volley" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="62df-a9ee-3931-13d">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy INFANTRY unit hit by one or more of those attacks. Until the start of your next turn, while unit is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this unit has shot, select one enemy **^^Infantry^^** unit hit by one or more of those attacks. Until the start of your next turn, while this unit is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.</characteristic>
           </characteristics>
         </profile>
         <profile name="DS8 Support Turret" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d2e6-f139-acad-1b30">
@@ -1606,7 +1611,7 @@ Designer’s Note: Place a Support Turret token next to this unit to remind you.
         </profile>
         <profile name="Fieldcraft" hidden="false" id="2d1d-ea81-7078-938b" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the your Command phase, if this unit within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Bodyguard" hidden="false" id="d0e7-bbff-a4f8-1b2d" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -3873,6 +3878,16 @@ invuln: 4+</comment>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, when this unit is selected to shoot in your Shooting phase, select one ranged weapon equipped by this model. Until the end of the phase, that weapon has the **[DEVASTATING WOUNDS]** ability.</characteristic>
           </characteristics>
         </profile>
+    <profile name="Battlesuit Support System" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3fe5-f786-38d5-76b6">
+      <characteristics>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model is eligible to shoot in a turn in which it Fell Back.</characteristic>
+      </characteristics>
+    </profile>
+    <profile name="Weapon Support System" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9a6f-4160-0298-cf7a">
+      <characteristics>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack, you can ignore any or all modifiers to the Hit roll.</characteristic>
+      </characteristics>
+    </profile>
       </profiles>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="1b5b-1a40-3dd4-3156" primary="true" name="Vehicle"/>
@@ -3890,8 +3905,6 @@ invuln: 4+</comment>
         </infoLink>
         <infoLink name="Damaged: 1-4 Wounds Remaining" hidden="false" type="profile" id="c9eb-2532-fd04-e1b0" targetId="2220-2459-9f07-490e"/>
         <infoLink name="Invulnerable Save (4+)" hidden="false" type="profile" id="6292-f471-c9b1-2aee" targetId="5b77-29f8-7b77-75e3"/>
-        <infoLink name="Battlesuit Support System" hidden="false" type="profile" id="8560-6343-52a8-de4" targetId="b5b2-f430-5dc1-106b"/>
-        <infoLink name="Weapon Support System" hidden="false" type="profile" id="6387-82ef-9ccc-b208" targetId="3d6e-7d4-ba81-9a8f"/>
         <infoLink name="For The Greater Good" hidden="false" type="rule" id="884-bd55-8355-90b3" targetId="eeb6-c42-48f7-cc21"/>
         <infoLink name="Devastating Wounds" id="1f1a-ecce-5f42-b19e" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
       </infoLinks>
@@ -4267,7 +4280,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Velocity Tracker" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="89bb-91cf-2e76-ae69">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack with a ranged weapon that targets a unit that can FLY, you can re-roll the Hit roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a unit that can **^^Fly^^**, you can re-roll the Hit roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4500,7 +4513,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="d71e-32e1-73d6-2859" primary="false" name="Fly"/>
         <categoryLink targetId="e8f5-87d8-7e02-89fd" id="5f34-836b-8e11-4f4" primary="false" name="Razorshark Strike Fighter"/>
         <categoryLink targetId="3d58-2655-391e-ecc" id="95ba-5ab-81a-90cd" primary="false" name="Faction: T&apos;au Empire"/>
-        <categoryLink id="c1c8-3177-4ca2-1a1c" name="Frame" hidden="false" targetId="90fc-c09e-9d1a-438c" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Razorshark Strike Fighter" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="42ad-8287-bd00-5989">
@@ -4738,7 +4750,6 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="654f-f89d-572e-6154" primary="false" name="Fly"/>
         <categoryLink targetId="cdb3-2eb9-88c7-56a7" id="365a-ce19-d951-c93c" primary="false" name="Sun Shark Bomber"/>
         <categoryLink targetId="3d58-2655-391e-ecc" id="18d-ec1b-cef5-4bb2" primary="false" name="Faction: T&apos;au Empire"/>
-        <categoryLink id="179c-433b-0001-d783" name="Frame" hidden="false" targetId="90fc-c09e-9d1a-438c" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
@@ -5063,7 +5074,6 @@ invuln: 4+</comment>
             <selectionEntry type="upgrade" import="true" name="Destroyer missiles" hidden="false" id="6e13-c32e-d336-c">
               <infoLinks>
                 <infoLink name="Heavy" id="9e06-cd68-9162-965c" hidden="false" type="rule" targetId="1202-10a8-78e9-4c67"/>
-                <infoLink name="Blast" id="5cfd-5b47-6e-7e28" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
               </infoLinks>
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3e93-1b28-5553-d4ae"/>
@@ -5698,6 +5708,7 @@ invuln: 5+</comment>
         <categoryLink targetId="d666-e2c9-b6cc-5716" id="285d-cb0c-8da0-f3b2" primary="false" name="Towering"/>
         <categoryLink targetId="3d58-2655-391e-ecc" id="fe19-56a6-be78-66b3" primary="false" name="Faction: T&apos;au Empire"/>
         <categoryLink targetId="a464-ec26-8197-aa96" id="9c74-d8f2-28a7-b2c6" primary="false" name="Ta&apos;unar Supremacy Armour"/>
+        <categoryLink targetId="90fc-c09e-9d1a-438c" id="f750-b569-551a-d72e" primary="false" name="Frame"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Invulnerable Save (5+)" hidden="false" type="profile" id="b602-951a-418d-a34f" targetId="27f4-7449-a636-ae8c"/>
@@ -5957,12 +5968,12 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Tiger Shark" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="13f0-77ab-e9b4-2a14">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20+&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">-</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">11</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">18</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">-</characteristic>
           </characteristics>
         </profile>
         <profile name="Strafing Run" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5a71-e391-7d55-904f">
@@ -6206,12 +6217,12 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Tiger Shark" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="cbbf-c0d1-60a3-67a8">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20+&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">-</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">11</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">3+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">18</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6351,12 +6362,12 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Manta" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="7bb9-9546-b2ea-dead">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">20+&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">40&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">14</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">60</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">-</characteristic>
           </characteristics>
         </profile>
         <profile name="Aggressive Deployment" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5188-f8f-edfa-1f82">
@@ -6402,6 +6413,7 @@ invuln: 5+</comment>
         <categoryLink targetId="1685-dd28-8e90-e10d" id="4d80-c88c-540e-f41e" primary="false" name="Markerlight"/>
         <categoryLink targetId="ed95-87aa-7704-e8c6" id="720d-a17a-84a7-d6e1" primary="false" name="Manta"/>
         <categoryLink targetId="3d58-2655-391e-ecc" id="4933-3045-37ef-e311" primary="false" name="Faction: T&apos;au Empire"/>
+        <categoryLink targetId="90fc-c09e-9d1a-438c" id="cfd4-18ca-efc7-c21e" primary="false" name="Frame"/>
       </categoryLinks>
       <entryLinks></entryLinks>
       <costs>
@@ -6857,7 +6869,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Battlesuit Support System" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="daca-db7f-18e9-0322">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The unit is eligible to shoot in a turn in which it Fell Back.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit is eligible to shoot in a turn in which it Fell Back.</characteristic>
           </characteristics>
           <comment>Starscythe variant</comment>
         </profile>
@@ -7257,7 +7269,7 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
         </profile>
         <profile name="Rites of Feasting" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b698-3b5c-4503-4ed">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Feel Not Pain 6+ ability. If that unit destroys one or more enemy units in the Fight phase, until the end of the battle, models in that unit have the Feel No Pain 5+ ability instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, models in that unit have the Feel No Pain 6+ ability. If that unit destroys one or more enemy units in the Fight phase, until the end of the battle, models in that unit have the Feel No Pain 5+ ability instead.</characteristic>
           </characteristics>
         </profile>
         <profile name="Ritual Butchery" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c4f6-2b72-9aef-ce30">
@@ -8147,6 +8159,13 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Missile Drone" hidden="false" id="427f-9ad8-09e6-5466">
+      <profiles>
+        <profile name="Missile Drone" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf9f-1946-42ce-c090">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer is equipped with the following ranged weapon:</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Missile pod" hidden="false" id="e77d-2117-f780-9f73" collective="true">
           <profiles>
@@ -9928,6 +9947,13 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
               </conditionGroups>
             </modifier>
           </modifiers>
+          <profiles>
+            <profile name="Gun Drone" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f35e-c1c4-1355-d6ae">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer is equipped with the following ranged weapon:</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
           <entryLinks>
             <entryLink import="true" name="Twin pulse carbine" hidden="false" id="0de8-9feb-d5db-94c2" type="selectionEntry" targetId="1ad0-be27-ab4c-3459">
               <constraints>
@@ -10544,6 +10570,13 @@ EFFECT: Your unit has +1 Sv.</description>
               </conditionGroups>
             </modifier>
           </modifiers>
+          <profiles>
+            <profile name="Gun Drone" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5031-d363-6090-9502">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer is equipped with the following ranged weapon:</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
           <entryLinks>
             <entryLink import="true" name="Twin pulse carbine" hidden="false" id="9ddc-8c0f-6700-77c9" type="selectionEntry" targetId="1ad0-be27-ab4c-3459">
               <constraints>
@@ -10673,7 +10706,7 @@ EFFECT: Your unit has +1 Sv.</description>
     </profile>
     <profile name="War Leader" hidden="false" id="f42-3984-7ed8-157" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
       <characteristics>
-        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when it is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
   </sharedProfiles>
