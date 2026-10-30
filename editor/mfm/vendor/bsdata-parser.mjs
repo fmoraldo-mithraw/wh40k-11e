@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: f9d808e
-// source-sha256: 8f20ca3360394ab5
+// source-commit: 1dd8f9e
+// source-sha256: c2854644dca4a027
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -2354,9 +2354,36 @@ function child(node, path) {
   return cur;
 }
 var CURRENT_PRIMARY_CAT = null;
-function staticPrimaryCatVerdict(m) {
+var PROFILE_CTX = null;
+function profileScopeIds(scope) {
+  if (!PROFILE_CTX) return null;
+  const { unit, model, unitIsModel } = PROFILE_CTX;
+  if (scope === "root-entry" || scope === "unit") return unit;
+  if (scope === "model") return model.length ? model[model.length - 1] : unitIsModel ? unit : null;
+  if (scope === "ancestor") return model.length ? { has: (id) => unit.has(id) || model.some((s) => s.has(id)) } : unit;
+  return null;
+}
+function enterModelCtx(node) {
+  if (!PROFILE_CTX || !node || node["@type"] !== "model") return false;
+  const s = new Set(arr(child(node, "categoryLinks.categoryLink")).map((c) => c["@targetId"]).filter(Boolean));
+  if (node["@id"]) s.add(node["@id"]);
+  PROFILE_CTX.model.push(s);
+  return true;
+}
+function leaveModelCtx(entered) {
+  if (entered && PROFILE_CTX) PROFILE_CTX.model.pop();
+}
+function unitCatLeaf(c, idsForScope) {
+  const t = c["@type"];
+  if (t !== "instanceOf" && t !== "notInstanceOf") return null;
+  const ids = idsForScope(c["@scope"] || "");
+  if (!ids) return null;
+  const has = ids.has(c["@childId"]);
+  return t === "instanceOf" ? has : !has;
+}
+function staticPrimaryCatVerdict(m, extraLeaf) {
   const leaf = (c) => {
-    if (c["@scope"] !== "primary-catalogue" || !CURRENT_PRIMARY_CAT) return null;
+    if (c["@scope"] !== "primary-catalogue" || !CURRENT_PRIMARY_CAT) return extraLeaf ? extraLeaf(c) : null;
     if (c["@type"] === "instanceOf") return c["@childId"] === CURRENT_PRIMARY_CAT;
     if (c["@type"] === "notInstanceOf") return c["@childId"] !== CURRENT_PRIMARY_CAT;
     return null;
@@ -2372,7 +2399,7 @@ function staticPrimaryCatVerdict(m) {
   };
   return group(m, "and");
 }
-function characteristics(profile) {
+function characteristics(profile, nameBox) {
   const out = {};
   const idToName = {};
   for (const c of arr(child(profile, "characteristics.characteristic"))) {
@@ -2380,14 +2407,77 @@ function characteristics(profile) {
     out[c["@name"]] = (t == null ? "" : String(t)).trim();
     if (c["@typeId"]) idToName[c["@typeId"]] = c["@name"];
   }
-  for (const m of arr(child(profile, "modifiers.modifier"))) {
-    if (m["@type"] !== "set" || !m["@field"] || m["@affects"] || m["@value"] == null) continue;
-    const nm = idToName[m["@field"]] || (m["@field"] in out ? m["@field"] : null);
-    if (!nm) continue;
-    if (staticPrimaryCatVerdict(m) !== true) continue;
-    out[nm] = String(m["@value"]);
-  }
+  applyProfileMods(profile, out, idToName, nameBox);
   return out;
+}
+var _viaLink = /* @__PURE__ */ new WeakMap();
+function profileViaLink(profile, link) {
+  if (!profile || !link) return profile;
+  const lm = arr(child(link, "modifiers.modifier"));
+  const lg = arr(child(link, "modifierGroups.modifierGroup"));
+  if (!lm.length && !lg.length) return profile;
+  const hit = _viaLink.get(link);
+  if (hit && hit.src === profile) return hit.node;
+  const node = {
+    ...profile,
+    modifiers: { modifier: [...arr(child(profile, "modifiers.modifier")), ...lm] },
+    modifierGroups: { modifierGroup: [...arr(child(profile, "modifierGroups.modifierGroup")), ...lg] }
+  };
+  _viaLink.set(link, { src: profile, node });
+  return node;
+}
+var PROFILE_MOD_RANK = { set: 0, increment: 1, decrement: 1, append: 2 };
+function profileModsOf(node) {
+  const out = [];
+  const rec = (n, groups) => {
+    for (const m of arr(child(n, "modifiers.modifier"))) out.push([m, groups]);
+    for (const g of arr(child(n, "modifierGroups.modifierGroup"))) rec(g, [...groups, g]);
+  };
+  rec(node, []);
+  return out;
+}
+function profileModFires(m, groups) {
+  const leaf = (c) => unitCatLeaf(c, profileScopeIds);
+  if (staticPrimaryCatVerdict(m, leaf) !== true) return false;
+  for (const g of groups) if (staticPrimaryCatVerdict(g, leaf) !== true) return false;
+  return true;
+}
+function applyCharOp(m, cur, charName) {
+  const v = String(m["@value"]);
+  const op = m["@type"];
+  if (op === "set") return v;
+  if (op === "increment" || op === "decrement") {
+    const mm = /^(-?\d+)("?)$/.exec(String(cur == null ? "" : cur).trim());
+    const d = Number(v);
+    if (!mm || !Number.isFinite(d)) return null;
+    return `${Number(mm[1]) + (op === "increment" ? d : -d)}${mm[2]}`;
+  }
+  if (op === "append") {
+    const add = v.trim();
+    if (!add) return null;
+    const base = String(cur == null ? "" : cur).trim();
+    if (!base || base === "-") return add;
+    const join2 = m["@join"] != null && String(m["@join"]) !== "" ? String(m["@join"]) : charName === "Keywords" ? ", " : " ";
+    return base + join2 + add;
+  }
+  return null;
+}
+function applyProfileMods(node, out, idToName, nameBox) {
+  const mods = profileModsOf(node).filter(([m]) => PROFILE_MOD_RANK[m["@type"]] != null && m["@field"] && !m["@affects"] && m["@value"] != null);
+  if (!mods.length) return;
+  mods.sort((a, b) => PROFILE_MOD_RANK[a[0]["@type"]] - PROFILE_MOD_RANK[b[0]["@type"]]);
+  for (const [m, groups] of mods) {
+    const f = m["@field"];
+    const isName = f === "name";
+    if (isName && !nameBox) continue;
+    const nm = isName ? null : idToName[f] || (f in out ? f : null);
+    if (!isName && !nm) continue;
+    if (!profileModFires(m, groups)) continue;
+    const nv = applyCharOp(m, isName ? nameBox.v : out[nm], nm);
+    if (nv == null) continue;
+    if (isName) nameBox.v = nv;
+    else out[nm] = nv;
+  }
 }
 function buildIdIndex(catalogue) {
   const idx = /* @__PURE__ */ new Map();
@@ -2517,7 +2607,7 @@ function getStats(entry, idIndex, seen) {
   for (const il of walk(entry, "infoLink")) {
     if (il["@type"] && il["@type"] !== "profile") continue;
     const tgt = idIndex.get(il["@targetId"]);
-    if (tgt && tgt["@typeName"] === "Unit") return statsFromUnitProfile(tgt);
+    if (tgt && tgt["@typeName"] === "Unit") return statsFromUnitProfile(profileViaLink(tgt, il));
   }
   seen = seen || /* @__PURE__ */ new Set();
   for (const el of walk(entry, "entryLink")) {
@@ -2543,7 +2633,7 @@ function collectUnitProfiles(entry, idIndex, seen, out) {
     for (const il of walk(entry, "infoLink")) {
       if (il["@type"] && il["@type"] !== "profile") continue;
       const tgt = idIndex.get(il["@targetId"]);
-      if (tgt && tgt["@typeName"] === "Unit") out.push([tgt["@name"] || "", statsFromUnitProfile(tgt)]);
+      if (tgt && tgt["@typeName"] === "Unit") out.push([tgt["@name"] || "", statsFromUnitProfile(profileViaLink(tgt, il))]);
     }
     for (const el of walk(entry, "entryLink")) {
       if (el["@type"] !== "selectionEntry") continue;
@@ -2632,26 +2722,16 @@ function getKeywordData(entry, idIndex) {
     byModel.push({ name: m.name, kw: dedup(c.kw.length ? ownComplete ? c.kw : [...unit.kw, ...c.kw] : unit.kw) });
   }
   if (!byModel.length) byModel.push({ name: (entry["@name"] || "").trim(), kw: dedup(unit.kw) });
-  return { byModel, faction: facSet, flat: dedup(flat) };
+  return { byModel, faction: facSet, flat: dedup(flat), unit: dedup(unit.kw) };
 }
 function isWeaponProfile(p) {
   return /Weapon/.test(p["@typeName"] || "");
 }
 function fmtWeapon(p) {
-  const c = characteristics(p);
-  {
-    const mods = arr(child(p, "modifiers.modifier")).filter((m) => m["@type"] === "set" && m["@field"] && !m["@affects"] && !arr(child(m, "conditions.condition")).length && !arr(child(m, "conditionGroups.conditionGroup")).length);
-    if (mods.length) {
-      const idToName = {};
-      for (const ch of arr(child(p, "characteristics.characteristic"))) if (ch["@typeId"] && ch["@name"]) idToName[ch["@typeId"]] = ch["@name"];
-      for (const m of mods) {
-        const nm = idToName[m["@field"]];
-        if (nm && m["@value"] != null) c[nm] = String(m["@value"]);
-      }
-    }
-  }
+  const nameBox = { v: p["@name"] || "" };
+  const c = characteristics(p, nameBox);
   const isMelee = /Melee/.test(p["@typeName"] || "");
-  const baseName = p["@name"] || "";
+  const baseName = nameBox.v;
   const isSub = /^\s*➤/.test(baseName);
   const displayName = isSub ? "\u27A4 " + baseName.replace(/^[➜➤\s]+/, "") : baseName;
   const w = {
@@ -2667,7 +2747,25 @@ function fmtWeapon(p) {
     kw: c.Keywords || "-"
   };
   if (isSub) w.sub = true;
+  if (PROFILE_CTX && profileModsOf(p).length) {
+    const saved = PROFILE_CTX;
+    PROFILE_CTX = null;
+    const nb0 = { v: p["@name"] || "" };
+    let c0;
+    try {
+      c0 = characteristics(p, nb0);
+    } finally {
+      PROFILE_CTX = saved;
+    }
+    const n0 = /^\s*➤/.test(nb0.v) ? "\u27A4 " + nb0.v.replace(/^[➜➤\s]+/, "") : nb0.v;
+    const p0 = { n: n0, t: w.t, rng: c0.Range || "-", a: c0.A || "-", sk: c0.WS || c0.BS || "-", s: c0.S || "-", ap: c0.AP || "-", d: c0.D || "-", kw: c0.Keywords || "-" };
+    if (["n", "rng", "a", "sk", "s", "ap", "d", "kw"].some((k) => p0[k] !== w[k])) Object.defineProperty(w, "printed", { value: p0, enumerable: false });
+  }
   return w;
+}
+function printedWeapon(w) {
+  const s = w.printed || w;
+  return { n: s.n, t: s.t, rng: s.rng, a: s.a, sk: s.sk, s: s.s, ap: s.ap, d: s.d, kw: s.kw };
 }
 function collectWeapons(entry, idIndex, unitCatIds) {
   const out = [];
@@ -2688,13 +2786,21 @@ function collectWeapons(entry, idIndex, unitCatIds) {
   }
   function rec(e, inComposition) {
     if (!e) return;
+    const inModel = enterModelCtx(e);
+    try {
+      recBody(e, inComposition);
+    } finally {
+      leaveModelCtx(inModel);
+    }
+  }
+  function recBody(e, inComposition) {
     const directWeap = arr(child(e, "profiles.profile")).filter(isWeaponProfile);
     for (const p of arr(child(e, "profiles.profile"))) addProfile(p);
     if (directWeap.length === 0 && idIndex) {
       for (const il of arr(child(e, "infoLinks.infoLink"))) {
         if (il["@type"] !== "profile") continue;
         const t = idIndex.get(il["@targetId"]);
-        if (t && isWeaponProfile(t)) addProfile(t);
+        if (t && isWeaponProfile(t)) addProfile(profileViaLink(t, il));
       }
     }
     for (const sub of arr(child(e, "selectionEntries.selectionEntry"))) {
@@ -2746,20 +2852,25 @@ function collectOptionWeapons(entry, idIndex) {
   };
   const rec = (e) => {
     if (!e) return;
-    for (const p of arr(child(e, "profiles.profile"))) add(p);
-    for (const sub of arr(child(e, "selectionEntries.selectionEntry"))) {
-      const ws = arr(child(sub, "profiles.profile")).filter(isWeaponProfile);
-      if (ws.length > 1) {
-        for (const p of ws) add(p);
-      } else rec(sub);
-    }
-    for (const g of arr(child(e, "selectionEntryGroups.selectionEntryGroup"))) rec(g);
-    for (const el of arr(child(e, "entryLinks.entryLink"))) {
-      const tid = el["@targetId"];
-      if (!tid || visited.has(tid)) continue;
-      visited.add(tid);
-      const tgt = idIndex.get(tid);
-      if (tgt) rec(tgt);
+    const inModel = enterModelCtx(e);
+    try {
+      for (const p of arr(child(e, "profiles.profile"))) add(p);
+      for (const sub of arr(child(e, "selectionEntries.selectionEntry"))) {
+        const ws = arr(child(sub, "profiles.profile")).filter(isWeaponProfile);
+        if (ws.length > 1) {
+          for (const p of ws) add(p);
+        } else rec(sub);
+      }
+      for (const g of arr(child(e, "selectionEntryGroups.selectionEntryGroup"))) rec(g);
+      for (const el of arr(child(e, "entryLinks.entryLink"))) {
+        const tid = el["@targetId"];
+        if (!tid || visited.has(tid)) continue;
+        visited.add(tid);
+        const tgt = idIndex.get(tid);
+        if (tgt) rec(tgt);
+      }
+    } finally {
+      leaveModelCtx(inModel);
     }
   };
   rec(entry);
@@ -2773,9 +2884,11 @@ function getFlags(entry) {
     isAllied: false
   };
 }
-function classifyCat(flags, keywords) {
+function classifyCat(flags, keywords, unitKeywords) {
   const kj = keywords.join(" ");
-  if (flags.isChar || keywords.includes("Character")) return "Character";
+  const uk = unitKeywords || keywords;
+  if (flags.isChar || uk.includes("Character")) return "Character";
+  if (keywords.includes("Character") && (flags.isEpic || keywords.includes("Epic Hero"))) return "Character";
   if (keywords.includes("Battleline")) return "Battleline";
   if (/Vehicle|Walker/.test(kj)) return "Vehicle";
   if (keywords.includes("Monster")) return "Monster";
@@ -3206,6 +3319,14 @@ function removableMin(nodeA, nodeB) {
   return false;
 }
 function collectDirectWeapons(entry, idIndex, idsOut) {
+  const inModel = enterModelCtx(entry);
+  try {
+    return collectDirectWeaponsBody(entry, idIndex, idsOut);
+  } finally {
+    leaveModelCtx(inModel);
+  }
+}
+function collectDirectWeaponsBody(entry, idIndex, idsOut) {
   const out = [];
   const seen = /* @__PURE__ */ new Set();
   const add = (p, count, ids) => {
@@ -3226,7 +3347,7 @@ function collectDirectWeapons(entry, idIndex, idsOut) {
     for (const il of arr(child(node, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
       const t = idIndex.get(il["@targetId"]);
-      if (t && isWeaponProfile(t)) r.push(t);
+      if (t && isWeaponProfile(t)) r.push(profileViaLink(t, il));
     }
     return r;
   };
@@ -3335,6 +3456,14 @@ function collectModelWeapons(entry, idIndex) {
   return collectDirectWeapons(entry, idIndex).map(weaponAsArray);
 }
 function collectModelAbilities(entry, idIndex) {
+  const inModel = enterModelCtx(entry);
+  try {
+    return collectModelAbilitiesBody(entry, idIndex);
+  } finally {
+    leaveModelCtx(inModel);
+  }
+}
+function collectModelAbilitiesBody(entry, idIndex) {
   const out = [];
   const seen = /* @__PURE__ */ new Set();
   const addProfile = (p) => {
@@ -3789,7 +3918,7 @@ function pickOptionWeaponProfile(targetEntry, idIndex) {
   for (const il of arr(child(targetEntry, "infoLinks.infoLink"))) {
     if (il["@type"] !== "profile") continue;
     const t = idIndex.get(il["@targetId"]);
-    if (t && isWeaponProfile(t)) linked.push(t);
+    if (t && isWeaponProfile(t)) linked.push(profileViaLink(t, il));
   }
   const seenSig = /* @__PURE__ */ new Set();
   const merged = [];
@@ -3812,7 +3941,7 @@ function pickOptionWeaponProfile(targetEntry, idIndex) {
     for (const il of arr(child(e, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
       const t = idIndex.get(il["@targetId"]);
-      if (t && isWeaponProfile(t)) pushW(stamp(fmtWeapon(t)));
+      if (t && isWeaponProfile(t)) pushW(stamp(fmtWeapon(profileViaLink(t, il))));
     }
   };
   const optional = new Set(optionalComboMembers(targetEntry, idIndex));
@@ -3847,7 +3976,7 @@ function pickComboWeaponProfiles(targetEntry, idIndex) {
     for (const il of arr(child(e, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
       const tgt = idIndex && idIndex.get(il["@targetId"]);
-      if (tgt) push(tgt);
+      if (tgt) push(profileViaLink(tgt, il));
     }
   };
   const optional = new Set(optionalComboMembers(targetEntry, idIndex));
@@ -4028,13 +4157,7 @@ function isLeafOptionGroup(grp) {
 }
 var UNIT_LOCAL_SCOPES = /* @__PURE__ */ new Set(["ancestor", "self", "parent", "unit", "model"]);
 function categoryCondsHold(m, unitCategoryIds) {
-  const evalCond = (c) => {
-    const t = c["@type"];
-    if (t !== "instanceOf" && t !== "notInstanceOf") return null;
-    if (!UNIT_LOCAL_SCOPES.has(c["@scope"] || "")) return null;
-    const has = unitCategoryIds.has(c["@childId"]);
-    return t === "instanceOf" ? has : !has;
-  };
+  const evalCond = (c) => unitCatLeaf(c, (sc) => UNIT_LOCAL_SCOPES.has(sc) ? unitCategoryIds : null);
   const evalGroup = (g) => {
     const parts2 = [
       ...arr(child(g, "conditions.condition")).map(evalCond),
@@ -4704,6 +4827,8 @@ function collectInvulns(unitEntry, idIndex) {
     for (const p of arr(child(node, "profiles.profile"))) consider(p, modelName);
     for (const il of arr(child(node, "infoLinks.infoLink"))) {
       if (il["@type"] && il["@type"] !== "profile") continue;
+      const lg = linkHiddenGate(il);
+      if (lg && lg.b) continue;
       const tgt = idIndex.get(il["@targetId"]) || GST_INDEX.get(il["@targetId"]);
       if (tgt) consider(tgt, modelName);
     }
@@ -4960,6 +5085,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
   }
   const coreLinks = [];
   let invulFromName = "";
+  let invulGated = null;
   for (const il of [...entryInfoLinks(entry), ...extraInfoLinks || [], ...modelCoreLinks]) {
     const tgt = idIndex.get(il["@targetId"]);
     if (!tgt) {
@@ -4973,7 +5099,11 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
       const base = il["@name"] || "";
       const inv = base.match(/invulnerable\s*save\b[^0-9]*?(\d)\s*\+/i);
       if (inv) {
-        if (!invulFromName) invulFromName = inv[1] + "+";
+        const g = il["@type"] === "profile" ? GST_INDEX.get(il["@targetId"]) : null;
+        const gate = mergeHiddenGates(linkHiddenGate(il), g ? runtimeHiddenGate(g) : null);
+        if (gate) {
+          if (!invulGated) invulGated = { v: inv[1] + "+", gate };
+        } else if (!invulFromName) invulFromName = inv[1] + "+";
         continue;
       }
       const bySupportId = il["@type"] === "rule" && il["@targetId"] === SUPPORT_RULE_ID;
@@ -5018,6 +5148,8 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
   }
   if (invulFromName && !out.some(([n]) => String(n || "").trim().toLowerCase() === "invulnerable save")) {
     out.push(["Invulnerable Save", invulFromName]);
+  } else if (!invulFromName && invulGated && !out.some(([n]) => String(n || "").trim().toLowerCase() === "invulnerable save")) {
+    out.push(["Invulnerable Save", invulGated.v, null, invulGated.gate]);
   }
   if (coreLinks.length) {
     const present = new Set(out.map(([n]) => String(n || "").toLowerCase()));
@@ -5688,13 +5820,35 @@ function synthesizeModelSwapGroups(unit, opts, idIndex) {
   }
   return Object.keys(unitCaps).length ? unitCaps : null;
 }
+function unitProfileCtx(entry, link, catalogueId) {
+  const unit = new Set([
+    ...arr(child(entry, "categoryLinks.categoryLink")).map((c) => c["@targetId"]),
+    ...link ? arr(child(link, "categoryLinks.categoryLink")).map((c) => c["@targetId"]) : [],
+    ...conferredCategoryIds(entry, catalogueId),
+    ...link ? conferredCategoryIds(link, catalogueId) : []
+  ].filter(Boolean));
+  for (const id of [...removedCategoryIds(entry, catalogueId), ...link ? removedCategoryIds(link, catalogueId) : []]) unit.delete(id);
+  if (entry["@id"]) unit.add(entry["@id"]);
+  if (link && link["@id"]) unit.add(link["@id"]);
+  return { unit, model: [], unitIsModel: entry["@type"] === "model" };
+}
 function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName, link, catalogueId) {
+  const prev = PROFILE_CTX;
+  PROFILE_CTX = unitProfileCtx(entry, link, catalogueId);
+  try {
+    return extractUnitBody(entry, idIndex, factionKey, index, detIdToName, catIdToName, link, catalogueId);
+  } finally {
+    PROFILE_CTX = prev;
+  }
+}
+function extractUnitBody(entry, idIndex, factionKey, index, detIdToName, catIdToName, link, catalogueId) {
   const rawName = entry["@name"] || "";
   const cleanName = rawName.replace(" [Crucible]", "");
   const flags = getFlags(entry);
   const cEntry = stripLeaderLinkGroups(entry);
   const kwData = getKeywordData(cEntry, idIndex);
   const keywords = kwData.flat;
+  const unitKw = [...kwData.unit];
   if (link) {
     const have = new Set(keywords.map((k) => k.toLowerCase()));
     const haveFac = new Set(kwData.faction.map((k) => k.toLowerCase()));
@@ -5707,9 +5861,12 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
           haveFac.add(f.toLowerCase());
           kwData.faction.push(f);
         }
-      } else if (!have.has(n.toLowerCase())) {
-        have.add(n.toLowerCase());
-        keywords.push(n);
+      } else {
+        if (!have.has(n.toLowerCase())) {
+          have.add(n.toLowerCase());
+          keywords.push(n);
+        }
+        unitKw.push(n);
       }
     }
   }
@@ -5745,6 +5902,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
     for (const id of conferredIds) {
       const nm = catIdToName.get(id);
       if (nm && !nm.startsWith("Faction:") && !keywords.includes(nm)) keywords.push(nm);
+      if (nm && !nm.startsWith("Faction:")) unitKw.push(nm);
     }
   }
   const removedIds = [
@@ -5759,6 +5917,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
       if (nm) removedNames.add(nm);
     }
     for (let i = keywords.length - 1; i >= 0; i--) if (removedNames.has(keywords[i])) keywords.splice(i, 1);
+    for (let i = unitKw.length - 1; i >= 0; i--) if (removedNames.has(unitKw[i])) unitKw.splice(i, 1);
   }
   let _minM = 1, _maxM = 1;
   if (comp.length) {
@@ -5928,7 +6087,7 @@ function extractUnit(entry, idIndex, factionKey, index, detIdToName, catIdToName
       const iv = collectInvulns(entry, idIndex);
       return iv.length ? { invulns: iv } : {};
     })(),
-    cat: classifyCat(flags, keywords),
+    cat: classifyCat(flags, keywords, unitKw),
     minM: _minM,
     maxM: _maxM,
     // Detachment gates can sit on the unit entry itself OR on the entryLink
@@ -6087,7 +6246,7 @@ async function parseCatalogue(catPath, { alliance = "Unknown" } = {}) {
   for (const u of units) {
     for (const w of u.weapons) {
       if (w.bsId && !weaponsById[w.bsId]) {
-        weaponsById[w.bsId] = { n: w.n, t: w.t, rng: w.rng, a: w.a, sk: w.sk, s: w.s, ap: w.ap, d: w.d, kw: w.kw };
+        weaponsById[w.bsId] = printedWeapon(w);
       }
     }
   }
@@ -6757,10 +6916,10 @@ function linkedFactionName(linkName) {
   return n || null;
 }
 async function parseAllCatalogues(dir) {
-  const files = (await readdir(dir)).filter((f) => f.endsWith(".cat"));
+  const files = (await readdir(dir)).filter((f) => f.endsWith(".cat")).sort();
   GST_INDEX = /* @__PURE__ */ new Map();
   CORE_RULES = [];
-  for (const gf of (await readdir(dir)).filter((f) => f.endsWith(".gst"))) {
+  for (const gf of (await readdir(dir)).filter((f) => f.endsWith(".gst")).sort()) {
     try {
       const root = X.parse(await readFile(join(dir, gf), "utf-8")).gameSystem;
       if (root) {
@@ -6921,7 +7080,7 @@ async function parseAllCatalogues(dir) {
       for (const w of u.weapons) {
         addToDict(w);
         if (w.bsId && !weaponsById[w.bsId]) {
-          weaponsById[w.bsId] = { n: w.n, t: w.t, rng: w.rng, a: w.a, sk: w.sk, s: w.s, ap: w.ap, d: w.d, kw: w.kw };
+          weaponsById[w.bsId] = printedWeapon(w);
         }
       }
       for (const w of u.optWeapons || []) addToDict(w);
@@ -7091,6 +7250,24 @@ async function parseAllCatalogues(dir) {
       const selfIds = (bsId) => [bsId, ...linkIdsByTarget.get(bsId) || []];
       const catSets = new Map(candidates.map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], ...selfIds(u.bsId), ...rawUnitEntries.has(u.bsId) ? menuPathCats(rawUnitEntries.get(u.bsId)) : []])]));
       const allCatSets = new Map(units.filter((u) => u.bsId).map((u) => [u.bsId, /* @__PURE__ */ new Set([...u.categoryIds || [], ...selfIds(u.bsId)])]));
+      const unitByBsId = new Map(units.filter((u) => u.bsId).map((u) => [u.bsId, u]));
+      const designationRescue = (bearers, mods) => {
+        const out2 = /* @__PURE__ */ new Map();
+        for (const b of bearers || []) {
+          const u = unitByBsId.get(b);
+          const cats2 = allCatSets.get(b);
+          if (!u || !cats2 || !Array.isArray(u.designations) || !u.designations.length) continue;
+          if (!mods.some((m) => evalTree(m.cg, cats2) === true)) continue;
+          const ids = /* @__PURE__ */ new Set();
+          for (const d of u.designations) {
+            if (!(d.addsCats || []).length) continue;
+            const withD = /* @__PURE__ */ new Set([...cats2, ...d.addsCats]);
+            if (!mods.some((m) => evalTree(m.cg, withD) === true)) for (const id of d.ids || []) ids.add(id);
+          }
+          if (ids.size) out2.set(b, ids);
+        }
+        return out2;
+      };
       const collectNeedSel = (cg, into, selfId) => {
         for (const c of cg.conds || []) {
           if (selfId && c.childId === selfId) continue;
@@ -7114,6 +7291,8 @@ async function parseAllCatalogues(dir) {
         const mods = (e.hideMods || []).filter((m) => refsAncestorCat(m.cg));
         delete e.hideMods;
         if (!mods.length) continue;
+        const dzRescued = designationRescue(e.bearers, mods);
+        if (dzRescued.size) e._dzNeed = dzRescued;
         let anyDecidable = false;
         const eligible = [];
         for (const u of candidates) {
@@ -7141,7 +7320,7 @@ async function parseAllCatalogues(dir) {
           const kept = e.bearers.filter((b) => {
             const cats2 = allCatSets.get(b);
             if (!cats2) return eligible.includes(b);
-            for (const m of mods) if (evalTree(m.cg, cats2) === true) return false;
+            for (const m of mods) if (evalTree(m.cg, cats2) === true) return dzRescued.has(b);
             return true;
           });
           if (kept.length) e.bearers = kept;
@@ -7203,6 +7382,24 @@ async function parseAllCatalogues(dir) {
         const forB = (e.bearers || []).filter((b) => e._nsUnd.has(b));
         if (Array.isArray(e.bearers) && forB.length < e.bearers.length) e.needSelFor = forB;
         delete e._nsUnd;
+      }
+      for (const e of enhs) {
+        if (!e._dzNeed) continue;
+        const dz = e._dzNeed;
+        delete e._dzNeed;
+        const gated = (Array.isArray(e.bearers) ? e.bearers : []).filter((b) => dz.has(b));
+        if (!gated.length) continue;
+        let common = null;
+        for (const b of gated) {
+          const s = dz.get(b);
+          common = common ? new Set([...common].filter((x) => s.has(x))) : new Set(s);
+        }
+        if (e.needSel || !common || !common.size) {
+          console.warn(`[enh] "${factionKey}" ${e.name}: gate lifted by a designation, needSel not representable (kept ungated)`);
+          continue;
+        }
+        e.needSel = [...common].sort();
+        if (gated.length < e.bearers.length) e.needSelFor = gated;
       }
     }
     {
