@@ -22,7 +22,6 @@
     <categoryEntry id="116c-4068-d3f1-d67c" name="Predator Annihilator" hidden="false"/>
     <categoryEntry id="ffc4-68d3-fcff-6dab" name="Predator Destructor" hidden="false"/>
     <categoryEntry id="56d9-9e64-788e-3f3e" name="Rhino" hidden="false"/>
-    <categoryEntry id="6342-2cd6-f518-f565" name="Spawn" hidden="false"/>
     <categoryEntry id="14a3-33f9-b5a8-b6df" name="Vindicator" hidden="false"/>
     <categoryEntry id="486a-4fe5-2b63-6d4b" name="Defiler" hidden="false"/>
     <categoryEntry id="010f-ca66-75a1-379b" name="Exalted Sorcerer" hidden="false"/>
@@ -99,6 +98,7 @@
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" includeChildSelections="true" includeChildForces="true" id="1526-d98c-f4ac-e797"/>
       </constraints>
     </categoryEntry>
+    <categoryEntry name="Chaos Spawn" id="7d81-23ab-9311-e856" hidden="false"/>
   </categoryEntries>
   <selectionEntries>
     <selectionEntry id="87f0-0a14-9b6b-f367" name="Rituals reference" hidden="false" collective="false" import="true" type="upgrade" defaultAmount="1">
@@ -871,7 +871,7 @@ EFFECT: Your unit has MOBILE.</description>
         </profile>
         <profile id="8f1d-56cb-a37f-2a5e" name="Scryer of Fates (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">if your army includes this model, after both players have deployed their armies, you can select up to 3 ^^**Thousand Sons^^** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your army includes this model, after both players have deployed their armies, you can select up to three **THOUSAND SONS** units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.</characteristic>
           </characteristics>
         </profile>
         <profile id="e117-9164-7606-ef92" name="Arch-Sorcerer of Tzeentch (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1243,7 +1243,7 @@ EFFECT: Your unit has MOBILE.</description>
         </profile>
         <profile id="efa5-c1d9-a512-e566" name="Ensorcelled Annihilation" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a ^^**Monster^^** or ^^**Vehicle^^** unit that was hit by one or more Psychic attacks made by a ^^**Thousand Sons Psyker^^** unit from your army this turn, you can re-roll the Hit roll and you can re-roll the Damage roll.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a **MONSTER** or **VEHICLE** unit that was hit by one or more Psychic Attacks made by a **THOUSAND SONS PSYKER** model from your army this phase (including the Doombolt Ritual), you can re-roll the Hit roll and you can re-roll the Damage roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1446,7 +1446,7 @@ EFFECT: Your unit has MOBILE.</description>
         </profile>
         <profile id="7391-4352-7193-9a16" name="Ensorcelled Destruction" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a unit (excluding ^^**Monsters^^** and ^^**Vehicles^^**) that was hit by one or more Psychic attacks made by a ^^**Thousand Sons Psyker^^** unit from your army this turn, improve the Strength and Armour Penetration characteristic of that attack by 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a unit (excluding **MONSTERS** and **VEHICLES**) that was hit by one or more Psychic Attacks made by a **THOUSAND SONS PSYKER** model from your army this phase (including the Doombolt Ritual), improve the Strength and Armour Penetration characteristics of that attack by 1.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1704,8 +1704,8 @@ fnp: 5+</comment>
         <categoryLink id="e18c-c0c7-07a8-ee41" name="Beast" hidden="false" targetId="4c3e-9310-a516-3590" primary="true"/>
         <categoryLink id="6486-d3a8-c97d-1559" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
         <categoryLink id="1a68-9e42-bce3-4eda" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
-        <categoryLink id="e45e-6ab2-7ce2-b631" name="Spawn" hidden="false" targetId="6342-2cd6-f518-f565" primary="false"/>
         <categoryLink name="Mutant" hidden="false" id="8781-fde7-cf33-1136" targetId="24dd-cf44-f6ab-e0e2" primary="false"/>
+        <categoryLink name="Chaos Spawn" hidden="false" id="e89b-cf82-7e3b-4fad" targetId="7d81-23ab-9311-e856" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry id="7502-b778-b920-3f68" name="Chaos Spawn" hidden="false" collective="false" import="true" type="model" sortIndex="2">
@@ -2028,11 +2028,55 @@ fnp: 5+</comment>
                 <categoryLink name="Melee Weapon" hidden="false" id="fd35-f582-ea67-59d1" targetId="ccdd-3987-11ed-90cd" primary="false"/>
               </categoryLinks>
             </selectionEntry>
+    <selectionEntry id="450f-3434-d1d8-55e5" name="Force weapon" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="f42a-91eb-cce2-aaa1" type="max"/>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="fdec-60fd-987a-85b4" type="min"/>
+      </constraints>
+      <profiles>
+        <profile id="e6ea-1ec9-4e8f-854e" name="Force weapon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="5" field="2337-daa1-6682-b110">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="740a-892c-8958-defa" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="2+" field="95d1-95f-45b4-11d6">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="5752-8af5-f87f-fc47" name="Psychic" hidden="false" targetId="e9c4-2bb8-12ee-cd1b" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink name="Psychic Weapon" hidden="false" id="76ba-f632-2357-c312" targetId="4546-4a0c-b3be-e84c" primary="false"/>
+        <categoryLink name="Melee Weapon" hidden="false" id="1a46-6832-af6c-d0a5" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="4f36-9db7-c4b7-cb06" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
           </selectionEntries>
           <entryLinks>
-            <entryLink import="true" name="Force weapon" hidden="false" id="5806-4bb1-dc86-3dfe" collective="false" targetId="74f5-4553-6d71-b44c" type="selectionEntry">
-              <selectionEntryGroups></selectionEntryGroups>
-            </entryLink>
             <entryLink import="true" name="Inferno bolt pistol" hidden="false" id="30b2-be5e-cb23-1297" collective="false" targetId="c70d-46dc-32da-b1a4" type="selectionEntry">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="93a4-88c8-8223-e0d0-min" includeChildSelections="false"/>
@@ -2211,11 +2255,55 @@ fnp: 5+</comment>
                 <categoryLink name="Melee Weapon" hidden="false" id="22e8-7e17-e633-36d2" targetId="ccdd-3987-11ed-90cd" primary="false"/>
               </categoryLinks>
             </selectionEntry>
+    <selectionEntry id="4fa3-fa56-82f8-0fd9" name="Force weapon" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="7706-d3b6-1016-bbcd" type="max"/>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="8241-3d42-dce4-7c7a" type="min"/>
+      </constraints>
+      <profiles>
+        <profile id="04b8-855a-09c1-738a" name="Force weapon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="5" field="2337-daa1-6682-b110">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="740a-892c-8958-defa" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="2+" field="95d1-95f-45b4-11d6">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="7ca8-004d-e427-36e3" name="Psychic" hidden="false" targetId="e9c4-2bb8-12ee-cd1b" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink name="Psychic Weapon" hidden="false" id="96fc-dfd9-da56-0621" targetId="4546-4a0c-b3be-e84c" primary="false"/>
+        <categoryLink name="Melee Weapon" hidden="false" id="8698-58c9-0dbc-9f0d" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="9219-2025-6cf4-bcee" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
           </selectionEntries>
           <entryLinks>
-            <entryLink import="true" name="Force weapon" hidden="false" id="70dd-66c6-168e-6e1b" collective="false" targetId="74f5-4553-6d71-b44c" type="selectionEntry">
-              <selectionEntryGroups></selectionEntryGroups>
-            </entryLink>
             <entryLink import="true" name="Inferno bolt pistol" hidden="false" id="02ac-b473-eceb-cec6" collective="false" targetId="c70d-46dc-32da-b1a4" type="selectionEntry">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8921-a4b4-43f3-5203-min" includeChildSelections="false"/>
@@ -2489,12 +2577,12 @@ invuln: 5+</comment>
         </profile>
         <profile id="a1c6-3496-6fe0-35b0" name="Terrifying Assault" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase and the Fight phase, after this model has shot, select one enemy unit hit by one or more of those attacks. That unit must take a Battle-shock test, subtracting 1 if that unit is within 9&quot; of one or more ^^**Thousand Sons Psyker^^** units from your army.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase and the Fight phase, after this model has shot or fought, select one enemy unit hit by one or more of those attacks. That unit must take a Battle-shock test, subtracting 1 from that test if it is within 9&quot; of one or more **THOUSAND SONS PSYKER** units from your army.</characteristic>
           </characteristics>
         </profile>
         <profile id="d704-4523-7eed-b79c" name="Devoted to Destruction" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with 2 melee weapons in addition to its close combat weapon, add 2 to the Attacks characteristic of those two weapons.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with two melee weapons in addition to its close combat weapon, add 2 to the Attacks characteristic of those two weapons.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ca1f-7520-909f-d024">
@@ -2726,7 +2814,7 @@ invuln: 5+</comment>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
-                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
                       </characteristics>
@@ -2851,7 +2939,7 @@ invuln: 5+</comment>
       <profiles>
         <profile id="9220-7fa3-aa90-ce25" name="Flame-wreathed" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Normal move, select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model ends a Normal move, you can select one enemy unit it moved over during that move. Until the end of the turn, models in that unit cannot have the Benefit of Cover.</characteristic>
           </characteristics>
         </profile>
         <profile id="0bc2-1826-65d6-13ba" name="Heldrake" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
@@ -2886,6 +2974,7 @@ invuln: 5+</comment>
         <categoryLink id="17e4-9d3c-cdfc-40c4" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
         <categoryLink id="85f8-c2a8-1ea3-b244" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
         <categoryLink id="1f3f-1c20-a2bb-8ce3" name="Heldrake" hidden="false" targetId="41b5-9462-b98a-ed59" primary="false"/>
+        <categoryLink name="Daemon" hidden="false" id="2b5e-1088-b2a8-1e94" targetId="9c0e-7e25-4580-e439" primary="false"/>
       </categoryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="9468-6403-607a-ef47" hidden="false" sortIndex="2">
@@ -3173,7 +3262,7 @@ must-warlord</comment>
         </profile>
         <profile id="fa66-e8ff-f857-f176" name="Lord of the Planet of the Sorcerers (Psychic)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can attempt up to 2 Rituals per turn instead of one, and each time this model attempts a Ritual, add 2 to the Psychic test result.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can attempt up to two Rituals per turn instead of one, and each time this model attempts a Ritual, add 2 to the Psychic test result.</characteristic>
           </characteristics>
         </profile>
         <profile id="ea6d-bbfb-6322-fda9" name="Impossible Form (Psychic)" hidden="false" typeId="b74a-bcb9-3e72-83e4" typeName="Crimson King">
@@ -3657,7 +3746,7 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Bringers of Change" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9b81-e167-c93c-61d4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If the attack targets a unit within range of an objective marker you do not control, you can re-roll the Wound roll instead.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a model in this unit makes a ranged attack, re-roll a Wound roll of 1. If that attack targets a unit within range of an objective marker you do not control, you can re-roll the Wound roll instead.</characteristic>
           </characteristics>
         </profile>
         <profile id="73b0-2450-b18d-c3a1" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -4476,7 +4565,7 @@ invuln: 5+</comment>
         </profile>
         <profile name="Twisted Sorceries (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3f72-d7a7-dce1-8da4">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in your Shooting phase or the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength and Attacks characteristic of Psychic weapons equipped by this model by 3.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, in your Shooting phase or the Fight phase, this model can use this ability. If it does, until the end of the phase, improve the Strength and Attacks characteristics of Psychic weapons equipped by this model by 3.</characteristic>
           </characteristics>
         </profile>
         <profile name="Sorcerer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="11a0-4128-c564-2a81">
@@ -4510,13 +4599,6 @@ invuln: 5+</comment>
         <selectionEntryGroup name="Wargear" id="f7f4-144a-57c6-eb8e" hidden="false" sortIndex="4">
           <entryLinks>
             <entryLink import="true" name="Force weapon" hidden="false" id="d186-45a2-c7df-2dd1" type="selectionEntry" targetId="74f5-4553-6d71-b44c">
-              <selectionEntryGroups></selectionEntryGroups>
-            </entryLink>
-            <entryLink import="true" name="Inferno bolt pistol" hidden="false" id="cc11-59d3-1b6f-e31" collective="false" targetId="c70d-46dc-32da-b1a4" type="selectionEntry">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d36d-a91a-671a-468e-min" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d36d-a91a-671a-468e-max" includeChildSelections="false"/>
-              </constraints>
               <selectionEntryGroups></selectionEntryGroups>
             </entryLink>
           </entryLinks>
@@ -4571,6 +4653,41 @@ invuln: 5+</comment>
                 <categoryLink name="Melee Weapon" hidden="false" id="cd54-8c47-34f9-e2b3" targetId="ccdd-3987-11ed-90cd" primary="false"/>
               </categoryLinks>
             </selectionEntry>
+    <selectionEntry id="5d89-a4ed-b5fe-f6e0" name="Inferno bolt pistol" hidden="false" collective="false" import="true" type="upgrade">
+      <profiles>
+        <profile id="dc2d-c23d-5428-a5a2" name="Inferno bolt pistol" hidden="false" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="3+" field="94d-8a98-cf90-183e">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3789-4546-1d0a-f02b" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="4f2d-13bc-43ce-25f4" name="Pistol" hidden="false" targetId="8bf7-8812-923d-29e4" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink name="Ranged Weapon" hidden="false" id="c350-fde6-8a12-23a5" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+      </categoryLinks>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7397-aca6-e345-0381" includeChildSelections="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="554a-182a-8cd7-c400" includeChildSelections="false"/>
+              </constraints>
+    </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
         <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="c6e7-46a8-ee63-b9af">
@@ -4648,11 +4765,6 @@ invuln: 4+</comment>
       </profiles>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="1bea-306c-8736-6c68" hidden="false" sortIndex="4">
-          <entryLinks>
-            <entryLink import="true" name="Force weapon" hidden="false" id="c91f-5744-df83-a6d6" type="selectionEntry" targetId="74f5-4553-6d71-b44c">
-              <selectionEntryGroups></selectionEntryGroups>
-            </entryLink>
-          </entryLinks>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Gaze of Hate" hidden="false" id="c95f-7907-e078-7e21">
               <constraints>
@@ -4683,6 +4795,53 @@ invuln: 4+</comment>
               </categoryLinks>
               <selectionEntryGroups></selectionEntryGroups>
             </selectionEntry>
+    <selectionEntry id="80b7-8c68-f9ed-1368" name="Force weapon" hidden="false" collective="false" import="true" type="upgrade">
+      <constraints>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="3e8f-21d1-728d-ef53" type="max"/>
+        <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="b9fb-6926-2963-dbe8" type="min"/>
+      </constraints>
+      <profiles>
+        <profile id="68f4-dc75-0323-f1f6" name="Force weapon" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons">
+          <characteristics>
+            <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+            <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+            <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
+            <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+            <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+            <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="5" field="2337-daa1-6682-b110">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="740a-892c-8958-defa" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+            <modifier type="set" value="2+" field="95d1-95f-45b4-11d6">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="010f-ca66-75a1-379b" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink id="2da3-c620-ce2b-5827" name="Psychic" hidden="false" targetId="e9c4-2bb8-12ee-cd1b" type="rule"/>
+      </infoLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+      </costs>
+      <categoryLinks>
+        <categoryLink name="Psychic Weapon" hidden="false" id="c545-d94a-353c-77c1" targetId="4546-4a0c-b3be-e84c" primary="false"/>
+        <categoryLink name="Melee Weapon" hidden="false" id="51c5-54f4-491d-efae" targetId="ccdd-3987-11ed-90cd" primary="false"/>
+        <categoryLink name="Damage Dx Weapon" hidden="false" id="5ec7-32fe-3b74-4c0c" targetId="4986-bf86-beb4-13ac" primary="false"/>
+      </categoryLinks>
+    </selectionEntry>
           </selectionEntries>
           <selectionEntryGroups>
             <selectionEntryGroup name="Weapon" id="9aa0-dc42-925d-d363" hidden="false" defaultSelectionEntryId="a666-c777-6011-2e07">
@@ -4910,7 +5069,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Hunter of Souls" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="fee5-696a-3638-597a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a ^^**Character^^** unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1 (if that attack targets a ^^**Psyker Character^^** unit, you can re-roll the Hit roll and you can re-roll the Wound roll instead). Each time this model destroys a ^^**Character^^** unit, this model regains up to D3 lost wounds (if that ^^**Character^^** unit was a ^^**Psyker^^**, this model regains up to 3 lost wounds instead).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes an attack that targets a **CHARACTER** unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1 (if that attack targets a **PSYKER CHARACTER** unit, you can re-roll the Hit roll and you can re-roll the Wound roll instead). Each time this model destroys a **CHARACTER** unit, this model regains up to D3 lost wounds (if that **CHARACTER** unit was a **PSYKER** unit, this model regains up to 3 lost wounds instead).</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5079,7 +5238,7 @@ invuln: 4+</comment>
         </profile>
         <profile name="Prophesied Doom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="87ae-4eaa-f9b8-465">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit makes a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit that is within Engagement Range of that enemy unit: for each 4+, that enemy unit suffers 1 mortal wound.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit that is within Engagement Range of that enemy unit: for each 4+, that enemy unit suffers 1 mortal wound.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -5530,7 +5689,7 @@ invuln: 5+</comment>
       <profiles>
         <profile name="Prophetic Sentinels" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d35-679f-6f0c-409c">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when you target this unit with the Fire Overwatch or Heroic Intervention stratagem, that use is -1 CP.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, when you target this unit with the **Fire Overwatch**/**Heroic Intervention stratagem**, that use is -1 CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1997-b341-985f-75ea">
@@ -6600,6 +6759,8 @@ cannot-warlord</comment>
         <categoryLink name="Summoned" hidden="false" id="f49e-6983-cedd-a926" targetId="f2ef-26db-0286-e0a7" primary="false"/>
         <categoryLink name="Horrors" hidden="false" id="076e-61d5-2865-1138" targetId="3262-235e-8f70-6c36" primary="false"/>
         <categoryLink name="Faction: Scintillating Legions" hidden="false" id="5951-9d7a-5446-7c9c" targetId="5fa1-9079-f32b-ce1e" primary="false"/>
+        <categoryLink name="Blue" hidden="false" id="8349-8bb3-0f14-fa38" targetId="ebde-2682-6142-07b7" primary="false"/>
+        <categoryLink name="Brimstone" hidden="false" id="8ca9-d098-b62e-6f65" targetId="e8ba-4dca-0719-e884" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Pink Horror" hidden="false" id="884b-a88a-9eaa-88d3">
@@ -6873,6 +7034,7 @@ cannot-warlord</comment>
         <categoryLink name="Summoned" hidden="false" id="957e-7996-b363-7480" targetId="f2ef-26db-0286-e0a7" primary="false"/>
         <categoryLink name="Horrors" hidden="false" id="ce40-7a77-0da9-330b" targetId="3262-235e-8f70-6c36" primary="false"/>
         <categoryLink name="Faction: Scintillating Legions" hidden="false" id="e89c-564d-a86d-c391" targetId="5fa1-9079-f32b-ce1e" primary="false"/>
+        <categoryLink name="Brimstone" hidden="false" id="e21d-3c2a-23e7-e3fb" targetId="e8ba-4dca-0719-e884" primary="false"/>
       </categoryLinks>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Blue Horror" hidden="false" id="a7db-5a37-4495-4ed1" collective="false">
@@ -7389,7 +7551,7 @@ cannot-warlord</comment>
           <conditionGroups>
             <conditionGroup type="or">
               <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6342-2cd6-f518-f565" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="7d81-23ab-9311-e856" shared="true"/>
               </conditions>
             </conditionGroup>
           </conditionGroups>
