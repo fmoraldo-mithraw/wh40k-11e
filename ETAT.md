@@ -57,6 +57,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 ## Dettes connues (pas de décision attendue)
 
+- **CI appli rouge au 2026-10-31 (préexistant, origin/feat/v11 6bad760)** : `test:import-real-cases` — « Terminators BT à plat » relit 4 « Terminator w/ Heavy Weapon » au lieu de poings tronçonneurs. Import PDF : worker pdf.js émis en `.js` (nginx sans type `.mjs`), glisser-déposer dans la modale d'import (84b0d92).
+
 - **Import simple : aperçu ≠ armée** (préexistant) : liste Aeldari Aspect Host (fixture `nr-wtc-player-team.txt`)
   annoncée 1975 pts à l'aperçu, 2085 une fois importée (même écart au rechargement d'une liste du lot).
 
