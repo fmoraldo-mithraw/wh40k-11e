@@ -24,7 +24,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 - `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **73/73** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-10-31 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
-  744 lues, 10 627/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6.
+  744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
+  12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche).
 - Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
@@ -79,6 +80,9 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   « Joueur — Équipe » / « Joueur — Faction » / « Faction » dans un dossier, sous-dossier par équipe dès 2 équipes)
   + **journal d'import** (fenêtre ⛔/⚠/ℹ : fiche/arme/amélioration/détachement introuvables, effectif hors bornes,
   prix et total incohérents, pas de Seigneur de Guerre, armes par défaut non listées).
+  **Les listes réelles servent aux règles de FORMAT, jamais de référence de points/équipement** (décision
+  utilisateur) : le journal gradue selon l'âge de la liste (`Data Version: vNNN` vs `src/lib/dataVintage.js`) —
+  même version → alerte, plus ancienne / inconnue → info « barème différent (MFM, codex) ».
 
 - 2026-10-31 : **fiches tranchées** : mots-clefs de rôle SM retirés ; options du Watch Sergeant hors fiche retirées ;
   « Eradicator Squad with Melta Rifles » ; reliques Triumph sans préfixe ; **un seul Soul Grinder** à allégeance ;
@@ -106,5 +110,7 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 - Routines : **veille game-datacards** `trig_01LeEKKKSbD2SyUgmXjRYSgn` (13:12 Paris, pousse sur `veille-gdc/v<N>[-r<k>]`,
   « TEXTE À FOURNIR ») ; **MFM cowork** `trig_01UwCB1pdXMJSda5aaWxM5rQ` (`pousse.sh`, `abandons.json`, `verifie.sh`).
+- `src/lib/dataVintage.js` (appli) : `REFERENCE_GW_DATA_VERSION` = `tracked.dataVersion` de game-datacards
+  (`test:batch-import` ROUGE à la montée de version — guide `editor/SOURCE_GAME_DATACARDS.md`).
 - `src/data/legends-names.json` (appli) : `test:legends-names` ROUGE si le MFM change les noms Legends →
   `npm run gen:legends-names`. Hook de démarrage : `.claude/hooks/session-start.sh` des deux dépôts.

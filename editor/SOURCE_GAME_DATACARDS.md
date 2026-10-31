@@ -31,6 +31,9 @@ Manifeste versionné de la source :
   des outils) ; `detachmentTool: true` = détachements synchronisables par
   `gdc-sync-detachments.cjs` (chapitres divergents) ;
 - `knownNoise` : artefacts connus à ignorer ; `tools` : outils associés.
+- **Changement de version suivie** (`tracked.dataVersion`) : mettre à jour aussi
+  `REFERENCE_GW_DATA_VERSION` dans `../cogitator-bellicum/src/lib/dataVintage.js` (le journal
+  d'import y compare le « Data Version: vNNN » des listes ; `test:batch-import` ROUGE sinon).
 - `attachOverrides` : rattachements Leader/Support qu'un document officiel **plus récent** que la
   version suivie ajoute (faction pack, errata) — `gdc-attach.cjs` les ajoute aux cibles de la fiche
   et ne les retire donc pas ; à vider quand la source les porte (ex. Eldrad/Farseer → Warlock
