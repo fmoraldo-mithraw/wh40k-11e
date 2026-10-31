@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 6bad760
-// source-sha256: d38acffe8d52fa3e
+// source-commit: 6610d67
+// source-sha256: fc85cd34009fa0b5
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -4298,7 +4298,7 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
     rawEntries.push({ name, pts, max, defaultAmount: hasExplicitDefaultAmount(el) ? getDefaultAmount(el) : hasExplicitDefaultAmount(tgt) ? getDefaultAmount(tgt) : creationMin, sortIndex: intC(el["@sortIndex"], 1e6), profile: pickOptionWeaponProfile(tgt, idIndex) || pickComboWeaponProfiles(tgt, idIndex), ability: pickOptionAbilityDesc(tgt, unitCategoryIds, idIndex), comp: collectChoiceComposition(tgt, idIndex), associations, ids: [el["@id"], el["@targetId"], ...entryCategoryIds(el, tgt)].filter(Boolean), statMods: [...extractStatMods(el), ...extractStatMods(tgt)], unitMax: choiceUnitMax(el, tgt), simMods: [...collectSimMods(el), ...collectSimMods(tgt)], weaponMods: [...extractWeaponMods(el, idIndex), ...extractWeaponMods(tgt, idIndex)], inv: optionInvulnDeep(tgt, idIndex) });
   }
   for (const se of arr(child(grp, "selectionEntries.selectionEntry"))) {
-    if (se["@hidden"] === "true") continue;
+    if (se["@hidden"] === "true" && !unhiddenBySquadChoice(se)) continue;
     if (entryHiddenFor(se, unitCategoryIds)) continue;
     const min = intC(effEntryConstraint(se, "min"), 0);
     const name = se["@name"] || "";
@@ -4309,6 +4309,7 @@ function getOptChoices(grp, idIndex, unitCategoryIds, dfltMax = 1) {
     for (const c of arr(child(se, "costs.cost"))) {
       if (c["@name"] === "pts") pts = intC(c["@value"], 0);
     }
+    pts += nestedMandatoryPts(se, idIndex);
     if (!name) continue;
     const seAssociations = mapAssociations(se, idIndex);
     if (defaultId && se["@id"] === defaultId) defaultName = name;
@@ -5454,6 +5455,40 @@ function getTiers(entry) {
   }
   out.sort((a, b) => a[0] - b[0]);
   return out;
+}
+function unhiddenBySquadChoice(node) {
+  for (const g of arr(child(node, "modifierGroups.modifierGroup"))) {
+    const mods = arr(child(g, "modifiers.modifier"));
+    if (!mods.some((m) => m["@field"] === "hidden" && m["@type"] === "set" && m["@value"] === "false")) continue;
+    const conds = arr(child(g, "conditions.condition"));
+    if (conds.length && conds.every((c) => c["@field"] === "selections" && c["@childId"] && !/^(force|roster|primary-catalogue|primary-category|ancestor)$/i.test(c["@scope"] || ""))) return true;
+  }
+  return false;
+}
+function nestedMandatoryPts(node, idIndex) {
+  let sum = 0;
+  const own = (n) => {
+    for (const c of arr(child(n, "costs.cost"))) if (c["@name"] === "pts") return intC(c["@value"], 0);
+    return null;
+  };
+  for (const el of arr(child(node, "entryLinks.entryLink"))) {
+    if (el["@hidden"] === "true") continue;
+    const mn = intC(getConstraint(el, "min", "selections"), 0);
+    if (mn < 1) continue;
+    let p = own(el);
+    if (p == null) {
+      const t = idIndex && idIndex.get(el["@targetId"]);
+      p = t ? own(t) : null;
+    }
+    sum += (p || 0) * mn;
+  }
+  for (const k of arr(child(node, "selectionEntries.selectionEntry"))) {
+    if (k["@hidden"] === "true") continue;
+    const mn = intC(getConstraint(k, "min", "selections"), 0);
+    if (mn < 1) continue;
+    sum += (own(k) || 0) * mn;
+  }
+  return sum;
 }
 function getCostMods(entry, catalogueId) {
   const out = [];
