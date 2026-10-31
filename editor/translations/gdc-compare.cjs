@@ -13,7 +13,11 @@
 //   vrai      — vrai écart à corriger dans la base (valeur, mot-clef, aptitude absente ou en trop, texte) ;
 //   nom       — faux positif d'appariement : même contenu sous un autre nom (arme, profil, aptitude) ;
 //   modele    — choix de modélisation de la base : catégories internes (« Faction: », « … * », nom d'unité),
-//               profils « (ref. only) », mot-clef Hunter (…), CT 7+ Torrent = N/A, préfixe (Once per …).
+//               profils « (ref. only) », mot-clef Hunter (…), CT 7+ Torrent = N/A, préfixe (Once per …) ;
+//   voulu     — vrai écart CONSERVÉ sur décision de l'utilisateur, consigné dans editor/sources/gdc-ecarts-voulus.json
+//               (catalogue → fiche de la base → [{ kind, field, base, officiel, le, motif }]) : l'item ne vaut que pour
+//               ces valeurs exactes — si la base ou l'officiel change, il redevient « vrai » ; une entrée qui ne
+//               correspond plus à aucun écart est signalée (« écart voulu introuvable ») pour être retirée.
 //
 // Profils lus comme l'appli les affiche (parseur ../cogitator-bellicum/scripts/bsdata-parser.mjs : PROFILE_CTX,
 // characteristics/applyProfileMods, staticPrimaryCatVerdict/unitCatLeaf) — sinon faux « vrais » écarts :
@@ -64,6 +68,8 @@ const LEG = new Set(), PRICED = new Set(), ABD = new Set();
 try { for (const v of Object.values(JSON.parse(fs.readFileSync(R + "/editor/mfm/legends.json", "utf8")).factions || {})) for (const n of v) LEG.add(N(n)); } catch {}
 try { const D = R + "/editor/mfm/dump/en"; for (const f of fs.readdirSync(D)) if (f.endsWith(".json") && f[0] !== "_") for (const u of JSON.parse(fs.readFileSync(path.join(D, f), "utf8")).units || []) PRICED.add(N(u.name)); } catch {}
 try { for (const [s, v] of Object.entries(JSON.parse(fs.readFileSync(R + "/editor/mfm/abandons.json", "utf8")))) if (!s.startsWith("_")) for (const n of Object.keys(v)) ABD.add(N(n)); } catch {}
+const VOULUS = []; // écarts voulus (décision utilisateur) : { file, fiche, kind, field, base, officiel, le, motif, hit }
+try { for (const [file, v] of Object.entries(JSON.parse(fs.readFileSync(R + "/editor/sources/gdc-ecarts-voulus.json", "utf8")))) if (!file.startsWith("_")) for (const [fiche, L] of Object.entries(v)) for (const e of L) VOULUS.push({ file, fiche, ...e, hit: 0 }); } catch (e) { if (e.code !== "ENOENT") console.error(`⚠ gdc-ecarts-voulus.json illisible (${e.message}) : aucun écart voulu pris en compte`); }
 const ALIAS = new Map();
 try { for (const [s, v] of Object.entries(JSON.parse(fs.readFileSync(R + "/editor/mfm/aliases.json", "utf8")))) if (!s.startsWith("_")) for (const [k, t] of Object.entries(v)) for (const x of [].concat(t)) { if (!ALIAS.has(N(k))) ALIAS.set(N(k), new Set()); ALIAS.get(N(k)).add(N(x)); } } catch {}
 
@@ -296,9 +302,14 @@ for (const [, P] of pairs) for (const p of P) for (const i of p.items) if (isExt
 // mot-clef officiel absent sur ≥ 5 fiches (EXPLOSIVES, FRAME…) : reste un vrai écart, signalé comme décision d'ensemble
 const MISS = new Map(); for (const [, P] of pairs) for (const p of P) for (const i of p.items) if (i.classe === "vrai" && i.note === "mot-clef officiel absent") MISS.set(i.valOff, (MISS.get(i.valOff) || 0) + 1);
 for (const [, P] of pairs) for (const p of P) for (const i of p.items) if (i.classe === "vrai" && i.note === "mot-clef officiel absent" && MISS.get(i.valOff) >= 5) i.note += ` — systématique (${MISS.get(i.valOff)} fiches : catégorie à poser en masse)`;
+// écarts voulus (editor/sources/gdc-ecarts-voulus.json) : vrai → voulu, valeurs exactes seulement
+for (const [, P] of pairs) for (const p of P) for (const i of p.items) { if (i.classe !== "vrai") continue;
+  const e = VOULUS.find((v) => v.file === p.ours.file && N(v.fiche) === N(p.ours.name) && v.kind === i.kind && v.field === i.field && v.base === i.valBase && v.officiel === i.valOff);
+  if (e) { e.hit++; i.classe = "voulu"; i.note = `${i.note ? i.note + " — " : ""}écart voulu (décision du ${e.le} : ${e.motif})`; } }
+for (const e of VOULUS) if (!e.hit) console.error(`⚠ écart voulu introuvable (corrigé, ou base/officiel changé) : ${e.file} · ${e.fiche} · ${e.kind} · ${e.field} (${e.base} → ${e.officiel}) — à retirer de editor/sources/gdc-ecarts-voulus.json ou à revoir`);
 
 // ── rapports
-const CL = { vrai: "Vrais écarts à corriger", nom: "Faux positifs d'appariement (noms)", modele: "Choix de modélisation de la base" };
+const CL = { vrai: "Vrais écarts à corriger", voulu: "Écarts voulus (décision de l'utilisateur, editor/sources/gdc-ecarts-voulus.json)", nom: "Faux positifs d'appariement (noms)", modele: "Choix de modélisation de la base" };
 const index = []; const outFiles = []; const legacy = [];
 for (const f of files.filter((x) => !ONLY || ONLY.includes(x))) {
   const F = GD.get(f); const label = (MANIFEST.files[f] || {}).label || f.replace(/\.json$/, ""); const P = pairs.get(f) || [];
@@ -310,8 +321,8 @@ for (const f of files.filter((x) => !ONLY || ONLY.includes(x))) {
   const ok = P.filter((p) => !p.items.some((i) => i.classe === "vrai")).length;
   const L = [`# ${label} — fiches de la base vs fiches officielles (${f})`, "",
     `Source : game-datacards/datasources \`11th/gdc/${f}\`, données ${F.compatibleDataVersion}, export ${String(F.updated || "?").slice(0, 19)}. Généré par \`editor/translations/gdc-compare.cjs\` (lecture seule).`, "",
-    `Bilan : ${P.length} paire(s) comparée(s) (${ok} sans vrai écart) · ${count("vrai")} vrai(s) écart(s) · ${count("nom")} faux positif(s) d'appariement · ${count("modele")} choix de modélisation · ${absent.filter((a) => a.statut === "absente de la base").length} fiche(s) officielle(s) absente(s) de la base · ${hs.length} fiche(s) de la base hors source.`, ""];
-  for (const k of ["vrai", "nom", "modele"]) { const its = items.filter((i) => i.classe === k); if (!its.length) continue;
+    `Bilan : ${P.length} paire(s) comparée(s) (${ok} sans vrai écart) · ${count("vrai")} vrai(s) écart(s) · ${count("voulu")} écart(s) voulu(s) · ${count("nom")} faux positif(s) d'appariement · ${count("modele")} choix de modélisation · ${absent.filter((a) => a.statut === "absente de la base").length} fiche(s) officielle(s) absente(s) de la base · ${hs.length} fiche(s) de la base hors source.`, ""];
+  for (const k of ["vrai", "voulu", "nom", "modele"]) { const its = items.filter((i) => i.classe === k); if (!its.length) continue;
     L.push(`## ${CL[k]} (${its.length})`, ""); if (k === "modele") L.push("<details><summary>détail</summary>", "");
     let cur = null; for (const i of its) { const head = `${i.fiche}${N(i.ours) !== N(i.fiche) ? ` (base : « ${i.ours} »)` : ""}${i.copie ? ` — ${i.copie}` : ""}`; if (head !== cur) { cur = head; L.push(`### ${head}`); }
       L.push(`- ${i.kind} · **${i.field}** : base \`${i.valBase}\` → officiel \`${i.valOff}\`${i.note ? ` — ${i.note}` : ""} · ${loc(i.at)}`); }
@@ -325,7 +336,7 @@ for (const f of files.filter((x) => !ONLY || ONLY.includes(x))) {
     for (const c of compos) { L.push(`### ${c.fiche}`, `- 📦 composition officielle : ${c.composition.join(" ; ")}`); if (c.equipement) L.push(`  - équipement : ${c.equipement}`); for (const x of c.options) L.push(`  - option : ${x}`); }
     if (!LEGACY) L.push("", "</details>"); L.push(""); }
   const md = L.join("\n") + "\n";
-  const json = { file: f, label, dataVersion: F.compatibleDataVersion, updated: F.updated, counts: { paires: P.length, sansEcart: ok, vrai: count("vrai"), nom: count("nom"), modele: count("modele"), absentes: absent.length, horsSource: hs.length },
+  const json = { file: f, label, dataVersion: F.compatibleDataVersion, updated: F.updated, counts: { paires: P.length, sansEcart: ok, vrai: count("vrai"), voulu: count("voulu"), nom: count("nom"), modele: count("modele"), absentes: absent.length, horsSource: hs.length },
     items: items.map((i) => ({ fiche: i.fiche, ficheBase: i.ours, copie: i.copie || undefined, classe: i.classe, kind: i.kind, field: i.field, base: i.valBase, officiel: i.valOff, note: i.note || undefined, file: i.at && i.at.file, line: i.at && i.at.line, id: i.at && i.at.id })), absentes: absent, horsSource: hs.map((h) => ({ name: h.name, file: h.at && h.at.file, line: h.at && h.at.line })), compositions: compos };
   if (OUTDIR) { const b = f.replace(/\.json$/, ""); fs.mkdirSync(OUTDIR, { recursive: true }); fs.writeFileSync(path.join(OUTDIR, b + ".md"), md); fs.writeFileSync(path.join(OUTDIR, b + ".json"), JSON.stringify(json, null, 1) + "\n"); outFiles.push(b); }
   if (LEGACY) legacy.push(md.replace(/^# /, "## "));
@@ -333,10 +344,10 @@ for (const f of files.filter((x) => !ONLY || ONLY.includes(x))) {
 }
 const T = (k) => index.reduce((s, x) => s + x[k], 0);
 const head = [`# Fiches de la base vs fiches officielles (game-datacards ${[...GD.values()][0].compatibleDataVersion})`, "",
-  "Classement : **vrai** = écart à corriger (la fiche officielle fait foi) · **nom** = faux positif d'appariement (même contenu, autre nom) · **modele** = choix de modélisation de la base (catégories internes, « (ref. only) », Hunter, Torrent 7+ = N/A…).", "",
-  "| Faction | Fichier | Paires | Sans écart | Vrais | Noms | Modélisation | Absentes | Hors source |", "|---|---|---|---|---|---|---|---|---|",
-  ...index.map((x) => `| ${x.label} | ${OUTDIR ? `[${x.f}](${x.f.replace(/\.json$/, ".md")})` : x.f} | ${x.paires} | ${x.sansEcart} | ${x.vrai} | ${x.nom} | ${x.modele} | ${x.absentes} | ${x.horsSource} |`),
-  `| **Total** | | ${T("paires")} | ${T("sansEcart")} | ${T("vrai")} | ${T("nom")} | ${T("modele")} | ${T("absentes")} | ${T("horsSource")} |`, ""];
+  "Classement : **vrai** = écart à corriger (la fiche officielle fait foi) · **voulu** = écart conservé sur décision de l'utilisateur (`editor/sources/gdc-ecarts-voulus.json`) · **nom** = faux positif d'appariement (même contenu, autre nom) · **modele** = choix de modélisation de la base (catégories internes, « (ref. only) », Hunter, Torrent 7+ = N/A…).", "",
+  "| Faction | Fichier | Paires | Sans écart | Vrais | Voulus | Noms | Modélisation | Absentes | Hors source |", "|---|---|---|---|---|---|---|---|---|---|",
+  ...index.map((x) => `| ${x.label} | ${OUTDIR ? `[${x.f}](${x.f.replace(/\.json$/, ".md")})` : x.f} | ${x.paires} | ${x.sansEcart} | ${x.vrai} | ${x.voulu} | ${x.nom} | ${x.modele} | ${x.absentes} | ${x.horsSource} |`),
+  `| **Total** | | ${T("paires")} | ${T("sansEcart")} | ${T("vrai")} | ${T("voulu")} | ${T("nom")} | ${T("modele")} | ${T("absentes")} | ${T("horsSource")} |`, ""];
 if (OUTDIR) { fs.writeFileSync(path.join(OUTDIR, "README.md"), head.join("\n") + "\n"); fs.writeFileSync(path.join(OUTDIR, "index.json"), JSON.stringify(index, null, 1) + "\n"); }
 if (LEGACY) fs.writeFileSync(LEGACY, head.concat(legacy).join("\n") + "\n");
-console.log(`gdc-compare : ${index.length} fichier(s) · ${T("paires")} paires · vrais ${T("vrai")} · noms ${T("nom")} · modélisation ${T("modele")} · absentes ${T("absentes")} · hors source ${T("horsSource")}${OUTDIR ? ` → ${OUTDIR}/` : ""}${LEGACY ? ` → ${LEGACY}` : ""}`);
+console.log(`gdc-compare : ${index.length} fichier(s) · ${T("paires")} paires · vrais ${T("vrai")} · voulus ${T("voulu")} · noms ${T("nom")} · modélisation ${T("modele")} · absentes ${T("absentes")} · hors source ${T("horsSource")}${OUTDIR ? ` → ${OUTDIR}/` : ""}${LEGACY ? ` → ${LEGACY}` : ""}`);
