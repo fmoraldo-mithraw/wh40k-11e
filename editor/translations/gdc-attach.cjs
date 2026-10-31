@@ -12,11 +12,11 @@
 //     (hidden, max=0, entryLinks vers la fiche du meneur) ; l'appli les fusionne dans la liste du meneur, par faction.
 // Le meneur reçoit aussi la règle de base (Leader b4dd-… / Support 21f5-…) et l'aptitude « Leader » / « Support »
 // (texte officiel) s'il ne les porte pas. Les liens que la fiche officielle ne porte pas sont retirés (la fiche
-// fait foi), sauf si la cible a été scindée côté officiel (« Eradicator Squad » ↔ « Eradicator Squad with … »).
+// fait foi), sauf si la cible a été scindée côté officiel (nom de base ↔ « <nom> with … »).
 // Appariement des noms (2026-10-29 — trois angles morts qui laissaient des fiches hors synchronisation) :
 // tirets typographiques normalisés (« Shield‑Captain », U+2011), fiche racine hidden exposée par un entryLink
-// visible (Marneus Calgar jusqu'au 2026-10-29), noms officiels ≠ les nôtres résolus par editor/mfm/aliases.json (« Eradicator Squad
-// with melta rifles » → « Eradicator Squad », « Ancient in Terminator Armour » → « … Armor »).
+// visible (Marneus Calgar jusqu'au 2026-10-29), noms officiels ≠ les nôtres résolus par editor/mfm/aliases.json
+// (« Ancient in Terminator Armour » → « … Armor »).
 //
 // Fiches LEGENDS (editor/mfm/legends.json, décision du 2026-10-29 : rien de Legends dans la base ni l'appli) : une
 // cible officielle Legends n'est ni liée ni écrite dans la prose. Un SENS que la fiche officielle ne porte pas
@@ -56,7 +56,7 @@ const linkedVisible = new Set(); for (const [, d] of c.docs) { const el = xml.ch
 const units = new Map(); for (const [f, d] of c.docs) for (const b of ["sharedSelectionEntries", "selectionEntries"]) { const bx = xml.child(d.root, b); if (!bx) continue;
   for (const e of bx.children) if (e.tag === "selectionEntry" && /^(unit|model)$/.test(xml.getAttr(e, "type") || "") && (xml.getAttr(e, "hidden") !== "true" || linkedVisible.has(xml.getAttr(e, "id")))) { const k = N(nm(e)); if (!units.has(k)) units.set(k, []); units.get(k).push({ f, e }); } }
 // noms officiels qui diffèrent des nôtres : la table d'alias du MFM (mêmes noms que la source) —
-// « Eradicator Squad with melta rifles » → « Eradicator Squad », « Ancient in Terminator Armour » → « … Armor »
+// « Ancient in Terminator Armour » → « … Armor »
 const ALIAS = new Map(); { const A = JSON.parse(fs.readFileSync(R + "/editor/mfm/aliases.json", "utf8"));
   for (const [slug, m] of Object.entries(A)) if (slug !== "_doc") for (const [k, v] of Object.entries(m)) { const s = ALIAS.get(N(k)) || new Set(); for (const x of [].concat(v)) s.add(x); ALIAS.set(N(k), s); } }
 const byName = (name) => { const direct = units.get(N(name)); if (direct) return direct; const out = [];
@@ -192,8 +192,8 @@ for (const file of gdcFiles) {
           else if (clos(T.f).has(L.f)) { officialPairs.add(`${kind}|${xml.getAttr(L.e, "id")}|${xml.getAttr(T.e, "id")}`); touchedRev.add(T.f + "|" + xml.getAttr(T.e, "id")); addLink(T.e, T.f, REV[kind], L, "lien inverse"); }
         }
       }
-      // prose : noms de NOS fiches (une fiche officielle scindée — « Eradicator Squad with melta rifles » —
-      // s'écrit sous notre nom « Eradicator Squad », sinon l'appli ne la résoudrait pas)
+      // prose : noms de NOS fiches (un nom officiel résolu par alias — « Ancient in Terminator Armour » —
+      // s'écrit sous notre nom « Ancient in Terminator Armor », sinon l'appli ne la résoudrait pas)
       const ourName = (o) => { const b = byName(o); if (b.length) return nm(b[0].e); for (const [k, v] of units) if (N(o).startsWith(k + " ")) return nm(v[0].e); return o; };
       if (!resolved.length) continue; // aucune cible chez nous (toutes Legends ?) : ni règle, ni prose, ni lien
       ensureRule(L.e, L.f, kind);
