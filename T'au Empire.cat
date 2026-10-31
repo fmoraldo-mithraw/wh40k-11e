@@ -6,6 +6,21 @@
 
 Units from your army with the For the Greater Good ability (excluding Observer units) are Guided units while targeting one or more Spotted units. Until the end of the phase, each time a model from your army in a Guided unit makes an attack that targets a Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if the Spotted unit was marked by an Observer unit that has the **^^Markerlight^^** keyword, that attack has the **[IGNORES COVER]** ability.</description>
     </rule>
+    <rule name="Drones" hidden="false" id="f0d8-e92e-124a-f328">
+      <description>If you have upgraded a model to have a drone, place a Drone token next to your model as a reminder. These do not count as models for any rules purposes.
+
+**Guardian Drone:** Each time a model makes a ranged attack that targets the bearer’s unit, subtract 1 from the Wound roll.
+
+**Gun Drone:** The bearer is equipped with the following ranged weapon:
+Twin pulse carbine [ASSAULT, TWIN-LINKED] 20&quot; A2 BS5+ S5 AP0 D1
+
+**Marker Drone:** The bearer’s unit has the **^^Markerlight^^** keyword and can act as an Observer unit for another unit even if it Advanced this turn.
+
+**Missile Drone:** The bearer is equipped with the following ranged weapon:
+Missile pod 30&quot; A2 BS5+ S7 AP-1 D2
+
+**Shield Drone:** Add 1 to the bearer’s Wounds characteristic.</description>
+    </rule>
   </rules>
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Warlord" id="179c-d88a-d49b-48b9">
@@ -9965,6 +9980,13 @@ sim-mod: sustained=1 source=&quot;Prototype Weapon System&quot; when=ranged choi
           <comment>[export-as-ability]</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Missile Drone" hidden="false" id="87e6-9a39-44b3-c69a">
+          <profiles>
+            <profile name="Missile Drone" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="364a-ab32-72ba-5315">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer is equipped with the following ranged weapon:</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Missile pod" hidden="false" id="3535-5405-3607-1574" collective="true">
               <profiles>
