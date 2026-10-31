@@ -236,9 +236,8 @@
     <entryLink import="true" name="Kairos Fateweaver" hidden="false" type="selectionEntry" id="26bd-56be-f5be-19f7" targetId="6df5-f246-6bd-55b8"/>
     <entryLink import="true" name="Karanak" hidden="false" type="selectionEntry" id="f2f0-6213-2417-57dc" targetId="8436-cec1-e65a-d1a7"/>
     <entryLink import="true" name="Keeper of Secrets" hidden="false" type="selectionEntry" id="26af-cfb8-dc7b-acce" targetId="a903-dd97-339d-6899"/>
-    <entryLink import="true" name="Khorne Soul Grinder" hidden="false" type="selectionEntry" id="98bd-6217-a3ac-b86a" targetId="8e9f-aa9-17f5-e2d3"/>
+    <entryLink import="true" name="Soul Grinder" hidden="false" type="selectionEntry" id="98bd-6217-a3ac-b86a" targetId="8e9f-aa9-17f5-e2d3"/>
     <entryLink import="true" name="Lord of Change" hidden="false" type="selectionEntry" id="d54c-41ba-2f37-22a4" targetId="3600-9f92-933-bf54"/>
-    <entryLink import="true" name="Nurgle Soul Grinder" hidden="false" type="selectionEntry" id="6dd1-5717-67ef-5c43" targetId="137e-d9b8-e764-c7cd"/>
     <entryLink import="true" name="Nurglings" hidden="false" type="selectionEntry" id="a7b1-e21b-e5ce-104f" targetId="e403-3a9-279e-41b7"/>
     <entryLink import="true" name="Pink Horrors" hidden="false" type="selectionEntry" id="e6fe-b5bd-d1b6-cff0" targetId="e7b8-aa40-6da7-778e"/>
     <entryLink import="true" name="Plague Drones" hidden="false" type="selectionEntry" id="57d9-2dc6-7efe-d739" targetId="d620-146a-41cd-f28f"/>
@@ -254,7 +253,6 @@
     <entryLink import="true" name="Skull Cannon" hidden="false" type="selectionEntry" id="4f43-1544-c098-861e" targetId="fd37-8a80-3da8-f262"/>
     <entryLink import="true" name="Skullmaster" hidden="false" type="selectionEntry" id="f9f-2100-687b-69bd" targetId="dd30-ba4c-34a4-e788"/>
     <entryLink import="true" name="Skulltaker" hidden="false" type="selectionEntry" id="b032-4a6a-3900-8dcf" targetId="8872-785a-1efa-7ca1"/>
-    <entryLink import="true" name="Slaanesh Soul Grinder" hidden="false" type="selectionEntry" id="98e0-bfa4-7061-f9ea" targetId="5df-73b6-d758-14fc"/>
     <entryLink import="true" name="Sloppity Bilepiper" hidden="false" type="selectionEntry" id="61b1-a4bf-899e-9f2c" targetId="3da0-5db0-7531-33b6"/>
     <entryLink import="true" name="Spoilpox Scrivener" hidden="false" type="selectionEntry" id="85bc-9887-389b-64b8" targetId="e7cd-468b-37dd-d82f"/>
     <entryLink import="true" name="Syll&apos;esske" hidden="false" type="selectionEntry" id="cfa8-5c37-c140-915" targetId="27f6-d907-66f-ca28"/>
@@ -263,7 +261,6 @@
     <entryLink import="true" name="The Masque of Slaanesh" hidden="false" type="selectionEntry" id="f135-a27-d47-d791" targetId="1567-b99b-bd8f-d485"/>
     <entryLink import="true" name="Tormentbringer" hidden="false" type="selectionEntry" id="fa07-2fe1-8621-b69d" targetId="673b-111b-6dcb-352"/>
     <entryLink import="true" name="Tranceweaver" hidden="false" type="selectionEntry" id="3cf-6042-5a03-a295" targetId="dba-34e3-46f2-56e0"/>
-    <entryLink import="true" name="Tzeentch Soul Grinder" hidden="false" type="selectionEntry" id="73ac-1752-3efd-100a" targetId="e1b1-146f-6f77-3a15"/>
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry id="6470-c44a-45f4-3313" name="Detachment" hidden="false" collective="false" import="true" type="upgrade">
@@ -3014,7 +3011,7 @@ must-warlord</comment>
       </modifiers>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
-    <selectionEntry id="8e9f-aa9-17f5-e2d3" name="Khorne Soul Grinder" publicationId="e3ec-7a32-ae62-8727" page="111-112" hidden="false" collective="false" import="true" type="model">
+    <selectionEntry id="8e9f-aa9-17f5-e2d3" name="Soul Grinder" publicationId="e3ec-7a32-ae62-8727" page="111-112" hidden="false" collective="false" import="true" type="model">
       <comment>invuln: 4+</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="ce1a-b146-af3-31aa" type="max"/>
@@ -3023,6 +3020,19 @@ must-warlord</comment>
         <profile id="c910-afa9-948-7057" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Daemonic Allegiance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ad85-c1b0-5d44-e1d6">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When you select this model to include in your army, you must select one of the keywords below. Until the end of the battle, this model has that keyword and the additional wargear stated for that keyword below.
+
+**KHORNE** - **This model is additionally equipped with:** torrent of burning blood
+
+**TZEENTCH** - **This model is additionally equipped with:** warp gaze
+
+**NURGLE** - **This model is additionally equipped with:** phlegm bombardment
+
+**SLAANESH** - **This model is additionally equipped with:** scream of despair</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3038,15 +3048,6 @@ must-warlord</comment>
         <infoLink name="Scuttling Walker" hidden="false" type="profile" id="ab52-2122-dc15-f5e7" targetId="28f9-b1d9-4f70-1cd9"/>
         <infoLink name="Soul Grinder" hidden="false" type="profile" id="ed4b-4e9e-78c1-bd85" targetId="9249-ebf9-e49d-ecf9"/>
         <infoLink name="Damaged: 1-5 wounds remaining" hidden="false" type="profile" id="5997-5b8f-bc5-cf45" targetId="c430-73bc-3ba9-3cb1"/>
-        <infoLink name="Murderer&apos;s Cowl" id="0f28-acfa-4d38-fceb" hidden="false" type="profile" targetId="b864-9b7d-e224-f6be">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
       </infoLinks>
       <categoryLinks>
         <categoryLink id="9bac-3aee-3abe-66d0" name="Faction: Legiones Daemonica" hidden="false" targetId="571f-ec3a-a5a2-751a" primary="false"/>
@@ -3054,9 +3055,7 @@ must-warlord</comment>
         <categoryLink id="5692-6577-3a30-e305" name="Walker" hidden="false" targetId="6dda-e157-334d-e93a" primary="false"/>
         <categoryLink id="239e-9ebb-aa6d-e330" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
         <categoryLink id="2d71-f558-9ed-57a1" name="Daemon" hidden="false" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink id="1191-f037-148e-a19d" name="Khorne" hidden="false" targetId="4bd-5ee0-f179-2fc5" primary="false"/>
         <categoryLink id="d51f-97f4-1e14-6a5e" name="Soul Grinder" hidden="false" targetId="76fd-2f64-2ec0-e4b1" primary="false"/>
-        <categoryLink targetId="2308-7f1a-2beb-1e16" id="3cc0-c7aa-52e1-f087" primary="false" name="Khorne non-Battleline"/>
         <categoryLink name="Shadow Legion" hidden="false" id="a7a0-a675-8327-2895" targetId="4df3-beae-010c-9087" primary="false"/>
       </categoryLinks>
       <costs>
@@ -3065,9 +3064,16 @@ must-warlord</comment>
       <entryLinks></entryLinks>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="f5f9-1339-84bb-ae85" shared="true" id="cf0d-c51b-856b-8e29" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="f5f9-1339-84bb-ae85" shared="true" id="cf0d-c51b-856b-8e29" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="1248-8642-b42f-1dca" shared="true" id="b020-27b4-954f-513a" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="f486-5e38-994c-15ec" shared="true" id="33e2-a482-188c-c795" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="d3ff-16f0-dad2-c03c" shared="true" id="ee46-72d-ed4c-7ba" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
         </modifier>
         <modifier type="set-primary" value="887b-ab87-92a2-20f5" field="category">
           <conditions>
@@ -3081,6 +3087,217 @@ must-warlord</comment>
         </modifier>
       </modifiers>
       <selectionEntryGroups>
+        <selectionEntryGroup id="0493-852b-3ad3-ff6f" name="Allegiance" hidden="false" collective="false" import="true" sortIndex="1">
+          <constraints>
+            <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="c398-54ea-2e6a-4279" type="min"/>
+            <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="1a1d-13cb-1775-0f6b" type="max"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry id="47a8-051e-c1cb-5ea4" name="Khorne" hidden="false" collective="false" import="true" type="upgrade">
+              <infoLinks>
+                <infoLink name="Murderer&apos;s Cowl" id="0f28-acfa-4d38-fceb" hidden="false" type="profile" targetId="b864-9b7d-e224-f6be">
+                  <modifiers>
+                    <modifier type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </infoLink>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink id="1191-f037-148e-a19d" name="Khorne" hidden="false" targetId="4bd-5ee0-f179-2fc5" primary="false"/>
+                <categoryLink targetId="2308-7f1a-2beb-1e16" id="3cc0-c7aa-52e1-f087" primary="false" name="Khorne non-Battleline"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Torrent of burning blood" hidden="false" id="4b01-6fb-e28e-3108" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="eab0-2c70-1c2f-5fbd" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="43a2-80c8-1583-d1d4" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Torrent of burning blood" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="28c9-3943-d7b5-3d2e">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">2D6</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <infoLinks>
+                    <infoLink name="Ignores Cover" id="469a-412c-fd5-ddb9" hidden="false" targetId="4640-43e7-30b-215a" type="rule"/>
+                    <infoLink name="Torrent" id="aaf1-bbb7-d26e-5eeb" hidden="false" targetId="5edf-d619-23e0-9b56" type="rule"/>
+                  </infoLinks>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <entryLinks></entryLinks>
+                  <categoryLinks>
+                    <categoryLink name="Attacks Dx Weapon" hidden="false" id="6fab-52d4-12c2-d312" targetId="e993-e086-6de1-12af" primary="false"/>
+                  </categoryLinks>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntry>
+            <selectionEntry id="48ee-2c2b-0f55-d416" name="Tzeentch" hidden="false" collective="false" import="true" type="upgrade">
+              <infoLinks>
+                <infoLink name="Penumbral Puppetry" id="b084-8421-f629-a8c6" hidden="false" type="profile" targetId="36f2-466c-a396-051c">
+                  <modifiers>
+                    <modifier type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </infoLink>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink id="6f7a-d263-92af-a14b" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
+                <categoryLink targetId="6627-b134-a52f-c3db" id="9c04-1b69-fac-fab5" primary="false" name="Tzeentch non-Battleline"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Warp gaze" hidden="false" id="9f51-b187-b3bb-ffac" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9406-2db1-13dc-4f70" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d5b5-2d3d-0c68-3f15" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Warp gaze" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5f06-c69a-c58a-b87d">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+2</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <infoLinks>
+                    <infoLink name="Blast" id="8006-77fe-1e52-54d4" hidden="false" targetId="6c1f-1cf7-ff25-c99e" type="rule"/>
+                  </infoLinks>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <entryLinks></entryLinks>
+                  <categoryLinks>
+                    <categoryLink name="Attacks Dx Weapon" hidden="false" id="230e-dead-d708-0050" targetId="e993-e086-6de1-12af" primary="false"/>
+                  </categoryLinks>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntry>
+            <selectionEntry id="7c70-a271-d554-f809" name="Nurgle" hidden="false" collective="false" import="true" type="upgrade">
+              <infoLinks>
+                <infoLink name="Gloam Rot" id="0d2a-c612-c275-d7d7" hidden="false" type="profile" targetId="61ca-9227-7d3e-bb7d">
+                  <modifiers>
+                    <modifier type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </infoLink>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink id="bbc5-fb53-ebb7-c5e0" name="Nurgle" hidden="false" targetId="ed0d-8e2a-225c-2340" primary="false"/>
+                <categoryLink targetId="8e3c-5782-5118-b4b8" id="a77-b12c-b1a3-845a" primary="false" name="Nurgle non-Battleline"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Phlegm bombardment" hidden="false" id="f6b-41e2-f92c-6605" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1a7a-ffda-fee4-cf3c" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6937-9572-5f28-eb51" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Phlegm bombardment" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c5f2-8a25-f74f-d618">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Indirect Fire, Lethal Hits</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <infoLinks>
+                    <infoLink name="Blast" id="b909-e58f-c0c8-611c" hidden="false" targetId="6c1f-1cf7-ff25-c99e" type="rule"/>
+                    <infoLink name="Indirect Fire" id="e52f-c244-48b2-a11d" hidden="false" targetId="4ddd-4e29-acdd-5e6d" type="rule"/>
+                    <infoLink name="Lethal Hits" id="7c97-f32f-acf-943" hidden="false" targetId="d1d1-611e-5191-1095" type="rule"/>
+                  </infoLinks>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <entryLinks></entryLinks>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntry>
+            <selectionEntry id="9289-70ac-4e1b-c329" name="Slaanesh" hidden="false" collective="false" import="true" type="upgrade">
+              <infoLinks>
+                <infoLink name="Seductive Gambit" id="7321-f64e-d9d8-8be8" hidden="false" type="profile" targetId="25c8-c84a-4f3d-7b60"/>
+                <infoLink name="Shadow&apos;s Caress" id="b772-6703-b789-6088" hidden="false" type="profile" targetId="1d4c-b5d1-2e67-43f6">
+                  <modifiers>
+                    <modifier type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </infoLink>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink id="179-5389-453-4b40" name="Slaanesh" hidden="false" targetId="b2a9-ede5-7a83-4da8" primary="false"/>
+                <categoryLink targetId="8aa7-4f0e-f4ab-83a3" id="bca7-9c07-21a1-b9c0" primary="false" name="Slaanesh non-Battleline"/>
+              </categoryLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Scream of despair" hidden="false" id="1aeb-a137-be14-807a" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f848-7c71-8a0c-2224" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6dfb-b07c-43d5-3bb5" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Scream of despair" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4177-898a-c364-246">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Sustained Hits 1</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <infoLinks>
+                    <infoLink name="Devastating Wounds" id="7fa4-35b3-992b-1bfd" hidden="false" targetId="be1e-ac8e-1e2c-3528" type="rule"/>
+                    <infoLink name="Sustained Hits" id="14c5-32-4cde-73e" hidden="false" targetId="1897-c22c-9597-12b1" type="rule"/>
+                  </infoLinks>
+                  <costs>
+                    <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                  </costs>
+                  <entryLinks></entryLinks>
+                </selectionEntry>
+              </selectionEntries>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
         <selectionEntryGroup name="Wargear" id="f303-1c40-9953-c460" hidden="false" sortIndex="2">
           <entryLinks>
             <entryLink import="true" name="Harvester cannon" hidden="false" id="3a0-4ed3-7035-2af" type="selectionEntry" targetId="416d-1da1-fc2c-174a">
@@ -3091,369 +3308,6 @@ must-warlord</comment>
             </entryLink>
             <entryLink import="true" name="Melee weapon" hidden="false" id="4100-dc12-421c-2621" type="selectionEntryGroup" targetId="46db-d986-248b-bd2b"/>
           </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Torrent of burning blood" hidden="false" id="4b01-6fb-e28e-3108" collective="false">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="eab0-2c70-1c2f-5fbd" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="43a2-80c8-1583-d1d4" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Torrent of burning blood" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="28c9-3943-d7b5-3d2e">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2D6</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">N/A</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Ignores Cover" id="469a-412c-fd5-ddb9" hidden="false" targetId="4640-43e7-30b-215a" type="rule"/>
-                <infoLink name="Torrent" id="aaf1-bbb7-d26e-5eeb" hidden="false" targetId="5edf-d619-23e0-9b56" type="rule"/>
-              </infoLinks>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <entryLinks></entryLinks>
-              <categoryLinks>
-                <categoryLink name="Attacks Dx Weapon" hidden="false" id="6fab-52d4-12c2-d312" targetId="e993-e086-6de1-12af" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
-    </selectionEntry>
-    <selectionEntry id="e1b1-146f-6f77-3a15" name="Tzeentch Soul Grinder" publicationId="e3ec-7a32-ae62-8727" page="111-112" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
-      <constraints>
-        <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="ce1a-b146-af3-31aa" type="max"/>
-      </constraints>
-      <profiles>
-        <profile id="ac4b-524a-82c5-2b96" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink id="45f0-6829-d1f9-bf77" name="Deadly Demise" hidden="false" targetId="b68a-5ded-65ac-98c" type="rule">
-          <modifiers>
-            <modifier type="append" field="name" value="D3"/>
-          </modifiers>
-        </infoLink>
-        <infoLink id="4e51-baeb-3838-7c66" name="The Shadow of Chaos" hidden="false" targetId="a312-a2f1-e1c0-30ed" type="rule"/>
-        <infoLink id="6ffd-95a6-b7d8-f079" name="Warp Rifts" hidden="false" targetId="877e-cc0c-8a1d-be46" type="rule"/>
-        <infoLink id="412-8d6d-d3a6-db79" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
-        <infoLink name="Soul Grinder" hidden="false" type="profile" id="de34-214-4668-8883" targetId="9249-ebf9-e49d-ecf9"/>
-        <infoLink name="Scuttling Walker" hidden="false" type="profile" id="b5ab-3709-d06f-c853" targetId="28f9-b1d9-4f70-1cd9"/>
-        <infoLink name="Damaged: 1-5 wounds remaining" hidden="false" type="profile" id="6195-d4a7-4d91-f9e4" targetId="c430-73bc-3ba9-3cb1"/>
-        <infoLink name="Penumbral Puppetry" id="b084-8421-f629-a8c6" hidden="false" type="profile" targetId="36f2-466c-a396-051c">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink id="84f5-af29-a2f6-e7a7" name="Faction: Legiones Daemonica" hidden="false" targetId="571f-ec3a-a5a2-751a" primary="false"/>
-        <categoryLink id="4183-2e4d-6684-b680" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="true"/>
-        <categoryLink id="5372-fddc-7f8b-34f7" name="Walker" hidden="false" targetId="6dda-e157-334d-e93a" primary="false"/>
-        <categoryLink id="3c4f-ac30-55e8-4204" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink id="7452-f337-7bd9-3aae" name="Daemon" hidden="false" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink id="6f7a-d263-92af-a14b" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
-        <categoryLink id="dfd6-5650-3f4d-294a" name="Soul Grinder" hidden="false" targetId="76fd-2f64-2ec0-e4b1" primary="false"/>
-        <categoryLink targetId="6627-b134-a52f-c3db" id="9c04-1b69-fac-fab5" primary="false" name="Tzeentch non-Battleline"/>
-        <categoryLink name="Shadow Legion" hidden="false" id="7413-0c98-8555-087e" targetId="4df3-beae-010c-9087" primary="false"/>
-      </categoryLinks>
-      <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
-      </costs>
-      <entryLinks></entryLinks>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="1248-8642-b42f-1dca" shared="true" id="b020-27b4-954f-513a" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set-primary" value="887b-ab87-92a2-20f5" field="category">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="d265-877b-e03d-30ca" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="e1b1-146f-6f77-3a15" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Wargear" id="4942-8af6-13e5-b935" hidden="false" sortIndex="2">
-          <entryLinks>
-            <entryLink import="true" name="Harvester cannon" hidden="false" id="86be-b8e2-1719-d4de" type="selectionEntry" targetId="416d-1da1-fc2c-174a">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Iron claw" hidden="false" id="f9eb-8b01-91fd-a0dc" type="selectionEntry" targetId="b83b-3b6-9aa7-5b3b">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Melee weapon" hidden="false" id="a58e-230e-7dff-dc85" type="selectionEntryGroup" targetId="46db-d986-248b-bd2b"/>
-          </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Warp gaze" hidden="false" id="9f51-b187-b3bb-ffac" collective="false">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9406-2db1-13dc-4f70" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d5b5-2d3d-0c68-3f15" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Warp gaze" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5f06-c69a-c58a-b87d">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D3</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Blast" id="8006-77fe-1e52-54d4" hidden="false" targetId="6c1f-1cf7-ff25-c99e" type="rule"/>
-              </infoLinks>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <entryLinks></entryLinks>
-              <categoryLinks>
-                <categoryLink name="Attacks Dx Weapon" hidden="false" id="230e-dead-d708-0050" targetId="e993-e086-6de1-12af" primary="false"/>
-              </categoryLinks>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
-    </selectionEntry>
-    <selectionEntry id="137e-d9b8-e764-c7cd" name="Nurgle Soul Grinder" publicationId="e3ec-7a32-ae62-8727" page="111-112" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
-      <constraints>
-        <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="ce1a-b146-af3-31aa" type="max"/>
-      </constraints>
-      <profiles>
-        <profile id="f33a-64c1-d7f3-bd65" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink id="b074-730f-954b-50f9" name="Deadly Demise" hidden="false" targetId="b68a-5ded-65ac-98c" type="rule">
-          <modifiers>
-            <modifier type="append" field="name" value="D3"/>
-          </modifiers>
-        </infoLink>
-        <infoLink id="bc27-4688-70dd-3b41" name="The Shadow of Chaos" hidden="false" targetId="a312-a2f1-e1c0-30ed" type="rule"/>
-        <infoLink id="a7f0-971d-223f-9bd8" name="Warp Rifts" hidden="false" targetId="877e-cc0c-8a1d-be46" type="rule"/>
-        <infoLink id="e80-4042-4990-dd21" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
-        <infoLink name="Soul Grinder" hidden="false" type="profile" id="1b46-ed61-1859-5cd1" targetId="9249-ebf9-e49d-ecf9"/>
-        <infoLink name="Scuttling Walker" hidden="false" type="profile" id="f3d8-bbfb-272e-250a" targetId="28f9-b1d9-4f70-1cd9"/>
-        <infoLink name="Damaged: 1-5 wounds remaining" hidden="false" type="profile" id="c375-abfc-a6b-5ae1" targetId="c430-73bc-3ba9-3cb1"/>
-        <infoLink name="Gloam Rot" id="0d2a-c612-c275-d7d7" hidden="false" type="profile" targetId="61ca-9227-7d3e-bb7d">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink id="304a-a135-8492-f0fd" name="Faction: Legiones Daemonica" hidden="false" targetId="571f-ec3a-a5a2-751a" primary="false"/>
-        <categoryLink id="fdb1-4dc3-34d3-8120" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="true"/>
-        <categoryLink id="93f0-732a-667c-8282" name="Walker" hidden="false" targetId="6dda-e157-334d-e93a" primary="false"/>
-        <categoryLink id="d257-eaa7-547f-1651" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink id="68d1-4872-140a-1b8d" name="Daemon" hidden="false" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink id="bbc5-fb53-ebb7-c5e0" name="Nurgle" hidden="false" targetId="ed0d-8e2a-225c-2340" primary="false"/>
-        <categoryLink id="9488-50d7-f79e-68a2" name="Soul Grinder" hidden="false" targetId="76fd-2f64-2ec0-e4b1" primary="false"/>
-        <categoryLink targetId="8e3c-5782-5118-b4b8" id="a77-b12c-b1a3-845a" primary="false" name="Nurgle non-Battleline"/>
-        <categoryLink name="Shadow Legion" hidden="false" id="64cd-0877-031f-efec" targetId="4df3-beae-010c-9087" primary="false"/>
-      </categoryLinks>
-      <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
-      </costs>
-      <entryLinks></entryLinks>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="f486-5e38-994c-15ec" shared="true" id="33e2-a482-188c-c795" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set-primary" value="887b-ab87-92a2-20f5" field="category">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="d265-877b-e03d-30ca" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="137e-d9b8-e764-c7cd" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Wargear" id="5d6e-2b81-bb73-33cf" hidden="false" sortIndex="2">
-          <entryLinks>
-            <entryLink import="true" name="Harvester cannon" hidden="false" id="21d8-948f-b20a-cc4b" type="selectionEntry" targetId="416d-1da1-fc2c-174a">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Iron claw" hidden="false" id="4973-6e53-e655-f7cb" type="selectionEntry" targetId="b83b-3b6-9aa7-5b3b">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Melee weapon" hidden="false" id="768a-5150-5434-128d" type="selectionEntryGroup" targetId="46db-d986-248b-bd2b"/>
-          </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Phlegm bombardment" hidden="false" id="f6b-41e2-f92c-6605" collective="false">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1a7a-ffda-fee4-cf3c" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6937-9572-5f28-eb51" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Phlegm bombardment" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c5f2-8a25-f74f-d618">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast, Indirect Fire, Lethal Hits</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Blast" id="b909-e58f-c0c8-611c" hidden="false" targetId="6c1f-1cf7-ff25-c99e" type="rule"/>
-                <infoLink name="Indirect Fire" id="e52f-c244-48b2-a11d" hidden="false" targetId="4ddd-4e29-acdd-5e6d" type="rule"/>
-                <infoLink name="Lethal Hits" id="7c97-f32f-acf-943" hidden="false" targetId="d1d1-611e-5191-1095" type="rule"/>
-              </infoLinks>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <entryLinks></entryLinks>
-            </selectionEntry>
-          </selectionEntries>
-        </selectionEntryGroup>
-      </selectionEntryGroups>
-    </selectionEntry>
-    <selectionEntry id="5df-73b6-d758-14fc" name="Slaanesh Soul Grinder" publicationId="e3ec-7a32-ae62-8727" page="111-112" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
-      <constraints>
-        <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="ce1a-b146-af3-31aa" type="max"/>
-      </constraints>
-      <profiles>
-        <profile id="496f-f946-3d37-607a" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a 4+ invulnerable save.</characteristic>
-          </characteristics>
-        </profile>
-      </profiles>
-      <infoLinks>
-        <infoLink id="49c9-bf81-23f9-fcc1" name="Deadly Demise" hidden="false" targetId="b68a-5ded-65ac-98c" type="rule">
-          <modifiers>
-            <modifier type="append" field="name" value="D3"/>
-          </modifiers>
-        </infoLink>
-        <infoLink id="f57f-e9c9-408-a618" name="The Shadow of Chaos" hidden="false" targetId="a312-a2f1-e1c0-30ed" type="rule"/>
-        <infoLink id="7727-5ae0-bc54-8030" name="Warp Rifts" hidden="false" targetId="877e-cc0c-8a1d-be46" type="rule"/>
-        <infoLink id="c251-ed2e-f6bc-b23" name="Deep Strike" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
-        <infoLink name="Scuttling Walker" hidden="false" type="profile" id="2f63-7837-17ce-49b3" targetId="28f9-b1d9-4f70-1cd9"/>
-        <infoLink name="Damaged: 1-5 wounds remaining" hidden="false" type="profile" id="d5c6-5422-c49f-d652" targetId="c430-73bc-3ba9-3cb1"/>
-        <infoLink name="Soul Grinder" hidden="false" type="profile" id="329c-8045-9d9-af0f" targetId="9249-ebf9-e49d-ecf9"/>
-        <infoLink name="Seductive Gambit" id="7321-f64e-d9d8-8be8" hidden="false" type="profile" targetId="25c8-c84a-4f3d-7b60"/>
-        <infoLink name="Shadow&apos;s Caress" id="b772-6703-b789-6088" hidden="false" type="profile" targetId="1d4c-b5d1-2e67-43f6">
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="lessThan" value="1" field="selections" scope="roster" childId="5063-25bd-d22e-665b" shared="true" includeChildSelections="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
-      </infoLinks>
-      <categoryLinks>
-        <categoryLink id="980e-c692-99ca-bb62" name="Faction: Legiones Daemonica" hidden="false" targetId="571f-ec3a-a5a2-751a" primary="false"/>
-        <categoryLink id="1c94-9c6f-f7da-3030" name="Vehicle" hidden="false" targetId="dbd4-63-af05-998" primary="true"/>
-        <categoryLink id="1f6c-56c8-e8c5-b0e" name="Walker" hidden="false" targetId="6dda-e157-334d-e93a" primary="false"/>
-        <categoryLink id="e4db-86d1-b6fa-8d80" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
-        <categoryLink id="7d4f-1ffd-4ad0-3a47" name="Daemon" hidden="false" targetId="9c0e-7e25-4580-e439" primary="false"/>
-        <categoryLink id="179-5389-453-4b40" name="Slaanesh" hidden="false" targetId="b2a9-ede5-7a83-4da8" primary="false"/>
-        <categoryLink id="3a24-5146-2fde-87cf" name="Soul Grinder" hidden="false" targetId="76fd-2f64-2ec0-e4b1" primary="false"/>
-        <categoryLink targetId="8aa7-4f0e-f4ab-83a3" id="bca7-9c07-21a1-b9c0" primary="false" name="Slaanesh non-Battleline"/>
-        <categoryLink name="Shadow Legion" hidden="false" id="7f56-0288-2a96-7ead" targetId="4df3-beae-010c-9087" primary="false"/>
-      </categoryLinks>
-      <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
-      </costs>
-      <entryLinks></entryLinks>
-      <modifiers>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="d3ff-16f0-dad2-c03c" shared="true" id="ee46-72d-ed4c-7ba" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set-primary" value="887b-ab87-92a2-20f5" field="category">
-          <conditions>
-            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="d265-877b-e03d-30ca" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="increment" field="51b2-306e-1021-d207" value="15">
-          <conditions>
-            <condition type="atLeast" value="3" field="selections" scope="roster" childId="5df-73b6-d758-14fc" shared="true" includeChildSelections="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-      </modifiers>
-      <selectionEntryGroups>
-        <selectionEntryGroup name="Wargear" id="3dcb-e51e-8ae5-2995" hidden="false" sortIndex="2">
-          <entryLinks>
-            <entryLink import="true" name="Harvester cannon" hidden="false" id="13a3-48b4-1f76-ea55" type="selectionEntry" targetId="416d-1da1-fc2c-174a">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Iron claw" hidden="false" id="9cc0-6c0f-3af5-833c" type="selectionEntry" targetId="b83b-3b6-9aa7-5b3b">
-              <entryLinks></entryLinks>
-            </entryLink>
-            <entryLink import="true" name="Melee weapon" hidden="false" id="62f0-d009-564f-e980" type="selectionEntryGroup" targetId="46db-d986-248b-bd2b"/>
-          </entryLinks>
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Scream of despair" hidden="false" id="1aeb-a137-be14-807a" collective="false">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="f848-7c71-8a0c-2224" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6dfb-b07c-43d5-3bb5" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
-              </constraints>
-              <profiles>
-                <profile name="Scream of despair" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="4177-898a-c364-246">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Sustained Hits 1</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Devastating Wounds" id="7fa4-35b3-992b-1bfd" hidden="false" targetId="be1e-ac8e-1e2c-3528" type="rule"/>
-                <infoLink name="Sustained Hits" id="14c5-32-4cde-73e" hidden="false" targetId="1897-c22c-9597-12b1" type="rule"/>
-              </infoLinks>
-              <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
-              </costs>
-              <entryLinks></entryLinks>
-            </selectionEntry>
-          </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntry>

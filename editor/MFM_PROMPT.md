@@ -227,9 +227,9 @@ Pièges d'audit associés :
   (1ʳᵉ = prix armée, 2ᵉ = prix alliés). Garder la PREMIÈRE occurrence
   comme base, encoder l'écart en increment allié — lire
   `AGENTS_DUAL_COST_PROMPT.md` AVANT tout traitement de ce fichier.
-- Alias d'unités : « SOUL GRINDER » (MFM) = 4 entrées par dieu dans la
-  bibliothèque Daemons (Khorne/Tzeentch/Nurgle/Slaanesh Soul Grinder) —
-  vérifier les 4.
+- Alias d'unités : `editor/mfm/aliases.json` (un nom MFM peut couvrir plusieurs
+  fiches — vérifier chacune). « SOUL GRINDER » n'en est plus un : une seule
+  fiche « Soul Grinder » à allégeance (fusion du 2026-10-31).
 
 ### 4. Détachements : DP, Force Disposition, UNIQUE — à auditer aussi
 

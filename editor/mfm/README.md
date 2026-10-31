@@ -222,7 +222,7 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   et `phase3.mjs` en « ? », tant que la question (MFM ou fiche officielle pour 9
   figurines) n'est pas tranchée.
 - `aliases.json` — résidu nom MFM → datasheet(s) bdd (nom cat, bsId, ou tableau
-  pour un nom générique couvrant plusieurs datasheets, ex. `SOUL GRINDER` → 4
+  pour un nom générique couvrant plusieurs datasheets, ex. (historique) `SOUL GRINDER` → 4
   variantes de dieu). Fusionné avant l'auto-match ; revérifié à chaque build.
 - `abandons.json` — fiches **au barème** du MFM dont l'intégration est
   **abandonnée** par l'utilisateur (règle 6 : une absence se signale, sauf
