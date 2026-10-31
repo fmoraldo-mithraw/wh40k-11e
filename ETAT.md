@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-30. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-10-31. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -38,9 +38,11 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 3. **Dépendances de dev** : monter vite 8 / fast-xml-parser 5 (failles, `--host`) ?
 4. **Déploiement à faire** : `cd ~/cogitator-bellicum && git pull && ./deploy.sh`, puis `journalctl -u
    cogitator-bellicum -n 80 | grep -i 'better auth'` et une vraie connexion + « mot de passe oublié ».
-5. **Vocabulaire FR** : le pack garde surtout l'ancienne traduction (Ruée, Effectif de Départ) là où l'officiel 11e dit
-   « mouvement d'élan », « effectif initial » ; les résumés suivent le pack (mot-clef : LIGNE). Passer pack + résumés à
-   l'officiel 11e ? (aussi : Sombres Pactes, Furie/Fureur d'Airain, aptitude/capacité, « Prime »/« Primat » Tyranide.)
+5. **Vocabulaire FR 11e — arbitrages par défaut à confirmer** (appliqués le 2026-10-31) : résumés gardent leurs
+   abréviations sauf SvIn/Sv/CO ; [Lourd], [Jumelé], « FUSION » (capitales du pack) ; BÊTES ; optimisation (Enhancement) /
+   Amélioration (Upgrade) ; termes 10e de la clé EN suivis (pion d'objectif, réserves) ; Death Blow inchangé ; UI : libellés
+   courts du simulateur gardés (Touche/Blesse/Crit/Soutient/FNP). Hors table, non traités : mots-clefs restés en anglais
+   (DAMNED, TECH-PRIEST…), formats (Force de Frappe/Offensive), missions (objectif domiciliaire, noms d'actions).
 6. **Fiches à trancher contre l'officiel v995** : copies BT Terminator / Sternguard (80ad, a499), fusion Soul Grinder,
    démons de codex invoqués, Sargotta, CHARACTER des SW (VD), mots-clefs de rôle (errata 11e), drones T'au, Thicket
    SPAWN, options du Watch Sergeant (DKT), noms Eradicator / Heavy Thunder Hammer, reliques de la Triumph.
@@ -59,22 +61,22 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   ~600 lignes à U+00A0. **Parseur** : catégories conférées sous condition de détachement non évaluées (TYRANID
   WARRIORS de Warrior Bioform Onslaught : sim-mod Parasitic Payload) ; `gen-def-mods.mjs` : 6 nœuds en dérive.
 
-Clos le 2026-10-30 : **fiches alignées sur l'officiel game-datacards v995** (textes, profils, mots-clefs, FR officiel ;
-phases B à E) ; 19 détachements de chapitre hors MFM retirés ; Visarch, Crusaders, Secutarii = Legends (hors base).
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-10-31 : **vocabulaire FR officiel 11e** partout (pack 3 169 valeurs, résumés 2 244, UI) : aptitude, jet de
+  touche/blessure, mouvement d'avance/de retraite/d'élan, choisir, placer, SvIn, unité de meneur, Ligne, Sombres Pactes,
+  Primat ; guide `editor/BRIEFS_PROMPT.md` aligné — ne jamais réintroduire les anciennes formes.
 - 2026-10-30 (nuit) : simulateur, cible choisie → bouton « 🛡 Défenses » : `def-mod` de sa fiche, de sa règle d'armée et de
   chaque détachement de sa faction (stratagèmes filtrés par leur ligne TARGET) — `src/sim/targetDefense.js`.
 - 2026-10-30 (soir) : **jamais renommer une entrée de choix ni ses profils d'arme** (l'appli enregistre les choix par
   nom et résout leurs armes par le nom des profils ; `gdc-apply-weapons` signale, `--rename-profils` pour le profil) ;
   invulnérable projetée par un détachement = infoLink masqué révélé par le détachement + `def-mod` sur la règle
-  (`kw=`, `kwModels` si la prose vise des figurines) ; résumés FR = vocabulaire du pack, mot-clef LIGNE.
-- 2026-10-30 : détachement absent du MFM signalé « ◇ » (`dp-audit`, symétrique) ; demandes ④/⑤ vérifiées dans
-  `editor/mfm/verifies.json` ; gdc-watch : ré-exports à version égale (`--stamp`), mots-clefs par figurine.
-- 2026-10-29 : **rien de Legends dans la base ni l'appli** (`editor/audit/legends.mjs`, `src/lib/legendsNames.js`) ;
-  **abandons** dans `editor/mfm/abandons.json` ; pack FR = clés vivantes (mémoire : `2abf1210:translations/fr.json`).
+  (`kw=`, `kwModels` si la prose vise des figurines).
+- 2026-10-30 : fiches alignées sur game-datacards v995 ; détachement absent du MFM « ◇ » (`dp-audit`, symétrique) ;
+  ④/⑤ vérifiées dans `editor/mfm/verifies.json` ; gdc-watch `--stamp`. 10-29 : **rien de Legends** (`editor/audit/
+  legends.mjs`, `src/lib/legendsNames.js`) ; `editor/mfm/abandons.json` ; pack FR = clés vivantes (`2abf1210`).
 - Plus anciennes (détail dans les guides) : 10-28 formats MFM « Muster Armies », sim-mod `kw=`/`kwModels` ; 10-27 import/export rejoués choix par choix ; 10-25 `enhDet` des
   améliorations homonymes ; 10-23 « riled up » = « vénèr » ; 10-22 invulnérables à contexte et résumés `briefs/` ;
   10-15 conteneurs ; 10-14 `attachOverrides` ; 10-13 FNP `mortal` ; 10-09 Incursion 3 → 2 DP, démons des légions
