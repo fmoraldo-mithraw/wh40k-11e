@@ -89,14 +89,17 @@ Sternguard Power Weapon A5, Terminator Squad Storm Bolter 3+ et Power Weapon
 A5, Victrix Chapter Ancient avec Master-crafted Bolt Carbine et groupe 1-8,
 catégories Dx périmées sur des armes sans dé.
 
-**Errata fonctionnels (marqués `errata-11e:` en commentaire de fiche)** : le
-codex omet systématiquement le mot-clef de rôle sur la fiche générique
-(Captain sans CAPTAIN, Chaplain, Librarian ×3, Lieutenant ×3, Ancient,
-Techmarine, Apothecary, Judiciar), Librarian in Terminator Armour sans
-CHARACTER, Kayvaan Shrike sans CHARACTER/EPIC HERO, Kaius Konorius sans
-IMPERIUM. Ces mots-clefs sont rétablis car les améliorations « X model only »,
-Leader et les portes d'unicité en dépendent ; `units.jsonl` porte le champ
-`errataKeywords`.
+**Mots-clefs de rôle (révisé le 2026-10-31, officiel v995 + règle de base
+02.01.01)** : la liste de mots-clefs des cartes génériques ne cite pas leur rôle
+(Captain, Lieutenant, Librarian, Chaplain, Ancient, Techmarine, Apothecary,
+Judiciar, Apothecary Biologis), mais le nom de chaque fiche est aussi un mot-clef
+(02.01.01) : ces catégories sont officielles et restent (commentaire « nom de
+fiche = mot-clef (02.01.01) »). Les mots-clefs que la base ajoutait aux variantes
+ont été retirés pour suivre l'officiel : LIEUTENANT (Lieutenant in Phobos Armour,
+Lieutenant with Combi-weapon), LIBRARIAN (Librarian in Phobos Armour, Librarian in
+Terminator Armour), IMPERIUM (Kaius Konorius, Death Company Captain with Jump
+Pack). CHARACTER du Librarian in Terminator Armour et CHARACTER/EPIC HERO de
+Kayvaan Shrike sont désormais sur les cartes officielles.
 
 **Fiches du dépôt absentes du codex 11e, supprimées** (avec leurs liens
 inter-fichiers et catégories propres) : Captain with Relic Shield, Lieutenant in
