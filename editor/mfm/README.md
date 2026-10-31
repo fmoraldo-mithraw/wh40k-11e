@@ -209,18 +209,18 @@ Les écritures partagées (même bsId vu depuis plusieurs chapitres) sont
   répétition) ; n'y inscrire qu'une ligne revérifiée. État :
   `node editor/mfm/verifies.mjs` (✓ / ⚠ par entrée, sortie ≠ 0 si une entrée est
   à revérifier) ; empreinte d'une unité : `node editor/mfm/verifies.mjs
-  editor/mfm/dump/en "slug::NOM"`. Contenu au 2026-10-30 : 31 unités (④ 15, ⑤ 3,
-  tier-audit 4, phase3 12, certaines communes) ; **non inscrit** : ATALAN JACKALS
-  (Genestealer Cults), barème en question ouverte. État de la base au 2026-10-30
-  (alignée sur la fiche officielle game-datacards : 5 = 85, 9 = 150, 10 = 150 ;
-  l'ancien modifier « set 160 si ≥ 1 Wolfquad », qui jouait toujours, est retiré) :
-  85 pts, « set 150 » au-delà de 5 figurines, +10 dès la 3e unité ; 4 à 8 Jackals
-  + 1 Wolfquad, le second Wolfquad n'étant permis qu'avec 8 Jackals (maximum
-  conditionnel que l'appli n'évalue pas : elle plafonne l'unité à 9 figurines).
-  Le MFM porte en plus « 9 models » = 160 (170 dès la 3e unité), prix que la base
-  ne produit pas : `apply.mjs` le sort en ⑥ (« À ME RENVOYER »), `tier-audit.mjs`
-  et `phase3.mjs` en « ? », tant que la question (MFM ou fiche officielle pour 9
-  figurines) n'est pas tranchée.
+  editor/mfm/dump/en "slug::NOM"`. Contenu au 2026-10-31 : 32 unités (④ 15, ⑤ 3,
+  tier-audit 5, phase3 12, certaines communes), dont ATALAN JACKALS (Genestealer
+  Cults, « tier-audit ») : décision de l'utilisateur du 2026-10-31 « suit le MFM »
+  (v1.6 : 5 = 85, 10 = 150, 9 = 160 ; 95 / 160 / 170 dès la 3e unité), alors que la
+  fiche officielle game-datacards v995 donne 150 à 9 figurines. Encodage : 85 pts,
+  « set 150 » au-delà de 5 figurines, « set 160 » à exactement 9 figurines
+  (`equalTo 9`, placé après le set 150), +10 dès la 3e unité ; 4 à 8 Jackals +
+  1 Wolfquad, le second Wolfquad n'étant permis qu'avec 8 Jackals (maximum
+  conditionnel que l'appli n'évalue pas : elle plafonne l'unité à 9 figurines,
+  facturées 160). Les tailles 6 à 8 restent à 150 par choix de l'utilisateur (la
+  règle « taille intermédiaire = palier supérieur » donnerait 160) : c'est le
+  « ? » de `tier-audit.mjs` que couvre l'entrée ; `apply.mjs` ne sort plus de ⑥.
 - `aliases.json` — résidu nom MFM → datasheet(s) bdd (nom cat, bsId, ou tableau
   pour un nom générique couvrant plusieurs datasheets, ex. (historique) `SOUL GRINDER` → 4
   variantes de dieu). Fusionné avant l'auto-match ; revérifié à chaque build.
