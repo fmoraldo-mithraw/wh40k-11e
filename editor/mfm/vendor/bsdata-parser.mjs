@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 1dd8f9e
-// source-sha256: c2854644dca4a027
+// source-commit: 5ef8731
+// source-sha256: d38acffe8d52fa3e
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -3995,13 +3995,16 @@ function pickOptionAbilityDesc(targetEntry, unitCategoryIds, idIndex) {
     return c.Description ? { name: p["@name"] || "", desc: c.Description } : null;
   };
   for (const p of arr(child(targetEntry, "profiles.profile"))) {
+    if (runtimeHiddenGate(p)) continue;
     const r = fromProfile(p);
     if (r) return r;
   }
   if (idIndex) {
     for (const il of arr(child(targetEntry, "infoLinks.infoLink"))) {
       if (il["@type"] !== "profile") continue;
-      const r = fromProfile(idIndex.get(il["@targetId"]) || {});
+      const t = idIndex.get(il["@targetId"]) || {};
+      if (linkHiddenGate(il) || runtimeHiddenGate(t)) continue;
+      const r = fromProfile(t);
       if (r) return r;
     }
   }
@@ -4973,6 +4976,42 @@ function addForcedWargearAbilities(ab, entry, idIndex, unitCatIds, comp) {
     }
   }
 }
+function choiceGatedAbilities(entry, idIndex) {
+  const out = [];
+  if (!entry || !idIndex) return out;
+  const seenGroups = /* @__PURE__ */ new Set();
+  const groupsOf = (n) => [
+    ...arr(child(n, "selectionEntryGroups.selectionEntryGroup")),
+    ...arr(child(n, "entryLinks.entryLink")).filter((el) => el["@type"] === "selectionEntryGroup").map((el) => idIndex.get(el["@targetId"])).filter(Boolean)
+  ];
+  const visit = (g) => {
+    if (!g || seenGroups.has(g)) return;
+    seenGroups.add(g);
+    const choices = [
+      ...arr(child(g, "selectionEntries.selectionEntry")).map((se) => [se["@id"], se]),
+      ...arr(child(g, "entryLinks.entryLink")).filter((el) => el["@type"] === "selectionEntry").map((el) => [el["@id"], idIndex.get(el["@targetId"])])
+    ];
+    for (const [cid, tgt] of choices) {
+      if (!cid || !tgt) continue;
+      const picked = { b: false, m: [{ v: true, cg: { op: "and", conds: [{ type: "lessThan", field: "selections", value: 1, scope: "parent", childId: cid, shared: true }], groups: [] } }] };
+      for (const il of arr(child(tgt, "infoLinks.infoLink"))) {
+        if (il["@type"] !== "profile") continue;
+        const p = idIndex.get(il["@targetId"]);
+        if (!p || !isAbilityProfile(p) || isWeaponProfile(p)) continue;
+        const gate = mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(p));
+        if (gate) out.push([p, mergeHiddenGates(gate, picked), il]);
+      }
+      for (const p of arr(child(tgt, "profiles.profile"))) {
+        if (!isAbilityProfile(p) || isWeaponProfile(p)) continue;
+        const gate = runtimeHiddenGate(p);
+        if (gate) out.push([p, mergeHiddenGates(gate, picked), null]);
+      }
+    }
+    for (const sub of groupsOf(g)) visit(sub);
+  };
+  for (const host of [entry, ...modelEntriesOf(entry, idIndex)]) for (const g of groupsOf(host)) visit(g);
+  return out;
+}
 function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks) {
   const allProfiles = [...entryProfiles(entry), ...extraProfiles || []];
   const modelCoreLinks = [];
@@ -5146,6 +5185,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
     const isRule = il["@type"] === "rule" || tgt.description != null && !tgt.characteristics;
     if (isRule) addRule(tgt, mergeHiddenGates(linkHiddenGate(il), runtimeHiddenGate(tgt)));
   }
+  for (const [p, gate, il] of choiceGatedAbilities(entry, idIndex)) add(p, gate, linkDescAppends(il));
   if (invulFromName && !out.some(([n]) => String(n || "").trim().toLowerCase() === "invulnerable save")) {
     out.push(["Invulnerable Save", invulFromName]);
   } else if (!invulFromName && invulGated && !out.some(([n]) => String(n || "").trim().toLowerCase() === "invulnerable save")) {
