@@ -27,7 +27,9 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
   12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
   (9 tournois, 472 listes, banc hors dépôt) : **4 814/4 873** unités rapprochées (96,7 % → 98,8 %), 0 liste sans unité ;
-  restes = Legends, fiches absentes (Q7), alliés d'une autre faction en 2v2.
+  restes = Legends, fiches absentes (Q7), alliés d'une autre faction en 2v2. **2e passe (nuit)** : unités **4 842/4 870**
+  (99,4 % ; restes = Legends + fiches absentes), équipements **18 310/18 521** placés (98,9 % ; restes = options retirées
+  des fiches 11e dans des listes v946–v981, longue traîne FR). Lot d'équipe L3 (30 listes, export « Joueur : Faction ») : 100 %.
 - Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
@@ -82,6 +84,10 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-10-31 (nuit, 2) : import sans IA — équipement rendu à la fiche (`src/lib/wargearLocalize.js` : graphie voisine,
+  noms FR de l'appli GW via pack + lexique, aptitudes d'équipement, 2e passe par unité), prose narrative écartée, faction
+  par abréviation (« DA ») et par chapitre (fiches propres citées), découpage des exports d'équipe « Joueur : Faction ».
 
 - 2026-10-31 (nuit) : **import entraîné sur Mini Headquarters (17–31/10)** : gabarit FR « Nom (N) : X pts » (`parseFrColon`),
   WTC-NR « 3x X (pts): 3 with … », « Attached Unit1: » / « • Char1: », fait main (« ATTACHED UNIT A », « [pts] (10 models) »,
