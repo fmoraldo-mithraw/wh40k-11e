@@ -19,16 +19,16 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 ## Lignes de base (une régression = un écart à ces nombres)
 
-- Ids dupliqués **426** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
+- Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
 - `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **72/72** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 et 20 le 2026-10-30.
-- Pack FR **13 790** clés ; résumés **4 219** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
+- Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
 - game-datacards suivi : données **995**, commit `6f98bb1`, export du 2026-10-16T18:38 (`editor/sources/game-datacards.json`).
-- `editor/mfm/bodyguard-audit.mjs --all` : **389/389** ; golden des rattachements (appli) **4109** paires ;
-  MFM : `apply.mjs` 1 329 fiches (Titans compris), « À ME RENVOYER » **1** (Atalan Jackals, ⑥), `dp-audit` aligné **et** symétrique.
+- `editor/mfm/bodyguard-audit.mjs --all` : **389/389** ; golden des rattachements (appli) **3977** paires (copies BT retirées) ;
+  MFM : `apply.mjs` 1 329 fiches (Titans compris), « À ME RENVOYER » **0**, `dp-audit` aligné **et** symétrique.
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
@@ -43,10 +43,9 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    Amélioration (Upgrade) ; termes 10e de la clé EN suivis (pion d'objectif, réserves) ; Death Blow inchangé ; UI : libellés
    courts du simulateur gardés (Touche/Blesse/Crit/Soutient/FNP). Hors table, non traités : mots-clefs restés en anglais
    (DAMNED, TECH-PRIEST…), formats (Force de Frappe/Offensive), missions (objectif domiciliaire, noms d'actions).
-6. **Fiches à trancher contre l'officiel v995** : copies BT Terminator / Sternguard (80ad, a499), fusion Soul Grinder,
-   démons de codex invoqués, Sargotta, CHARACTER des SW (VD), mots-clefs de rôle (errata 11e), drones T'au, Thicket
-   SPAWN, options du Watch Sergeant (DKT), noms Eradicator / Heavy Thunder Hammer, reliques de la Triumph.
-7. **Atalan Jackals** : palier MFM 160 pts (9 figurines ?) absent de la base (85 / 150).
+6. **Fiches** : tranchées le 2026-10-31 et appliquées (voir décisions). Reste en suspens : nom « Heavy Thunder Hammer »
+   (DW), FR non officielles à valider (Daemonic Allegiance du Soul Grinder, règle « Drones », Drone Harassment Tactics,
+   Shadow Form Abilities), « Keep Huntin'! » (Orks, non corrigé).
 
 ## Dettes connues (pas de décision attendue)
 
@@ -65,6 +64,11 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-10-31 : **fiches tranchées** : mots-clefs de rôle SM retirés ; options du Watch Sergeant hors fiche retirées ;
+  « Eradicator Squad with Melta Rifles » ; reliques Triumph sans préfixe ; **un seul Soul Grinder** à allégeance ;
+  démons de légion confirmés (écarts « voulus », `editor/sources/gdc-ecarts-voulus.json`) ; règle d'armée « Drones » ;
+  Atalan Jackals 160 à 9 figurines (MFM) ; ~23 noms d'aptitudes corrigés ; copies BT Terminator/Sternguard retirées
+  (appli : `src/lib/{renamedUnits,mergedUnits,choiceAliases}.js` pour recharger les anciennes listes).
 - 2026-10-31 : **vocabulaire FR officiel 11e** partout (pack 3 169 valeurs, résumés 2 244, UI) : aptitude, jet de
   touche/blessure, mouvement d'avance/de retraite/d'élan, choisir, placer, SvIn, unité de meneur, Ligne, Sombres Pactes,
   Primat ; guide `editor/BRIEFS_PROMPT.md` aligné — ne jamais réintroduire les anciennes formes.
