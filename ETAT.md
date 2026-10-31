@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-31 (soir). (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-10-31 (nuit). (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -25,7 +25,9 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-10-31 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
-  12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche).
+  12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
+  (9 tournois, 472 listes, banc hors dépôt) : **4 814/4 873** unités rapprochées (96,7 % → 98,8 %), 0 liste sans unité ;
+  restes = Legends, fiches absentes (Q7), alliés d'une autre faction en 2v2.
 - Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
@@ -50,14 +52,18 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    (DW), FR non officielles à valider (Daemonic Allegiance du Soul Grinder, règle « Drones », Drone Harassment Tactics,
    Shadow Form Abilities), « Keep Huntin'! » (Orks, non corrigé).
 7. **Fiches des listes de tournoi absentes de la base** (règle 6, relevées par l'import) : Valerian (Custodes), Dok et
-   Grotmob (Orks), Vindicator (BA), Venatari « Custodians » (2 fiches Venatari : laquelle ?). Texte à fournir ?
+   Grotmob (Orks), Vindicator (BA), Venatari « Custodians » (2 fiches Venatari : laquelle ?), Venerable Contemptor
+   Dreadnought (Custodes), Warboss on Warbike (Orks). Détachements lus sans équivalent dans la base (listes en v972 —
+   renommés ?) : Shield Host, Solar Spearhead, Tharanatoi Hammerblow, Silent Hunters (Custodes) ; Companions of
+   Vehemence (BT) ; Liberator Assault Group, Legacy of Grace, Vengeful Hosts (BA) ; Godhammer Assault Force. Texte à fournir ?
 8. **Pack FR incomplet / divergent de l'appli GW FR** (import des listes FR) : « Wolf Guard Preneurs de Têtes » (pack)
    vs « Preneurs de Têtes Gardes Loups » (appli GW, et la prose du pack) ; manquent Fenrisian Wolves, Assault
    Brethren, Moteurs surgonflés, Expertise inhumée, Ost-Rempart… Aligner le pack sur les noms de l'appli GW FR ?
+   En attendant : table d'import seule `src/lib/gwFrNames.js` (appli ; ~50 noms sûrs, aucun libellé affiché changé).
 
 ## Dettes connues (pas de décision attendue)
 
-- **CI appli rouge au 2026-10-31 (préexistant, origin/feat/v11 6bad760)** : `test:import-real-cases` — « Terminators BT à plat » relit 4 « Terminator w/ Heavy Weapon » au lieu de poings tronçonneurs. Import PDF : worker pdf.js émis en `.js` (nginx sans type `.mjs`), glisser-déposer dans la modale d'import (84b0d92).
+- Import PDF : worker pdf.js émis en `.js` (nginx sans type `.mjs`), glisser-déposer dans la modale d'import (84b0d92).
 
 - **Import simple : aperçu ≠ armée** (préexistant) : liste Aeldari Aspect Host (fixture `nr-wtc-player-team.txt`)
   annoncée 1975 pts à l'aperçu, 2085 une fois importée (même écart au rechargement d'une liste du lot).
@@ -76,6 +82,11 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-10-31 (nuit) : **import entraîné sur Mini Headquarters (17–31/10)** : gabarit FR « Nom (N) : X pts » (`parseFrColon`),
+  WTC-NR « 3x X (pts): 3 with … », « Attached Unit1: » / « • Char1: », fait main (« ATTACHED UNIT A », « [pts] (10 models) »,
+  « / » et « + »), « Version de Données », suffixes « (Upgrade|Amélioration|un par armée) », surnoms et prose narrative
+  ignorés, champion d'un groupe fixe compté dans l'effectif ; CI appli de nouveau verte (Terminators BT).
 
 - 2026-10-31 (soir) : **import sans IA fiabilisé** (`src/lib/listImport.js`, cas réels `tests/fixtures/import-cases/`)
   + **import en lot** (onglet « Plusieurs listes », `src/lib/batchImport.js` : texte/PDF multi-formats → listes
