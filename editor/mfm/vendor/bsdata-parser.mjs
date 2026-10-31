@@ -1,7 +1,7 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 5ef8731
+// source-commit: 6bad760
 // source-sha256: d38acffe8d52fa3e
 var __create = Object.create;
 var __defProp = Object.defineProperty;
