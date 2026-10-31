@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-31. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-10-31 (soir). (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,8 +21,10 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **72/72** suites (`scripts/dev/tests.sh`,
-  dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 et 20 le 2026-10-30.
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **73/73** suites (`scripts/dev/tests.sh`,
+  dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-10-31 (Node 20 absent du conteneur).
+- Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
+  744 lues, 10 627/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6.
 - Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
@@ -46,8 +48,16 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 6. **Fiches** : tranchées le 2026-10-31 et appliquées (voir décisions). Reste en suspens : nom « Heavy Thunder Hammer »
    (DW), FR non officielles à valider (Daemonic Allegiance du Soul Grinder, règle « Drones », Drone Harassment Tactics,
    Shadow Form Abilities), « Keep Huntin'! » (Orks, non corrigé).
+7. **Fiches des listes de tournoi absentes de la base** (règle 6, relevées par l'import) : Valerian (Custodes), Dok et
+   Grotmob (Orks), Vindicator (BA), Venatari « Custodians » (2 fiches Venatari : laquelle ?). Texte à fournir ?
+8. **Pack FR incomplet / divergent de l'appli GW FR** (import des listes FR) : « Wolf Guard Preneurs de Têtes » (pack)
+   vs « Preneurs de Têtes Gardes Loups » (appli GW, et la prose du pack) ; manquent Fenrisian Wolves, Assault
+   Brethren, Moteurs surgonflés, Expertise inhumée, Ost-Rempart… Aligner le pack sur les noms de l'appli GW FR ?
 
 ## Dettes connues (pas de décision attendue)
+
+- **Import simple : aperçu ≠ armée** (préexistant) : liste Aeldari Aspect Host (fixture `nr-wtc-player-team.txt`)
+  annoncée 1975 pts à l'aperçu, 2085 une fois importée (même écart au rechargement d'une liste du lot).
 
 - **Désignation par import** : une liste importée (WTC/texte) avec amélioration sur un Trygon (Subterranean Assault)
   ou un War Dog (Houndpack) n'active pas la désignation → message de validation jusqu'à la bascule manuelle.
@@ -63,6 +73,12 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-10-31 (soir) : **import sans IA fiabilisé** (`src/lib/listImport.js`, cas réels `tests/fixtures/import-cases/`)
+  + **import en lot** (onglet « Plusieurs listes », `src/lib/batchImport.js` : texte/PDF multi-formats → listes
+  « Joueur — Équipe » / « Joueur — Faction » / « Faction » dans un dossier, sous-dossier par équipe dès 2 équipes)
+  + **journal d'import** (fenêtre ⛔/⚠/ℹ : fiche/arme/amélioration/détachement introuvables, effectif hors bornes,
+  prix et total incohérents, pas de Seigneur de Guerre, armes par défaut non listées).
 
 - 2026-10-31 : **fiches tranchées** : mots-clefs de rôle SM retirés ; options du Watch Sergeant hors fiche retirées ;
   « Eradicator Squad with Melta Rifles » ; reliques Triumph sans préfixe ; **un seul Soul Grinder** à allégeance ;
