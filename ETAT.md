@@ -85,7 +85,7 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
-- 2026-11-01 : **export WTC — ligne « + SECONDARIES: »** en dernière ligne d'entête (`src/lib/wtcSecondaries.js`), secondaires FIXES seulement, sans Engage on All Fronts (décision utilisateur) : figurines de PERSONNAGE (W4+ / W1-3) pour Assassination, figurines W10+ pour Bring It Down, unités de 13+ figurines OU figurine seule non attachée W13+ pour A Grievous Blow (décision utilisateur). PV de base (sans amélioration) — à confirmer. L'import l'ignore.
+- 2026-11-01 : **export WTC — ligne « + SECONDARIES: »** en dernière ligne d'entête (`src/lib/wtcSecondaries.js`), secondaires FIXES seulement, sans Engage on All Fronts (décision utilisateur) : figurines de PERSONNAGE (W4+ / W1-3) pour Assassination, figurines W10+ pour Bring It Down, unités de 13+ figurines OU figurine seule non attachée W13+ pour A Grievous Blow (décision utilisateur). PV de base (sans amélioration) — à confirmer. L'import l'ignore. Correctif du jour : seules les figurines de la composition actuelle comptent (clef périmée « Makari » d'une liste sauvegardée : Ghazghkull compté 2×, sorti d'A Grievous Blow).
 
 - 2026-10-31 (nuit, 2) : import sans IA — équipement rendu à la fiche (`src/lib/wargearLocalize.js` : graphie voisine,
   noms FR de l'appli GW via pack + lexique, aptitudes d'équipement, 2e passe par unité), prose narrative écartée, faction
