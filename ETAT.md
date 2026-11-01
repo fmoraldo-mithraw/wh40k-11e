@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-10-31 (nuit). (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-01. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **73/73** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **74/74** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-10-31 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
@@ -84,6 +84,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-01 : **export WTC — ligne « + SECONDARIES: »** en dernière ligne d'entête (`src/lib/wtcSecondaries.js`) : figurines de PERSONNAGE (W4+ / W1-3) pour Assassination, figurines W10+ pour Bring It Down, unités de 13+ figurines pour A Grievous Blow, unités hors AÉRODYNE (attachée = 1) pour Engage on All Fronts ; PV de base (sans amélioration), effectif initial par fiche (pas par unité attachée) — à confirmer. L'import l'ignore.
 
 - 2026-10-31 (nuit, 2) : import sans IA — équipement rendu à la fiche (`src/lib/wargearLocalize.js` : graphie voisine,
   noms FR de l'appli GW via pack + lexique, aptitudes d'équipement, 2e passe par unité), prose narrative écartée, faction
