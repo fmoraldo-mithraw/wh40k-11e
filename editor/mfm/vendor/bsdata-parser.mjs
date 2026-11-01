@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 6610d67
-// source-sha256: fc85cd34009fa0b5
+// source-commit: fbdaff0
+// source-sha256: a2045ba06a3d976e
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5801,7 +5801,8 @@ function markPerFigurineGroups(opts, comp) {
   if (!Array.isArray(opts) || !opts.length) return;
   const bearerMax = {};
   for (const g of comp || []) for (const m of g[3] || []) {
-    const n = Math.max(Number(m[1]) || 0, Number(m[4]) || 0);
+    const dyn = (m[6] && m[6].mods || []).map((x) => Number(x.value) || 0);
+    const n = Math.max(Number(m[1]) || 0, Number(m[4]) || 0, ...dyn);
     if (n) bearerMax[m[0]] = Math.max(bearerMax[m[0]] || 0, n);
   }
   for (const o of opts) {
