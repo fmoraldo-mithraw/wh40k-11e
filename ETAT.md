@@ -85,6 +85,11 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-02 : **import — appli GW recopiée depuis un PDF** (scrim Anvil Dragoons) : `unflattenPdfLines` (listImport.js)
+  recolle les lignes coupées (« (3 » / « Detachment Points) », « … • », « (Upgrade) » seul), sépare mission/taille, éclate
+  les puces en ligne ; le lot (`batchImport.js`) détecte ces listes ; détachement « Faction Det, … » résolu par fin de nom.
+  `test:import-real-cases` : 2 échecs PRÉEXISTANTS (« Prose narrative » Cyclops, « L3 Deathwatch Terminators ») — non traités.
+
 - 2026-11-02 : **indice de létalité — cibles = escouades réelles : 10 Gardes, 5 Marines, 5 Terminators** (avant 30/20/10) : Blast et le plafond des morts se règlent sur ces tailles (Killa Kans : 24,9 → 9,7 Gardes). Les profils « ➤ » étaient déjà exclusifs (un seul, le meilleur par cible). `src/sim/lethality.js`.
 - 2026-11-02 : **une seule amélioration par unité, Upgrade comprise** (FAQ V11 : « Upgrades are enhancements »). L'appli avait déjà un seul emplacement `enh` par ligne. Nouveau : une **unité attachée** (unité rejointe + meneur(s) + appui) compte comme UNE unité → erreur de validation si le groupe porte 2+ améliorations (`attachedEnhErrors`, `src/rules.js`). La règle vaut aussi pour deux personnages optimisés sur la même unité (lecture large de l'utilisateur, à confirmer). À l'import, une seconde amélioration sur la même ligne est écartée ET signalée dans le journal (`enh-dropped`).
 - 2026-11-01 : **export WTC — ligne « + SECONDARIES: »** en dernière ligne d'entête (`src/lib/wtcSecondaries.js`), secondaires FIXES seulement, sans Engage on All Fronts (décision utilisateur) : figurines de PERSONNAGE (W4+ / W1-3) pour Assassination, figurines W10+ pour Bring It Down, unités de 13+ figurines OU figurine seule non attachée W13+ pour A Grievous Blow (décision utilisateur). PV de base (sans amélioration) — à confirmer. L'import l'ignore. Correctif du jour : seules les figurines de la composition actuelle comptent (clef périmée « Makari » d'une liste sauvegardée : Ghazghkull compté 2×, sorti d'A Grievous Blow) ; et au rechargement d'une liste, les figurines que la fiche n'a plus sont retirées (`migrateSavedLoadout`, liste `dropped`).
