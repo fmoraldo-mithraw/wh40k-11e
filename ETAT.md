@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-01. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-03. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -85,10 +85,15 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-03 : **import — en-tête New Recruit multi-lignes + figurine obligatoire omise** (liste Orks) : « [2000 pts] »
+  seul clôt l'en-tête (Ghazghkull n'est plus pris pour le titre) ; un groupe sous son minimum reprend le minimum des
+  figurines absentes qui en exigent un (Biker Nob des Warbikers, Tankbustas coupés), signalé en info au journal.
+  Les 2 échecs de `test:import-real-cases` notés le 11-02 ne viennent que du cache `node_modules/.cache/bsdata`
+  (3 fichiers périmés) : 0 échec avec `BSDATA_DIR=../wh40k-11e` (chemin de tests.sh / CI).
+
 - 2026-11-02 : **import — appli GW recopiée depuis un PDF** (scrim Anvil Dragoons) : `unflattenPdfLines` (listImport.js)
   recolle les lignes coupées (« (3 » / « Detachment Points) », « … • », « (Upgrade) » seul), sépare mission/taille, éclate
   les puces en ligne ; le lot (`batchImport.js`) détecte ces listes ; détachement « Faction Det, … » résolu par fin de nom.
-  `test:import-real-cases` : 2 échecs PRÉEXISTANTS (« Prose narrative » Cyclops, « L3 Deathwatch Terminators ») — non traités.
 
 - 2026-11-02 : **indice de létalité — cibles = escouades réelles : 10 Gardes, 5 Marines, 5 Terminators** (avant 30/20/10) : Blast et le plafond des morts se règlent sur ces tailles (Killa Kans : 24,9 → 9,7 Gardes). Les profils « ➤ » étaient déjà exclusifs (un seul, le meilleur par cible). `src/sim/lethality.js`.
 - 2026-11-02 : **une seule amélioration par unité, Upgrade comprise** (FAQ V11 : « Upgrades are enhancements »). L'appli avait déjà un seul emplacement `enh` par ligne. Nouveau : une **unité attachée** (unité rejointe + meneur(s) + appui) compte comme UNE unité → erreur de validation si le groupe porte 2+ améliorations (`attachedEnhErrors`, `src/rules.js`). La règle vaut aussi pour deux personnages optimisés sur la même unité (lecture large de l'utilisateur, à confirmer). À l'import, une seconde amélioration sur la même ligne est écartée ET signalée dans le journal (`enh-dropped`).
