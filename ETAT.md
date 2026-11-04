@@ -85,6 +85,11 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-04 : **appli — se connecter / créer son compte avec Cogitator Strategarium** (Better-Auth generic-oauth,
+  `server/auth.js` + `server/strategarium.js`) : le compte est relié d'office pour l'envoi des scores/listes ;
+  rattachement par email seulement si l'adresse est vérifiée des deux côtés. **Déploiement** : ajouter
+  `{PUBLIC_URL}/api/auth/callback/strategarium` à `OAUTH_BELLICUM_REDIRECT_URIS` côté Strategarium
+  (Strategarium : `/api/v1/me` expose `emailVerified`, PR fusionnée).
 - 2026-11-03 : **import — en-tête New Recruit multi-lignes + figurine obligatoire omise** (liste Orks) : « [2000 pts] »
   seul clôt l'en-tête (Ghazghkull n'est plus pris pour le titre) ; un groupe sous son minimum reprend le minimum des
   figurines absentes qui en exigent un (Biker Nob des Warbikers, Tankbustas coupés), signalé en info au journal.
