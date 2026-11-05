@@ -91,7 +91,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   Unleash Wrath) ; mots-clefs (Watch Master Agents +CAPTAIN, Talonstrike : TACTICUS/GRAVIS par figurine) ; restrictions
   de chapitre (Medusa's Wrath, Shadowmark Talon, Champions of Fenris, Saga of the Beastslayer, Blade of Ultramar).
   Déjà conformes : règle Deathwing, socle de Dante 50 mm, mots-clef DEATHWATCH des fiches Agents. **Assigned Agents** :
-  la phrase de l'errata est AJOUTÉE en tête (le paragraphe des alliés est gardé) — à confirmer. Les Q/R (FAQ) ne sont pas encodées.
+  la phrase de l'errata est AJOUTÉE en tête, paragraphe des alliés gardé (validé). Q/R du document : NON encodées (décision
+  utilisateur). Deathwatch Kill Team des Agents laissée telle quelle (l'errata ne vise que les Deathwatch Veterans, validé).
 
 - 2026-11-04 : **appli — se connecter / créer son compte avec Cogitator Strategarium** (Better-Auth generic-oauth,
   `server/auth.js` + `server/strategarium.js`) : le compte est relié d'office pour l'envoi des scores/listes ;
