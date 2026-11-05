@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-03. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-05. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -30,7 +30,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   restes = Legends, fiches absentes (Q7), alliés d'une autre faction en 2v2. **2e passe (nuit)** : unités **4 842/4 870**
   (99,4 % ; restes = Legends + fiches absentes), équipements **18 310/18 521** placés (98,9 % ; restes = options retirées
   des fiches 11e dans des listes v946–v981, longue traîne FR). Lot d'équipe L3 (30 listes, export « Joueur : Faction ») : 100 %.
-- Pack FR **13 788** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
+- Pack FR **13 802** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
 - game-datacards suivi : données **995**, commit `6f98bb1`, export du 2026-10-16T18:38 (`editor/sources/game-datacards.json`).
@@ -84,6 +84,14 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-05 : **errata WCW 2026 (Rules Updates nov. 2026)** intégré : armes (Mephiston, DC Captain JP, DC Dreadnought,
+  Chaos Bikers, Nemesis Claw, DW Terminators S7/S8, DW Veterans Damnatus/Purgatus, Aggressors sans [CQ]) ; textes
+  (Shambling Wall, Double-cross, Grot Shields, Unholy Resilience, Sir Hekhtur, Umbralefic Crystal, Meet Any Challenge,
+  Unleash Wrath) ; mots-clefs (Watch Master Agents +CAPTAIN, Talonstrike : TACTICUS/GRAVIS par figurine) ; restrictions
+  de chapitre (Medusa's Wrath, Shadowmark Talon, Champions of Fenris, Saga of the Beastslayer, Blade of Ultramar).
+  Déjà conformes : règle Deathwing, socle de Dante 50 mm, mots-clef DEATHWATCH des fiches Agents. **Assigned Agents** :
+  la phrase de l'errata est AJOUTÉE en tête (le paragraphe des alliés est gardé) — à confirmer. Les Q/R (FAQ) ne sont pas encodées.
 
 - 2026-11-04 : **appli — se connecter / créer son compte avec Cogitator Strategarium** (Better-Auth generic-oauth,
   `server/auth.js` + `server/strategarium.js`) : le compte est relié d'office pour l'envoi des scores/listes ;
