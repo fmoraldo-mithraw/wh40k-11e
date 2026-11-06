@@ -88,7 +88,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 - 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
   toute faction), grille nos unités × les leurs — part détruite en une phase, meilleur de tir/mêlée, dans les deux sens ;
   verdicts ☠ tue (anéantie ≥ 50 %) / ◐ démolit (≥ 50 %) / ◔ entame (≥ 20 %) ; clic → simulateur sur le duel, cible et
-  onglet réglés. Conventions = simulateur (loadout réel, bonus inconditionnels, vraie taille d'escouade, défenses permanentes).
+  onglet réglés ; couleurs par verdict (rouge/orange/jaune) ; vue « par cible » (ses meilleurs tueurs, 3 premiers + tous ceux
+  qui tuent/démolissent). Conventions = simulateur (loadout réel, bonus inconditionnels, vraie taille d'escouade, défenses permanentes).
 
 - 2026-11-05 : **errata WCW 2026 (Rules Updates nov. 2026)** intégré : armes (Mephiston, DC Captain JP, DC Dreadnought,
   Chaos Bikers, Nemesis Claw, DW Terminators S7/S8, DW Veterans Damnatus/Purgatus, Aggressors sans [CQ]) ; textes
