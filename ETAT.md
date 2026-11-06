@@ -89,7 +89,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   (aperçus), côté attaquant/défenseur ; autres dispositions gardées. Carte = images `src/assets/layouts` à l'échelle
   44"×60", zones lues dans les pixels (pose au toucher dans sa zone, alerte « hors zone ») ; personnages fondus dans
   l'unité menée ; cohésion ; réserve / embarqué ; copie miroir ; règle ; menace (disque N") ; armes spéciales marquées ;
-  socles par figurine (Boss Nob 40 mm). Stockage localStorage `cb:deploy:<listId>` (pas encore synchronisé au compte).
+  socles par figurine (Boss Nob 40 mm). Stockage : appareil (`cb:deploy:<listId>`) + **compte** (table `list_deployment`, `server/deployments.js`,
+  fusion carte par carte ; banc `scripts/dev/deploy-api.sh`) ; la table se crée au déploiement (`setup-db.js`).
   Châssis : `src/data/hull-sizes.json` (estimations). `editor/base-sizes.json` : Wazdakka « 120mm » → « 120x92mm Oval
   Base » (troncature probable du guide — à confirmer sur le PDF GW).
 - 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
