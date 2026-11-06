@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **79/79** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **80/80** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
@@ -85,6 +85,12 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée (listId), un déploiement par (notre Disposition ×
+  Disposition adverse × carte A/B/C), côté attaquant et défenseur ; ceux d'une autre disposition restent gardés. Carte =
+  images `src/assets/layouts` à l'échelle 44"×60" ; unités glissées depuis la liste, une couleur par unité, chaque socle
+  déplacé/pivoté (boutons, poignée, deux doigts, Maj+molette, R), zoom molette/pincement, sauvegarde à chaque geste
+  (localStorage `cb:deploy:<listId>`, pas encore synchronisé au compte). Châssis sans socle : `src/data/hull-sizes.json`
+  (estimations, aucune base publique exhaustive), corrigeables par fiche (rond/ovale/rectangle, mm).
 - 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
   toute faction), grille nos unités × les leurs — part détruite en une phase, meilleur de tir/mêlée, dans les deux sens ;
   verdicts ☠ tue (anéantie ≥ 50 %) / ◐ démolit (≥ 50 %) / ◔ entame (≥ 20 %) ; clic → simulateur sur le duel, cible et
