@@ -91,6 +91,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   l'unité menée ; cohésion ; réserve / embarqué ; copie miroir ; règle ; menace (disque N") ; armes spéciales marquées ;
   socles par figurine (Boss Nob 40 mm). Stockage : appareil (`cb:deploy:<listId>`) + **compte** (table `list_deployment`, `server/deployments.js`,
   fusion carte par carte ; banc `scripts/dev/deploy-api.sh`) ; la table se crée au déploiement (`setup-db.js`).
+  Mobile : carte plein écran + bandeau d'unités (puces) en portrait, carte pivotée en paysage (auto/forcée),
+  outils sur la carte, menu ⋯ de l'unité, cibles ≥ 40 px au doigt, cadrage auto, double-toucher = zoom, écran allumé.
   Châssis : `src/data/hull-sizes.json` (estimations). `editor/base-sizes.json` : Wazdakka « 120mm » → « 120x92mm Oval
   Base » (troncature probable du guide — à confirmer sur le PDF GW).
 - 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
