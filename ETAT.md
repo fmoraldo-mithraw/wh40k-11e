@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-05. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-06. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **78/78** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **79/79** suites (`scripts/dev/tests.sh`,
   dont `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
@@ -84,6 +84,11 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
+  toute faction), grille nos unités × les leurs — part détruite en une phase, meilleur de tir/mêlée, dans les deux sens ;
+  verdicts ☠ tue (anéantie ≥ 50 %) / ◐ démolit (≥ 50 %) / ◔ entame (≥ 20 %) ; clic → simulateur sur le duel, cible et
+  onglet réglés. Conventions = simulateur (loadout réel, bonus inconditionnels, vraie taille d'escouade, défenses permanentes).
 
 - 2026-11-05 : **errata WCW 2026 (Rules Updates nov. 2026)** intégré : armes (Mephiston, DC Captain JP, DC Dreadnought,
   Chaos Bikers, Nemesis Claw, DW Terminators S7/S8, DW Veterans Damnatus/Purgatus, Aggressors sans [CQ]) ; textes
