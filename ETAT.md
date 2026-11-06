@@ -85,12 +85,13 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
-- 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée (listId), un déploiement par (notre Disposition ×
-  Disposition adverse × carte A/B/C), côté attaquant et défenseur ; ceux d'une autre disposition restent gardés. Carte =
-  images `src/assets/layouts` à l'échelle 44"×60" ; unités glissées depuis la liste, une couleur par unité, chaque socle
-  déplacé/pivoté (boutons, poignée, deux doigts, Maj+molette, R), zoom molette/pincement, sauvegarde à chaque geste
-  (localStorage `cb:deploy:<listId>`, pas encore synchronisé au compte). Châssis sans socle : `src/data/hull-sizes.json`
-  (estimations, aucune base publique exhaustive), corrigeables par fiche (rond/ovale/rectangle, mm).
+- 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée, grille 5 dispositions adverses × cartes A/B/C
+  (aperçus), côté attaquant/défenseur ; autres dispositions gardées. Carte = images `src/assets/layouts` à l'échelle
+  44"×60", zones lues dans les pixels (pose au toucher dans sa zone, alerte « hors zone ») ; personnages fondus dans
+  l'unité menée ; cohésion ; réserve / embarqué ; copie miroir ; règle ; menace (disque N") ; armes spéciales marquées ;
+  socles par figurine (Boss Nob 40 mm). Stockage localStorage `cb:deploy:<listId>` (pas encore synchronisé au compte).
+  Châssis : `src/data/hull-sizes.json` (estimations). `editor/base-sizes.json` : Wazdakka « 120mm » → « 120x92mm Oval
+  Base » (troncature probable du guide — à confirmer sur le PDF GW).
 - 2026-11-06 : **« ⚔ Confronter » (appli)** : liste adverse chargée à côté de la nôtre (listes enregistrées ou import,
   toute faction), grille nos unités × les leurs — part détruite en une phase, meilleur de tir/mêlée, dans les deux sens ;
   verdicts ☠ tue (anéantie ≥ 50 %) / ◐ démolit (≥ 50 %) / ◔ entame (≥ 20 %) ; clic → simulateur sur le duel, cible et
