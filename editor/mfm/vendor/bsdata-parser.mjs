@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 44d6d93
-// source-sha256: 90195c261e67a565
+// source-commit: 2653aff
+// source-sha256: 926819c07adfd91b
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5161,7 +5161,7 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
         if (mod["@type"] === "append" && mod["@field"] === "name") val = String(mod["@value"] || "").trim();
       }
       const disp = /^damaged$/i.test(dispBase) && /^\d+$/.test(val) ? dispBase + ": 1-" + val + " Wounds Remaining" : val ? dispBase + " " + val : dispBase;
-      coreLinks.push([disp, dispBase.toLowerCase()]);
+      coreLinks.push([disp, dispBase.toLowerCase(), linkHiddenGate(il)]);
       continue;
     }
     if (il["@type"] === "infoGroup") {
@@ -5194,11 +5194,11 @@ function getAbilities(entry, idIndex, unitCatIds, extraProfiles, extraInfoLinks)
   }
   if (coreLinks.length) {
     const present = new Set(out.map(([n]) => String(n || "").toLowerCase()));
-    for (const [name, baseLower] of coreLinks) {
+    for (const [name, baseLower, gate] of coreLinks) {
       if (present.has(baseLower)) continue;
       if (baseLower === "damaged" && [...present].some((n) => n.startsWith("damaged"))) continue;
       present.add(baseLower);
-      out.push([name, ""]);
+      out.push(gate ? [name, "", null, gate] : [name, ""]);
     }
   }
   if (sections.size) {
