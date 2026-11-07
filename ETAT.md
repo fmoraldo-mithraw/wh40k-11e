@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-06. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-07. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -85,6 +85,7 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-07 : **Cthonian Beserks** : arme de mêlée au choix de **chaque** figurine (fiche officielle « can each have ») — erreur « same weapon » et asservissement du porteur de mole grenade launcher retirés. Appli : un `<infoLink type="rule">` d'aptitude de base (Deep Strike…) garde désormais sa **porte de masquage** (détachement) — Deep Strike n'apparaît plus sur les Beserks hors Dêlve Assault Shift ; parseur embarqué resynchronisé.
 - 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée, grille 5 dispositions adverses × cartes A/B/C
   (aperçus), côté attaquant/défenseur ; autres dispositions gardées. Carte = images `src/assets/layouts` à l'échelle
   44"×60", zones lues dans les pixels (pose au toucher dans sa zone, alerte « hors zone ») ; personnages fondus dans
