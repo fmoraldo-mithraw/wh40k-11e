@@ -3359,18 +3359,6 @@ fnp: 4+</comment>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                       <entryLinks></entryLinks>
-                      <modifiers>
-                        <modifier type="add" value="All models must be equipped with the same weapon" field="error">
-                          <conditionGroups>
-                            <conditionGroup type="and">
-                              <conditions>
-                                <condition type="atLeast" value="1" field="selections" scope="415a-e6f6-d17f-d700" childId="e010-924b-804d-026f" shared="true" includeChildSelections="true" childName="Concussion maul"/>
-                                <condition type="atLeast" value="1" field="selections" scope="415a-e6f6-d17f-d700" childId="0e8e-5168-13f2-1dba" shared="true" includeChildSelections="true" childName="Heavy plasma axe"/>
-                              </conditions>
-                            </conditionGroup>
-                          </conditionGroups>
-                        </modifier>
-                      </modifiers>
                     </selectionEntry>
                     <selectionEntry id="0e8e-5168-13f2-1dba" name="Heavy plasma axe" hidden="false" collective="true" import="true" type="upgrade">
                       <constraints>
@@ -3383,18 +3371,6 @@ fnp: 4+</comment>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                       <entryLinks></entryLinks>
-                      <modifiers>
-                        <modifier type="add" value="All models must be equipped with the same weapon" field="error">
-                          <conditionGroups>
-                            <conditionGroup type="and">
-                              <conditions>
-                                <condition type="atLeast" value="1" field="selections" scope="415a-e6f6-d17f-d700" childId="e010-924b-804d-026f" shared="true" includeChildSelections="true" childName="Concussion maul"/>
-                                <condition type="atLeast" value="1" field="selections" scope="415a-e6f6-d17f-d700" childId="0e8e-5168-13f2-1dba" shared="true" includeChildSelections="true" childName="Heavy plasma axe"/>
-                              </conditions>
-                            </conditionGroup>
-                          </conditionGroups>
-                        </modifier>
-                      </modifiers>
                     </selectionEntry>
                   </selectionEntries>
                 </selectionEntryGroup>
@@ -3537,11 +3513,7 @@ fnp: 4+</comment>
                     <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="b456-f162-7ad0-c7b0" type="max"/>
                   </constraints>
                   <selectionEntries>
-                    <selectionEntry id="7719-aa64-5e16-9a9d" name="Concussion maul" hidden="true" collective="true" import="true" type="upgrade">
-                      <constraints>
-                        <constraint field="selections" scope="parent" value="0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="bc9f-d63c-17d9-2ba6-min" type="min" automatic="true"/>
-                        <constraint field="selections" scope="parent" value="0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="bc9f-d63c-17d9-2ba6-max" type="max" automatic="true"/>
-                      </constraints>
+                    <selectionEntry id="7719-aa64-5e16-9a9d" name="Concussion maul" hidden="false" collective="true" import="true" type="upgrade">
                       <infoLinks>
                         <infoLink id="16b5-156e-a03b-773c" name="Concussion maul" hidden="false" targetId="3a94-6dbd-a7df-0c73" type="profile"/>
                         <infoLink name="Anti-" id="30cb-dd12-f9a0-9089" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
@@ -3550,24 +3522,8 @@ fnp: 4+</comment>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                       <entryLinks></entryLinks>
-                      <modifierGroups>
-                        <modifierGroup type="and">
-                          <modifiers>
-                            <modifier type="set" value="false" field="hidden"/>
-                            <modifier type="set" value="1" field="bc9f-d63c-17d9-2ba6-min"/>
-                            <modifier type="set" value="1" field="bc9f-d63c-17d9-2ba6-max"/>
-                          </modifiers>
-                          <conditions>
-                            <condition type="greaterThan" value="0" field="selections" scope="415a-e6f6-d17f-d700" childId="e010-924b-804d-026f" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                          </conditions>
-                        </modifierGroup>
-                      </modifierGroups>
                     </selectionEntry>
-                    <selectionEntry id="697f-710e-738d-4ee3" name="Heavy plasma axe" hidden="true" collective="true" import="true" type="upgrade">
-                      <constraints>
-                        <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="5fea-175d-1089-9f58-min" includeChildSelections="false" automatic="true"/>
-                        <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="5fea-175d-1089-9f58-max" includeChildSelections="false" automatic="true"/>
-                      </constraints>
+                    <selectionEntry id="697f-710e-738d-4ee3" name="Heavy plasma axe" hidden="false" collective="true" import="true" type="upgrade">
                       <infoLinks>
                         <infoLink id="bada-ff4c-d847-76f0" name="Heavy plasma axe" hidden="false" targetId="3a57-f678-8ddb-1965" type="profile"/>
                       </infoLinks>
@@ -3575,18 +3531,6 @@ fnp: 4+</comment>
                         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
                       </costs>
                       <entryLinks></entryLinks>
-                      <modifierGroups>
-                        <modifierGroup type="and">
-                          <modifiers>
-                            <modifier type="set" value="false" field="hidden"/>
-                            <modifier type="set" value="1" field="5fea-175d-1089-9f58-min"/>
-                            <modifier type="set" value="1" field="5fea-175d-1089-9f58-max"/>
-                          </modifiers>
-                          <conditions>
-                            <condition type="greaterThan" value="0" field="selections" scope="415a-e6f6-d17f-d700" childId="0e8e-5168-13f2-1dba" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                          </conditions>
-                        </modifierGroup>
-                      </modifierGroups>
                     </selectionEntry>
                   </selectionEntries>
                 </selectionEntryGroup>
