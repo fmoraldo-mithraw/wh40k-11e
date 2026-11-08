@@ -2840,7 +2840,7 @@ sim-mod: source=&quot;Grim Demeanour&quot; wound=+1 conditional</comment>
       <infoLinks>
         <infoLink name="Firing Deck" hidden="false" type="rule" id="ce5-e3f-bf91-8a23" targetId="13b2-6518-dab3-7ea1">
           <modifiers>
-            <modifier type="append" value="6" field="name"/>
+            <modifier type="append" value="12" field="name"/>
           </modifiers>
         </infoLink>
         <infoLink name="Damaged: 1-8 Wounds Remaining" id="e051-2d9d-742d-da0a" hidden="false" type="profile" targetId="e862-4703-fc73-5c46"/>
@@ -7109,6 +7109,7 @@ fnp: 6+</comment>
         <categoryLink targetId="6df-937-16bc-8c1a" id="d18d-d60f-b287-2446" primary="false" name="Smoke"/>
         <categoryLink targetId="5929-ad51-d006-e008" id="7155-f0e4-ede5-24e2" primary="false" name="Titanic"/>
         <categoryLink targetId="dbd4-63-af05-998" id="e2f-7ba9-4447-9480" primary="true" name="Vehicle"/>
+        <categoryLink id="a7c1-5e03-b9d4-3f68" name="Frame" hidden="false" targetId="74a9-11cd-45b4-aa11" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="430"/>
@@ -7590,7 +7591,7 @@ fnp: 6+</comment>
         </profile>
         <profile name="Rapid Deployment" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="872a-1012-8ad7-4939">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Units can disembark from this **^^Transport^^** after it has Advanced. Units that do so count as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Units can disembark from this **^^Transport^^** after it has Advanced. Units that do so make a shock disembark move (Core Rules, 18.07) for that disembarkation.</characteristic>
           </characteristics>
         </profile>
         <profile name="Transport" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="f633-eb7c-c74e-f5e2">
@@ -12895,12 +12896,12 @@ invuln: 4+</comment>
         </modifier>
       </modifiers>
       <infoGroups>
-        <infoGroup name="Leader" hidden="false" id="f4e2-f066-4b38-dc3d">
+        <infoGroup name="Support" hidden="false" id="f4e2-f066-4b38-dc3d">
           <infoLinks>
-            <infoLink name="Leader" hidden="false" type="rule" id="1dcf-696b-993b-9d43" targetId="b4dd-3e1f-41cb-218f"/>
+            <infoLink name="Support" hidden="false" type="rule" id="1dcf-696b-993b-9d43" targetId="21f5-c07c-6d97-4405"/>
           </infoLinks>
           <profiles>
-            <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b62a-ebf5-0e8e-b121">
+            <profile name="Support" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b62a-ebf5-0e8e-b121">
               <characteristics>
                 <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units: **^^Cadian Shock Troops^^**, **^^Catachan Jungle Fighters^^**, **^^Death Korps of Krieg^^**, **^^Kasrkin^^**, **^^Krieg Combat Engineers^^**, **^^Tempestus Scions^^**,</characteristic>
               </characteristics>
@@ -13042,8 +13043,8 @@ invuln: 4+</comment>
             </selectionEntryGroup>
           </selectionEntryGroups>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Can Lead (MFM)" hidden="true" id="ef05-b5d1-975a-a39d">
-          <comment>leader-link: unites menables par ce chef (source: prose datasheet &quot;Leader&quot;; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
+        <selectionEntryGroup name="Can Support (MFM)" hidden="true" id="ef05-b5d1-975a-a39d">
+          <comment>support-link: unites que ce modele Support peut rejoindre (source: prose datasheet &quot;Support&quot;/MFM; declaratif hidden+max0; voir editor/LEADER_LINKS_APP_PROMPT.md)</comment>
           <constraints>
             <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="dcdd-edf6-f018-dafe"/>
           </constraints>
@@ -15919,7 +15920,7 @@ sim-mod: source=&quot;Bring it Down!&quot; reroll=wound1 when=ranged vs=Monster,
               <profiles>
                 <profile name="Assault Hatches" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4ae0-ca99-1d9b-6028">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Astra Militarum Titanic Character Transport^^** model only. Each time a unit disembarks from the bearer after it has made a Normal move, that unit is still eligible to declare a charge this turn.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Astra Militarum Titanic Character Transport^^** model only. Each time a unit disembarks from the bearer after it has made a Normal move, that unit makes an assault disembark move (Core Rules, 18.06) for that disembarkation.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -16620,6 +16621,10 @@ EFFECT: Select one enemy unit hit by those ranged attacks. Friendly MILITARUM TE
               <description>At the start of the battle round, select one of the following types of artillery support.
 
 - **Creeping Barrage:Roll one D6 for each enemy unit that is more than 12&quot; from every model from your army that is on the battlefield: On a 5+, until the end of the battle round, that unit is shaken. While a unit is shaken, subtract 2&quot; from its Move characteristic and subtract 2 from Charge rolls made for it. The maximum number of units that can be shaken by this rule in each battle round depends on the battle size, as shown below.
+
+- **Incendiary Bombardment:** Select a number of enemy units more than 12&quot; from every model from your army that is on the battlefield. Until the end of the battle round, those enemy units are scattered. While a unit is scattered, it cannot have the Benefit of Cover. The maximum number of units you can select in this way depends on the battle size, as shown below.
+
+- **Smoke Shells:** Select a number of units from your army. Until the end of the battle round, those units have the Stealth ability. The maximum number of units you can select in this way depends on the battle size, as shown below.
 
 Incursion - 2
 Strike Force - 3
@@ -17335,7 +17340,7 @@ EFFECT: When an attack targets either your unit, or a unit that is not fully vis
               <profiles>
                 <profile name="Grand Strategist" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b894-37c2-6a55-d57b">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Officer model only. After both players have deployed their armies, if the bearer’s unit (or any Transport it is embarked within) is on the battlefield, select up to two units with the Regiment or Squadron keywords from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Officer^^** model only. In your Command phase, the bearer can issue one additional Order.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -17659,7 +17664,7 @@ EFFECT: When an attack targets either your unit, or a unit that is not fully vis
               <profiles>
                 <profile name="Vanguard Honours" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3a5e-6e2d-bb24-dfb1">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Infantry Officer^^** model only. The bearer&apos;s unit can disembark from a **^^Transport^^** after it has Advanced. If it does, it counts as having made a Normal move that phase, and cannot declare a charge in the same turn, but can otherwise act normally in the remainder of the turn.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Infantry Officer^^** model only. The bearer&apos;s unit can disembark from a **^^Transport^^** after it has Advanced. If it does, it makes a shock disembark move (Core Rules, 18.07) for that disembarkation.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
