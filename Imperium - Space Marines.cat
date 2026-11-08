@@ -4039,11 +4039,12 @@ invuln: 4+</comment>
                                 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
+                                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Twin-linked</characteristic>
                               </characteristics>
                             </profile>
                           </profiles>
                           <infoLinks>
+                            <infoLink name="Close-Quarters" id="b177-c10a-4b1e-9df4" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                             <infoLink name="Twin-linked" id="7bb5-94c4-1807-889d" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                           </infoLinks>
                           <constraints>
@@ -4156,11 +4157,12 @@ invuln: 4+</comment>
                                 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
+                                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Close-Quarters, Twin-linked</characteristic>
                               </characteristics>
                             </profile>
                           </profiles>
                           <infoLinks>
+                            <infoLink name="Close-Quarters" id="5f93-c10a-4b1e-9d77" hidden="false" type="rule" targetId="59e0-775e-fce5-43ca"/>
                             <infoLink name="Twin-linked" id="2776-5d08-5b36-ca10" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
                           </infoLinks>
                           <constraints>
@@ -16156,16 +16158,11 @@ EFFECT: Attacks that target your unit have ‑1 D until that enemy unit has atta
             <profile name="Legacy of the Angel" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d8f2-0c87-9000-ccab">
               <comment>sim-mod: source=&quot;Legacy of the Angel (Carmine Wrath)&quot; reroll=hit1 reroll=wound1 kw=&quot;Character&quot; conditional</comment>
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the first battle round, select two of the Angelic Legacy abilities listed below. Until the end of the battle, those Angelic Legacy abilities are active and their effects apply to all Adeptus  Astartes Character units from your army.
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Friendly **^^Blood Angels Character^^** units:
+■ Can re-roll hit rolls of 1.
+■ Can re-roll wound rolls of 1.
 
-
-Sanguinary Grace: This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.
-
-
-Carmine Wrath: Each time a model in this unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1.
-
-
-Their Appointed Hour: You can re‑roll Advance and Charge rolls made for this unit.</characteristic>
+Restrictions: Your army can include **^^Blood Angels^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</characteristic>
               </characteristics>
             </profile>
             <profile name="Force Disposition" typeId="4680-63ad-ad70-1872" typeName="Force Disposition" hidden="false" id="7012-e18f-0649-0374">
@@ -16187,7 +16184,9 @@ Their Appointed Hour: You can re‑roll Advance and Charge rolls made for this
               <comment>sim-mod: source=&quot;Legacy of the Angel (Carmine Wrath)&quot; reroll=hit1 reroll=wound1 kw=&quot;Character&quot; conditional</comment>
               <description>Friendly **^^Blood Angels Character^^** units:
 ■ Can re-roll hit rolls of 1.
-■ Can re-roll wound rolls of 1.Restrictions: Your army can include **^^Blood Angels^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
+■ Can re-roll wound rolls of 1.
+
+Restrictions: Your army can include **^^Blood Angels^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
             </rule>
             <rule name="Focused Fury (Stratagem, 1CP)" id="39f0-281c-7f5a-1589" hidden="false">
               <comment>strat-timing: turn=either phase=fight
@@ -16393,67 +16392,69 @@ EFFECT: Place your unit in strategic reserves.</description>
           <rules>
             <rule name="Vulkan&apos;s Quest" id="317f-19b4-6fb6-0761" hidden="false">
               <comment>sim-mod: source=&quot;Vulkan&apos;s Quest&quot; str=+1 when=ranged conditional</comment>
-              <description>Ranged weapons equipped by Adeptus Astartes models from your army have the [ASSAULT] ability, and each time an attack made such a weapon targets a unit within 12&quot;, add 1 to the Strength characteristic of that attack.
-
-
-**Seeker&apos;s Companions**
-
-
-If your army includes Vulkan He&apos;stan, during your turn, each Infernus Squad unit from your army is eligible to do one of the following
-- Start to perform an Action in a turn in which it Advanced
-
-- Shoot in a turn in which it started to perform an Action</description>
-            </rule>
-            <rule name="Armour of Contempt (Stratagem, 1CP)" id="bbf7-8b03-1454-5d4f" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight
-def-mod: source=&quot;Armour of Contempt&quot; ap=-1 conditional</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (1CP)
-
-WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+              <description>■ You can select the devastator doctrine one additional time per battle.
+■ Friendly **^^Adeptus Astartes^^** units’ ranged attacks that target a unit within 12”, have +1 S.
+If your army includes a **^^Vulkan He’stan^^** unit, friendly **^^Infernus Squad^^** units have the following:
+■ When this unit is selected to make an advance/fall-back move, that advance/fall-back move does not prevent this unit from being eligible to start an action.
+■ When this unit starts an action, that action does not prevent this unit from being eligible to shoot.
+Restrictions: Your army can include **^^Salamanders^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
             </rule>
             <rule name="Crucible of Battle (Stratagem, 1CP)" id="6dd3-3a5e-a9e4-2e99" hidden="false">
               <comment>strat-timing: turn=either phase=shooting|fight
-sim-mod: source=&quot;Crucible of Battle&quot; wound=+1 kw=&quot;Infantry&quot; conditional</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (1CP)
+sim-mod: source=&quot;Crucible of Battle&quot; reroll=hit1 reroll=wound1 kw=&quot;Infantry&quot; conditional</comment>
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
-WHEN: Your Shooting phase or the Fight phase.
-TARGET: One Adeptus Astartes Infantry unit from your army that has not been selected to shoot or fight this phase.
-EFFECT: Until the end of the phase, each time a model in your unit makes an attack that targets the closest eligible target within 6&quot;, add 1 to the Wound roll.</description>
+WHEN: Your Shooting phase or the Fight phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to attack an enemy unit within 6”.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Your unit’s attacks can:
+■ Re-roll hit rolls of 1.
+■ Re-roll wound rolls of 1.</description>
             </rule>
-            <rule name="Wrathful Inferno (Stratagem, 1CP)" id="fb62-4405-f405-c551" hidden="false">
-              <comment>strat-timing: turn=your phase=movement</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (1CP)
-
-WHEN: Your Movement phase, just after an Adeptus Astartes Infantry unit from your army Falls Back.
-TARGET: That unit.
-EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in which it Fell Back.</description>
-            </rule>
-            <rule name="Immolation Protocols (Stratagem, 2CP)" id="1053-7647-9168-b2cb" hidden="false">
+            <rule name="Immolation Protocols (Stratagem, 1CP)" id="1053-7647-9168-b2cb" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;Immolation Protocols&quot; dev when=ranged weapon=&quot;Torrent&quot;</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (2CP)
+sim-mod: source=&quot;Immolation Protocols&quot; ap=+1 when=ranged weapon=&quot;Torrent&quot;</comment>
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
-WHEN: Your Shooting phase.
-TARGET: One Adeptus Astartes unit from your army that has not been selected to shoot this phase.
-EFFECT: Until the end of the phase, Torrent weapons equipped by models in your unit have the [DEVASTATING WOUNDS] ability.</description>
+WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to attack.
+TARGET: That ADEPTUS ASTARTES INFANTRY.
+EFFECT: Your unit’s ranged [TORRENT] attacks have +1AP.</description>
             </rule>
             <rule name="Burning Vengeance (Stratagem, 1CP)" id="38b0-e227-2fa8-4310" hidden="false">
               <comment>strat-timing: turn=opponent phase=shooting</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (1CP)
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Shooting phase, just after an enemy unit has shot.
-TARGET: One Adeptus Astartes Transport unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: One unit embarked within that Transport can disembark as if it were your Movement phase, and can then shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.</description>
+WHEN: Your opponent’s Shooting phase, when an enemy unit has shot a friendly ADEPTUS ASTARTES TRANSPORT unit.
+TARGET: One friendly ADEPTUS ASTARTES unit embarked within that ADEPTUS ASTARTES TRANSPORT unit.
+EFFECT: Your ADEPTUS ASTARTES unit can:
+■ Make a disembark move.
+■ Shoot using normal shooting, but when doing so your unit can only target that enemy unit.</description>
             </rule>
             <rule name="Blazing Earth (Stratagem, 1CP)" id="6021-2ad6-d462-4c6d" hidden="false">
               <comment>strat-timing: turn=opponent phase=charge</comment>
-              <description>Forgefather’s Seekers – STRATAGEM (1CP)
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
 WHEN: Start of your opponent’s Charge phase.
-TARGET: One Adeptus Astartes unit from your army equipped with one or more Torrent weapons.
-EFFECT: Select one enemy unit (excluding Monsters and Vehicles and units with the Fly keyword) within 12&quot; of and visible to your unit. Until the end of the phase, each time that enemy unit declares a charge, subtract 2 from the Charge roll (this is not cumulative with any other negative modifiers to that Charge roll).</description>
+TARGET: One friendly unengaged ADEPTUS ASTARTES unit equipped with one or more TORRENT/MELTA weapons.
+EFFECT: Select one visible enemy unit within 12&quot; of your unit. That enemy unit has ‑1 to charge rolls.</description>
+            </rule>
+            <rule name="Wrath and Ruin (Stratagem, 1CP)" id="0b29-a7a2-9471-aeb1" hidden="false">
+              <comment>strat-timing: turn=your phase=command</comment>
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
+
+WHEN: Your Command phase.
+TARGET: One friendly ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: The assault doctrine or tactical doctrine is active for your unit, until the start of your next Command phase.</description>
+            </rule>
+            <rule name="Forged in Fire (Stratagem, 1CP)" id="6c75-da40-3850-67cd" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, when a friendly engaged ADEPTUS ASTARTES unit is selected to shoot.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s TORRENT weapons:
+■ Do not have [Blast].
+■ Have [Close-Quarters].
+■ Have +1 A.</description>
             </rule>
           </rules>
           <profiles>
@@ -16476,65 +16477,66 @@ EFFECT: Select one enemy unit (excluding Monsters and Vehicles and units with th
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
           <rules>
-            <rule name="Masters of Shadow" id="1869-3566-2284-e685" hidden="false">
-              <description>Each time a ranged attack targets an Adeptus Astartes unit from your army, unless the attacking model is within 12&quot;, subtract 1 from the Hit roll and the target has the Benefit of Cover against that attack.
+            <rule name="Shadow Tactics" id="1869-3566-2284-e685" hidden="false">
+              <description>Friendly **^^Adeptus Astartes^^** units have Stealth.
 
+Friendly **^^Phobos/Scout Squad^^** units have -3&quot; detection range.
 
-**Unparalled Tactician**
+Friendly **^^Aethon Shaan^^** units have the following ability:
 
-Once per battle round, if an **^^Aethon^^** Shaan model from your army is on the battlefield, you can use the Into Darkness Stratagem for 0CP.
-
-Restrictions: Your army can include **^^Raven Guard^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
-            </rule>
-            <rule name="Armour of Contempt (Stratagem, 1CP)" id="9118-9d60-3c36-1a5b" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight
-def-mod: source=&quot;Armour of Contempt&quot; ap=-1 conditional</comment>
-              <description>Shadowmark Talon – STRATAGEM (1CP)
-
-WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+Unparalleled Tactician: (Once per battle round, per army) When you use the Into Darkness stratagem, that use is -1CP.</description>
             </rule>
             <rule name="Lay Low the Tyrants (Stratagem, 1CP)" id="95ba-0029-58fd-f849" hidden="false">
               <comment>strat-timing: turn=either phase=fight</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
-WHEN: Fight phase.
-TARGET: One Adeptus Astartes Infantry unit from your army that has not been selected to fight this phase.
-EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability.</description>
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to fight.
+TARGET: That ADEPTUS ASTARTES INFANTRY.
+EFFECT: Your unit’s melee attacks have [Precision].</description>
             </rule>
             <rule name="Feint and Thrust (Stratagem, 1CP)" id="67d0-cb2a-e867-7eee" hidden="false">
-              <comment>strat-timing: turn=your phase=movement</comment>
+              <comment>strat-timing: turn=your phase=command</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
-WHEN: Your Movement phase.
-TARGET: One Adeptus Astartes unit from your army.
-EFFECT: Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back. If it is a Phobos or Scout Squad unit, it is also eligible to shoot and declare a charge in a turn in which it Advanced.</description>
-            </rule>
-            <rule name="Stunning Fusillade (Stratagem, 1CP)" id="db09-4fa4-ecd1-a920" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;Stunning Fusillade&quot; hit=+1 ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
-              <description>Shadowmark Talon – STRATAGEM (1CP)
-
-WHEN: Your Shooting phase.
-TARGET: One Adeptus Astartes Infantry unit from your army that has not been selected to shoot this phase.
-EFFECT: Until the end of the phase, each time a model in your unit makes a ranged attack that targets an enemy unit that is more than 12&quot; away, improve the Ballistic Skill and Armour Penetration characteristics of that attack by 1. If one or more enemy models are destroyed as a result of those attacks, select one of those destroyed models; that destroyed model’s unit must take a Battle-shock test.</description>
+WHEN: Your Command phase.
+TARGET: One friendly ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: The tactical doctrine is active for your unit in addition to any other combat doctrine, until the start of your next Command phase.</description>
             </rule>
             <rule name="Raptorial Vigilance (Stratagem, 1CP)" id="5207-3327-bf3a-6d90" hidden="false">
               <comment>strat-timing: turn=opponent phase=movement</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
-TARGET: One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that is within 9&quot; of the enemy unit that just ended that move. You cannot target a unit that is within Engagement Range of one or more enemy units.
-EFFECT: Your unit can make a Normal move of up to D6&quot;, or up to 6&quot; instead if it is a Phobos or Scout Squad unit.</description>
+WHEN: Your opponent’s Movement phase, when an enemy unit ends a move within 8” of a friendly unengaged ADEPTUS ASTARTES INFANTRY unit.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Your unit can make a normal move of:
+■ Up to D6”.
+■ Or: If your unit is a PHOBOS/SCOUT SQUAD unit, up to 6”.</description>
             </rule>
             <rule name="Into Darkness (Stratagem, 1CP)" id="16a1-3b7d-344e-e792" hidden="false">
               <comment>strat-timing: turn=opponent phase=fight</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
 WHEN: End of your opponent’s Fight phase.
-TARGET: Up to two Phobos and/or Scout Squad units from your army, or one other Adeptus Astartes Infantry unit from your army. You cannot target a unit that is within Engagement Range of one or more enemy units.
-EFFECT: Remove those units from the battlefield and place them into Strategic Reserves.</description>
+TARGET: One unengaged ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Place your unit in strategic reserves.</description>
+            </rule>
+            <rule name="Murderous Fusillade (Stratagem, 1CP)" id="0bd3-b57e-e9e7-4b03" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Shadowmark Talon – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit that made an ingress move this turn is selected to shoot.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Your unit’s ranged attacks have:
+■ +1BS.
+■ +1AP.</description>
+            </rule>
+            <rule name="Suppressed Weapons (Stratagem, 1CP)" id="e723-3868-fe79-eb37" hidden="false">
+              <comment>strat-timing: turn=your phase=shooting</comment>
+              <description>Shadowmark Talon – STRATAGEM (1CP)
+
+WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit has shot.
+TARGET: That ADEPTUS ASTARTES INFANTRY unit.
+EFFECT: Those attacks do not prevent your unit from being hidden.</description>
             </rule>
           </rules>
           <profiles>
@@ -16560,21 +16562,17 @@ EFFECT: Remove those units from the battlefield and place them into Strategic Re
             <cost name="DP" typeId="0d99-4ee2-7b3c-1f5a" value="2"/>
           </costs>
           <rules>
-            <rule name="Storm-Swift Onslaught" id="32d2-d63a-d2b0-274a" hidden="false">
-              <description>^^**Adeptus Astartes**^^ units from your army are eligible to declare a charge in a turn in which they Advanced or Fell Back.
+            <rule name="Storm-swift Onslaught" id="32d2-d63a-d2b0-274a" hidden="false">
+              <description>■ You can select the assault doctrine or tactical doctrine one additional time per battle.
+■ Friendly **^^Adeptus Astartes Mounted/Speeder^^** units have +1 to advance rolls.
 
-**Wrath of the First Khan**
+Friendly **^^Suboden Khan^^** units have the following ability:
 
-At the end of the Fight phase, if a **^^Suboden Khan^^** unit from your army destroyed one or more enemy units this phase and is not within Engagement Range of one or more enemy units, that unit can make a Normal move of up to 6&quot;.</description>
-            </rule>
-            <rule name="Armour of Contempt (Stratagem, 1CP)" id="ebfc-f815-c46b-e75e" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight
-def-mod: source=&quot;Armour of Contempt&quot; ap=-1 conditional</comment>
-              <description>Spearpoint Task Force – STRATAGEM (1CP)
+Wrath of the First Khan: At the end of the Fight phase, if this unit was eligible to fight this phase, you can use this ability. If you do:
 
-WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+■ If this unit is unengaged, this unit can make a normal move.
+■ Or: If this unit is engaged, this unit can make a fall-back move.
+Restrictions: Your army can include **^^White Scars^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
             </rule>
             <rule name="Spear Thrust and Sabre Swing (Stratagem, 1CP)" id="0687-f17d-6bca-8074" hidden="false">
               <comment>strat-timing: turn=either phase=fight
@@ -16582,42 +16580,54 @@ sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; wound=+1 when=melee onC
 sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; lethal when=melee choice=&quot;spear&quot;</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
-WHEN: Fight phase.
-TARGET: One Adeptus Astartes unit from your army that has not been selected to fight this phase.
-EFFECT: Select either the [LANCE] or [LETHAL HITS] ability. Until the end of the phase, melee weapons equipped by models in your unit have the selected ability. If it is a Mounted unit, until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] and [LETHAL HITS] abilities instead.</description>
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s melee attacks:
+■ Have [LETHAL HITS].
+■ Or: Have [LANCE].
+■ Or: If your unit has MOUNTED, have [LETHAL HITS] and [LANCE].</description>
             </rule>
             <rule name="Mobile Lethality (Stratagem, 1CP)" id="ebdd-32b3-ca9e-69bd" hidden="false">
               <comment>strat-timing: turn=your phase=movement</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
-WHEN: Your Movement phase.
-TARGET: One Adeptus Astartes unit from your army.
-EFFECT: Until the end of the turn, your unit is eligible to shoot in a turn in which it Advanced or Fell Back.</description>
+WHEN: Your Movement phase, when a friendly ADEPTUS ASTARTES unit is selected to make an advance/fall-back move.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: ■ That fall-back move does not prevent your unit from being eligible to shoot.
+■ Your unit’s ranged attacks have [ASSAULT].</description>
             </rule>
-            <rule name="Hunter’s Instincts (Stratagem, 1CP)" id="32f4-6a54-b101-165a" hidden="false">
+            <rule name="Hunter&apos;s Instincts (Stratagem, 1CP)" id="32f4-6a54-b101-165a" hidden="false">
               <comment>strat-timing: turn=opponent phase=movement</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
-TARGET: One Adeptus Astartes Infantry unit or Adeptus Astartes Mounted unit from your army that is within 8&quot; of that enemy unit. You cannot target a unit that is within Engagement Range of one or more enemy units.
-EFFECT: Your unit can make a Normal move of up to 6&quot;.</description>
+WHEN: Your opponent’s Movement phase, when an enemy unit ends a move within 8” of a friendly unengaged ADEPTUS ASTARTES INFANTRY/MOUNTED/SPEEDER unit.
+TARGET: That ADEPTUS ASTARTES INFANTRY/MOUNTED/SPEEDER unit.
+EFFECT: Your unit can make a normal move of up to D3+3”.</description>
             </rule>
-            <rule name="Evasive Manoeuvres (Stratagem, 1CP)" id="5a0d-dae7-17cb-b0f9" hidden="false">
+            <rule name="Evasive Manoeuvers (Stratagem, 1CP)" id="5a0d-dae7-17cb-b0f9" hidden="false">
               <comment>strat-timing: turn=opponent phase=shooting
-def-mod: source=&quot;Evasive Manoeuvres&quot; wound=-1 conditional</comment>
+def-mod: source=&quot;Evasive Manoeuvers&quot; wound=-1 conditional</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Shooting phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the end of the phase, each time an attack targets your unit, subtract 1 from the Wound roll.</description>
+WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly ADEPTUS ASTARTES MOUNTED/SPEEDER unit.
+TARGET: That ADEPTUS ASTARTES MOUNTED/SPEEDER unit.
+EFFECT: Ranged attacks that target your unit have -1 to wound rolls.</description>
             </rule>
             <rule name="Withdraw and Regroup (Stratagem, 1CP)" id="bb50-fb5c-0016-5ed8" hidden="false">
               <comment>strat-timing: turn=opponent phase=fight</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
 WHEN: End of your opponent’s Fight phase.
-TARGET: One Adeptus Astartes Mounted or Adeptus Astartes Fly Vehicle unit from your army that is not within Engagement Range of one or more enemy units.
-EFFECT: Remove your unit from the battlefield and place it into Strategic Reserves.</description>
+TARGET: One friendly unengaged ADEPTUS ASTARTES MOUNTED/SPEEDER unit.
+EFFECT: Place your unit in strategic reserves.</description>
+            </rule>
+            <rule name="Flawless Riders (Stratagem, 1CP)" id="4c34-8daa-f8e6-d5e1" hidden="false">
+              <comment>strat-timing: turn=your phase=movement|charge</comment>
+              <description>Spearpoint Task Force – STRATAGEM (1CP)
+
+WHEN: Your Movement/Charge phase, when a friendly ADEPTUS ASTARTES MOUNTED unit is selected to move or declares a charge.
+TARGET: That ADEPTUS ASTARTES MOUNTED unit.
+EFFECT: Your unit has MOBILE.</description>
             </rule>
           </rules>
           <profiles>
@@ -16646,72 +16656,59 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
           </costs>
           <rules>
             <rule name="Mastered Doctrines" id="b260-a005-ff0e-1fbc" hidden="false">
-              <description>At the start of up to three of your Command phases, you can select one of the Combat Doctrines listed below. Until the start of your next Command phase, that Combat Doctrine is active and its effects apply to all ^^**Adeptus Astartes^^** units from your army. You cannot select a Combat Doctrine you have already selected this battle, unless a friendly **^^Marneus Calgar^^** model is on the battlefield.
-
-**DEVASTATOR DOCTRINE**
-This unit is eligible to shoot in a turn in which it Advanced.
-
-**TACTICAL DOCTRINE**
-This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.
-
-**ASSAULT DOCTRINE**
-This unit is eligible to declare a charge in a turn in which it Advanced.
-
-Restrictions: Your army can include **^^Ultramarines^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
+              <description>If your army includes a **^^Marneus Calgar^^** unit, you can select the assault doctrine/devastator doctrine/tactical doctrine each one additional time per battle.</description>
             </rule>
             <rule name="Armour of Contempt (Stratagem, 1CP)" id="cf5b-8df4-f641-2199" hidden="false">
               <comment>strat-timing: turn=either phase=shooting|fight
 def-mod: source=&quot;Armour of Contempt&quot; ap=-1 conditional</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.</description>
+WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly ADEPTUS ASTARTES unit.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Attacks that target your unit have -1 AP until that enemy unit has attacked.</description>
             </rule>
             <rule name="Tactical Foresight (Stratagem, 1CP)" id="1cf3-b2ea-99ee-1e19" hidden="false">
               <comment>strat-timing: turn=either phase=shooting|fight
 def-mod: source=&quot;Tactical Foresight&quot; wound=-1 vsStronger conditional</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
-TARGET: One Adeptus Astartes unit from your army that was selected as the target of one or more of the attacking unit’s attacks.
-EFFECT: Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than or equal to the Toughness characteristic of that unit, subtract 1 from the Wound roll.</description>
+WHEN: Your opponent’s Shooting phase or the Fight phase, when an enemy unit targets a friendly ADEPTUS ASTARTES unit.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Attacks that target your unit with a S greater than this unit’s T have -1 to wound rolls.</description>
             </rule>
             <rule name="Courage and Honour! (Stratagem, 1CP)" id="de7c-ec0d-c03b-073c" hidden="false">
               <comment>strat-timing: turn=either phase=fight
-sim-mod: source=&quot;Courage and Honour!&quot; wound=+1 when=melee onCharge
-sim-mod: source=&quot;Courage and Honour!&quot; ap=+1 when=melee conditional</comment>
+sim-mod: source=&quot;Courage and Honour!&quot; wound=+1 when=melee onCharge</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
-WHEN: Fight phase.
-TARGET: One Adeptus Astartes unit from your army.
-EFFECT: Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit is under the effects of the Assault Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.</description>
+WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s melee attacks have [Lance].</description>
             </rule>
             <rule name="Ultramarian Adaptivity (Stratagem, 1CP)" id="e17c-a924-fbc6-d0d2" hidden="false">
               <comment>strat-timing: turn=your phase=command</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
-TARGET: One Adeptus Astartes unit from your army.
-EFFECT: Select the Devastator Doctrine, Tactical Doctrine or Assault Doctrine. Until the start of your next Command phase, that Combat Doctrine is active for your unit instead of any other Combat Doctrine that is active for your army, even if you have already selected that Combat Doctrine this battle.</description>
+TARGET: One friendly ADEPTUS ASTARTES unit.
+EFFECT: Select one combat doctrine. That combat doctrine is active for your unit until the start of your next Command phase.</description>
             </rule>
             <rule name="Exemplary Vigilance (Stratagem, 1CP)" id="b54b-f656-3c5e-b870" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;Exemplary Vigilance&quot; ignores-cover when=ranged
-sim-mod: source=&quot;Exemplary Vigilance&quot; ap=+1 when=ranged conditional</comment>
+sim-mod: source=&quot;Exemplary Vigilance&quot; ignores-cover when=ranged</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
-WHEN: Your Shooting phase.
-TARGET: One Adeptus Astartes unit from your army that has not been selected to shoot this phase.
-EFFECT: Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability. If your unit is under the effects of the Devastator Doctrine, until the end of the phase, improve the Armour Penetration characteristic of such weapons by 1 as well.</description>
+WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot.
+TARGET: That ADEPTUS ASTARTES unit.
+EFFECT: Your unit’s ranged attacks have [IGNORES COVER].</description>
             </rule>
             <rule name="Practical Tactics (Stratagem, 1CP)" id="7555-24bb-93ab-b0f6" hidden="false">
               <comment>strat-timing: turn=opponent phase=movement</comment>
               <description>Blade of Ultramar – STRATAGEM (1CP)
 
-WHEN: Your opponent’s Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.
-TARGET: One Adeptus Astartes Infantry or Adeptus Astartes Mounted unit from your army that is not within Engagement Range of one or more enemy units and is within 8&quot; of the enemy unit that just ended that move.
-EFFECT: Your unit can make a Normal move of up to D6&quot;, or a Normal move of up to 6&quot; instead if it is under the effects of the Tactical Doctrine.</description>
+WHEN: Your opponent’s Movement phase, when an enemy unit ends a move within 8&quot; of a friendly unengaged ADEPTUS ASTARTES INFANTRY/MOUNTED unit.
+TARGET: That ADEPTUS ASTARTES INFANTRY/MOUNTED unit.
+EFFECT: Your unit can make a normal move of up to D3+3&quot;.</description>
             </rule>
           </rules>
           <profiles>
@@ -19311,7 +19308,7 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
               <profiles>
                 <profile name="Adamantine Mantle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b37b-b2c2-99ee-dbb9">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. Each time an attack is allocated the bearer, subtract 1 from the Damage characteristic of that attack. If that attack was made with a **[MELTA]** or **[TORRENT]** weapon, change the Damage characteristic of that attack to 1 instead.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. Attacks allocated to this model have -1D.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19345,18 +19342,20 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
               </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="War-tempered Artifice" hidden="false" id="f712-af03-53bd-f9dd">
-              <comment>sim-mod: source=&quot;War-tempered Artifice&quot; str=+3 when=melee scope=model</comment>
+              <comment>sim-mod: source=&quot;War-tempered Artifice&quot; str=+1 dmg=+1 when=melee scope=model</comment>
               <profiles>
                 <profile name="War-tempered Artifice" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="81be-a540-7410-a9b2">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Infantry^^** model only. Add 3 to the Strength characteristic of the bearer&apos;s melee weapons.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This model’s melee attacks have:
+■ +1S.
+■ +1D.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
-                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true" id="7735-d059-9dd6-8850" includeChildSelections="true" includeChildForces="true"/>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true" id="7735-d059-9dd6-8850" includeChildSelections="true" includeChildForces="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -19373,7 +19372,8 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
                 <modifierGroup type="and">
                   <modifiers>
                     <modifier type="append" value="War-tempered Artifice" field="annotation" join=", " scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
-                    <modifier type="increment" value="3" field="ab33-d393-96ce-ccba" scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
+                    <modifier type="increment" value="1" field="ab33-d393-96ce-ccba" scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
+                    <modifier type="increment" value="1" field="3254-9fe6-d824-513e" scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
@@ -19382,7 +19382,10 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
               <profiles>
                 <profile name="Forged in Battle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae7a-3243-f314-dd6c">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, once per turn, after making a Hit roll or a saving throw for a model in that unit, you can change the result of that roll to an unmodified 6.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit can ignore modifiers to:
+■ BS.
+■ WS.
+■ Hit rolls.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19420,7 +19423,7 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
               <profiles>
                 <profile name="Immolator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a81a-69a2-8c2f-b5b4">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. Add 1 to the attacks characteristics of Torrent weapons equipped by models in the bearer&apos;s unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit’s **[TORRENT]** weapons have +1A.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19467,8 +19470,7 @@ sim-mod: source=&quot;Champion of the Deathwing&quot; crit-hit=5 when=melee cond
               <profiles>
                 <profile name="Blackwing Shroud" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7159-94cc-4098-28a5">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Infantry model only. While the bearer is leading a unit, models in that unit have the
-Infiltrators ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Infantry^^** model only. This unit has Infiltrators.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19506,11 +19508,7 @@ Infiltrators ability.</characteristic>
               <profiles>
                 <profile name="Coronal Susurrant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="77fb-564f-1789-e9ed">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Phobos model only. The bearer has the following ability:
-
-
-Lord of Deceit (Aura): Each time your opponent targets a unit from their army with a Stratagem, if that
-unit is within 12&quot; of this model, increase the cost of that usage of that Stratagem by 1CP.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Phobos^^** model only. Each enemy unit (excluding **^^Monster/Vehicle units^^**) engaged with this unit cannot be targeted by controlling player stratagems.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19535,7 +19533,9 @@ unit is within 12&quot; of this model, increase the cost of that usage of that 
               <profiles>
                 <profile name="Umbral Raptor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ee28-d5b1-6304-6d5e">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. The bearer has the Stealth and Lone Operative abilities.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">&lt;k&gt;Adeptus Astartes infantry&gt; model only. This model has:
+■ Fights First.
+■ Lone Operative.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19551,6 +19551,7 @@ unit is within 12&quot; of this model, increase the cost of that usage of that 
                     <conditionGroup type="or">
                       <conditions>
                         <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
                       </conditions>
                       <conditionGroups>
                         <conditionGroup type="and">
@@ -19572,7 +19573,7 @@ unit is within 12&quot; of this model, increase the cost of that usage of that 
               <profiles>
                 <profile name="Hunter&apos;s Instincts" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4458-dcf6-ab23-44e9">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Adeptus Astartes**^^ model only. In your Movement phase, if the bearer’s unit is in Strategic Reserves, for the purposes of setting up that unit on the battlefield, treat the current battle round number as being one higher than it actually is.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. In your first Movement phase, this unit can make an ingress move.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19680,7 +19681,9 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
               <profiles>
                 <profile name="Spearpoint Paragon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cfb4-3a43-2b29-1aae">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. Improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 1. Each time the bearer ends a Charge move, until the end of the turn, improve the Strength and Armour Penetration characteristics of the bearer’s melee weapons by 2 instead.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This model’s melee attacks have:
+■ +1 S and AP.
+■ Or: If this unit made a charge move this turn, +2 S and AP.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19710,14 +19713,14 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
                 </modifier>
               </modifiers>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Stormseers&apos; Wisdom" hidden="false" id="45fb-0afc-f558-c3c5">
+            <selectionEntry type="upgrade" import="true" name="Stormseer&apos;s Wisdom" hidden="false" id="45fb-0afc-f558-c3c5">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="2407-8e99-ddcb-f165" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <profiles>
-                <profile name="Stormseers&apos; Wisdom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af9e-e90d-1365-2492">
+                <profile name="Stormseer&apos;s Wisdom" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="af9e-e90d-1365-2492">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, you can re‑roll Advance rolls made for that unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit can re-roll advance rolls.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19755,8 +19758,9 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
               <profiles>
                 <profile name="Hunter&apos;s Eye" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="be3e-6c87-63e2-fed7">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. Ranged weapons equipped by models in the bearer’s unit have the
-[SUSTAINED HITS 1] and [IGNORES COVER] abilities.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit’s ranged attacks:
+■ Have **[IGNORES COVER]**.
+■ Have **[SUSTAINED HITS 1]**.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19786,14 +19790,14 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
                 </modifier>
               </modifiers>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Chogorian Huntmaster" hidden="false" id="b21a-b914-964c-d984">
+            <selectionEntry type="upgrade" import="true" name="Chogorian Huntmaster Upgrade" hidden="false" id="b21a-b914-964c-d984">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1d7f-c2ea-d8af-1bf6" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <profiles>
-                <profile name="Chogorian Huntmaster" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecd6-15d0-bdcd-a03b">
+                <profile name="Chogorian Huntmaster Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecd6-15d0-bdcd-a03b">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes Mounted model only. If the bearer’s unit is in Strategic Reserves, for the purposes of setting up that unit on the battlefield, treat the current battle round number as being one higher than it actually is.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes Mounted/Speeder^^** unit only. When this unit is selected to make an ingress move, treat the current battle round number as being one higher than it actually is.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19801,6 +19805,7 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
                 <modifier type="set" value="true" field="hidden">
                   <conditions>
                     <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="14a0-40c9-2748-ae6e" shared="true"/>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="d017-f2eb-14c6-4fd9" shared="true"/>
                   </conditions>
                 </modifier>
               </modifiers>
@@ -19825,7 +19830,10 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
               <profiles>
                 <profile name="Armour of Antoninus" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="207b-71f8-17d3-ee99">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. The bearer has a Save characteristic of 2+ and the Feel No Pain 5+ ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This model has:
+
+■ 2+ Sv.
+■ Feel No Pain 5+.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19871,15 +19879,18 @@ sim-mod: source=&quot;Spearpoint Paragon (charge)&quot; str=+2 ap=+2 when=melee 
               </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Oath of Macragge" hidden="false" id="9757-8da6-e934-619c">
-              <comment>sim-mod: source=&quot;Oath of Macragge&quot; attacks=+1 str=+1 when=melee scope=model choice=&quot;Oath of Macragge&quot;
-sim-mod: source=&quot;Oath of Macragge (Assaut)&quot; attacks=+2 str=+2 when=melee scope=model conditional choice=&quot;Oath of Macragge&quot;</comment>
+              <comment>sim-mod: source=&quot;Oath of Macragge&quot; str=+1 ap=+1 when=melee scope=model choice=&quot;Oath of Macragge&quot;
+sim-mod: source=&quot;Oath of Macragge (Assaut)&quot; str=+2 ap=+2 when=melee scope=model conditional choice=&quot;Oath of Macragge&quot;</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1774-580e-2301-c680" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <profiles>
                 <profile name="Oath of Macragge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7f27-b6e7-8a54-0b32">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is under the effects of the Assault Doctrine, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This model’s melee attacks have:
+
+■ +1 S and AP.
+■ Or: If the assault doctrine is active for this unit, +2 S and AP.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19894,12 +19905,6 @@ sim-mod: source=&quot;Oath of Macragge (Assaut)&quot; attacks=+2 str=+2 when=mel
                   <modifiers>
                     <modifier type="append" value="Oath of Macragge" field="annotation" join=", " scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
                     <modifier type="increment" value="1" field="ab33-d393-96ce-ccba" scope="model" affects="self.entries.recursive.profiles.Melee Weapons"/>
-                    <modifier type="append" value="+0" field="2337-daa1-6682-b110" scope="model" affects="self.entries.recursive.e993-e086-6de1-12af.profiles.Melee Weapons" arg="+0" join=""/>
-                    <modifier type="replace" value="true" field="2337-daa1-6682-b110" scope="model" affects="self.entries.recursive.6337-b83b-0d1e-5770.profiles.Melee Weapons" arg="+0"/>
-                    <modifier type="increment" value="1" field="2337-daa1-6682-b110" scope="model" affects="self.entries.recursive.profiles.Melee Weapons" position="-1"/>
-                    <modifier type="decrement" value="1" field="2337-daa1-6682-b110" scope="model" affects="self.entries.recursive.84c4-6d1e-e724-bd6e.profiles.Melee Weapons" position="-1"/>
-                    <modifier type="replace" value="true" field="2337-daa1-6682-b110" scope="model" affects="self.entries.recursive.profiles.Melee Weapons" arg="+0"/>
-                    <modifier type="add" value="6337-b83b-0d1e-5770" field="category" scope="model" arg="+0" affects="self.entries.recursive.e993-e086-6de1-12af"/>
                   </modifiers>
                 </modifierGroup>
               </modifierGroups>
@@ -19930,8 +19935,7 @@ sim-mod: source=&quot;Oath of Macragge (Assaut)&quot; attacks=+2 str=+2 when=mel
               <profiles>
                 <profile name="Student of the Codex" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c1af-7626-6064-c073">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. At the start of your Command phase, if the bearer is on the battlefield, it
-can use this Enhancement. If it does, until the start of your next Command phase, the Tactical  doctrine is active for this unit (instead of any other Combat Doctrine you select to be active for your army, and even if there is no Combat Doctrine active for your army).</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Captain^^** model only. The tactical doctrine is active for this unit in addition to any other combat doctrine.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -19947,6 +19951,7 @@ can use this Enhancement. If it does, until the start of your next Command phas
                     <conditionGroup type="or">
                       <conditions>
                         <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="6e7-40c-58d9-e402" shared="true"/>
+                        <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="2d7f-1892-2fd0-e29c" shared="true"/>
                       </conditions>
                       <conditionGroups>
                         <conditionGroup type="and">
@@ -19969,7 +19974,7 @@ can use this Enhancement. If it does, until the start of your next Command phas
               <profiles>
                 <profile name="Veteran of Behemoth" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f4d9-7a39-2a0e-ceba">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Adeptus Astartes model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability. In addition, while the bearer’s unit is under the effects of the Devastator Doctrine, you can re-roll Advance rolls made for that unit.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">**^^Adeptus Astartes^^** model only. This unit’s ranged attacks have **[Sustained Hits 1]**.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
