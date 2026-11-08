@@ -69,7 +69,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    Bjorn/Swarmlord/Mawloc/Trygon (GDC et base d'accord, Wahapedia diffère). Fiches Forge World présentes dans l'officiel et
    absentes de la base (règle 6, texte à fournir ?) : Ares Gunship, Orion Assault Dropship (Custodes), Astraeus, Thunderhawk
    Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
-   source officielle : « shaken » = ébranlée, Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
+   source officielle : « shaken » = secouée (« ébranlé » = battle-shocked, jamais shaken ; pas de terme officiel), Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
 
 ## Dettes connues (pas de décision attendue)
 
