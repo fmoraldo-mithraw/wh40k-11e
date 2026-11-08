@@ -15984,7 +15984,7 @@ EFFECT: Select one combat doctrine. That combat doctrine is active for your unit
             </rule>
             <rule name="Hellfire Rounds (Stratagem, 1CP)" id="86df-632b-143b-1077" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;HELLFIRE ROUNDS&quot; anti=Infantry:2+ anti=Monster:5+ when=ranged kw=&quot;Kill Team&quot;</comment>
+sim-mod: source=&quot;HELLFIRE ROUNDS&quot; anti=non-Vehicle:4+ when=ranged notWeapon=&quot;Devastating Wounds&quot; kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -15993,7 +15993,7 @@ EFFECT: Your unit’s ranged attacks (excluding [DEVASTATING WOUNDS] attacks) ha
             </rule>
             <rule name="Dragonfire Rounds (Stratagem, 1CP)" id="e9ae-3c7c-09cd-8cf2" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;DRAGONFIRE ROUNDS&quot; ignores-cover when=ranged kw=&quot;Kill Team&quot;</comment>
+sim-mod: source=&quot;DRAGONFIRE ROUNDS&quot; reroll=wound1 ignores-cover when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -16004,7 +16004,7 @@ EFFECT: Your unit’s ranged attacks:
             </rule>
             <rule name="Kraken Rounds (Stratagem, 1CP)" id="aea0-8eb5-b5ef-4a7f" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;KRAKEN ROUNDS&quot; ap=+1 when=ranged kw=&quot;Kill Team&quot;</comment>
+sim-mod: source=&quot;KRAKEN ROUNDS&quot; str=+1 when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Black Spear Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -16105,7 +16105,8 @@ Countercharge: (Once per battle round, per unit) When you target this unit with 
 Restrictions: Your army can include **^^Space Wolves^^** units, but it cannot include any **^^Adeptus Astartes^^** units drawn from any other Chapter.</description>
             </rule>
             <rule name="Champion&apos;s Guidance (Stratagem, 1CP)" id="9098-0554-220a-2af4" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Champion&apos;s Guidance&quot; reroll=hit1 reroll=wound1 when=melee kw=&quot;Character&quot;</comment>
               <description>Champions of Fenris – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES CHARACTER unit is selected to fight.
@@ -16412,7 +16413,7 @@ EFFECT: Your unit’s attacks can:
             </rule>
             <rule name="Immolation Protocols (Stratagem, 1CP)" id="1053-7647-9168-b2cb" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;Immolation Protocols&quot; ap=+1 when=ranged weapon=&quot;Torrent&quot;</comment>
+sim-mod: source=&quot;Immolation Protocols&quot; ap=+1 when=ranged weapon=&quot;Torrent&quot; kw=&quot;Infantry&quot;</comment>
               <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit is selected to attack.
@@ -16446,7 +16447,8 @@ TARGET: One friendly ADEPTUS ASTARTES INFANTRY unit.
 EFFECT: The assault doctrine or tactical doctrine is active for your unit, until the start of your next Command phase.</description>
             </rule>
             <rule name="Forged in Fire (Stratagem, 1CP)" id="6c75-da40-3850-67cd" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Forged in Fire&quot; attacks=+1 no-blast when=ranged weapon=&quot;Torrent&quot; conditional</comment>
               <description>Forgefather&apos;s Seekers – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly engaged ADEPTUS ASTARTES unit is selected to shoot.
@@ -16521,7 +16523,8 @@ TARGET: One unengaged ADEPTUS ASTARTES INFANTRY unit.
 EFFECT: Place your unit in strategic reserves.</description>
             </rule>
             <rule name="Murderous Fusillade (Stratagem, 1CP)" id="0bd3-b57e-e9e7-4b03" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Murderous Fusillade&quot; hit=+1 ap=+1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
               <description>Shadowmark Talon – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES INFANTRY unit that made an ingress move this turn is selected to shoot.
@@ -17228,7 +17231,8 @@ EFFECT: When a model in your unit is destroyed, if your unit has not been select
 ■ On a 4+, do not remove that model from the battlefield. When your unit has fought, or at the end of the phase (whichever comes first), that model is removed from the battlefield.</description>
             </rule>
             <rule name="Might of Angels (Stratagem, 1CP)" id="88cc-8090-1778-1462" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Might of Angels&quot; wound=+1 when=melee onCharge</comment>
               <description>Gladius Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -17244,7 +17248,8 @@ TARGET: One friendly ADEPTUS ASTARTES unit.
 EFFECT: Select one combat doctrine. That combat doctrine is active for your unit until the start of your next Command phase.</description>
             </rule>
             <rule name="Storm of Devastation (Stratagem, 1CP)" id="df60-a089-a972-b9a8" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Storm of Devastation&quot; ignores-cover when=ranged</comment>
               <description>Gladius Task Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot.
@@ -17291,7 +17296,9 @@ TARGET: That ADEPTUS ASTARTES unit.
 EFFECT: Attacks that target your unit have -1 AP until that enemy unit has attacked.</description>
             </rule>
             <rule name="Gene-wrought Might (Stratagem, 1CP)" id="8b74-f486-4aa3-af05" hidden="false">
-              <comment>strat-timing: turn=either phase=fight</comment>
+              <comment>strat-timing: turn=either phase=fight
+sim-mod: source=&quot;Gene-wrought Might&quot; wound=+1 when=melee onCharge
+sim-mod: source=&quot;Gene-wrought Might (assault doctrine)&quot; ap=+1 when=melee conditional</comment>
               <description>Assault Brethren – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -17327,6 +17334,8 @@ det-allies: keyword=&quot;Deathwatch&quot; faction=&quot;Deathwatch&quot; maxPts
           </profiles>
           <rules>
             <rule name="Mission Tactics" id="7762-7c61-68e4-bbcc" hidden="false">
+              <comment>sim-mod: source=&quot;Mission Tactics (Furor)&quot; sustained=1 kw=&quot;Kill Team&quot; conditional choice=&quot;mission-tactics&quot;
+sim-mod: source=&quot;Mission Tactics (Malleus)&quot; lethal kw=&quot;Kill Team&quot; conditional choice=&quot;mission-tactics&quot;</comment>
               <description>Friendly KILL TEAM units with this ability have the following abilities:
 
 Furor Tactics: If the devastator doctrine is active for your unit, your unit’s attacks have [SUSTAINED HITS 1].
@@ -17350,7 +17359,8 @@ TARGET: One friendly unengaged KILL TEAM unit.
 EFFECT: Place your unit in strategic reserves.</description>
             </rule>
             <rule name="Kraken Rounds (Stratagem, 1CP)" id="dc25-1fda-0cc7-bb23" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Kraken Rounds&quot; str=+1 when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Deathwatch Support – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -17360,7 +17370,8 @@ EFFECT: Your unit’s ranged attacks have:
 ■ +1 S.</description>
             </rule>
             <rule name="Dragonfire Rounds (Stratagem, 1CP)" id="79f8-e88b-4c48-fce7" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Dragonfire Rounds&quot; reroll=wound1 ignores-cover when=ranged kw=&quot;Kill Team&quot;</comment>
               <description>Deathwatch Support – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -17370,7 +17381,8 @@ EFFECT: Your unit’s ranged attacks:
 ■ Have [IGNORES COVER].</description>
             </rule>
             <rule name="Hellfire Rounds (Stratagem, 1CP)" id="f3f6-1409-6d59-d3b6" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Hellfire Rounds&quot; anti=non-Vehicle:4+ when=ranged notWeapon=&quot;Devastating Wounds&quot; kw=&quot;Kill Team&quot;</comment>
               <description>Deathwatch Support – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase when a KILL TEAM unit is selected to shoot.
@@ -17466,7 +17478,9 @@ TARGET: That ADEPTUS ASTARTES unit.
 EFFECT: Attacks that target your unit have -1 AP until that enemy unit has attacked.</description>
             </rule>
             <rule name="Storm of Fire (Stratagem, 1CP)" id="33e7-1bea-2ae9-4773" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Storm of Fire&quot; ignores-cover when=ranged
+sim-mod: source=&quot;Storm of Fire (devastator doctrine)&quot; ap=+1 when=ranged conditional</comment>
               <description>Devastator Brethren – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot.
@@ -17506,7 +17520,9 @@ EFFECT: Your unit shoots using normal shooting, but while doing so your unit can
               <description>Friendly **^^Tacticus^^** units can re-roll advance rolls.</description>
             </rule>
             <rule name="Relentless Assault (Stratagem, 1CP)" id="a421-de06-73fc-06cf" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Relentless Assault&quot; sustained=1 vsNot=Monster,Vehicle kw=&quot;Tacticus&quot;
+sim-mod: source=&quot;Relentless Assault&quot; lethal vs=Monster,Vehicle kw=&quot;Tacticus&quot;</comment>
               <description>Tacticus Attack Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly TACTICUS unit is selected to attack.
@@ -17562,7 +17578,9 @@ TARGET: One friendly TACTICUS unit that is within range of an objective.
 EFFECT: Your unit has +1 OC until the end of the turn.</description>
             </rule>
             <rule name="Relentless Assault (Stratagem, 1CP)" id="1876-5126-86e7-521d" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Relentless Assault&quot; sustained=1 vsNot=Monster,Vehicle kw=&quot;Tacticus&quot;
+sim-mod: source=&quot;Relentless Assault&quot; lethal vs=Monster,Vehicle kw=&quot;Tacticus&quot;</comment>
               <description>Tacticus Firestorm Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly TACTICUS unit is selected to attack.
@@ -17572,7 +17590,8 @@ EFFECT: Your unit’s attacks have:
 ■ Or: [LETHAL HITS: MONSTER/VEHICLE].</description>
             </rule>
             <rule name="Point-blank Brutality (Stratagem, 1CP)" id="ba0d-4ea3-8850-5baa" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Point-blank Brutality&quot; ignores-cover when=ranged notWeapon=&quot;Blast&quot; kw=&quot;Tacticus&quot; conditional</comment>
               <description>Tacticus Firestorm Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly engaged TACTICUS unit is selected to shoot.
@@ -17606,7 +17625,8 @@ EFFECT: Your unit’s ranged attacks (excluding [BLAST] attacks) have:
 ■ Or: That unit can make a normal move of up to D6&quot;. That unit is not eligible to declare a charge until the end of the turn.</description>
             </rule>
             <rule name="Strike from the Shadows (Stratagem, 1CP)" id="5e3b-8151-ec22-fff0" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Strike from the Shadows&quot; str=+1 lethal kw=&quot;Phobos&quot; conditional</comment>
               <description>Phobos Shadow Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly hidden PHOBOS unit is selected to attack.
@@ -17656,7 +17676,8 @@ EFFECT: Place your unit in strategic reserves.</description>
               <description>At the end of your Movement phase, if a friendly **^^Phobos^^** unit is hidden, that unit’s attacks can re-roll wound rolls of 1 until the end of the turn.</description>
             </rule>
             <rule name="Strike from the Shadows (Stratagem, 1CP)" id="aa9a-8c25-4585-d361" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Strike from the Shadows&quot; str=+1 lethal kw=&quot;Phobos&quot; conditional</comment>
               <description>Phobos Shock Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly hidden PHOBOS unit is selected to attack.
@@ -17712,7 +17733,8 @@ TARGET: That ADEPTUS ASTARTES TERMINATOR unit.
 EFFECT: Attacks that target your unit have -1 D until that enemy unit has attacked.</description>
             </rule>
             <rule name="Merciless Veterans (Stratagem, 1CP)" id="a2b6-97ec-b430-7919" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Merciless Veterans&quot; lethal sustained=1 when=ranged kw=&quot;Terminator&quot;</comment>
               <description>Terminator Storm Force – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES TERMINATOR unit is selected to shoot.
@@ -17804,7 +17826,9 @@ TARGET: One friendly DREADNOUGHT unit.
 EFFECT: Each enemy unit engaged with your unit makes a battle-shock roll, with -1 to that battle-shock roll.</description>
             </rule>
             <rule name="Mercy is Weakness (Stratagem, 1CP)" id="a853-1dd9-2538-7b77" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+sim-mod: source=&quot;Mercy is Weakness (Lethal Hits)&quot; lethal kw=&quot;Dreadnought&quot; choice=&quot;Mercy is Weakness&quot;
+sim-mod: source=&quot;Mercy is Weakness (Sustained Hits 1)&quot; sustained=1 kw=&quot;Dreadnought&quot; choice=&quot;Mercy is Weakness&quot;</comment>
               <description>Ironclad Champions – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase or the Fight phase, when a friendly DREADNOUGHT unit is selected to attack.
@@ -17838,6 +17862,7 @@ EFFECT: Your unit has MOBILE.</description>
           </profiles>
           <rules>
             <rule name="Combined Deployment" id="cf8c-c118-df36-b6b5" hidden="false">
+              <comment>sim-mod: source=&quot;Combined Deployment&quot; sustained=1 conditional</comment>
               <description>In your Shooting phase, when a friendly **^^Adeptus Astartes Transport^^** unit has shot, you can select one enemy unit hit by those attacks. That enemy unit is assailed until the end of the turn:
 ■ While a unit is assailed, when an **^^Adeptus Astartes^^** unit that disembarked this turn targets that unit, those attacks have **[SUSTAINED HITS 1]**.</description>
             </rule>
@@ -17908,7 +17933,8 @@ EFFECT: Until the start of your next Command phase, your unit can ignore modifie
 ■ Hit rolls and wound rolls.</description>
             </rule>
             <rule name="Headhunter Doctrine (Stratagem, 1CP)" id="e76f-2554-7ae0-68a4" hidden="false">
-              <comment>strat-timing: turn=your phase=shooting</comment>
+              <comment>strat-timing: turn=your phase=shooting
+sim-mod: source=&quot;Headhunter Doctrine&quot; lethal when=ranged vs=Monster,Vehicle kw=&quot;Vehicle&quot;</comment>
               <description>Ironstorm Spearhead – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase, when a friendly ADEPTUS ASTARTES VEHICLE unit (excluding DEDICATED TRANSPORT/FLY/WALKER units) is selected to shoot.
