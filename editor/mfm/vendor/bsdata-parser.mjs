@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 2653aff
-// source-sha256: 926819c07adfd91b
+// source-commit: 7bd0ea0
+// source-sha256: 394ea107d3ccc293
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5232,6 +5232,7 @@ function parseSimMod(text) {
       let m2;
       if (m2 = /^source="([^"]*)"$/i.exec(tk)) sm.source = m2[1];
       else if (m2 = /^weapon="([^"]*)"$/i.exec(tk)) sm.weapon = m2[1];
+      else if (m2 = /^notWeapon="([^"]*)"$/i.exec(tk)) sm.notWeapon = m2[1];
       else if (m2 = /^faction="([^"]*)"$/i.exec(tk)) sm.faction = m2[1];
       else if (m2 = /^kw="([^"]*)"$/i.exec(tk)) sm.kw = sm.kw.concat(m2[1].split(",").map((s) => s.trim()).filter(Boolean));
       else if (/^kwModels$/i.test(tk)) sm.kwModels = true;
@@ -5240,6 +5241,9 @@ function parseSimMod(text) {
       else if (/^choice$/i.test(tk)) sm.choice = true;
       else if (m2 = /^vs=(.+)$/i.exec(tk)) {
         sm.vs = m2[1].split(",").map((s) => s.trim()).filter(Boolean);
+        sm.conditional = true;
+      } else if (m2 = /^vsNot=(.+)$/i.exec(tk)) {
+        sm.vsNot = m2[1].split(",").map((s) => s.trim()).filter(Boolean);
         sm.conditional = true;
       } else if (m2 = /^when=(melee|ranged)$/i.exec(tk)) sm.when = m2[1].toLowerCase();
       else if (m2 = /^oncePer=(\w+)$/i.exec(tk)) {
