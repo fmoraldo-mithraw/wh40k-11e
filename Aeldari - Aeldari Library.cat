@@ -23444,7 +23444,10 @@ invuln: 4+</comment>
               <profiles>
                 <profile name="Archraider" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f957-df14-5640-41be">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Harlequins**^^ or ^^**Drukhari**^^ model only. In the Declare Battle Formations step, if the bearer starts the battle embarked within a ^^**Dedicated Transport**^^, that ^^**Dedicated Transport**^^ has the Scouts 9&quot; ability.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Anhrathe Character**^^ unit only. At the start of the battle, select one ^^**Character**^^ model in this unit. That model has the following ability: 
+
+
+**Lord of Deceit (Aura):** Once per turn, when your opponent targets a unit from their army within 12” of this model with a stratagem, you can use this ability. If you do, increase the CP cost of that use of that stratagem by 1CP.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -23456,7 +23459,8 @@ invuln: 4+</comment>
           <conditionGroups>
             <conditionGroup type="or">
               <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="a5a2-d0c0-0349-d226" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cf8-50f3-f6f5-ea4c" shared="true"/>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="9cfd-1c32-585f-7d5c" shared="true"/>
               </conditions>
               <conditionGroups>
                 <conditionGroup type="and">
@@ -24544,7 +24548,7 @@ EFFECT: Your TRANSPORT can make a Normal move of up to 6&quot;.</description>
 
 WHEN: Your Movement phase, just after a Drukhari Infantry unit from your army disembarks from a Transport that made a Normal move this phase.
 TARGET: That INFANTRY unit.
-EFFECT: Until the end of the turn, your unit is eligible to declare a charge.</description>
+EFFECT: Your unit makes an assault disembark move (Core Rules, 18.06) for that disembarkation.</description>
             </rule>
             <rule name="WRAITHLIKE RETREAT (Stratagem, 1CP)" id="93b4-9400-8d99-8c10" hidden="false">
               <comment>strat-timing: turn=either phase=fight</comment>
@@ -27054,10 +27058,7 @@ Roll one D6: on a 4+, you gain 1CP.</characteristic>
               <profiles>
                 <profile name="Archraider" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="deb3-9f0e-6469-cc8a">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Anhrathe Character**^^ unit only. At the start of the battle, select one ^^**Character**^^ model in this unit. That model has the following ability: 
-
-
-**Lord of Deceit (Aura):** Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12” of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">^^**Harlequins**^^ or ^^**Drukhari**^^ model only. In the Declare Battle Formations step, if the bearer starts the battle embarked within a ^^**Dedicated Transport**^^, that ^^**Dedicated Transport**^^ has the Scouts 9&quot; ability.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
