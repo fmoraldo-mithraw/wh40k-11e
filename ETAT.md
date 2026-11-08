@@ -30,7 +30,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   restes = Legends, fiches absentes (Q7), alliés d'une autre faction en 2v2. **2e passe (nuit)** : unités **4 842/4 870**
   (99,4 % ; restes = Legends + fiches absentes), équipements **18 310/18 521** placés (98,9 % ; restes = options retirées
   des fiches 11e dans des listes v946–v981, longue traîne FR). Lot d'équipe L3 (30 listes, export « Joueur : Faction ») : 100 %.
-- Pack FR **13 802** clés ; résumés **4 218** capacités (4 147 entrées par langue, 100 %) ; socles **1 010** (+ alias).
+- Pack FR **13 884** clés ; résumés **4 216** capacités (100 %) ; socles **1 010** (+ alias).
 - `editor/translations/gdc-compare.cjs --gdc /tmp/gdc/11th/gdc --out-dir …` : vrais **156** (tous classés : gelés,
   expliqués ou faux positifs de l'outil — invul.info, `option=`/`vs=`, profils non-arme), modélisation 1 942, noms 464.
 - game-datacards suivi : données **995**, commit `6f98bb1`, export du 2026-10-16T18:38 (`editor/sources/game-datacards.json`).
@@ -62,6 +62,14 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    vs « Preneurs de Têtes Gardes Loups » (appli GW, et la prose du pack) ; manquent Fenrisian Wolves, Assault
    Brethren, Moteurs surgonflés, Expertise inhumée, Ost-Rempart… Aligner le pack sur les noms de l'appli GW FR ?
    En attendant : table d'import seule `src/lib/gwFrNames.js` (appli ; ~50 noms sûrs, aucun libellé affiché changé).
+9. **Audit Wahapedia 11e arbitré par game-datacards (2026-11-08)** : ~60 corrections certaines appliquées (officiel +
+   Wahapedia d'accord : errata, détachements de chapitre SM, débarquements, mots-clés…). Restent À TRANCHER, sans action :
+   Canis Rex (Legendary Freeblade 0 PC / -1 PC), Dêlve Assault Shift (BATTLELINE Beserks), Thunderhawk GK (Cluster Bombs),
+   Ta'unar (volet MOBILE), Intraneural Biotech, Heirs of Sigismund, rattachement Farseer → Warlock Conclave (voulu, pack v1.4),
+   Bjorn/Swarmlord/Mawloc/Trygon (GDC et base d'accord, Wahapedia diffère). Fiches Forge World présentes dans l'officiel et
+   absentes de la base (règle 6, texte à fournir ?) : Ares Gunship, Orion Assault Dropship (Custodes), Astraeus, Thunderhawk
+   Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
+   source officielle : « shaken » = ébranlée, Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
 
 ## Dettes connues (pas de décision attendue)
 
