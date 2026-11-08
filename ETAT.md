@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-07. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-08. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,8 +21,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **80/80** suites (`scripts/dev/tests.sh`,
-  dont `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **83/83** suites (`scripts/dev/tests.sh`,
+  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
   12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
@@ -70,6 +70,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    absentes de la base (règle 6, texte à fournir ?) : Ares Gunship, Orion Assault Dropship (Custodes), Astraeus, Thunderhawk
    Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
    source officielle : « shaken » = secouée (« ébranlé » = battle-shocked, jamais shaken ; pas de terme officiel), Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
+10. **Immolation Protocols (Forgefather's Seekers)** : le client écrit « armes [Torrent] +1 A » ; la base (alignée sur
+   l'officiel le 2026-11-08) dit « +1AP » — gardé +1 PA (marqueur `ap=+1`). Confirmer que « +1 A » était une coquille.
 
 ## Dettes connues (pas de décision attendue)
 
@@ -85,6 +87,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 - **Listes enregistrées** : options retirées pour suivre l'officiel (Infiltrator Comms Array, Auspex array / Infernum
   halo-launcher du Corvus, Thunder Hammer & Terminator Storm Shield, Combat knife de l'Aquila, Sternguard BT a499)
   → choix perdus au rechargement. Fixtures WTC non régénérées (sauf Sternguard BT).
+- **Balises parasites `</k>…<k>`** : Hellfire Rounds (Black Spear, « [ANTI-</k>non-<k>VEHICLE 4+] ») et une aptitude
+  BA (« [DEVASTATING WOUNDS: </k>non<k>-MONSTER/VEHICLE] ») — le texte est la CLÉ du pack FR : corriger texte ET clé ensemble.
 - **Balisage** : ~140 copies officielles en **X** (Titanic…) contre ^^X^^ maison ; 527 « ^^**X^^** » mal imbriqués ;
   ~600 lignes à U+00A0. **Parseur** : catégories conférées sous condition de détachement non évaluées (TYRANID
   WARRIORS de Warrior Bioform Onslaught : sim-mod Parasitic Payload) ; `gen-def-mods.mjs` : 6 nœuds en dérive.
@@ -92,6 +96,14 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-08 : **stratagèmes à mots-clefs d'arme dans le simulateur** (demande client) : Deathwatch Support (Mission
+  Tactics Furor/Malleus, Kraken / Dragonfire / Hellfire Rounds), Forgefather's Seekers (Forged in Fire), balayage de tous
+  les stratagèmes (13 SM sans marqueur + Custodes/Aeldari), marqueurs 10e de Black Spear corrigés. **Precision non encodée**
+  (décision client). Moteur : Anti-X **un seuil par mot-clef** (bug : « Anti-Infantry 2+ / Anti-Monster 5+ » donnait 2+
+  contre un Monster), `anti=non-X`, Anti- d'un bonus + [DW] = blessure dévastatrice sur le seuil Anti- ; grammaire
+  `notWeapon=`, `vsNot=`, `no-blast` ; **`vs=` désormais jugé cible par cible** une fois la puce cochée (cible sans
+  mot-clef → passe). Guide `editor/SIM_MOD_APP_PROMPT.md`.
 
 - 2026-11-07 : **Cthonian Beserks** : arme de mêlée au choix de **chaque** figurine (fiche officielle « can each have ») — erreur « same weapon » et asservissement du porteur de mole grenade launcher retirés. Appli : un `<infoLink type="rule">` d'aptitude de base (Deep Strike…) garde désormais sa **porte de masquage** (détachement) — Deep Strike n'apparaît plus sur les Beserks hors Dêlve Assault Shift ; parseur embarqué resynchronisé.
 - 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée, grille 5 dispositions adverses × cartes A/B/C
