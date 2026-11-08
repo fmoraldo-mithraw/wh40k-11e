@@ -47,17 +47,35 @@ sont entre guillemets) :
   - `sustained=N` | `sustained=D3` — Sustained Hits N.
   - `crit-hit=N` `crit-wound=N` — seuil de critique abaissé.
   - `twin-linked` — relance de blessure pleine.
-  - `anti=KEYWORD:N+` — Anti-KEYWORD N+.
+  - `anti=KEYWORD:N+` — Anti-KEYWORD N+. **Chaque** mot-clef garde son seuil
+    (`anti=Infantry:2+ anti=Monster:5+` : 2+ contre l'infanterie, 5+ contre un
+    Monster — jamais un seuil commun). `anti=non-Vehicle:4+` = toute cible
+    **sans** le mot-clef (« [ANTI-non-VEHICLE 4+] », Hellfire Rounds 11e). Une
+    blessure critique obtenue par Anti- est **dévastatrice** si l'arme a
+    [DEVASTATING WOUNDS] (imprimé ou accordé par un autre bonus).
+  - `no-blast` — l'arme **perd** [BLAST] (« Do not have [Blast] », Forged in
+    Fire) : plus de dés d'attaque par tranche de 5 figurines.
   - `cleave=N` — accorde [CLEAVE N] en mêlée (+N dés d'attaque par
     tranche de 5 figurines dans l'unité cible) ; **s'additionne** au
     CLEAVE imprimé de l'arme (« +1 to the value » = `cleave=1` aussi).
 - **Portée / conditions** :
   - `weapon="…"` — l'effet ne vaut **en théorie** que pour cette arme
     (affiché sur la puce ; voir limite ci-dessous).
+  - `notWeapon="…"` — armes **exclues**, par **mot-clef d'arme** (ou nom exact)
+    (« attacks (excluding [DEVASTATING WOUNDS] attacks) » →
+    `notWeapon="Devastating Wounds"` ; « excluding [BLAST] attacks » →
+    `notWeapon="Blast"`, qui couvre aussi `Blast 2`).
   - `when=melee` | `when=ranged` — l'effet ne s'applique qu'à l'onglet R/M
     correspondant.
-  - `vs=KW[,KW…]` — ne vaut que contre une cible portant ces mots-clefs
-    (ex. `vs=Character`, `vs=Monster,Vehicle`). **Conditionnel.**
+  - `vs=KW[,KW…]` — ne vaut que contre une cible portant **l'un** de ces
+    mots-clefs (ex. `vs=Character`, `vs=Monster,Vehicle`). **Conditionnel**
+    (puce décochée) ; une fois cochée, le moteur la juge **cible par cible**
+    (tableau des cibles) — une cible sans aucun mot-clef connu la laisse passer.
+  - `vsNot=KW[,KW…]` — ne vaut que contre une cible ne portant **aucun** de ces
+    mots-clefs : « [SUSTAINED HITS 1: non-MONSTER/VEHICLE] » →
+    `sustained=1 vsNot=Monster,Vehicle` (et « [LETHAL HITS: MONSTER/VEHICLE] » →
+    `lethal vs=Monster,Vehicle`, sur une 2ᵉ ligne). **Conditionnel**, jugé cible
+    par cible comme `vs=`.
   - `oncePer=battle|phase|turn` — usage limité. **Conditionnel.**
   - `onCharge` — uniquement après une charge. **Conditionnel.**
   - `conditional` (token nu) — déclencheur situationnel **non exprimable** par
