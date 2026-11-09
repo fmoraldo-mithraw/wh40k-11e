@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-08. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-09. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -70,8 +70,6 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    absentes de la base (règle 6, texte à fournir ?) : Ares Gunship, Orion Assault Dropship (Custodes), Astraeus, Thunderhawk
    Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
    source officielle : « shaken » = secouée (« ébranlé » = battle-shocked, jamais shaken ; pas de terme officiel), Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
-10. **Immolation Protocols (Forgefather's Seekers)** : le client écrit « armes [Torrent] +1 A » ; la base (alignée sur
-   l'officiel le 2026-11-08) dit « +1AP » — gardé +1 PA (marqueur `ap=+1`). Confirmer que « +1 A » était une coquille.
 
 ## Dettes connues (pas de décision attendue)
 
@@ -103,7 +101,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   (décision client). Moteur : Anti-X **un seuil par mot-clef** (bug : « Anti-Infantry 2+ / Anti-Monster 5+ » donnait 2+
   contre un Monster), `anti=non-X`, Anti- d'un bonus + [DW] = blessure dévastatrice sur le seuil Anti- ; grammaire
   `notWeapon=`, `vsNot=`, `no-blast` ; **`vs=` désormais jugé cible par cible** une fois la puce cochée (cible sans
-  mot-clef → passe). Guide `editor/SIM_MOD_APP_PROMPT.md`.
+  mot-clef → passe). Guide `editor/SIM_MOD_APP_PROMPT.md`. Immolation Protocols = **+1 PA** sur les armes [TORRENT]
+  (confirmé par l'utilisateur le 2026-11-09 ; le « +1 A » du client était une coquille).
 
 - 2026-11-07 : **Cthonian Beserks** : arme de mêlée au choix de **chaque** figurine (fiche officielle « can each have ») — erreur « same weapon » et asservissement du porteur de mole grenade launcher retirés. Appli : un `<infoLink type="rule">` d'aptitude de base (Deep Strike…) garde désormais sa **porte de masquage** (détachement) — Deep Strike n'apparaît plus sur les Beserks hors Dêlve Assault Shift ; parseur embarqué resynchronisé.
 - 2026-11-06 : **« 🗺 Déploiement » (appli)** : par liste enregistrée, grille 5 dispositions adverses × cartes A/B/C
