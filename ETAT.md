@@ -21,8 +21,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **84/84** suites (`scripts/dev/tests.sh`,
-  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **85/85** suites (`scripts/dev/tests.sh`,
+  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:sim-coverage` (mots-clefs « X: non-M/V », tir indirect, relance d'un dé, défenses, bonus d'autres unités), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
   12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
@@ -89,11 +89,22 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   BA (« [DEVASTATING WOUNDS: </k>non<k>-MONSTER/VEHICLE] ») — le texte est la CLÉ du pack FR : corriger texte ET clé ensemble.
 - **Balisage** : ~140 copies officielles en **X** (Titanic…) contre ^^X^^ maison ; 527 « ^^**X^^** » mal imbriqués ;
   ~600 lignes à U+00A0. **Parseur** : catégories conférées sous condition de détachement non évaluées (TYRANID
-  WARRIORS de Warrior Bioform Onslaught : sim-mod Parasitic Payload) ; `gen-def-mods.mjs` : 6 nœuds en dérive.
+  WARRIORS de Warrior Bioform Onslaught : sim-mod Parasitic Payload) ; `gen-def-mods.mjs` : 7 nœuds en dérive (ligne de base
+  du 2026-11-09 ; les `def-mod … manual` se placent AVANT les lignes générées).
+- **Simulateur, restes non modélisés** : TL-4Ø9 (amélioration AdMech qui donne une ARME — profil à créer), Pulse Jet Move,
+  « re-roll one or both » des Dread abilities ; Precision (décision utilisateur).
 
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-09 (2) : **inventaire du simulateur traité** : moteur — mots-clefs « X: non-MONSTER/VEHICLE » (graphie officielle,
+  23 profils lus jusque-là comme inconditionnels), **tir indirect** 11e (10.07 : armes [INDIRECT FIRE] seules, couvert, pas de
+  relance des touches, 1-5 ratent / 1-3 immobile avec cible vue), **relance d'un seul dé** (`reroll-one=`, 19 textes, plusieurs
+  encodés en relance complète), [RAPID FIRE] à toute portée, PA sur blessure critique, cible de N+ figurines ; défenses
+  `hit=-1` / `toughness=` / `save=` (+ plafond 3+ de Take Cover!) ; **bonus offerts par d'autres unités de la liste**
+  (`army` / `others` : auras, marquages, pouvoirs psy, Bondsman — « Allié — Fiche : … »). Données : ~60 bonus d'unité
+  (fiches SM 11e, améliorations), ~70 bonus d'autres unités, ~67 défenses. Guides SIM_MOD et CONDITIONAL_WEAPON_RULES.
 
 - 2026-11-09 : **capacités à deux branches « ■ X ■ Or: Y »** (56 textes relevés) : Unto the Anvil en deux possibilités
   au choix (relance des blessures de 1 / doctrine d'assaut : relance complète), **mêlée seulement** (texte officiel,
