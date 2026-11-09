@@ -41,7 +41,9 @@ sont entre guillemets) :
   - `hazardous` — drapeau d'affichage seul (l'arme gagne [HAZARDOUS]) : le
     simulateur ne compte que les dégâts infligés, pas les pertes subies.
   - `reroll=hit` | `reroll=hit1` | `reroll=wound` | `reroll=wound1` |
-    `reroll=dmg` — relances (full vs « 1 » uniquement).
+    `reroll=dmg` — relances (full vs « 1 » uniquement) ; `reroll=hit12` |
+    `reroll=wound12` — relance des 1 **et des 2** (« re-roll wound rolls of 1
+    and 2 », Venator Omni-auspex), rangée entre « des 1 » et « complète ».
   - `lethal` `dev` `ignores-cover` — drapeaux (Lethal Hits, Devastating
     Wounds, ignore le couvert).
   - `sustained=N` | `sustained=D3` — Sustained Hits N.
@@ -76,6 +78,14 @@ sont entre guillemets) :
     `sustained=1 vsNot=Monster,Vehicle` (et « [LETHAL HITS: MONSTER/VEHICLE] » →
     `lethal vs=Monster,Vehicle`, sur une 2ᵉ ligne). **Conditionnel**, jugé cible
     par cible comme `vs=`.
+  - `permanent` — à joindre à `vs=`/`vsNot=` quand l'aptitude est **permanente**
+    et que sa seule condition est le type de cible (« [SUSTAINED HITS 1:
+    non-MONSTER/VEHICLE] » de Press the Attack, « if the target does not have
+    IMPERIUM/CHAOS » de Death to the Alien) : la puce est **cochée d'office**, le
+    moteur juge la cible. Sans effet si la ligne porte aussi `conditional`,
+    `oncePer` ou `onCharge`. Une alternative d'**état** accolée au mot-clef
+    (« PSYKER/battle-shocked unit ») ne s'écrit **pas** en `vs=` (le moteur
+    écarterait une cible ébranlée non PSYKER) : `conditional`.
   - `oncePer=battle|phase|turn` — usage limité. **Conditionnel.**
   - `onCharge` — uniquement après une charge. **Conditionnel.**
   - `conditional` (token nu) — déclencheur situationnel **non exprimable** par
@@ -120,6 +130,30 @@ sont entre guillemets) :
     Une capacité à **tiers** (effet de base + version améliorée) s'encode plutôt
     en **deux lignes indépendantes** (base, puis amélioration `conditional`) qui
     se cumulent — le moteur prend la plus forte (`relance des 1` ⊂ `relance complète`).
+
+## Capacités à deux branches (« ■ X ■ Or: Y », format 11e)
+
+« Or: » = le joueur applique **une** des branches ; la seconde est souvent la
+première améliorée sous condition (doctrine, effectif, type de cible). Encodage :
+
+- **Alternatives pures** (« [SUSTAINED HITS 1] Or: [LETHAL HITS] ») : une ligne
+  par branche, même `choice="…"` (bascules radio).
+- **Base + version améliorée** sous condition d'état (doctrine, demi-effectif,
+  cible cachée) : une ligne par branche dans le même `choice`, la base
+  inconditionnelle (cochée d'office), l'amélioration `conditional` (Unto the
+  Anvil : `reroll=wound1` / `reroll=wound … conditional`) — ou, si l'amélioration
+  ne fait qu'**ajouter** un effet, base + ligne **delta** `conditional` qui se
+  cumulent sans `choice` (Oathbound : `hit=+1` puis `wound=+1`, jamais `hit=+2`
+  plafonné).
+- **Amélioration selon le type de cible** : base + ligne delta `vs=`/`vsNot=`,
+  sans `choice` (Pious Enmity : `reroll=hit1` puis `reroll=wound1 vs=Monster,
+  Vehicle`) — en radio, choisir la branche « Monster/Vehicle » ferait perdre la
+  base contre les autres cibles du tableau. Branches disjointes par type de cible
+  (« [LETHAL HITS: M/V] Or: [SUSTAINED HITS 1: non-M/V] ») : deux lignes
+  `vs=` / `vsNot=` (+ `permanent` pour une aptitude), équivalent au meilleur choix
+  contre chaque cible.
+- Branche **défensive** (« Or: attacks that target this unit have -1 to hit ») ou
+  utilitaire : seule la branche offensive est encodée, `conditional`.
 
 ## Comportement appli attendu
 

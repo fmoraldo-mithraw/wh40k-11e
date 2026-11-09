@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 7bd0ea0
-// source-sha256: 394ea107d3ccc293
+// source-commit: 3c4db58
+// source-sha256: a2e5a4865ece4612
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -5227,6 +5227,7 @@ function parseSimMod(text) {
   while ((mm = re.exec(text || "")) !== null) {
     const body = mm[2].trim();
     const parts = body.match(/[a-z]+="[^"]*"|\S+/gi) || [];
+    let explicitCond = false;
     const sm = { source: "", effects: [], weapon: null, when: null, vs: [], oncePer: null, whileLeading: false, onCharge: false, conditional: false, choice: null, scope: "unit", kw: [], vsTougher: false, faction: null, raw: body, .../^def/i.test(mm[1]) ? { def: true } : {} };
     for (const tk of parts) {
       let m2;
@@ -5253,7 +5254,10 @@ function parseSimMod(text) {
       else if (/^onCharge$/i.test(tk)) {
         sm.onCharge = true;
         sm.conditional = true;
-      } else if (/^conditional$/i.test(tk)) sm.conditional = true;
+      } else if (/^conditional$/i.test(tk)) {
+        sm.conditional = true;
+        explicitCond = true;
+      } else if (/^permanent$/i.test(tk)) sm.permanent = true;
       else if (/^vsStronger$/i.test(tk)) sm.vsStronger = true;
       else if (/^mortal$/i.test(tk)) sm.mortal = true;
       else if (/^manual$/i.test(tk)) {
@@ -5264,6 +5268,7 @@ function parseSimMod(text) {
       }
     }
     if (sm.choice === true) sm.choice = sm.source || "choice";
+    if (sm.permanent && !explicitCond && !sm.oncePer && !sm.onCharge) sm.conditional = false;
     if (sm.effects.length) out.push(sm);
   }
   return out;
