@@ -3284,7 +3284,8 @@ def-mod: source=&quot;Refuse to Yield&quot; dmg=-1</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Bladeguard Veteran Squad" hidden="false" id="7044-bf1-f949-c32d">
       <comment>sim-mod: source=&quot;Bladeguard&quot; reroll=hit1 when=melee conditional
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Bladeguard (once per turn)&quot; hit=+1 when=melee conditional</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="7980-81d3-9b43-54e2" primary="true" name="Infantry"/>
         <categoryLink targetId="286f-80f7-f31d-d070" id="c422-61-5af5-8ce" primary="false" name="Explosives"/>
@@ -7080,6 +7081,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Eliminator Squad" hidden="false" id="d6c3-e9d2-430d-6c2f">
+      <comment>sim-mod: source=&quot;Special-issue Optics and Ammunition&quot; ignores-cover when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
       </costs>
@@ -16192,7 +16194,7 @@ Restrictions: Your army can include **^^Blood Angels^^** units, but it cannot in
             <rule name="Focused Fury (Stratagem, 1CP)" id="39f0-281c-7f5a-1589" hidden="false">
               <comment>strat-timing: turn=either phase=fight
 sim-mod: source=&quot;FOCUSED FURY&quot; lethal when=melee
-sim-mod: source=&quot;FOCUSED FURY&quot; wound=+1 when=melee onCharge conditional</comment>
+sim-mod: source=&quot;FOCUSED FURY (Character: Lance)&quot; wound=+1 when=melee onCharge conditional kw=&quot;Character&quot;</comment>
               <description>Angelic Inheritors – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -16580,7 +16582,8 @@ Restrictions: Your army can include **^^White Scars^^** units, but it cannot inc
             <rule name="Spear Thrust and Sabre Swing (Stratagem, 1CP)" id="0687-f17d-6bca-8074" hidden="false">
               <comment>strat-timing: turn=either phase=fight
 sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; wound=+1 when=melee onCharge choice=&quot;spear&quot;
-sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; lethal when=melee choice=&quot;spear&quot;</comment>
+sim-mod: source=&quot;Spear Thrust and Sabre Swing&quot; lethal when=melee choice=&quot;spear&quot;
+sim-mod: source=&quot;Spear Thrust and Sabre Swing (Mounted)&quot; lethal wound=+1 when=melee onCharge kw=&quot;Mounted&quot; choice=&quot;spear&quot;</comment>
               <description>Spearpoint Task Force – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly ADEPTUS ASTARTES unit is selected to fight.
@@ -17043,8 +17046,8 @@ EFFECT: Your unit can ignore modifiers to your unit’s:
             </rule>
             <rule name="Pious Enmity (Stratagem, 1CP)" id="56d7-9f4f-5deb-c0ca" hidden="false">
               <comment>strat-timing: turn=either phase=fight
-sim-mod: source=&quot;Pious Enmity&quot; reroll=hit1 when=melee conditional choice=&quot;Pious Enmity&quot;
-sim-mod: source=&quot;Pious Enmity (Monster/Vehicle)&quot; reroll=hit1 reroll=wound1 when=melee vs=Monster,Vehicle conditional choice=&quot;Pious Enmity&quot;</comment>
+sim-mod: source=&quot;Pious Enmity&quot; reroll=hit1 when=melee conditional
+sim-mod: source=&quot;Pious Enmity (Monster/Vehicle)&quot; reroll=wound1 when=melee vs=Monster,Vehicle conditional</comment>
               <description>Vow-sworn Crusaders – STRATAGEM (1CP)
 
 WHEN: Fight phase, when a friendly CHAPLAIN/JUDICIAR unit is selected to fight.
@@ -20384,6 +20387,8 @@ Ancient Exhortation (Once per battle, per army): When this unit is selected to f
               </infoLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Laurels of Triumph" hidden="false" id="e97c-f39c-387e-46c3">
+              <comment>sim-mod: source=&quot;Laurels of Triumph&quot; str=+1 ap=+1 when=melee scope=model choice=&quot;Laurels of Triumph&quot;
+sim-mod: source=&quot;Laurels of Triumph (assault doctrine)&quot; str=+2 ap=+2 when=melee scope=model conditional choice=&quot;Laurels of Triumph&quot;</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="4b01-d85d-e7c3-1916" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
@@ -20579,6 +20584,8 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
         <selectionEntryGroup name="Phobos Shadow Force Enhancements" hidden="false" id="07ab-fd17-3230-f1df">
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Venator Omni-auspex" hidden="false" id="d080-a63f-29d1-c1ed">
+              <comment>sim-mod: source=&quot;Venator Omni-auspex (hidden target)&quot; reroll=wound1 conditional choice=&quot;Venator Omni-auspex&quot;
+sim-mod: source=&quot;Venator Omni-auspex (hidden target, assault doctrine)&quot; reroll=wound12 conditional choice=&quot;Venator Omni-auspex&quot;</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1b98-6ebe-c015-480b" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
@@ -20674,6 +20681,8 @@ Imperium’s Sword: Melee, A 6, WS 2+, S 7, AP -3, D 3.</characteristic>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Venator Omni-auspex" hidden="false" id="633a-423a-519c-ad3b">
+              <comment>sim-mod: source=&quot;Venator Omni-auspex (hidden target)&quot; reroll=wound1 conditional choice=&quot;Venator Omni-auspex&quot;
+sim-mod: source=&quot;Venator Omni-auspex (hidden target, assault doctrine)&quot; reroll=wound12 conditional choice=&quot;Venator Omni-auspex&quot;</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="c05d-17af-61e3-9523" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
