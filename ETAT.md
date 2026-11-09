@@ -21,8 +21,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **83/83** suites (`scripts/dev/tests.sh`,
-  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **84/84** suites (`scripts/dev/tests.sh`,
+  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
   12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
@@ -94,6 +94,15 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-09 : **capacités à deux branches « ■ X ■ Or: Y »** (56 textes relevés) : Unto the Anvil en deux possibilités
+  au choix (relance des blessures de 1 / doctrine d'assaut : relance complète), **mêlée seulement** (texte officiel,
+  pas le tir) ; branches manquantes ou fausses complétées (Death to the Alien, Cold and Calculating, Press the Attack,
+  Purgation Sweep, Fortis Doctrines, An Honourable Death, Oathbound, Laurels of Triumph, Venator Omni-auspex, Adaptive
+  Instincts…). Conventions dans `editor/SIM_MOD_APP_PROMPT.md` (radio pour les alternatives, base + delta cumulables
+  pour une amélioration selon la cible, jeton `permanent`, `reroll=wound12`). Non modélisé : branches défensives
+  (« -1 pour toucher » de Bladeguard / Kaptaris, « +1 E » d'Adaptive Instincts) et « re-roll one hit/wound/damage roll »
+  (Armoured Wrath).
 
 - 2026-11-08 : **stratagèmes à mots-clefs d'arme dans le simulateur** (demande client) : Deathwatch Support (Mission
   Tactics Furor/Malleus, Kraken / Dragonfire / Hellfire Rounds), Forgefather's Seekers (Forged in Fire), balayage de tous
