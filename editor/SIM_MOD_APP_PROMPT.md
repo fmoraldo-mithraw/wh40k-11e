@@ -57,6 +57,14 @@ sont entre guillemets) :
     [DEVASTATING WOUNDS] (imprimé ou accordé par un autre bonus).
   - `no-blast` — l'arme **perd** [BLAST] (« Do not have [Blast] », Forged in
     Fire) : plus de dés d'attaque par tranche de 5 figurines.
+  - `reroll-one=hit|wound|dmg` — relance d'**UN seul dé** par activation (« re-roll
+    one hit roll / one wound roll / one damage roll ») — jamais `reroll=hit` (relance
+    complète). Moteur : un dé raté relancé s'il y en a au moins un, moyenne exacte.
+    Plusieurs jets : plusieurs effets sur la ligne ; « one hit roll OR one wound
+    roll » : deux lignes en `choice`.
+  - `rf-full-range` — [RAPID FIRE] joue à toute portée (Codex Fire-patterns).
+  - `crit-wound-ap=N` — PA aggravée de N sur une blessure **critique** (Ingrained
+    Superiority, Titanic Fire Support).
   - `cleave=N` — accorde [CLEAVE N] en mêlée (+N dés d'attaque par
     tranche de 5 figurines dans l'unité cible) ; **s'additionne** au
     CLEAVE imprimé de l'arme (« +1 to the value » = `cleave=1` aussi).
@@ -78,6 +86,16 @@ sont entre guillemets) :
     `sustained=1 vsNot=Monster,Vehicle` (et « [LETHAL HITS: MONSTER/VEHICLE] » →
     `lethal vs=Monster,Vehicle`, sur une 2ᵉ ligne). **Conditionnel**, jugé cible
     par cible comme `vs=`.
+  - `vsMinModels=N` — la cible compte au moins N figurines (« enemy unit that
+    contains 6 or more models », The Arro'kon Protocol) — jugé par le moteur.
+  - `army` — bonus offert **aussi** aux autres unités de la liste (aura « friendly
+    X units within 6" of this model », pouvoir psy sur une cible, ordre) : le
+    simulateur de CHAQUE unité de la liste le propose (« Allié — Fiche : … »,
+    décoché), `kw=` jugé sur l'unité qui le reçoit ; le porteur le garde aussi.
+    Toujours situationnel.
+  - `others` — comme `army`, mais **jamais** pour le porteur (marquage « after this
+    unit has shot, select one enemy unit hit… friendly units… », Fire Support des
+    transports, aptitudes Bondsman des Chevaliers).
   - `permanent` — à joindre à `vs=`/`vsNot=` quand l'aptitude est **permanente**
     et que sa seule condition est le type de cible (« [SUSTAINED HITS 1:
     non-MONSTER/VEHICLE] » de Press the Attack, « if the target does not have
@@ -257,14 +275,24 @@ par l'unité ciblée ; l'appli ne le mélange jamais aux bonus offensifs
 pour abattre l'unité, profils F5 PA-1 D1 / F6 PA-2 D2 / F10 PA-2 D3, /100 pts).
 
 ```
-def-mod: source="Nom" <effets> [mortal] [when=ranged|melee] [vsStronger] [conditional] [oncePer=battle|turn|phase] [choice="…"] [kw="…" [kwModels]]
+def-mod: source="Nom" <effets> [mortal] [when=ranged|melee] [vsStronger] [conditional] [oncePer=battle|turn|phase] [choice="…"] [kw="…" [kwModels]] [manual]
 effets : dmg=-1 · halfdmg · wound=-1 · ap=-1 (PA de l'attaque aggravée de 1)
          · cover · inv=4 · fnp=5
+         · hit=-1 (« attacks that target this unit have -1 to hit »)
+         · toughness=+N (+N E) · save=+N (+N Sv ; « save=+1/3+ » = sans dépasser 3+, ordre Take Cover!)
 ```
 
 - `oncePer=` : effet activé une fois par bataille/tour (invu 3+ « Once per battle » de
   Trajann, Canoness…) — situationnel (décoché d'office), libellé « 1×/bataille ».
 - `vsStronger` : seulement si la Force de l'attaque > Endurance de l'unité.
+- `hit=-1` : exact dans le simulateur (modificateur de touche, plafonné à ±1 avec ceux
+  de l'attaquant) ; dans l'indice de tankyness, qui compte des attaques qui TOUCHENT,
+  approximé sur un tireur étalon CT/CC 3+ (×0,75).
+- Amélioration **portée** par la cible (ligne d'une liste chargée, champ `enh`) : ses
+  `def-mod` sont proposés comme ceux de la fiche.
+- `manual` : ligne posée à la main, que `gen-def-mods.mjs` conserve ; elle se place
+  **avant** les lignes générées dans le `<comment>` (le générateur ajoute les siennes en
+  fin : un autre ordre compterait comme une dérive).
 - `kw="…"` (+ `kwModels`) : même grammaire et même jugement que pour `sim-mod:` (`,` = OU, `&` = ET,
   sur l'**unité défendue** = mots-clefs de toutes ses figurines) ; sinon la bascule n'est pas proposée
   et l'effet ne joue pas. `kwModels` : seules les figurines des lignes qui ont les mots-clefs en profitent.

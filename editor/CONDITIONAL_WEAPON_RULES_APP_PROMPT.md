@@ -44,6 +44,14 @@ Regex de reconnaissance sur `Keywords` (tolérantes à la casse) :
 /Sustained Hits (\d+) \(MONSTER\/VEHICLE\)/i
 ```
 
+**Graphie des fiches officielles 11e** (alignement game-datacards) : les mêmes
+variantes s'écrivent aussi `X: [non-]KW[/KW]` — `Devastating Wounds: non-MONSTER/VEHICLE`,
+`Sustained Hits 2: non-MONSTER/VEHICLE`, `Lethal Hits: MONSTER/VEHICLE`,
+`Devastating Wounds: Psyker`, `Sustained Hits 1: INFANTRY` (23 profils au 2026-11-09).
+L'appli lit les deux graphies de façon générique (`(…)` ou `: …`, n'importe quel
+mot-clef, `non-` = cible sans le mot-clef, `/` = l'un des deux) ; avant ce correctif,
+la forme `:` était lue comme **inconditionnelle**.
+
 Attention aux **règles de base non conditionnelles** : `Lethal Hits`,
 `Sustained Hits N`, `Devastating Wounds` *sans parenthèse de cible*
 existent toujours (ids gst classiques) et s'appliquent à toute cible. Ne
