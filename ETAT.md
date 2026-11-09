@@ -91,8 +91,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
   ~600 lignes à U+00A0. **Parseur** : catégories conférées sous condition de détachement non évaluées (TYRANID
   WARRIORS de Warrior Bioform Onslaught : sim-mod Parasitic Payload) ; `gen-def-mods.mjs` : 7 nœuds en dérive (ligne de base
   du 2026-11-09 ; les `def-mod … manual` se placent AVANT les lignes générées).
-- **Simulateur, restes non modélisés** : TL-4Ø9 (amélioration AdMech qui donne une ARME — profil à créer), Pulse Jet Move,
-  « re-roll one or both » des Dread abilities ; Precision (décision utilisateur).
+- **Simulateur, restes non modélisés** : Pulse Jet Move, « re-roll one or both » des Dread abilities ; Precision (décision
+  utilisateur). TL-4Ø9 (AdMech) : profil d'arme créé le 2026-11-09 sur l'amélioration (texte officiel game-datacards).
 
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
