@@ -748,6 +748,7 @@ invuln: 4+</comment>
       </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Brotherhood Techmarine" hidden="false" id="f667-5267-f241-37">
+      <comment>sim-mod: source=&quot;Blessing of the Omnissiah&quot; hit=+1 kw=&quot;Vehicle&quot; others</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -1504,7 +1505,8 @@ invuln: 4+</comment>
       </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Grand Master Voldus" hidden="false" id="7256-bb3a-3e79-31fe">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Sanctuary&quot; hit=-1 when=melee manual</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
       </costs>
@@ -1963,6 +1965,7 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Razorback" hidden="false" id="841f-98b-fbf3-c8ee">
+      <comment>sim-mod: source=&quot;Fire Focus (disembarked, marked target)&quot; ap=+1 others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -2563,6 +2566,7 @@ invuln: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Venerable Dreadnought" hidden="false" id="bd43-b303-66e0-4c10">
+      <comment>sim-mod: source=&quot;Guidance of the Ancients (marked target)&quot; hit=+1 kw=&quot;Grey Knights&quot; others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -6168,7 +6172,8 @@ TARGET: One Grey Knights Infantry unit from your army that was selected as the t
 EFFECT: Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6. If the result is greater than the current battle round number, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play.</description>
             </rule>
             <rule name="FOREWARNED EVASION (Stratagem, 1CP)" id="b5a1-f9ec-d9a6-e166" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Forewarned Evasion&quot; hit=-1 manual</comment>
               <description>Augurium Task Force – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.

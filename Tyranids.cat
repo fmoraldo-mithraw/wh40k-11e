@@ -101,6 +101,7 @@
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry id="cd6d-87b3-125a-f372" name="Tervigon" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Brood Progenitor (aura)&quot; lethal when=ranged kw=&quot;Termagants&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="true" id="d829-64e7-666a-a5dd" type="max"/>
       </constraints>
@@ -826,7 +827,8 @@ fnp: 5+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="5815-871c-9260-287a" name="Tyranid Warriors with Melee Bio-Weapons" hidden="false" collective="false" import="true" type="unit">
-      <comment>sim-mod: source=&quot;Adaptive Instincts (+1 S)&quot; str=+1 when=melee conditional</comment>
+      <comment>sim-mod: source=&quot;Adaptive Instincts (+1 S)&quot; str=+1 when=melee conditional
+def-mod: source=&quot;Adaptive Instincts (+1 T)&quot; toughness=+1 when=melee conditional manual</comment>
       <profiles>
         <profile id="1be5-8ccf-3d43-2b32" name="Adaptive Instincts" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -3604,7 +3606,8 @@ invuln: 4+</comment>
     <selectionEntry type="model" import="true" name="Psychophage" hidden="false" id="b6ac-f091-a018-dab2">
       <comment>sim-mod: source=&quot;Feeding Frenzy&quot; hit=+1 when=melee conditional scope=model
 sim-mod: source=&quot;Feeding Frenzy&quot; wound=+1 when=melee conditional scope=model
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Bio-stimulus (marked target)&quot; ap=+1 when=melee kw=&quot;Tyranids&quot; others</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="5a6e-2317-553a-369a" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
@@ -3819,6 +3822,7 @@ fnp: 5+</comment>
       </entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Harridan" hidden="false" id="9b5c-3b5a-1f80-9a74">
+      <comment>sim-mod: source=&quot;Frenzied Metabolism&quot; wound=+1 when=ranged scope=model conditional</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="50">
           <conditions>
@@ -4768,7 +4772,8 @@ invuln: 4+</comment>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Hive Tyrant" hidden="false" id="3e96-8098-3401-77af" collective="false">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Onslaught (aura)&quot; lethal when=ranged kw=&quot;Tyranids&quot; army</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e6ea-68d7-9d41-3f3b" percentValue="false" includeChildSelections="true" includeChildForces="true"/>
       </constraints>

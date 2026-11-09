@@ -406,7 +406,8 @@ No SCINTILLATING LEGIONS models from your army can be your WARLORD.</description
 **Mortal Sorcery (Aura)**: While a friendly ^^**Scintillating Legions Psyker^^** unit from your army is within 6&quot; of and visible to this unit, that ^^**Scintillating Legions^^** unit has the Cabal of Sorcerers ability.</description>
                 </rule>
                 <rule name="SULPHUROUS VEIL (Stratagem, 1CP)" id="73ae-130a-cbb8-24a4" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Sulphurous Veil&quot; hit=-1 manual</comment>
                   <description>Changehost of Deceit – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -621,9 +622,7 @@ EFFECT: Until the end of the phase, all inferno bolt pistols, inferno boltguns, 
             <selectionEntry type="upgrade" import="true" name="Warpforged Cabal" hidden="false" id="8839-1789-36e7-b66a">
               <rules>
                 <rule name="Warpfire Infusion" id="5d2b-1237-8705-fb00" hidden="false">
-                  <comment>sim-mod: source=&quot;Warpfire Infusion&quot; reroll=hit conditional
-sim-mod: source=&quot;Warpfire Infusion&quot; reroll=wound conditional
-sim-mod: source=&quot;Warpfire Infusion&quot; reroll=dmg conditional</comment>
+                  <comment>sim-mod: source=&quot;Warpfire Infusion&quot; reroll-one=hit reroll-one=wound reroll-one=dmg conditional</comment>
                   <description>Each time a ^^**Thousand Sons Vehicle^^** unit from your army is selected to shoot or fight, apply one of the following when resolving those attacks.
 - If that ^^**Vehicle^^** unit is within 6&quot; of one or more friendly ^^**Thousand Sons Psyker^^** models, you can re-roll one Hit roll, one Wound roll and one Damage roll.
 - Otherwise, you can re-roll one Hit roll, one Wound roll or one Damage roll.
@@ -1571,6 +1570,7 @@ EFFECT: Your unit has MOBILE.</description>
       </costs>
     </selectionEntry>
     <selectionEntry id="8d9b-b949-2557-dcc4" name="Chaos Rhino" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Sorcerous Support (disembarked, marked target)&quot; hit=+1 wound=+1 weapon=&quot;Psychic&quot; others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -8019,7 +8019,8 @@ sim-mod: source=&quot;Empyric Onslaught&quot; attacks=+3 when=ranged conditional
           </costs>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Diamond of Distortion" hidden="false" id="190d-7321-6e85-5251" sortIndex="18">
-          <comment>Warpmeld Pact</comment>
+          <comment>Warpmeld Pact
+def-mod: source=&quot;Diamond of Distortion&quot; hit=-1 whileLeading manual</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
@@ -8553,7 +8554,8 @@ sim-mod: source=&quot;Stave Abominus&quot; sustained=D3 dev when=melee scope=mod
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
           </costs>
-          <comment>Sekhetar Cohort</comment>
+          <comment>Sekhetar Cohort
+sim-mod: source=&quot;Occulus Infernum&quot; hit=+1 when=ranged kw=&quot;Sekhetar Robots&quot; others</comment>
         </selectionEntry>
         <selectionEntry id="41fd-1ab5-bef9-1f28" name="Unravelled Fates" hidden="false" collective="false" import="true" type="upgrade" sortIndex="7">
           <modifiers>

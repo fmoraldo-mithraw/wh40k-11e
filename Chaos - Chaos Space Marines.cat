@@ -955,7 +955,8 @@ EFFECT: Your unit can make a Normal move of up to 6&quot;, but must end that mov
                   <comment>sim-mod: source=&quot;Creations of Bile (Cholinergic Accelerants)&quot; attacks=+1 when=melee kw=&quot;Infantry&quot; conditional kwModels
 sim-mod: source=&quot;Creations of Bile (Paraneural Reactions)&quot; hit=+1 when=melee kw=&quot;Infantry&quot; conditional kwModels
 sim-mod: source=&quot;Creations of Bile (Macrotensile Sinews)&quot; str=+1 when=melee kw=&quot;Infantry&quot; conditional kwModels
-sim-mod: source=&quot;Creations of Bile (Ophthalmic Enhancement)&quot; hit=+1 when=ranged kw=&quot;Infantry&quot; conditional kwModels</comment>
+sim-mod: source=&quot;Creations of Bile (Ophthalmic Enhancement)&quot; hit=+1 when=ranged kw=&quot;Infantry&quot; conditional kwModels
+def-mod: source=&quot;Creations of Bile (Supracutaneous Chitination)&quot; toughness=+1 kw=&quot;Infantry&quot; kwModels conditional manual</comment>
                   <description>At the start of the battle, select which augmentations are active for ^^**Heretic Astartes Infantry**^^ models (excluding ^^**Damned**^^ models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If ^^**Fabius Bile**^^ is your ^^**Warlord**^^, when randomly determining your augmentations, you can re‑roll one or both of the dice. Duplicated augmentations have no additional effect.
 
 
@@ -967,7 +968,8 @@ sim-mod: source=&quot;Creations of Bile (Ophthalmic Enhancement)&quot; hit=+1 wh
 6 - **Ophthalmic Enhancement:** Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1.</description>
                 </rule>
                 <rule name="Monstrous Visages (Stratagem, 1CP)" id="685a-77e0-1e05-3f34" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Monstrous Visages&quot; hit=-1 manual</comment>
                   <description>Creations of Bile – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -1183,7 +1185,8 @@ This unit is eligible to shoot and declare a charge in a turn in which it Fell B
                 <rule name="Hardened Killers (Stratagem, 1CP)" id="8ffb-d7fc-fe20-3f7f" hidden="false">
                   <comment>strat-timing: turn=your phase=command
 sim-mod: source=&quot;Hardened Killers&quot; hit=+1 when=ranged kw=&quot;Damned&quot; choice=&quot;hardened&quot;
-sim-mod: source=&quot;Hardened Killers&quot; attacks=+1 when=ranged kw=&quot;Damned&quot; conditional choice=&quot;hardened&quot;</comment>
+sim-mod: source=&quot;Hardened Killers&quot; attacks=+1 when=ranged kw=&quot;Damned&quot; conditional choice=&quot;hardened&quot;
+def-mod: source=&quot;Hardened Killers (Save)&quot; save=+1 manual</comment>
                   <description>Huron&apos;s Marauders – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -2056,12 +2059,11 @@ fnp: 5+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="9bbd-a535-a4ef-9680" name="Heretic Astartes Daemon Prince" publicationId="48fc-15aa-b307-9443" hidden="false" collective="false" import="true" type="model">
-      <comment>sim-mod: source=&quot;Ascended Daemon&quot; reroll=hit scope=model
-sim-mod: source=&quot;Ascended Daemon&quot; reroll=wound scope=model
-sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+      <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 invuln: 4+
-def-mod: source=&quot;Dark Blessing (Aura)&quot; cover when=ranged conditional</comment>
+def-mod: source=&quot;Dark Blessing (Aura)&quot; cover when=ranged conditional
+sim-mod: source=&quot;Ascended Daemon&quot; reroll-one=hit reroll-one=wound scope=model</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="dcf-cb5-3e4-db74" type="max"/>
       </constraints>
@@ -2778,7 +2780,8 @@ invuln: 4+</comment>
     <selectionEntry id="287f-7d48-59cf-dc1e" name="Master of Possession" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Sacrificial Dagger&quot; hit=+1 wound=+1 weapon=&quot;Psychic&quot; scope=model conditional</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
       </constraints>
@@ -3431,7 +3434,8 @@ def-mod: source=&quot;Formidably Resilient&quot; halfdmg</comment>
     </selectionEntry>
     <selectionEntry id="980d-c80a-19b2-f641" name="Sorcerer" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+def-mod: source=&quot;Prescience&quot; hit=-1 whileLeading manual</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
       </constraints>
@@ -3530,7 +3534,8 @@ sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot;
     <selectionEntry id="683f-bfb2-f8d0-c39e" name="Sorcerer in Terminator Armour" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Death Hex (marked target)&quot; ap=+1 army</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
       </constraints>
@@ -3942,7 +3947,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry id="440-a22a-eac1-b107" name="Warpsmith" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+sim-mod: source=&quot;Master of Mechanisms&quot; hit=+1 kw=&quot;Vehicle&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="274a-8439-7dcc-4121" type="max"/>
       </constraints>
@@ -9112,7 +9118,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry id="8dc5-4dcb-d77f-7d23" name="Traitor Guardsmen Squad" hidden="false" collective="false" import="true" type="unit">
       <comment>sim-mod: lethal source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
-sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional</comment>
+sim-mod: sustained=1 source=&quot;Dark Pacts&quot; choice=&quot;Dark Pacts&quot; conditional
+def-mod: source=&quot;Twisted Defence Force (objective)&quot; save=+1 when=ranged conditional manual</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="307a-7647-5d70-527c" type="max"/>
       </constraints>
@@ -14986,8 +14993,8 @@ sim-mod: source=&quot;Eager for Vengeance&quot; hit=+1 conditional</comment>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="fca6-b8fd-a48f-62aa" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
           <comment>Veterans
-sim-mod: source=&quot;Mark of Legend&quot; reroll=hit oncePer=turn scope=model
-sim-mod: source=&quot;Mark of Legend&quot; reroll=wound oncePer=turn scope=model</comment>
+sim-mod: source=&quot;Mark of Legend (hit roll)&quot; reroll-one=hit oncePer=turn scope=model choice=&quot;Mark of Legend&quot;
+sim-mod: source=&quot;Mark of Legend (wound roll)&quot; reroll-one=wound oncePer=turn scope=model choice=&quot;Mark of Legend&quot;</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Falsehood" hidden="false" id="361e-2839-f32e-1873" sortIndex="18">
           <modifiers>
@@ -16693,7 +16700,8 @@ sim-mod: source=&quot;Mark of the Soul Forges&quot; crit-hit=5 scope=model</comm
           </constraints>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Conduit of Chaos" hidden="false" id="84c6-076f-9fa1-8ebc" sortIndex="1">
-          <comment>Cabal of Chaos</comment>
+          <comment>Cabal of Chaos
+sim-mod: source=&quot;Conduit of Chaos&quot; wound=+1 when=melee onCharge scope=model</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>
@@ -16872,7 +16880,8 @@ sim-mod: source=&quot;Mark of the Soul Forges&quot; crit-hit=5 scope=model</comm
           </constraints>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Pact of Cursed Pinions" hidden="false" id="6b73-b045-2aa5-f7b6" sortIndex="1">
-          <comment>Murdertalon Raiders</comment>
+          <comment>Murdertalon Raiders
+sim-mod: source=&quot;Pact of Cursed Pinions&quot; attacks=+1 when=melee scope=model</comment>
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditionGroups>

@@ -1107,7 +1107,9 @@ invuln: 5+ conditional vs=ranged</comment>
     <selectionEntry id="0119-8c04-435e-c782" name="Knight Despoiler" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: lethal source=&quot;Dark Sacrifice&quot; choice=&quot;Dark Sacrifice&quot; conditional
 sim-mod: sustained=1 source=&quot;Dark Sacrifice&quot; choice=&quot;Dark Sacrifice&quot; conditional
-invuln: 5+ conditional vs=ranged</comment>
+invuln: 5+ conditional vs=ranged
+sim-mod: source=&quot;Seething Hatred (hit roll)&quot; reroll-one=hit choice=&quot;Seething Hatred&quot;
+sim-mod: source=&quot;Seething Hatred (wound roll)&quot; reroll-one=wound choice=&quot;Seething Hatred&quot;</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="0131-278b-cb36-f2c2" type="max"/>
       </constraints>
@@ -2625,7 +2627,8 @@ TARGET: Up to two War Dog units from your army or one Titanic Chaos Knights unit
 EFFECT: Until the end of the phase, each time a model in one of your units makes a Normal, Advance, Fall Back or Charge move, it can move through models and terrain features. When doing so, it can move within Engagement Range of such models but, unless it made a Charge move, cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed (the Super-heavy Walker ability does not apply while using this Stratagem).</description>
                 </rule>
                 <rule name="STORM OF DARKNESS (Stratagem, 1CP)" id="b3ec-1a28-14c3-b575" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Storm of Darkness&quot; hit=-1 when=melee manual</comment>
                   <description>Traitoris Lance – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -3695,7 +3698,8 @@ invuln: 5+ conditional vs=ranged</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="b6e5-911b-93f-476" name="Chaos Cerastus Knight Castigator" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 5+ conditional vs=ranged</comment>
+      <comment>invuln: 5+ conditional vs=ranged
+sim-mod: source=&quot;Offerings for the Dark Gods (aura)&quot; sustained=1 when=ranged kw=&quot;War Dog&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="6489-39e1-0d94-80ef" type="max"/>
       </constraints>
@@ -4045,7 +4049,8 @@ invuln: 5+ conditional vs=ranged</comment>
     <selectionEntry id="8b1d-9029-f9e1-42d9" name="Chaos Cerastus Knight Atrapos" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: hit=+1 source=&quot;Macro-extinction Protocols&quot; vs=Monster,Vehicle scope=model
 sim-mod: wound=+1 source=&quot;Macro-extinction Protocols&quot; vs=Monster,Vehicle conditional scope=model
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Consumed with Hunger (aura)&quot; reroll=hit vs=Titanic,Towering kw=&quot;War Dog&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="6489-39e1-0d94-80ef" type="max"/>
       </constraints>
@@ -4474,7 +4479,8 @@ invuln: 5+</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry id="106c-4bdf-79a4-1c70" name="Chaos Questoris Knight Styrix" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 5+</comment>
+      <comment>invuln: 5+
+sim-mod: source=&quot;Preysight (aura)&quot; ignores-cover when=ranged kw=&quot;War Dog&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="6489-39e1-0d94-80ef" type="max"/>
       </constraints>
@@ -5778,7 +5784,8 @@ invuln: 5+ conditional vs=ranged</comment>
               </characteristics>
             </profile>
           </profiles>
-          <comment>Houndpack Lance</comment>
+          <comment>Houndpack Lance
+def-mod: source=&quot;Panoply of the Cursed Knights&quot; ap=-1 manual</comment>
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
           </costs>

@@ -1404,6 +1404,7 @@ def-mod: source=&quot;Refuse to Yield&quot; dmg=-1</comment>
       <comment>BS3+</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Intercessor Squad" hidden="false" id="8da0-4570-c3c-819f">
+      <comment>sim-mod: source=&quot;Bolter Discipline (objective)&quot; hit=+1 when=ranged conditional</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="5263-c35f-bf93-70f0" primary="false" name="Infantry"/>
         <categoryLink targetId="e338-111e-d0c6-b687" id="96ed-6749-a7d8-bbac" primary="true" name="Battleline"/>
@@ -2597,6 +2598,7 @@ def-mod: source=&quot;Refuse to Yield&quot; dmg=-1</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Incursor Squad" hidden="false" id="527c-120e-9e4e-9bfe">
+      <comment>sim-mod: source=&quot;Divinator-class Auspexes (scanned target)&quot; reroll=hit1 when=ranged army</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="775b-cf62-9fc-9cbd" primary="true" name="Infantry"/>
         <categoryLink targetId="286f-80f7-f31d-d070" id="857f-df9a-bbc4-869d" primary="false" name="Explosives"/>
@@ -3283,9 +3285,9 @@ def-mod: source=&quot;Refuse to Yield&quot; dmg=-1</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Bladeguard Veteran Squad" hidden="false" id="7044-bf1-f949-c32d">
-      <comment>sim-mod: source=&quot;Bladeguard&quot; reroll=hit1 when=melee conditional
-invuln: 4+
-sim-mod: source=&quot;Bladeguard (once per turn)&quot; hit=+1 when=melee conditional</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Bladeguard (once per turn)&quot; hit=+1 when=melee conditional
+def-mod: source=&quot;Bladeguard (once per turn)&quot; hit=-1 when=melee conditional manual</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="7980-81d3-9b43-54e2" primary="true" name="Infantry"/>
         <categoryLink targetId="286f-80f7-f31d-d070" id="c422-61-5af5-8ce" primary="false" name="Explosives"/>
@@ -4302,7 +4304,9 @@ sim-mod: source=&quot;Bladeguard (once per turn)&quot; hit=+1 when=melee conditi
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Terminator Assault Squad" hidden="false" id="ae9a-10e3-8091-20">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Terminatus Assault (Lightning Claws)&quot; sustained=1 when=melee weapon=&quot;Lightning Claw&quot; vsNot=Monster,Vehicle onCharge
+sim-mod: source=&quot;Terminatus Assault (Thunder Hammer)&quot; sustained=1 when=melee weapon=&quot;Thunder Hammer&quot; vs=Monster,Vehicle onCharge</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
       </costs>
@@ -4937,6 +4941,7 @@ invuln: 4+</comment>
       <categoryLinks></categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Invictor Tactical Warsuit" hidden="false" id="24df-fdd6-4d7b-fc0e">
+      <comment>sim-mod: source=&quot;Forward Assault Warsuit (mark)&quot; reroll=wound1 conditional</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="c1d3-903c-c5dd-de94" primary="true" name="Vehicle"/>
         <categoryLink targetId="6dda-e157-334d-e93a" id="770f-fc94-90cb-573f" primary="false" name="Walker"/>
@@ -5885,7 +5890,8 @@ invuln: 4+</comment>
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Invader ATV" hidden="false" id="8d7b-3dfe-7b91-2490">
-      <comment>codex-11e: 1-2 Invader ATV</comment>
+      <comment>codex-11e: 1-2 Invader ATV
+sim-mod: source=&quot;Aggressive Reconnaissance (isolated target)&quot; wound=+1 when=ranged conditional</comment>
       <categoryLinks>
         <categoryLink targetId="14a0-40c9-2748-ae6e" id="4ebb-9821-d154-cf12" primary="true" name="Mounted"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="9513-b492-155d-9b34" primary="false" name="Imperium"/>
@@ -6200,6 +6206,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       </constraints>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Inceptor Squad" hidden="false" id="3e14-2a-d358-6ada">
+      <comment>sim-mod: source=&quot;Meteoric Descent (ingress move)&quot; hit=+1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
       </costs>
@@ -6483,6 +6490,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Storm Speeder Hailstrike" hidden="false" id="9cb9-9ab5-727f-80e5">
+      <comment>sim-mod: source=&quot;Hailstrike (marked target)&quot; ignores-cover when=ranged kw=&quot;Adeptus Astartes&quot; others</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
       </costs>
@@ -6588,6 +6596,8 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Storm Speeder Thunderstrike" hidden="false" id="993a-9cbc-8052-e40">
+      <comment>sim-mod: source=&quot;Thunderstrike&quot; wound=+1 when=ranged vs=Monster,Vehicle permanent
+sim-mod: source=&quot;Shattered Defences (marked target)&quot; ap=+1 when=ranged vs=Monster,Vehicle kw=&quot;Adeptus Astartes&quot; others</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
       </costs>
@@ -6743,6 +6753,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Storm Speeder Hammerstrike" hidden="false" id="9489-445c-f950-7292">
+      <comment>sim-mod: source=&quot;Hammerstrike (target in terrain)&quot; sustained=1 when=ranged conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
       </costs>
@@ -7492,6 +7503,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Desolation Squad" hidden="false" id="a3ea-7a0d-fef8-23bf">
+      <comment>sim-mod: source=&quot;Targeter Optics&quot; ignores-cover when=ranged</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
       </costs>
@@ -7908,9 +7920,7 @@ sim-mod: source=&quot;Full-throttle Assault&quot; hit=+1 sustained=1 weapon=&quo
       <comment>S6</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Gladiator Lancer" hidden="false" id="7814-107b-a498-96f6">
-      <comment>sim-mod: source=&quot;Aquilon Optics&quot; reroll=hit when=ranged vs=Monster,Vehicle conditional
-sim-mod: source=&quot;Aquilon Optics&quot; reroll=wound when=ranged vs=Monster,Vehicle conditional
-sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Vehicle conditional</comment>
+      <comment>sim-mod: source=&quot;Aquilon Optics&quot; reroll-one=hit reroll-one=wound reroll-one=dmg when=ranged vs=Monster,Vehicle permanent</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="c8e0-e435-26d2-eefd" primary="true" name="Vehicle"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="4709-b9ce-dca4-ffa0" primary="false" name="Imperium"/>
@@ -8327,6 +8337,7 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Land Raider" hidden="false" id="8cca-9318-3bec-d360">
+      <comment>sim-mod: source=&quot;Power of the Machine Spirit&quot; reroll-one=hit reroll-one=wound when=ranged</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="9ac4-3866-c0c6-5b7a" primary="true" name="Vehicle"/>
         <categoryLink targetId="6df-937-16bc-8c1a" id="6cdc-19e9-91c3-3a50" primary="false" name="Smoke"/>
@@ -8609,6 +8620,7 @@ sim-mod: source=&quot;Aquilon Optics&quot; reroll=dmg when=ranged vs=Monster,Veh
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Land Raider Redeemer" hidden="false" id="d361-a36e-1448-264d">
+      <comment>sim-mod: source=&quot;Wrath of the Machine Spirit (within 12in)&quot; dev when=ranged vsNot=Monster,Vehicle conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="245"/>
       </costs>
@@ -10101,6 +10113,8 @@ nom de fiche = mot-clef (02.01.01) : LIEUTENANT est officiel par le nom de la fi
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Librarian in Phobos Armour" hidden="false" id="137c-2add-1a51-ee96">
+      <comment>def-mod: source=&quot;Shrouding (psychic roll)&quot; hit=-1 conditional manual
+sim-mod: source=&quot;Soul Sight (psychic roll, marked target)&quot; ignores-cover when=ranged army</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="a7ae-6684-673b-42a9"/>
       </constraints>
@@ -10268,7 +10282,8 @@ nom de fiche = mot-clef (02.01.01) : LIEUTENANT est officiel par le nom de la fi
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Librarian in Terminator Armour" hidden="false" id="2468-24f5-ad9b-8388">
       <comment>sim-mod: source=&quot;Veil of Time&quot; sustained=1 whileLeading
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Might of Heroes (psychic roll)&quot; str=+2 when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
       </costs>
@@ -10888,7 +10903,8 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Chaplain with Jump Pack" hidden="false" id="23f1-2df2-7085-cf41">
       <comment>sim-mod: source=&quot;Litany of Hate&quot; wound=+1 when=melee whileLeading onCharge
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Exhortation of Rage (half-strength)&quot; reroll=wound when=melee conditional</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -14098,6 +14114,7 @@ nom de fiche = mot-clef (02.01.01) : CAPTAIN est officiel par le nom de la fiche
       <entryLinks></entryLinks>
     </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="A Giant Amongst Giants" hidden="false" id="c072-45ad-bd4a-708f">
+      <comment>sim-mod: source=&quot;A Giant Amongst Giants&quot; str=+1 when=melee scope=model</comment>
               <profiles>
                 <profile name="A Giant Amongst Giants" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c101-18ae-23b0-1c95">
                   <characteristics>
@@ -14248,6 +14265,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
       </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Shadow of Abomination" hidden="false" id="45a8-7f93-561c-301d">
+      <comment>sim-mod: source=&quot;Shadow of Abomination&quot; dmg=+1 when=melee scope=model oncePer=battle</comment>
               <profiles>
                 <profile name="Shadow of Abomination" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9e53-f297-7e7e-8088">
                   <characteristics>
@@ -14323,6 +14341,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
       </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="On the Archtraitor's Bridge" hidden="false" id="6488-7ff5-e290-6be5">
+      <comment>sim-mod: source=&quot;On the Archtraitor&apos;s Bridge&quot; attacks=+2 when=melee scope=model</comment>
               <profiles>
                 <profile name="On the Archtraitor's Bridge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b365-1e02-6db2-ca6b">
                   <characteristics>
@@ -14468,6 +14487,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Furious Assault Upgrade" hidden="false" id="ce34-bd3f-69af-1c22">
+      <comment>sim-mod: source=&quot;Furious Assault Upgrade&quot; sustained=1 when=melee vsNot=Monster,Vehicle permanent</comment>
       <profiles>
         <profile name="Furious Assault Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="45d0-0927-1bd0-2ac6">
           <characteristics>
@@ -14577,6 +14597,7 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Venerable Champion (Aura) Upgrade" hidden="false" id="235b-8ce1-e476-cb61">
+      <comment>sim-mod: source=&quot;Venerable Champion (aura)&quot; reroll=hit1 kw=&quot;Infantry,Mounted&quot; others</comment>
       <profiles>
         <profile name="Venerable Champion (Aura) Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="34ad-d138-21b5-cd86">
           <characteristics>
@@ -14968,7 +14989,8 @@ sim-mod: sustained=1 source=&quot;Angelic Executioner&quot; when=melee choice=&q
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Captain on Bike" hidden="false" id="45a6-1254-791d-6324">
       <comment>codex-11e: nouvelle fiche (Codex Space Marines p.190)
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Into the Fray&quot; cleave=1 when=melee onCharge</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
       </costs>
@@ -17570,6 +17592,7 @@ EFFECT: When making that consolidation move, your unit can move up to D3+3&quot;
           </profiles>
           <rules>
             <rule name="Codex Fire-patterns" id="f5a8-11e8-796e-b5b4" hidden="false">
+              <comment>sim-mod: source=&quot;Codex Fire-patterns&quot; rf-full-range when=ranged kw=&quot;Tacticus&quot;</comment>
               <description>Friendly **^^Tacticus^^** units’ **[RAPID FIRE]** attacks benefit from **[RAPID FIRE]** when targeting units up to that attack’s maximum range.</description>
             </rule>
             <rule name="For the Emperor! (Stratagem, 1CP)" id="9d05-5d46-74fb-f757" hidden="false">
@@ -17676,6 +17699,7 @@ EFFECT: Place your unit in strategic reserves.</description>
           </profiles>
           <rules>
             <rule name="Vanguard Ambushers" id="0cc6-6035-72c5-dd35" hidden="false">
+              <comment>sim-mod: source=&quot;Vanguard Ambushers (hidden)&quot; reroll=wound1 kw=&quot;Phobos&quot; conditional</comment>
               <description>At the end of your Movement phase, if a friendly **^^Phobos^^** unit is hidden, that unit’s attacks can re-roll wound rolls of 1 until the end of the turn.</description>
             </rule>
             <rule name="Strike from the Shadows (Stratagem, 1CP)" id="aa9a-8c25-4585-d361" hidden="false">
@@ -17700,7 +17724,8 @@ EFFECT: Your unit can make a normal move of:
 ■ Or: If the tactical doctrine is active for your unit, up to 6&quot;.</description>
             </rule>
             <rule name="Umbral Evasion (Stratagem, 1CP)" id="7fbd-9a56-3214-3a24" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Umbral Evasion&quot; hit=-1 when=ranged manual</comment>
               <description>Phobos Shock Force – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly PHOBOS unit.
@@ -17794,7 +17819,8 @@ TARGET: That ADEPTUS ASTARTES MOUNTED/SPEEDER unit.
 EFFECT: Your unit can change its advance rolls to a 6.</description>
             </rule>
             <rule name="Hurtling Targets (Stratagem, 1CP)" id="49c4-7567-b71c-0653" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Hurtling Targets&quot; hit=-1 when=ranged manual</comment>
               <description>Stormlance Task Force – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase, when an enemy unit targets a friendly ADEPTUS ASTARTES MOUNTED/SPEEDER unit.
@@ -17818,6 +17844,7 @@ EFFECT: Ranged attacks that target your unit have -1 to hit rolls.</description>
           </profiles>
           <rules>
             <rule name="Enduring Vengeance" id="5eda-b50f-f3ba-3282" hidden="false">
+              <comment>sim-mod: source=&quot;Enduring Vengeance&quot; reroll=hit1 kw=&quot;Dreadnought&quot;</comment>
               <description>Friendly **^^Adeptus Astartes Dreadnought^^** units can re-roll hit rolls of 1.</description>
             </rule>
             <rule name="Adamantine Terror (Stratagem, 1CP)" id="e87b-3eeb-78d4-030c" hidden="false">
@@ -17911,6 +17938,7 @@ EFFECT: Select one objective your unit is controlling. That objective is secured
           </profiles>
           <rules>
             <rule name="Ironstorm Auto-targeters" id="61d1-9ece-76aa-c3d6" hidden="false">
+              <comment>sim-mod: source=&quot;Ironstorm Auto-targeters&quot; reroll-one=hit reroll-one=wound when=ranged kw=&quot;Vehicle&quot;</comment>
               <description>Friendly **^^Adeptus Astartes Vehicle^^** units’ (excluding **^^Walker^^** units) ranged attacks can:
 ■ Re-roll one hit roll.
 ■ Re-roll one wound roll.</description>
@@ -18162,6 +18190,10 @@ Your unit is not able to embark within a TRANSPORT until the end of the turn.</d
           </costs>
           <rules>
             <rule name="Armoured Wrath" id="7d86-e2c2-9f8a-94b2" hidden="false">
+              <comment>sim-mod: source=&quot;Armoured Wrath (hit roll)&quot; reroll-one=hit choice=&quot;Armoured Wrath&quot;
+sim-mod: source=&quot;Armoured Wrath (wound roll)&quot; reroll-one=wound choice=&quot;Armoured Wrath&quot;
+sim-mod: source=&quot;Armoured Wrath (damage roll)&quot; reroll-one=dmg choice=&quot;Armoured Wrath&quot;
+sim-mod: source=&quot;Armoured Wrath (within 6in of Caanok Var/Feirros)&quot; reroll-one=hit reroll-one=wound reroll-one=dmg conditional choice=&quot;Armoured Wrath&quot;</comment>
               <description>Each time a friendly **^^Adeptus Astartes^^** unit is selected to shoot or selected to fight apply one of the following when resolving those attacks:
 ■ If that unit is within 6&quot; of a friendly **^^Caanok Var^^**/**^^Iron Father Feirros^^** unit you can:
   ■ Re-roll one hit roll.
@@ -18214,7 +18246,8 @@ EFFECT: Your unit’s attacks have [SUSTAINED HITS 1].
             </rule>
             <rule name="Ancient Fury (Stratagem, 1CP)" id="61e7-14c0-3c18-ce6c" hidden="false">
               <comment>strat-timing: turn=your phase=command
-sim-mod: source=&quot;Ancient Fury&quot; hit=+1 conditional kw=&quot;Dreadnought&quot;</comment>
+sim-mod: source=&quot;Ancient Fury&quot; hit=+1 conditional kw=&quot;Dreadnought&quot;
+def-mod: source=&quot;Ancient Fury&quot; toughness=+1 manual</comment>
               <description>Medusa&apos;s Wrath – STRATAGEM (1CP)
 
 WHEN: Your Command phase.
@@ -20167,6 +20200,7 @@ sim-mod: source=&quot;Oath of Macragge (Assaut)&quot; str=+2 ap=+2 when=melee sc
               </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Skjald&apos;s Foretelling" hidden="false" id="2ac1-12c9-4e5a-a034">
+              <comment>sim-mod: source=&quot;Skjald&apos;s Foretelling&quot; wound=+1 when=melee onCharge</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="force" shared="true" id="dfcc-3df6-c535-316d" includeChildSelections="true"/>
               </constraints>
@@ -20878,6 +20912,7 @@ sim-mod: source=&quot;Venator Omni-auspex (hidden target, assault doctrine)&quot
         <selectionEntryGroup name="Devastator Brethren Enhancements" hidden="false" id="d410-443c-62c0-a3ea">
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Master-forged Firearms" hidden="false" id="f59f-fc78-bbc4-428d">
+              <comment>sim-mod: source=&quot;Master-forged Firearms&quot; attacks=+1 str=+1 ap=+1 dmg=+1 when=ranged notWeapon=&quot;Psychic&quot; scope=model</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="466e-bb12-6b58-5897" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
@@ -20908,6 +20943,7 @@ sim-mod: source=&quot;Venator Omni-auspex (hidden target, assault doctrine)&quot
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Honour of Vigilance" hidden="false" id="b6bc-14fe-9977-0a18">
+              <comment>sim-mod: source=&quot;Honour of Vigilance&quot; lethal when=ranged</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ba64-5f52-4934-3d84" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
@@ -21033,6 +21069,7 @@ sim-mod: source=&quot;Venator Omni-auspex (hidden target, assault doctrine)&quot
         <selectionEntryGroup name="Tacticus Attack Force Enhancements" hidden="false" id="f575-6e76-3d30-4bab">
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Martial Paragon" hidden="false" id="01c6-ce4f-6189-c21b">
+              <comment>sim-mod: source=&quot;Martial Paragon&quot; reroll-one=hit reroll-one=wound</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="95ee-a52d-b24e-e766" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
@@ -21401,6 +21438,7 @@ In your Movement phase, you can select one visible friendly **^^Adeptus Astartes
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Target Augury Web" hidden="false" id="2806-0923-137f-1d10">
+              <comment>sim-mod: source=&quot;Target Augury Web&quot; lethal kw=&quot;Vehicle&quot; others</comment>
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="6f68-86f1-2cd4-baf2" includeChildSelections="true"/>
               </constraints>

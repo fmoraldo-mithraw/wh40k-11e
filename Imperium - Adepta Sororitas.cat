@@ -533,7 +533,8 @@ EFFECT: Remove your unit from the battlefield and place it into Strategic Reserv
 RESTRICTIONS: You cannot select a unit that is within Engagement Range of one or more enemy units.</description>
                 </rule>
                 <rule name="BLINDING RADIANCE (Stratagem, 1CP)" id="75c0-ccb3-72ba-e813" hidden="false">
-                  <comment>strat-timing: turn=either phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Blinding Radiance&quot; hit=-1 manual</comment>
                   <description>Army of Faith – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -592,7 +593,8 @@ TARGET: One Adepta Sororitas unit from your army that has not been selected to f
 EFFECT: Until the end of the turn, each time a model in your unit makes a Pile-in or Consolidation move, it can move up to 6&quot; instead of up to 3&quot;. When doing so, if your unit is Righteous, it does not need to end that move closer to the closest enemy model, provided it ends that move as close as possible to the closest enemy unit.</description>
                 </rule>
                 <rule name="Bastion of Faith (Stratagem, 1CP)" id="3fa0-27a2-2c5f-3579" hidden="false">
-                  <comment>strat-timing: turn=either phase=fight</comment>
+                  <comment>strat-timing: turn=either phase=fight
+def-mod: source=&quot;Bastion of Faith&quot; hit=-1 manual</comment>
                   <description>Champions of Faith – STRATAGEM (1CP)
 
 WHEN: Fight phase, just after an enemy unit has selected its targets.
@@ -1715,7 +1717,8 @@ def-mod: source=&quot;The Emperor&apos;s Grace&quot; inv=2 oncePer=battle</comme
       </categoryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Castigator" hidden="false" id="820-1e76-78cc-931a" publicationId="7d85-6d0f-57e0-5dea">
-      <comment>invuln: 6+</comment>
+      <comment>invuln: 6+
+sim-mod: source=&quot;Rites of Castigation (marked target)&quot; ap=+1 when=ranged kw=&quot;Adepta Sororitas&quot; others</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="3db1-c91c-4dd5-371c" primary="true" name="Vehicle"/>
         <categoryLink targetId="6df-937-16bc-8c1a" id="d8ca-c02d-7b5b-50da" primary="false" name="Smoke"/>
@@ -3411,7 +3414,8 @@ At the start of the Declare Battle Formations step, you can select one BATTLE SI
       </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Junith Eruita" hidden="false" id="8f9a-8a8b-2539-547f" publicationId="7d85-6d0f-57e0-5dea">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;The Pulpit of Saint Holline&apos;s Basilica&quot; hit=-1 when=melee manual</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
       </costs>
@@ -7730,7 +7734,8 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Intranzia Fraye" hidden="false" id="e59a-2a90-e102-940f">
       <comment>invuln: 4+
-fnp: 5+</comment>
+fnp: 5+
+sim-mod: source=&quot;Judged for Execution (marked target)&quot; lethal kw=&quot;Adepta Sororitas&quot; army</comment>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="fd70-48a0-faa0-f980" includeChildSelections="true"/>
       </constraints>
@@ -7942,6 +7947,7 @@ fnp: 5+</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Hagiomnifex Upgrade" hidden="false" id="8036-0985-3829-3a94">
+      <comment>sim-mod: source=&quot;Hagiomnifex Upgrade (Psalm of Righteous Smiting)&quot; str=+1 oncePer=turn</comment>
       <profiles>
         <profile name="Hagiomnifex Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1291-392c-93fb-c592">
           <characteristics>

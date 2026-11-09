@@ -2265,7 +2265,9 @@ invuln: 4+</comment>
       </costs>
     </selectionEntry>
     <selectionEntry id="9435-1f44-7e5b-d510" name="Eightbound" hidden="false" collective="false" import="true" type="unit">
-      <comment>invuln: 5+</comment>
+      <comment>invuln: 5+
+sim-mod: source=&quot;Beacons of Rage (aura)&quot; hit=+1 when=melee vsNot=Monster,Vehicle kw=&quot;World Eaters&quot; army
+sim-mod: source=&quot;Beacons of Rage (aura, below half-strength target)&quot; wound=+1 when=melee vsNot=Monster,Vehicle kw=&quot;World Eaters&quot; army</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="250">
           <conditions>
@@ -6085,7 +6087,8 @@ cannot-warlord</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Bloodthirster" hidden="false" id="4ad2-bd20-6dfe-776b" collective="false">
       <comment>invuln: 4+
-cannot-warlord</comment>
+cannot-warlord
+sim-mod: source=&quot;Daemon Lord of Khorne (aura)&quot; hit=+1 when=melee kw=&quot;Blood Legions,Khorne&amp;Daemon&quot; army</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="bd81-d689-8143-f9c3" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
       </constraints>
@@ -6942,6 +6945,7 @@ cannot-warlord</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Gore-Stained Veterans Upgrade" hidden="false" id="266e-a329-dc79-b094">
+      <comment>sim-mod: source=&quot;Gore-Stained Veterans Upgrade&quot; hit=+1 when=melee</comment>
       <profiles>
         <profile name="Gore-Stained Veterans Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1601-e790-b951-edd0">
           <characteristics>

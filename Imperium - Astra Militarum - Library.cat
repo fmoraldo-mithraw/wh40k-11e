@@ -4861,6 +4861,7 @@ sim-mod: source=&quot;Armoured Spearhead (objectif)&quot; reroll=hit conditional
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Leman Russ Exterminator" hidden="false" id="d8c8-ea02-21bf-de0b">
+      <comment>sim-mod: source=&quot;Withering Hail (marked target)&quot; ap=+1 kw=&quot;Astra Militarum&quot; others</comment>
       <categoryLinks>
         <categoryLink targetId="f1f7-eb37-fbc5-5f80" id="ed65-b198-454d-382f" primary="false" name="Leman Russ Exterminator"/>
         <categoryLink targetId="fa45-57e-930e-602b" id="7b9b-48da-5009-f621" primary="false" name="Faction: Astra Militarum"/>
@@ -7654,6 +7655,7 @@ fnp: 6+</comment>
       </modifierGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Taurox Prime" hidden="false" id="4b67-f814-358e-f776">
+      <comment>sim-mod: source=&quot;Transport Support (disembarked, marked target)&quot; reroll=hit others</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
       </costs>
@@ -12657,6 +12659,7 @@ fnp: 6+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Rogal Dorn Commander" hidden="false" id="78b6-f280-bba9-0594">
+      <comment>sim-mod: source=&quot;Called Shots&quot; reroll-one=hit reroll-one=wound reroll-one=dmg when=ranged scope=model</comment>
       <categoryLinks>
         <categoryLink targetId="fa45-57e-930e-602b" id="aa63-8b4c-5d50-615a" primary="false" name="Faction: Astra Militarum"/>
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="fe22-d1ff-7561-c71b" primary="false" name="Imperium"/>
@@ -17909,6 +17912,7 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogr
               </selectionEntryGroups>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Aquilan Eye" hidden="false" id="2dbd-2e75-155c-936f">
+              <comment>sim-mod: source=&quot;Aquilan Eye (order Target Weak Spot, within 12in)&quot; ap=+1 when=ranged kw=&quot;Astra Militarum&quot; army</comment>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditionGroups>
@@ -18551,7 +18555,8 @@ In the Declare Battle Formations step, the bearer can be attached to an **^^Ogr
     <rule name="Voice Of Command" hidden="false" id="53c9-34f6-2443-a95e">
       <comment>sim-mod: source=&quot;Ordre : Take Aim!&quot; hit=+1 when=ranged conditional choice=&quot;ordre&quot;
 sim-mod: source=&quot;Ordre : Fix Bayonets!&quot; hit=+1 when=melee conditional choice=&quot;ordre&quot;
-sim-mod: source=&quot;Ordre : First Rank, Fire! Second Rank, Fire! (armes Rapid Fire)&quot; attacks=+1 when=ranged conditional choice=&quot;ordre&quot;</comment>
+sim-mod: source=&quot;Ordre : First Rank, Fire! Second Rank, Fire! (armes Rapid Fire)&quot; attacks=+1 when=ranged conditional choice=&quot;ordre&quot;
+def-mod: source=&quot;Ordre : Take Cover!&quot; save=+1/3+ conditional manual</comment>
       <description>If your Army Faction is **^^Astra Militarum^^**, **^^Officer^^** models with this ability can issue Orders. Each **^^Officer^^**&apos;s datasheet will specify how many Orders it can issue and which units are eligible to receive those Orders. Each time an **^^Officer^^** model issues an Order, select one of the Orders below, then select one eligible friendly unit within 6&quot; of that **^^Officer^^** model to issue it to. **^^Officer^^** models can issue Orders in your Command phase and at the end of a phase in which they disembarked from a **^^Transport^^** or were set up on the battlefield.
 
 Until the start of your next Command phase, the unit you selected is affected by that Order. Unless otherwise stated, a unit can only be affected by one Order at a time (any Order subsequently issued to that unit replaces the current one). Orders cannot be issued to Battle-shocked units, and if a unit being affected by an Order becomes Battle-shocked, that Order ceases to affect that unit.

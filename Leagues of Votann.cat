@@ -453,6 +453,7 @@ EFFECT: Each time you use this Stratagem, you can spend up to 2YP. Until the end
             <selectionEntry type="upgrade" import="true" name="Brandfast Oathband" hidden="false" id="437f-0cb8-194f-a716">
               <rules>
                 <rule name="Mobile Sensor Relays" id="d1ac-e240-653c-cc9c" hidden="false">
+                  <comment>sim-mod: source=&quot;Mobile Sensor Relays (Firebase Control, wholly within 6in of a Transport)&quot; sustained=1 when=ranged kw=&quot;Infantry&quot; conditional</comment>
                   <description>^^**Leagues of Votann Transport^^** units from your army have the following ability:
 
 **Firebase Control (Aura):** While a friendly ^^**Leagues of Votann Infantry^^** unit is wholly within 6&quot; of this ^^**Transport^^**, ranged weapons equipped by models in that ^^**Infantry^^** unit have the [^^**sustained hits 1^^**] ability.</description>
@@ -3984,7 +3985,8 @@ fnp: 4+</comment>
       </costs>
     </selectionEntry>
     <selectionEntry id="9655-8367-7467-9e6e" name="Sagitaur" hidden="false" collective="false" import="true" type="model">
-      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
+      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
+sim-mod: source=&quot;Firebase Control (aura)&quot; sustained=1 when=ranged kw=&quot;Infantry&quot; others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -4423,7 +4425,8 @@ fnp: 4+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry id="a110-e538-4e85-159b" name="Hekaton Land Fortress" hidden="false" collective="false" import="true" type="model">
-      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
+      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
+sim-mod: source=&quot;Firebase Control (aura)&quot; sustained=1 when=ranged kw=&quot;Infantry&quot; others</comment>
       <profiles>
         <profile id="3d20-658f-d5de-a094" name="Hekaton Land Fortress" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
           <characteristics>
@@ -5605,7 +5608,8 @@ sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Kapricus Carrier" hidden="false" id="cfbc-9eeb-badb-b28c">
-      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional</comment>
+      <comment>sim-mod: source=&quot;Prioritised Efficiency&quot; hit=+1 conditional
+sim-mod: source=&quot;Firebase Control (aura)&quot; sustained=1 when=ranged kw=&quot;Infantry&quot; others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -6603,7 +6607,8 @@ fnp: 4+</comment>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="77c0-d438-5a22-0556" includeChildSelections="true"/>
           </constraints>
-          <comment>Hearthband</comment>
+          <comment>Hearthband
+def-mod: source=&quot;Bastion Shield (within 12in)&quot; ap=-1 when=ranged conditional manual</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="High Kâhl" hidden="false" id="0af8-8b93-2b39-2559" sortIndex="10">
           <modifiers>

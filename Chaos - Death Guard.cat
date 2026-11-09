@@ -1033,7 +1033,9 @@ def-mod: source=&quot;Miasma of Pestilence (Aura)&quot; cover when=ranged condit
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Lord of Virulence" hidden="false" id="c15c-2b5a-dcab-7627">
       <comment>sim-mod: source=&quot;Virulent Aura&quot; reroll=wound when=ranged whileLeading
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Blight Bombardment (marked target)&quot; reroll=hit1 when=ranged kw=&quot;Death Guard&quot; army
+sim-mod: source=&quot;Blight Bombardment (marked target, Blast)&quot; reroll=hit when=ranged weapon=&quot;Blast&quot; kw=&quot;Death Guard&quot; army</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
       </costs>
@@ -4680,6 +4682,7 @@ invuln: 5+</comment>
       </costs>
     </selectionEntry>
     <selectionEntry id="ab4e-466d-e9e8-89d5" name="Chaos Predator Destructor" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Hail of Corrosive Disease (marked target)&quot; ap=+1 when=ranged vsNot=Monster,Vehicle kw=&quot;Death Guard&quot; others</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="40c5-de47-1748-5066" type="max"/>
       </constraints>
@@ -6223,7 +6226,8 @@ cannot-warlord</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Plague Drones" hidden="false" id="cd03-e1f3-fa31-a271" collective="false">
       <comment>invuln: 5+
-cannot-warlord</comment>
+cannot-warlord
+sim-mod: source=&quot;Death&apos;s Heads (marked target)&quot; reroll=wound kw=&quot;Nurgle&amp;Legiones Daemonica&quot; others</comment>
       <modifiers>
         <modifier type="set" value="220" field="51b2-306e-1021-d207">
           <conditions>
@@ -8213,7 +8217,8 @@ sim-mod: source=&quot;Fell Harvester&quot; attacks=+2 when=melee scope=model</co
               </characteristics>
             </profile>
           </profiles>
-          <comment>Paragons of Putrescence</comment>
+          <comment>Paragons of Putrescence
+def-mod: source=&quot;Rejuvenating Swarm&quot; wound=-1 vsStronger manual</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Host of the Hybridised Pox" hidden="false" id="d2e7-68a4-7aec-b350" sortIndex="12">
           <costs>

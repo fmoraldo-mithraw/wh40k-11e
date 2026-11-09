@@ -4330,6 +4330,7 @@ sim-mod: source=&quot;Blistering Salvoes&quot; hit=+1 weapon=&quot;ferrumite can
       </constraints>
     </selectionEntry>
     <selectionEntry id="2b9c-3982-701d-f8fd" name="Skorpius Dunerider" hidden="false" collective="false" import="true" type="model">
+      <comment>sim-mod: source=&quot;Fire Support (disembarked, marked target)&quot; reroll=wound others</comment>
       <modifiers>
         <modifier type="increment" field="51b2-306e-1021-d207" value="10">
           <conditions>
@@ -5715,7 +5716,9 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Sydonian Skatros" hidden="false" id="52e7-9347-3f16-9eec">
       <comment>invuln: 5+
-cannot-warlord</comment>
+cannot-warlord
+sim-mod: source=&quot;Achillan Eye (radium jezzail)&quot; reroll=wound weapon=&quot;Radium jezzail&quot; vs=Infantry permanent
+sim-mod: source=&quot;Achillan Eye (transuranic arquebus)&quot; reroll=wound weapon=&quot;Transuranic arquebus&quot; vs=Monster,Vehicle permanent</comment>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
       </costs>
@@ -6527,8 +6530,8 @@ must-warlord</comment>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="52d3-71a9-f755-d6aa" name="Hastarii Exterminators" hidden="false" collective="false" import="true" type="unit">
-      <comment>sim-mod: source=&quot;Broad-spectrum Targeting Augurs&quot; sustained=1 weapon=&quot;eradication caster&quot; conditional
-invuln: 5+</comment>
+      <comment>invuln: 5+
+sim-mod: source=&quot;Broad-spectrum Targeting Augurs&quot; sustained=1 weapon=&quot;Eradication caster&quot; vsNot=Monster,Vehicle permanent</comment>
       <profiles>
         <profile id="1c70-93a9-743e-6e5a" name="Attached Unit" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
@@ -7623,7 +7626,8 @@ invuln: 5+</comment>
           </constraints>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Arch-negator" hidden="false" id="d5ab-b1f8-7963-ed08">
-          <comment>sim-mod: source=&quot;Arch Negator&quot; anti=Vehicle:4+ when=ranged scope=model</comment>
+          <comment>sim-mod: source=&quot;Arch Negator&quot; anti=Vehicle:4+ when=ranged scope=model
+sim-mod: source=&quot;Arch-negator&quot; anti=Vehicle:4+ when=ranged scope=model</comment>
           <costs>
             <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
           </costs>

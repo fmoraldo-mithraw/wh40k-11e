@@ -4075,8 +4075,9 @@ invuln: 4+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Hammerhead Gunship" hidden="false" id="ca9-49ab-17c1-8556">
       <comment>sim-mod: source=&quot;Armour Hunter&quot; hit=+1 vs=Monster,Vehicle scope=model
-sim-mod: source=&quot;Targeting Array&quot; reroll=hit conditional scope=model
-sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
+sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional
+sim-mod: source=&quot;Targeting Array (hit roll)&quot; reroll-one=hit when=ranged scope=model choice=&quot;Targeting Array&quot;
+sim-mod: source=&quot;Targeting Array (wound roll)&quot; reroll-one=wound when=ranged scope=model choice=&quot;Targeting Array&quot;</comment>
       <profiles>
         <profile name="Hammerhead Gunship" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="a346-fe31-7e8-7628">
           <characteristics>
@@ -4273,8 +4274,9 @@ sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Sky Ray Gunship" hidden="false" id="bfe0-2e9f-6f57-b48f">
       <comment>sim-mod: source=&quot;Velocity Tracker&quot; reroll=hit when=ranged conditional scope=model
-sim-mod: source=&quot;Targeting Array&quot; reroll=hit conditional scope=model
-sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional</comment>
+sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional
+sim-mod: source=&quot;Targeting Array (hit roll)&quot; reroll-one=hit when=ranged scope=model choice=&quot;Targeting Array&quot;
+sim-mod: source=&quot;Targeting Array (wound roll)&quot; reroll-one=wound when=ranged scope=model choice=&quot;Targeting Array&quot;</comment>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="e39d-73d-72d7-9be7" primary="true" name="Vehicle"/>
         <categoryLink targetId="c619-2086-bbcf-69c9" id="6ae6-9ead-1c45-1a84" primary="false" name="Fly"/>
@@ -6371,7 +6373,8 @@ invuln: 5+</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Manta" hidden="false" id="8e75-7545-e43b-7c67">
       <comment>sim-mod: source=&quot;For The Greater Good&quot; hit=+1 conditional
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Aggressive Deployment (disembarked, marked target)&quot; reroll=wound others</comment>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="9569-6823-480d-2866"/>
       </constraints>
@@ -7365,6 +7368,7 @@ def-mod: source=&quot;Rites of Feasting&quot; fnp=5 conditional whileLeading man
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Kroot Lone-spear" hidden="false" id="4e8a-c3f4-e497-4901">
+      <comment>sim-mod: source=&quot;Advanced Scouting (marked target)&quot; reroll=hit kw=&quot;Kroot&quot; others</comment>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="1837-6a42-a43b-753e" primary="true" name="Character"/>
         <categoryLink targetId="14a0-40c9-2748-ae6e" id="1a21-fbc2-262a-2492" primary="false" name="Mounted"/>
@@ -9043,6 +9047,7 @@ invuln: 4+</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Thermoneutronic Projector" hidden="false" id="1184-c004-494b-642e">
+      <comment>sim-mod: source=&quot;Thermoneutronic Projector&quot; str=+2 ap=+1 dmg=+1 weapon=&quot;flamer&quot; scope=model</comment>
               <profiles>
                 <profile name="Thermoneutronic Projector" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a70a-bec9-6946-39fe">
                   <characteristics>
@@ -9084,6 +9089,7 @@ invuln: 4+</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Plasma Accelerator Rifle" hidden="false" id="bc44-f33b-73bc-5ae5">
+      <comment>sim-mod: source=&quot;Plasma Accelerator Rifle&quot; str=+2 attacks=+1 ap=+1 dmg=+1 weapon=&quot;Plasma rifle&quot; scope=model</comment>
               <profiles>
                 <profile name="Plasma Accelerator Rifle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b141-8e24-fab3-30d7">
                   <characteristics>
@@ -9125,6 +9131,7 @@ invuln: 4+</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Supernova Launcher" hidden="false" id="8588-2b55-0468-0a97">
+      <comment>sim-mod: source=&quot;Supernova Launcher&quot; str=+3 ap=+1 dmg=+1 weapon=&quot;Airbursting fragmentation projector&quot; scope=model</comment>
               <profiles>
                 <profile name="Supernova Launcher" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cf3b-e41a-078e-021a">
                   <characteristics>
@@ -9344,6 +9351,7 @@ sim-mod: source=&quot;Precision of the Patient Hunter&quot; wound=+1 when=ranged
               </constraints>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Through Unity, Devastation" hidden="false" id="f835-9b5b-d767-7447">
+              <comment>sim-mod: source=&quot;Through Unity, Devastation (Guided vs Spotted)&quot; lethal when=ranged army</comment>
               <profiles>
                 <profile name="Through Unity, Devastation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="aee6-81be-fb90-7ea5">
                   <characteristics>
@@ -10200,8 +10208,8 @@ sim-mod: source=&quot;Bonded Heroes&quot; ap=+1 when=ranged conditional</comment
             </rule>
             <rule name="THE ARRO’KON PROTOCOL (Stratagem, 1CP)" id="137e-f197-df76-bd23" hidden="false">
               <comment>strat-timing: turn=your phase=shooting
-sim-mod: source=&quot;The Arro&apos;kon Protocol&quot; sustained=1 when=ranged kw=&quot;Battlesuit&quot; conditional choice=&quot;arrokon&quot;
-sim-mod: source=&quot;The Arro&apos;kon Protocol&quot; sustained=2 when=ranged kw=&quot;Battlesuit&quot; conditional choice=&quot;arrokon&quot;</comment>
+sim-mod: source=&quot;The Arro&apos;kon Protocol (6+ models)&quot; sustained=1 when=ranged kw=&quot;Battlesuit&quot; vsMinModels=6
+sim-mod: source=&quot;The Arro&apos;kon Protocol (11+ models)&quot; sustained=2 when=ranged kw=&quot;Battlesuit&quot; vsMinModels=11</comment>
               <description>Retaliation Cadre – STRATAGEM (1CP)
 
 WHEN: Your Shooting phase.
@@ -10477,7 +10485,8 @@ TARGET: That PATHFINDER TEAM/STEALTH BATTLESUITS unit.
 EFFECT: That action does not prevent your unit from being eligible to shoot.</description>
             </rule>
             <rule name="Autoreactive Camouflage (Stratagem, 1CP)" id="a80a-6c20-4188-55f9" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Autoreactive Camouflage&quot; save=+1 manual</comment>
               <description>Advanced Acquisition Cadre – STRATAGEM (1CP)
 
 WHEN: Your opponent&apos;s Shooting phase, when an enemy unit targets a friendly PATHFINDER TEAM/STEALTH BATTLESUITS unit, if that friendly unit is hidden.

@@ -817,7 +817,8 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Neurolictor" hidden="false" id="642f-9302-4fdc-ab68">
       <comment>sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional
-invuln: 4+</comment>
+invuln: 4+
+sim-mod: source=&quot;Psychological Saboteur (battle-shocked target)&quot; wound=+1 kw=&quot;Tyranids&quot; army</comment>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="c3ee-fbd0-ef69-d624" primary="true" name="Infantry"/>
         <categoryLink targetId="7850-cc5a-c191-b80d" id="f32a-bf75-375e-fd3a" primary="false" name="Great Devourer"/>
@@ -2162,6 +2163,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       </modifiers>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Gene-tailored Toxins" hidden="false" id="3dda-3fe1-4d10-b483">
+      <comment>sim-mod: source=&quot;Gene-tailored Toxins&quot; dmg=+1 scope=model</comment>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditionGroups>
@@ -2192,6 +2194,7 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Contraband Munitions" hidden="false" id="a1e4-c680-5d37-885c">
+      <comment>sim-mod: source=&quot;Contraband Munitions&quot; str=+2 when=ranged</comment>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
                   <conditionGroups>
@@ -2222,6 +2225,8 @@ sim-mod: source=&quot;Synapse&quot; str=+1 when=melee conditional</comment>
       </categoryLinks>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Mark of the Star Children Upgrade" hidden="false" id="ef2a-18b7-2c7b-1dd7">
+      <comment>def-mod: source=&quot;Mark of the Star Children Upgrade&quot; toughness=+1 save=+1 manual
+sim-mod: source=&quot;Mark of the Star Children Upgrade&quot; str=+1 when=melee</comment>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
               </costs>
@@ -2495,7 +2500,9 @@ sim-mod: source=&quot;Elevated Might&quot; ap=+1 when=melee scope=model</comment
               </costs>
             </selectionEntry>
             <selectionEntry id="ae4f-4b00-7733-1cf2" name="Perfectly Adapted" hidden="false" collective="false" import="true" type="upgrade">
-              <comment>sim-mod: source=&quot;Perfectly Adapted&quot; reroll=hit reroll=wound reroll=dmg oncePer=turn scope=model</comment>
+              <comment>sim-mod: source=&quot;Perfectly Adapted (hit roll)&quot; reroll-one=hit oncePer=turn scope=model choice=&quot;Perfectly Adapted&quot;
+sim-mod: source=&quot;Perfectly Adapted (wound roll)&quot; reroll-one=wound oncePer=turn scope=model choice=&quot;Perfectly Adapted&quot;
+sim-mod: source=&quot;Perfectly Adapted (damage roll)&quot; reroll-one=dmg oncePer=turn scope=model choice=&quot;Perfectly Adapted&quot;</comment>
               <modifiers>
                 <modifier type="set" field="hidden" value="true">
                   <conditions>
@@ -4508,7 +4515,8 @@ TARGET: One Endless Multitude unit from your army that has not been selected to 
 EFFECT: Until the end of the phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability, and If your unit contains 15 or more models, each time a model in your unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit.</description>
             </rule>
             <rule name="TEEMING MASSES (Stratagem, 1CP)" id="6524-e7ff-30b8-e38c" hidden="false">
-              <comment>strat-timing: turn=either phase=shooting|fight</comment>
+              <comment>strat-timing: turn=either phase=shooting|fight
+def-mod: source=&quot;Teeming Masses&quot; hit=-1 manual</comment>
               <description>Unending Swarm – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -5067,7 +5075,8 @@ TARGET: That destroyed CHARACTER model. You can use this Stratagem on that model
 EFFECT: Roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds. If that Character model is an Abominant or Patriarch, that enemy unit suffers 2D3 mortal wounds instead.</description>
             </rule>
             <rule name="BIO-HORROR REVELATION (Stratagem, 1CP)" id="8e6d-06e7-aefe-f7d0" hidden="false">
-              <comment>strat-timing: turn=opponent phase=shooting</comment>
+              <comment>strat-timing: turn=opponent phase=shooting
+def-mod: source=&quot;Bio-horror Revelation (failed Ld test)&quot; hit=-1 when=ranged conditional manual</comment>
               <description>Biosanctic Broodsurge – STRATAGEM (1CP)
 
 WHEN: Start of your opponent&apos;s Shooting phase.

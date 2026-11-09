@@ -369,7 +369,8 @@ EFFECT: Your unit can be set up anywhere on the battlefield that is more than 6&
                   <description>LEGIONES DAEMONICA SLAANESH units from your army are eligible to declare a charge in a turn in which they Fell Back.</description>
                 </rule>
                 <rule name="OVERWHELMING EXCESS (Stratagem, 1CP)" id="49cf-4b0f-1e51-99a2" hidden="false">
-                  <comment>strat-timing: turn=opponent phase=shooting|fight</comment>
+                  <comment>strat-timing: turn=opponent phase=shooting|fight
+def-mod: source=&quot;Overwhelming Excess&quot; hit=-1 manual</comment>
                   <description>Legion of Excess – STRATAGEM (1CP)
 
 WHEN: Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.
@@ -1026,7 +1027,8 @@ invuln: 4+</comment>
       <selectionEntryGroups></selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="a018-ca33-afd0-be83" name="Bloodthirster" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Daemon Lord of Khorne (aura)&quot; hit=+1 when=melee kw=&quot;Khorne&amp;Legiones Daemonica&quot; army</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4308-4c01-b435-cb90" type="max"/>
       </constraints>
@@ -1532,8 +1534,8 @@ invuln: 4+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="dd30-ba4c-34a4-e788" name="Skullmaster" hidden="false" collective="false" import="true" type="model">
-      <comment>sim-mod: source=&quot;Skullmaster&apos;s Fury&quot; dev when=melee onCharge whileLeading
-invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Skullmaster&apos;s Fury&quot; dev when=melee weapon=&quot;Bladed horns&quot; onCharge whileLeading</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="b65b-ae6e-8ede-dec2" type="max"/>
       </constraints>
@@ -4588,7 +4590,8 @@ invuln: 4+</comment>
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="eba5-8a7a-fc5b-d7ec" name="Fluxmaster" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+def-mod: source=&quot;Fluxmaster&quot; hit=-1 when=melee manual</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="4308-4c01-b435-cb90" type="max"/>
       </constraints>
@@ -7701,7 +7704,8 @@ invuln: 5+</comment>
       <entryLinks></entryLinks>
     </selectionEntry>
     <selectionEntry id="d620-146a-41cd-f28f" name="Plague Drones" hidden="false" collective="false" import="true" type="unit">
-      <comment>invuln: 5+</comment>
+      <comment>invuln: 5+
+sim-mod: source=&quot;Death&apos;s Heads (marked target)&quot; reroll=wound kw=&quot;Nurgle&amp;Legiones Daemonica&quot; others</comment>
       <modifiers>
         <modifier type="set" field="51b2-306e-1021-d207" value="220">
           <conditions>
@@ -9223,7 +9227,8 @@ def-mod: source=&quot;Swallow Energy (Psychic)&quot; fnp=4 mortal whileLeading m
       </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry id="673b-111b-6dcb-352" name="Tormentbringer" hidden="false" collective="false" import="true" type="model">
-      <comment>invuln: 4+</comment>
+      <comment>invuln: 4+
+sim-mod: source=&quot;Tormentbringer (aura)&quot; sustained=1 when=melee kw=&quot;Slaanesh&amp;Legiones Daemonica&quot; army</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="a2f1-8cba-b498-d7a" type="max"/>
       </constraints>
@@ -9462,7 +9467,8 @@ def-mod: source=&quot;Swallow Energy (Psychic)&quot; fnp=4 mortal whileLeading m
     </selectionEntry>
     <selectionEntry id="dba-34e3-46f2-56e0" name="Tranceweaver" hidden="false" collective="false" import="true" type="model">
       <comment>sim-mod: source=&quot;Tranceweaver&quot; reroll=hit1
-invuln: 5+</comment>
+invuln: 5+
+sim-mod: source=&quot;Symphony of Pain (battle-shocked target)&quot; reroll=hit reroll=wound kw=&quot;Slaanesh&amp;Legiones Daemonica&quot; army</comment>
       <constraints>
         <constraint field="selections" scope="force" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="a2f1-8cba-b498-d7a" type="max"/>
       </constraints>
@@ -10543,6 +10549,7 @@ invuln: 5+</comment>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Bane-forged Weapons Upgrade" hidden="false" id="7422-5d56-0866-f6f5">
+      <comment>sim-mod: source=&quot;Bane-forged Weapons Upgrade&quot; str=+1</comment>
       <profiles>
         <profile name="Bane-forged Weapons Upgrade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef83-0483-3c7f-41ce">
           <characteristics>
@@ -10855,7 +10862,8 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
               </conditionGroups>
             </modifier>
           </modifiers>
-          <comment>Legion of Excess</comment>
+          <comment>Legion of Excess
+sim-mod: source=&quot;False Majesty (aura)&quot; wound=+1 when=melee kw=&quot;Slaanesh&amp;Legiones Daemonica&quot; army</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Dreaming Crown (Aura)" hidden="false" id="c918-c2ed-eb33-e512" sortIndex="10">
           <costs>
@@ -10896,7 +10904,8 @@ sim-mod: source=&quot;The Everstave&quot; str=+1 when=ranged scope=model</commen
               </conditionGroups>
             </modifier>
           </modifiers>
-          <comment>Legion of Excess</comment>
+          <comment>Legion of Excess
+sim-mod: source=&quot;Dreaming Crown (aura)&quot; hit=+1 when=melee kw=&quot;Slaanesh&amp;Legiones Daemonica&quot; army</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Infernal Puppeteer" hidden="false" id="806e-b30b-3bcd-71c3" sortIndex="19">
           <costs>
@@ -11265,7 +11274,8 @@ sim-mod: source=&quot;Neverblade&quot; str=+2 attacks=+1 ap=+1 hit=+1 when=melee
               </conditionGroups>
             </modifier>
           </modifiers>
-          <comment>Blood Legion</comment>
+          <comment>Blood Legion
+sim-mod: source=&quot;Slaughterthirst (aura, Lance)&quot; wound=+1 when=melee onCharge kw=&quot;Khorne&amp;Legiones Daemonica&quot; army</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Brazenmaw" hidden="false" id="87ae-e092-2e5d-16a6" sortIndex="1">
           <costs>
@@ -11439,7 +11449,8 @@ sim-mod: source=&quot;Neverblade&quot; str=+2 attacks=+1 ap=+1 hit=+1 when=melee
               </conditions>
             </modifier>
           </modifiers>
-          <comment>Plague Legion</comment>
+          <comment>Plague Legion
+sim-mod: source=&quot;Font of Spores (aura)&quot; ap=+1 kw=&quot;Nurgle&amp;Legiones Daemonica&quot; army</comment>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Cankerblight (Aura)" hidden="false" id="0f1b-f380-fa24-beb0" sortIndex="13">
           <costs>
