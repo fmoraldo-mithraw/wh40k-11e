@@ -218,4 +218,7 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 - `src/lib/dataVintage.js` (appli) : `REFERENCE_GW_DATA_VERSION` = `tracked.dataVersion` de game-datacards
   (`test:batch-import` ROUGE à la montée de version — guide `editor/SOURCE_GAME_DATACARDS.md`).
 - `src/data/legends-names.json` (appli) : `test:legends-names` ROUGE si le MFM change les noms Legends →
-  `npm run gen:legends-names`. Hook de démarrage : `.claude/hooks/session-start.sh` des deux dépôts.
+  `npm run gen:legends-names`.
+- `src/game/mfm.js` (appli, statistiques des parties par version du MFM) : `MFM_RELEASES` date chaque version ;
+  `test:gamestats` ROUGE quand le dump MFM (`editor/mfm/dump/en`) passe à une version absente → y ajouter `{ v, from }`
+  (date du commit « MFM vX : nouveau dump détecté »). Hook de démarrage : `.claude/hooks/session-start.sh` des deux dépôts.
