@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-09. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-10. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -97,6 +97,12 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-10 : **MFM = mode de toute l'appli** (barre du haut, mémorisé) : MFM courant + 2 précédents, une version
+  passée charge TOUTES les données de l'époque (branches `mfm/v1.2`…`mfm/v1.5` des données, figées au dernier commit
+  avant le MFM suivant ; l'appli embarque v1.4 et v1.5) ; la version est sauvegardée avec la liste ; chargement d'une
+  liste d'une autre version → « passer l'appli » ou « convertir ». **Pack de missions** choisi à l'étape 0 d'une partie
+  (« Avant Chapter Approved 2026-2027 » ; le contenu du CA 2026-2027 sera à fournir).
 
 - 2026-11-09 (2) : **inventaire du simulateur traité** : moteur — mots-clefs « X: non-MONSTER/VEHICLE » (graphie officielle,
   23 profils lus jusque-là comme inconditionnels), **tir indirect** 11e (10.07 : armes [INDIRECT FIRE] seules, couvert, pas de
@@ -219,6 +225,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   (`test:batch-import` ROUGE à la montée de version — guide `editor/SOURCE_GAME_DATACARDS.md`).
 - `src/data/legends-names.json` (appli) : `test:legends-names` ROUGE si le MFM change les noms Legends →
   `npm run gen:legends-names`.
-- `src/game/mfm.js` (appli, statistiques des parties par version du MFM) : `MFM_RELEASES` date chaque version ;
+- `src/game/mfm.js` (appli : choix du MFM, statistiques par version) : `MFM_RELEASES` date chaque version ;
   `test:gamestats` ROUGE quand le dump MFM (`editor/mfm/dump/en`) passe à une version absente → y ajouter `{ v, from }`
-  (date du commit « MFM vX : nouveau dump détecté »). Hook de démarrage : `.claude/hooks/session-start.sh` des deux dépôts.
+  (date du commit « MFM vX : nouveau dump détecté »). **Nouveau MFM** : figer la version remplacée dans une branche
+  `mfm/vX` (dernier commit avant le nouveau MFM, `git push origin mfm/vX`) et lui mettre `data: "mfm/vX"` — l'appli
+  embarque le MFM courant + les 2 précédents (`MFM_KEEP_PAST`), procédure : `editor/mfm/README.md`. Hook de démarrage : `.claude/hooks/session-start.sh` des deux dépôts.
