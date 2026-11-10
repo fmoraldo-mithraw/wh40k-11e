@@ -109,6 +109,27 @@ c'est le fichier à me renvoyer. Le dump généré va dans `editor/mfm/dump/<lan
 `dump/en/*.json` est **commité** (canal de transmission vers l'agent
 d'intégration, voir `.gitignore`), les autres langues restent locales.
 
+## Versions passées du MFM — branches `mfm/vX` (choix du MFM dans l'appli)
+
+Construire une liste « au MFM v1.4 » charge **toutes** les données de l'époque
+(fiches, détachements, règles, points) : la branche `mfm/v1.4` de ce dépôt, figée
+au **dernier commit avant l'intégration du MFM suivant**. L'appli les construit
+(plugin vite, `src/game/mfm.js` → `MFM_RELEASES[].data`) en morceaux chargés à la
+demande. Branches au 2026-11-10 :
+
+| Branche | Commit | Pourquoi |
+|---|---|---|
+| `mfm/v1.2` | `308f7443` (25/08) | parent de `a26b1606`, 1er commit d'intégration du v1.3 |
+| `mfm/v1.3` | `b1dd8bbe` (02/09) | parent de `6aba5f5a` (dump v1.4 détecté) |
+| `mfm/v1.4` | `48e404a9` (30/09) | parent de `0b35b72d` (dump v1.5 détecté) |
+| `mfm/v1.5` | `38d00f5a` (13/10) | parent de `e0ddf2a6` (dump v1.6 détecté) |
+
+Une correction de données propre à une ancienne version se committe **sur sa
+branche** (jamais de force-push). **À chaque nouveau MFM** : avant de l'intégrer,
+`git branch mfm/<version remplacée> <dernier commit avant> && git push origin
+mfm/<version>`, puis côté appli ajouter `data: "mfm/<version>"` à cette entrée de
+`src/game/mfm.js` (un test vérifie que chaque branche existe).
+
 ## Garde-fous (« ne rien insérer de douteux »)
 
 Une valeur n'est proposée à l'écriture QUE si toutes ces conditions tiennent ;
