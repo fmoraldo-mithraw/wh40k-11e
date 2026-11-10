@@ -109,6 +109,28 @@ c'est le fichier à me renvoyer. Le dump généré va dans `editor/mfm/dump/<lan
 `dump/en/*.json` est **commité** (canal de transmission vers l'agent
 d'intégration, voir `.gitignore`), les autres langues restent locales.
 
+## Versions passées du MFM — `versions.mjs` (choix du MFM dans l'appli)
+
+La bdd ne porte que les points du MFM **courant**. Pour construire une liste « au
+MFM v1.5 », `node editor/mfm/versions.mjs` compare chaque version passée (son
+extraction, tirée de l'historique git de `dump/en/`) à l'extraction courante, via
+la matrice `map/` (nom MFM → bsId), et écrit `versions/<v>.json` : écarts par fiche
+et par taille, surcoût de répétition de la version, écarts des améliorations, DP
+des détachements ; `notes` = fiches absentes de la version ou non comparables
+(prix à composition, tailles différentes). Seules les versions extraites pour
+≥ 90 % des factions sont proposées (v1.2 : une seule faction, ignorée). Lecture
+des coûts partagée avec `apply.mjs` : `costs.mjs`. **Historique git complet
+requis** (`git fetch --unshallow`). Côté appli : `npm run gen:mfm-versions`
+recopie les tables dans `src/data/mfm-versions/` (test `test:mfm-versions`).
+
+Les valeurs sont celles **imprimées dans chaque MFM** : un codex sorti entre deux
+MFM a pu changer des points en base sans changer le MFM (Custodes : Blade Champion
+110 au MFM v1.5, 175 au codex), la table suit le MFM.
+
+**À chaque nouveau MFM** : après l'intégration, `node editor/mfm/versions.mjs`
+(la version qui vient d'être remplacée devient une version passée), puis côté
+appli `npm run gen:mfm-versions` et l'entrée de `src/game/mfm.js`.
+
 ## Garde-fous (« ne rien insérer de douteux »)
 
 Une valeur n'est proposée à l'écriture QUE si toutes ces conditions tiennent ;
