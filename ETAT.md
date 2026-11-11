@@ -98,6 +98,11 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-11 : **Amélioration qui confère CHARACTER** = `modifier add category 9cfd-1c32-585f-7d5c scope="root-entry"`
+  (sans condition) sur l'entrée de l'amélioration (même idiome que les désignations Tank Ace / Trygon). Parseur
+  `grantsChar` → ligne `enhGrantsChar` → `isCharLike` (Warlord, Assassinat, export). Seul cas : **Flyboss Upgrade**
+  (Orks). Appli : supprimer un dossier de listes demande « Garder » (contenu remonte) ou « Supprimer (N) ».
+
 - 2026-11-10 : **MFM = mode de toute l'appli** (barre du haut, mémorisé) : MFM courant + 2 précédents, une version
   passée charge TOUTES les données de l'époque (branches `mfm/v1.2`…`mfm/v1.5` des données, figées au dernier commit
   avant le MFM suivant ; l'appli embarque v1.4 et v1.5) ; la version est sauvegardée avec la liste ; chargement d'une

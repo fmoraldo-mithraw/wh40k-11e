@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 7e2cc7d
-// source-sha256: 7eaf8dd4836ed14e
+// source-commit: 1fe136b
+// source-sha256: 3650f8d130914309
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -6616,7 +6616,8 @@ function getEnhs(catalogue, idIndex, catalogueId, fallbackDetIdToName) {
     const weaponMods = extractWeaponMods(se, idIndex);
     const leadIds = getMfmGroupIds(se, "Can Lead (MFM)");
     const supportIds = getMfmGroupIds(se, "Can Support (MFM)");
-    return { name, pts, det, desc, bsId: se["@id"] || "", charOnly: true, reqKeywords: [], unique, hideMods, ...leadIds.length ? { leadIds } : {}, ...supportIds.length ? { supportIds } : {}, ...weapons.length ? { weapons } : {}, ...sm.length ? { simMods: sm } : {}, ...statMods.length ? { statMods } : {}, ...weaponMods.length ? { weaponMods } : {} };
+    const grantsChar = arr(child(se, "modifiers.modifier")).some((m) => m["@type"] === "add" && m["@field"] === "category" && m["@value"] === GST_CHARACTER_CATEGORY_ID && !child(m, "conditions") && !child(m, "conditionGroups"));
+    return { name, pts, det, desc, bsId: se["@id"] || "", charOnly: true, reqKeywords: [], unique, hideMods, ...grantsChar ? { grantsChar: true } : {}, ...leadIds.length ? { leadIds } : {}, ...supportIds.length ? { supportIds } : {}, ...weapons.length ? { weapons } : {}, ...sm.length ? { simMods: sm } : {}, ...statMods.length ? { statMods } : {}, ...weaponMods.length ? { weaponMods } : {} };
   }
   function processSubGroup(sg, unitEnh) {
     if (sg["@hidden"] === "true") return;
