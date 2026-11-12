@@ -83,8 +83,10 @@ pas sur chaque fiche). Même télégraphie, mais :
 
 ## Aide-mémoire par phase (dernière section du PDF initiation)
 
-Le PDF se termine par un **aide-mémoire par phase** : pour chaque phase (avant la bataille,
-Commandement, Mouvement, Tir, Charge, Combat, « quand on t'attaque », « à tout moment »), par
+Le PDF se termine par un **aide-mémoire par phase** en **deux pages** — « ton tour » puis « tour
+adverse », une ligne valable aux deux tours figurant sur les deux — : pour chaque phase (avant la bataille,
+début du round de bataille — hors des tours des joueurs —, Commandement, Mouvement, Tir, Charge,
+Combat, « quand on t'attaque », « à tout moment »), par
 tour (ton tour / les deux / adverse) et **dans l'ordre de la phase** (début, pendant, fin), les
 stratagèmes jouables puis les aptitudes des unités de la liste — avec ces mêmes résumés.
 - **Stratagèmes** : moment lu dans le marqueur `strat-timing:` (tour, phase) et la ligne WHEN

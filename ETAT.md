@@ -99,8 +99,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
 - 2026-11-12 : **aide-mémoire par phase dans le PDF initiation** (appli, `src/lib/phaseAid.js` ; **rien sur le plateau de
-  partie**, décision utilisateur) : dernière section du PDF — par phase, par tour, dans l'ordre de la phase (début /
-  pendant / fin), stratagèmes (marqueur `strat-timing` + ligne WHEN) puis aptitudes des fiches, équipement choisi,
+  partie**, décision utilisateur) : dernières pages du PDF — **une page « ton tour », une page « tour adverse »**, par phase, dans l'ordre de la phase (début /
+  pendant / fin ; « start of the battle round » = section propre **Début du round de bataille**, hors des tours), stratagèmes (marqueur `strat-timing` + ligne WHEN) puis aptitudes des fiches, équipement choisi,
   optimisations, règles d'armée et de détachement. Le moment des aptitudes est **déduit du texte anglais** (aucun
   marqueur de données ; non situées = bonus permanents, laissés sur la fiche). Guide : `editor/BRIEFS_PROMPT.md`.
   `ui-check.mjs --pdf f.pdf --pdf-init [--lang fr]` télécharge le PDF pour le relire en texte.
