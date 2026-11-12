@@ -71,6 +71,13 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
    source officielle : « shaken » = secouée (« ébranlé » = battle-shocked, jamais shaken ; pas de terme officiel), Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
 
+10. **Mode partie — secondaires, deux lectures à confirmer** (relevées le 2026-11-12 en revoyant leur présentation,
+    rien changé au calcul) : (a) *Abattez-le* / *Un coup décisif* **fixes** : « 4 PS, max 5 PS **par tour** » — l'appli
+    plafonne à 5 **par round** (un seul choix 1 / 2+ pour le round) alors qu'un round compte deux tours (jusqu'à 10 ?) ;
+    (b) *Assassinat*, *Abattez-le*, *Un coup décisif*, *Pas de prisonniers*, *Force écrasante* se marquent « fin d'un tour »
+    (l'un ou l'autre joueur) mais l'étiquette affichée dit « fin de ton tour ». Étendre les paliers d'un tap aux
+    **primaires** (« par objectif contrôlé : 5 PS, max 15 » → 1 / 2 / 3+) ? Laissés en +/− faute de demande.
+
 ## Dettes connues (pas de décision attendue)
 
 - Import PDF : worker pdf.js émis en `.js` (nginx sans type `.mjs`), glisser-déposer dans la modale d'import (84b0d92).
@@ -98,6 +105,15 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-12 : **mode partie, fenêtre de score** (appli, `MissionScoreModal.jsx`) : (1) les objectifs **de fin de
+  partie** d'une primaire (14 missions sur 25) s'affichent **à tous les rounds, tout en bas, grisés et verrouillés**
+  (pastille R5), cochables au round 5 seulement ; (2) **secondaires : plus de +/− quand le plafond est atteint en 1 à 3
+  fois** — `countTiers` (`src/game/missions.js`) : 1 palier → **case à cocher** (*Abattez-le*, *Un coup décisif*
+  tactiques), 2–3 paliers → **boutons d'un tap** « 1 · 3 pts / 2+ · 5 pts » (*Derrière les lignes*, *Force écrasante*,
+  *Fardeau de la confiance*, *Pas de prisonniers*, les deux fixes à 4 PS) ; seul l'*Assassinat* fixe (« chaque fois
+  que ») garde son compteur. Affichage seul : la sélection stockée reste le compte (score, parties sauvées et serveur
+  inchangés). *Démonstration de force* passe en **paliers au choix** (2 PS ton tour OU 5 PS tour adverse ; score
+  identique, la carte plafonnant à 5). Démo : `dev/game-demo.html?opp=<type>&round=N&cards=id,id`.
 - 2026-11-12 : **aide-mémoire par phase dans le PDF initiation** (appli, `src/lib/phaseAid.js` ; **rien sur le plateau de
   partie**, décision utilisateur) : dernières pages du PDF — **une page « ton tour », une page « tour adverse »**, par phase, dans l'ordre de la phase (début /
   pendant / fin ; « start of the battle round » = section propre **Début du round de bataille**, hors des tours), stratagèmes (marqueur `strat-timing` + ligne WHEN) puis aptitudes des fiches, équipement choisi,
