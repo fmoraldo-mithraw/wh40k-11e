@@ -81,6 +81,22 @@ pas sur chaque fiche). Même télégraphie, mais :
   EFFET, sans le coût en PC (imprimé à part). Exemple : « Combat, unité INFANTERIE choisie pour
   combattre : ses attaques de mêlée ont [Précision]. »
 
+## Aide-mémoire par phase (dernière section du PDF initiation)
+
+Le PDF se termine par un **aide-mémoire par phase** : pour chaque phase (avant la bataille,
+Commandement, Mouvement, Tir, Charge, Combat, « quand on t'attaque », « à tout moment »), par
+tour (ton tour / les deux / adverse) et **dans l'ordre de la phase** (début, pendant, fin), les
+stratagèmes jouables puis les aptitudes des unités de la liste — avec ces mêmes résumés.
+- **Stratagèmes** : moment lu dans le marqueur `strat-timing:` (tour, phase) et la ligne WHEN
+  (début / fin de phase). Un stratagème sans marqueur tombe dans « à tout moment ».
+- **Aptitudes, règles d'armée / de détachement, optimisations** : **aucun marqueur de données** —
+  le moment est DÉDUIT du texte anglais par l'appli (`src/lib/phaseAid.js` : « In your Shooting
+  phase », « makes a melee attack », « Charge roll »…). Une aptitude sans moment reconnaissable
+  (bonus permanent, Leader, Transport) n'y figure pas. Écrire les textes avec les tournures du
+  règlement suffit ; le balayage `test:phase-aid` de l'appli fige la couverture (93,7 %).
+- Les règles de base sans texte (Deep Strike, Scouts, Feel No Pain…) y sont citées par leur nom
+  et leurs unités, sans résumé (voir `SKIP` ci-dessus).
+
 ## Lot rédigé (entrée de `fusionne.mjs`)
 
 ```json

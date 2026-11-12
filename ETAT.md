@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-10. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-12. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,8 +21,8 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **85/85** suites (`scripts/dev/tests.sh`,
-  dont `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:sim-coverage` (mots-clefs « X: non-M/V », tir indirect, relance d'un dé, défenses, bonus d'autres unités), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **86/86** suites (`scripts/dev/tests.sh`,
+  dont `test:phase-aid` (aide-mémoire par phase : 93,7 % des 1 697 aptitudes à texte situées, 1 765 stratagèmes tous datés), `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:sim-coverage` (mots-clefs « X: non-M/V », tir indirect, relance d'un dé, défenses, bonus d'autres unités), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
   12 unités à écart ≥ 40 pts sur 4 919 (restes = MFM, constants par fiche). **Mini Headquarters 17–31/10/2026**
@@ -97,6 +97,13 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-12 : **aide-mémoire par phase dans le PDF initiation** (appli, `src/lib/phaseAid.js` ; **rien sur le plateau de
+  partie**, décision utilisateur) : dernière section du PDF — par phase, par tour, dans l'ordre de la phase (début /
+  pendant / fin), stratagèmes (marqueur `strat-timing` + ligne WHEN) puis aptitudes des fiches, équipement choisi,
+  optimisations, règles d'armée et de détachement. Le moment des aptitudes est **déduit du texte anglais** (aucun
+  marqueur de données ; non situées = bonus permanents, laissés sur la fiche). Guide : `editor/BRIEFS_PROMPT.md`.
+  `ui-check.mjs --pdf f.pdf --pdf-init [--lang fr]` télécharge le PDF pour le relire en texte.
 
 - 2026-11-11 : **Amélioration qui confère CHARACTER** = `modifier add category 9cfd-1c32-585f-7d5c scope="root-entry"`
   (sans condition) sur l'entrée de l'amélioration (même idiome que les désignations Tank Ace / Trygon). Parseur
