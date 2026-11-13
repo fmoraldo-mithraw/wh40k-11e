@@ -116,7 +116,10 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   repliée au défilement de la liste. **Barre « Cogitator IA » masquée par défaut** (décision utilisateur) : affichée
   seulement sur demande (case du compte, `cb:show-cmdbar`), jamais pour un visiteur. **Textes des aptitudes de base
   de l'export YellowScribe** (`src/lib/coreAbilities.js`) = règlement 11e du `.gst` (`test:coreab` compare au dépôt).
-  Idée « barre d'onglets en bas » écartée (prend trop de place à l'écran).
+  Idée « barre d'onglets en bas » écartée (prend trop de place à l'écran) ; à la place, **barre du haut sur
+  téléphone : chaque bouton = icône + libellé dessous** (Listes, Parties, Compte, Thème, Langue, Quitter / Connexion ;
+  barre de 55 px, cibles de 46 px, tient à 360 px). **Bouton Admin retiré de la barre** : « Administration » en tête de
+  la fenêtre du compte, pour les admins seulement.
 
 - 2026-11-12 : **mode partie, fenêtre de score** (appli, `MissionScoreModal.jsx`) : (1) les objectifs **de fin de
   partie** d'une primaire s'affichent **à tous les rounds, tout en bas, grisés et verrouillés** (pastille R5),
