@@ -168,7 +168,7 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   passée charge TOUTES les données de l'époque (branches `mfm/v1.2`…`mfm/v1.5` des données, figées au dernier commit
   avant le MFM suivant ; l'appli embarque v1.4 et v1.5) ; la version est sauvegardée avec la liste ; chargement d'une
   liste d'une autre version → « passer l'appli » ou « convertir ». **Pack de missions** choisi à l'étape 0 d'une partie
-  (« Avant Chapter Approved 2026-2027 » ; le contenu du CA 2026-2027 sera à fournir).
+  (« Chapter Approved 2026-2027 », renommé le 2026-11-13 : les missions en place SONT le CA 2026-2027 ; id interne `pre-ca-2026-27` conservé).
 
 - 2026-11-09 (2) : **inventaire du simulateur traité** : moteur — mots-clefs « X: non-MONSTER/VEHICLE » (graphie officielle,
   23 profils lus jusque-là comme inconditionnels), **tir indirect** 11e (10.07 : armes [INDIRECT FIRE] seules, couvert, pas de
