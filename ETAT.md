@@ -102,6 +102,14 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-13 : **Confronter — bascule « ⚡ Overdrive »** (demande utilisateur) : meilleur cas de l'ATTAQUANT, duel par
+  duel — toutes ses aptitudes (conditionnelles et 1×/bataille comprises : fiche, amélioration, option, règle d'armée,
+  règle de détachement), la meilleure alternative d'un groupe « au choix » contre la cible, et **le stratagème le plus
+  efficace** de son détachement (un seul, essayé un par un ; « ✦ » dans la case, nommé dans l'infobulle). Choix faits
+  sans consigne, à confirmer : pas de bonus venant d'autres unités (auras, marquages), **défenseur inchangé**
+  (défenses permanentes, pas de stratagème défensif), pas de bonus de position (demi-portée, immobile). Borne haute :
+  des conditions incompatibles peuvent se cumuler. `src/sim/confront.js`, `origin` posé par `buildSimProps`.
+
 - 2026-11-13 : **appli, ergonomie téléphone** : intertitres de la liste traduits ; bandeau cookies compact (le + du
   catalogue passe au-dessus) ; écran vide = 3 actions (faction / catalogue, import, mes listes) ; cibles au doigt de
   40 px (ajout rapide, actions de ligne) ; **« Annuler »** 8 s après le retrait d'une unité ou « Vider » ; barre d'outils
