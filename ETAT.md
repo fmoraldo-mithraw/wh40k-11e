@@ -71,11 +71,9 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
    Gunship (SM), Gargantuan Squiggoth (Orks). Détachements Boarding Actions : hors périmètre. Vocabulaire FR choisi sans
    source officielle : « shaken » = secouée (« ébranlé » = battle-shocked, jamais shaken ; pas de terme officiel), Bombardement Incendiaire, Obus Fumigènes (à valider avec la question 5).
 
-10. **Mode partie — étiquette de moment des secondaires « fin d'un tour »** (2026-11-12, en attente) : *Assassinat*,
-    *Abattez-le*, *Un coup décisif*, *Pas de prisonniers*, *Force écrasante* — le texte de règle **de l'appli**
-    (`rules` de `src/game/missions.js`, retranscrit des cartes fournies par l'utilisateur) dit « fin d'un tour » /
-    « fin du tour de l'un ou l'autre joueur », l'étiquette affichée dit « fin de ton tour ». Seule source = cette
-    retranscription (pas la carte elle-même) : l'utilisateur a demandé la source, rien changé tant qu'il ne tranche pas.
+10. **Mode partie — *Assassinat* fixe** : la règle de l'appli dit « à tout moment où cette carte est active » (« chaque
+    fois que »), l'étiquette de moment affiche « fin de ton tour » (valeur par défaut). Mettre « à tout moment » ?
+    (Signalé le 2026-11-13, non confirmé sur la carte.)
 
 ## Dettes connues (pas de décision attendue)
 
@@ -114,6 +112,9 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   « max 5 PS **par tour** » = **deux compteurs par round** (ton tour / tour adverse, 5 PS chacun, **jusqu'à 10 par
   round** — confirmé par l'utilisateur) ; (5) *Démonstration de force* en **paliers au choix** (2 PS ton tour OU 5 PS
   tour adverse, score identique). **Primaires : pas de boutons de paliers** (refusé par l'utilisateur, +/− conservés).
+  (6) **moment « fin d'un tour (le tien ou l'adverse) »** (`when: "any"`, 2026-11-13, cartes confirmées par
+  l'utilisateur) : *Assassinat*, *Abattez-le*, *Un coup décisif*, *Pas de prisonniers*, *Force écrasante* tactiques
+  n'affichent plus « fin de ton tour » ; un test vérifie que l'étiquette suit le texte de règle de chaque carte.
   Démo : `dev/game-demo.html?opp=<type>&round=N&cards=id,id&fixe=1`.
 - 2026-11-12 : **aide-mémoire par phase dans le PDF initiation** (appli, `src/lib/phaseAid.js` ; **rien sur le plateau de
   partie**, décision utilisateur) : dernières pages du PDF — **une page « ton tour », une page « tour adverse »**, par phase, dans l'ordre de la phase (début /
