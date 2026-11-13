@@ -1,8 +1,8 @@
 // GÉNÉRÉ — ne pas éditer. Copie autonome du parser de cogitator-bellicum
 // (scripts/bsdata-parser.mjs + dépendances), repli de build-map.mjs.
 // Régénérer : editor/mfm/vendor/sync-parser.sh
-// source-commit: 1fe136b
-// source-sha256: 3650f8d130914309
+// source-commit: 0b55166
+// source-sha256: 7188b98e08e68416
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -2725,7 +2725,7 @@ function getKeywordData(entry, idIndex) {
   return { byModel, faction: facSet, flat: dedup(flat), unit: dedup(unit.kw) };
 }
 function isWeaponProfile(p) {
-  return /Weapon/.test(p["@typeName"] || "");
+  return /Weapon|C.tan Powers/.test(p["@typeName"] || "");
 }
 function fmtWeapon(p) {
   const nameBox = { v: p["@name"] || "" };
@@ -3566,6 +3566,15 @@ function entryPts(node) {
   }
   return 0;
 }
+function modelPts(m) {
+  let p = entryPts(m);
+  for (const se of arr(child(m, "selectionEntries.selectionEntry"))) {
+    if (se["@type"] !== "upgrade" || se["@hidden"] === "true") continue;
+    const min = arr(child(se, "constraints.constraint")).find((k) => k["@type"] === "min" && k["@scope"] === "parent" && intC(k["@value"], 0) >= 1);
+    if (min) p += entryPts(se);
+  }
+  return p;
+}
 function entryCategoryIds(...nodes) {
   const out = [];
   for (const n of nodes) {
@@ -3673,7 +3682,7 @@ function getComp(entry, idIndex) {
         mMin,
         collectModelAbilities(m, idIndex),
         modelMaxScaling(m),
-        entryPts(m),
+        modelPts(m),
         [m["@id"], m["@_targetId"]].filter(Boolean),
         buildDynBounds(m, compMods)
       ];
@@ -3709,7 +3718,7 @@ function getComp(entry, idIndex) {
         existing[1] += mMax;
         existing[3] += getDefaultAmount(m);
         existing[4] += mMin;
-        if (!existing[7]) existing[7] = entryPts(m);
+        if (!existing[7]) existing[7] = modelPts(m);
         const wSeen = new Set(existing[2].map((w) => w.join("|")));
         for (const w of collectModelWeapons(m, idIndex)) {
           const k = w.join("|");
@@ -3736,7 +3745,7 @@ function getComp(entry, idIndex) {
         mMin,
         collectModelAbilities(m, idIndex),
         modelMaxScaling(m),
-        entryPts(m),
+        modelPts(m),
         // Slot 8: every id this model answers to in count conditions — its own
         // id, the shared targetId when it came in via an entryLink, AND the
         // enclosing sub-group's id when it was flattened out of one (extraId).
