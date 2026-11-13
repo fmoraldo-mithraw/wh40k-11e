@@ -1,14 +1,14 @@
 # Listes du méta (Listhammer) — état des erreurs de chargement
 
-> Écrit par `scripts/dev/listhammer-sync.mjs` (cogitator-bellicum) le 2026-11-13 15:56 UTC
-> — appli `db26925`, données `79a0ff3e`. Ne pas éditer à la main : la synchro le réécrit.
+> Écrit par `scripts/dev/listhammer-sync.mjs` (cogitator-bellicum) le 2026-11-13 15:59 UTC
+> — appli `db26925`, données `2890a063`. Ne pas éditer à la main : la synchro le réécrit.
 >
 > Routine de correction : reproduire une liste avec
 > `node scripts/dev/listhammer-sync.mjs --only <listId>` (côté appli, après `scripts/dev/sync-data.sh`),
 > corriger le parseur d'import ou les données (jamais la liste), puis `--offline` pour réanalyser toute la file.
 > Divergence légitime : l'ajouter à `listhammer/acceptees.json`. Guide : `editor/LISTES_META_PROMPT.md`.
 
-**279** listes en file (10 max. par faction) · **222** sans erreur · **0** aux erreurs acceptées · **57** avec erreur(s) à traiter · réanalyse seule (--offline)
+**279** listes en file (10 max. par faction) · **222** sans erreur · **0** aux erreurs acceptées · **57** avec erreur(s) à traiter · 0 entrée(s), 0 sortie(s) aujourd'hui
 
 ## Par nature
 
