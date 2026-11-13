@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **87/87** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **88/88** suites (`scripts/dev/tests.sh`,
   dont `test:phase-aid` (aide-mémoire par phase : 93,7 % des 1 697 aptitudes à texte situées, 1 765 stratagèmes tous datés), `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:sim-coverage` (mots-clefs « X: non-M/V », tir indirect, relance d'un dé, défenses, bonus d'autres unités), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
@@ -36,9 +36,10 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 - game-datacards suivi : données **995**, commit `6f98bb1`, export du 2026-10-16T18:38 (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** ; golden des rattachements (appli) **3977** paires (copies BT retirées) ;
   MFM : `apply.mjs` 1 329 fiches (Titans compris), « À ME RENVOYER » **0**, `dp-audit` aligné **et** symétrique.
-- **Listes du méta** (`listhammer/ERREURS.md`, tenu par la routine) : 279 listes en file, **222** sans erreur, **0** acceptée,
-  **57** à traiter (2026-11-13, avant la 1re routine : 49 armes « impossibles sur la fiche », 17 améliorations, 11 sans
-  Warlord, 10 détachements introuvables, 4 Imperial Agents lus Adepta Sororitas…). « Sans erreur » ne doit jamais baisser.
+- **Listes du méta** (`listhammer/ERREURS.md`, tenu par la routine) : **245** listes du MFM v1.6 en file, **235** sans erreur,
+  **10** acceptées (`acceptees.json` : 7 sans Warlord dans le texte, Warmind FR non officiel, TL-409, surnom « Habicht »),
+  **0** à traiter ; **chaque total chargé = total annoncé** (2026-11-13). Pas de liste Deathwatch / Imperial Agents depuis le
+  14/10 sur Listhammer. « Sans erreur » ne doit jamais baisser. Suite `test:meta-import-formats` (11 listes réelles).
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
@@ -77,6 +78,10 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 10. **Mode partie — *Assassinat* fixe** : la règle de l'appli dit « à tout moment où cette carte est active » (« chaque
     fois que »), l'étiquette de moment affiche « fin de ton tour » (valeur par défaut). Mettre « à tout moment » ?
     (Signalé le 2026-11-13, non confirmé sur la carte.)
+11. **Deathwatch Veterans : fiche de la base ≠ fiche officielle 11e** (relevé sur les listes Listhammer, 2026-11-13) :
+    officiel = « Watch Sergeant » + 4-9 « Deathwatch Veteran », armes « Heavy Thunder Hammer », « Knives and Fists » ; la
+    base modélise des variantes par équipement (« Veteran w/ Deathwatch thunder hammer »…). Aligner = renommer des
+    figurines (listes enregistrées touchées) → décision utilisateur. Sans effet sur les listes du méta actuelles.
 
 ## Dettes connues (pas de décision attendue)
 
@@ -109,8 +114,10 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
   listes — 10 dernières meilleures listes de tournoi par faction, **déjà analysées** (un clic charge, 💾 copie dans
   « Méta Listhammer/<Faction> »), par faction. Cron quotidien → file **FIFO** par faction → analyse complète par l'import
   de l'appli → `listhammer/{listes.json,ERREURS.md}` poussés ; routine de correction 45 min après. Le cron tourne en tâche
-  planifiée Claude (runners GitHub bloqués, le Pi n'a pas de droit de push). Conséquence : `main` des données bouge chaque
-  nuit → rebuild quotidien du Pi à 4 h. Guide : `editor/LISTES_META_PROMPT.md`.
+  planifiée Claude (runners GitHub bloqués ; cron sur le Pi abandonné, décision utilisateur). Conséquence : `main` des
+  données bouge chaque nuit → rebuild quotidien du Pi à 4 h. **MFM courant seulement** (décision utilisateur du même jour) :
+  tournois depuis la sortie du MFM ; liste au total juste seulement en ancien barème = écartée. **Total chargé = total
+  annoncé** exigé (erreur sinon). Guide : `editor/LISTES_META_PROMPT.md`.
 
 - 2026-11-13 : **Confronter — bascule « ⚡ Overdrive »** (demande utilisateur) : meilleur cas de l'ATTAQUANT, duel par
   duel — toutes ses aptitudes (conditionnelles et 1×/bataille comprises : fiche, amélioration, option, règle d'armée,

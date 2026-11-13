@@ -17,9 +17,14 @@ analyse côté joueur), affichées par faction.
 1. `https://listhammer.info/api/recentLists?faction=<F>` pour les 28 factions de
    `LISTHAMMER_FACTIONS` (`src/lib/metaLists.js`) — ordre du site (événements récents,
    meilleurs bilans en tête) ; listes envoyées en image écartées.
-2. **File FIFO par faction** (`mergeFifo`) : une liste jamais vue entre (date du jour), au-delà
+2. **MFM courant seulement** (décision du 2026-11-13) : n'entrent que les listes de tournois
+   joués depuis la sortie du MFM courant (`MFM_RELEASES`, `src/game/mfm.js`) ; au passage à un
+   nouveau MFM, les anciennes sortent d'elles-mêmes. Une liste dont le total ne tombe juste
+   qu'avec un ANCIEN barème (tournoi resté sur l'ancien MFM) est écartée (`excluded` de
+   `listes.json`) et remplacée par la suivante. Pages Listhammer supplémentaires au besoin.
+3. **File FIFO par faction** (`mergeFifo`) : une liste jamais vue entre (date du jour), au-delà
    de 10 la plus anciennement entrée sort ; à date égale, le rang du site départage.
-3. **Toutes** les listes en file sont réanalysées à chaque passage par le VRAI chemin de
+4. **Toutes** les listes en file sont réanalysées à chaque passage par le VRAI chemin de
    l'import en lot (`metaAnalyzeList` d'`App.jsx`, exposée en dev seulement sur
    `window.__cbMetaAnalyze`, pilotée dans Chromium sur le serveur Vite) : un correctif du
    parseur ou des données profite aux listes déjà en file.
@@ -36,7 +41,9 @@ analyse côté joueur), affichées par faction.
   `[{ "listId": "…", "unit": "…", "msg": "sous-chaîne du message", "raison": "…" }]`
   (`listId` / `unit` facultatifs ; sans `listId`, vaut pour toutes les listes).
 
-Erreur de chargement = entrée `error`/`warn` du journal d'import (fiche introuvable, arme
+Erreur de chargement = **total chargé ≠ total annoncé** (l'en-tête de la liste, ou la somme
+des prix d'unités écrits quand l'en-tête n'est que la taille de bataille ou un titre périmé ;
+le message détaille les unités en écart appli/liste), entrée `error`/`warn` du journal d'import (fiche introuvable, arme
 impossible sur la fiche, amélioration non reconnue, figurine non rapprochée, effectif hors
 bornes, détachement introuvable ou non lu, Warlord absent ou multiple), faction non
 identifiée / aucune unité lue, ou **faction lue ≠ faction Listhammer** (`LH_APP_FACTIONS`).
@@ -46,13 +53,20 @@ identifiée / aucune unité lue, ou **faction lue ≠ faction Listhammer** (`LH_
 1. Branches principales, données à jour (`git pull` sur `main` / `feat/v11`),
    `scripts/dev/prepare.sh`. Lire `listhammer/ERREURS.md` (section « À traiter »).
 2. Pour chaque nature d'erreur, la plus fréquente d'abord : reproduire
-   `node scripts/dev/listhammer-sync.mjs --only <listId>[,<listId>]` (n'écrit rien), lire le
-   texte (`listText` dans `listes.json`).
+   `node scripts/dev/listhammer-sync.mjs --only <listId>[,<listId>]` (n'écrit rien ; `--text f.txt`
+   pour un extrait), lire le texte (`listText` dans `listes.json`). Un serveur Vite déjà lancé
+   (`npx vite --port 5198`) s'utilise avec `--url http://localhost:5198/` — le relancer après
+   toute modif de données (`scripts/dev/sync-data.sh`) ou du parseur BSData.
+   Écart de points : comparer au MFM (`editor/mfm/dump/en/<faction>.json`) — surcoût d'arme
+   manquant dans la base, option mal placée par l'import, effectif mal lu.
 3. Classer et agir :
    - **Défaut de lecture** (format, puces, noms, faction mal choisie, figurines mal
      réparties) → corriger `src/lib/listImport.js` (ou le rapprochement d'`App.jsx`), ajouter
-     le cas en fixture (`tests/fixtures/import-cases/`) dans
-     `tests/import_real_cases_tests.mjs`. Jamais de cas particulier sur un `listId`.
+     le cas en fixture (`tests/fixtures/import-cases/meta-*.txt`, noms de joueur retirés) dans
+     `tests/meta_import_formats_tests.mjs` (total annoncé + structure). Jamais de cas
+     particulier sur un `listId`.
+   - **Écart avec la fiche officielle** (nom d'arme, surcoût MFM, option manquante) → corriger
+     la base selon `editor/SOURCE_GAME_DATACARDS.md` / `editor/MFM_PROMPT.md`.
    - **Trou de données** (fiche, option, amélioration, détachement présents dans le MFM / la
      fiche officielle mais absents de la base) → CLAUDE.md **règle 6** : ne rien inventer ;
      si le texte n'est pas dans `editor/sources/` ni game-datacards, l'ajouter aux questions
