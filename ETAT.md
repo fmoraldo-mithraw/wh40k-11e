@@ -102,6 +102,14 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-13 : **appli, ergonomie téléphone** : intertitres de la liste traduits ; bandeau cookies compact (le + du
+  catalogue passe au-dessus) ; écran vide = 3 actions (faction / catalogue, import, mes listes) ; cibles au doigt de
+  40 px (ajout rapide, actions de ligne) ; **« Annuler »** 8 s après le retrait d'une unité ou « Vider » ; barre d'outils
+  repliée au défilement de la liste. **Barre « Cogitator IA » masquée par défaut** (décision utilisateur) : affichée
+  seulement sur demande (case du compte, `cb:show-cmdbar`), jamais pour un visiteur. **Textes des aptitudes de base
+  de l'export YellowScribe** (`src/lib/coreAbilities.js`) = règlement 11e du `.gst` (`test:coreab` compare au dépôt).
+  Idée « barre d'onglets en bas » écartée (prend trop de place à l'écran).
+
 - 2026-11-12 : **mode partie, fenêtre de score** (appli, `MissionScoreModal.jsx`) : (1) les objectifs **de fin de
   partie** d'une primaire s'affichent **à tous les rounds, tout en bas, grisés et verrouillés** (pastille R5),
   cochables au round 5 seulement ; (2) **secondaires tactiques** — `countTiers` (`src/game/missions.js`) : plafond
