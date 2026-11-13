@@ -164,6 +164,10 @@
   comparateur couvre désormais **toutes les factions** (`--gdc <gdc> --out-dir <dossier>` :
   un Markdown + un JSON par fichier amont, écarts classés vrai / nom / modélisation avec
   fichier:ligne ; copies hors faction comprises — Deathwatch du catalogue Agents…).
+- **`editor/LISTES_META_PROMPT.md`** — listes du méta (Listhammer) : cron quotidien
+  (`scripts/dev/listhammer-cron.sh` côté appli, file FIFO de 10 listes par faction, analyse
+  complète par l'import de l'appli), fichiers `listhammer/` (`listes.json`, `ERREURS.md`,
+  `acceptees.json`) et procédure de la routine quotidienne de correction.
 - **`editor/SOURCE_GAME_DATACARDS.md`** — la source game-datacards sauvegardée
   (`editor/sources/game-datacards.json` : version suivie, correspondance fichier ↔
   catalogue, bruits connus), ses outils `gdc-*` et la **veille quotidienne**

@@ -2,7 +2,7 @@
 
 > But : reprendre le travail **sans relire l'historique**. Court par construction :
 > ≤ 80 lignes ; ce qui est réglé sort d'ici (le détail vit dans les commits et les guides).
-> Dernière mise à jour : 2026-11-12. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
+> Dernière mise à jour : 2026-11-13. (Historique détaillé avant compactage : `git show e25a5372:ETAT.md`.)
 
 ## Dépôts et branches
 
@@ -21,7 +21,7 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 
 - Ids dupliqués **425** (`editor/audit/dup-ids.mjs`, `--fige` seulement s'il baisse) ; références pendantes **0** ;
   **45** catalogues (.cat + .gst) ; `editor/audit/legends.mjs` **0** écart.
-- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **86/86** suites (`scripts/dev/tests.sh`,
+- `npm run audit:data` (appli) : **8** anomalies, 0 nouvelle. Tests appli **87/87** suites (`scripts/dev/tests.sh`,
   dont `test:phase-aid` (aide-mémoire par phase : 93,7 % des 1 697 aptitudes à texte situées, 1 765 stratagèmes tous datés), `test:strat-grants` (balayage : 0 stratagème à mot-clef d'arme sans sim-mod), `test:or-abilities` (balayage : capacités « Or: » offensives, une ligne par branche), `test:sim-coverage` (mots-clefs « X: non-M/V », tir indirect, relance d'un dé, défenses, bonus d'autres unités), `test:wtc-backfill`, 300/300, et le golden d’export TTS `test:ys-export-golden` : 15 scénarios + balayage toutes fiches, 0 fraction / 0 doublon) ; `scripts/dev/ci-local.sh` vert sous Node 22 le 2026-11-01 (Node 20 absent du conteneur).
 - Import sans IA, corpus de 749 listes réelles (Listhammer `/api/recentLists` + Mini Headquarters, banc hors dépôt) :
   744 lues, 10 624/10 753 unités rapprochées ; découpage multi-listes 114/124 paquets de 6 ; listes en v995 (349) :
@@ -36,6 +36,9 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 - game-datacards suivi : données **995**, commit `6f98bb1`, export du 2026-10-16T18:38 (`editor/sources/game-datacards.json`).
 - `editor/mfm/bodyguard-audit.mjs --all` : **389/389** ; golden des rattachements (appli) **3977** paires (copies BT retirées) ;
   MFM : `apply.mjs` 1 329 fiches (Titans compris), « À ME RENVOYER » **0**, `dp-audit` aligné **et** symétrique.
+- **Listes du méta** (`listhammer/ERREURS.md`, tenu par la routine) : 279 listes en file, **222** sans erreur, **0** acceptée,
+  **57** à traiter (2026-11-13, avant la 1re routine : 49 armes « impossibles sur la fiche », 17 améliorations, 11 sans
+  Warlord, 10 détachements introuvables, 4 Imperial Agents lus Adepta Sororitas…). « Sans erreur » ne doit jamais baisser.
 
 ## Questions ouvertes à l'utilisateur (ne pas inventer — CLAUDE.md règle 6)
 
@@ -101,6 +104,13 @@ Billing) : rejouer `scripts/dev/ci-local.sh 22` **et** `20` avant chaque push.
 Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-avant-2026-10-07`.
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
+
+- 2026-11-13 : **Listes du méta (Listhammer)** (demande utilisateur) : bouton « 🏆 Listes du méta » dans la fenêtre des
+  listes — 10 dernières meilleures listes de tournoi par faction, **déjà analysées** (un clic charge, 💾 copie dans
+  « Méta Listhammer/<Faction> »), par faction. Cron quotidien → file **FIFO** par faction → analyse complète par l'import
+  de l'appli → `listhammer/{listes.json,ERREURS.md}` poussés ; routine de correction 45 min après. Le cron tourne en tâche
+  planifiée Claude (runners GitHub bloqués, le Pi n'a pas de droit de push). Conséquence : `main` des données bouge chaque
+  nuit → rebuild quotidien du Pi à 4 h. Guide : `editor/LISTES_META_PROMPT.md`.
 
 - 2026-11-13 : **Confronter — bascule « ⚡ Overdrive »** (demande utilisateur) : meilleur cas de l'ATTAQUANT, duel par
   duel — toutes ses aptitudes (conditionnelles et 1×/bataille comprises : fiche, amélioration, option, règle d'armée,
@@ -268,6 +278,8 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Automatismes en place
 
+- Routines **listes du méta** : cron `trig_011zZRpSqyfrxQacDFxmVRgx` (01:41 Paris, `scripts/dev/listhammer-cron.sh`,
+  pousse `listhammer/`) ; correction `trig_012VkbGNx2Zbob78Z1N8D41V` (02:26 Paris, `editor/LISTES_META_PROMPT.md`).
 - Routines : **veille game-datacards** `trig_01LeEKKKSbD2SyUgmXjRYSgn` (13:12 Paris, pousse sur `veille-gdc/v<N>[-r<k>]`,
   « TEXTE À FOURNIR ») ; **MFM cowork** `trig_01UwCB1pdXMJSda5aaWxM5rQ` (`pousse.sh`, `abandons.json`, `verifie.sh`).
 - `src/lib/dataVintage.js` (appli) : `REFERENCE_GW_DATA_VERSION` = `tracked.dataVersion` de game-datacards
