@@ -110,6 +110,24 @@ Historique de l'appli avant le 2026-10-07 archivé : tag `archive/historique-ava
 
 ## Décisions récentes (détail dans CLAUDE.md / les guides / les commits)
 
+- 2026-11-14 : **Deux publics, à ne pas mélanger** (consigne utilisateur) : le **PDF « initiation »** s'adresse aux
+  **débutants**, rarement intéressés par le duel ou la simulation ; simulateur, Confronter, Overdrive, Déploiement et
+  statistiques sont des fonctions de **compétiteurs**. Donc **jamais de duel ni de simulation dans le PDF**. Rappel des
+  refus déjà actés : barre d'onglets en bas, rappels de stratagèmes / d'aptitudes sur le plateau de partie.
+  **Recherche d'idées du même jour** (18 candidates vérifiées dans le code, notées par un jury ; **aucune n'est
+  commencée, l'utilisateur choisit**) — numéros tels que présentés : 1 Confronter lisible au doigt (bandeau de détail
+  au toucher) · 2 Riposte (meilleur stratagème défensif, pendant d'Overdrive) · 3 Tomber juste (finir au point près) ·
+  4 Voir une liste sans la charger + « Revenir » · 5 Ronde en cours (appariement Strategarium → partie) · 6 Partager
+  vers Cogitator (cible de partage Android + boutons Partager) · 7 Mon plan de déploiement sur la carte de la partie ·
+  8 Gantelet (ma liste contre un champ de listes) · 9 Validation qui répare · 10 Lexique des mots de la liste (PDF
+  débutant) · 11 Tableau d'affichage du score · 12 Prêt pour la table sans réseau · 13 Cartes de déploiement à
+  préparer d'abord · 14 Le méta dans le catalogue · 15 Dépôt sûr (empreinte de la liste déposée) · 16 Bilan de
+  tournoi · 17 Le résumé d'abord (+ puce « Je débute ») · 18 Révise ta liste. Défauts relevés en chemin, non
+  corrigés : liste sans détachement déclarée « valide » ; changer de faction ou charger une liste efface la liste en
+  cours sans confirmation ni annulation ; « Sauver » sous un nom existant écrase et vide l'historique des versions ;
+  boutons des fenêtres de 19–22 px sur téléphone ; Échap sur le journal d'import ferme aussi l'import. **Corrigé** :
+  depuis le résumé textuel de Confronter, le simulateur s'ouvrait sans les bonus Overdrive (5e argument oublié).
+
 - 2026-11-13 : **Listes du méta (Listhammer)** (demande utilisateur) : bouton « 🏆 Listes du méta » dans la fenêtre des
   listes — 10 dernières meilleures listes de tournoi par faction, **déjà analysées** (un clic charge, 💾 copie dans
   « Méta Listhammer/<Faction> »), par faction. Cron quotidien → file **FIFO** par faction → analyse complète par l'import
